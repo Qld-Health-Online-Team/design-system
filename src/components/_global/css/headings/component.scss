@@ -1,0 +1,172 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// headings module
+// Class styles for display headings.
+//
+// Content:
+// - Basic styles for all headings
+// - Default spacing
+// - Unique styles for individual headings
+// - Typographic spacing for .qld__body only
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// HEADINGS/DISPLAY STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Basic styles for all headings
+ */
+// .qld__header,
+.qld__body,
+.qld__footer,
+.qld__banner,
+.qld__main-nav{
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .qld__display-xxxl,
+    .qld__display-xxl,
+    .qld__display-xl,
+    .qld__display-lg,
+    .qld__display-md,
+    .qld__display-sm,
+    .qld__display-xs{
+        font-family: $QLD-font;
+        font-weight: bold;
+        margin: 0;
+        // color: var(--QLD-color-light-heading);
+        color: var(--QLD-color-light-heading);
+        @include QLD-space(max-width, $QLD-font-maxwidth);
+    }
+
+    &.qld__body--dark,
+    &.qld__body--dark-alt {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .qld__display-xxxl,
+        .qld__display-xxl,
+        .qld__display-xl,
+        .qld__display-lg,
+        .qld__display-md,
+        .qld__display-sm,
+        .qld__display-xs{
+           color: var(--QLD-color-dark-heading);
+        }
+    }
+
+    /**
+    * Typographic spacing for QLD-body only
+    * Larger space for larger headings has been added to improve legibility in large blocks of text.
+    * This provides area's of eye-rest and uses spacing to create visual sections
+    * Also ref. https://github.com/govau/design-system-components/issues/282
+    */
+
+    .qld__display-xxxl {
+        @include QLD-fontgrid(xxxl, heading);
+    }
+
+    h1{
+        @include QLD-fontgrid(xl, heading);
+
+        @include QLD-media(lg) {
+            @include QLD-fontgrid(xxl, heading);
+        }
+    }
+
+    h2,
+    .qld__display-xl{
+        @include QLD-space(font-size, 1.75unit); 
+        @include QLD-space(line-height, 2.25unit);
+
+        @include QLD-media(lg) {
+            @include QLD-fontgrid(xl, heading);
+        }
+    }
+
+    h3,
+    .qld__display-lg{
+        @include QLD-fontgrid(lg, heading);
+    }
+
+    h4,
+    .qld__display-md{
+        @include QLD-fontgrid(md, heading);
+    }
+
+    h5,
+    .qld__display-sm{
+        @include QLD-fontgrid(md, heading);
+    }
+
+    h6,
+    .qld__display-xs{
+        @include QLD-fontgrid(sm, heading);
+    }
+
+    /**
+    * Default margin-top
+    */
+
+    *:not([type="hidden"]){
+        + .qld__display-xxxl{
+            @include QLD-space(margin-top, 2.25unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 3.5unit);
+            }
+        }
+
+        + h1,
+        + .qld__display-xl{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 3unit);
+            }
+        }
+
+        + .qld__display-lg,
+        + h2{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 3unit);
+            }
+        }
+
+        + .qld__display-md,
+        + h3{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 2.25unit);
+            }
+        }
+
+        + .qld__display-sm,
+        + h4{
+            @include QLD-space(margin-top, 1unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 2unit);
+            }
+        }
+
+        + .qld__display-xs,
+        + h5,
+        + h6{
+            @include QLD-space(margin-top, 1unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 1.5unit);
+            }
+        }
+    }
+}
+

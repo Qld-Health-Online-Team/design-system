@@ -1,0 +1,112 @@
+{
+	"component": {
+		"name": "code",
+		"description": "",
+		"version": "1.0",
+		"status": "In Development",
+		"data": {
+			"assetid": "code-123",
+			"metadata": {
+				"code_snippet_type": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Code snippet type",
+					"value": "singleline",
+					"options": {
+						"singleline": "Single line",
+						"multiline": "Multi-line"
+					},
+					"required": false,
+					"editable": true
+				},
+				"code": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Code snippet",
+					"value": "<div><p>test<p></div>",
+					"required": false,
+					"editable": true
+				},
+				"github_link": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Github Link",
+					"value": "https://github.com",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				},
+				"figma_link": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Figma Link",
+					"value": "https://figma.com",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				},
+				"show_more_button": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display show/hide button",
+					"value": "true",
+					"options": {
+						"true": "Yes",
+						"": "No"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				},
+				"show_preview": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display preview",
+					"value": "true",
+					"options": {
+						"true": "Yes",
+						"": "No"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				}
+			}
+		},
+		"children": [],
+		"childrenThumbnails": [],
+		"assets": []
+	}
+}

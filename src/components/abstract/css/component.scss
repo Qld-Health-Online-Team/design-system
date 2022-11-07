@@ -1,0 +1,91 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Abstract
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__abstract,
+.qld__abstract > p,
+p.qld__abstract {
+    @include QLD-space(font-size, 1.25unit);
+    line-height: 28px;
+    @include QLD-media(lg) {
+        @include QLD-fontgrid(lg, h3);
+    }
+    form & {
+        margin-top: 0;
+        @include QLD-space(margin-bottom, 2unit);
+    }
+    
+}
+* + .qld__abstract {
+    @include QLD-space(margin-top, 1unit);
+    @include QLD-space(margin-bottom, 1unit);
+}
+
+.qld__version + .qld__abstract {
+    margin-top: 0;
+}
+
+.qld__body h1 ~ .qld__abstract {
+    @include QLD-space(margin-top, 1unit);
+}
+
+
+.qld__body.qld__abstract--wrapper{
+    + .qld__body,
+    + data + .qld__body{ 
+        @include QLD-space(margin-top, -.5unit );
+
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, -1unit );
+        }
+        // #content & {
+        //     @include QLD-space(margin-top, 0 );
+        // }
+        &.qld__body--alt,
+        &.qld__body--dark,
+        &.qld__body--dark-alt,
+        &.qld__card--wrapper-bg-pattern,
+        &.qld__card--wrapper-bg-image{
+            @include QLD-space(margin-top, 0unit);
+        }
+    }
+    &.qld__body--alt{
+        + .qld__body,
+        + data + .qld__body{
+            @include QLD-space(margin-top, -.5unit );
+        
+            &.qld__body--alt{
+                @include QLD-space(margin-top, -.5unit );
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -1unit );
+                }
+            }
+        }
+    }
+    &.qld__body--dark{
+        + .qld__body,
+        + data + .qld__body{
+            @include QLD-space(margin-top, -.5unit );
+        
+            &.qld__body--dark{
+                @include QLD-space(margin-top, -.5unit );
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -1unit );
+                }
+            }
+        }
+    }
+    &.qld__body--dark-alt{
+        + .qld__body,
+        + data + .qld__body{
+            @include QLD-space(margin-top, -.5unit );
+        
+            &.qld__body--dark-alt{
+                @include QLD-space(margin-top, -.5unit );
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -1unit );
+                }
+            }
+        }
+    }
+}

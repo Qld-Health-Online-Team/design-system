@@ -1,0 +1,58 @@
+<script src="https://sdk.datastore.squiz.cloud/js/sdk-simulator.js"></script>
+<!-- <script src="https://sdk.datastore.squiz.cloud/js/sdk.js"></script> -->
+
+<script src="https://kit.fontawesome.com/fb2f2d4cd6.js" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+
+<script src="externals/handlebars.min-v4.7.6.js"></script>
+<script src="externals/componentPreview.js"></script>
+<script src="externals/dsComponentLoader.js"></script>
+<script src="js/helpers.js"></script>
+
+<!-- Mapping -->
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- Esri Leaflet JS -->
+    <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+        integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+        crossorigin=""></script>
+    <!-- Esri Leaflet Vector Plugin JS -->
+    <script src="https://unpkg.com/esri-leaflet-vector@3.0.0/dist/esri-leaflet-vector.js"
+        integrity="sha512-i3LCZC/OnZR2VtZJ7ftXbZivyjPVBKeOqWuJ9SqaBnuiG18GyzTrHWYPgf1geE1LmI9yRENWSEI3jcpKx1dgqg=="
+        crossorigin=""></script>
+
+
+<script>
+    const serviceFinderData = new Datastore({
+        // serviceURL: 'http://0.0.0.0:7001/hXL8Q1uq', // Matt
+        //serviceURL: 'http://0.0.0.0:7001/afMhajMG', // Tom
+        serviceURL: 'http://0.0.0.0:7001/GbO0pTqv', // Julian
+        //serviceURL: 'https://au-a14fc409.datastore.squiz.cloud',
+        jwtURL: 'http://0.0.0.0:7001/__JWT/issueToken'
+    });
+
+    serviceFinderData.setSetting('jwtPayload', {
+        "username": "jdoe",
+        "fullName": "John Doe",
+        "dsAdmin": false,
+        "hhsGroup": "sunshine-coast",
+        "isPublic": false,
+        "currentHHS": true
+    });
+</script>
+
+<script src="externals/populateDatastoreSim.js"></script>
+
+<!-- Configure Default HHS -->
+<div id="qhealth__hhs" data-hhs="darling-downs"></div>
+
+<!-- <script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/thirdparty/typeahead-0.11.1/typeahead.bundle.min.js" async></script>
+<script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/thirdparty/handlebars-4.0.5/handlebars.min.js" async></script> -->
+<!-- <script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/js/funnelback.autocompletion-2.6.0.js" async></script> -->

@@ -1,0 +1,47 @@
+{{#with component.data}}
+<section class="qld__page-alerts--wrapper" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}page-alert-{{assetid}}{{/if}}">
+    <div class="container-fluid">
+        {{#ifCond metadata.show_if_body.value '==' 'true'}} 
+            {{#if metadata.body.value}}
+                <div class="qld__page-alerts qld__page-alerts--{{metadata.type.value}}">
+                    {{#ifCond metadata.type.value '==' 'info'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'success'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__success"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'warning'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'error'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__error"></use></svg>
+                    {{/ifCond}}
+                    {{#if metadata.heading.value}}
+                        <div class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</div>
+                    {{/if}}
+                    <div>{{{metadata.body.value}}}</div>
+                </div>
+            {{/if}}
+        {{else}}
+                <div class="qld__page-alerts qld__page-alerts--{{metadata.type.value}}">
+                    {{#ifCond metadata.type.value '==' 'info'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'success'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__success"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'warning'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond metadata.type.value '==' 'error'}} 
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__error"></use></svg>
+                    {{/ifCond}}
+                    {{#if metadata.heading.value}}
+                        <div class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</div>
+                    {{/if}}
+                    <div>{{{metadata.body.value}}}</div>
+                </div>
+        {{/ifCond}}
+    </div>
+</section>
+{{/with}}

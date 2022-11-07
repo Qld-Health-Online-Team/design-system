@@ -1,0 +1,271 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Tags
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+.qld__tag{
+	display: inline-block;
+	@include QLD-fontgrid( xs );
+	@include QLD-space ( padding, 0 .5unit);
+	@include QLD-space ( font-size, .875unit);
+	@include QLD-space ( line-height, 1.5unit);
+	color: var(--QLD-color-light-text__muted);
+	border: 1px solid var(--QLD-color-light-border);
+	border-radius: $QLD-border-radius-md;
+	@include QLD-space(margin, 0);
+	@include QLD-focus();
+	// white-space: nowrap;
+	text-align: center;
+
+	.qld__card .qld__card__footer &{ 
+		color: var(--QLD-color-light-text__muted);
+		border-color: var(--QLD-color-light-border);
+	}
+
+	.qld__body--alt &,
+	.qld__card .qld__card__footer &{
+		border-color: var(--QLD-color-light-alt-border);
+		color: var(--QLD-color-light-text__muted);
+	}
+
+	.qld__body--dark &,
+	.qld__card--dark .qld__card__footer &{
+		border-color: var(--QLD-color-dark-alt-border);
+		color: var(--QLD-color-dark-text__muted);
+		@include QLD-focus( 'dark' );
+	}
+
+	.qld__body--dark-alt &,
+	.qld__card--dark-alt .qld__card__footer &{
+		border-color: var(--QLD-color-dark-border);
+		color: var(--QLD-color-dark-text__muted);
+		@include QLD-focus( 'dark' );
+	}
+
+	&.qld__tag--large {
+		@include QLD-fontgrid( sm );
+		@include QLD-space ( font-size, 1unit);
+		@include QLD-space ( padding, .5unit 1unit );
+		border-radius: $QLD-border-radius-lg;
+	}
+}
+
+a.qld__tag,
+.qld__tag.qld__tag--link{
+	color: var(--QLD-color-light-link);
+	border-color: var(--QLD-color-light-link);
+	text-decoration: none;
+
+	.qld__card .qld__card__footer &{ 
+		color: var(--QLD-color-light-link);
+		border-color: var(--QLD-color-light-link);
+
+		&:hover {
+			text-decoration: underline;
+			background-color: var(--QLD-color-light-button__hover);
+			color: var(--QLD-color-dark-link); 
+			border-color: var(--QLD-color-light-button__hover);
+		}
+	}
+
+	&:hover {
+		text-decoration: underline;
+		background-color: var(--QLD-color-light-button__hover);
+		color: var(--QLD-color-dark-link); 
+		border-color: var(--QLD-color-light-button__hover);
+	}
+
+	.qld__body--alt &,
+	.qld__card--alt .qld__card__footer &{
+		color: var(--QLD-color-light-link);
+		border-color: var(--QLD-color-light-link);
+
+		&:hover {
+			background-color: var(--QLD-color-light-button__hover);
+			color: var(--QLD-color-dark-link); 
+			border-color: var(--QLD-color-light-button__hover);
+		}
+	}
+
+	.qld__body--dark &,
+	.qld__card--dark .qld__card__footer &,
+	.qld__body--dark-alt &,
+	.qld__card--dark-alt .qld__card__footer &{
+		border-color: var(--QLD-color-dark-link);
+		color: var(--QLD-color-dark-link);
+
+		&:hover {
+			background-color: var(--QLD-color-dark-button__hover);
+			color: var(--QLD-color-dark-button__text); 
+			border-color: var(--QLD-color-dark-button__hover);
+		}
+	}
+}
+
+.qld__tag.qld__tag--info,
+.qld__card__footer .qld__tag.qld__tag--info{
+	color: var(--QLD-color-light-text__muted);
+	border-color: var(--QLD-color-light-background__shade);
+	background-color: var(--QLD-color-light-background__shade);
+
+	.qld__body--alt &,
+	.qld__card--alt .qld__card__footer &{
+		color: var(--QLD-color-light-text__muted);
+		border-color: var(--QLD-color-light-alt-background__shade);
+		background-color: var(--QLD-color-light-alt-background__shade);
+	}
+
+	.qld__body--dark &,
+	.qld__card--dark .qld__card__footer &{
+		color: var(--QLD-color-dark-text__muted);
+		border-color: var(--QLD-color-dark-background__shade);
+		background-color: var(--QLD-color-dark-background__shade);
+	}
+
+	.qld__body--dark-alt &,
+	.qld__card--dark-alt .qld__card__footer &{
+		color: var(--QLD-color-dark-text__muted);
+		border-color: var(--QLD-color-dark-alt-background__shade);
+		background-color: var(--QLD-color-dark-alt-background__shade);
+	}
+}
+
+.qld__tag.qld__tag--filter,
+.qld__card__footer .qld__tag.qld__tag--filter{
+	color: var(--QLD-color-light-text);
+	border-color: var(--QLD-color-light-border);
+	background-color: transparent;
+	@include QLD-fontgrid( sm );
+	@include QLD-space ( font-size, 1unit);
+	@include QLD-space ( padding, .5unit 1unit );
+	border-radius: $QLD-border-radius-lg;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--QLD-color-light-text);
+		text-decoration: none;
+		background-color: transparent;
+		border-color: var(--QLD-color-light-border);
+	}
+
+	.qld__tag--filter-close{
+
+		// background-image: QLD-svg-with-fill($QLD-icon-close, var(--QLD-color-light-alt-button));
+		// background-color: transparent;
+		// background-repeat: no-repeat;
+		// background-position: center;
+		mask-image: QLD-svguri($QLD-icon-close);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		background-color: var(--QLD-color-light-alt-button);
+		@include QLD-space(height, 1.25unit);
+		@include QLD-space(width, 1.25unit);
+		display: inline-block;
+		@include QLD-space(margin-left, .5unit);
+		@include QLD-space(line-height, 1.5unit);
+		vertical-align: middle;
+		white-space: nowrap;
+		border: none;
+		cursor: pointer;
+
+
+		&:hover{
+			// background-image: QLD-svg-with-fill($QLD-icon-close-hover, var(--QLD-color-light-alt-button));
+			mask-image: QLD-svguri($QLD-icon-close-hover);
+			background-color: var(--QLD-color-light-alt-button__hover);
+		}
+	}
+
+	.qld__body--alt &,
+	.qld__card--alt .qld__card__footer &{
+		color: var(--QLD-color-light-text);
+		border-color: var(--QLD-color-light-alt-border);
+
+		&:hover {
+			color: var(--QLD-color-light-text);
+			text-decoration: none;
+			background-color: transparent;
+			border-color: var(--QLD-color-light-alt-border);
+		}
+	}
+
+	.qld__body--dark &,
+	.qld__card--dark .qld__card__footer &{
+		color: var(--QLD-color-dark-text);
+		border-color: var(--QLD-color-dark-alt-border);
+
+		&:hover {
+			color: var(--QLD-color-dark-text);
+			text-decoration: none;
+			background-color: transparent;
+			border-color: var(--QLD-color-dark-alt-border);
+		}
+
+		.qld__tag--filter-close{
+			// background-image: QLD-svg-with-fill($QLD-icon-close, var(--QLD-color-dark-alt-button));
+			background-color: var(--QLD-color-dark-alt-button__hover);
+
+			&:hover{
+				// background-image: QLD-svg-with-fill($QLD-icon-close-hover, var(--QLD-color-dark-alt-button));
+				background-color: var(--QLD-color-dark-alt-button__hover);
+			}
+		}
+	}
+
+	.qld__body--dark-alt &,
+	.qld__card--dark-alt .qld__card__footer &{
+		color: var(--QLD-color-dark-text);
+		border-color: var(--QLD-color-dark-border);
+
+		&:hover {
+			color: var(--QLD-color-dark-text);
+			text-decoration: none;
+			background-color: transparent;
+			border-color: var(--QLD-color-dark-border);
+		}
+
+		.qld__tag--filter-close{
+			// background-image: QLD-svg-with-fill($QLD-icon-close, var(--QLD-color-dark-alt-button));
+			background-color: var(--QLD-color-dark-alt-button__hover);
+
+			&:hover{
+				// background-image: QLD-svg-with-fill($QLD-icon-close-hover, var(--QLD-color-dark-alt-button));
+				background-color: var(--QLD-color-dark-alt-button__hover);
+			}
+		}
+
+	}
+
+}
+
+.qld__tag-list {
+	display: flex;
+	flex-direction: row;
+	padding: 0;
+	list-style-type: none;
+	flex-wrap: wrap;
+	@include QLD-space ( margin, 0.5unit 0);
+	&--space-between {
+		justify-content: space-between;
+	}
+
+	li {
+		@include QLD-space ( margin, 0.5unit 0.5unit 0 0 );
+		display: inline-block;
+		
+
+		.slick-slider .slick-slide &{
+			height: auto;
+		}
+		
+		> .qld__tag:focus {
+			outline-offset: -1px;
+		}
+	}
+}
+
+// Print styles
+@media print {
+	.qld__tag {
+		color: #000 !important;
+		border-color: #000 !important;
+	}
+}

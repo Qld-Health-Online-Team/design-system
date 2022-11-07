@@ -1,0 +1,98 @@
+{{#with component.data}}
+<section class="qld__body qld__body--full-width {{metadata.body_background.value}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}multi-column-{{assetid}}{{/if}}">
+
+    <div class="container-fluid">
+
+        {{#if metadata.intro_show.value}}
+        <div class="row">
+
+            <div class="col-xs-12 {{metadata.intro_width.value}}" >
+
+                {{#if metadata.intro_heading.value}}
+                <h2>{{metadata.intro_heading.value}}</h2>
+                {{/if}}
+
+                {{#if metadata.intro_body.value}}
+                {{{metadata.intro_body.value}}}
+                {{/if}}
+            </div>
+
+        </div>
+        {{/if}}
+
+            {{#ifCond metadata.row_num.value '>=' 1}}
+            <div class="row row--heading-paragraph-columns">
+
+                {{#if metadata.col_1_1.value}}
+                <div class="col-xs-12 {{columnWidth 1 metadata}}">
+                    {{{metadata.col_1_1.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_1_2.value}}
+                <div class="col-xs-12 {{columnWidth 2 metadata}}">
+                    {{{metadata.col_1_2.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_1_3.value}}
+                <div class="col-xs-12 {{columnWidth 3 metadata}}">
+                    {{{metadata.col_1_3.value}}}
+                </div>
+                {{/if}}
+
+            </div>
+            {{/ifCond}}
+
+            {{#ifCond metadata.row_num.value '>=' 2}}
+            <div class="row row--heading-paragraph-columns">
+
+                {{#if metadata.col_2_1.value}}
+                <div class="col-xs-12 {{columnWidth 1 metadata}}">
+                    {{{metadata.col_2_1.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_2_2.value}}
+                <div class="col-xs-12 {{columnWidth 2 metadata}}">
+                    {{{metadata.col_2_2.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_2_3.value}}
+                <div class="col-xs-12 {{columnWidth 3 metadata}}">
+                    {{{metadata.col_2_3.value}}}
+                </div>
+                {{/if}}
+
+            </div>
+            {{/ifCond}}
+
+            {{#ifCond metadata.row_num.value '==' 3}}
+            <div class="row row--heading-paragraph-columns">
+
+                {{#if metadata.col_3_1.value}}
+                <div class="col-xs-12 {{columnWidth 1 metadata}}">
+                    {{{metadata.col_3_1.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_3_2.value}}
+                <div class="col-xs-12 {{columnWidth 2 metadata}}">
+                    {{{metadata.col_3_2.value}}}
+                </div>
+                {{/if}}
+
+                {{#if metadata.col_3_3.value}}
+                <div class="col-xs-12 {{columnWidth 3 metadata}}">
+                    {{{metadata.col_3_3.value}}}
+                </div>
+                {{/if}}
+
+            </div>
+            {{/ifCond}}
+
+    </div>
+
+</section>
+{{/with}}

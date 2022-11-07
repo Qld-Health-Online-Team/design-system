@@ -1,0 +1,48 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Search Box
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Search form
+.qld__search {
+
+	&__label {
+		@include QLD-sronly();
+	}
+
+    &__inner{
+        display: flex;
+        width: 100%;
+
+        .qld__text-input{
+            width: 100%;
+        }
+    }
+
+    .twitter-typeahead{
+        flex-grow: 1;
+    }
+
+    .qld__text-input {
+		border-bottom-right-radius: 0;
+		border-right: 0;
+		border-top-right-radius: 0;
+		display: table-cell;
+		max-width: 100%;
+		position: relative;
+		vertical-align: top;
+		width: 100%;
+
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration { display: none; }
+
+	}
+
+	.qld__btn {
+		border-bottom-left-radius: 0;
+		border-top-left-radius: 0;
+		margin: 0;
+		width:100%;
+	}
+}

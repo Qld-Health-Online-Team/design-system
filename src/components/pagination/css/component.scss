@@ -1,0 +1,196 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Pagination
+//--------------------------------------------------------------------------
+
+.qld__search-pagination {
+    ul {
+        @include sq-list-reset;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            @include QLD-space(margin, .5unit .75unit .5unit 0);
+
+
+            &.ellipsis,
+            &.first,
+            &.last {
+                display: none;
+
+                @include QLD-media(md) {
+                    display: block;
+                }
+            }
+
+            &.active a{
+                background-color: var(--QLD-color-light-button);
+                border-color: var(--QLD-color-light-button);
+                color: var(--QLD-color-light-button__text);
+                font-weight: bold;
+
+
+                &:hover{
+                    background-color: var(--QLD-color-light-button__hover);
+                    border-color: var(--QLD-color-light-button__hover);
+                    @include QLD-box-shadow(1);
+                }
+
+                &:active,
+                &:focus {
+                    background-color: var(--QLD-color-light-button__hover);
+                    border-color: var(--QLD-color-light-button__hover);
+                }
+            }
+
+            &.next,
+            &.prev,
+            &.ellipsis{
+                a{
+                    border: none;
+                    @include QLD-media(lg) {
+                        width: auto;
+                    }
+                    
+                    svg{
+                        color: var(--QLD-color-light-button);
+                        width: auto;
+                    }
+                    &:hover{
+                        text-decoration: underline;
+                        svg{
+                            color: var(--QLD-color-light-alt-button);
+                        }
+                        
+                    }
+                }
+                
+                span{
+                    @include QLD-sronly();
+                    @include QLD-media(lg) {
+                        position: relative;
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+
+            @include QLD-media(lg) {
+                &.next span{
+                    @include QLD-space(margin-right, .5unit);
+                }
+                &.prev span{
+                    @include QLD-space(margin-left, .5unit);
+                }
+            }
+
+            &.ellipsis svg{
+                vertical-align: middle;
+            }
+        }
+
+        a {
+            @include QLD-space(height, 2unit);
+            @include QLD-space(width, 2unit);
+            align-items: center;
+            background-color: transparent;
+            border: $QLD-border-width-thin solid var(--QLD-color-light-border);
+            border-radius: $QLD-border-radius-xs;
+            color: var(--QLD-color-light-link);
+            background-color: var(--QLD-color-light-background);
+            display: inline-flex;
+            justify-content: center;
+            text-decoration: none;
+            @include QLD-space(line-height, 1.25unit);
+
+            &:hover{
+                color: var(--QLD-color-light-link);
+                border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
+                outline: none;
+            }
+
+            &:active,
+            &:focus {
+                color: var(--QLD-color-dark-link);
+                background-color: var(--QLD-color-light-alt-button);
+                border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
+            }
+
+            &[rel] {
+                color: var(--QLD-color-light-button);
+            }
+
+        }
+
+        span {
+            @include QLD-space(height, 2unit);
+            @include QLD-space(width, 2unit);
+            align-items: center;
+            color: var(--QLD-color-light-button);
+            display: inline-flex;
+            justify-content: center;
+        }
+    }
+
+    .qld__body--dark & {
+
+        li{
+            &.active a{
+                background-color: var(--QLD-color-dark-button);
+                color: var(--QLD-color-dark-button__text);
+
+                &:hover{
+                    background-color: var(--QLD-color-dark-button__hover);
+                    border-color: var(--QLD-color-dark-button__hover);
+                }
+
+                &:active,
+                &:focus {
+                    @include QLD-focus( 'dark' );
+                    color: var(--QLD-color-dark-link);
+                    background-color: var(--QLD-color-dark-button__hover);
+                    border-color: var(--QLD-color-dark-button__hover);
+                }
+            }
+
+            &.next,
+            &.prev,
+            &.ellipsis{
+                a{
+                    &:hover{
+                        color: var(--QLD-color-dark-link);
+                        border: none;
+                        svg{
+                            color: var(--QLD-color-dark-alt-button);
+                        }
+                    }
+                    svg{
+                        color: var(--QLD-color-dark-button);
+                    }
+                }
+            }
+        }
+
+        a{
+            background-color: var(--QLD-color-dark-background);
+            border-color: var(--QLD-color-dark-border);
+
+            &:hover{
+                color: var(--QLD-color-dark-link);
+                border-color: var(--QLD-color-dark-alt-button);
+                outline: none;
+            }
+
+            &:active,
+            &:focus {
+                color: var(--QLD-color-light-link);
+                background-color: var(--QLD-color-dark-alt-button);
+                border-color: var(--QLD-color-dark-alt-button);
+            }
+        }
+
+        span{
+            color: var(--QLD-color-dark-link);
+        }
+    }
+        
+}

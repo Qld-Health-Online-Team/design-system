@@ -1,0 +1,84 @@
+{{#with component.data.metadata}}
+    {{#if code.value}}
+        {{#ifCond code_snippet_type.value '==' 'singleline'}}
+        <div class="qld__code singleline">
+            <code class="qld__code-body">{{code.value}}</code>
+            <button class="qld__btn qld__code-copy--button" type="button">
+                <div class="clean">
+                    <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                </div>
+                <div class="dirty">
+                    <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                </div>
+                <div class="qld__code-tooltip">
+                    <span class="clean">Copy</span>
+                    <span class="dirty">Copied</span>
+                </div>
+            </button>
+        </div>
+        {{/ifCond}}
+        {{#ifCond code_snippet_type.value '==' 'multiline'}}
+        <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}">
+            {{#ifCond show_preview.value '==' 'true'}}
+            <div class="qld__code-preview">
+                <span class="qld__code-preview-tab">Example</span>
+                <div class="qld__code-preview-colours">
+                    <span class="qld__code-preview-colours-label">Theme</span>
+                    <ul>
+                        <li>
+                            <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__default-{{../component.data.assetid}}" value="" checked>
+                            <label for="qld__code-preview-colours__default-{{../component.data.assetid}}">Default</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__alt-{{../component.data.assetid}}" value="qld__body--alt">
+                            <label for="qld__code-preview-colours__alt-{{../component.data.assetid}}">Alt</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__dark-{{../component.data.assetid}}" value="qld__body--dark">
+                            <label for="qld__code-preview-colours__dark-{{../component.data.assetid}}">Dark</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}" value="qld__body--dark-alt">
+                            <label for="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}"> Dark-alt</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="qld__code-preview-body qld__body">
+                    {{{code.value}}}
+                </div>
+            </div>
+            {{/ifCond}}
+            {{#ifCond show_more_button.value '==' 'true'}}
+            <div class="qld__code-toggle">
+                <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
+            </div>
+            {{/ifCond}}
+            <div class="qld__code-header">
+                <div class="qld__code-header-left">
+                    {{#if github_link.value}}
+                        <a href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                    {{/if}}
+                    {{#if figma_link.value}}
+                        <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                </div>
+                <div class="qld__code-header-right">
+                    <button class="qld__btn qld__code-copy--button" type="button">
+                        <div class="clean">
+                            <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                        </div>
+                        <div class="dirty">
+                            <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                        </div>
+                        <div class="qld__code-tooltip">
+                            <span class="clean">Copy</span>
+                            <span class="dirty">Copied</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <code class="qld__code-body">{{code.value}}</code>
+        </div>
+        {{/ifCond}}
+    {{/if}}
+{{/with}}

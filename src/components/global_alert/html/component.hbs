@@ -1,0 +1,38 @@
+{{#ifCond site.metadata.alertDisplay.value '==' 'true'}}
+    <section class="qld__global_alert qld__global_alert--{{site.metadata.alertLevel.value}}">
+        <div class="container-fluid">
+            <div class="qld__global_alert__main">
+                <div class="qld__global_alert__icon">
+                    {{#ifCond site.metadata.alertLevel.value '==' 'default'}}
+                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond site.metadata.alertLevel.value '==' 'critical'}}
+                    <svg aria-label="Critical alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
+                    {{/ifCond}}
+                    {{#ifCond site.metadata.alertLevel.value '==' 'general'}}
+                    <svg aria-label="General Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    {{/ifCond}}
+                </div>
+                <div class="qld__global_alert__content">
+                    {{#if site.metadata.alertMessage.value}}
+                    <div class="qld__global_alert__message">
+                    <strong>{{site.metadata.alertTitle.value}}</strong> {{site.metadata.alertMessage.value}}    
+                    </div>
+                    {{/if}}
+                    <div class="qld__global_alert__action">
+                        <a href="{{site.metadata.alertLinkURL.value}}">
+                            <span>{{site.metadata.alertLinkTitle.value}}</span>
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
+                        </a>   
+                    </div>
+                </div>
+                <div class="qld__global_alert__close">
+                    <button aria-label="Close alert">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
+                    </button>
+                </div>
+            </div>
+            
+        </div> 
+    </section>
+{{/ifCond}}

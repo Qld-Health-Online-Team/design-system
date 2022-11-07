@@ -1,0 +1,117 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Page alerts
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__page-alerts {
+	@include QLD-space( padding, 1unit );
+	@include QLD-fontgrid( sm );
+	position: relative;
+	border: solid $QLD-border-width-default $QLD-color-info;
+	@include QLD-space( border-left-width, 3unit );
+	border-radius: $QLD-border-radius-xs;
+	word-wrap: break-word;
+	background-color: var(--QLD-color-light-background);
+
+	& &--heading {
+	  	color: var(--QLD-color-light-heading);
+		@include QLD-space(margin-bottom, 1unit);
+	}
+
+	.qld__icon{
+		position: absolute;
+		@include QLD-space( left, -1.5unit );
+		top: 50%;
+		transform: translate(-50%, -50%);
+		color: var(--QLD-color-light-background);
+	}
+
+	/**
+	* Page alert success
+	*/
+	&.qld__page-alerts--success {
+		border-color: $QLD-color-success;
+
+		.qld__icon{
+			color: var(--QLD-color-dark-background);
+		}
+	}
+
+	/**
+	* Page alert warning.
+	*/
+	&.qld__page-alerts--warning {
+		border-color: $QLD-color-warning;
+
+		.qld__icon{
+			color: var(--QLD-color-dark-background);
+		}
+	}
+
+	/**
+	* Page alert error.
+	*/
+	&.qld__page-alerts--error {
+		border-color: $QLD-color-error;
+
+		&:before {
+			background-image: QLD-svg-with-fill($QLD-icon-error, var(--QLD-color-light-background));
+		}
+	}
+
+	// // dark and dark alt
+	.qld__body--dark &,
+	.qld__body--dark-alt &{
+		color: var(--QLD-color-light-text);
+		
+		h3{
+			color: var(--QLD-color-light-heading);
+		}
+	}
+}
+
+.qld__body #content > * + .qld__page-alerts  {
+	@include QLD-space( margin-top, 2unit );
+}
+
+
+/**
+ * Screen-reader only class for interlinking error messages and corresponding form elements.
+ */
+.qld__page-alerts__sronly {
+	@include QLD-sronly;
+}
+
+
+// Print styles
+@media print {
+	.qld__page-alerts {
+		border-color: #000 !important;
+		background-color: #fff !important;
+		border-left: 2px solid #000 !important;
+		padding-top: 3em !important;
+
+		&:after {
+			background: none !important;
+			content: 'info' !important;
+			top: 1em !important;
+			left: 0 !important;
+			font-size: 12px !important;
+			border-right: 1px solid #000 !important;
+			border-bottom: 1px solid #000 !important;
+			padding: 0.5em !important;
+			width: auto !important;
+		}
+	}
+
+	.qld__page-alerts--success:after {
+		content: 'success' !important;
+	}
+
+	.qld__page-alerts--warning:after {
+		content: 'warning' !important;
+	}
+
+	.qld__page-alerts--error:after {
+		content: 'error' !important;
+	}
+}

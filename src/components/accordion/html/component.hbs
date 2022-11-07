@@ -1,0 +1,50 @@
+{{#ifCond current.data.metadata.pageType.value '==' 'landing'}}
+<section class="qld__body">
+    <div class="container-fluid">
+{{/ifCond}}    
+
+{{#with component.data}}
+    {{#if metadata.heading.value}}
+    <h2>{{metadata.heading.value}}</h2>
+    {{/if}}
+
+    {{#if metadata.intro.value}}
+    {{{metadata.intro.value}}}
+    {{/if}}
+    <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
+        {{#ifCond metadata.toggle_all.value '==' 'yes'}}
+        <div class="qld__accordion__toggle">
+            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed">Open all</button>
+        </div>
+        {{/ifCond}}
+        <ul class="qld__accordion-list">
+            {{#each metadata}}
+                {{#ifCond this.type '==' 'metadata_field_wysiwyg'}}
+                    {{#ifCond @key '!=' 'intro'}} 
+                        {{#ifCond this.value '!=' ''}}
+                        <li>
+                            <section class="qld__accordion">
+                                <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" >
+                                    {{#getTitle ../metadata @key}}{{/getTitle}}
+                                </button>
+                    
+                                <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
+                                    <div class="qld__accordion__body-wrapper">
+                                        {{{this.value}}}
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                        {{/ifCond}}
+                {{/ifCond}}
+            {{/ifCond}}
+            {{/each}}
+        </ul>
+    </div>
+{{/with}}
+
+{{#ifCond current.data.metadata.pageType.value '==' 'landing'}}
+</div>
+</section>
+{{/ifCond}}
+

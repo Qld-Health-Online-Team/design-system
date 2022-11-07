@@ -1,0 +1,30 @@
+<div id="ds_component_{{id}}" class="loading">
+    <div class="loader">Loading...</div>
+
+    <script>
+
+        // Array to store all Datastore components on the page
+        var dsComponents = dsComponents ? dsComponents : [];
+
+        // On Page Load
+        window.addEventListener('DOMContentLoaded', function () {
+            
+            var dsUrl = {{datastore}}.baseURL;
+
+            dsComponents.push({
+                id: '{{id}}',
+                dsUrl: dsUrl,
+                manifest: {{{jsonStringify manifest}}},
+                schema: {{#if schema}}{{{jsonStringify schema}}}{{else}}null{{/if}},
+                schemas: {{#if schemas}}{{{jsonStringify schemas}}}{{else}}null{{/if}},
+                collection: '{{collection}}',
+                component: '{{{component}}}',
+                renderCallback: '{{{callback}}}',
+                type: '{{type}}'
+            });
+        });
+        
+    </script>
+</div>
+
+

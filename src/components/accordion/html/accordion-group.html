@@ -1,0 +1,157 @@
+<div id="accordion--group1" class="component" data-component-id="accordion" data-asset-id="123"></div>
+<div id="accordion--group2" class="component" data-component-id="accordion" data-asset-id="123"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (e) {
+
+        var accordion1 = document.getElementById('accordion--group1');
+        var accordion2 = document.getElementById('accordion--group2');
+
+        if (accordion1) {
+            accordion1.outerHTML = accordionTemplate({
+                "containerId": "3",
+                "data": {
+                    "heading": {
+                        "value": "Group of 3",
+                        "fieldid": "450",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": true,
+                        "use_default": true
+                    },
+                    "intro": {
+                        "value": "",
+                        "fieldid": "451",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_1": {
+                        "value": "Accordion title",
+                        "fieldid": "452",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_1": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "453",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_2": {
+                        "value": "Accordion title",
+                        "fieldid": "454",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_2": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "455",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_3": {
+                        "value": "Accordion title",
+                        "fieldid": "456",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_3": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "457",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    }
+                }
+                
+            });
+        }
+
+        if (accordion2) {
+            accordion2.outerHTML = accordionTemplate({
+                "containerId": "4",
+                "data": {
+                    "heading": {
+                        "value": "Group of 2",
+                        "fieldid": "450",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": true,
+                        "use_default": true
+                    },
+                    "intro": {
+                        "value": "",
+                        "fieldid": "451",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_1": {
+                        "value": "Accordion title",
+                        "fieldid": "452",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_1": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "453",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_2": {
+                        "value": "Accordion title",
+                        "fieldid": "454",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_2": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "455",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_3": {
+                        "value": "",
+                        "fieldid": "456",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_3": {
+                        "value": "",
+                        "fieldid": "457",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    }
+                }
+            });
+        }
+
+    });
+
+</script>

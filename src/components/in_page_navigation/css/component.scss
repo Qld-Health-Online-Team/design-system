@@ -1,0 +1,54 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// In Page Navigation
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__inpage-nav-links {
+    @include QLD-fontgrid(sm);
+    @include QLD-space(padding-left, 1.5unit);
+    border-left: $QLD-border-width-thick solid var(--QLD-color-light-link);
+
+    & &__heading{
+        @include QLD-fontgrid(sm, heading);
+    }
+    
+    * + & {
+        @include QLD-space(margin-top, 2.3125unit);
+    }
+    
+    .qld__body & > ul,
+    .qld__body & > ol {
+        @include QLD-space(margin-top, 0.75unit);
+        list-style-type: none;
+        padding: 0;
+        
+        li {
+            margin: 0;
+        }
+        
+        * + li {
+            margin-left: 0;
+        }
+        li + li{
+            @include QLD-space(margin-top, 0.25unit);
+        }
+    }
+    
+    .qld__body--dark &{
+        border-color: var(--QLD-color-dark-button);
+    }
+    
+}
+
+
+.qld__inpage-nav-section {
+    position: relative;
+    @include QLD-space(padding-right, 8unit);
+}
+
+.qld__inpage-nav-section-link {
+    @include QLD-fontgrid(xs, nospace);
+    @include QLD-space(top, 0.25unit);
+    position: absolute;
+    right: 0;
+    font-weight: normal;
+}

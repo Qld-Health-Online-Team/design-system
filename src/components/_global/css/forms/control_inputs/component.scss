@@ -1,0 +1,349 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Control inputs - Checkbox or Radio
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//Custom checkbox - hides the native checkbox
+input[type='checkbox'],
+.sq-form-field[type='checkbox'],
+.sq-form-question-tickbox-list input{
+	@extend .sr-only;
+
+	+ label {
+		cursor: pointer;
+		position: relative;
+		vertical-align: bottom;
+		@include QLD-space(line-height, 1.25unit);
+		@include QLD-space(padding-left, 2.5unit);
+		@include QLD-space(margin-bottom, 0.375unit);
+
+		@include QLD-media (lg) {
+			@include QLD-space(line-height, 2unit);
+			// @include QLD-space(padding-left, 3.25unit);
+		}
+
+		&:before,
+		&:after {
+			@include QLD-space(width, 1.25unit);
+			@include QLD-space(height, 1.25unit);
+			visibility: visible;
+			content: ' ';
+			display: block;
+			position: absolute;
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			z-index: 100;
+			@include QLD-space(left, 0unit);
+			border: $QLD-border-width-default solid transparent;
+			top: 0;
+
+			@include QLD-media (lg) {
+				@include QLD-space(width, 2unit);
+				@include QLD-space(height, 2unit);
+			}
+
+			.qld__control-input--small & {
+				@include QLD-space( width, 1.25unit );
+				@include QLD-space( height, 1.25unit );
+			}
+		}
+		&:before {
+			background-color: transparent;
+			border-color: var(--QLD-color-light-alt-border);
+			background-image: none !important;
+
+			
+		}
+
+		&:after {
+			z-index: 101;
+			
+
+		}
+	}
+	
+	.qld__control-input--small &{
+		+ label {
+			line-height: 20px;
+		}
+	}
+
+	// hover
+	&:hover {
+		+ label:before {
+			background-color: var(--QLD-color-light-alt-background__shade);
+		}
+	}
+
+	// normal checked
+	&:checked {
+		+ label:after {
+			@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text)  );
+			@include QLD-space(background-size, 1.25unit);
+			background-position: -2px -2px;
+
+			@include QLD-media (lg) {
+				@include QLD-space(background-size, 1.85unit);
+			}
+		}
+	}
+
+	// Focus
+	&:focus + label:before {
+		box-shadow: none;
+		@include QLD-outline();
+		outline-offset: 2px;
+	}
+
+	// disabled
+	&:disabled {
+		+ label:before {
+			background-color: transparent;
+		}
+
+		&:checked + label:after {
+			@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text__muted) );
+		}
+	}
+
+	&.qld__input--valid{
+		+ label:before {
+			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-success );
+			border-color: var(--QLD-color-light-text);
+
+			@include QLD-media (lg) {
+				box-shadow: 0 0 0 3px $QLD-color-success;
+			}
+		}
+	}
+
+	&.qld__input--error{
+		+ label:before {
+			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-error );
+			border-color: var(--QLD-color-light-text);
+
+			@include QLD-media (lg) {
+				box-shadow: 0 0 0 3px $QLD-color-error;
+			}
+		}
+	}
+
+	.qld__body--dark &,
+	.qld__body--dark-alt & {
+
+		+ label:before {
+			background-color: transparent;
+			border-color: var(--QLD-color-dark-heading);
+			background-image: none !important;
+		}
+
+		// hover
+		&:hover {
+			+ label:before {
+				background-color: var(--QLD-color-dark-background__shade);
+			}
+		}
+
+		// normal checked
+		&:checked {
+			+ label:after {
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-dark-heading)  );
+			}
+		}
+
+		// Focus
+		&:focus + label:before {
+			@include QLD-focus(dark);
+		}
+
+		// disabled
+		&:disabled {
+			+ label:before {
+				background-color: transparent;
+			}
+
+			&:checked + label:after {
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text__muted) );
+			}
+		}
+
+		&.qld__input--valid{
+			+ label:before {
+				border-color: var(--QLD-color-dark-text);
+			}
+		}
+	
+		&.qld__input--error{
+			+ label:before {
+				border-color: var(--QLD-color-dark-text);
+			}
+		}
+	}
+}
+
+input[type='radio'],
+.sq-form-field[type='radio'],
+.sq-form-question-option-list input{
+	@extend .sr-only;
+
+	+ label {
+		font-weight: 400;
+		cursor: pointer;
+		position: relative;
+		@include QLD-space(line-height, 1.25unit);
+		@include QLD-space(padding-left, 2.5unit);
+		@include QLD-space(margin-bottom, 0.375unit);
+
+		@include QLD-media (lg) {
+			@include QLD-space(line-height, 2unit);
+			// @include QLD-space(padding-left, 3.25unit);
+		}
+
+		&:before,
+		&:after {
+			@include QLD-space(width, 1.25unit);
+			@include QLD-space(height, 1.25unit);
+			visibility: visible;
+			content: ' ';
+			display: block;
+			position: absolute;
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			z-index: 100;
+			@include QLD-space(left, 0unit);
+			border: $QLD-border-width-default solid transparent;
+			border-radius: 50%;
+			top: 0;
+
+			@include QLD-media (lg) {
+				@include QLD-space(width, 1.85unit);
+				@include QLD-space(height, 1.85unit);
+			}
+
+			.qld__control-input--small & {
+				@include QLD-space( width, 1.25unit );
+				@include QLD-space( height, 1.25unit );
+			}
+		}
+
+		&:before {
+			background-color: transparent;
+			border-color: var(--QLD-color-light-alt-border);
+			background-image: none !important;
+		}
+	
+		&:after {
+			z-index: 101;
+			@include QLD-media (lg) {
+				height: 29px;
+				width: 29px;
+			}
+		}
+	}
+
+	.qld__control-input--small &{
+		+ label {
+			line-height: 20px;
+			@include QLD-space( padding-left, 1.5unit );
+		}
+
+	}
+
+	// hover
+	&:hover {
+		+ label:before {
+			background-color: var(--QLD-color-light-alt-background__shade);
+		}
+	}
+
+	// normal checked
+	&:checked {
+		+ label:after {
+			@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light-text) );
+		}
+	}
+
+	// Focus
+	&:focus + label:before {
+		box-shadow: none;
+		@include QLD-outline();
+		outline-offset: 2px;
+	}
+
+	// disabled
+	&:disabled {
+		+ label:before {
+			background-color: transparent;
+		}
+
+		&:checked + label:after {
+			@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light-text__muted) );
+		}
+	}
+
+	&.qld__input--valid{
+		+ label:before {
+			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-success );
+		}
+	}
+
+	&.qld__input--error{
+		+ label:before {
+			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-error );
+		}
+	}
+
+	.qld__body--dark &,
+	.qld__body--dark-alt & {
+
+		+ label:before {
+			background-color: transparent;
+			border-color: var(--QLD-color-dark-heading);
+			background-image: none !important;
+		}
+
+		// hover
+		&:hover {
+			+ label:before {
+				background-color: var(--QLD-color-dark-background__shade);
+			}
+		}
+
+		// normal checked
+		&:checked {
+			+ label:after {
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-dark-heading) );
+			}
+		}
+
+		// Focus
+		&:focus{
+			+ label:before {
+				@include QLD-focus(dark);
+			}
+		}
+
+		// disabled
+		&:disabled {
+			+ label:before {
+				background-color: transparent;
+			}
+
+			&:checked + label:after {
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light-text__muted) );
+			}
+		}
+	}
+}
+
+// Print styles
+@media print {
+	.qld__control-input__text {
+		color: #000 !important;
+
+		&:before,
+		&:after {
+			display: none !important;
+		}
+	}
+}

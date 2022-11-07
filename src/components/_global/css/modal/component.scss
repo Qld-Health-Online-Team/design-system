@@ -1,0 +1,182 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// .qld__modal
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__modal {
+    position: relative;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .qld__modal__underlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(20, 20, 20, 0.4);
+        z-index: 1;
+    }
+
+    &__body__content{
+        @include QLD-space(padding, 1.5unit  0);
+    }
+
+    &.qld__services-modal__set-location, &.qld__services-modal__update-location {
+        .qld__modal__body {
+            min-width: pxToRem(360);
+
+            @include QLD-media(md) {
+                min-width: pxToRem(654);
+            }
+
+            // .qld__search {
+
+            //     .qld__btn {
+            //         min-width: auto;
+            //         @include QLD-space( padding-left, 2px );
+            //         @include QLD-space( padding-right, 2px );
+
+            //         @include QLD-media(md) {
+            //             min-width: pxToRem(108);
+            //             @include QLD-space( padding-left, 1unit );
+            //             @include QLD-space( padding-right, 1unit );
+            //         }
+            //     }
+            // }
+        }
+    }
+
+	.qld__modal__body {
+        min-width: pxToRem(360);
+        max-width: pxToRem(654);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background-color: white;
+        padding: pxToRem(30) pxToRem(20);
+        border: 2px solid var(--QLD-color-light-border);
+        @include sq-border-radius(4px);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: 101;
+
+        @include QLD-media(md) {
+            padding: pxToRem(40) pxToRem(45);
+        }
+
+        .qld__modal__body__header {
+            display: flex;
+            justify-content: space-between;
+
+            
+        }
+        .qld__modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: transparent;
+            box-shadow: none;
+            color: var(--QLD-color-light-text);
+            border: 0;
+
+            // padding: 0;
+            // margin: 5px 0 0 0;
+            // width: pxToRem(17);
+            // height: pxToRem(20);
+            min-width: auto;
+            line-height: 0;
+
+            svg,
+            i {
+                color: var(--QLD-color-light-text);
+                font-size: 1.5rem;
+            }
+            &:hover{
+                background-color: var(--QLD-color-light-button__hover);
+                svg,
+                i {
+                    color: var(--QLD-color-dark-text);
+                }
+            }
+        }
+
+        // .qld__search {
+
+        //     .qld__btn {
+        //         span {
+        //             display: none;
+        //         }
+    
+        //         @include QLD-media(md) {
+        //             min-width: pxToRem(108);
+
+        //             span {
+        //                 display: inline-block;
+        //             }
+    
+        //             svg {
+        //                 display: none;
+        //             }
+        //         }
+        //     }
+        // }
+
+
+        .qld__modal__body__controls {
+            // margin-top: pxToRem(20);
+        }
+
+        // .qld__btn {
+        //     margin-right: pxToRem(10);
+        //     margin-bottom: 0;
+
+        //     @include QLD-media(md) {
+        //         min-width: pxToRem(118);
+        //     }
+        // }
+
+        // .qld__cta-btn {
+        //     border-color: var(--QLD-color-dark-alt-button);
+        //     background-color: white;
+        //     color: var(--QLD-color-light-text);
+            
+        //     &:not(:disabled) {
+        //         &:hover{
+        //             background-color: var(--QLD-color-dark-alt-button);
+        //             border-color: var(--QLD-color-dark-alt-button);
+        //             color: var(--QLD-color-light-text);
+        //         }
+        //     }
+        // }
+    }
+
+    &.qld__modal--small {
+        .qld__modal__body {
+            min-width: pxToRem(360);
+            max-width: pxToRem(360);
+        }
+    }
+
+    .qld__services-modal__content {
+        max-width: pxToRem(343);
+
+        .qld__modal__body__controls {
+            text-align: center;
+        }
+    }
+
+    // .qld__modal__close {
+    //     position: fixed;
+    //     top: pxToRem(20);
+    //     right: pxToRem(20);
+    //     z-index: 1;
+    //     font-size: pxToRem(30);
+    //     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    //     padding: 0 pxToRem(10);
+    //     width: auto;
+    // }
+
+}

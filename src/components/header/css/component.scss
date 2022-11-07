@@ -1,0 +1,697 @@
+// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// // Header
+// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__header {
+    @include QLD-fontgrid(sm);
+    color: var(--QLD-color-light-text);
+    background: var(--QLD-color-light-background);
+
+    @include QLD-media(sm) {
+        @include QLD-fontgrid(md);
+    }
+
+    .qld__skip-link{
+        line-height: 1;
+        
+        &__link{
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            color: var(--QLD-color-light-link);
+            text-decoration: underline;
+            text-decoration-skip-ink: auto;
+            &:focus{
+                outline: 3px solid var(--QLD-color-dark-focus);
+                top: 16px;
+                top: 1rem;
+                left: 16px;
+                left: 1rem;
+                padding: 24px;
+                padding: 1.5rem;
+                clip: auto;
+                height: auto;
+                margin: 0;
+                overflow: visible;
+                position: absolute;
+                width: auto;
+                color: var(--QLD-color-dark-link);
+                background-color: var(--QLD-color-dark-background);
+                text-decoration: underline;
+                text-decoration-skip-ink: auto;
+                z-index: 600;
+            }
+        }
+    }
+
+    /**
+    * Header pre-header styles
+    */
+
+    .qld__header__pre-header {
+        color: var(--QLD-color-light-text);
+        background-color: var(--QLD-color-light-background);
+        @include QLD-box-shadow(1);
+        position: relative;
+        z-index: 1;
+
+        @include QLD-space(padding-top, 0.75unit);
+        @include QLD-space(padding-bottom, 0.75unit);
+
+        @include QLD-media(md) {
+            @include QLD-space(padding-top, 1unit);
+            @include QLD-space(padding-bottom, 1unit);
+        }
+        
+        @include QLD-media(lg) {
+
+            @include QLD-space(padding-top, 0.75unit);
+            @include QLD-space(padding-bottom, 0.75unit);
+        }
+
+        .container-fluid{
+            display: flex;
+        }
+
+        &-brand-image {
+            display: block;
+
+            @include QLD-media(md) {
+                @include QLD-space(height, 2.5unit);
+                width: auto;
+            }
+
+            @include QLD-media(lg) {
+                display: none;
+            }
+        }
+
+        &-url {
+            display: none;
+            color: var(--QLD-color-light-link);
+
+            @include QLD-media(lg) {
+                display: inline-block;
+                @include QLD-fontgrid(sm);
+                
+                text-decoration: none;
+        
+                &:hover {
+                    text-decoration: underline;
+                }
+        
+            }
+        }
+
+        .qld__header__cta-wrapper{
+            display: none;
+            margin-left: auto;
+
+            @include QLD-media(lg) {
+                display: flex;
+            }
+
+            .qld__header__cta-link{
+                @include QLD-fontgrid(xs);
+                color: var(--QLD-color-light-link);
+                @include QLD-space(padding-left, 0.75unit);
+                text-decoration: none;
+                align-items: center;
+
+                &:hover{
+                    text-decoration: underline;
+
+                    .qld__header__cta-link-icon{
+                        color: var(--QLD-color-light-alt-button__hover);
+                    }
+                }
+            }
+
+            .qld__header__cta-link-icon{
+                @include QLD-space(height, 1.25unit);
+                @include QLD-space(width, 1.25unit);
+                @include QLD-space(margin-right, .5unit);
+                display: inline-block;
+                color: var(--QLD-color-light-alt-button);
+                text-align: center;
+
+                svg,
+                i{
+                    height: 100%;
+                    width: 100%;
+                }
+            }               
+        }
+
+        a{
+            color: var(--QLD-color-dark-text);
+            display: flex;
+            text-decoration: none;
+
+            @include QLD-focus()
+        }
+
+        .qld__header__main-nav-controls{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+    
+            @include QLD-media(lg) {
+                display: none;
+            }
+    
+        }
+        .qld__header__toggle-main-nav{
+            display: flex;
+            flex-direction: column;
+            @include QLD-space(padding, 0.5unit 1unit);
+            @include QLD-fontgrid(xs, nospace);
+            border: 0;
+            appearance: none;
+            background-color: transparent;
+            cursor: pointer;
+            align-items: center;
+            // display: none;
+            // height: 48px;
+            color: var(--QLD-color-light-link);
+            text-decoration: none;
+            @include QLD-focus();
+            border-left: solid $QLD-border-width-thin var(--QLD-color-light-border);
+            
+            &:hover {
+                text-decoration: underline;
+                text-decoration-skip-ink: auto;
+                background-color: var(--QLD-color-light-background__shade);
+
+                svg{
+                    color: var(--QLD-color-light-alt-button__hover);
+                }
+            }
+
+            @include QLD-media(md) {
+                // height: 72px;
+                @include QLD-space(padding, 0.75unit 1unit 0.625unit 1unit);
+            }
+    
+            .qld__main-nav__toggle-text{
+                @include QLD-space(font-size, .625unit);
+                @include QLD-space(margin-top, .125unit);
+    
+                @include QLD-media(md) {
+                    @include QLD-fontgrid(xs, nospace);
+                }
+    
+            }
+    
+            &:before {
+                @include QLD-fontgrid(sm, nospace);
+                @include QLD-space(margin-bottom, 0.25unit);
+                display: block;
+                text-align: center;
+            }
+    
+            svg{
+                color: var(--QLD-color-light-alt-button);
+                @include QLD-space(height, 1.25unit);
+                @include QLD-space(width, 1.25unit);
+                margin: 1px auto;
+    
+                @include QLD-media(md) {
+                    @include QLD-space(height, 2unit);
+                    @include QLD-space(width, 2unit);
+                    margin: 0 auto;
+                }
+            }
+
+            
+        }
+
+        //Dark theme
+        &.qld__header__pre-header--dark{
+            background-color: var(--QLD-color-dark-background);
+            color: var(--QLD-color-dark-text);
+
+            .qld__header__pre-header-url {
+                color: var(--QLD-color-dark-link);
+            }
+
+            .qld__header__cta-link{
+                color: var(--QLD-color-dark-link);
+
+                &:hover{
+                    .qld__header__cta-link-icon{
+                        color: var(--QLD-color-dark-alt-button__hover);
+                    }
+                }
+            }
+
+            .qld__header__cta-link-icon{
+                color: var(--QLD-color-dark-alt-button);
+            } 
+
+            .qld__header__toggle-main-nav{
+                color: var(--QLD-color-dark-link);
+                border-color: var(--QLD-color-dark-border);
+
+                svg,
+                i{
+                    color: var(--QLD-color-dark-alt-button);
+                }
+
+                &:hover {
+                    background-color: var(--QLD-color-dark-background__shade);
+
+                    svg{
+                        color: var(--QLD-color-dark-alt-button__hover);
+                    }
+                }
+            }
+
+            
+
+    
+        }
+        //Dark alt theme
+        &.qld__header__pre-header--dark-alt{
+            background-color: var(--QLD-color-dark-alt-background);
+            color: var(--QLD-color-dark-text);
+
+            .qld__header__pre-header-url {
+                color: var(--QLD-color-dark-link);
+            }
+
+            .qld__header__cta-link{
+                color: var(--QLD-color-dark-link);
+
+                &:hover{
+                    .qld__header__cta-link-icon{
+                        color: var(--QLD-color-dark-alt-button__hover);
+                    }
+                }
+            }
+
+            .qld__header__cta-link-icon{
+                color: var(--QLD-color-dark-alt-button);
+            }
+
+            .qld__header__toggle-main-nav{
+                color: var(--QLD-color-dark-link);
+                border-color: var(--QLD-color-dark-border);
+
+                svg,
+                i{
+                    color: var(--QLD-color-dark-alt-button);
+                }
+
+                &:hover {
+                    background-color: var(--QLD-color-dark-alt-background__shade);
+
+                    svg{
+                        color: var(--QLD-color-dark-alt-button__hover);
+                    }
+                }
+            }
+        }
+    }
+
+    .qld__header__main {
+        position: relative;
+        .container-fluid{
+            align-items: center;
+            display: flex;
+            
+            width: 100%;
+            
+            @include QLD-media(lg) {
+                height: auto;
+                justify-content: space-between;
+            }
+        }
+
+        .qld__header__brand {
+            display: flex;
+            align-items: center;
+            @include QLD-space(padding, 1unit 0);
+            font-variant-numeric: lining-nums;
+            
+            @include QLD-media(md) {
+                @include QLD-space(padding, 1.25unit 0);
+            }
+            
+            @include QLD-media(lg) {
+                @include QLD-space(padding, 3unit 0);
+                flex-grow: 1;
+            }
+
+            a {
+                display: flex;
+                text-decoration: none;
+
+                &:hover{
+                    color: var(--QLD-color-light-link);
+                    text-decoration: underline;
+                    .qld__header__brand-image{
+                        color: var(--QLD-color-light-link);
+                    }
+                    .qld__header__heading,
+                    .qld__header__subline{
+                        color: var(--QLD-color-light-link);
+                    }
+
+                    .qld__header__brand-image{
+                        filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.08)) drop-shadow(0px 13px 20px rgba(0, 0, 0, 0.08));
+                    }
+                }
+            }
+        }
+
+        .qld__header__brand-image {
+            display: none;
+
+            @include QLD-media(lg) {
+                color: var(--QLD-color-light-siteTitle);
+                display: block;
+                @include QLD-space(padding-right, 1.5unit);
+                @include QLD-space(margin-right, 1.5unit);
+                border-right: solid $QLD-border-width-default var(--QLD-color-light-designAccent);
+            }
+
+            svg{
+                vertical-align: text-bottom;
+            }
+        }
+
+        .qld__header__site-name {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none;
+
+            .qld__header__secondary-image{
+                @include QLD-space(height, 2.5unit);
+
+                @include QLD-media(md) {
+                    @include QLD-space(height, 3.5unit);
+                }
+            }
+
+            .qld__header__heading {
+                @include QLD-fontgrid(sm, heading);
+                font-family: $QLD-font-heading;
+                color: var(--QLD-color-light-siteTitle);
+                font-weight: bold;
+                margin: 0;
+                padding: 0;
+                
+                @include QLD-media(md) {
+                    @include QLD-fontgrid(md, heading);
+                }
+            }
+
+            .qld__header__subline {
+                max-width: $QLD-font-maxwidth;
+                color: var(--QLD-color-light-text__muted);
+                @include QLD-fontgrid(xs, heading);
+
+                @include QLD-media(md) {
+                    @include QLD-fontgrid(sm, heading);
+                }
+            }
+        }
+        //Main header dark theme
+        &.qld__header__main--dark{
+            background-color: var(--QLD-color-dark-background);
+
+            .qld__header__site-name {   
+                .qld__header__heading {
+                    color: var(--QLD-color-dark-siteTitle);
+                }
+                .qld__header__subline {
+                    color: var(--QLD-color-dark-text__muted);
+                }
+            }
+
+            .qld__header__brand-image {
+                @include QLD-media(lg) {
+                    border-color: var(--QLD-color-dark-designAccent);
+                    color: var(--QLD-color-dark-text);
+                }
+            }
+            a {
+                &:hover{
+                    color: var(--QLD-color-dark-link);
+                    text-decoration: underline;
+                    .qld__header__brand-image{
+                        color: var(--QLD-color-dark-link);
+                    }
+                    .qld__header__heading,
+                    .qld__header__subline{
+                        color: var(--QLD-color-dark-link);
+                    }
+                }
+            }
+
+            .qld__header__search {
+                @include QLD-media(md) {
+                    background-color: var(--QLD-color-dark-background);
+
+                    .qld__search__label{
+                        color: var(--QLD-color-dark-heading);
+                    }
+                }
+            }
+        }
+        //Main header dark alt theme
+        &.qld__header__main--dark-alt{
+            background-color: var(--QLD-color-dark-alt-background);
+
+            .qld__header__site-name {   
+                .qld__header__heading {
+                    color: var(--QLD-color-dark-siteTitle);
+                }
+                .qld__header__subline {
+                    color: var(--QLD-color-dark-text__muted);
+                }
+            }
+
+            .qld__header__brand-image {
+                @include QLD-media(lg) {
+                    border-color: var(--QLD-color-dark-designAccent);
+                    color: var(--QLD-color-dark-text);
+                }
+            }
+            a {
+                &:hover{
+                    color: var(--QLD-color-dark-link);
+                    text-decoration: underline;
+                    .qld__header__brand-image{
+                        color: var(--QLD-color-dark-link);
+                    }
+                    .qld__header__heading,
+                    .qld__header__subline{
+                        color: var(--QLD-color-dark-link);
+                    }
+                }
+            }
+
+            .qld__header__search {
+                @include QLD-media(md) {
+                    background-color: var(--QLD-color-dark-alt-background);
+
+                    .qld__search__label{
+                        color: var(--QLD-color-dark-heading);
+                    }
+                }
+                
+            }
+        }
+        
+    }
+
+    .qld__header__search {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: var(--QLD-color-light-background);
+        box-shadow: 0px 0px 25px rgba(200, 200, 200, 0.25);
+        @include QLD-space(padding, 1unit);
+        z-index: 1;
+
+        @include QLD-media(md) {
+            box-shadow: none;
+        }
+
+        
+
+        @include QLD-media(lg) {
+            display: inline-block;
+            width: 360px;
+            position: relative;
+            background-color: transparent;
+            @include QLD-space(padding, 3unit 0);
+        }
+        .qld__search__label{
+
+            @include QLD-media(md) {
+                @include QLD-fontgrid(lg);
+                position: inherit;
+                width: auto;
+                height: auto;
+                color: var(--QLD-color-light-heading);
+                @include QLD-space(margin, 0 0 1unit 0);
+                
+            }
+
+            @include QLD-media(lg) {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+            }
+        }
+
+        .qld__search {
+            width: 100%;
+            @include QLD-space(margin-top, 0unit);
+            @include QLD-fontgrid(sm);
+
+            @include QLD-media(xs) {
+                width: 75%;
+            }
+        
+            @include QLD-media(sm) {
+                width: 100%;
+            }
+            @include QLD-media(md) {
+                @include QLD-space(padding,1unit 3.5unit 3unit 3.5unit);
+                flex-wrap: wrap;
+                height: auto;
+            }
+
+            @include QLD-media(lg) {
+                display: table;
+                @include QLD-space(padding,0);
+            }
+        }
+       
+        .qld__text-input{           
+
+            @include QLD-media(md, down) {
+                background-color: var(--QLD-color-light-background);
+                color: var(--QLD-color-light-text);
+                border-color: transparent;
+
+                &:hover{
+                        background-color: var(--QLD-color-light-background__shade);
+                
+                }
+            }
+
+            @include QLD-media(lg) {
+                width: 72%;
+                @include QLD-space(padding, 0.563unit 1.5unit);
+            }
+        }
+
+        .qld__search__btn{           
+
+            .qld__btn{
+                min-width: auto;
+
+                @include QLD-media(md, down) {
+                    background-color: transparent;
+                    border-color: transparent;
+                    box-shadow: none;
+                    @include QLD-space(padding, 1unit);
+                    
+                }
+
+                @include QLD-media(md, down) {
+                    .qld__btn__icon{
+                        background-color: var(--QLD-color-light-text);
+                    }
+                }
+
+                @include QLD-media(lg) {
+                    @include QLD-space(border-bottom-left-radius, 0);
+                    @include QLD-space(border-top-left-radius, 0);
+                    @include QLD-space(padding, 0.563unit 1.5unit);
+                }
+            }
+        
+        }
+
+        .qld__header__search-link{
+            @include QLD-fontgrid(sm);
+            float: right;
+            color: var(--QLD-color-light-link);
+            text-decoration: none;
+            
+            @include QLD-media(lg) {
+                @include QLD-space(padding-bottom, 0.5unit);
+            }
+            
+            &:hover{
+                color: var(--QLD-color-light-text);
+                text-decoration: underline;
+            }
+        }
+
+        
+    }
+}
+
+// Vertical Nav Option
+.vertical-nav {
+    .qld__header {
+
+        @include QLD-media(lg) {
+            box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .container-fluid {
+            max-width: initial;
+
+            @include QLD-media(md) {
+                @include QLD-space(padding, 0 2unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-space(padding, 0 3unit);
+            }
+        }
+    }
+}
+
+// Print styles
+@media print {
+	.qld__header {
+        background: #fff !important;
+
+        a img {
+            border: 0 !important;
+        }
+	}
+
+	.qld__header,
+	.qld__header__brand,
+	.qld__header__subline {
+	    color: #000 !important;
+	}
+
+	.qld__header__brand-image {
+	    display: none !important;
+	}
+}
