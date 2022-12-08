@@ -52,7 +52,7 @@ $QLD-header-md: 72px;
         .js & {
             background-color: var(--QLD-color-light-background__shade);
             display: none;
-            // overflow: auto;
+            overflow: auto;
             position: fixed;
             top: 0;
             bottom: 0;
@@ -70,6 +70,7 @@ $QLD-header-md: 72px;
                 position: static;
                 box-shadow: none;
                 width: auto;    
+                overflow: visible;
             }
         }
 
@@ -80,6 +81,8 @@ $QLD-header-md: 72px;
 
             @include QLD-media(lg) {
                 width: auto;
+                float: left;
+                border: none;
             }
 
 
@@ -417,7 +420,7 @@ $QLD-header-md: 72px;
     }
 
     &__cta-wrapper{
-        position: absolute;
+        position: fixed;
         bottom: 0;
         width: 100%;
 
@@ -572,11 +575,17 @@ $QLD-header-md: 72px;
         @include QLD-clearfix();
         margin: 0;
         padding: 0;
+        // @include QLD-space(padding-bottom, 6.5unit);
         background-color: var(--QLD-color-light-background__shade);
 
         @include QLD-media(lg) {
-            display: flex;
+            // display: flex;
+            @include QLD-space(padding-bottom, 0unit);
         }
+    }
+
+    .qld__main-nav__cta-wrapper .qld__link-list{
+        @include QLD-space(padding-bottom, 0unit);
     }
 
     &.qld__main-nav--dark {

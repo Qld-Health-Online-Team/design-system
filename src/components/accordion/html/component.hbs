@@ -18,27 +18,23 @@
         </div>
         {{/ifCond}}
         <ul class="qld__accordion-list">
-            {{#each metadata}}
-                {{#ifCond this.type '==' 'metadata_field_wysiwyg'}}
-                    {{#ifCond @key '!=' 'intro'}} 
-                        {{#ifCond this.value '!=' ''}}
-                        <li>
-                            <section class="qld__accordion">
-                                <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" >
-                                    {{#getTitle ../metadata @key}}{{/getTitle}}
-                                </button>
-                    
-                                <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
-                                    <div class="qld__accordion__body-wrapper">
-                                        {{{this.value}}}
-                                    </div>
-                                </div>
-                            </section>
-                        </li>
-                        {{/ifCond}}
+            {{#printAccordion metadata}}
+                {{#ifCond this.content '!=' ''}}
+                <li>
+                    <section class="qld__accordion">
+                        <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" >
+                            {{this.title}}
+                        </button>
+            
+                        <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
+                            <div class="qld__accordion__body-wrapper">
+                                {{{this.content}}}
+                            </div>
+                        </div>
+                    </section>
+                </li>
                 {{/ifCond}}
-            {{/ifCond}}
-            {{/each}}
+            {{/printAccordion}}
         </ul>
     </div>
 {{/with}}

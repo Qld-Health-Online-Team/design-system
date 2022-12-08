@@ -75,7 +75,7 @@
             @include QLD-space(padding, 0unit);
 
             li{
-                @include QLD-space(margin, .75unit 0 0 0);
+                @include QLD-space(margin, 1unit 0 0 0);
                 @include QLD-space(padding,  0);
 
                 &:first-of-type{
@@ -94,11 +94,16 @@
         @include QLD-space(margin-right, .5unit);
         color: var(--QLD-color-light-alt-button);
         vertical-align: middle;
+        width: 24px;
     }
 
     .qld__card__footer-link{
         @include QLD-space(font-size, 1unit);
         font-weight: bold;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
 
         &:hover{
             .qld__card__footer-link-icon{

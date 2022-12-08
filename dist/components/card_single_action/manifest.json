@@ -7,126 +7,7 @@
 		"data": {
             "assetid": "123",
 			"metadata": {
-				"intro_heading": {
-					"type": "metadata_field_text",
-					"description": "",
-					"friendly_name": "Intro heading",
-					"value": "Intro heading",
-					"required": false,
-					"editable": true
-				},
-				"intro_body": {
-					"type": "metadata_field_wysiwyg",
-					"description": "",
-					"friendly_name": "Intro body",
-					"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-					"required": false,
-					"editable": true
-				},
-				"intro_width": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Intro width",
-					"value": "col-md-6",
-					"options": {
-						"col-md-6": "Half width",
-						"col-md-12": "Full width"
-					},
-					"required": false,
-					"editable": true
-				},
-				"background": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Background",
-					"value": "",
-					"options": {
-						"": "Light",
-						"qld__card--alt": "Alternate",
-						"qld__card--dark": "Dark",
-						"qld__card--dark-alt": "Dark Alternate"
-					},
-					"required": false,
-					"editable": true
-				},
-                "body_background": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Body Background",
-					"value": "qld__body--light",
-					"options": {
-						"qld__body--light": "Light",
-						"qld__body--alt": "Alternate",
-						"qld__body--dark": "Dark",
-						"qld__body--dark-alt": "Alternate Dark"
-					},
-					"required": false,
-					"editable": true
-				},
-                "body_background_type": {
-                    "type": "metadata_field_select",
-                    "description": "",
-                    "friendly_name": "Body Background Type",
-                    "value": "qld__card--wrapper-bg-image",
-                    "options": {
-                        "qld__card--wrapper-bg-image": "Image",
-                        "qld__card--wrapper-bg-pattern": "Pattern",
-                        "qld__card--wrapper-bg-colour": "Colour"
-                    },
-                    "required": false,
-                    "editable": true
-                },
-                "body_background_image": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Body Background Image",
-					"value": "/mysource_files/img/card--content.png",
-					"required": false,
-					"editable": true,
-                    "display_if": {
-                        "show": true,
-                        "operator": "AND",
-                        "rules": [{
-                            "field": "body_background_type",
-                            "operator": "equals",
-                            "value": "qld__card--wrapper-bg-image"
-                        }]
-                    }
-				},
-                "body_background_pattern": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Body Background Pattern",
-					"value": "/mysource_files/img/banner-bg.png",
-					"required": false,
-					"editable": true,
-                    "display_if": {
-                        "show": true,
-                        "operator": "AND",
-                        "rules": [{
-                            "field": "body_background_type",
-                            "operator": "equals",
-                            "value": "qld__card--wrapper-bg-pattern"
-                        }]
-                    }
-				},
-				"all_link_name": {
-					"type": "metadata_field_text",
-					"description": "",
-					"friendly_name": "Footer link name",
-					"value": "All cards",
-					"required": false,
-					"editable": true
-				},
-				"all_link": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Footer link",
-					"value": "#",
-					"required": false,
-					"editable": true
-				},
-				"root_node": {
+                "root_node": {
 					"type": "metadata_field_related_asset",
 					"description": "",
 					"friendly_name": "Parent asset",
@@ -148,17 +29,37 @@
 					"required": false,
 					"editable": true
 				},
+                "card_type": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Card type",
+                    "value": "text",
+                    "options": {
+                        "text": "Text only",
+                        "image": "Image",
+                        "icon": "Icon"
+                    }
+                },
 				"icon_align": {
 					"type": "metadata_field_select",
 					"description": "",
 					"friendly_name": "Icon alignment",
 					"value": "",
 					"options": {
-						"vertical": "Vertical",
-						"horizontal": "Horizontal"
+						"top": "Top",
+						"left": "Left"
 					},
 					"required": false,
-					"editable": true
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "card_type",
+                            "operator": "equals",
+                            "value": "icon"
+                        }]
+                    }
 				},
                 "show_arrow": {
 					"type": "metadata_field_select",
@@ -172,16 +73,111 @@
 					"required": false,
 					"editable": true
 				},
-                "show_icon_image": {
+                "background": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Show card icon or image?",
-					"value": "icon",
+					"friendly_name": "Card background",
+					"value": "",
 					"options": {
-						"icon": "Icon",
-						"image": "Image",
-                        "none": "None"
+						"": "Light",
+						"qld__card--alt": "Alternate",
+						"qld__card--dark": "Dark",
+						"qld__card--dark-alt": "Dark Alternate"
 					},
+					"required": false,
+					"editable": true
+				},
+                "card_heading_level": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Intro heading level",
+                    "value": "h3",
+                    "options": {
+                        "h2": "h2",
+                        "h3": "h3",
+                        "h4": "h4",
+                        "h5": "h5",
+                        "h6": "h6"
+                    }
+                },
+                "body_background": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Background Colour",
+					"value": "qld__body--light",
+					"options": {
+						"qld__body--light": "Light",
+						"qld__body--alt": "Alternate",
+						"qld__body--dark": "Dark",
+						"qld__body--dark-alt": "Alternate Dark"
+					},
+					"required": false,
+					"editable": true
+				},
+                "body_background_type": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Background Type",
+                    "value": "qld__card--wrapper-bg-image",
+                    "options": {
+                        "qld__card--wrapper-bg-image": "Image",
+                        "qld__card--wrapper-bg-pattern": "Pattern",
+                        "qld__card--wrapper-bg-colour": "Colour"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "body_background_image": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Background Image",
+					"value": "/mysource_files/img/card--content.png",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "body_background_type",
+                            "operator": "equals",
+                            "value": "qld__card--wrapper-bg-image"
+                        }]
+                    }
+				},
+                "body_background_pattern": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Background Pattern",
+					"value": "/mysource_files/img/banner-bg.png",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "body_background_type",
+                            "operator": "equals",
+                            "value": "qld__card--wrapper-bg-pattern"
+                        }]
+                    }
+				},
+                "intro_width": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Intro width",
+					"value": "col-md-6",
+					"options": {
+						"col-md-6": "Half width",
+						"col-md-12": "Full width"
+					},
+					"required": false,
+					"editable": true
+				},
+				"intro_heading": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Intro heading",
+					"value": "Intro heading",
 					"required": false,
 					"editable": true
 				},
@@ -197,6 +193,30 @@
                         "h5": "h5"
                     }
                 },
+				"intro_body": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"friendly_name": "Intro body",
+					"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"required": false,
+					"editable": true
+				},
+				"all_link_name": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Footer link name",
+					"value": "All cards",
+					"required": false,
+					"editable": true
+				},
+				"all_link": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Footer link",
+					"value": "#",
+					"required": false,
+					"editable": true
+				},
 				"id_field": {
 					"type": "metadata_field_text",
 					"description": "",

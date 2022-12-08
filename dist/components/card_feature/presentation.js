@@ -233,7 +233,7 @@
     + "%"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta1_text") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(36, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":74,"column":112},"end":{"line":74,"column":191}}})) != null ? stack1 : "")
     + "\" href=\"./?a="
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta1_urlL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta1_url") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" class=\"qld__card__footer-link qld__card--clickable__link\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta1_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(38, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":75,"column":48},"end":{"line":77,"column":55}}})) != null ? stack1 : "")
     + "                                                <span>"
@@ -273,7 +273,7 @@
     + "%"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta2_text") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":84,"column":112},"end":{"line":84,"column":191}}})) != null ? stack1 : "")
     + "\" href=\"./?a="
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta2_urlL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta2_url") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" class=\"qld__card__footer-link qld__card--clickable__link\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta2_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(43, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":85,"column":48},"end":{"line":87,"column":55}}})) != null ? stack1 : "")
     + "                                                <span>"
@@ -313,7 +313,7 @@
     + "%"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta3_text") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(46, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":94,"column":112},"end":{"line":94,"column":191}}})) != null ? stack1 : "")
     + "\" href=\"./?a="
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta3_urlL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta3_url") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" class=\"qld__card__footer-link qld__card--clickable__link\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta3_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":95,"column":48},"end":{"line":97,"column":55}}})) != null ? stack1 : "")
     + "                                                <span>"

@@ -1,9 +1,9 @@
-<section class="qld__card--wrapper qld__body {{component.data.metadata.body_background.value}} {{component.data.metadata.body_background_type.value}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}cards-multi-{{assetid}}{{/if}}"
-    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{component.data.metadata.body_background_image.value}})"{{/ifCond}}
-    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{component.data.metadata.body_background_pattern.value}})"{{/ifCond}} >
-
+{{#with component.data}}
+<section class="qld__card--wrapper qld__body {{metadata.body_background.value}} {{metadata.body_background_type.value}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}cards-multi-{{assetid}}{{/if}}"
+    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{metadata.body_background_image.value}})"{{/ifCond}}
+    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{metadata.body_background_pattern.value}})"{{/ifCond}} >
     <div class="container-fluid">
-        
+{{/with}}  
     {{#with component.data}}
         {{#if metadata.intro_heading.value}}
         <div class="row">
@@ -59,31 +59,66 @@
                 {{#each component.children}}
 
                     {{#isPage type_code}}
-                    {{#ifCond ../current.data.metadata.pageType.value '==' 'content'}}
-                    <li class="col-xs-12 col-md-12 {{../component.data.metadata.col_width.value}}">
-                    {{else}}
+                    {{!-- {{#ifCond ../current.data.metadata.pageType.value '==' 'content'}} --}}
+                    <li class="col-xs-12 {{../component.data.metadata.col_width.value}}">
+                    {{!-- {{else}}
                     <li class="col-xs-12 col-md-6 {{../component.data.metadata.col_width.value}}"> 
-                    {{/ifCond}}
+                    {{/ifCond}} --}}
                         
-                        <div class="qld__card qld__card__multi-action {{#ifCond ../component.data.metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond ../component.data.metadata.show_icon_image.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond ../component.data.metadata.show_icon_image.value '==' 'image'}}qld__card--image{{/ifCond}} {{../component.data.metadata.background.value}} {{#ifCond ../component.data.metadata.icon_align.value '==' 'horizontal'}}qld__card--icon-left{{/ifCond}}" >
+                        <div class="qld__card qld__card__multi-action {{#ifCond ../component.data.metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}qld__card--image{{/ifCond}} {{../component.data.metadata.background.value}} {{#ifCond ../component.data.metadata.icon_align.value '==' 'left'}}qld__card--icon-left{{/ifCond}}" >
 
-                            {{#ifCond ../component.data.metadata.show_icon_image.value '==' 'icon'}}
+                            {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}
                                 <div class="qld__card__icon"><i class="{{metadata.cardIcon.value}}"></i></div>
                             {{/ifCond}} 
-                            {{#ifCond ../component.data.metadata.show_icon_image.value '==' 'image'}}
+                            {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}
                             <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');"></div>          
                             {{/ifCond}}
 
                             <div class="qld__card__inner">
                                 <div class="qld__card__content">
                                     <div class="qld__card__content-inner">
-                                        <h3 class="qld__card__title">
+                                        {{#ifCond ../component.data.metadata.card_heading_level.value '==' 'h6'}}
+                                            <h6 class="qld__card__title">
                                             {{#if metadata.redirect_url}}
                                                 <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="{{metadata.redirect_url.value}}">{{name}}</a>   
                                             {{else}}
                                                 <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="./?a={{assetid}}">{{name}}</a>
                                             {{/if}}
-                                        </h3>
+                                            </h6>
+                                        {{else ifCond ../component.data.metadata.card_heading_level.value '==' 'h5'}}
+                                           <h5 class="qld__card__title">
+                                            {{#if metadata.redirect_url}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="{{metadata.redirect_url.value}}">{{name}}</a>   
+                                            {{else}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="./?a={{assetid}}">{{name}}</a>
+                                            {{/if}}
+                                            </h5>
+                                        {{else ifCond ../component.data.metadata.card_heading_level.value '==' 'h4'}}
+                                            <h4 class="qld__card__title">
+                                            {{#if metadata.redirect_url}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="{{metadata.redirect_url.value}}">{{name}}</a>   
+                                            {{else}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="./?a={{assetid}}">{{name}}</a>
+                                            {{/if}}
+                                            </h4>
+                                        {{else ifCond ../component.data.metadata.card_heading_level.value '==' 'h2'}}
+                                            <h2 class="qld__card__title">
+                                            {{#if metadata.redirect_url}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="{{metadata.redirect_url.value}}">{{name}}</a>   
+                                            {{else}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="./?a={{assetid}}">{{name}}</a>
+                                            {{/if}}
+                                            </h2>
+                                        {{else}}
+                                            <h3 class="qld__card__title">
+                                            {{#if metadata.redirect_url}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="{{metadata.redirect_url.value}}">{{name}}</a>   
+                                            {{else}}
+                                                <a aria-label="{{name}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card--clickable__link" href="./?a={{assetid}}">{{name}}</a>
+                                            {{/if}}
+                                            </h3>
+                                        {{/ifCond}}
+                                        
                                         {{#if metadata.shortDescription.value}}
                                         <p id="card-{{assetid}}" class="qld__card__description">
                                             {{metadata.shortDescription.value}}

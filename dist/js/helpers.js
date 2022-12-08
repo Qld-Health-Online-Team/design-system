@@ -277,6 +277,80 @@ Handlebars.registerHelper('formatDate', function (datetime, formatStr) {
         return formatMap[match] || match;
     });
 }); 
+Handlebars.registerHelper('generateDates', function (dates) {
+    var dateArray = (dates === '' || dates === null) ? [] : dates.split(', ');
+    var pastDates = [];
+    var futureDates = [];
+    var yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    var month = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    var html = '';
+
+    for (let i = 0; i < dateArray.length; i++) {
+        dateArray[i] = new Date(dateArray[i]);
+    }
+
+    dateArray.sort(function(a,b){
+        return a - b;
+    });
+
+    var pastDates = [];
+    var futureDates = [];
+
+    for (let i = 0; i < dateArray.length; i++) {
+        if (dateArray[i] < yesterday) {
+            pastDates.push(dateArray[i]);
+        } else {
+            futureDates.push(dateArray[i]);
+        }
+    }
+
+    convertIntoRange(futureDates, 'upcoming', '');
+    convertIntoRange(pastDates, 'past', 'hidden="hidden"');
+
+    function convertIntoRange(dateArray, type, hidden) {
+        var dateRange = false;
+        html += `<div role="tabpanel" id="qhealth__service_dates__tab-panel--${type}" aria-labelledby="qhealth__service_dates__tab-heading--${type}" class="qhealth__tab_panel mt-1" ${hidden}>`;
+        if (dateArray.length > 0) {
+            for (let i = 0; i < dateArray.length; i++) {
+                var j = i + 1;
+                var nextDate = new Date(dateArray[i]);
+                nextDate.setDate(dateArray[i].getDate() + 1);
+                if (dateArray.length > j) {
+                    if (dateArray[j] - nextDate == 0) {
+                        if (!dateRange) {
+                            dateRange = true;
+                            html += `<div>${("0" + dateArray[i].getDate()).slice(-2)} ${month[dateArray[i].getMonth()]} - `;
+                        }
+                    } else if (dateRange){
+                        dateRange = false;
+                        html += `${("0" + dateArray[i].getDate()).slice(-2)} ${month[dateArray[i].getMonth()]} ${dateArray[i].getFullYear()}</div>`;
+                    } else {
+                        dateRange = false;
+                        html += `<div>${("0" + dateArray[i].getDate()).slice(-2)} ${month[dateArray[i].getMonth()]} ${dateArray[i].getFullYear()}</div>`;
+                    }
+                } else {
+                    if (dateRange){
+                        dateRange = false;
+                        html += `${("0" + dateArray[i].getDate()).slice(-2)} ${month[dateArray[i].getMonth()]} ${dateArray[i].getFullYear()}</div>`;
+                    } else {
+                        dateRange = false;
+                    html += `<div>${("0" + dateArray[i].getDate()).slice(-2)} ${month[dateArray[i].getMonth()]} ${dateArray[i].getFullYear()}</div>`;
+                    }
+                }
+            }
+        } else {
+            if (type == 'upcoming') {
+                html += '<div>No upcoming dates are scheduled at this stage. Please check again later.</div>';
+            } else {
+                html += '<div>There are no past dates for this service.</div>';
+            }
+        }
+        html += '</div>'; 
+    }
+
+    return html;
+}); 
 Handlebars.registerHelper('getDistance', function (lat, lng, userLat, userLong) {
     var distanceAway = "";
 
@@ -370,6 +444,15 @@ Handlebars.registerHelper('getTags', function(selectValues, tags, options) {
 Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
     return obj['title_' + index].value;
+}); 
+Handlebars.registerHelper('if_eq', function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    const options = arguments[arguments.length - 1];
+    const allEqual = args.every(function (expression) {
+        return args[0] === expression;
+    });
+
+    return allEqual ? options.fn(this) : options.inverse(this);
 }); 
 Handlebars.registerHelper('ifAny', function () {
     var options = arguments[arguments.length - 1];
@@ -727,6 +810,30 @@ Handlebars.registerHelper('partialReplace', function (str, search, replacement) 
   }
   else return '';
 }); 
+Handlebars.registerHelper('printAccordion', function (metadata, options) {
+    var accordions = "";
+    var accNum = Number(metadata.accordion_num.value);
+    var accordion = {"title": "", "content": "", "fieldid":""};
+
+    for (var property in metadata) {
+        var accIndex = property.replace('title_','').replace('content_','');
+        accIndex = Number(accIndex);
+        
+        if (property.indexOf('title_') > -1) {
+            if (accNum >= accIndex) {
+                accordion.title = metadata[property].value;
+            }
+        } else if(property.indexOf('content_') > -1) {
+            if (accNum >= accIndex) {
+                accordion.content = metadata[property].value;
+                accordion.fieldid = metadata[property].fieldid;
+                accordions = accordions + options.fn(accordion);
+            }
+        }
+    }
+
+    return accordions;
+}); 
 Handlebars.registerHelper('replace', function (str, search, replacement) {
     if(typeof str == 'string') {
         console.log(str);
@@ -734,6 +841,11 @@ Handlebars.registerHelper('replace', function (str, search, replacement) {
         return str.replace(regex, replacement);
     }
     else return '';
+}); 
+Handlebars.registerHelper('replaceMany', function (find, replace, options) {
+    var string = options.fn(this);
+    var regex = new RegExp(find, "g");
+    return string.replace(regex, replace);
 }); 
 Handlebars.registerHelper('sizeFormat', function (bytes, decimals) {
   if (bytes === 0) return '0 Bytes';

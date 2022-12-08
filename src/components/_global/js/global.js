@@ -145,7 +145,7 @@
          */
         'geolocateUser': function(override, errorCallback) {
             
-            var userLocationStorage = QLD.utils.getLocalStorage('QLD_user_location');
+            var userLocationStorage = QLD.utils.getLocalStorage('qld_user_location');
             if(userLocationStorage !== null && !override) {
                 return JSON.parse(userLocationStorage);
             }
@@ -189,42 +189,43 @@
          * 
          * @param {object} location 
          */
-        'setUserLocation': function(location) {
-            
-            // Show loader
-            QLD.utils.setLoadingState(true);
-            
+        'setUserLocation': function(location, refresh = true) {
             // If there is a site-wide HHS configured
             var hhsDiv = document.getElementById('qld__hhs');
+
             if (hhsDiv !== null && typeof(serviceFinderData) !== 'undefined') {
                 var hhsId = hhsDiv.getAttribute('data-hhs');
                 serviceFinderData.collection('hhs').doc(hhsId).get().then((response) => {
                     location.hhs_id = hhsId;
                     location.hhs_name = response.name;
-                    QLD.utils.setUserLocationInStorage(location);
+
+                    QLD.utils.setUserLocationInStorage(location, refresh);
                 });
                 
             } else {
-                // TODO: Convert lat/long into HHS
-                QLD.utils.setUserLocationInStorage(location);
+                QLD.utils.setUserLocationInStorage(location, refresh);
             }
         },
 
         /**
-         * Set the 'QLD_user_location' cookie based on a provided location object
+         * Set the 'qld_user_location' cookie based on a provided location object
          * 
          * @memberof module:_global
          * 
          */
-        'setUserLocationInStorage': function(newLocation) {
-            QLD.utils.setLocalStorage('QLD_user_location', JSON.stringify(newLocation));
-            QLD.utils.setLoadingState(true);
-            setTimeout(function() {
-                window.location.reload(false);
-            }, 300);
+        'setUserLocationInStorage': function(newLocation, refresh) {
+            QLD.utils.setLocalStorage('qld_user_location', JSON.stringify(newLocation));
+
+            if(refresh) {
+                QLD.utils.setLoadingState(true);
+                
+                setTimeout(function() {
+                    window.location.reload(false);
+                }, 300);
+            }
         },
         /**
-         * Check the 'QLD_user_location' cookie to determine
+         * Check the 'qld_user_location' cookie to determine
          * whether the user is geolocated
          * 
          * @memberof module:_global
@@ -233,7 +234,7 @@
          * 
          */
         'isGeolocated': function() {
-            var userLocationStorage = QLD.utils.getLocalStorage('QLD_user_location');
+            var userLocationStorage = QLD.utils.getLocalStorage('qld_user_location');
             var userLocationData = {};
 
             if(userLocationStorage !== null) {

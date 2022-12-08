@@ -243,11 +243,12 @@
         if(toogleAllButton.classList.contains('qld__accordion__toggle-btn--closed')){
             toogleAllButton.classList.remove('qld__accordion__toggle-btn--closed');
             toogleAllButton.classList.add('qld__accordion__toggle-btn--open');
+            toogleAllButton.textContent = "Close all";
             accordion.Open(accordionButtons);
-
         }else if(toogleAllButton.classList.contains('qld__accordion__toggle-btn--open')){
             toogleAllButton.classList.remove('qld__accordion__toggle-btn--open');
             toogleAllButton.classList.add('qld__accordion__toggle-btn--closed');
+            toogleAllButton.textContent = "Open all";
             accordion.Close(accordionButtons);
         }
 

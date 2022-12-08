@@ -7,38 +7,91 @@
 		"data": {
             "assetid": "123",
 			"metadata": {
-				"intro_heading": {
-					"type": "metadata_field_text",
+                "root_node": {
+					"type": "metadata_field_related_asset",
 					"description": "",
-					"friendly_name": "Intro heading",
-					"value": "Intro heading",
+					"friendly_name": "Parent asset",
+					"value": "",
 					"required": false,
 					"editable": true
 				},
-				"intro_body": {
-					"type": "metadata_field_wysiwyg",
-					"description": "",
-					"friendly_name": "Intro body",
-					"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-					"required": false,
-					"editable": true
-				},
-				"intro_width": {
+                "col_width": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Intro width",
-					"value": "col-md-6",
+					"friendly_name": "Number of columns",
+					"value": "col-xs-12",
 					"options": {
-						"col-md-6": "Half width",
-						"col-md-12": "Full width"
+						"col-xs-12": "One",
+						"col-lg-6": "Two",
+						"col-lg-4": "Three",
+						"col-lg-3": "Four"
 					},
 					"required": false,
 					"editable": true
 				},
+                "card_type": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Card type",
+                    "value": "text",
+                    "options": {
+                        "text": "Text only",
+                        "image": "Image",
+                        "icon": "Icon"
+                    }
+                },
+                "icon_align": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Icon alignment",
+					"value": "",
+					"options": {
+						"top": "Top",
+						"left": "Left"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "card_type",
+                            "operator": "equals",
+                            "value": "icon"
+                        }]
+                    }
+				},
+				"card_background": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Card Background",
+					"value": "",
+					"options": {
+						"": "Light",
+						"qld__card--alt": "Alternate",
+						"qld__card--dark": "Dark",
+						"qld__card--alt-dark": "Alternate Dark"
+					},
+					"required": false,
+					"editable": true
+				},
+                "card_heading_level": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Intro heading level",
+                    "value": "h3",
+                    "options": {
+                        "h2": "h2",
+                        "h3": "h3",
+                        "h4": "h4",
+                        "h5": "h5",
+                        "h6": "h6"
+                    }
+                },
                 "body_background": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Body Background",
+					"friendly_name": "Background Colour",
 					"value": "qld__body--light",
 					"options": {
 						"qld__body--light": "Light",
@@ -52,7 +105,7 @@
                 "body_background_type": {
                     "type": "metadata_field_select",
                     "description": "",
-                    "friendly_name": "Body Background Type",
+                    "friendly_name": "Background Type",
                     "value": "qld__card--wrapper-bg-colour",
                     "options": {
                         "qld__card--wrapper-bg-image": "Image",
@@ -65,7 +118,7 @@
                 "body_background_image": {
 					"type": "metadata_field_related_asset",
 					"description": "",
-					"friendly_name": "Body Background Image",
+					"friendly_name": "Background Image",
 					"value": "/mysource_files/img/card--content.png",
 					"required": false,
 					"editable": true,
@@ -82,7 +135,7 @@
                 "body_background_pattern": {
 					"type": "metadata_field_related_asset",
 					"description": "",
-					"friendly_name": "Body Background Pattern",
+					"friendly_name": "Background Pattern",
 					"value": "/mysource_files/img/banner-bg.png",
 					"required": false,
 					"editable": true,
@@ -95,6 +148,46 @@
                             "value": "qld__card--wrapper-bg-pattern"
                         }]
                     }
+				},
+                "intro_width": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Intro width",
+					"value": "col-md-6",
+					"options": {
+						"col-md-6": "Half width",
+						"col-md-12": "Full width"
+					},
+					"required": false,
+					"editable": true
+				},
+				"intro_heading": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Intro heading",
+					"value": "Intro heading",
+					"required": false,
+					"editable": true
+				},
+                "intro_heading_level": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Intro heading level",
+                    "value": "h2",
+                    "options": {
+                        "h2": "h2",
+                        "h3": "h3",
+                        "h4": "h4",
+                        "h5": "h5"
+                    }
+                },
+				"intro_body": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"friendly_name": "Intro body",
+					"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"required": false,
+					"editable": true
 				},
 				"all_link_name": {
 					"type": "metadata_field_text",
@@ -112,79 +205,6 @@
 					"required": false,
 					"editable": true
 				},
-				"root_node": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Parent asset",
-					"value": "",
-					"required": false,
-					"editable": true
-				},
-				"col_width": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Number of columns",
-					"value": "col-xs-12",
-					"options": {
-						"col-xs-12": "One",
-						"col-lg-6": "Two",
-						"col-lg-4": "Three",
-						"col-lg-3": "Four"
-					},
-					"required": false,
-					"editable": true
-				},
-				"card_background": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Card Background",
-					"value": "",
-					"options": {
-						"": "Light",
-						"qld__card--alt": "Alternate",
-						"qld__card--dark": "Dark",
-						"qld__card--alt-dark": "Alternate Dark"
-					},
-					"required": false,
-					"editable": true
-				},
-				"icon_align": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Icon alignment",
-					"value": "",
-					"options": {
-						"vertical": "Vertical",
-						"horizontal": "Horizontal"
-					},
-					"required": false,
-					"editable": true
-				},
-                "show_icon_image": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Show card icon or image?",
-					"value": "icon",
-					"options": {
-						"icon": "Icon",
-						"image": "Image",
-                        "none": "None"
-					},
-					"required": false,
-					"editable": true
-				},
-                "intro_heading_level": {
-                    "type": "metadata_field_select",
-                    "description": "",
-                    "friendly_name": "Intro heading level",
-                    "value": "h2",
-                    "options": {
-                        "h2": "h2",
-                        "h3": "h3",
-                        "h4": "h4",
-                        "h5": "h5"
-                    }
-                },
 				"id_field": {
 					"type": "metadata_field_text",
 					"description": "",

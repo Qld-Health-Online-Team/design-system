@@ -163,7 +163,8 @@
 
     &__sub-heading {
         font-weight: 300;
-        display: inline-block;
+        // display: inline-block;
+        display: block;
     }
 
     //Base hero image 
@@ -359,8 +360,17 @@
                 max-width: 45vw;
                 width: 45vw;
             }
+            @include QLD-media(xl) {
+                max-width: 33vw;
+                width: 33vw;
+                left: 11vw;
+            }
 
-            
+            @media (min-width: 1600px){
+                max-width: 34vw;
+                width: 34vw;
+                left: 10vw;
+            }
         }
     }
 
