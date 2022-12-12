@@ -6,8 +6,6 @@ If you are using assets from this Repo, please send an email to [development tea
 
 An attached MIT (basic) licence with “THIS REPOSITORY (SOFTWARE) IS PROVIDED AS IS WITHOUT WARRANTY” - not currently used but I think we should move towards having appropriate license files
 
-
-
 This boilerplate is the frontend starting point for design cutups and front end component development for the Queensland Design System.
 
 ## Table of Contents
