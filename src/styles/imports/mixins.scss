@@ -696,7 +696,7 @@
                 text-decoration-color: var(--QLD-color-dark-hover-underline);
             }
 
-            &.qld__btn--secondary, &.qld__btn--toggle { // should be specified only on light background 
+            &.qld__btn--secondary, &.qld__btn--toggle { 
                 &:hover {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -1029,6 +1029,70 @@
                 }
             }
         }
+
+        .qld__breadcrumbs {
+            a {
+               //light breadcrumbs. default link colours cover these  
+            }
+            
+            &.qld__breadcrumbs--dark {
+                a {
+                    text-decoration-color: var(--QLD-color-dark-underline);
+
+                    &:hover {
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-dark-visited-underline);
+                    }
+
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    }
+
+                }
+            }
+        }
+
+        .qld__banner {
+            &.qld__banner--dark,
+            &.qld__banner--dark-alt {
+
+                a.qld__btn {
+                    &.qld__btn--secondary {//banner intermediate in the design system is an example of this situation
+                        
+                        &:hover {
+                            text-decoration-color: var(--QLD-color-dark-hover-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
+                }
+            }
+        }
+
+        .qld__footer {
+            &.qld__footer--dark, 
+            &.qld__footer--dark-alt {
+                a {
+                    text-decoration-color: var(--QLD-color-dark-underline);
+
+                    &:hover {
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-dark-visited-underline);
+                    }
+
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    }
+
+                }
+            }
+        }
+        
     }
 }
 
