@@ -294,15 +294,8 @@ form {
 
     a {
         color: var(--QLD-color-light-link);
-        text-decoration: underline;
-        text-decoration-skip-ink: auto;
+        @include QLD-underline('light');
         @include QLD-space(max-width, $QLD-font-maxwidth);
-       
-        &:hover {
-            // color: var(--QLD-color-light-text);
-            text-decoration: none;
-        }
-       
         @include QLD-focus();
     }
 
@@ -614,6 +607,10 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light-alt-background);
 
+        a{
+            @include QLD-underline('light');
+        }
+
         hr {
             background-color: var(--QLD-color-light-alt-border);
         }
@@ -644,6 +641,7 @@ form {
         
         a{
             color: var(--QLD-color-dark-text);
+            @include QLD-underline('dark');
             
             &:hover {
                 color: var(--QLD-color-dark-text);
@@ -692,6 +690,7 @@ form {
         
         a {
             color: var(--QLD-color-dark-text);
+            @include QLD-underline('dark');
             
             &:hover {
                 color: var(--QLD-color-dark-text);

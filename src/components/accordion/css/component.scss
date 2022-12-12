@@ -14,8 +14,6 @@
 		width: 100%;
 		display: block;
 		color: var(--QLD-color-light-link);
-		text-decoration: underline;
-		text-decoration-skip-ink: auto;
 		font-weight: normal;
 		position: relative;
 		border: none;
@@ -38,7 +36,6 @@
 		}
 
 		&:hover {
-			text-decoration: none;
 			color: var(--QLD-color-light-heading);
 		}
 
@@ -104,7 +101,6 @@
 
 	&__toggle{
 		font-weight: bold;
-		text-decoration: none;
 		display: flex;
 		flex-direction: row;
 		justify-content: end;
@@ -115,13 +111,9 @@
 			background-color: transparent;
 			color: var(--QLD-color-light-link);
 			border: none;
-			text-decoration: underline;
 			cursor: pointer;
 			position: relative;
 			@include QLD-space( margin-right, 0.5unit );
-			&:hover{
-					text-decoration: none;
-			}
 			&::after{
 				content: ' ';
 				position: absolute;

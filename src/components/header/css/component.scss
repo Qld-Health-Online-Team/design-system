@@ -24,8 +24,6 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
             color: var(--QLD-color-light-link);
-            text-decoration: underline;
-            text-decoration-skip-ink: auto;
             &:focus{
                 outline: 3px solid var(--QLD-color-dark-focus);
                 top: 16px;
@@ -42,8 +40,6 @@
                 width: auto;
                 color: var(--QLD-color-dark-link);
                 background-color: var(--QLD-color-dark-background);
-                text-decoration: underline;
-                text-decoration-skip-ink: auto;
                 z-index: 600;
             }
         }
@@ -98,13 +94,6 @@
             @include QLD-media(lg) {
                 display: inline-block;
                 @include QLD-fontgrid(sm);
-                
-                text-decoration: none;
-        
-                &:hover {
-                    text-decoration: underline;
-                }
-        
             }
         }
 
@@ -120,12 +109,9 @@
                 @include QLD-fontgrid(xs);
                 color: var(--QLD-color-light-link);
                 @include QLD-space(padding-left, 0.75unit);
-                text-decoration: none;
                 align-items: center;
 
                 &:hover{
-                    text-decoration: underline;
-
                     .qld__header__cta-link-icon{
                         color: var(--QLD-color-light-alt-button__hover);
                     }
@@ -151,7 +137,6 @@
         a{
             color: var(--QLD-color-dark-text);
             display: flex;
-            text-decoration: none;
 
             @include QLD-focus()
         }
@@ -183,13 +168,10 @@
             // display: none;
             // height: 48px;
             color: var(--QLD-color-light-link);
-            text-decoration: none;
             @include QLD-focus();
             border-left: solid $QLD-border-width-thin var(--QLD-color-light-border);
             
             &:hover {
-                text-decoration: underline;
-                text-decoration-skip-ink: auto;
                 background-color: var(--QLD-color-light-background__shade);
 
                 svg{
@@ -354,11 +336,9 @@
 
             a {
                 display: flex;
-                text-decoration: none;
 
                 &:hover{
                     color: var(--QLD-color-light-link);
-                    text-decoration: underline;
                     .qld__header__brand-image{
                         color: var(--QLD-color-light-link);
                     }
@@ -394,7 +374,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            text-decoration: none;
 
             .qld__header__secondary-image{
                 @include QLD-space(height, 2.5unit);
@@ -449,7 +428,6 @@
             a {
                 &:hover{
                     color: var(--QLD-color-dark-link);
-                    text-decoration: underline;
                     .qld__header__brand-image{
                         color: var(--QLD-color-dark-link);
                     }
@@ -492,7 +470,6 @@
             a {
                 &:hover{
                     color: var(--QLD-color-dark-link);
-                    text-decoration: underline;
                     .qld__header__brand-image{
                         color: var(--QLD-color-dark-link);
                     }
@@ -635,7 +612,6 @@
             @include QLD-fontgrid(sm);
             float: right;
             color: var(--QLD-color-light-link);
-            text-decoration: none;
             
             @include QLD-media(lg) {
                 @include QLD-space(padding-bottom, 0.5unit);
@@ -643,7 +619,6 @@
             
             &:hover{
                 color: var(--QLD-color-light-text);
-                text-decoration: underline;
             }
         }
 
