@@ -715,6 +715,10 @@
                     text-decoration-color: var(--QLD-color-light-hover-underline);
                 }
             }
+
+            &.qld__btn--back-to-top {
+                text-decoration-color: currentColor;
+            }
         }
 
         &.qld__cta-link &.qld__cta-link--view-all {
@@ -725,38 +729,6 @@
             text-underline-offset: var(--QLD-underline__offset);
         }
 
-
-        @at-root {
-
-            .sq-form-submit {
-                text-decoration: none;
-                text-decoration-color: var(--QLD-color-light-underline);
-                text-underline-offset: var(--QLD-underline__offset);
-                text-decoration-skip-ink: auto;
-
-                &:hover {
-                    text-decoration: underline;
-                    text-decoration-color: var(--QLD-color-light-hover-underline);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-
-                &.qld__btn--secondary {
-                    &:hover {
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    }
-                }
-
-                &.qld__btn--tertiary {
-                    text-decoration: underline;
-
-                    &:hover {
-                        text-decoration: underline;
-                        text-decoration-color: var(--QLD-color-light-hover-underline);
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    }
-                }
-            }
-        }
     }
 
     @else if $colorScheme=='dark' {
@@ -786,7 +758,7 @@
         //Global button underline
         &.qld__btn {
             text-decoration: none;
-
+        
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: var(--QLD-color-dark-button__text);
@@ -810,6 +782,10 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
+            
+            &.qld__btn--back-to-top {
+                text-decoration-color: currentColor;
+            }
         }
 
         &.qld__cta-link &.qld__cta-link--view-all {
@@ -820,37 +796,6 @@
             text-underline-offset: var(--QLD-underline__offset);
         }
 
-        @at-root {
-
-            .sq-form-submit {
-                text-decoration: none;
-                text-decoration-color: var(--QLD-color-dark-underline);
-                text-underline-offset: var(--QLD-underline__offset);
-                text-decoration-skip-ink: auto;
-
-                &:hover {
-                    text-decoration: underline;
-                    text-decoration-color: var(--QLD-color-dark-hover-underline);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-
-                &.qld__btn--secondary {
-                    &:hover {
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    }
-                }
-
-                &.qld__btn--tertiary {
-                    text-decoration: underline;
-
-                    &:hover {
-                        text-decoration: underline;
-                        text-decoration-color: var(--QLD-color-dark-hover-underline);
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    }
-                }
-            }
-        }
     }
 
     // Gets included regardless of the body's dark or light conditions.
@@ -890,7 +835,7 @@
             }
         }
 
-        .qld__body {
+        .qld__body {  
             .qld__card {
                 .qld__card--clickable__link {
                     text-decoration: underline;
@@ -1006,14 +951,87 @@
                     }
                 }
             }
-            .qld__global_alert__action {
-                a {
-                    text-decoration-color: var(--QLD-color-dark-button__text);
 
-                    &:hover, &:hover:visited, &:visited {
+            .qld__global_alert {
+                .qld__global_alert__action {
+                    a {
                         text-decoration-color: var(--QLD-color-dark-button__text);
+                        &:hover, &:hover:visited, &:visited {
+                            text-decoration-color: var(--QLD-color-dark-button__text);
+                        }
                     }
-                    
+                }
+
+                &.qld__global_alert--critical {
+                    .qld__global_alert__action {
+                        a {
+                            text-decoration-color: var(--QLD-color-light-button__text);
+                            &:hover, &:hover:visited, &:visited {
+                                text-decoration-color: var(--QLD-color-light-button__text);
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
+            .sq-form-submit { //cahnge them to black and white / 
+                text-decoration: none;
+                text-decoration-color: var(--QLD-color-light-button__text);
+                text-underline-offset: var(--QLD-underline__offset);
+                text-decoration-skip-ink: auto;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: var(--QLD-color-light-button__text);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+
+                &.qld__btn--secondary {
+                    &:hover {
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
+
+                &.qld__btn--tertiary {
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: var(--QLD-color-light-button__text);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
+            }
+
+            &.qld__body--dark, &.qld__body--dark-alt {
+                .sq-form-submit {
+                    text-decoration: none;
+                    text-decoration-color: var(--QLD-color-dark-button__text);
+                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-skip-ink: auto;
+    
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: var(--QLD-color-dark-button__text);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+    
+                    &.qld__btn--secondary {
+                        &:hover {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
+    
+                    &.qld__btn--tertiary {
+                        text-decoration: underline;
+    
+                        &:hover {
+                            text-decoration: underline;
+                            text-decoration-color: var(--QLD-color-dark-button__text);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
                 }
             }
         }
@@ -1189,5 +1207,6 @@
                 }
             }
         }
+
     }
 }
