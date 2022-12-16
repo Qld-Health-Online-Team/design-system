@@ -77,19 +77,22 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        opacity: .8;
-        color: var(--QLD-color-dark-text);
+        // opacity: .8;
+        color: var(--QLD-color-light-button__text);
         display: flex;
         gap: 1px;
+        border-top-right-radius: $QLD-border-radius-xs;
+        overflow: hidden;
 
         &--title,
         &--length{
-            background-color: var(--QLD-color-dark-button);
+            background-color: var(--QLD-color-light-button);
             @include QLD-space(padding, .625unit);
 
             i{
-                @include QLD-space(font-size, 1.125unit);
+                @include QLD-space(font-size, 1.25unit);
                 @include QLD-space(margin-right, .375unit);
+                vertical-align: text-top;
 
             }
         }
@@ -257,6 +260,15 @@
                 color:  var(--QLD-color-dark-heading);
             }
         }
+
+        .qld__card__image-tag{
+            color: var(--QLD-color-dark-button__text);
+
+            &--title,
+            &--length{
+                background-color: var(--QLD-color-dark-button);
+            }
+        }
             
         
     }
@@ -280,6 +292,15 @@
             i,
             svg{
                 color: var(--QLD-color-dark-heading);
+            }
+        }
+
+        .qld__card__image-tag{
+            color: var(--QLD-color-dark-button__text);
+
+            &--title,
+            &--length{
+                background-color: var(--QLD-color-dark-button);
             }
         }
             
