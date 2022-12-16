@@ -691,34 +691,44 @@
         &.qld__btn {
             text-decoration: none;
 
-            &:hover {
+            &:hover, &:focus {
                 text-decoration: underline;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 text-decoration-color: var(--QLD-color-dark-hover-underline);
+
+            }
+
+            &:active {
+                text-decoration: none;
             }
 
             &.qld__btn--secondary,
             &.qld__btn--toggle {
-                &:hover {
+                &:hover, &:focus {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-decoration-color: var(--QLD-color-light-hover-underline);
+                }
+
+                &:active {
+                    text-decoration: none;
                 }
             }
 
             &.qld__btn--tertiary {
                 text-decoration: underline;
 
-                &:hover {
+                &:hover, &:focus {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-decoration-color: var(--QLD-color-light-hover-underline);
                 }
+
+                &:active {
+                    text-decoration: none;
+                }
             }
 
-            &.qld__btn--back-to-top {
-                text-decoration-color: currentColor;
-            }
         }
 
         &.qld__cta-link &.qld__cta-link--view-all {
@@ -726,7 +736,6 @@
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
             text-decoration-color: var(--QLD-color-light-underline);
-            text-underline-offset: var(--QLD-underline__offset);
         }
 
     }
@@ -758,34 +767,42 @@
         //Global button underline
         &.qld__btn {
             text-decoration: none;
-        
-            &:hover {
+
+            &:hover, &:focus {
                 text-decoration: underline;
                 text-decoration-color: var(--QLD-color-dark-button__text);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
+            
+            &:active {
+                text-decoration: none;
+            }
 
             &.qld__btn--secondary,
             &.qld__btn--toggle {
-                &:hover {
+                &:hover, &:focus {
                     text-decoration-color: var(--QLD-color-dark-hover-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+
+                &:active {
+                    text-decoration: none;
                 }
             }
 
             &.qld__btn--tertiary {
                 text-decoration: underline;
 
-                &:hover {
+                &:hover, &:focus {
                     text-decoration: underline;
                     text-decoration-color: var(--QLD-color-dark-hover-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
-            }
-            
-            &.qld__btn--back-to-top {
-                text-decoration-color: currentColor;
-            }
+
+                &:active {
+                    text-decoration: none;
+                }
+            }   
         }
 
         &.qld__cta-link &.qld__cta-link--view-all {
@@ -795,13 +812,12 @@
             text-decoration-color: var(--QLD-color-dark-underline);
             text-underline-offset: var(--QLD-underline__offset);
         }
-
     }
 
     // Gets included regardless of the body's dark or light conditions.
     &.qld__direction-link {
-        text-decoration: none;
-
+        text-decoration: underline;
+        text-decoration-thickness: var(--QLD-underline__thickness-thin);
         &:hover {
             text-decoration: underline;
             text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -816,26 +832,16 @@
             &.qld__tag--large,
             &.qld__tag--filter {
                 text-decoration: none !important;
-
                 &:hover {
                     text-decoration: underline !important;
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: auto;
+                    text-underline-offset: auto;
                 }
             }
         }
 
-        .qld__search-pagination__list {
-            a {
-                text-decoration: none;
 
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .qld__body {  
+        .qld__body {
             .qld__card {
                 .qld__card--clickable__link {
                     text-decoration: underline;
@@ -1005,6 +1011,7 @@
             }
 
             &.qld__body--dark, &.qld__body--dark-alt {
+
                 .sq-form-submit {
                     text-decoration: none;
                     text-decoration-color: var(--QLD-color-dark-button__text);
@@ -1031,6 +1038,51 @@
                             text-decoration-color: var(--QLD-color-dark-button__text);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
                         }
+                    }
+                }
+
+                .qld__search-pagination__list {
+                    a {
+                        text-decoration: none;
+        
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            .qld__search-pagination__list {
+                a {
+                    text-decoration: none;
+    
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .qld__link-columns {
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: currentColor;
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        text-underline-offset: var(--QLD-underline__offset);
+                    }
+                }
+
+            }
+        }
+
+        &.qld__body--alt {
+            .qld__search-pagination__list {
+                a {
+                    text-decoration: none;
+    
+                    &:hover {
+                        text-decoration: none;
                     }
                 }
             }
@@ -1208,5 +1260,41 @@
             }
         }
 
+        .qld__btn {
+            .qld__btn--back-to-top, .qld__btn--quick-exit {
+                text-decoration: none;
+                &:hover, &:focus {
+                    text-decoration: underline;
+                    text-decoration-color: currentColor;
+                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+
+                &:active {
+                    text-decoration: none;
+                }
+            }
+
+            &.qld__btn--search {
+                .qld__btn__text {
+                    text-decoration: none;
+                }
+                
+                &:hover, &:focus {
+                    .qld__btn__text {  
+                        text-decoration: underline;
+                        text-decoration-color: currentColor;
+                        text-underline-offset: var(--QLD-underline__offset);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
+
+                &:active {
+                    .qld__btn__text {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
     }
 }
