@@ -666,7 +666,6 @@
         text-decoration: underline;
         text-decoration-line: solid;
         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-
         text-decoration-color: var(--QLD-color-light-underline);
         text-underline-offset: var(--QLD-underline__offset);
         text-decoration-skip-ink: auto;
@@ -736,7 +735,6 @@
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
             text-decoration-color: var(--QLD-color-light-underline);
         }
-
     }
 
     @else if $colorScheme=='dark' {
@@ -826,158 +824,160 @@
 
     @at-root {
         .qld__tag {
-
             &.qld__tag--link,
             &.qld__tag--large,
             &.qld__tag--filter {
                 text-decoration: none !important;
                 &:hover {
                     text-decoration: underline !important;
-                    text-decoration-thickness: auto;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin) !important;
                     text-underline-offset: auto;
+                }
+            }
+        }
+        
+        .qld__card {
+            .qld__card--clickable__link {
+                text-decoration: underline;
+                text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                text-decoration-color: var(--QLD-color-light-underline);
+                text-underline-offset: var(--QLD-underline__offset);
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
+                }
+
+                &:visited {
+                    text-decoration-color: var(--QLD-color-light-visited-underline);
+                }
+
+                &:hover:visited {
+                    text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    
+                }
+
+
+                &.qld__card__footer-link {
+                    text-decoration: none;
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
+                    text-underline-offset: var(--QLD-underline__offset);
+                    span {
+                        text-decoration: underline;
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    }
+
+                    &:visited {
+                        span {
+                            text-decoration-color: var(--QLD-color-light-visited-underline);
+                        }
+                    }
+
+                    &:hover:visited {
+                        span {
+                            text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
+
+                    &:hover {
+                        span {
+                            text-decoration: underline;
+                            text-decoration-color: var(--QLD-color-light-hover-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
+                }
+            }
+
+            // &.qld__card--alt {
+            //     //Keep empty since it follows the light style - use to override the light.
+            // }
+
+            &.qld__card--dark,
+            &.qld__card--dark-alt {
+                .qld__card--clickable__link {
+                    text-decoration: underline;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    text-decoration-color: var(--QLD-color-dark-underline);
+
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-dark-visited-underline);
+                    }
+
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    }
+
+                    &.qld__card__footer-link {
+                        text-decoration: none;
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+
+                        span {
+                            text-decoration: underline;
+                            text-decoration-color: var(--QLD-color-dark-hover-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                        }
+
+                        &:visited {
+                            span {
+                                text-decoration-color: var(--QLD-color-dark-visited-underline);
+                            }
+                        }
+
+                        &:hover:visited {
+                            span {
+                                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            }
+                        }
+
+                        &:hover {
+                            span {
+                                text-decoration: underline;
+                                text-decoration-color: var(--QLD-color-dark-hover-underline);
+                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .qld__global_alert {
+            .qld__global_alert__action {
+                a {
+                    text-decoration-color: var(--QLD-color-dark-button__text);
+                    text-underline-offset: var(--QLD-underline__offset);
+                    &:hover, &:hover:visited, &:visited {
+                        text-decoration-color: var(--QLD-color-dark-button__text);
+                    }
+                }
+            }
+
+            &.qld__global_alert--critical {
+                .qld__global_alert__action {
+                    a {
+                        text-decoration-color: var(--QLD-color-light-button__text);
+                        text-underline-offset: var(--QLD-underline__offset);
+                        &:hover, &:hover:visited, &:visited {
+                            text-decoration-color: var(--QLD-color-light-button__text);
+                        }
+                        
+                    }
                 }
             }
         }
 
         .qld__body {
-            .qld__card {
-                .qld__card--clickable__link {
-                    text-decoration: underline;
-                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                    text-decoration-color: var(--QLD-color-light-underline);
-    
-                    &:hover {
-                        text-decoration: underline;
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        text-decoration-color: var(--QLD-color-light-hover-underline);
-                    }
-
-                    &:visited {
-                        text-decoration-color: var(--QLD-color-light-visited-underline);
-                    }
-
-                    &:hover:visited {
-                        text-decoration-color: var(--QLD-color-light-hover-visited-underline);
-                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        
-                    }
-
-    
-                    &.qld__card__footer-link {
-                        text-decoration: none;
-                        text-decoration-color: var(--QLD-color-light-hover-underline);
-    
-                        span {
-                            text-decoration: underline;
-                            text-decoration-color: var(--QLD-color-light-hover-underline);
-                            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                        }
-    
-                        &:visited {
-                            span {
-                                text-decoration-color: var(--QLD-color-light-visited-underline);
-                            }
-                        }
-    
-                        &:hover:visited {
-                            span {
-                                text-decoration-color: var(--QLD-color-light-hover-visited-underline);
-                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                            }
-                        }
-    
-                        &:hover {
-                            span {
-                                text-decoration: underline;
-                                text-decoration-color: var(--QLD-color-light-hover-underline);
-                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                            }
-                        }
-                    }
-                }
-    
-                // &.qld__card--alt {
-                //     //Keep empty since it follows the light style - use to override the light.
-                // }
-    
-                &.qld__card--dark,
-                &.qld__card--dark-alt {
-                    .qld__card--clickable__link {
-                        text-decoration: underline;
-                        text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                        text-decoration-color: var(--QLD-color-dark-underline);
-    
-                        &:hover {
-                            text-decoration: underline;
-                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                            text-decoration-color: var(--QLD-color-dark-hover-underline);
-                        }
-    
-                        &:visited {
-                            text-decoration-color: var(--QLD-color-dark-visited-underline);
-                        }
-    
-                        &:hover:visited {
-                            text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                        }
-    
-                        &.qld__card__footer-link {
-                            text-decoration: none;
-                            text-decoration-color: var(--QLD-color-dark-hover-underline);
-    
-                            span {
-                                text-decoration: underline;
-                                text-decoration-color: var(--QLD-color-dark-hover-underline);
-                                text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                            }
-    
-                            &:visited {
-                                span {
-                                    text-decoration-color: var(--QLD-color-dark-visited-underline);
-                                }
-                            }
-    
-                            &:hover:visited {
-                                span {
-                                    text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                }
-                            }
-    
-                            &:hover {
-                                span {
-                                    text-decoration: underline;
-                                    text-decoration-color: var(--QLD-color-dark-hover-underline);
-                                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .qld__global_alert {
-                .qld__global_alert__action {
-                    a {
-                        text-decoration-color: var(--QLD-color-dark-button__text);
-                        &:hover, &:hover:visited, &:visited {
-                            text-decoration-color: var(--QLD-color-dark-button__text);
-                        }
-                    }
-                }
-
-                &.qld__global_alert--critical {
-                    .qld__global_alert__action {
-                        a {
-                            text-decoration-color: var(--QLD-color-light-button__text);
-                            &:hover, &:hover:visited, &:visited {
-                                text-decoration-color: var(--QLD-color-light-button__text);
-                            }
-                            
-                        }
-                    }
-                }
-            }
 
             .sq-form-submit { //cahnge them to black and white / 
                 text-decoration: none;
@@ -1089,14 +1089,31 @@
         .qld__breadcrumbs {
             a {
                 //light breadcrumbs. default link colours cover these  
+                 text-underline-offset: var(--QLD-underline__offset);
+                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
+
+                 &:hover {
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+
+                &:visited {
+                    text-decoration-color: var(--QLD-color-light-visited-underline);
+                }
+
+                &:hover:visited {
+                    text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
             }
 
-            &.qld__breadcrumbs--dark {
+            &.qld__breadcrumbs--dark, &.qld__breadcrumbs--dark-alt {
                 a {
                     text-decoration-color: var(--QLD-color-dark-underline);
-
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
                     &:hover {
                         text-decoration-color: var(--QLD-color-dark-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
 
                     &:visited {
@@ -1105,8 +1122,8 @@
 
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
-
                 }
             }
         }
@@ -1228,7 +1245,6 @@
             }
         }
 
-
         .qld__accordion-group--dark, .qld__accordion-group--dark-alt {
             .qld__accordion__title {
                 text-decoration: underline;
@@ -1259,12 +1275,22 @@
         }
 
         .qld__btn {
-            .qld__btn--back-to-top, .qld__btn--quick-exit {
+            text-decoration: none;
+            text-underline-offset: var(--QLD-underline__offset);
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+            &:active {
                 text-decoration: none;
-                &:hover, &:focus {
+            }
+            &.qld__btn--secondary,
+            &.qld__btn--toggle {
+                &:hover,
+                &:focus {
                     text-decoration: underline;
-                    text-decoration-color: currentColor;
-                    text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
 
@@ -1272,21 +1298,45 @@
                     text-decoration: none;
                 }
             }
+            &.qld__btn--tertiary {
+                text-decoration: underline;
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
 
+                &:active {
+                    text-decoration: none;
+                }
+            }
+            &.qld__btn--back-to-top,
+            &.qld__btn--quick-exit {
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                    text-decoration-color: currentColor;
+                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+                &:active {
+                    text-decoration: none;
+                }
+            }
             &.qld__btn--search {
                 .qld__btn__text {
                     text-decoration: none;
                 }
-                
-                &:hover, &:focus {
-                    .qld__btn__text {  
+                &:hover,
+                &:focus {
+                    .qld__btn__text {
                         text-decoration: underline;
                         text-decoration-color: currentColor;
                         text-underline-offset: var(--QLD-underline__offset);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
                 }
-
                 &:active {
                     .qld__btn__text {
                         text-decoration: none;
