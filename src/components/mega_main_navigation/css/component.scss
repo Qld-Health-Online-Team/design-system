@@ -33,7 +33,7 @@
                 box-shadow: none;
                 line-height: 32px;
                 background-color: transparent;
-                display: flex;
+                // display: flex;
             }
 
             &:hover{
@@ -296,10 +296,6 @@
                     }
                 }
 
-
-
-                
-               
                 &:hover{
                     background-color: var(--QLD-color-light-alt-background);
                     @include QLD-media(lg) {
@@ -323,8 +319,19 @@
                         @include QLD-space(padding, 0);
                     }
                     
+                    &:hover{
+                        border-color: var(--QLD-color-light-button);
+                        background-color: var(--QLD-color-light-background);
+                        text-decoration: underline;
 
-                    .qld__main-nav__sub-item-text{
+                        .qld__main-nav__sub-item-text .qld__icon{
+                            @include QLD-space(margin, 0 -4px 0 1unit);
+                            color: var(--QLD-color-light-alt-button__hover);
+                        }
+                    }
+                }
+
+                .qld__main-nav__sub-item-text{
                         display: flex;
                         justify-content: space-between;
                         width: 100%;
@@ -354,17 +361,15 @@
                                 display: block;
                             }
                         }
-
                     }
 
-                    &:hover{
-                        border-color: var(--QLD-color-light-button);
-                        background-color: var(--QLD-color-light-background);
+                &:hover{
+                    border-color: var(--QLD-color-light-button);
+                    background-color: var(--QLD-color-light-background);
 
-                        .qld__main-nav__sub-item-text .qld__icon{
-                            @include QLD-space(margin, 0 -4px 0 1unit);
-                            color: var(--QLD-color-light-alt-button__hover);
-                        }
+                    .qld__main-nav__sub-item-text .qld__icon{
+                        @include QLD-space(margin, 0 -4px 0 1unit);
+                        color: var(--QLD-color-light-alt-button__hover);
                     }
                 }
 
@@ -387,9 +392,11 @@
                         display: block;
                         font-weight: bold;
                     }
-                    
                 }
 
+                &:not(.active) {
+                    font-weight: normal;
+                }
 
                 &.qld__main-nav__item--has-desc{
                     box-shadow: none;
