@@ -842,6 +842,7 @@
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
                 text-decoration-color: var(--QLD-color-light-underline);
                 text-underline-offset: var(--QLD-underline__offset);
+
                 &:hover {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -857,7 +858,6 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     
                 }
-
 
                 &.qld__card__footer-link {
                     text-decoration: none;
@@ -957,8 +957,10 @@
                 a {
                     text-decoration-color: var(--QLD-color-dark-button__text);
                     text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
                     &:hover, &:hover:visited, &:visited {
                         text-decoration-color: var(--QLD-color-dark-button__text);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
                 }
             }
@@ -968,8 +970,10 @@
                     a {
                         text-decoration-color: var(--QLD-color-light-button__text);
                         text-underline-offset: var(--QLD-underline__offset);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thin);
                         &:hover, &:hover:visited, &:visited {
                             text-decoration-color: var(--QLD-color-light-button__text);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
                         }
                         
                     }
@@ -1178,6 +1182,17 @@
 
                 &:hover {
                     text-decoration: underline;
+                }
+            }
+        }
+
+        .qld__tile-nav__list {
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    text-underline-offset: var(--QLD-underline__offset);
                 }
             }
         }
