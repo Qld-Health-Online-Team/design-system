@@ -736,7 +736,7 @@
             text-decoration-color: var(--QLD-color-light-underline);
         }
 
-        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link){
+        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs){
             color: var(--QLD-color-light-link);
             &:hover {
                 color: var(--QLD-color-light-link);
@@ -825,7 +825,7 @@
             text-underline-offset: var(--QLD-underline__offset);
         }
 
-        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link){
+        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs){
             color: var(--QLD-color-dark-link);
             &:hover {
                 color: var(--QLD-color-dark-link);
@@ -872,36 +872,43 @@
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
                 text-decoration-color: var(--QLD-color-light-underline);
                 text-underline-offset: var(--QLD-underline__offset);
+                color: var(--QLD-color-light-link);//amir
 
                 &:hover {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-decoration-color: var(--QLD-color-light-hover-underline);
+                    color: var(--QLD-color-light-link);
                 }
 
                 &:visited {
                     text-decoration-color: var(--QLD-color-light-visited-underline);
+                    color: var(--QLD-color-light-link__visited);
                 }
 
                 &:hover:visited {
                     text-decoration-color: var(--QLD-color-light-hover-visited-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    color: var(--QLD-color-light-link__visited);
                     
                 }
 
                 &.qld__card__footer-link {
                     text-decoration: none;
                     text-decoration-color: var(--QLD-color-light-hover-underline);
+                    color: var(--QLD-color-light-link); //amir
                     text-underline-offset: var(--QLD-underline__offset);
                     span {
                         text-decoration: underline;
                         text-decoration-color: var(--QLD-color-light-hover-underline);
                         text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                        color: var(--QLD-color-light-link);
                     }
 
                     &:visited {
                         span {
                             text-decoration-color: var(--QLD-color-light-visited-underline);
+                            color: var(--QLD-color-light-link__visited);
                         }
                     }
 
@@ -909,6 +916,7 @@
                         span {
                             text-decoration-color: var(--QLD-color-light-hover-visited-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            color: var(--QLD-color-light-link__visited);
                         }
                     }
 
@@ -917,6 +925,7 @@
                             text-decoration: underline;
                             text-decoration-color: var(--QLD-color-light-hover-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            color: var(--QLD-color-light-link);
                         }
                     }
                 }
@@ -932,34 +941,41 @@
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thin);
                     text-decoration-color: var(--QLD-color-dark-underline);
+                    color: var(--QLD-color-dark-link); //amir
 
                     &:hover {
                         text-decoration: underline;
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
                         text-decoration-color: var(--QLD-color-dark-hover-underline);
+                        color: var(--QLD-color-dark-link);
                     }
 
                     &:visited {
                         text-decoration-color: var(--QLD-color-dark-visited-underline);
+                        color: var(--QLD-color-dark-link);
                     }
 
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                        color: var(--QLD-color-dark-hover-visited-underline);
                     }
 
                     &.qld__card__footer-link {
                         text-decoration: none;
                         text-decoration-color: var(--QLD-color-dark-hover-underline);
+                        color: var(--QLD-color-dark-link);
 
                         span {
                             text-decoration: underline;
                             text-decoration-color: var(--QLD-color-dark-hover-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                            color: var(--QLD-color-dark-link);
                         }
 
                         &:visited {
                             span {
                                 text-decoration-color: var(--QLD-color-dark-visited-underline);
+                                color: var(--QLD-color-dark-link);
                             }
                         }
 
@@ -967,6 +983,7 @@
                             span {
                                 text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                                color: var(--QLD-color-dark-hover-visited-underline);
                             }
                         }
 
@@ -975,6 +992,7 @@
                                 text-decoration: underline;
                                 text-decoration-color: var(--QLD-color-dark-hover-underline);
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                                color: var(--QLD-color-dark-link);
                             }
                         }
                     }
@@ -1016,6 +1034,7 @@
             .sq-form-submit { //cahnge them to black and white / 
                 text-decoration: none;
                 text-decoration-color: var(--QLD-color-light-button__text);
+                color: var(--QLD-color-light-button__text);
                 text-underline-offset: var(--QLD-underline__offset);
                 text-decoration-skip-ink: auto;
 
@@ -1023,6 +1042,7 @@
                     text-decoration: underline;
                     text-decoration-color: var(--QLD-color-light-button__text);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    color: var(--QLD-color-light-button__text);
                 }
 
                 &.qld__btn--secondary {
@@ -1047,6 +1067,7 @@
                 .sq-form-submit {
                     text-decoration: none;
                     text-decoration-color: var(--QLD-color-dark-button__text);
+                    color: var(--QLD-color-dark-button__text);
                     text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-skip-ink: auto;
     
@@ -1054,6 +1075,7 @@
                         text-decoration: underline;
                         text-decoration-color: var(--QLD-color-dark-button__text);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        color: var(--QLD-color-dark-button__text);
                     }
     
                     &.qld__btn--secondary {
@@ -1123,40 +1145,48 @@
         .qld__breadcrumbs {
             a {
                 //light breadcrumbs. default link colours cover these  
+                 color: var(--QLD-color-light-link);
                  text-underline-offset: var(--QLD-underline__offset);
                  text-decoration-thickness: var(--QLD-underline__thickness-thin);
 
                  &:hover {
                     text-decoration-color: var(--QLD-color-light-hover-underline);
+                    color: var(--QLD-color-light-link);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
 
                 &:visited {
                     text-decoration-color: var(--QLD-color-light-visited-underline);
+                    color: var(--QLD-color-light-link__visited);
                 }
 
                 &:hover:visited {
                     text-decoration-color: var(--QLD-color-light-hover-visited-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    color: var(--QLD-color-light-link__visited);
                 }
             }
 
             &.qld__breadcrumbs--dark, &.qld__breadcrumbs--dark-alt {
                 a {
+                    color: var(--QLD-color-dark-link);
                     text-decoration-color: var(--QLD-color-dark-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thin);
                     &:hover {
                         text-decoration-color: var(--QLD-color-dark-hover-underline);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        color: var(--QLD-color-dark-link);
                     }
 
                     &:visited {
                         text-decoration-color: var(--QLD-color-dark-visited-underline);
+                        color: var(--QLD-color-dark-link);
                     }
 
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        color: var(--QLD-color-dark-hover-visited-underline);
                     }
                 }
             }
@@ -1356,7 +1386,8 @@
                 }
             }
             &.qld__btn--back-to-top,
-            &.qld__btn--quick-exit {
+            &.qld__btn--quick-exit, 
+            &.qld__code-toggle-button {
                 text-decoration: none;
                 &:hover,
                 &:focus {
