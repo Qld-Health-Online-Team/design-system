@@ -56,7 +56,9 @@
                         width: auto;
                     }
                     &:hover{
-                        text-decoration: underline;
+                        span {
+                            text-decoration: underline;
+                        }
                         svg{
                             color: var(--QLD-color-light-alt-button);
                         }
@@ -70,6 +72,7 @@
                         position: relative;
                         width: auto;
                         height: auto;
+                        overflow: initial;
                     }
                 }
             }
@@ -159,7 +162,9 @@
                     &:hover{
                         color: var(--QLD-color-dark-link);
                         border: none;
-                        text-decoration: underline;
+                        span {
+                            text-decoration: underline;
+                        }
                         svg{
                             color: var(--QLD-color-dark-alt-button);
                         }
