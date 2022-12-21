@@ -140,7 +140,7 @@ $QLD-header-md: 72px;
         // Menu item title
         & .qld__main-nav__item-title {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: space-between;
             position: relative; 
             @include QLD-fontgrid(sm, heading);
@@ -594,7 +594,8 @@ $QLD-header-md: 72px;
         &--flex {
             @include QLD-media(lg) {
                 display: flex;
-                align-items: center
+                align-items: center;
+                justify-content: flex-start;
             }
         }
     }
