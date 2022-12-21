@@ -141,7 +141,7 @@ $QLD-header-md: 72px;
         // Menu item title
         & .qld__main-nav__item-title {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             justify-content: space-between;
             position: relative; 
             @include QLD-fontgrid(sm, heading);
@@ -161,7 +161,15 @@ $QLD-header-md: 72px;
                     @include QLD-space(height, 0);
                 }
             }
-           
+
+            @include QLD-media(lg) {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            @include QLD-media(xl) {
+                @include QLD-fontgrid(sm, heading);
+            }
         }
         // Menu item link
         & .qld__main-nav__item-link {
@@ -179,7 +187,7 @@ $QLD-header-md: 72px;
             @include QLD-media(lg) {
                 border-left: none;
                 @include QLD-space(padding, .75unit 1unit .75unit 0.75unit);
-                @include QLD-space(line-height, 2unit);
+                @include QLD-space(line-height, 1.25unit);
             }
 
             &:hover {
@@ -571,6 +579,14 @@ $QLD-header-md: 72px;
         @include QLD-media(lg) {
             // display: flex;
             @include QLD-space(padding-bottom, 0unit);
+        }
+
+        &--flex {
+            @include QLD-media(lg) {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
         }
     }
 

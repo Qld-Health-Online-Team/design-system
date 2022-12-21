@@ -31,9 +31,10 @@
                 @include QLD-space(margin, 0);
                 @include QLD-space(border-radius, 0);
                 box-shadow: none;
-                line-height: 32px;
+                line-height: 20px;
                 background-color: transparent;
                 display: flex;
+                align-items: center;
             }
 
             &:hover{
@@ -50,7 +51,8 @@
                 color: var(--QLD-color-light-alt-button);
                 transition: transform 0.25s ease-in;
                 @include QLD-media(lg) {
-                    @include QLD-space(margin-right, .75unit);
+                    @include QLD-space(margin, 0unit .625unit 0unit 0unit);
+                    display: inline-block;               
                 }
             }
 
@@ -78,11 +80,13 @@
             &-text{
                 display: none;
                 @include QLD-media(lg) {
-                    @include QLD-space(padding, 1unit .5unit 1unit .75unit);
+                    @include QLD-space(padding, 1unit .5unit 1unit .5unit);
                     display: inline-flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
+                    width: calc(100% - 16px);
+                    text-align: left;
 
                     &::before{
                         content: attr(data-name) / "";
@@ -95,14 +99,24 @@
                     }
                     
                 }
+
+                @include QLD-media(xl) {
+                    @include QLD-space(padding, 1unit .625unit 1unit .625unit);
+                    width: calc(100% - 20px);
+                }
             }
         }
 
         &-link{
             @include QLD-media(lg) {
                 display: block;
-                @include QLD-space(padding, 1unit .75unit 1unit .75unit);
+                @include QLD-space(padding, 1unit .5unit 1unit .5unit);
             }
+
+            @include QLD-media(xl) {
+                @include QLD-space(padding, 1unit .625unit 1unit .625unit);
+            }
+
             &--open{
                 background-color: var(--QLD-color-light-background);
                 color: var(--QLD-color-light-link);
@@ -532,4 +546,3 @@
         }
     }
 }
-
