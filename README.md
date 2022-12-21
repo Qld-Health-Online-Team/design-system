@@ -1,12 +1,10 @@
-# Queensland Design System
-## This is a [stage] version and is not production ready
+# Queensland Health Design System
+## This is a alpha version and is not production ready
 
 If you are using assets from this Repo, please send an email to [development team email] so we can add you to our change management communications list
 (see example here: GitHub - qld-gov-au/qg-web-template: https://qld-gov-au.github.io/qg-web-template/?path=/docs/welcome--page)
 
-An attached MIT (basic) licence with “THIS REPOSITORY (SOFTWARE) IS PROVIDED AS IS WITHOUT WARRANTY” - not currently used but I think we should move towards having appropriate license files
-
-
+An attached MIT (basic) licence with “THIS REPOSITORY (SOFTWARE) IS PROVIDED AS IS WITHOUT WARRANTY”
 
 This boilerplate is the frontend starting point for design cutups and front end component development for the Queensland Design System.
 
