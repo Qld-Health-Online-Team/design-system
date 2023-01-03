@@ -686,7 +686,6 @@
             text-decoration-color: var(--QLD-color-light-hover-visited-underline);
         }
 
-        //Global button underline
         &.qld__btn {
             text-decoration: none;
 
@@ -694,7 +693,6 @@
                 text-decoration: underline;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-
             }
 
             &:active {
@@ -729,14 +727,24 @@
             }
         }
 
-        &.qld__cta-link &.qld__cta-link--view-all {
+        &.qld__cta-link.qld__cta-link--view-all {
             text-decoration: underline;
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-light-underline);
+            text-decoration-color: currentColor;
+
+            &:visited {
+                text-decoration-color: currentColor;
+            }
+
+            &:hover {
+                text-decoration-color: currentColor;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
         }
 
-        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs){
+
+        &:not(.qld__side-nav a):not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all){
             color: var(--QLD-color-light-link);
             &:hover {
                 color: var(--QLD-color-light-link);
@@ -750,6 +758,7 @@
                 color: var(--QLD-color-light-link__visited);
             }
         }
+
     }
 
     @else if $colorScheme=='dark' {
@@ -776,7 +785,6 @@
             text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
         }
 
-        //Global button underline
         &.qld__btn {
             text-decoration: none;
 
@@ -817,15 +825,25 @@
             }   
         }
 
-        &.qld__cta-link &.qld__cta-link--view-all {
+        &.qld__cta-link.qld__cta-link--view-all {
             text-decoration: underline;
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-dark-underline);
+            text-decoration-color: currentColor;
             text-underline-offset: var(--QLD-underline__offset);
+            
+            &:visited {
+                text-decoration-color: currentColor;
+            }
+
+            &:hover {
+                text-decoration-color: currentColor;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+
         }
 
-        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs){
+        &:not(.qld__side-nav a):not(.qld__btn):not(.navigation):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all){
             color: var(--QLD-color-dark-link);
             &:hover {
                 color: var(--QLD-color-dark-link);
@@ -841,7 +859,6 @@
         }
     }
 
-    // Gets included regardless of the body's dark or light conditions.
     &.qld__direction-link {
         text-decoration: underline;
         text-decoration-thickness: var(--QLD-underline__thickness-thin);
@@ -870,129 +887,85 @@
             .qld__card--clickable__link {
                 text-decoration: underline;
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                text-decoration-color: var(--QLD-color-light-underline);
+                text-decoration-color: currentColor;
                 text-underline-offset: var(--QLD-underline__offset);
-                color: var(--QLD-color-light-link);//amir
-
                 &:hover {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: var(--QLD-color-light-hover-underline);
-                    color: var(--QLD-color-light-link);
+                    text-decoration-color: currentColor;
                 }
 
                 &:visited {
-                    text-decoration-color: var(--QLD-color-light-visited-underline);
-                    color: var(--QLD-color-light-link__visited);
+                    text-decoration-color: currentColor;
                 }
 
                 &:hover:visited {
-                    text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-color: currentColor;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    color: var(--QLD-color-light-link__visited);
-                    
                 }
 
                 &.qld__card__footer-link {
                     text-decoration: none;
-                    text-decoration-color: var(--QLD-color-light-hover-underline);
-                    color: var(--QLD-color-light-link); //amir
+                    text-decoration-color: currentColor;
                     text-underline-offset: var(--QLD-underline__offset);
                     span {
                         text-decoration: underline;
-                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                        text-decoration-color: currentColor;
                         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                        color: var(--QLD-color-light-link);
                     }
 
                     &:visited {
                         span {
-                            text-decoration-color: var(--QLD-color-light-visited-underline);
-                            color: var(--QLD-color-light-link__visited);
+                            text-decoration-color: currentColor;
                         }
                     }
 
                     &:hover:visited {
                         span {
-                            text-decoration-color: var(--QLD-color-light-hover-visited-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                            color: var(--QLD-color-light-link__visited);
                         }
                     }
 
                     &:hover {
                         span {
                             text-decoration: underline;
-                            text-decoration-color: var(--QLD-color-light-hover-underline);
+                            text-decoration-color: currentColor;
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                            color: var(--QLD-color-light-link);
                         }
                     }
                 }
             }
-
-            // &.qld__card--alt {
-            //     //Keep empty since it follows the light style - use to override the light.
-            // }
 
             &.qld__card--dark,
             &.qld__card--dark-alt {
                 .qld__card--clickable__link {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                    text-decoration-color: var(--QLD-color-dark-underline);
-                    color: var(--QLD-color-dark-link); //amir
+                    text-decoration-color: currentColor;
 
                     &:hover {
                         text-decoration: underline;
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        text-decoration-color: var(--QLD-color-dark-hover-underline);
-                        color: var(--QLD-color-dark-link);
-                    }
-
-                    &:visited {
-                        text-decoration-color: var(--QLD-color-dark-visited-underline);
-                        color: var(--QLD-color-dark-link);
-                    }
-
-                    &:hover:visited {
-                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                        color: var(--QLD-color-dark-hover-visited-underline);
                     }
 
                     &.qld__card__footer-link {
                         text-decoration: none;
-                        text-decoration-color: var(--QLD-color-dark-hover-underline);
-                        color: var(--QLD-color-dark-link);
 
                         span {
                             text-decoration: underline;
-                            text-decoration-color: var(--QLD-color-dark-hover-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                            color: var(--QLD-color-dark-link);
-                        }
-
-                        &:visited {
-                            span {
-                                text-decoration-color: var(--QLD-color-dark-visited-underline);
-                                color: var(--QLD-color-dark-link);
-                            }
                         }
 
                         &:hover:visited {
                             span {
-                                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                color: var(--QLD-color-dark-hover-visited-underline);
                             }
                         }
 
                         &:hover {
                             span {
                                 text-decoration: underline;
-                                text-decoration-color: var(--QLD-color-dark-hover-underline);
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                color: var(--QLD-color-dark-link);
                             }
                         }
                     }
@@ -1096,9 +1069,15 @@
                 }
 
                 .qld__search-pagination__list {
+
+                    .active {
+                        a {
+                            text-decoration: none;
+                            color: var(--QLD-color-light-heading);
+                        }
+                    }
                     a {
-                        text-decoration: none;
-        
+                        text-decoration: none;        
                         &:hover {
                             text-decoration: none;
                         }
@@ -1107,9 +1086,14 @@
             }
 
             .qld__search-pagination__list {
+                .active {
+                    a {
+                        text-decoration: none;
+                        color: var(--QLD-color-light-button__text);
+                    }
+                }
                 a {
-                    text-decoration: none;
-    
+                    text-decoration: none;                    
                     &:hover {
                         text-decoration: none;
                     }
@@ -1134,7 +1118,6 @@
             .qld__search-pagination__list {
                 a {
                     text-decoration: none;
-    
                     &:hover {
                         text-decoration: none;
                     }
@@ -1144,7 +1127,6 @@
 
         .qld__breadcrumbs {
             a {
-                //light breadcrumbs. default link colours cover these  
                  color: var(--QLD-color-light-link);
                  text-underline-offset: var(--QLD-underline__offset);
                  text-decoration-thickness: var(--QLD-underline__thickness-thin);
@@ -1157,13 +1139,13 @@
 
                 &:visited {
                     text-decoration-color: var(--QLD-color-light-visited-underline);
-                    color: var(--QLD-color-light-link__visited);
+                    color: var(--QLD-color-light-link__visited) !important;
                 }
 
                 &:hover:visited {
                     text-decoration-color: var(--QLD-color-light-hover-visited-underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    color: var(--QLD-color-light-link__visited);
+                    color: var(--QLD-color-light-link__visited) !important;;
                 }
             }
 
@@ -1180,13 +1162,13 @@
 
                     &:visited {
                         text-decoration-color: var(--QLD-color-dark-visited-underline);
-                        color: var(--QLD-color-dark-link);
+                        color: var(--QLD-color-dark-link) !important;;
                     }
 
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        color: var(--QLD-color-dark-hover-visited-underline);
+                        color: var(--QLD-color-dark-hover-visited-underline) !important;;
                     }
                 }
             }
@@ -1199,8 +1181,6 @@
 
                 a.qld__btn {
                     &.qld__btn--secondary {
-                        //banner intermediate in the design system is an example of this situation
-
                         &:hover {
                             text-decoration-color: var(--QLD-color-dark-hover-underline);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -1219,14 +1199,6 @@
 
                     &:hover {
                         text-decoration-color: var(--QLD-color-dark-hover-underline);
-                    }
-
-                    &:visited {
-                        text-decoration-color: var(--QLD-color-dark-visited-underline);
-                    }
-
-                    &:hover:visited {
-                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                     }
 
                     &.qld__btn.qld__btn--secondary {
@@ -1265,6 +1237,15 @@
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-color: currentColor;
+                }
+
+                &:visited {
+                    text-decoration-color: currentColor;
+                }
+
+                &:hover:visited {
+                    text-decoration-color: currentColor;
                 }
             }
         }
