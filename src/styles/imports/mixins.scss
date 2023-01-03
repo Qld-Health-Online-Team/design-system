@@ -1082,6 +1082,32 @@
                         }
                     }
                 }
+
+                .qld__breadcrumbs {
+    
+                        a {
+                            color: var(--QLD-color-dark-link);
+                            text-decoration-color: var(--QLD-color-dark-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                            &:hover {
+                                text-decoration-color: var(--QLD-color-dark-hover-underline);
+                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                                color: var(--QLD-color-dark-link);
+                            }
+        
+                            &:visited {
+                                text-decoration-color: var(--QLD-color-dark-visited-underline);
+                                color: var(--QLD-color-dark-link) !important;;
+                            }
+        
+                            &:hover:visited {
+                                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                                color: var(--QLD-color-dark-hover-visited-underline) !important;;
+                            }
+                        }
+                    
+                }
             }
 
             .qld__search-pagination__list {
