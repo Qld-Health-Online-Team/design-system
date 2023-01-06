@@ -941,8 +941,9 @@
             &.qld__card--dark-alt {
                 .qld__card--clickable__link {
                     text-decoration: underline !important;
-                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin) !important;
                     text-decoration-color: currentColor;
+                    text-underline-offset: var(--QLD-underline__offset);
 
                     &:hover {
                         text-decoration: underline;
@@ -950,7 +951,7 @@
                     }
 
                     &.qld__card__footer-link {
-                        text-decoration: none;
+                        text-decoration: none !important;
 
                         span {
                             text-decoration: underline;
