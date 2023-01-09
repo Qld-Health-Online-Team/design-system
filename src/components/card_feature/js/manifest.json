@@ -9,7 +9,7 @@
                 "body_background": {
                     "type": "metadata_field_select",
                     "description": "",
-                    "friendly_name": "Body Background",
+                    "friendly_name": "Background colour",
                     "value": "qld__body--light",
                     "options": {
                         "qld__body--light": "Light",
@@ -23,7 +23,7 @@
                 "body_background_type": {
                     "type": "metadata_field_select",
                     "description": "",
-                    "friendly_name": "Body Background Type",
+                    "friendly_name": "Background Type",
                     "value": "qld__card--wrapper-bg-image",
                     "options": {
                         "qld__card--wrapper-bg-image": "Image",
@@ -124,11 +124,12 @@
                 "card_image_right": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Card image right?",
+					"friendly_name": "Image/Icon alignment",
 					"value": "true",
 					"options": {
-						"true": "Yes",
-						"false": "No"
+						"right": "Right",
+						"left": "Left",
+                        "top": "Top"
 					},
 					"required": false,
 					"editable": true
@@ -136,12 +137,12 @@
                 "show_icon_image": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Show card icon or image?",
+					"friendly_name": "Feature card type",
 					"value": "image",
 					"options": {
 						"icon": "Icon",
 						"image": "Image",
-                        "none": "None"
+                        "text": "Text"
 					},
 					"required": false,
 					"editable": true
@@ -149,10 +150,19 @@
                 "card_icon": {
                     "type": "metadata_field_text",
                     "description": "",
-                    "friendly_name": "Footer link name",
+                    "friendly_name": "Card Icon",
                     "value": "fa-light fa-atom",
                     "required": false,
-                    "editable": true
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_icon_image",
+                            "operator": "equals",
+                            "value": "icon"
+                        }]
+                    }
                 },
                 "card_image": {
                     "type": "metadata_field_related_asset",
@@ -160,7 +170,16 @@
                     "friendly_name": "Card Image",
                     "value": "/mysource_files/img/card--brand.png",
                     "required": false,
-                    "editable": true
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_icon_image",
+                            "operator": "equals",
+                            "value": "image"
+                        }]
+                    }
                 },
                 "card_title": {
                     "type": "metadata_field_text",
@@ -189,7 +208,7 @@
                 "show_card_footer": {
 					"type": "metadata_field_select",
 					"description": "",
-					"friendly_name": "Show card footer?",
+					"friendly_name": "Show card links?",
 					"value": "true",
 					"options": {
 						"true": "Yes",
@@ -204,7 +223,16 @@
                     "type": "metadata_field_related_asset",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta1_text": {
                     "value": "test link",
@@ -212,7 +240,16 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta1_icon": {
                     "value": "fal fa-pencil-ruler",
@@ -220,7 +257,16 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta2_url": {
                     "value": "#",
@@ -228,7 +274,16 @@
                     "type": "metadata_field_related_asset",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta2_text": {
                     "value": "test link",
@@ -236,7 +291,16 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta2_icon": {
                     "value": "fal fa-pencil-ruler",
@@ -244,7 +308,16 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta3_url": {
                     "value": "#",
@@ -252,7 +325,16 @@
                     "type": "metadata_field_related_asset",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta3_text": {
                     "value": "test link",
@@ -260,7 +342,16 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
+                    "use_default": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "card_cta3_icon": {
                     "value": "fal fa-pencil-ruler",
@@ -276,27 +367,22 @@
                     "friendly_name": "Footer link name",
                     "value": "All cards",
                     "required": false,
-                    "editable": true
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "show_card_footer",
+                            "operator": "equals",
+                            "value": "true"
+                        }]
+                    }
                 },
                 "all_link": {
                     "type": "metadata_field_related_asset",
                     "description": "",
                     "friendly_name": "Footer link",
                     "value": "#",
-                    "required": false,
-                    "editable": true
-                },
-                "col_width": {
-                    "type": "metadata_field_select",
-                    "description": "",
-                    "friendly_name": "Number of columns",
-                    "value": "col-xs-12",
-                    "options": {
-                        "col-xs-12": "One",
-                        "col-lg-6": "Two",
-                        "col-lg-4": "Three",
-                        "col-lg-3": "Four"
-                    },
                     "required": false,
                     "editable": true
                 },
@@ -529,18 +615,6 @@
                     "default_value": false,
                     "use_default": true
                 },
-                "cardIconImage": {
-					"type": "metadata_field_select",
-					"description": "",
-					"friendly_name": "Show card icon or image?",
-					"value": "icon",
-					"options": {
-						"icon": "Icon",
-						"image": "Image"
-					},
-					"required": false,
-					"editable": true
-				},
                 "cardIcon": {
                     "value": "fal fa-question-circle",
                     "fieldid": "22274",
