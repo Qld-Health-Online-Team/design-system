@@ -125,7 +125,7 @@
 					"type": "metadata_field_select",
 					"description": "",
 					"friendly_name": "Image/Icon alignment",
-					"value": "true",
+					"value": "right",
 					"options": {
 						"right": "Right",
 						"left": "Left",
@@ -359,15 +359,7 @@
                     "type": "metadata_field_text",
                     "is_contextable": true,
                     "default_value": false,
-                    "use_default": true
-                },
-                "all_link_name": {
-                    "type": "metadata_field_text",
-                    "description": "",
-                    "friendly_name": "Footer link name",
-                    "value": "All cards",
-                    "required": false,
-                    "editable": true,
+                    "use_default": true,
                     "display_if": {
                         "show": true,
                         "operator": "AND",
@@ -377,6 +369,14 @@
                             "value": "true"
                         }]
                     }
+                },
+                "all_link_name": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Footer link name",
+                    "value": "All cards",
+                    "required": false,
+                    "editable": true
                 },
                 "all_link": {
                     "type": "metadata_field_related_asset",
