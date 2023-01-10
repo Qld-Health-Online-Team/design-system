@@ -715,7 +715,7 @@
 
             &.qld__btn--tertiary {
                 text-decoration: underline;
-
+                text-decoration-color: var(--QLD-color-light-underline);
                 &:hover, &:focus {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -731,20 +731,40 @@
         &.qld__cta-link.qld__cta-link--view-all {
             text-decoration: underline;
             text-decoration-line: solid;
+            color: var(--QLD-color-light-link) !important;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: currentColor;
+            text-decoration-color: var(--QLD-color-light-underline) !important;
 
             &:visited {
-                text-decoration-color: currentColor;
+                // text-decoration-color: currentColor;
             }
 
             &:hover {
-                text-decoration-color: currentColor;
+                text-decoration-color: var(--QLD-color-light-hover-underline) !important;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
 
-        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__side-nav a){
+        &.qld__cta-link {
+            color: var(--QLD-color-light-link) !important;
+            text-decoration-color: var(--QLD-color-light-underline) !important;
+
+            &:visited {
+                color: var(--QLD-color-light-link__visited) !important;
+                text-decoration-color: var(--QLD-color-light-visited-underline) !important;
+            }
+
+            &:hover {
+                text-decoration-color: var(--QLD-color-light-hover-underline) !important;
+            }
+
+            &:hover:visited {
+                color: var(--QLD-color-light-link__visited) !important;
+                text-decoration-color: var(--QLD-color-light-hover-visited-underline) !important;
+            }
+        }
+
+        &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__sidenav__link){
             color: var(--QLD-color-light-link);
             &:hover {
                 color: var(--QLD-color-light-link);
@@ -758,7 +778,7 @@
                 color: var(--QLD-color-light-link__visited);
             }
         }
-
+        
     }
 
     @else if $colorScheme=='dark' {
@@ -813,7 +833,7 @@
 
             &.qld__btn--tertiary {
                 text-decoration: underline;
-
+                text-decoration-color: var(--QLD-color-dark-underline);
                 &:hover, &:focus {
                     text-decoration: underline;
                     text-decoration-color: var(--QLD-color-dark-hover-underline);
@@ -830,21 +850,37 @@
             text-decoration: underline;
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: currentColor;
+            color: var(--QLD-color-dark-link) !important;
+            text-decoration-color: var(--QLD-color-dark-underline)!important;
             text-underline-offset: var(--QLD-underline__offset);
-            
+
+            &:hover {
+                text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+        }
+
+
+        &.qld__cta-link {
+            color: var(--QLD-color-dark-link) !important;
+            text-decoration-color: var(--QLD-color-dark-underline)!important;
+
             &:visited {
-                text-decoration-color: currentColor;
+                color: var(--QLD-color-dark-link__visited) !important;
+                text-decoration-color: var(--QLD-color-dark-visited-underline)!important;
             }
 
             &:hover {
-                text-decoration-color: currentColor;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
             }
 
+            &:hover:visited {
+                color: var(--QLD-color-dark-link__visited)!important;
+                text-decoration-color: var(--QLD-color-dark-hover-visited-underline)!important;
+            }
         }
 
-        &:not(.qld__btn):not(.navigation):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__side-nav a){
+        &:not(.qld__btn):not(.navigation):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__sidenav__link){
             color: var(--QLD-color-dark-link);
             &:hover {
                 color: var(--QLD-color-dark-link);
@@ -858,6 +894,7 @@
                 color: var(--QLD-color-dark-hover-visited-underline);
             }
         }
+
     }
 
     &.qld__direction-link {
@@ -888,41 +925,42 @@
             .qld__card--clickable__link {
                 text-decoration: underline;
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                text-decoration-color: currentColor;
+                text-decoration-color: var(--QLD-color-light-underline);
                 text-underline-offset: var(--QLD-underline__offset);
                 &:hover {
                     text-decoration: underline;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-light-hover-underline) !important;
                 }
 
                 &:visited {
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-light-underline) !important;
                 }
 
                 &:hover:visited {
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-light-hover-underline) !important;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
 
                 &.qld__card__footer-link {
                     text-decoration: none;
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-light-underline) !important;
                     text-underline-offset: var(--QLD-underline__offset);
                     span {
                         text-decoration: underline !important;
-                        text-decoration-color: currentColor;
+                        text-decoration-color: var(--QLD-color-light-underline) !important;
                         text-decoration-thickness: var(--QLD-underline__thickness-thin);
                     }
 
                     &:visited {
                         span {
-                            text-decoration-color: currentColor;
+                            text-decoration-color: var(--QLD-color-light-underline) !important;
                         }
                     }
 
                     &:hover:visited {
                         span {
+                            text-decoration-color: var(--QLD-color-light-hover-underline) !important;
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
                         }
                     }
@@ -930,7 +968,7 @@
                     &:hover {
                         span {
                             text-decoration: underline;
-                            text-decoration-color: currentColor;
+                            text-decoration-color: var(--QLD-color-light-hover-underline) !important;
                             text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
                         }
                     }
@@ -942,25 +980,28 @@
                 .qld__card--clickable__link {
                     text-decoration: underline !important;
                     text-decoration-thickness: var(--QLD-underline__thickness-thin) !important;
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-dark-underline) !important;
                     text-underline-offset: var(--QLD-underline__offset);
 
                     &:hover {
                         text-decoration: underline;
                         text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
+                        text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
                     }
 
                     &.qld__card__footer-link {
                         text-decoration: none !important;
-
+                        text-decoration-color: var(--QLD-color-dark-underline) !important;
                         span {
                             text-decoration: underline;
                             text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                            text-decoration-color: var(--QLD-color-dark-underline) !important;
                         }
 
                         &:hover:visited {
                             span {
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                                text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
                             }
                         }
 
@@ -968,6 +1009,7 @@
                             span {
                                 text-decoration: underline;
                                 text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
+                                text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
                             }
                         }
                     }
@@ -1028,7 +1070,7 @@
 
                 &.qld__btn--tertiary {
                     text-decoration: underline;
-
+                    text-decoration-color: var(--QLD-color-light-underline);
                     &:hover {
                         text-decoration: underline;
                         text-decoration-color: var(--QLD-color-light-button__text);
@@ -1061,7 +1103,7 @@
     
                     &.qld__btn--tertiary {
                         text-decoration: underline;
-    
+                        text-decoration-color: var(--QLD-color-dark-underline);
                         &:hover {
                             text-decoration: underline;
                             text-decoration-color: var(--QLD-color-dark-button__text);
@@ -1158,6 +1200,7 @@
                  color: var(--QLD-color-light-link);
                  text-underline-offset: var(--QLD-underline__offset);
                  text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                 text-decoration-color: var(--QLD-color-light-underline);
 
                  &:hover {
                     text-decoration-color: var(--QLD-color-light-hover-underline);
@@ -1190,20 +1233,19 @@
 
                     &:visited {
                         text-decoration-color: var(--QLD-color-dark-visited-underline);
-                        color: var(--QLD-color-dark-link) !important;;
+                        color: var(--QLD-color-dark-link__visited) !important;
                     }
 
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        color: var(--QLD-color-dark-hover-visited-underline) !important;;
+                        color: var(--QLD-color-dark-link__visited) !important;
                     }
                 }
             }
         }
 
         .qld__banner {
-
             &.qld__banner--dark,
             &.qld__banner--dark-alt {
 
@@ -1268,6 +1310,7 @@
                     text-decoration: underline;
                     text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
                     text-decoration-color: currentColor;
                 }
 
@@ -1290,7 +1333,7 @@
                     text-decoration: underline;
                     text-decoration-line: solid;
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: var(--QLD-color-light-underline);
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
                     text-underline-offset: var(--QLD-underline__offset);
                 }
             }
@@ -1302,7 +1345,7 @@
                         text-decoration: underline;
                         text-decoration-line: solid;
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        text-decoration-color: var(--QLD-color-dark-underline);
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
                         text-underline-offset: var(--QLD-underline__offset);
                     }
                 }
@@ -1318,6 +1361,7 @@
 
             &:hover {
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                text-decoration-color: var(--QLD-color-light-hover-underline);
             }
         }
 
@@ -1330,6 +1374,7 @@
 
             &:hover {
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                text-decoration-color: var(--QLD-color-light-hover-underline);
             }
         }
 
@@ -1343,6 +1388,7 @@
     
                 &:hover {
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    text-decoration-color: var(--QLD-color-dark-hover-underline);
                 }
             }
         }
@@ -1358,6 +1404,7 @@
     
                 &:hover {
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    text-decoration-color: var(--QLD-color-dark-hover-underline);
                 }
             }
         }
