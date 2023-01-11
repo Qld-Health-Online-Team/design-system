@@ -1155,11 +1155,17 @@
                 }
 
                 .qld__search-pagination__list {
-
                     .active {
                         a {
                             text-decoration: none;
                             color: var(--QLD-color-light-heading) !important;
+                        }
+                    }
+                    .next {
+                        a {
+                            &:hover {
+                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            }
                         }
                     }
                     a {
@@ -1200,6 +1206,13 @@
                         color: var(--QLD-color-light-button__text) !important;
                     }
                 }
+                .next {
+                    a {
+                    &:hover {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
+                    }
+                }
                 a {
                     text-decoration: none;                    
                     &:hover {
@@ -1228,6 +1241,13 @@
                     text-decoration: none;
                     &:hover {
                         text-decoration: none;
+                    }
+                }
+                .next {
+                    a {
+                    &:hover {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        }
                     }
                 }
             }
