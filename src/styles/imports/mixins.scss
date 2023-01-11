@@ -728,28 +728,7 @@
             }
         }
 
-        &.qld__cta-link.qld__cta-link--view-all {
-            text-decoration: underline;
-            text-decoration-line: solid;
-            color: var(--QLD-color-light-link) !important;
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-light-underline) !important;
-
-            &:visited {
-                text-decoration-color: var(--QLD-color-light-underline) !important;
-            }
-
-            &:hover:visited {
-                text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-            }
-
-            &:hover {
-                text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            }
-        }
-
-        &.qld__cta-link {
+        &.qld__cta-link:not(.qld__cta-link--view-all) {
             color: var(--QLD-color-light-link) !important;
             text-decoration-color: var(--QLD-color-light-underline) !important;
 
@@ -850,30 +829,7 @@
             }   
         }
 
-        &.qld__cta-link.qld__cta-link--view-all {
-            text-decoration: underline;
-            text-decoration-line: solid;
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            color: var(--QLD-color-dark-link) !important;
-            text-decoration-color: var(--QLD-color-dark-underline)!important;
-            text-underline-offset: var(--QLD-underline__offset);
-
-            &:visited {
-                text-decoration-color: var(--QLD-color-dark-underline)!important;
-            }
-
-            &:hover:visited {
-                text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
-            }
-
-            &:hover {
-                text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            }
-        }
-
-
-        &.qld__cta-link {
+        &.qld__cta-link:not(.qld__cta-link--view-all) {
             color: var(--QLD-color-dark-link) !important;
             text-decoration-color: var(--QLD-color-dark-underline)!important;
 
@@ -1028,6 +984,7 @@
                     &:hover, &:hover:visited, &:visited {
                         text-decoration-color: var(--QLD-color-dark-button__text);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        color: currentColor;
                     }
                 }
             }
@@ -1041,8 +998,8 @@
                         &:hover, &:hover:visited, &:visited {
                             text-decoration-color: var(--QLD-color-light-button__text);
                             text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            color: currentColor;
                         }
-                        
                     }
                 }
             }
@@ -1066,6 +1023,28 @@
                     }
                     &:hover:visited {
                         text-decoration-color: var(--QLD-color-light-hover-underline);
+                    }
+                }
+
+                a.qld__cta-link.qld__cta-link--view-all {
+                    text-decoration: underline;
+                    text-decoration-line: solid;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    color: var(--QLD-color-light-link);
+                    text-decoration-color: var(--QLD-color-light-underline);
+                    text-underline-offset: var(--QLD-underline__offset);
+        
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-light-underline);
+                    }
+        
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                    }
+        
+                    &:hover {
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
                 }
             }
@@ -1102,6 +1081,29 @@
             }
 
             &.qld__body--dark, &.qld__body--dark-alt {
+
+                &.qld__cta-link.qld__cta-link--view-all {
+                    text-decoration: underline;
+                    text-decoration-line: solid;
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    color: var(--QLD-color-dark-link);
+                    text-decoration-color: var(--QLD-color-dark-underline);
+                    text-underline-offset: var(--QLD-underline__offset);
+        
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-dark-underline);
+                    }
+        
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+        
+                    &:hover {
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
+
                 .qld__direction-link {
                     text-decoration: underline;
                     text-decoration-color: var(--QLD-color-dark-underline);
@@ -1169,29 +1171,25 @@
                 }
 
                 .qld__breadcrumbs {
-    
-                        a {
+                    a {
+                        color: var(--QLD-color-dark-link);
+                        text-decoration-color: var(--QLD-color-dark-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                        &:hover {
+                            text-decoration-color: var(--QLD-color-dark-hover-underline);
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
                             color: var(--QLD-color-dark-link);
-                            text-decoration-color: var(--QLD-color-dark-underline);
-                            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-                            &:hover {
-                                text-decoration-color: var(--QLD-color-dark-hover-underline);
-                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                color: var(--QLD-color-dark-link);
-                            }
-        
-                            &:visited {
-                                text-decoration-color: var(--QLD-color-dark-visited-underline);
-                                color: var(--QLD-color-dark-link) !important;;
-                            }
-        
-                            &:hover:visited {
-                                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                                color: var(--QLD-color-dark-hover-visited-underline) !important;;
-                            }
                         }
-                    
+                        &:visited {
+                            text-decoration-color: var(--QLD-color-dark-visited-underline) !important;
+                            color: var(--QLD-color-dark-link__visited) !important;
+                        }
+                        &:hover:visited {
+                            text-decoration-color: var(--QLD-color-dark-hover-visited-underline) !important;
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                            color: var(--QLD-color-dark-link__visited) !important;
+                        }
+                    }
                 }
             }
 
@@ -1272,14 +1270,14 @@
                     }
 
                     &:visited {
-                        text-decoration-color: var(--QLD-color-dark-visited-underline);
+                        text-decoration-color: var(--QLD-color-dark-visited-underline) !important;
                         color: var(--QLD-color-dark-link__visited) !important;
                     }
 
                     &:hover:visited {
-                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline) !important;
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                        color: var(--QLD-color-dark-link__visited) !important;
+                        color: var(--QLD-color-dark-link__visited);
                     }
                 }
             }
@@ -1500,6 +1498,23 @@
                     text-decoration: none;
                 }
             }
+
+            &.qld__code-copy--button {
+                text-decoration: none;
+                &:hover,
+                &:focus {
+                    .qld__code-copy--button-text {
+                        text-decoration: underline;
+                        text-decoration-color: currentColor;
+                        text-underline-offset: var(--QLD-underline__offset);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
+                &:active {
+                    text-decoration: none;
+                } 
+            }
+
             &.qld__btn--search {
                 .qld__btn__text {
                     text-decoration: none;
@@ -1529,6 +1544,22 @@
                 text-decoration-color: currentColor;
                 text-underline-offset: var(--QLD-underline__offset);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+            &:active {
+                text-decoration: none;
+            } 
+        }
+
+        .qld__code-copy--button {
+            text-decoration: none;
+            &:hover,
+            &:focus {
+                .qld__code-copy--button-text {
+                    text-decoration: underline;
+                    text-decoration-color: currentColor;
+                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
             }
             &:active {
                 text-decoration: none;
