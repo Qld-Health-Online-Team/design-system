@@ -591,25 +591,45 @@
     
 
     <div role="tabpanel" id="cp-tab--body" aria-labelledby="cp-heading--body" class="qld__example__inline component_output qld__tab_panel" >
-        <div class="qld__tab">
-    <span>Hello, tab!</span>
-    <p>Example text</p>
-</div>
+        
+<section class="qld__body" id="tag-123">
+    <div class="container-fluid">
+        <div class="qld__tab-container qld__tab-container__fixed" id="tab-example-5">
+            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1"><i class="fa-regular fa-chevron-left"></i></button>
+            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1"><i class="fa-regular fa-chevron-right"></i></button>
+            <header class="qld__tabs" role="tablist">
+                        <button class="qld__tab-button" data-tab="tab0" aria-selected="true" aria-controls="tab0-content" tabindex="0" id="tab0-button"><span><i class="fa-solid fa-circle-exclamation"></i>Brand</span></button>
+            </header>
+                    <div data-tab="tab0" class="qld__tab-content" role="tabpanel" aria-labelledby="tab0-button" id="tab0-content" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        </div>
+    </div>
+</section>
+
     </div>
 
     <div role="tabpanel" id="cp-tab--html" aria-labelledby="cp-heading--html" class="qld__example__inline qld__tab_panel" hidden="hidden">
-        <pre class="qld__example__html"><code class="component_output">&lt;div class&#x3D;&quot;qld__tab&quot;&gt;
-    &lt;span&gt;Hello, tab!&lt;/span&gt;
-    &lt;p&gt;Example text&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+        <pre class="qld__example__html"><code class="component_output">
+&lt;section class&#x3D;&quot;qld__body&quot; id&#x3D;&quot;tag-123&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+        &lt;div class&#x3D;&quot;qld__tab-container qld__tab-container__fixed&quot; id&#x3D;&quot;tab-example-5&quot;&gt;
+            &lt;button class&#x3D;&quot;qld__tab-nav__item-scroll tab-overflow-nav-button-left&quot; aria-hidden&#x3D;&quot;true&quot; aria-label&#x3D;&quot;Scroll tab buttons left&quot; tabindex&#x3D;&quot;-1&quot;&gt;&lt;i class&#x3D;&quot;fa-regular fa-chevron-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;button class&#x3D;&quot;qld__tab-nav__item-scroll tab-overflow-nav-button-right&quot; aria-hidden&#x3D;&quot;true&quot; aria-label&#x3D;&quot;Scroll tab buttons right&quot; tabindex&#x3D;&quot;-1&quot;&gt;&lt;i class&#x3D;&quot;fa-regular fa-chevron-right&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;header class&#x3D;&quot;qld__tabs&quot; role&#x3D;&quot;tablist&quot;&gt;
+                        &lt;button class&#x3D;&quot;qld__tab-button&quot; data-tab&#x3D;&quot;tab0&quot; aria-selected&#x3D;&quot;true&quot; aria-controls&#x3D;&quot;tab0-content&quot; tabindex&#x3D;&quot;0&quot; id&#x3D;&quot;tab0-button&quot;&gt;&lt;span&gt;&lt;i class&#x3D;&quot;fa-solid fa-circle-exclamation&quot;&gt;&lt;/i&gt;Brand&lt;/span&gt;&lt;/button&gt;
+            &lt;/header&gt;
+                    &lt;div data-tab&#x3D;&quot;tab0&quot; class&#x3D;&quot;qld__tab-content&quot; role&#x3D;&quot;tabpanel&quot; aria-labelledby&#x3D;&quot;tab0-button&quot; id&#x3D;&quot;tab0-content&quot; tabindex&#x3D;&quot;0&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
     </div>
 </div>
 
 
 <div class="qld__model_editor">
     <script>
-        const componentModel = {"component":{"name":"tab","description":"","version":"1.0","status":"In Development","data":{"assetid":"tab-123","metadata":{"field1":{"type":"metadata_field_text","description":"A text field","friendly_name":"Field 1","value":"Example text","required":false,"editable":true},"root_node":{"type":"metadata_field_related_asset","description":"","friendly_name":"Parent asset (populates 'children' and 'childrenThumbnails')","value":"123","required":false,"editable":true},"asset_select":{"type":"metadata_field_related_asset","description":"","friendly_name":"Assets to link to (populates 'assets')","value":"1; 2; 3","required":false,"editable":true}}},"children":[],"childrenThumbnails":[],"assets":[]}};
-        const component = 'export default "data:text/x-handlebars-template;charset=utf-8;base64,PGRpdiBjbGFzcz0icWxkX190YWIiPgogICAgPHNwYW4+SGVsbG8sIHRhYiE8L3NwYW4+CiAgICA8cD57e2NvbXBvbmVudC5kYXRhLm1ldGFkYXRhLmZpZWxkMS52YWx1ZX19PC9wPgo8L2Rpdj4="';
+        const componentModel = {"component":{"name":"tab","description":"","version":"1.0","status":"In Development","data":{"assetid":"123","metadata":{"theme":{"type":"metadata_field_select","description":"","friendly_name":"Theme","value":"","options":{"":"Default","alt":"Alternate","dark":"Dark","dark-alt":"Alternate Dark"},"required":false,"editable":true},"tab_display":{"type":"metadata_field_select","description":"","friendly_name":"Tab Display","value":"","options":{"fixed":"Fixed width","full":"Full width"},"required":false,"editable":true},"tab_type":{"type":"metadata_field_select","description":"","friendly_name":"Tab Type","value":"wysiwyg","options":{"wysiwyg":"WYSIWYG","asset":"Asset"},"required":false,"editable":true},"tab_num":{"type":"metadata_field_select","description":"","friendly_name":"Number of tabs","value":"1","options":{"1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8"},"required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_1":{"type":"metadata_field_text","description":"","fieldid":"title_1","friendly_name":"Tab 1 - Title","value":"Title","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"1"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_1":{"type":"metadata_field_text","description":"","fieldid":"icon_1","friendly_name":"Tab 1 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"1"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_1":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_1","friendly_name":"Tab 1 - Content","value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"1"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_2":{"type":"metadata_field_text","description":"","fieldid":"title_2","friendly_name":"Tab 2 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"2"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_2":{"type":"metadata_field_text","description":"","fieldid":"icon_2","friendly_name":"Tab 2 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"2"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_2":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_2","friendly_name":"Tab 2 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"2"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_3":{"type":"metadata_field_text","description":"","fieldid":"title_3","friendly_name":"Tab 3 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"3"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_3":{"type":"metadata_field_text","description":"","fieldid":"icon_3","friendly_name":"Tab 3 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"3"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_3":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_3","friendly_name":"Tab 3 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"3"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_4":{"type":"metadata_field_text","description":"","fieldid":"title_4","friendly_name":"Tab 4 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"4"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_4":{"type":"metadata_field_text","description":"","fieldid":"icon_4","friendly_name":"Tab 4 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"4"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_4":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_4","friendly_name":"Tab 4 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"4"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_5":{"type":"metadata_field_text","description":"","fieldid":"title_5","friendly_name":"Tab 5 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"5"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_5":{"type":"metadata_field_text","description":"","fieldid":"icon_5","friendly_name":"Tab 5 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"5"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_5":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_5","friendly_name":"Tab 5 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"5"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_6":{"type":"metadata_field_text","description":"","fieldid":"title_6","friendly_name":"Tab 6 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"6"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_6":{"type":"metadata_field_text","description":"","fieldid":"icon_6","friendly_name":"Tab 6 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"6"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_6":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_6","friendly_name":"Tab 6 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"6"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_7":{"type":"metadata_field_text","description":"","fieldid":"title_7","friendly_name":"Tab 7 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"7"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_7":{"type":"metadata_field_text","description":"","fieldid":"icon_7","friendly_name":"Tab 7 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"7"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_7":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_7","friendly_name":"Tab 7 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"7"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"title_8":{"type":"metadata_field_text","description":"","fieldid":"title_8","friendly_name":"Tab 8 - Title","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"8"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"icon_8":{"type":"metadata_field_text","description":"","fieldid":"icon_8","friendly_name":"Tab 8 - Icon","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"8"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"content_8":{"type":"metadata_field_wysiwyg","description":"","fieldid":"content_8","friendly_name":"Tab 8 - Content","value":"","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_num","operator":"greater_than","value":"8"},{"field":"tab_type","operator":"equals","value":"wyysiwyg"}]}},"root_node":{"type":"metadata_field_related_asset","description":"","friendly_name":"Asset","value":"1","required":false,"editable":true,"display_if":{"show":true,"operator":"AND","rules":[{"field":"tab_type","operator":"equals","value":"asset"}]}},"id_field":{"type":"metadata_field_text","description":"","friendly_name":"Id field","value":"","required":false,"editable":true}}},"children":[{"assetid":"22724","type_code":"page_redirect","version":"0.0.1","name":"Brand","short_name":"Brand","status":"2","languages":"en","charset":"utf-8","created":"2021-07-19 10:06:21","created_userid":"312","updated":"2021-07-19 10:16:04","updated_userid":"312","published":"Never","published_userid":"","status_changed":"2021-07-19 10:06:21","status_changed_userid":"312","thumbnail":"/mysource_files/img/card--content.png","attributes":{"short_name":{"attrid":"2069","type":"text","value":"Brand","is_contextable":true,"use_default":true},"new_window_options":{"attrid":"2075","type":"selection","value":"","is_contextable":false,"use_default":true},"new_window_width":{"attrid":"2076","type":"int","value":"0","is_contextable":false,"use_default":true},"new_window_height":{"attrid":"2077","type":"int","value":"0","is_contextable":false,"use_default":true},"append_querystring":{"attrid":"2078","type":"boolean","value":false,"is_contextable":false,"use_default":true},"use_querystring_parameter":{"attrid":"2079","type":"text","value":"","is_contextable":false,"use_default":true},"session_variables":{"attrid":"2080","type":"parameter_map","value":[],"is_contextable":false,"use_default":true},"session_vars":{"attrid":"2081","type":"option_list","value":"","is_contextable":false,"use_default":true},"name":{"attrid":"2068","type":"text","value":"Brand","is_contextable":true,"use_default":true},"permanent_redirect":{"attrid":"2070","type":"boolean","value":false,"is_contextable":false,"use_default":true},"redirect_url":{"attrid":"2071","type":"text","value":"","is_contextable":false,"use_default":true},"url_suffix":{"attrid":"2072","type":"text","value":"","is_contextable":false,"use_default":true},"timeout":{"attrid":"2073","type":"float","value":0,"is_contextable":false,"use_default":true},"new_window":{"attrid":"2074","type":"boolean","value":true,"is_contextable":false,"use_default":true}},"metadata":{"component":{"value":"","fieldid":"22303","type":"metadata_field_related_asset","is_contextable":true,"default_value":true,"use_default":true},"description":{"value":"","fieldid":"22261","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"redirect_url":{"value":"#","fieldid":"22361","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"shortDescription":{"value":"Additional text about the card","fieldid":"22262","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"pageType":{"value":"content","fieldid":"22264","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"displayBreadcrumbs":{"value":"true","fieldid":"22265","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"displayQuickExit":{"value":"","fieldid":"22266","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"displayLastUpdated":{"value":"yes","fieldid":"22267","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"dataSource":{"value":"","fieldid":"22269","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"detailsPage":{"value":"","fieldid":"22270","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"mapMarker":{"value":"","fieldid":"22271","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"bookOnlineUrl":{"value":"","fieldid":"22272","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardIcon":{"value":"fal fa-question-circle","fieldid":"22274","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardCta1TileIcon":{"value":"","fieldid":"22277","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardCta1TileText":{"value":"Footer CTA","fieldid":"22278","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardCta1TileBackground":{"value":"","fieldid":"22279","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"cardCta1TileURL":{"value":"","fieldid":"22280","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"cardCta2TileIcon":{"value":"","fieldid":"22281","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardCta2TileText":{"value":"Footer CTA","fieldid":"22282","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"cardCta2TileBackground":{"value":"","fieldid":"22283","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"cardCta2TileURL":{"value":"","fieldid":"22284","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"cardDisplayFooter":{"value":"true","fieldid":"22285","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"cardNewWindow":{"value":"true","fieldid":"22286","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"tabIcon":{"value":"fa-solid fa-circle-exclamation","fieldid":"121247","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"tabContent":{"value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.","fieldid":"121248","is_contextable":true,"default_value":true,"use_default":true},"displayBanner":{"value":"true","fieldid":"22288","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"bannerBackground":{"value":"","fieldid":"22289","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"bannerImageBackground":{"value":"21586","fieldid":"22290","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"bannerSubTitle":{"value":"","fieldid":"22291","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true}},"index":0}],"childrenThumbnails":[],"assets":[]}};
+        const component = 'export default "data:text/x-handlebars-template;charset=utf-8;base64,Cnt7I3dpdGggY29tcG9uZW50LmRhdGF9fQo8c2VjdGlvbiBjbGFzcz0icWxkX19ib2R5e3sjaWYgbWV0YWRhdGEudGhlbWUudmFsdWV9fSBxbGRfX2JvZHktLXt7bWV0YWRhdGEudGhlbWUudmFsdWV9fXt7L2lmfX17eyNpZkNvbmQgbWV0YWRhdGEudGFiX2Rpc3BsYXkudmFsdWUgJz09JyAnZnVsbCd9fSBxbGRfX2JvZHktLWZ1bGwtd2lkdGggdGFiLXNlY3Rpb257ey9pZkNvbmR9fSIgaWQ9Int7I2lmIG1ldGFkYXRhLmlkX2ZpZWxkLnZhbHVlfX17e21ldGFkYXRhLmlkX2ZpZWxkLnZhbHVlfX17e2Vsc2V9fXRhZy17e2Fzc2V0aWR9fXt7L2lmfX0iPgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyLWZsdWlkIj4KICAgICAgICA8ZGl2IGNsYXNzPSJxbGRfX3RhYi1jb250YWluZXJ7eyNpZiBtZXRhZGF0YS50aGVtZS52YWx1ZX19IHFsZF9fdGFiLWNvbnRhaW5lci0te3ttZXRhZGF0YS50aGVtZS52YWx1ZX19e3svaWZ9fSBxbGRfX3RhYi1jb250YWluZXJfX2ZpeGVkIiBpZD0idGFiLWV4YW1wbGUtNSI+CiAgICAgICAgICAgIDxidXR0b24gY2xhc3M9InFsZF9fdGFiLW5hdl9faXRlbS1zY3JvbGwgdGFiLW92ZXJmbG93LW5hdi1idXR0b24tbGVmdCIgYXJpYS1oaWRkZW49InRydWUiIGFyaWEtbGFiZWw9IlNjcm9sbCB0YWIgYnV0dG9ucyBsZWZ0IiB0YWJpbmRleD0iLTEiPjxpIGNsYXNzPSJmYS1yZWd1bGFyIGZhLWNoZXZyb24tbGVmdCI+PC9pPjwvYnV0dG9uPgogICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJxbGRfX3RhYi1uYXZfX2l0ZW0tc2Nyb2xsIHRhYi1vdmVyZmxvdy1uYXYtYnV0dG9uLXJpZ2h0IiBhcmlhLWhpZGRlbj0idHJ1ZSIgYXJpYS1sYWJlbD0iU2Nyb2xsIHRhYiBidXR0b25zIHJpZ2h0IiB0YWJpbmRleD0iLTEiPjxpIGNsYXNzPSJmYS1yZWd1bGFyIGZhLWNoZXZyb24tcmlnaHQiPjwvaT48L2J1dHRvbj4KICAgICAgICAgICAgPGhlYWRlciBjbGFzcz0icWxkX190YWJzIiByb2xlPSJ0YWJsaXN0Ij4KICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLnJvb3Rfbm9kZS52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAge3sjZWFjaFVwVG8gLi4vY29tcG9uZW50LmNoaWxkcmVuIDh9fQogICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJxbGRfX3RhYi1idXR0b24iIGRhdGEtdGFiPSJ0YWJ7e2luZGV4fX0iIGFyaWEtc2VsZWN0ZWQ9Int7I2lmQ29uZCBpbmRleCAnPT0nIDB9fXRydWV7e2Vsc2V9fWZhbHNle3svaWZDb25kfX0iIGFyaWEtY29udHJvbHM9InRhYnt7aW5kZXh9fS1jb250ZW50IiB0YWJpbmRleD0ie3sjaWZDb25kIGluZGV4ICc9PScgMH19MHt7ZWxzZX19LTF7ey9pZkNvbmR9fSIgaWQ9InRhYnt7aW5kZXh9fS1idXR0b24iPjxzcGFuPnt7I2lmIG1ldGFkYXRhLnRhYkljb24udmFsdWV9fTxpIGNsYXNzPSJ7e21ldGFkYXRhLnRhYkljb24udmFsdWV9fSI+PC9pPnt7L2lmfX17e25hbWV9fTwvc3Bhbj48L2J1dHRvbj4KICAgICAgICAgICAgICAgICAgICB7ey9lYWNoVXBUb319CiAgICAgICAgICAgICAgICB7e2Vsc2V9fQogICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfdHlwZS52YWx1ZSAnPT0nICd3eXNpd3lnJ319CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLnRpdGxlXzEudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz0icWxkX190YWItYnV0dG9uIiBkYXRhLXRhYj0idGFiMSIgYXJpYS1zZWxlY3RlZD0idHJ1ZSIgYXJpYS1jb250cm9scz0idGFiMS1jb250ZW50IiB0YWJpbmRleD0iMCIgaWQ9InRhYjEtYnV0dG9uIj48c3Bhbj57eyNpZiBtZXRhZGF0YS5pY29uXzEudmFsdWV9fTxpIGNsYXNzPSJ7e21ldGFkYXRhLmljb25fMS52YWx1ZX19Ij48L2k+e3svaWZ9fVRhYiBsYWJlbCAxPC9zcGFuPjwvYnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfbnVtLnZhbHVlICc+PScgJzInfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLnRpdGxlXzIudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9InFsZF9fdGFiLWJ1dHRvbiIgZGF0YS10YWI9InRhYjIiIGFyaWEtc2VsZWN0ZWQ9ImZhbHNlIiBhcmlhLWNvbnRyb2xzPSJ0YWIyLWNvbnRlbnQiIHRhYmluZGV4PSItMSIgaWQ9InRhYjItYnV0dG9uIj48c3Bhbj57eyNpZiBtZXRhZGF0YS5pY29uXzIudmFsdWV9fTxpIGNsYXNzPSJ7e21ldGFkYXRhLmljb25fMi52YWx1ZX19Ij48L2k+e3svaWZ9fVRhYiBsYWJlbCAyPC9zcGFuPjwvYnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge3svaWZ9fQogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZkNvbmR9fQogICAgICAgICAgICAgICAgICAgICAgICB7eyNpZkNvbmQgbWV0YWRhdGEudGFiX251bS52YWx1ZSAnPj0nICczJ319CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS50aXRsZV8zLnZhbHVlfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJxbGRfX3RhYi1idXR0b24iIGRhdGEtdGFiPSJ0YWIzIiBhcmlhLXNlbGVjdGVkPSJmYWxzZSIgYXJpYS1jb250cm9scz0idGFiMy1jb250ZW50IiB0YWJpbmRleD0iLTEiIGlkPSJ0YWIzLWJ1dHRvbiI+PHNwYW4+e3sjaWYgbWV0YWRhdGEuaWNvbl8zLnZhbHVlfX08aSBjbGFzcz0ie3ttZXRhZGF0YS5pY29uXzMudmFsdWV9fSI+PC9pPnt7L2lmfX1UYWIgbGFiZWwgMzwvc3Bhbj48L2J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmfX0KICAgICAgICAgICAgICAgICAgICAgICAge3svaWZDb25kfX0KICAgICAgICAgICAgICAgICAgICAgICAge3sjaWZDb25kIG1ldGFkYXRhLnRhYl9udW0udmFsdWUgJz49JyAnNCd9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAge3sjaWYgbWV0YWRhdGEudGl0bGVfNC52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz0icWxkX190YWItYnV0dG9uIiBkYXRhLXRhYj0idGFiNCIgYXJpYS1zZWxlY3RlZD0iZmFsc2UiIGFyaWEtY29udHJvbHM9InRhYjQtY29udGVudCIgdGFiaW5kZXg9Ii0xIiBpZD0idGFiNC1idXR0b24iPjxzcGFuPnt7I2lmIG1ldGFkYXRhLmljb25fNC52YWx1ZX19PGkgY2xhc3M9Int7bWV0YWRhdGEuaWNvbl80LnZhbHVlfX0iPjwvaT57ey9pZn19VGFiIGxhYmVsIDQ8L3NwYW4+PC9idXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfbnVtLnZhbHVlICc+PScgJzUnfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLnRpdGxlXzUudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9InFsZF9fdGFiLWJ1dHRvbiIgZGF0YS10YWI9InRhYjUiIGFyaWEtc2VsZWN0ZWQ9ImZhbHNlIiBhcmlhLWNvbnRyb2xzPSJ0YWI1LWNvbnRlbnQiIHRhYmluZGV4PSItMSIgaWQ9InRhYjUtYnV0dG9uIj48c3Bhbj57eyNpZiBtZXRhZGF0YS5pY29uXzUudmFsdWV9fTxpIGNsYXNzPSJ7e21ldGFkYXRhLmljb25fNS52YWx1ZX19Ij48L2k+e3svaWZ9fVRhYiBsYWJlbCA1PC9zcGFuPjwvYnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge3svaWZ9fQogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZkNvbmR9fQogICAgICAgICAgICAgICAgICAgICAgICB7eyNpZkNvbmQgbWV0YWRhdGEudGFiX251bS52YWx1ZSAnPj0nICc2J319CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS50aXRsZV82LnZhbHVlfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJxbGRfX3RhYi1idXR0b24iIGRhdGEtdGFiPSJ0YWI2IiBhcmlhLXNlbGVjdGVkPSJmYWxzZSIgYXJpYS1jb250cm9scz0idGFiNi1jb250ZW50IiB0YWJpbmRleD0iLTEiIGlkPSJ0YWI2LWJ1dHRvbiI+PHNwYW4+e3sjaWYgbWV0YWRhdGEuaWNvbl82LnZhbHVlfX08aSBjbGFzcz0ie3ttZXRhZGF0YS5pY29uXzYudmFsdWV9fSI+PC9pPnt7L2lmfX1UYWIgbGFiZWwgNjwvc3Bhbj48L2J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmfX0KICAgICAgICAgICAgICAgICAgICAgICAge3svaWZDb25kfX0KICAgICAgICAgICAgICAgICAgICAgICAge3sjaWZDb25kIG1ldGFkYXRhLnRhYl9udW0udmFsdWUgJz49JyAnNyd9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAge3sjaWYgbWV0YWRhdGEudGl0bGVfNy52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz0icWxkX190YWItYnV0dG9uIiBkYXRhLXRhYj0idGFiNyIgYXJpYS1zZWxlY3RlZD0iZmFsc2UiIGFyaWEtY29udHJvbHM9InRhYjctY29udGVudCIgdGFiaW5kZXg9Ii0xIiBpZD0idGFiNy1idXR0b24iPjxzcGFuPnt7I2lmIG1ldGFkYXRhLmljb25fNy52YWx1ZX19PGkgY2xhc3M9Int7bWV0YWRhdGEuaWNvbl83LnZhbHVlfX0iPjwvaT57ey9pZn19VGFiIGxhYmVsIDc8L3NwYW4+PC9idXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfbnVtLnZhbHVlICc+PScgJzgnfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLnRpdGxlXzgudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9InFsZF9fdGFiLWJ1dHRvbiIgZGF0YS10YWI9InRhYjgiIGFyaWEtc2VsZWN0ZWQ9ImZhbHNlIiBhcmlhLWNvbnRyb2xzPSJ0YWI4LWNvbnRlbnQiIHRhYmluZGV4PSItMSIgaWQ9InRhYjgtYnV0dG9uIj48c3Bhbj57eyNpZiBtZXRhZGF0YS5pY29uXzgudmFsdWV9fTxpIGNsYXNzPSJ7e21ldGFkYXRhLmljb25fOC52YWx1ZX19Ij48L2k+e3svaWZ9fVRhYiBsYWJlbCA4PC9zcGFuPjwvYnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge3svaWZ9fQogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZkNvbmR9fQogICAgICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgIDwvaGVhZGVyPgogICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS5yb290X25vZGUudmFsdWV9fQogICAgICAgICAgICAgICAge3sjZWFjaFVwVG8gLi4vY29tcG9uZW50LmNoaWxkcmVuIDh9fQogICAgICAgICAgICAgICAgICAgIDxkaXYgZGF0YS10YWI9InRhYnt7aW5kZXh9fSIgY2xhc3M9InFsZF9fdGFiLWNvbnRlbnQiIHJvbGU9InRhYnBhbmVsIiBhcmlhLWxhYmVsbGVkYnk9InRhYnt7aW5kZXh9fS1idXR0b24iIGlkPSJ0YWJ7e2luZGV4fX0tY29udGVudCIgdGFiaW5kZXg9IjAiPnt7bWV0YWRhdGEudGFiQ29udGVudC52YWx1ZX19PC9kaXY+CiAgICAgICAgICAgICAgICB7ey9lYWNoVXBUb319CiAgICAgICAgICAgIHt7ZWxzZX19CiAgICAgICAgICAgICAgICB7eyNpZkNvbmQgbWV0YWRhdGEudGFiX3R5cGUudmFsdWUgJz09JyAnd3lzaXd5Zyd9fQogICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLmNvbnRlbnRfMS52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgZGF0YS10YWI9InRhYjEiIGNsYXNzPSJxbGRfX3RhYi1jb250ZW50IiByb2xlPSJ0YWJwYW5lbCIgYXJpYS1sYWJlbGxlZGJ5PSJ0YWIxLWJ1dHRvbiIgaWQ9InRhYjEtY29udGVudCIgdGFiaW5kZXg9IjAiPnt7bWV0YWRhdGEuY29udGVudF8xLnZhbHVlfX08L2Rpdj4KICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAge3sjaWZDb25kIG1ldGFkYXRhLnRhYl9udW0udmFsdWUgJz49JyAnMid9fQogICAgICAgICAgICAgICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS5jb250ZW50XzIudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBkYXRhLXRhYj0idGFiMiIgY2xhc3M9InFsZF9fdGFiLWNvbnRlbnQiIHJvbGU9InRhYnBhbmVsIiBhcmlhLWxhYmVsbGVkYnk9InRhYjItYnV0dG9uIiBpZD0idGFiMi1jb250ZW50IiB0YWJpbmRleD0iMCI+e3ttZXRhZGF0YS5jb250ZW50XzIudmFsdWV9fTwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAge3svaWZDb25kfX0KICAgICAgICAgICAgICAgICAgICB7eyNpZkNvbmQgbWV0YWRhdGEudGFiX251bS52YWx1ZSAnPj0nICczJ319CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLmNvbnRlbnRfMy52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGRhdGEtdGFiPSJ0YWIzIiBjbGFzcz0icWxkX190YWItY29udGVudCIgcm9sZT0idGFicGFuZWwiIGFyaWEtbGFiZWxsZWRieT0idGFiMy1idXR0b24iIGlkPSJ0YWIzLWNvbnRlbnQiIHRhYmluZGV4PSIwIj57e21ldGFkYXRhLmNvbnRlbnRfMy52YWx1ZX19PC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmfX0KICAgICAgICAgICAgICAgICAgICB7ey9pZkNvbmR9fQogICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfbnVtLnZhbHVlICc+PScgJzQnfX0KICAgICAgICAgICAgICAgICAgICAgICAge3sjaWYgbWV0YWRhdGEuY29udGVudF80LnZhbHVlfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgZGF0YS10YWI9InRhYjQiIGNsYXNzPSJxbGRfX3RhYi1jb250ZW50IiByb2xlPSJ0YWJwYW5lbCIgYXJpYS1sYWJlbGxlZGJ5PSJ0YWI0LWJ1dHRvbiIgaWQ9InRhYjQtY29udGVudCIgdGFiaW5kZXg9IjAiPnt7bWV0YWRhdGEuY29udGVudF80LnZhbHVlfX08L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAge3svaWZ9fQogICAgICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgICAgICAgICAge3sjaWZDb25kIG1ldGFkYXRhLnRhYl9udW0udmFsdWUgJz49JyAnNSd9fQogICAgICAgICAgICAgICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS5jb250ZW50XzUudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBkYXRhLXRhYj0idGFiNSIgY2xhc3M9InFsZF9fdGFiLWNvbnRlbnQiIHJvbGU9InRhYnBhbmVsIiBhcmlhLWxhYmVsbGVkYnk9InRhYjUtYnV0dG9uIiBpZD0idGFiNS1jb250ZW50IiB0YWJpbmRleD0iMCI+e3ttZXRhZGF0YS5jb250ZW50XzUudmFsdWV9fTwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAge3svaWZDb25kfX0KICAgICAgICAgICAgICAgICAgICB7eyNpZkNvbmQgbWV0YWRhdGEudGFiX251bS52YWx1ZSAnPj0nICc2J319CiAgICAgICAgICAgICAgICAgICAgICAgIHt7I2lmIG1ldGFkYXRhLmNvbnRlbnRfNi52YWx1ZX19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGRhdGEtdGFiPSJ0YWI2IiBjbGFzcz0icWxkX190YWItY29udGVudCIgcm9sZT0idGFicGFuZWwiIGFyaWEtbGFiZWxsZWRieT0idGFiNi1idXR0b24iIGlkPSJ0YWI2LWNvbnRlbnQiIHRhYmluZGV4PSIwIj57e21ldGFkYXRhLmNvbnRlbnRfNi52YWx1ZX19PC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIHt7L2lmfX0KICAgICAgICAgICAgICAgICAgICB7ey9pZkNvbmR9fQogICAgICAgICAgICAgICAgICAgIHt7I2lmQ29uZCBtZXRhZGF0YS50YWJfbnVtLnZhbHVlICc+PScgJzcnfX0KICAgICAgICAgICAgICAgICAgICAgICAge3sjaWYgbWV0YWRhdGEuY29udGVudF83LnZhbHVlfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgZGF0YS10YWI9InRhYjciIGNsYXNzPSJxbGRfX3RhYi1jb250ZW50IiByb2xlPSJ0YWJwYW5lbCIgYXJpYS1sYWJlbGxlZGJ5PSJ0YWI3LWJ1dHRvbiIgaWQ9InRhYjctY29udGVudCIgdGFiaW5kZXg9IjAiPnt7bWV0YWRhdGEuY29udGVudF83LnZhbHVlfX08L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAge3svaWZ9fQogICAgICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgICAgICAgICAge3sjaWZDb25kIG1ldGFkYXRhLnRhYl9udW0udmFsdWUgJz49JyAnOCd9fQogICAgICAgICAgICAgICAgICAgICAgICB7eyNpZiBtZXRhZGF0YS5jb250ZW50XzgudmFsdWV9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBkYXRhLXRhYj0idGFiOCIgY2xhc3M9InFsZF9fdGFiLWNvbnRlbnQiIHJvbGU9InRhYnBhbmVsIiBhcmlhLWxhYmVsbGVkYnk9InRhYjgtYnV0dG9uIiBpZD0idGFiOC1jb250ZW50IiB0YWJpbmRleD0iMCI+e3ttZXRhZGF0YS5jb250ZW50XzgudmFsdWV9fTwvZGl2PgogICAgICAgICAgICAgICAgICAgICAgICB7ey9pZn19CiAgICAgICAgICAgICAgICAgICAge3svaWZDb25kfX0KICAgICAgICAgICAgICAgIHt7L2lmQ29uZH19CiAgICAgICAgICAgIHt7L2lmfX0KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2Pgo8L3NlY3Rpb24+Cnt7L3dpdGh9fQ=="';
         const renderCallback = '';
         const previewDelay = '' ? Number('') : 50;
     </script>
@@ -628,24 +648,233 @@
             </thead>
             <tbody class="qld__table__body">
             <tr class="qld__table__row">
-                <td class="qld__table__cell">field1</td>
-                <td class="qld__table__cell">Field 1</td>
+                <td class="qld__table__cell">theme</td>
+                <td class="qld__table__cell">Theme</td>
                 <td class="qld__table__cell">
-                    <input type="text" name="field1" value="Example text" class="qld__model_field format-">
+                    <select name="theme" class="qld__model_field">
+                            <option value="" selected>Default</option>
+                            <option value="alt" >Alternate</option>
+                            <option value="dark" >Dark</option>
+                            <option value="dark-alt" >Alternate Dark</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">tab_display</td>
+                <td class="qld__table__cell">Tab Display</td>
+                <td class="qld__table__cell">
+                    <select name="tab_display" class="qld__model_field">
+                            <option value="fixed" >Fixed width</option>
+                            <option value="full" >Full width</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">tab_type</td>
+                <td class="qld__table__cell">Tab Type</td>
+                <td class="qld__table__cell">
+                    <select name="tab_type" class="qld__model_field">
+                            <option value="wysiwyg" selected>WYSIWYG</option>
+                            <option value="asset" >Asset</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">tab_num</td>
+                <td class="qld__table__cell">Number of tabs</td>
+                <td class="qld__table__cell">
+                    <select name="tab_num" class="qld__model_field">
+                            <option value="1" selected>1</option>
+                            <option value="2" >2</option>
+                            <option value="3" >3</option>
+                            <option value="4" >4</option>
+                            <option value="5" >5</option>
+                            <option value="6" >6</option>
+                            <option value="7" >7</option>
+                            <option value="8" >8</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_1</td>
+                <td class="qld__table__cell">Tab 1 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_1" value="Title" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_1</td>
+                <td class="qld__table__cell">Tab 1 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_1" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_1</td>
+                <td class="qld__table__cell">Tab 1 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_1" class="qld__model_field">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_2</td>
+                <td class="qld__table__cell">Tab 2 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_2" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_2</td>
+                <td class="qld__table__cell">Tab 2 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_2" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_2</td>
+                <td class="qld__table__cell">Tab 2 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_2" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_3</td>
+                <td class="qld__table__cell">Tab 3 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_3" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_3</td>
+                <td class="qld__table__cell">Tab 3 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_3" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_3</td>
+                <td class="qld__table__cell">Tab 3 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_3" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_4</td>
+                <td class="qld__table__cell">Tab 4 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_4" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_4</td>
+                <td class="qld__table__cell">Tab 4 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_4" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_4</td>
+                <td class="qld__table__cell">Tab 4 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_4" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_5</td>
+                <td class="qld__table__cell">Tab 5 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_5" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_5</td>
+                <td class="qld__table__cell">Tab 5 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_5" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_5</td>
+                <td class="qld__table__cell">Tab 5 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_5" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_6</td>
+                <td class="qld__table__cell">Tab 6 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_6" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_6</td>
+                <td class="qld__table__cell">Tab 6 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_6" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_6</td>
+                <td class="qld__table__cell">Tab 6 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_6" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_7</td>
+                <td class="qld__table__cell">Tab 7 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_7" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_7</td>
+                <td class="qld__table__cell">Tab 7 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_7" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_7</td>
+                <td class="qld__table__cell">Tab 7 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_7" class="qld__model_field"></textarea>
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">title_8</td>
+                <td class="qld__table__cell">Tab 8 - Title</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="title_8" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">icon_8</td>
+                <td class="qld__table__cell">Tab 8 - Icon</td>
+                <td class="qld__table__cell">
+                    <input type="text" name="icon_8" value="" class="qld__model_field format-">
+</td>
+            </tr>
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">content_8</td>
+                <td class="qld__table__cell">Tab 8 - Content</td>
+                <td class="qld__table__cell">
+                    <textarea name="content_8" class="qld__model_field"></textarea>
 </td>
             </tr>
             <tr class="qld__table__row">
                 <td class="qld__table__cell">root_node</td>
-                <td class="qld__table__cell">Parent asset (populates &#x27;children&#x27; and &#x27;childrenThumbnails&#x27;)</td>
+                <td class="qld__table__cell">Asset</td>
                 <td class="qld__table__cell">
-                    <input type="text" name="root_node" value="123" class="qld__model_field">
+                    <input type="text" name="root_node" value="1" class="qld__model_field">
 </td>
             </tr>
             <tr class="qld__table__row">
-                <td class="qld__table__cell">asset_select</td>
-                <td class="qld__table__cell">Assets to link to (populates &#x27;assets&#x27;)</td>
+                <td class="qld__table__cell">id_field</td>
+                <td class="qld__table__cell">Id field</td>
                 <td class="qld__table__cell">
-                    <input type="text" name="asset_select" value="1; 2; 3" class="qld__model_field">
+                    <input type="text" name="id_field" value="" class="qld__model_field format-">
 </td>
             </tr>
             </tbody>
