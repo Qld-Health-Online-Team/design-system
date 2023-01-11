@@ -137,14 +137,14 @@
             border: none;
             border-radius: 50%;
             position: relative;
-            font-size: 0.75rem;
+            font-size: 0.625rem;
             display: inline-block;
             line-height: 32px;
             transition: width 1s ease-in-out, height 1s ease-in-out;
 
             &:hover {
                 box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 3px 1px rgba(0, 0, 0, 0.05);
-                font-size: 24px;
+                font-size: 0.75rem;
                 height: 36px;
                 width: 36px;
                 line-height: 36px;
@@ -407,10 +407,6 @@
 
             .qld__tabs {
                 margin-top: -88px;
-
-                @include QLD-media(lg) {
-                    margin-top: -112px;
-                }
             }
         }
     }
@@ -434,12 +430,30 @@
 
 .qld__body--alt+.tab-section {
     box-shadow: 0 -48px 0 0 var(--QLD-color-light-alt-background);
+
+    .qld__tab-container__fixed .qld__tabs {
+        @include QLD-media(lg) {
+            margin-top: -112px;
+        }
+    }
 }
 
 .qld__body--dark+.tab-section {
     box-shadow: 0 -48px 0 0 var(--QLD-color-dark-background);
+
+    .qld__tab-container__fixed .qld__tabs {
+        @include QLD-media(lg) {
+            margin-top: -112px;
+        }
+    }
 }
 
 .qld__body--dark-alt+.tab-section {
     box-shadow: 0 -48px 0 0 var(--QLD-color-dark-alt-background);
+
+    .qld__tab-container__fixed .qld__tabs {
+        @include QLD-media(lg) {
+            margin-top: -112px;
+        }
+    }
 }
