@@ -88,7 +88,7 @@
             border-right: 1px solid var(--QLD-color-light-alt-border);
             border-top: 1px solid var(--QLD-color-light-alt-border);
             font-weight: 700;
-            z-index: 200;
+            z-index: 1;
             text-decoration: none;
 
             &::after {
@@ -122,7 +122,7 @@
     &-nav__item-scroll {
         position: absolute;
         color: var(--QLD-color-light-alt-button);
-        z-index: 500;
+        z-index: 2;
         height: 47px;
         width: 48px;
         border: none;
@@ -137,6 +137,7 @@
             border: none;
             border-radius: 50%;
             position: relative;
+            font-size: 0.75rem;
             display: inline-block;
             line-height: 32px;
             transition: width 1s ease-in-out, height 1s ease-in-out;
@@ -153,7 +154,7 @@
         &:hover {
             position: absolute;
             color: var(--QLD-color-light-alt-button__hover);
-            z-index: 500;
+            z-index: 2;
             height: 47px;
             width: 48px;
             border: none;
@@ -168,14 +169,14 @@
 
         &.tab-overflow-nav-button-left {
             display: none;
-            left: 1rem;
+            left: 0;
             background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
     
         }
     
         &.tab-overflow-nav-button-right {
             display: none;
-            right: 1rem;
+            right: 0;
             background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
         }
     }
@@ -228,7 +229,7 @@
                     border-right: 1px solid var(--QLD-color-dark-alt-border);
                     border-top: 1px solid var(--QLD-color-dark-alt-border);
                     font-weight: 700;
-                    z-index: 200;
+                    z-index: 1;
                     text-decoration: none;
                     outline: none;
 
@@ -312,7 +313,7 @@
                     border-right: 1px solid var(--QLD-color-dark-alt-border);
                     border-top: 1px solid var(--QLD-color-dark-alt-border);
                     font-weight: 700;
-                    z-index: 200;
+                    z-index: 1;
                     text-decoration: none;
                     outline: none;
                     
