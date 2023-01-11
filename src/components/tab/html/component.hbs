@@ -8,46 +8,46 @@
             <header class="qld__tabs" role="tablist">
                 {{#if metadata.root_node.value}}
                     {{#eachUpTo ../component.children 8}}
-                        <button class="qld__tab-button {{#ifCond index '==' 0}}active{{/ifCond}}" data-tab="tab{{index}}" aria-selected="{{#ifCond index '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{index}}-content" tabindex="{{#ifCond index '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{index}}-button"><span>{{#if metadata.tabIcon.value}}<i class="{{metadata.tabIcon.value}}"></i>{{/if}}{{name}}</span></button>
+                        <button class="qld__tab-button {{#ifCond index '==' 0}}active{{/ifCond}}" data-tab="tab{{index}}-{{assetid}}" aria-selected="{{#ifCond index '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{index}}-{{assetid}}-content" tabindex="{{#ifCond index '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{index}}-button"><span>{{#if metadata.tabIcon.value}}<i class="{{metadata.tabIcon.value}}"></i>{{/if}}{{name}}</span></button>
                     {{/eachUpTo}}
                 {{else}}
                     {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                         {{#if metadata.title_1.value}}
-                            <button class="qld__tab-button active" data-tab="tab1" aria-selected="true" aria-controls="tab1-content" tabindex="0" id="tab1-button"><span>{{#if metadata.icon_1.value}}<i class="{{metadata.icon_1.value}}"></i>{{/if}}{{metadata.title_1.value}}</span></button>
+                            <button class="qld__tab-button active" data-tab="tab1-{{assetid}}" aria-selected="true" aria-controls="tab1-{{assetid}}-content" tabindex="0" id="tab1-{{assetid}}-button"><span>{{#if metadata.icon_1.value}}<i class="{{metadata.icon_1.value}}"></i>{{/if}}{{metadata.title_1.value}}</span></button>
                         {{/if}}
                         {{#ifCond metadata.tab_num.value '>=' '2'}}
                             {{#if metadata.title_2.value}}
-                                <button class="qld__tab-button" data-tab="tab2" aria-selected="false" aria-controls="tab2-content" tabindex="-1" id="tab2-button"><span>{{#if metadata.icon_2.value}}<i class="{{metadata.icon_2.value}}"></i>{{/if}}{{metadata.title_2.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab2-{{assetid}}" aria-selected="false" aria-controls="tab2-{{assetid}}-content" tabindex="-1" id="tab2-{{assetid}}-button"><span>{{#if metadata.icon_2.value}}<i class="{{metadata.icon_2.value}}"></i>{{/if}}{{metadata.title_2.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '3'}}
                             {{#if metadata.title_3.value}}
-                                <button class="qld__tab-button" data-tab="tab3" aria-selected="false" aria-controls="tab3-content" tabindex="-1" id="tab3-button"><span>{{#if metadata.icon_3.value}}<i class="{{metadata.icon_3.value}}"></i>{{/if}}{{metadata.title_3.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab3-{{assetid}}" aria-selected="false" aria-controls="tab3-{{assetid}}-content" tabindex="-1" id="tab3-{{assetid}}-button"><span>{{#if metadata.icon_3.value}}<i class="{{metadata.icon_3.value}}"></i>{{/if}}{{metadata.title_3.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '4'}}
                             {{#if metadata.title_4.value}}
-                                <button class="qld__tab-button" data-tab="tab4" aria-selected="false" aria-controls="tab4-content" tabindex="-1" id="tab4-button"><span>{{#if metadata.icon_4.value}}<i class="{{metadata.icon_4.value}}"></i>{{/if}}{{metadata.title_4.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab4-{{assetid}}" aria-selected="false" aria-controls="tab4-{{assetid}}-content" tabindex="-1" id="tab4-{{assetid}}-button"><span>{{#if metadata.icon_4.value}}<i class="{{metadata.icon_4.value}}"></i>{{/if}}{{metadata.title_4.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '5'}}
                             {{#if metadata.title_5.value}}
-                                <button class="qld__tab-button" data-tab="tab5" aria-selected="false" aria-controls="tab5-content" tabindex="-1" id="tab5-button"><span>{{#if metadata.icon_5.value}}<i class="{{metadata.icon_5.value}}"></i>{{/if}}{{metadata.title_5.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab5-{{assetid}}" aria-selected="false" aria-controls="tab5-{{assetid}}-content" tabindex="-1" id="tab5-{{assetid}}-button"><span>{{#if metadata.icon_5.value}}<i class="{{metadata.icon_5.value}}"></i>{{/if}}{{metadata.title_5.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '6'}}
                             {{#if metadata.title_6.value}}
-                                <button class="qld__tab-button" data-tab="tab6" aria-selected="false" aria-controls="tab6-content" tabindex="-1" id="tab6-button"><span>{{#if metadata.icon_6.value}}<i class="{{metadata.icon_6.value}}"></i>{{/if}}{{metadata.title_6.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab6-{{assetid}}" aria-selected="false" aria-controls="tab6-{{assetid}}-content" tabindex="-1" id="tab6-{{assetid}}-button"><span>{{#if metadata.icon_6.value}}<i class="{{metadata.icon_6.value}}"></i>{{/if}}{{metadata.title_6.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '7'}}
                             {{#if metadata.title_7.value}}
-                                <button class="qld__tab-button" data-tab="tab7" aria-selected="false" aria-controls="tab7-content" tabindex="-1" id="tab7-button"><span>{{#if metadata.icon_7.value}}<i class="{{metadata.icon_7.value}}"></i>{{/if}}{{metadata.title_7.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab7-{{assetid}}" aria-selected="false" aria-controls="tab7-{{assetid}}-content" tabindex="-1" id="tab7-{{assetid}}-button"><span>{{#if metadata.icon_7.value}}<i class="{{metadata.icon_7.value}}"></i>{{/if}}{{metadata.title_7.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '8'}}
                             {{#if metadata.title_8.value}}
-                                <button class="qld__tab-button" data-tab="tab8" aria-selected="false" aria-controls="tab8-content" tabindex="-1" id="tab8-button"><span>{{#if metadata.icon_8.value}}<i class="{{metadata.icon_8.value}}"></i>{{/if}}{{metadata.title_8.value}}</span></button>
+                                <button class="qld__tab-button" data-tab="tab8-{{assetid}}" aria-selected="false" aria-controls="tab8-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_8.value}}<i class="{{metadata.icon_8.value}}"></i>{{/if}}{{metadata.title_8.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                     {{/ifCond}}
@@ -55,46 +55,46 @@
             </header>
             {{#if metadata.root_node.value}}
                 {{#eachUpTo ../component.children 8}}
-                    <div data-tab="tab{{index}}" class="qld__tab-content {{#ifCond index '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{index}}-button" id="tab{{index}}-content" tabindex="0" {{#ifCond index '==' 0}}aria-hidden="false"{{/ifCond}}>{{{metadata.tabContent.value}}}</div>
+                    <div data-tab="tab{{index}}-{{assetid}}" class="qld__tab-content {{#ifCond index '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{index}}-{{assetid}}-button" id="tab{{index}}-{{assetid}}-content" tabindex="0" {{#ifCond index '==' 0}}aria-hidden="false"{{/ifCond}}>{{{metadata.tabContent.value}}}</div>
                 {{/eachUpTo}}
             {{else}}
                 {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                     {{#if metadata.content_1.value}}
-                        <div data-tab="tab1" class="qld__tab-content active" role="tabpanel" aria-labelledby="tab1-button" id="tab1-content" tabindex="0" aria-hidden="false">{{{metadata.content_1.value}}}</div>
+                        <div data-tab="tab1-{{assetid}}" class="qld__tab-content active" role="tabpanel" aria-labelledby="tab1-{{assetid}}-button" id="tab1-{{assetid}}-content" tabindex="0" aria-hidden="false">{{{metadata.content_1.value}}}</div>
                     {{/if}}
                     {{#ifCond metadata.tab_num.value '>=' '2'}}
                         {{#if metadata.content_2.value}}
-                            <div data-tab="tab2" class="qld__tab-content" role="tabpanel" aria-labelledby="tab2-button" id="tab2-content" tabindex="0">{{{metadata.content_2.value}}}</div>
+                            <div data-tab="tab2-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab2-{{assetid}}-button" id="tab2-{{assetid}}-content" tabindex="0">{{{metadata.content_2.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '3'}}
                         {{#if metadata.content_3.value}}
-                            <div data-tab="tab3" class="qld__tab-content" role="tabpanel" aria-labelledby="tab3-button" id="tab3-content" tabindex="0">{{{metadata.content_3.value}}}</div>
+                            <div data-tab="tab3-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab3-{{assetid}}-button" id="tab3-{{assetid}}-content" tabindex="0">{{{metadata.content_3.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '4'}}
                         {{#if metadata.content_4.value}}
-                            <div data-tab="tab4" class="qld__tab-content" role="tabpanel" aria-labelledby="tab4-button" id="tab4-content" tabindex="0">{{{metadata.content_4.value}}}</div>
+                            <div data-tab="tab4-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab4-{{assetid}}-button" id="tab4-{{assetid}}-content" tabindex="0">{{{metadata.content_4.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '5'}}
                         {{#if metadata.content_5.value}}
-                            <div data-tab="tab5" class="qld__tab-content" role="tabpanel" aria-labelledby="tab5-button" id="tab5-content" tabindex="0">{{{metadata.content_5.value}}}</div>
+                            <div data-tab="tab5-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab5-{{assetid}}-button" id="tab5-{{assetid}}-content" tabindex="0">{{{metadata.content_5.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '6'}}
                         {{#if metadata.content_6.value}}
-                            <div data-tab="tab6" class="qld__tab-content" role="tabpanel" aria-labelledby="tab6-button" id="tab6-content" tabindex="0">{{{metadata.content_6.value}}}</div>
+                            <div data-tab="tab6-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab6-{{assetid}}-button" id="tab6-{{assetid}}-content" tabindex="0">{{{metadata.content_6.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '7'}}
                         {{#if metadata.content_7.value}}
-                            <div data-tab="tab7" class="qld__tab-content" role="tabpanel" aria-labelledby="tab7-button" id="tab7-content" tabindex="0">{{{metadata.content_7.value}}}</div>
+                            <div data-tab="tab7-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab7-{{assetid}}-button" id="tab7-{{assetid}}-content" tabindex="0">{{{metadata.content_7.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                     {{#ifCond metadata.tab_num.value '>=' '8'}}
                         {{#if metadata.content_8.value}}
-                            <div data-tab="tab8" class="qld__tab-content" role="tabpanel" aria-labelledby="tab8-button" id="tab8-content" tabindex="0">{{{metadata.content_8.value}}}</div>
+                            <div data-tab="tab8-{{assetid}}" class="qld__tab-content" role="tabpanel" aria-labelledby="tab8-{{assetid}}-button" id="tab8-{{assetid}}-content" tabindex="0">{{{metadata.content_8.value}}}</div>
                         {{/if}}
                     {{/ifCond}}
                 {{/ifCond}}
