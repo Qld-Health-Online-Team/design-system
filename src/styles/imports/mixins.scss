@@ -736,7 +736,11 @@
             text-decoration-color: var(--QLD-color-light-underline) !important;
 
             &:visited {
-                // text-decoration-color: currentColor;
+                text-decoration-color: var(--QLD-color-light-underline) !important;
+            }
+
+            &:hover:visited {
+                text-decoration-color: var(--QLD-color-light-hover-underline) !important;
             }
 
             &:hover {
@@ -854,6 +858,14 @@
             text-decoration-color: var(--QLD-color-dark-underline)!important;
             text-underline-offset: var(--QLD-underline__offset);
 
+            &:visited {
+                text-decoration-color: var(--QLD-color-dark-underline)!important;
+            }
+
+            &:hover:visited {
+                text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
+            }
+
             &:hover {
                 text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -895,16 +907,6 @@
             }
         }
 
-    }
-
-    &.qld__direction-link {
-        text-decoration: underline;
-        text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        &:hover {
-            text-decoration: underline;
-            text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            text-underline-offset: var(--QLD-underline__offset);
-        }
     }
 
     @at-root {
@@ -1048,6 +1050,26 @@
 
         .qld__body {
 
+            &, &.qld__body--alt {
+                .qld__direction-link {
+                    text-decoration: underline;
+                    text-decoration-color: var(--QLD-color-light-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    text-underline-offset: var(--QLD-underline__offset);
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-light-underline);
+                    }
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                    }
+                }
+            }
+
             .sq-form-submit { //cahnge them to black and white / 
                 text-decoration: none;
                 text-decoration-color: var(--QLD-color-light-button__text);
@@ -1080,6 +1102,24 @@
             }
 
             &.qld__body--dark, &.qld__body--dark-alt {
+                .qld__direction-link {
+                    text-decoration: underline;
+                    text-decoration-color: var(--QLD-color-dark-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                    text-underline-offset: var(--QLD-underline__offset);
+                    &:hover {
+                        text-decoration: underline;
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+
+                    &:visited {
+                        text-decoration-color: var(--QLD-color-dark-underline);
+                    }
+                    &:hover:visited {
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+                }
 
                 .sq-form-submit {
                     text-decoration: none;
