@@ -404,6 +404,10 @@
 
             .qld__tabs {
                 margin-top: -88px;
+
+                @include QLD-media(lg) {
+                    margin-top: -112px;
+                }
             }
         }
     }
@@ -427,12 +431,6 @@
 
 .qld__body--alt+.tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
-
-    .qld__tab-container__fixed .qld__tabs {
-        @include QLD-media(lg) {
-            margin-top: -112px;
-        }
-    }
 }
 
 .qld__body--dark+.tab-section {
