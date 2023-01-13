@@ -48,10 +48,12 @@
                 </div>
             </div>
             {{/ifCond}}
+            {{#ifCond show_code.value '==' 'true'}}
             {{#ifCond show_more_button.value '==' 'true'}}
             <div class="qld__code-toggle">
                 <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
             </div>
+            {{/ifCond}}
             {{/ifCond}}
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
@@ -62,6 +64,7 @@
                         <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                 </div>
+                {{#ifCond show_code.value '==' 'true'}}
                 <div class="qld__code-header-right">
                     <button class="qld__btn qld__code-copy--button" type="button">
                         <div class="clean">
@@ -76,8 +79,11 @@
                         </div>
                     </button>
                 </div>
+                {{/ifCond}}
             </div>
+            {{#ifCond show_code.value '==' 'true'}}
             <code class="qld__code-body">{{code.value}}</code>
+            {{/ifCond}}
         </div>
         {{/ifCond}}
     {{/if}}
