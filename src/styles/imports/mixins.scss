@@ -1366,22 +1366,32 @@
             button, a {
                 text-decoration: none;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                
+                // 
+                text-decoration-color: var(--QLD-color-light-underline);
                 &:hover {
+                    color: var(--QLD-color-light-link);
                     text-decoration: underline;
                     text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
                     text-decoration-color: var(--QLD-color-light-hover-underline);
-                    text-decoration-color: currentColor;
-                }
-
-                &:visited {
-                    text-decoration-color: currentColor;
                 }
 
                 &:hover:visited {
+                    color: var(--QLD-color-light-link);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: currentColor;
+                    text-decoration-color: var(--QLD-color-light-hover-underline);
+                }
+            }
+
+        }
+
+        @include QLD-media(lg, 'down') {            
+            .qld__main-nav__menu-sub-inner{
+
+                .qld__link-columns.qld__link-list{
+                    a {
+                        color: var(--QLD-color-light-link) !important;
+                    }
                 }
             }
         }
