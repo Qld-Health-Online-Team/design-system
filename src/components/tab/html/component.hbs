@@ -6,10 +6,10 @@
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1"><i class="fa-solid fa-chevron-right"></i></button>
             <header class="qld__tabs" role="tablist">
-                {{#if metadata.root_node.value}}
-                    {{#eachUpTo ../component.children 8}}
-                        <button class="qld__tab-button {{#ifCond index '==' 0}}active{{/ifCond}}" data-tab="tab{{index}}-{{assetid}}" aria-selected="{{#ifCond index '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{index}}-{{assetid}}-content" tabindex="{{#ifCond index '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{index}}-button"><span>{{#if metadata.tabIcon.value}}<i class="{{metadata.tabIcon.value}}"></i>{{/if}}{{name}}</span></button>
-                    {{/eachUpTo}}
+                {{#if metadata.asset_select.value}}
+                    {{#each ../component.assets}}
+                        <button class="qld__tab-button {{#ifCond @key '==' 0}}active{{/ifCond}}" data-tab="tab{{@key}}-{{this.assetid}}" aria-selected="{{#ifCond @key '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{@key}}-{{this.assetid}}-content" tabindex="{{#ifCond @key '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{@key}}-button"><span>{{#if this.metadata.tabIcon.value}}<i class="{{this.metadata.tabIcon.value}}"></i>{{/if}}{{this.name}}</span></button>
+                    {{/each}}
                 {{else}}
                     {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                         {{#if metadata.title_1.value}}
@@ -53,10 +53,10 @@
                     {{/ifCond}}
                 {{/if}}
             </header>
-            {{#if metadata.root_node.value}}
-                {{#eachUpTo ../component.children 8}}
-                    <div data-tab="tab{{index}}-{{assetid}}" class="qld__tab-content {{#ifCond index '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{index}}-{{assetid}}-button" id="tab{{index}}-{{assetid}}-content" tabindex="0" {{#ifCond index '==' 0}}aria-hidden="false"{{/ifCond}}>{{{metadata.tabContent.value}}}</div>
-                {{/eachUpTo}}
+            {{#if metadata.asset_select.value}}
+                {{#each ../component.assets}}
+                    <div data-tab="tab{{@key}}-{{this.assetid}}" class="qld__tab-content {{#ifCond @key '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{@key}}-{{this.assetid}}-button" id="tab{{@key}}-{{this.assetid}}-content" tabindex="0" {{#ifCond @key '==' 0}}aria-hidden="false"{{/ifCond}}>{{{this.metadata.tabContent.value}}}</div>
+                {{/each}}
             {{else}}
                 {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                     {{#if metadata.content_1.value}}
