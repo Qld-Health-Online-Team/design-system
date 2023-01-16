@@ -587,6 +587,11 @@ Handlebars.registerHelper('listAZ', function(items, url, options) {
     url = url ? url : '';
 
     for(var i = 0; i < letters.length; i++) {
+        services[letters[i]] = services[letters[i]].sort(function(a, b){
+            if(a.name < b.name) { return -1; }
+            if(a.name > b.name) { return 1; }
+            return 0;
+        })
         html += '<h3 class="qhealth__services_a-z__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></h3>';
         html += '<ul class="row qhealth__services_a-z__list__item__services">';
         for(var k = 0; k < services[letters[i]].length; k++) {
