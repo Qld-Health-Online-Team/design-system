@@ -92,7 +92,7 @@
                     {{/ifCond}}
                 {{else}}
                     {{#each ../component.assets}}
-                        <div data-tab="tab{{@key}}-{{this.assetid}}" class="qld__tab-content {{#ifCond @key '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{@key}}-{{this.assetid}}-button" id="tab{{@key}}-{{this.assetid}}-content" tabindex="0" {{#ifCond @key '==' 0}}aria-hidden="false"{{/ifCond}}>{{{this.rawcontent.value}}}</div>
+                        <div data-tab="tab{{@key}}-{{this.assetid}}" class="qld__tab-content {{#ifCond @key '==' 0}}active{{/ifCond}}" role="tabpanel" aria-labelledby="tab{{@key}}-{{this.assetid}}-button" id="tab{{@key}}-{{this.assetid}}-content" tabindex="0" {{#ifCond @key '==' 0}}aria-hidden="false"{{/ifCond}}>{{{this.rawcontent}}}</div>
                     {{/each}}
                 {{/ifCond}}
         </div>

@@ -679,7 +679,7 @@
     + "-content\" tabindex=\"0\" "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(84, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":95,"column":260},"end":{"line":95,"column":313}}})) != null ? stack1 : "")
     + ">"
-    + ((stack1 = alias5(((stack1 = (depth0 != null ? lookupProperty(depth0,"rawcontent") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
+    + ((stack1 = alias5((depth0 != null ? lookupProperty(depth0,"rawcontent") : depth0), depth0)) != null ? stack1 : "")
     + "</div>\n";
 },"84":function(container,depth0,helpers,partials,data) {
     return "aria-hidden=\"false\"";
