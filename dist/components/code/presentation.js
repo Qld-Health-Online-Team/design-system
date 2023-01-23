@@ -147,7 +147,7 @@
         return undefined
     };
 
-  return "                        <a href=\""
+  return "                        <a class=\"qld__code-header-link\" href=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"github_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" target=\"_blank\"><i class=\"fa-regular fa-arrow-up-right-from-square\"></i> Github</a>\r\n";
 },"22":function(container,depth0,helpers,partials,data) {
@@ -158,7 +158,7 @@
         return undefined
     };
 
-  return "                        <a href=\""
+  return "                        <a class=\"qld__code-header-link\" href=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"figma_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" target=\"_blank\"><i class=\"fa-regular fa-arrow-up-right-from-square\"></i> Figma</a>\r\n";
 },"24":function(container,depth0,helpers,partials,data) {
