@@ -44,6 +44,7 @@
                     tabHeading.classList.remove("active");
                     tabHeading.setAttribute("aria-selected", "false");
                     tabHeading.setAttribute("tabindex", "-1");
+                    console.log('hhhh');
                 });
                 const tabContents = tabComponent.querySelectorAll(".qld__tab-content");
                 tabContents.forEach((tabContent) => {
