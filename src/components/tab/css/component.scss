@@ -40,6 +40,7 @@
 
             i {
                 margin-right: 8px;
+                color: var(--QLD-color-dark-designAccent);
             }
         }
 
@@ -90,6 +91,12 @@
             font-weight: 700;
             z-index: 1;
             text-decoration: none;
+
+            span {
+                i {
+                    color: var(--QLD-color-light-heading);
+                }
+            }
 
             &::after {
                 background-color: var(--QLD-color-dark-designAccent);
@@ -326,6 +333,11 @@
                     }
                 }
 
+                &:not(.active) {
+                    // background: var(--QLD-color-light-alt-background__shade);
+                    // color: var(--QLD-color-light-link);
+                }
+
                 &:not(.active):hover {
                     color: var(--QLD-color-dark-button__text);
                     background: var(--QLD-color-dark-button__hover);
@@ -458,6 +470,117 @@
     .qld__tab-container__fixed .qld__tabs {
         @include QLD-media(lg) {
             margin-top: -112px;
+        }
+    }
+}
+
+.qld__body--full-width {
+    .qld__tab {
+        &-content {
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            padding-left: 0;
+        }
+
+        &-container {
+            // &__fixed {
+
+                .qld__tab-button {
+                    span i {
+                        color: var(--QLD-color-dark-alt-button);
+                    }
+
+                    &:not(.active) {
+                        color: var(--QLD-color-dark-link);
+                        background: var(--QLD-color-dark-background__shade);
+
+                        &:hover {
+                            color: var(--QLD-color-dark-button__text);
+                            background: var(--QLD-color-dark-button__hover);
+                            text-decoration-color: var(--QLD-color-dark-button__text);
+
+                            span i {
+                                color: var(--QLD-color-dark-button__text);
+                            }
+                        }
+                    }
+
+                    &.active {
+                        span i {
+                            color: var(--QLD-color-light-heading);
+                        }
+                    }
+                }
+
+                &--alt {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light-background__shade);
+                            color: var(--QLD-color-light-link);
+
+                            span i {
+                                color: var(--QLD-color-light-alt-button);
+                            }
+
+                            &:hover {
+                                background: var(--QLD-color-light-button__hover);
+                                color: var(--QLD-color-light-button__text);
+                                text-decoration-color: var(--QLD-color-light-button__text);
+
+                                span i {
+                                    color: var(--QLD-color-dark-heading);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-light-heading);
+                            }
+                        }
+                    }
+                }
+
+                &--dark {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light-background__shade);
+                            color: var(--QLD-color-light-link);
+                        }
+                    }
+                }
+
+                &--dark,
+                &--dark-alt {
+                    .qld__tab-button {
+                        span i {
+                            color: var(--QLD-color-light-alt-button);
+                        }
+
+                        &:not(.active) {
+                            background-color: var(--QLD-color-light-alt-background__shade);
+                            color: var(--QLD-color-light-link);
+                        }
+        
+                        &:not(.active):hover {
+                            background: var(--QLD-color-light-button__hover);
+                            color: var(--QLD-color-light-button__text);
+                            text-decoration-color: var(--QLD-color-light-button__text);
+
+                            span i {
+                                color: var(--QLD-color-dark-heading);
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-dark-heading);
+                            }
+                        }
+                    }
+                }
+            // }
         }
     }
 }
