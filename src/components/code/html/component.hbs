@@ -20,7 +20,7 @@
         {{/ifCond}}
         {{/ifCond}}
         {{#ifCond code_snippet_type.value '==' 'multiline'}}
-        <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}" {{#ifCond width_pixels.value.length '>' 0}}style="max-width: {{width_pixels.value}}px"{{/ifCond}}>
+        <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}" {{#ifCond width_pixels.value.length '>' 0}}style="max-width: {{width_pixels.value}}px; width: {{width_pixels.value}}px"{{/ifCond}}>
             {{#ifCond show_preview.value '==' 'true'}}
             <div class="qld__code-preview">
                 <span class="qld__code-preview-tab">Example</span>
