@@ -56,11 +56,18 @@
                         width: auto;
                     }
                     &:hover{
-                        text-decoration: underline;
+                        span {
+                            text-decoration: underline;
+                        }
                         svg{
                             color: var(--QLD-color-light-alt-button);
                         }
                         
+                    }
+
+                    &:active,
+                    &:focus {
+                        text-decoration: underline;
                     }
                 }
                 
@@ -70,6 +77,7 @@
                         position: relative;
                         width: auto;
                         height: auto;
+                        overflow: initial;
                     }
                 }
             }
@@ -85,6 +93,17 @@
 
             &.ellipsis svg{
                 vertical-align: middle;
+            }
+        }
+
+        .mid, .num {
+            a {
+                &:active,
+                &:focus {
+                    color: var(--QLD-color-dark-link);
+                    background-color: var(--QLD-color-light-alt-button);
+                    border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
+                }
             }
         }
 
@@ -106,13 +125,6 @@
                 color: var(--QLD-color-light-link);
                 border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
                 outline: none;
-            }
-
-            &:active,
-            &:focus {
-                color: var(--QLD-color-dark-link);
-                background-color: var(--QLD-color-light-alt-button);
-                border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
             }
 
             &[rel] {
@@ -159,12 +171,26 @@
                     &:hover{
                         color: var(--QLD-color-dark-link);
                         border: none;
+                        span {
+                            text-decoration: underline;
+                        }
                         svg{
                             color: var(--QLD-color-dark-alt-button);
                         }
                     }
                     svg{
                         color: var(--QLD-color-dark-button);
+                    }
+                }
+            }
+
+            .mid, .num {
+                a {
+                    &:active,
+                    &:focus {
+                        color: var(--QLD-color-light-link);
+                        background-color: var(--QLD-color-dark-alt-button);
+                        border-color: var(--QLD-color-dark-alt-button);
                     }
                 }
             }
@@ -178,13 +204,6 @@
                 color: var(--QLD-color-dark-link);
                 border-color: var(--QLD-color-dark-alt-button);
                 outline: none;
-            }
-
-            &:active,
-            &:focus {
-                color: var(--QLD-color-light-link);
-                background-color: var(--QLD-color-dark-alt-button);
-                border-color: var(--QLD-color-dark-alt-button);
             }
         }
 

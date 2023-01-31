@@ -1,8 +1,7 @@
 # Queensland Health Design System
-## This is a alpha version and is not production ready
+## This is an alpha version and is not production ready
 
-If you are using assets from this Repo, please send an email to [development team email] so we can add you to our change management communications list
-(see example here: GitHub - qld-gov-au/qg-web-template: https://qld-gov-au.github.io/qg-web-template/?path=/docs/welcome--page)
+If you are using assets from this Repo, please send an email to designandcapability@chde.qld.gov.au so we can add you to our change management communications list
 
 An attached MIT (basic) licence with “THIS REPOSITORY (SOFTWARE) IS PROVIDED AS IS WITHOUT WARRANTY”
 

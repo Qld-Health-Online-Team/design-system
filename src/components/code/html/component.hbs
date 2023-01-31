@@ -1,6 +1,7 @@
 {{#with component.data.metadata}}
     {{#if code.value}}
         {{#ifCond code_snippet_type.value '==' 'singleline'}}
+        {{#ifCond show_code.value '==' 'true'}}
         <div class="qld__code singleline">
             <code class="qld__code-body">{{code.value}}</code>
             <button class="qld__btn qld__code-copy--button" type="button">
@@ -16,6 +17,7 @@
                 </div>
             </button>
         </div>
+        {{/ifCond}}
         {{/ifCond}}
         {{#ifCond code_snippet_type.value '==' 'multiline'}}
         <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}">
@@ -48,11 +50,15 @@
                 </div>
             </div>
             {{/ifCond}}
+            {{#ifCond show_code.value '==' 'true'}}
             {{#ifCond show_more_button.value '==' 'true'}}
             <div class="qld__code-toggle">
                 <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
             </div>
             {{/ifCond}}
+            {{/ifCond}}
+            {{#ifCond show_code.value '==' 'false'}}
+            {{#if github_link.value}}
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
@@ -62,6 +68,30 @@
                         <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                 </div>
+            </div>
+            {{else if figma_link.value}}
+            <div class="qld__code-header">
+                <div class="qld__code-header-left">
+                    {{#if github_link.value}}
+                        <a href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                    {{/if}}
+                    {{#if figma_link.value}}
+                        <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+            {{else}}
+            <div class="qld__code-header">
+                <div class="qld__code-header-left">
+                    {{#if github_link.value}}
+                        <a href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                    {{/if}}
+                    {{#if figma_link.value}}
+                        <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                </div>
+                {{#ifCond show_code.value '==' 'true'}}
                 <div class="qld__code-header-right">
                     <button class="qld__btn qld__code-copy--button" type="button">
                         <div class="clean">
@@ -76,8 +106,12 @@
                         </div>
                     </button>
                 </div>
+                {{/ifCond}}
             </div>
+            {{/ifCond}}
+            {{#ifCond show_code.value '==' 'true'}}
             <code class="qld__code-body">{{code.value}}</code>
+            {{/ifCond}}
         </div>
         {{/ifCond}}
     {{/if}}
