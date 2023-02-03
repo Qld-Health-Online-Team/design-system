@@ -159,7 +159,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_title") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" "
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(26, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":46,"column":74},"end":{"line":46,"column":155}}})) != null ? stack1 : "")
-    + " class=\"qld__card__image-link\" href=\""
+    + " class=\"qld__card__image-link\" href=\"./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_title_url") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
