@@ -1,5 +1,7 @@
 {{#with component.data.metadata}}
     {{#if code.value}}
+    <section class="qld__body">
+        <div class="container-fluid">
         {{#ifCond code_snippet_type.value '==' 'singleline'}}
         {{#ifCond show_code.value '==' 'true'}}
         <div class="qld__code singleline">
@@ -114,5 +116,7 @@
             {{/ifCond}}
         </div>
         {{/ifCond}}
+        </div>
+    </section>
     {{/if}}
 {{/with}}
