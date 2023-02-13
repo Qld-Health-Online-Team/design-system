@@ -475,6 +475,13 @@
         &.qld__card--wrapper-bg-image{
             @include QLD-space(margin-top, 0unit);
         }
+        
+    }
+    + .qld__body:not(.qld__card--wrapper){
+        @include QLD-space(padding-top, 2.5unit !important);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-top, 4unit !important);
+        }
     }
     &.qld__body--alt{
         + .qld__body.qld__card--wrapper,
