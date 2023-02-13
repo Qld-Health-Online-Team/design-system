@@ -9,7 +9,6 @@
 a.qld__btn,
 .sq-form-submit {
 	cursor: pointer;
-	text-decoration: none;
 	display: inline-block;
 	@include QLD-space( padding, .625unit 1.5unit );
 	background-color: var(--QLD-color-light-button);
@@ -30,7 +29,6 @@ a.qld__btn,
 		color: var(--QLD-color-light-button__text);
 		border-color: var(--QLD-color-light-button__hover);
 		@include QLD-box-shadow(1);
-		text-decoration: underline;
 	}
 
 	&:active {
@@ -45,7 +43,6 @@ a.qld__btn,
 	}
 
 	&:focus {
-		text-decoration: underline;
 		@include QLD-box-shadow(1);
 		@include QLD-focus();
 	}
@@ -138,7 +135,6 @@ a.qld__btn.qld__btn--secondary {
 	&:hover{
 		border-color: var(--QLD-color-light-alt-button__hover);
 		@include QLD-box-shadow(1);
-		text-decoration: underline;
 
 		i{
 			color: var(--QLD-color-light-alt-button__hover);
@@ -158,7 +154,6 @@ a.qld__btn.qld__btn--secondary {
 	}
 
 	&:focus {
-		text-decoration: underline;
 		@include QLD-box-shadow(1);
 
 		i{
@@ -197,7 +192,6 @@ a.qld__btn.qld__btn--secondary {
 		&:hover{
 			border-color: var(--QLD-color-dark-alt-button__hover);
 			@include QLD-box-shadow(1);
-			text-decoration: underline;
 
 			i{
 				color: var(--QLD-color-dark-alt-button__hover);
@@ -247,7 +241,6 @@ a.qld__btn.qld__btn--tertiary {
 	background-color: transparent;
 	color: var(--QLD-color-light-link);
 	border-color: transparent;
-	text-decoration: underline;
 	box-shadow: none;
 
 	i{
@@ -256,7 +249,6 @@ a.qld__btn.qld__btn--tertiary {
 
 	&:hover{
 		background-color: var(--QLD-color-light-background__shade);
-		text-decoration: none;
 
 		i{
 			color: var(--QLD-color-light-alt-button);
@@ -277,7 +269,6 @@ a.qld__btn.qld__btn--tertiary {
 
 	&:focus {
 		background-color: var(--QLD-color-light-background__shade);
-		text-decoration: underline;
 		@include QLD-box-shadow(1);
 
 		i{
@@ -292,7 +283,6 @@ a.qld__btn.qld__btn--tertiary {
 		border-color: transparent;
 		color: var(--QLD-color-light-text__muted);
 		box-shadow: none;
-		text-decoration: none;
 
 		i{
 			color: var(--QLD-color-light-text__muted);
@@ -316,7 +306,6 @@ a.qld__btn.qld__btn--tertiary {
 		&:hover{
 			background-color: var(--QLD-color-dark-background__shade);
 			border-color: transparent;
-			text-decoration: none;
 
 			i{
 				color: var(--QLD-color-dark-alt-button__hover);
@@ -332,7 +321,6 @@ a.qld__btn.qld__btn--tertiary {
 
 		&:focus {
 			background-color: var(--QLD-color-dark-background__shade);
-			text-decoration: underline;
 			@include QLD-box-shadow(1);
 
 			i{
@@ -549,7 +537,7 @@ a.qld__btn,
 		background-color: #fff !important;
 		border: 2px solid #000 !important;
 		color: #000 !important;
-		text-decoration: none !important;
+		text-decoration: none;
 
 		&[disabled] {
 			background-color: #ccc !important;
