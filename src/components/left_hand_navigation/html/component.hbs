@@ -27,7 +27,11 @@
             {{#each site.children}}
                 {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                 <li>
+                    {{#inArray @root.current.lineage 'asset_assetid' this.asset_assetid}}
+                    <a class="qld__left-nav__item-link qld__left-nav__item-link--open" href="{{asset_url}}">
+                    {{else}}
                     <a class="qld__left-nav__item-link" href="{{asset_url}}">
+                    {{/inArray}}
                         <span class="qld__left-nav__item-text" data-name="{{asset_short_name}}">{{asset_short_name}}
                         </span>
                     </a>
@@ -41,7 +45,7 @@
                     {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                         {{#if this}}
                             {{#inArray @root.current.lineage 'asset_assetid' ../this.asset_assetid}}
-                                <button class="qld__left-nav__item-toggle" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-selected="true" aria-label="Toggle navigation, {{../asset_short_name}}"  ></button>
+                                <button class="qld__left-nav__item-toggle qld__accordion--open" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-selected="true" aria-label="Toggle navigation, {{../asset_short_name}}"  ></button>
                                 <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--open qld__accordion__body">
                             {{else}}
                                 <button class="qld__left-nav__item-toggle qld__accordion--closed" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ></button>
