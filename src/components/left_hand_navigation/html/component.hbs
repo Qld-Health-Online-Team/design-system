@@ -45,7 +45,7 @@
                                 <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--open qld__accordion__body">
                             {{else}}
                                 <button class="qld__left-nav__item-toggle qld__accordion--closed" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ></button>
-                                <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--closed qld__accordion__body" style="display: none;">
+                                <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--closed qld__accordion__body">
                             {{/inArray}}
                             {{#each this}}
                                 {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
