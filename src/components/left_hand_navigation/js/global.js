@@ -15,20 +15,18 @@
             button.addEventListener('click', function () {
 
                 if(button.className.split(' ').indexOf('qld__accordion--closed')>=0){
-
+                    button.classList.replace('qld__accordion--closed','qld__accordion--open');
                     button.parentNode.querySelector('.qld__left-nav__item-link').classList.add('qld__left-nav__item-link--open');
-                    itemToggles.forEach(function (item) {
-                        if(item.className.split(' ').indexOf('qld__accordion--open')>=0){
-                            item.parentNode.querySelector('.qld__left-nav__item-link').classList.remove('qld__left-nav__item-link--open');
-                            QLD.accordion.Close(item);
-                        }
-                    });
-                }else{
+                    
+                    button.parentNode.querySelector('.qld__accordion__body').classList.replace('qld__accordion--closed','qld__accordion--open');
+
+                } else{
+                    button.classList.replace('qld__accordion--open','qld__accordion--closed');
                     button.parentNode.querySelector('.qld__left-nav__item-link').classList.remove('qld__left-nav__item-link--open');
+                    button.parentNode.querySelector('.qld__accordion__body').classList.replace('qld__accordion--open','qld__accordion--closed');
+
                 }
 
-
-                QLD.accordion.Toggle(button);
             });
         });
     });
