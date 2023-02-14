@@ -15,15 +15,18 @@
     .qld__body--left-nav {
         flex-grow: 1;
 
+
+
         .qld__body:first-of-type{
-            padding-top: 0;
+            // padding-top: 0;
         }
         
         > .qld__banner > .container-fluid{
             @include QLD-space(margin-left, 0unit); 
                 @include QLD-space(padding-left, 8unit !important) ; 
         }
-        > .qld__body > .container-fluid{
+        > .qld__body > .container-fluid,
+        > #content > .qld__body > .container-fluid {
             max-width: 100%;
             
             >.row{
@@ -72,7 +75,8 @@
         }
 
         ul {
-            @include QLD-space(padding, 3.25unit 0 0 0);
+            // @include QLD-space(padding, 3.25unit 0 0 0);
+            padding-top: 0;
 
             li {
                 border-top: $QLD-border-width-thin solid var(--QLD-color-light-border);
@@ -120,10 +124,6 @@
                         fill: var(--QLD-color-light-button__hover);
                     }
 
-                    .qld__left-nav__item-text {
-                        text-decoration: underline;
-                    }
-
                     &:after {
                         background-color: var(--QLD-color-light-button__hover);
                     }
@@ -134,9 +134,9 @@
                     display: flex;
                     align-items: center;
                     color: var(--QLD-color-light-text);
-                    text-decoration: none;
                     position: relative;
                     flex-grow: 1;
+                    max-width: 13.3rem;
 
                     &.qld__left-nav__item-link--close {
                         @include QLD-space(border-top-right-radius, 1unit);

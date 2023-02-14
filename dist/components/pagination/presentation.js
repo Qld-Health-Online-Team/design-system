@@ -36,7 +36,7 @@
 
   return "                <li class=\"prev\">\n                    <a href=\""
     + alias1(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":14,"column":29},"end":{"line":14,"column":36}}}) : helper)))
-    + "\" rel=\"prev\" aria-label=\"Previous page of results\">\n                        <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
+    + "\" rel=\"prev\" aria-label=\"Previous page of results\" class=\"qld__search-pagination_link\">\n                        <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"siteDefaultIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#qld__icon__arrow-left\"></use></svg>\n                        <span>Back</span>\n                    </a>\n";
 },"6":function(container,depth0,helpers,partials,data) {
@@ -50,10 +50,10 @@
   return "                <li class=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"linkType") || (depth0 != null ? lookupProperty(depth0,"linkType") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"linkType","hash":{},"data":data,"loc":{"start":{"line":21,"column":27},"end":{"line":21,"column":39}}}) : helper)))
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"isCurrent") : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":21,"column":39},"end":{"line":21,"column":70}}})) != null ? stack1 : "")
-    + "\">\n                    <a href=\""
-    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":22,"column":29},"end":{"line":22,"column":36}}}) : helper)))
+    + "\">\n                    <a class=\"qld__search-pagination_link\" href=\""
+    + alias4(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":22,"column":65},"end":{"line":22,"column":72}}}) : helper)))
     + "\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":22,"column":38},"end":{"line":22,"column":47}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":22,"column":74},"end":{"line":22,"column":83}}}) : helper)))
     + "</a></li>\n";
 },"7":function(container,depth0,helpers,partials,data) {
     return " active";
@@ -67,7 +67,7 @@
 
   return "                <li class=\"next\">\n                    <a href=\""
     + alias1(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":27,"column":29},"end":{"line":27,"column":36}}}) : helper)))
-    + "\" rel=\"next\" aria-label=\"Next page of results\">\n                    <span>Next</span>\n                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
+    + "\" rel=\"next\" aria-label=\"Next page of results\" class=\"qld__search-pagination_link\">\n                    <span>Next</span>\n                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"siteDefaultIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#qld__icon__arrow-right\"></use></svg>\n                    </a>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {

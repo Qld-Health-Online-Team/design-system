@@ -43,13 +43,10 @@ $QLD-side-nav-breakpoint: lg !default;
     }
     
     a {
-        text-decoration: none;
         max-width: 100%;
         
         
         &:hover {
-            text-decoration: underline;
-            text-decoration-skip-ink: auto;
             background-color: var(--QLD-color-light-alt-background);
         }
         
@@ -105,13 +102,7 @@ $QLD-side-nav-breakpoint: lg !default;
         @include QLD-fontgrid(md, heading);
         color: var(--QLD-color-light-link);
         font-weight: normal;
-        text-decoration: underline;
-        text-decoration-skip-ink: auto;
-        background-color: inherit;        
-        
-        &:hover {
-            text-decoration: none;
-        }
+        background-color: inherit;
         
         &:focus {
             outline-offset: -3px;
@@ -410,11 +401,11 @@ $QLD-side-nav-breakpoint: lg !default;
         background: transparent !important;
 
         a {
-            color: #000 !important;
-            text-decoration: underline !important;
+            color: #000;
+            text-decoration: underline;
 
             &:hover {
-                background: transparent !important;
+                background: transparent;
             }
         }
 

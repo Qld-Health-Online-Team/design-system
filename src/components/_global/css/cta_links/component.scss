@@ -6,7 +6,6 @@
 a.qld__cta-link{
 	@include QLD-fontgrid( md );
 	font-weight: bold;
-	text-decoration: none;
 	color: var(--QLD-color-light-link);
 	white-space: nowrap;
 	z-index: 1;
@@ -40,7 +39,6 @@ a.qld__cta-link{
 	&:hover,
 	&:focus{
 		color: var(--QLD-color-light-heading);
-		text-decoration: underline;
 		&:after{
 			background-color: var(--QLD-color-light-alt-button__hover);
 			@include QLD-space(margin, 0 0 0 1unit);
@@ -49,7 +47,6 @@ a.qld__cta-link{
 		&:disabled,
 		&[disabled]{
 			font-weight: bold;
-			text-decoration: none;
 			&::after{
 				@include QLD-space( margin, 0 0.5unit 0 0.5unit );
 			}
