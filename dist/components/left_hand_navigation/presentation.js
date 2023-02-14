@@ -125,7 +125,7 @@
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_short_name") : depths[1]), depth0))
     + "\"  ></button>\n                                <ul id=\"internal-nav-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_assetid") : depths[1]), depth0))
-    + "\" class=\"qld__link-list qld__accordion--closed qld__accordion__body\" style=\"display: none;\">\n";
+    + "\" class=\"qld__link-list qld__accordion--closed qld__accordion__body\">\n";
 },"19":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
