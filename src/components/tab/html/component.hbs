@@ -2,6 +2,53 @@
 {{#with component.data}}
 <section class="qld__body{{#if metadata.theme.value}} qld__body--{{metadata.theme.value}}{{/if}}{{#ifCond metadata.display.value '==' 'full'}} qld__body--full-width tab-section{{/ifCond}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}tag-{{assetid}}{{/if}}">
     <div class="container-fluid">
+
+        {{#if metadata.intro_heading.value}}
+        <div class="row">
+
+            <div class="qld__tab-intro col-xs-12 {{metadata.intro_width.value}}">
+                
+                {{#ifCond metadata.intro_heading_level.value '==' 'h5'}}
+                    <h5>{{metadata.intro_heading.value}}</h5>
+                {{else ifCond metadata.intro_heading_level.value '==' 'h4'}}
+                    <h4>{{metadata.intro_heading.value}}</h4>
+                {{else ifCond metadata.intro_heading_level.value '==' 'h3'}}
+                    <h3>{{metadata.intro_heading.value}}</h3>
+                {{else}}
+                    <h2>{{metadata.intro_heading.value}}</h2>
+                {{/ifCond}}
+
+                {{#if metadata.intro_body.value}}
+                {{{metadata.intro_body.value}}}
+                {{/if}}
+
+            </div>
+        </div>
+        {{else}}
+            {{#if metadata.intro_body.value}}
+            <div class="row">
+
+                <div class="qld__tab-intro col-xs-12 {{metadata.intro_width.value}}">
+                    
+                    {{#if metadata.intro_heading.value}}
+                        {{#ifCond metadata.intro_heading_level.value '==' 'h5'}}
+                            <h5>{{metadata.intro_heading.value}}</h5>
+                        {{else ifCond metadata.intro_heading_level.value '==' 'h4'}}
+                            <h4>{{metadata.intro_heading.value}}</h4>
+                        {{else ifCond metadata.intro_heading_level.value '==' 'h3'}}
+                            <h3>{{metadata.intro_heading.value}}</h3>
+                        {{else}}
+                            <h2>{{metadata.intro_heading.value}}</h2>
+                        {{/ifCond}}
+                    {{/if}}
+
+                    {{{metadata.intro_body.value}}}
+
+                </div>
+            </div>
+            {{/if}}
+        {{/if}}
+        
         <div class="qld__tab-container{{#if metadata.theme.value}} qld__tab-container--{{metadata.theme.value}}{{/if}} qld__tab-container__fixed" id="tab-{{assetid}}">
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1"><i class="fa-solid fa-chevron-right"></i></button>
