@@ -3,6 +3,13 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__tab {
+
+    &-intro{
+        @include QLD-space(padding-bottom, 1.5unit);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-bottom, 2unit);
+        }
+    }
 	
     &s {
         display: flex;
@@ -396,7 +403,7 @@
     }
 }
 
-* + .qld__tab-container {
+*:not(.row) + .qld__tab-container {
     margin-top: 32px;
 }
 

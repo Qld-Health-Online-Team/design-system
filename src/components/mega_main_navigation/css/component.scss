@@ -338,6 +338,8 @@
                         background-color: var(--QLD-color-light-background);
                         text-decoration: underline;
 
+                        
+
                         .qld__main-nav__sub-item-text .qld__icon{
                             @include QLD-space(margin, 0 -4px 0 1unit);
                             color: var(--QLD-color-light-alt-button__hover);
@@ -378,6 +380,10 @@
                 &:hover{
                     border-color: var(--QLD-color-light-button);
                     background-color: var(--QLD-color-light-background);
+
+                    @include QLD-media(lg) {
+                        background-color: transparent;
+                    }
 
                     .qld__main-nav__sub-item-text .qld__icon{
                         @include QLD-space(margin, 0 -4px 0 1unit);
