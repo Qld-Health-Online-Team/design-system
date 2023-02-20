@@ -48,6 +48,12 @@
     /**
     * Header pre-header styles
     */
+    @include QLD-media(lg) {
+        .qld__header__pre-header-url{
+            font-size:14px;
+            line-height:1;
+        }
+    }
 
     .qld__header__pre-header {
         color: var(--QLD-color-light-text);
@@ -66,8 +72,18 @@
         
         @include QLD-media(lg) {
 
+            padding-top: 8px;
+            padding-top: 0.5rem;
+            padding-bottom: 8px;
+            padding-bottom: 0.5rem;
+
             @include QLD-space(padding-top, 0.75unit);
             @include QLD-space(padding-bottom, 0.75unit);
+
+            a{
+                font-size: 14px;
+                line-height: 1;
+            }
         }
 
         .container-fluid{
@@ -331,6 +347,7 @@
             
             @include QLD-media(lg) {
                 @include QLD-space(padding, 3unit 0);
+                padding: 32px 0;
                 flex-grow: 1;
             }
 
@@ -517,6 +534,7 @@
             position: relative;
             background-color: transparent;
             @include QLD-space(padding, 3unit 0);
+            padding: 32px 0;
         }
         .qld__search__label{
 
@@ -623,6 +641,11 @@
         }
 
         
+    }
+
+    .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link, .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
+        padding-top:10px;
+        padding-bottom:10px;
     }
 }
 
