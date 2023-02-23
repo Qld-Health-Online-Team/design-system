@@ -157,7 +157,7 @@ form {
             }
 
             &:first-of-type{
-                padding-top: 0 !important;
+                padding-top: 0 ;
                 &:last-of-type{
                     @include QLD-space(padding-top, 2.5unit);
                     @include QLD-media(lg) {
@@ -169,13 +169,17 @@ form {
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-space(padding-top, 2.5unit);
+                    // @include QLD-container-padding($QLD-container-padding-mobile, !important);
 
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-space(padding-top, 4unit);
+                        // @include QLD-container-padding($QLD-container-padding-desktop, !important);
                     }
                 }
             }
+
+            
             &:last-of-type{
                 @include QLD-space(padding-bottom, 0);
                 
