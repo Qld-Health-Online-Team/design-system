@@ -148,7 +148,11 @@ form {
             }
 
             @include QLD-media(lg) {
-                @include QLD-container-margin($QLD-grid-gutter-sm, neg, horizontal );
+                @include QLD-space(margin-left, 0unit);
+                @include QLD-space(margin-right, 0unit);
+                @include QLD-space(padding-left, 0unit);
+                @include QLD-space(padding-right, 0unit);
+                // @include QLD-container-margin($QLD-grid-gutter-xs, neg, horizontal );
                 @include QLD-container-padding($QLD-container-padding-mobile);
             }
 
