@@ -1,0 +1,385 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Job-view
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__job-view {
+	// @include QLD-space( margin-top, 20px);
+
+    div.qld__job-view_heading {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    &__contact, &__resources {
+        section.qld__body.qld__job-view__resources-body, section.qld__body.qld__job-view__contact-body {
+            border-top: 4px solid var(--QLD-color-light-designAccent);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+
+            div.container-fluid {
+                h2.qld__job-view__resources-heading, h2.qld__job-view__contact-heading {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                }
+
+                div.row {
+                    div {
+                        padding-bottom: 1rem;
+
+                        i {
+                            margin-right: 0.75rem;
+                        }
+                    }
+                }
+
+                p.qld__job-view__resources-contacts-intro {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+
+    .qld__job-view__devision {
+        margin-top: 2rem;
+    }
+
+    &__contact {
+        padding-top: 2rem;
+    }
+
+    div.qld__job-view__footer-action-buttons {
+        a:first-of-type {
+            margin-right: 1.5rem;
+        }
+    }
+
+    div.qld__horizontal-rule-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .qld__horizontal-rule-icon-text {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+      
+    .qld__horizontal-rule-icon-text i {
+        display: block;
+    }
+      
+    .qld__horizontal-rule-icon-text span {
+        display: block;
+    }
+    
+    .qld__job-view__content-intro {
+        font-size: 24px;
+        line-height: 32px;
+        color: var(--QLD-color-light-text);
+    }
+
+    .qld__job-view__type {
+        font-size: 24px;
+        text-transform: capitalize;
+    }
+
+    .qld__job-view__utility {
+        .qld__job-view_applyButton {
+            margin-right: 1rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    .qld__job-view__heading {
+        @include QLD-space( margin, 15px 0 20px 0);
+    }
+
+    .qld__job-view__published-date {
+        @include QLD-space( margin-top, 1.5unit);
+    }
+
+    .qld__job-view__devision + .qld__job-view__published-date {
+        @include QLD-space( margin-top, .25unit);
+    }   
+
+    .qld__job-view__utility {
+        // margin: 30px 0 20px;
+        @include QLD-space( margin-top, 1.5unit);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .qld__job-view__share-btn {
+        margin: 0;
+        margin-right: pxToRem(20);
+        font-weight: bold;
+        // padding: 0 10px;
+        // width: auto;
+        // height: 40px;
+    }
+
+    .qld__job-view__hero {
+        background-color: var(--QLD-color-light-background__shade);
+        @include QLD-space( margin-top, 1.5unit);
+
+        .qld__job-view__hero__image {
+            display: inherit;
+            width: 100%;
+        }
+        
+        .qld__job-view__hero__caption {
+            margin: 0;
+            // padding: 10px 15px;
+            @include QLD-space( padding, 1unit);
+            @include QLD-space( padding, 1unit);
+            @include QLD-fontgrid( xs );
+            color: var(--QLD-color-light-text__muted);
+        }
+    }
+
+    .qld__job-view__content {
+        @include QLD-space( margin-top, 1.5unit);
+
+        
+    }
+    
+    .qld__block-quote,
+    blockquote{
+        @include QLD-space( margin, 1.5unit 0 0 0);
+        @include QLD-fontgrid( lg, heading );
+        color: var(--QLD-color-light-heading);
+        font-weight: bold;
+        border-left: 5px solid var(--QLD-color-light-designAccent);
+        margin-left: 0;
+        @include QLD-space( padding-left, 2unit);
+
+        @include QLD-media(lg) {
+            @include QLD-space( margin, 2unit 0 0 0);
+        }
+    }
+
+    .qld__job-view__footer {
+        @include QLD-space( margin-top, 1.5unit);
+
+        .qld__job-view__updated-date {
+            @include QLD-fontgrid( xs );
+            color: var(--QLD-color-light-text__muted);
+            @include QLD-space( margin-top, 1.5unit);
+
+        }
+
+        .qld__job-view__footer__share {
+            @include QLD-space( margin-top, 1.5unit);
+
+            h2, ul {
+                display: inline;
+            }
+
+            h2 {
+                margin-right: 1rem;
+            }
+            
+            ul.qld__job-view__share-list {
+                justify-content: flex-start;
+
+                li {
+   
+                    a {
+                        background-color: var(--QLD-color-light-background__shade);
+                        color: var(--QLD-color-light-link);
+
+                        svg, i {
+                            margin: auto;
+                        }
+
+                        &:hover {
+                           background-color: var(--QLD-color-light-alt-background__shade);
+                        }
+                    }
+                }
+            }
+        }
+
+        .qld__tag-list {
+            @include QLD-space( margin, 1unit 0);
+        }
+    }
+
+    .qld__job-view__aside {
+
+
+        .qld__job-view__aside__heading {
+            
+            margin-top: 20px;
+            padding-top: 40px;
+            border-top: 1px solid var(--QLD-color-light-alt-border);
+
+            @include QLD-media(md)  {
+                margin-top: 0;
+                padding-top: 0;
+                border-top: none;
+            }
+        }
+
+        .qld__job-view__aside__sub-heading {
+            @include QLD-space(margin-top, 1.5unit);
+
+            svg, i {
+                @include QLD-space( margin-right, .5unit);
+                @include QLD-space( font-size, 1.125unit);
+                @include QLD-space( height, 1unit);
+                @include QLD-space( width, 1.25unit);
+                color: var(--QLD-color-light-designAccent);
+            }
+
+            svg {
+                fill: var(--QLD-color-light-designAccent);
+                vertical-align: top;
+            }
+        }
+
+        .qld__card-list{
+            @include QLD-space(margin-top, 1.5unit);
+            li{
+                @include QLD-space(padding-left, 0unit);
+                @include QLD-space(padding-right, 0unit);
+
+            }
+        }
+    }
+
+
+    //Will need to be made in to it's own component
+    .qld__modal {
+        text-align: center;
+        position: relative;
+
+        .qld__modal__body {
+            background-color: var(--QLD-color-light-background__shade);
+            color: var(--QLD-color-light-heading);
+            padding: pxToRem(24) pxToRem(45) pxToRem(33);
+            min-width: pxToRem(270);
+            width: 90%;
+
+            @include QLD-media(md) {
+                min-width: 486px;
+                width: auto;
+            }
+
+            .qld__modal__close {
+
+                @include QLD-space(padding-left, 1unit);
+                @include QLD-space(padding-right, 1unit);
+            }
+
+            .qld__modal__body__header {
+                justify-content: center;
+            }
+
+            .qld__modal__body__heading {
+                margin-bottom: 14px;
+                text-align: center;
+            }
+
+            .qld__job-view__share-list {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    ul.qld__job-view__share-list {
+        list-style: none;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 20px 0 32px 0;
+        justify-content: center;
+
+        @include QLD-media(md) {
+            margin: 20px 0 0 0;
+        }
+
+        li {
+            margin: 0 10px 0 0;
+            display: inline-flex;
+            list-style-type: none;
+            
+            a {
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                height: 40px;
+                width: 40px;
+                background-color: var(--QLD-color-dark-background);
+                color: white;
+                border-radius: 50%;
+
+                svg, i {
+                    margin: auto;
+                }
+
+                &:hover {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+    }
+
+    .qld__body & .qld__job-view__copy-link {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 300px;
+        font-size: 14px;
+        background-color: white;
+        border-bottom: 1px solid var(--QLD-color-light-alt-border);
+        padding: 6px 10px 4px;
+        margin: 15px auto 0 auto;
+
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.qld__copied-to-clipboard {
+                overflow: visible;
+            }
+        }
+        
+        svg, i {
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+    }
+    
+}
+
+.qld__copied-to-clipboard {
+    font-weight: bold;
+    color: $QLD-color-success;
+    
+    &.active {
+        padding-left: 10px;
+    }
+}
+
+@media print {
+    a::after {
+        content: " (" attr(href) ")";
+    }
+
+    .qld__job-view_print-button, .qld__job-view__share-btn, .qld__job-view__display-none-print, .qld__job-view__footer__share, header, nav, footer, .qld__side-nav {
+        display: none !important;
+    }
+
+}

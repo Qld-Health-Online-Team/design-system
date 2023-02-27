@@ -1,0 +1,257 @@
+{{#with component.data.metadata}}
+<article class="qld__job-view">
+    <div class="row">
+        <div class="qld__job-view__main {{#ifCond display_right_column.value '==' 'true'}}col-md-8{{/ifCond}}{{#ifCond display_right_column.value '==' 'false'}}col-md-12{{/ifCond}} col-xs-12">
+            <div class="qld__job-view__header">
+                
+                {{!-- <h1>{{job_title.value}}</h1> --}}
+                {{!-- display flex the div below to make sure print button and title look side by side (space between) --}}
+                <div class="qld__job-view_heading">
+                    <div class="qld__job-view_job-title">
+                        <h1>{{job_title.value}}</h1>
+                    </div>
+                    <div class="qld__job-view_print-button">
+                        <a href="#" onclick="window.print();return false;">
+                            <i class="fa-light fa-print"></i>
+                            <span>Print</span>
+                        </a>
+                    </div>
+                </div>
+                    {{#if devision.value}}<div class="qld__job-view__devision"><p>{{devision.value}}</p></div>{{/if}}
+                    {{#if location.value}}<div class="qld__job-view__location"><p> {{location.value}} | {{work_type.value}}</p></div>{{/if}}
+                {{!-- <p class="qld__job-view__published-date"><strong>Published:</strong> {{#formatDate ../current.data.published 'd F Y'}}{{/formatDate}}</p> --}}
+                <div class="qld__job-view__utility">
+                    {{#if apply_link.value}}
+                        <a href="{{apply_link.value}}" class="qld__btn qld__job-view_applyButton">Apply now</a>
+                    {{/if}}
+                    {{#if social_share_buttons.value}}
+                    <button class="qld__btn qld__btn--secondary qld__btn--icon-trail qld__job-view__share-btn qld__open-modal" data-modaltarget="qld__share-model">Share<i class="far fa-share-alt"></i></button>
+                    <div id="qld__share-model" class="qld__modal qld__job-view__share-modal" tabindex="-1">
+                        <div class="qld__modal__underlay"></div>
+                        <div class="qld__modal__body">
+                            <div class="qld__modal__body__header">
+                                <h2 class="qld__modal__body__heading qld__display-md">Share this position</h2>
+                            </div>
+                            <div class="qld__modal__body__content">
+                                <p>Share this position on your networks</p>
+                                <ul class="qld__job-view__share-list">
+                                {{#objectFromSelect social_share_buttons.value}}
+                                    {{#ifCond value '==' 'Facebook'}}
+                                        {{#with (itemAt ../../current.lineage -1)}}
+                                            <li><a class="qld__job-view__share-link" href="https://www.facebook.com/sharer.php?u={{asset_url}}" target="_blank" data-action="close"><span class="sr-only">Share via Facebook</span><i class="fab fa-facebook-f"></i></a></li>
+                                        {{/with}}
+                                    {{/ifCond}}
+                                    {{#ifCond value '==' 'Twitter'}}
+                                        {{#with (itemAt ../../current.lineage -1)}}
+                                            <li><a class="qld__job-view__share-link" href="https://twitter.com/share?url={{asset_url}}&text={{asset_name}}" target="_blank" data-action="close"><span class="sr-only">Share via Twitter</span><i class="fab fa-twitter"></i></a></li>
+                                        {{/with}}
+                                    {{/ifCond}}
+                                    {{#ifCond value '==' 'Linkedin'}}
+                                        {{#with (itemAt ../../current.lineage -1)}}
+                                            <li><a class="qld__job-view__share-link" href="https://www.linkedin.com/shareArticle?url={{asset_url}}&title={{asset_name}}" target="_blank" data-action="close"><span class="sr-only">Share via Linkedin</span><i class="fab fa-linkedin-in"></i></a></li>
+                                        {{/with}}
+                                    {{/ifCond}}
+                                    {{#ifCond value '==' 'Email'}}
+                                        {{#with (itemAt ../../current.lineage -1)}}
+                                            <li><a class="qld__job-view__share-link" href="mailto:?subject=Queensland Health News Article - {{asset_name}}&body=View this page {{asset_url}}" target="_blank" data-action="close"><span class="sr-only">Share via email</span><i class="far fa-envelope"></i></a></li>
+                                        {{/with}}
+                                    {{/ifCond}}
+                                {{/objectFromSelect}}
+                                </ul>
+                                <p>Or copy link</p>
+                                <p class="qld__job-view__copy-link">{{#with (itemAt ../current.lineage -1)}}<i class="far fa-link"></i><span tabindex="0" aria-label="Press enter or space to copy link" role="button" aria-pressed="false">{{asset_url}}</span>{{/with}}<span class="qld__copied-to-clipboard"></span></p>
+                            </div>
+                            <button class="qld__modal__close qld__btn" data-action="close">
+                                <span class="sr-only">
+                                    Close modal
+                                </span>
+                                <i class="fal fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{!-- <div class="qld__tag qld__tag--large">
+                        Read time
+                    </div> --}}
+                </div>
+            </div>
+            <hr class="qld__horizontal-rule" />
+            <div class="qld__job-view__body">
+                {{#if hero_video_url.value}}
+                <div class="qld__job-view__hero">
+                    <img class="qld__job-view__hero__image" src="https://qhscb.squiz.cloud/?a={{hero_video_url.value}}" alt="{{hero_video_caption.value}}"/>
+                    {{#if hero_video_caption.value}}
+                        <p class="qld__job-view__hero__caption">{{hero_video_caption.value}}</p>
+                    {{/if}}
+                </div>
+                {{/if}}
+                {{!-- {{#if summary.value}}
+                <div class="qld__job-view__summary">
+                    <h2 class="qld__display-lg">Summary</h2>
+                    {{{summary.value}}}
+                </div>
+                {{/if}} --}}
+                <hr class="qld__horizontal-rule" />
+                <div class="row qld__horizontal-rule-list">
+                    <div class="qld__horizontal-rule-icon-text col-sm-6 col-sm-12">
+                        <i class="fa-light fa-circle-dollar"></i> <span>{{salary.value}}</span>
+                    </div>
+                    <div class="qld__horizontal-rule-icon-text col-sm-6 col-xs-12">
+                        <i class="fa-light fa-calendar-week"></i> <span>{{position_type.value}}</span>
+                    </div>
+                    <div class="qld__horizontal-rule-icon-text col-sm-6 col-xs-12">
+                        <i class="fa-light fa-graduation-cap"></i> <span>{{position_status.value}}</span>
+                    </div>
+                    <div class="qld__horizontal-rule-icon-text col-sm-6 col-xs-12">
+                        <i class="fa-light fa-graduation-cap"></i> <span>{{occupational_group.value}}</span>
+                    </div>
+                    <div class="qld__horizontal-rule-icon-text col-sm-6 col-xs-12">
+                        <i class="fa-light fa-calendar-xmark"></i> <span>{{closing_date.value}}</span>
+                    </div>
+                </div>
+                <hr class="qld__horizontal-rule" />
+                <div class="qld__job-view__content">
+                    <div class="qld__job-view__content-intro">  
+                        {{intro.value}}
+                    </div>
+                    {{{body.value}}}
+                </div>
+            </div>
+            <hr class="qld__horizontal-rule" />
+            <div class="qld__job-view__footer">
+                {{#if article_tags.value}}
+                <div class="qld__job-view__resources">
+                    <section class="qld__body qld__job-view__resources-body qld__body--alt qld__body--full-width">
+                        <div class="container-fluid" >
+                            <h2 class="qld__job-view__resources-heading qld__display-sm">Resources</h2>
+                            {{#if resources_intro.value}}
+                                <p class="qld__job-view__resources-contacts-intro">{{resources_intro.value}}</p>
+                            {{/if}}
+                        </div>
+                    </section>
+                </div>
+                {{/if}}
+                {{#if article_tags.value}}
+                <div class="qld__job-view__contact">
+                    <section class="qld__body qld__job-view__contact-body qld__body--alt qld__body--full-width">
+                        <div class="container-fluid">
+                            <h2 class="qld__job-view__contact-heading qld__display-sm">Contact</h2>
+                            <div class="row">
+                                {{#if contact_name.value}}
+                                    <div class="col-sm-12">
+                                        <i class="fa-light fa-car"></i><span>{{contact_name.value}}</span>
+                                    </div>
+                                {{/if}}
+                                {{#if contact_position.value}}
+                                    <div class="col-xs-12">
+                                        <i class="fa-light fa-car"></i><span>{{contact_position.value}}</span>
+                                    </div>
+                                {{/if}}
+                                {{#if contact_email_address.value}}
+                                    <div class="col-xs-12">
+                                        <i class="fa-light fa-car"></i><span>{{contact_email_address.value}}</span>
+                                    </div>
+                                {{/if}}
+                                {{#if contact_phone_number.value}}
+                                    <div class="col-xs-12">
+                                        <i class="fa-light fa-car"></i><span>{{contact_phone_number.value}}</span>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {{/if}}
+                {{#if article_tags.value}}
+                <div class="qld__job-view__footer-action-buttons">
+                    {{#if apply_link.value}}
+                        <a href="{{apply_link.value}}" class="qld__btn qld__job-view_applyButton">Apply for position</a>
+                    {{/if}}
+                    <a href="#" class="qld__btn qld__btn--secondary qld__job-view__display-none-print">Email a friend</a>
+                    {{#if return_to_jobs_url.value}}
+                        <a href="{{return_to_jobs_url.value}}" class="qld__btn qld__btn--tertiary">Return to jobs</a>
+                    {{/if}}
+                </div>
+                {{/if}}
+                <hr class="qld__horizontal-rule" />
+                {{#if ../current.data.updated}}
+                    <p class="qld__job-view__updated-date"><strong>Last updated:</strong> {{#formatDate ../current.data.updated 'd F Y'}}{{/formatDate}}</p>
+                {{/if}}
+                {{#if social_share_buttons.value}}
+                <div class="qld__job-view__footer__share">
+                    <h2 class="qld__display-xs">Share</h2>
+                    <ul class="qld__job-view__share-list">
+                        {{#objectFromSelect social_share_buttons.value}}
+                            {{#ifCond value '==' 'Facebook'}}
+                                {{#with (itemAt ../../current.lineage -1)}}
+                                    <li><a class="qld__job-view__share-link" href="https://www.facebook.com/sharer.php?u={{asset_url}}" target="_blank"><span class="sr-only">Share via Facebook</span><i class="fab fa-facebook-f"></i></a></li>
+                                {{/with}}
+                            {{/ifCond}}
+                            {{#ifCond value '==' 'Twitter'}}
+                                {{#with (itemAt ../../current.lineage -1)}}
+                                    <li><a class="qld__job-view__share-link" href="https://twitter.com/share?url={{asset_url}}&text={{asset_name}}" target="_blank"><span class="sr-only">Share via Twitter</span><i class="fab fa-twitter"></i></a></li>
+                                {{/with}}
+                            {{/ifCond}}
+                            {{#ifCond value '==' 'Linkedin'}}
+                                {{#with (itemAt ../../current.lineage -1)}}
+                                    <li><a class="qld__job-view__share-link" href="https://www.linkedin.com/shareArticle?url={{asset_url}}&title={{asset_name}}" target="_blank"><span class="sr-only">Share via Linkedin</span><i class="fab fa-linkedin-in"></i></a></li>
+                                {{/with}}
+                            {{/ifCond}}
+                            {{#ifCond value '==' 'Email'}}
+                                {{#with (itemAt ../../current.lineage -1)}}
+                                    <li><a class="qld__job-view__share-link" href="mailto:?subject=Queensland Health News Article - {{asset_name}}&body=View this page {{asset_url}}" target="_blank"><span class="sr-only">Share via email</span><i class="far fa-envelope"></i></a></li>
+                                {{/with}}
+                            {{/ifCond}}
+                        {{/objectFromSelect}}
+                    </ul>
+                </div>
+                {{/if}}
+            </div> 
+        </div>
+        {{#ifCond display_right_column.value '==' 'true'}}
+            <aside class="qld__job-view__aside col-md-4 col-lg-3 col-lg-offset-1 col-xs-12 qld__job-view__display-none-print">
+                <h3></h3>
+                <h4 class="qld__job-view__aside__sub-heading qld__display-sm">Related positions</h4>
+                <ul class="qld__card-list">
+                {{#ifCond ../component.results.length '>' '0'}}
+                    {{#each ../component.results}}      
+                    <li class="col-xs-12">   
+                        <div class="qld__card qld__card__action">
+                            <div class="qld__card__inner">
+                                <div class="qld__card__content">
+                                    <div class="qld__card__content-inner">
+                                        <h4 class="qld__card__title"><a class="qld__card--clickable__link" href="{{metaData.canonicalURL}}">{{title}}</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                {{/ifCond}}
+                {{#ifCond ../component.results.length '<=' '0'}}
+                    <p>No related positions</p>
+                {{/ifCond}}
+                </ul>
+                {{#ifCond ../component.additional_results.length '>' '0'}}
+                <h4 class="qld__job-view__aside__sub-heading qld__display-sm">Working in Queensland Health</h4>
+                <ul class="qld__card-list">
+                    {{#each ../component.additional_results}}       
+                    <li class="col-xs-12">
+                        <div class="qld__card qld__card__action">
+                            <div class="qld__card__inner">
+                                <div class="qld__card__content">
+                                    <div class="qld__card__content-inner">
+                                        <h4 class="qld__card__title"><a class="qld__card--clickable__link" href="{{metaData.canonicalURL}}">{{title}}</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>  
+                    {{/each}}
+                </ul>
+                {{/ifCond}}
+            </aside>
+        {{/ifCond}}
+    </div>
+</article>
+{{/with}}
