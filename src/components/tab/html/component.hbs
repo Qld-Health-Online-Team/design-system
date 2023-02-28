@@ -1,6 +1,6 @@
 
 {{#with component.data}}
-<section class="qld__body{{#if metadata.theme.value}} qld__body--{{metadata.theme.value}}{{/if}}{{#ifCond metadata.display.value '==' 'full'}} qld__body--full-width tab-section{{/ifCond}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}tag-{{assetid}}{{/if}}">
+<section class="qld__body{{#if metadata.theme.value}} qld__body--{{metadata.theme.value}}{{/if}}{{#ifCond metadata.display.value '==' 'full'}} qld__body--full-width qld__tab-section{{/ifCond}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}tag-{{assetid}}{{/if}}">
     <div class="container-fluid">
 
         {{#if metadata.intro_heading.value}}
@@ -90,6 +90,16 @@
                         {{#ifCond metadata.tab_num.value '>=' '8'}}
                             {{#if metadata.title_8.value}}
                                 <button class="qld__tab-button" data-tab="tab8-{{assetid}}" aria-selected="false" aria-controls="tab8-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_8.value}}<i class="{{metadata.icon_8.value}}"></i>{{/if}}{{metadata.title_8.value}}</span></button>
+                            {{/if}}
+                        {{/ifCond}}
+                        {{#ifCond metadata.tab_num.value '>=' '9'}}
+                            {{#if metadata.title_8.value}}
+                                <button class="qld__tab-button" data-tab="tab9-{{assetid}}" aria-selected="false" aria-controls="tab9-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_9.value}}<i class="{{metadata.icon_9.value}}"></i>{{/if}}{{metadata.title_9.value}}</span></button>
+                            {{/if}}
+                        {{/ifCond}}
+                        {{#ifCond metadata.tab_num.value '>=' '10'}}
+                            {{#if metadata.title_8.value}}
+                                <button class="qld__tab-button" data-tab="tab10-{{assetid}}" aria-selected="false" aria-controls="tab10-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_10.value}}<i class="{{metadata.icon_10.value}}"></i>{{/if}}{{metadata.title_10.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                     {{else}}
