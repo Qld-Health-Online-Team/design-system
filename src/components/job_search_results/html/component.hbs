@@ -78,7 +78,6 @@
                                 </button>
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>
@@ -86,19 +85,19 @@
     </div>
 </section>
 
-<section class="qld__body qld__search">
+<section class="qld__body qld__job_search">
     <div class="container-fluid">
         <div class="row">
             {{#if resultsPage.facets}}
             <div class="col-xs-12 col-md-5 col-lg-4">           
                 {{#with resultsPage}}
-                <div class="qld__search__facets  qld__accordion">
-                    <button class="qld__search__facets__toggle qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="search__facets" aria-expanded="false" aria-selected="false" >
+                <div class="qld__job_search__facets  qld__accordion">
+                    <button class="qld__job_search__facets__toggle qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="search__facets" aria-expanded="false" aria-selected="false" >
                     Refine your results
                     </button>
-                    <div aria-label="Search Facets" id="search__facets" class="qld__search__facets-body qld__accordion__body qld__accordion--closed">
-                        <div class="qld__search__facets-inner">
-                            <div class="qld__search__facets-title">
+                    <div aria-label="Search Facets" id="search__facets" class="qld__job_search__facets-body qld__accordion__body qld__accordion--closed">
+                        <div class="qld__job_search__facets-inner">
+                            <div class="qld__job_search__facets-title">
                                 <h2 class="qld__display-lg">Refine your search</h2>
                             </div>
                             <div class="qld__accordion-group">
@@ -108,23 +107,23 @@
                                     {{/ifCond}}
                                 </div>
                                 {{#each facets}}
-                                <div class="qld__search__facet qld__accordion"> 
-                                    <button class="qld__search__facet-title qld__accordion__title js-qld__accordion {{#ifCond allValues.length '<=' '3'}}qld__accordion--open qld__accordion--disabled{{else}}qld__accordion--closed{{/ifCond}}" aria-controls="accordion-group-{{name}}-{{this.fieldid}}" {{#ifCond allValues.length '<=' '3'}}disabled aria-expanded="true"{{else}}aria-expanded="false"{{/ifCond}} >
+                                <div class="qld__job_search__facet qld__accordion"> 
+                                    <button class="qld__job_search__facet-title qld__accordion__title js-qld__accordion {{#ifCond allValues.length '<=' '3'}}qld__accordion--open qld__accordion--disabled{{else}}qld__accordion--closed{{/ifCond}}" aria-controls="accordion-group-{{name}}-{{this.fieldid}}" {{#ifCond allValues.length '<=' '3'}}disabled aria-expanded="true"{{else}}aria-expanded="false"{{/ifCond}} >
                                         {{name}}
                                     </button>
                         
-                                    <div class="qld__search__facet qld__accordion__body {{#ifCond allValues.length "<=" "3"}}qld__accordion--open {{else}}qld__accordion--closed {{/ifCond}}" id="accordion-group-{{name}}-{{this.fieldid}}">
+                                    <div class="qld__job_search__facet qld__accordion__body {{#ifCond allValues.length "<=" "3"}}qld__accordion--open {{else}}qld__accordion--closed {{/ifCond}}" id="accordion-group-{{name}}-{{this.fieldid}}">
                                         <div class="qld__accordion__body-wrapper">
                                             <div class="sq-form-question sq-form-question-tickbox-list">
                                                 <div class="sq-form-question-answer">   
-                                                    <ul class="qld__search__facet-list qld__link-list">
+                                                    <ul class="qld__job_search__facet-list qld__link-list">
 
                                                         {{#each allValues}}
                                                         <li>
-                                                                <input type="checkbox" id="{{replace queryStringParamValue '[^a-zA-Z0-9]' '-'}}" {{#ifCond this.selected '==' true}}checked{{/ifCond}} name="{{selected}}" value="" class="qld__search__facet-input sq-form-field" data-queryString="{{queryStringParam}}">
-                                                                <label for="{{replace queryStringParamValue '[^a-zA-Z0-9]' '-'}}" id="" class="qld__search__facet-label">
-                                                                    <span class="qld__search__facet-label--text">{{label}}</span>
-                                                                     <span class="qld__search__facet-count">{{count}} <span class="sr-only">Results for {{label}}</span></span>
+                                                                <input type="checkbox" id="{{replace queryStringParamValue '[^a-zA-Z0-9]' '-'}}" {{#ifCond this.selected '==' true}}checked{{/ifCond}} name="{{selected}}" value="" class="qld__job_search__facet-input sq-form-field" data-queryString="{{queryStringParam}}">
+                                                                <label for="{{replace queryStringParamValue '[^a-zA-Z0-9]' '-'}}" id="" class="qld__job_search__facet-label">
+                                                                    <span class="qld__job_search__facet-label--text">{{label}}</span>
+                                                                     <span class="qld__job_search__facet-count">{{count}} <span class="sr-only">Results for {{label}}</span></span>
                                                                 </label>
                                                            
                                                             
@@ -149,20 +148,20 @@
             {{/if}}
             <div class="col-xs-12 {{#if resultsPage.facets}}col-md-7 col-lg-8{{else}}col-md-12{{/if}}">
             {{#with resultsPage}}
-                <div class="qld__search__info">
-                    <div class="qld__search__info-query">
-                        <span>Results for </span><span class="qld__search__info-query-term">‘{{question.query}}’</span>
+                <div class="qld__job_search__info">
+                    <div class="qld__job_search__info-query">
+                        <span>Results for </span><span class="qld__job_search__info-query-term">‘{{question.query}}’</span>
                     </div>
-                    <div class="qld__search__info-inner">
-                        <div class="qld__search__info-summary">
-                            <span class="qld__search__info-summary-text">Showing:</span> 
-                            <span class="qld__search__info-summary-start-end">{{resultsSummary.currStart}} - {{resultsSummary.currEnd}} of</span>
-                            <span class="qld__search__info-summary-matching">{{resultsSummary.totalMatching}} results</span>
+                    <div class="qld__job_search__info-inner">
+                        <div class="qld__job_search__info-summary">
+                            <span class="qld__job_search__info-summary-text">Showing:</span> 
+                            <span class="qld__job_search__info-summary-start-end">{{resultsSummary.currStart}} - {{resultsSummary.currEnd}} of</span>
+                            <span class="qld__job_search__info-summary-matching">{{resultsSummary.totalMatching}} results</span>
                             
                         </div>
 
-                        <div class="qld__search__sort">
-                            <div class="qld__search__sort-text">Sort by:</div>
+                        <div class="qld__job_search__sort">
+                            <div class="qld__job_search__sort-text">Sort by:</div>
                             <label for="sort" class="sr-only">Sort</label>
                             <select id="search-sort" class="qld__select" name="sort" aria-label="sort">
                                         <option data-href="?query={{question.query}}&amp;sort=" value="" selected="">Relevance</option>
@@ -176,10 +175,10 @@
                     </div>
                 </div>
                 {{#ifCond facetExtras.hasSelectedNonTabFacets '==' true}}
-                <div class="qld__search__filters">
-                    <span class="qld__search__filters-title">Filtered by:</span>
+                <div class="qld__job_search__filters">
+                    <span class="qld__job_search__filters-title">Filtered by:</span>
                     {{#with facets}}
-                    <ul class=" qld__search__filters-list qld__tag-list">
+                    <ul class=" qld__job_search__filters-list qld__tag-list">
                         {{#each this}}
                             {{#ifCond selected '==' true}}
                                 {{#each allValues}}
@@ -192,18 +191,18 @@
                             {{/ifCond}}
                         {{/each}}
                     
-                        <li><button class="qld__search__filter-tag--clear" data-clearurl="{{../facetExtras.unselectAllFacetsUrl}}" >Clear filters</button></li>
+                        <li><button class="qld__job_search__filter-tag--clear" data-clearurl="{{../facetExtras.unselectAllFacetsUrl}}" >Clear filters</button></li>
                     </ul>
                     {{/with}}
                 </div>
                 {{/ifCond}}
-                <div class="qld__search__results">
+                <div class="qld__job_search__results">
                     {{#if results}}
-                    <ol class="qld__link-list qld__search__results-list">
+                    <ol class="qld__link-list qld__job_search__results-list">
                         {{#each results}}
-                        <li class="qld__search__result">
-                            <div class="qld__search__result-inner">
-                                  <div class="qld__search__result-header">
+                        <li class="qld__job_search__result">
+                            <div class="qld__job_search__result-inner">
+                                  <div class="qld__job_search__result-header">
                                     {{#ifCond collection 'contains' 'service-finder'}}
                                         {{#ifCond collection 'contains' '__service-locations'}}
                                             <h4>
@@ -239,7 +238,7 @@
                                     {{/ifCond}}
                                    
                                     {{#if metaData.urlPath}}
-                                    <nav class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
+                                    <nav class="qld__breadcrumbs qld__job_search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
                                             {{#each (split metaData.urlPath "/")}}
                                                 <li>{{this}}</li>
@@ -249,30 +248,30 @@
                                     {{/if}}
                                 </div>
                                 {{#if metaData.contentType}}
-                                <div class="qld__search__result-type">
+                                <div class="qld__job_search__result-type">
                                     {{#ifCond metaData.contentType "==" "audio"}}
-                                    <span class="qld__search__result-type-name">
+                                    <span class="qld__job_search__result-type-name">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="20" height="20" role="img"><path fill="currentColor" d="M224 312c-32.88 0-64 8.625-64 43.75c0 33.13 12.88 104.5 20.62 132.8C185.8 507.7 205.1 512 224 512s38.25-4.375 43.38-23.38C275.1 459.9 288 388.8 288 355.8C288 320.6 256.9 312 224 312zM237 478.5c-6 2-20 2-26 0C203.5 449.5 192 383.4 192 355.8c0-16.25 64-16.38 64 0C256 383.4 244.5 449.6 237 478.5zM224 160C188.6 160 160 188.6 160 224s28.62 64 64 64s64-28.62 64-64S259.4 160 224 160zM224 256C206.4 256 192 241.6 192 224s14.38-32 32-32s32 14.38 32 32S241.6 256 224 256zM224 0C100.5 0 0 100.5 0 224c0 69.39 31.41 133.8 86.16 176.6c6.875 5.406 16.97 4.203 22.44-2.75c5.469-6.969 4.219-17.02-2.75-22.47C58.91 338.7 32 283.5 32 224c0-105.9 86.13-192 192-192s192 86.13 192 192c0 59.48-26.91 114.7-73.84 151.4c-6.969 5.453-8.219 15.5-2.75 22.47C342.6 401.9 347.3 403.1 352 403.1c3.469 0 6.938-1.109 9.844-3.391C416.6 357.8 448 293.4 448 224C448 100.5 347.5 0 224 0zM368 224c0-79.41-64.59-144-144-144S80 144.6 80 224c0 25.34 6.656 50.25 19.28 72.02c4.438 7.672 14.25 10.2 21.88 5.828c7.625-4.422 10.25-14.22 5.812-21.86C117.2 263.1 112 243.7 112 224c0-61.75 50.25-112 112-112s112 50.25 112 112c0 19.72-5.188 39.08-14.97 55.98c-4.438 7.641-1.812 17.44 5.812 21.86C329.4 303.3 332.1 304 334.9 304c5.5 0 10.88-2.859 13.84-7.984C361.3 274.3 368 249.3 368 224z"/></svg>
                                         Audio
                                     </span>
                                     <span class="qld__tag qld__tag--info">Audio Length Here</span>
                                     {{/ifCond}}
                                     {{#ifCond metaData.contentType "==" "document"}}
-                                    <span class="qld__search__result-type-name">
+                                    <span class="qld__job_search__result-type-name">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" aria-hidden="true" focusable="false" width="20" height="20" role="img"><path fill="currentColor" d="M0 64C0 28.65 28.65 0 64 0H220.1C232.8 0 245.1 5.057 254.1 14.06L369.9 129.9C378.9 138.9 384 151.2 384 163.9V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V64zM352 192H240C213.5 192 192 170.5 192 144V32H64C46.33 32 32 46.33 32 64V448C32 465.7 46.33 480 64 480H320C337.7 480 352 465.7 352 448V192zM347.3 152.6L231.4 36.69C229.4 34.62 226.8 33.18 224 32.48V144C224 152.8 231.2 160 240 160H351.5C350.8 157.2 349.4 154.6 347.3 152.6z"/></svg>
                                         Document
                                     </span>
                                     <span class="qld__tag qld__tag--info">{{toUpperCase fileType}} ({{sizeFormat fileSize}})</span>
                                     {{/ifCond}}
                                     {{#ifCond metaData.contentType "==" "article"}}
-                                    <span class="qld__search__result-type-name">
+                                    <span class="qld__job_search__result-type-name">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" width="20" height="20" role="img"><path fill="currentColor" d="M464 32h-320C117.5 32 96 53.53 96 80V416c0 17.66-14.36 32-32 32s-32-14.34-32-32V112C32 103.2 24.84 96 16 96S0 103.2 0 112V416c0 35.28 28.7 64 64 64h368c44.11 0 80-35.88 80-80v-320C512 53.53 490.5 32 464 32zM480 400c0 26.47-21.53 48-48 48H119.4C124.9 438.6 128 427.7 128 416V80C128 71.19 135.2 64 144 64h320C472.8 64 480 71.19 480 80V400zM272 304h-96C167.2 304 160 311.2 160 320s7.156 16 16 16h96c8.844 0 16-7.156 16-16S280.8 304 272 304zM432 304h-96C327.2 304 320 311.2 320 320s7.156 16 16 16h96c8.844 0 16-7.156 16-16S440.8 304 432 304zM272 368h-96C167.2 368 160 375.2 160 384s7.156 16 16 16h96c8.844 0 16-7.156 16-16S280.8 368 272 368zM432 368h-96c-8.844 0-16 7.156-16 16s7.156 16 16 16h96c8.844 0 16-7.156 16-16S440.8 368 432 368zM416 96H192C174.3 96 160 110.3 160 128v96c0 17.67 14.33 32 32 32h224c17.67 0 32-14.33 32-32V128C448 110.3 433.7 96 416 96zM416 224H192V128h224V224z"/></svg>
                                         Article
                                     </span>
                                     <span class="qld__tag qld__tag--info">Read Time Here</span>
                                     {{/ifCond}}
                                     {{#ifCond metaData.contentType "==" "video"}}
-                                    <span class="qld__search__result-type-name">
+                                    <span class="qld__job_search__result-type-name">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true" focusable="false" width="20" height="20" role="img"><path fill="currentColor" d="M558.8 99.64c-10.59-5.484-23.37-4.76-33.15 2.099l-102.8 72.04c-7.25 5.062-9 15.05-3.938 22.28C423.1 203.3 433.9 205 441.2 200L544 128v255.9L441.2 312c-7.266-5.047-17.22-3.312-22.28 3.938c-5.062 7.234-3.312 17.22 3.938 22.28l102.8 71.98c5.5 3.844 11.94 5.786 18.38 5.786c5.047 0 10.12-1.203 14.78-3.625C569.4 406.8 576 395.1 576 383.1V128C576 116 569.4 105.2 558.8 99.64zM320 64H64C28.65 64 0 92.65 0 128v256c0 35.35 28.65 64 64 64h256c35.35 0 64-28.65 64-64V128C384 92.65 355.3 64 320 64zM352 384c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V128c0-17.64 14.36-32 32-32h256c17.64 0 32 14.36 32 32V384z"/></svg>
                                         Video
                                     </span>
@@ -282,13 +281,13 @@
                                 {{/if}}
                                 
                             </div>
-                            <p class="qld__search__result-summary">
+                            <p class="qld__job_search__result-summary">
                                 {{#ifCond collection 'contains' '-web'}}
-                                    {{#if metaData.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
+                                    {{#if metaData.d}}<span class="qld__job_search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
                                     {{{charMax summary '160'}}}
                                 {{/ifCond}}
                                 {{#ifCond collection 'contains' '-news'}}
-                                    {{#if metaData.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
+                                    {{#if metaData.d}}<span class="qld__job_search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
                                     {{{charMax summary '160'}}}
                                 {{/ifCond}}
                                 {{#ifCond collection 'contains' '__facilities'}}
@@ -298,7 +297,7 @@
                                 {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
                                 {{/ifCond}}
                             </p>
-                            <div class="qld__search__result-tags">
+                            <div class="qld__job_search__result-tags">
                                 <ul class="qld__tag-list">
                                     {{#objectFromSelect metaData.topic}}
                                         <li><div class="qld__tag">{{value}}</div></li>
@@ -316,13 +315,13 @@
                 
 
                 {{#ifCond resultsSummary.totalMatching '<' '1'}}
-                <div class="qld__search__results qld__search__results--no-results">
+                <div class="qld__job_search__results qld__job_search__results--no-results">
                     <div class="qld__abstract">
                         Did you mean <a href="{{spell.url}}">‘{{{spell.text}}}’</a>
                     </div>
-                    <h2 class="qld__display-lg"><span>Our search for </span><span class="qld__search__info-query-term">‘{{{question.query}}}’</span> didn't return any results.</h2>
+                    <h2 class="qld__display-lg"><span>Our search for </span><span class="qld__job_search__info-query-term">‘{{{question.query}}}’</span> didn't return any results.</h2>
                     <p class="qld__abstract">You could try:</p>
-                    <ul class="qld__search-link-list qld__link-list">
+                    <ul class="qld__job_search-link-list qld__link-list">
                         <li>Check the spelling of your keywords.</li>
                         <li>Searching again using other words</li>
                         <li>Using fewer keywords.</li>
@@ -332,9 +331,9 @@
                 
 
                 {{#ifCond resultsSummary.totalMatching '>=' '11'}}
-                <nav class="text-center hidden-print qld__search-pagination" aria-label="pagination">
+                <nav class="text-center hidden-print qld__job_search-pagination" aria-label="pagination">
                     <h2 class="sr-only">Pagination</h2>
-                    <ul class="qld__search-pagination__list">
+                    <ul class="qld__job_search-pagination__list">
                         {{#each ../pagination}}
                             {{#ifCond linkType '===' 'last'}}
                                 <li class="ellipsis">
@@ -345,7 +344,7 @@
                             
                                 {{#ifCond linkType '===' 'prev'}}
                                 <li class="prev">
-                                    <a class="qld__search-pagination_link" href="{{{url}}}" rel="prev" aria-label="Previous page of results">
+                                    <a class="qld__job_search-pagination_link" href="{{{url}}}" rel="prev" aria-label="Previous page of results">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="16" height="16" role="img"><path fill="currentColor" d="M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z"/></svg>
                                         <span>Back</span>
                                     </a>
@@ -353,12 +352,12 @@
                                 
                                 {{#if label}}
                                 <li class="{{linkType}}{{#if isCurrent}} active{{/if}}">
-                                    <a class="qld__search-pagination_link" href="{{{url}}}">{{label}}</a></li>
+                                    <a class="qld__job_search-pagination_link" href="{{{url}}}">{{label}}</a></li>
                                 {{/if}}
 
                                 {{#ifCond linkType '===' 'next'}}
                                 <li class="next">
-                                    <a class="qld__search-pagination_link" href="{{{url}}}" rel="next" aria-label="Next page of results">
+                                    <a class="qld__job_search-pagination_link" href="{{{url}}}" rel="next" aria-label="Next page of results">
                                     <span>Next</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="16" height="16" role="img"><path fill="currentColor" d="M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z"/></svg>
                                     </a>
