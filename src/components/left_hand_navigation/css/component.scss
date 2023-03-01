@@ -21,25 +21,15 @@
             // padding-top: 0;
         }
         
-        > .qld__banner > .container-fluid{
-
-            // @include QLD-space(margin-left, 0unit); 
-                // @include QLD-space(padding-left, 8unit !important) ; 
-        }
-        > .qld__body > .container-fluid,
-        > #content > .qld__body > .container-fluid {
+        #content > .qld__body > .container-fluid{
             // max-width: 100%;
+            // @include QLD-space(margin-left, 0unit); 
+                @include QLD-space(padding-left, 2unit) ; 
+                @include QLD-space(padding-left, 2unit) ;
             
             >.row{
                 // @include QLD-space(margin, 0 -3unit) ;
             }
-
-            div[class^="col-"] > .qld__body > .container-fluid,
-            .qld__banner > .container-fluid{
-                // @include QLD-space(margin-left, 0unit); 
-                // @include QLD-space(padding-left, 7unit !important) ; 
-            }
-            // @include QLD-space(padding, 0 3unit);
             
         }
         // > .qld__body > .container-fluid > row{
@@ -137,7 +127,7 @@
                     color: var(--QLD-color-light-text);
                     position: relative;
                     flex-grow: 1;
-                    max-width: 13.3rem;
+                    // max-width: 13.3rem;
 
                     &.qld__left-nav__item-link--close {
                         @include QLD-space(border-top-right-radius, 1unit);
@@ -283,7 +273,8 @@
 @include QLD-media(xl) {
     .qld__body--left-nav {
         > .qld__banner > .container-fluid,
-        > .qld__body > .container-fluid{
+        > .qld__body > .container-fluid,
+        #content > .qld__body > .container-fluid{
 
             @include QLD-space(margin-left, 0unit); 
                 @include QLD-space(padding-left, 8unit) ; 
