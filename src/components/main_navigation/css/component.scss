@@ -37,17 +37,12 @@ $QLD-header-md: 72px;
     .qld__main-nav__menu {
         &::before {
             content: "";
-            // display: block;
             display: none;
             @include QLD-space(width, 0.25unit);
             position: absolute;
             top: 0;
             bottom: 0;
             right: 0;
-            
-            // @include QLD-media(lg) {
-            //     display: none;
-            // }
         }
         // Move the menu content off the screen so it can slide in
         .js & {
