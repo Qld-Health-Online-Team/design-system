@@ -28,6 +28,8 @@
 
 		&:focus {
 			z-index: 100;
+			outline: 3px solid var(--QLD-color-light-focus);
+    		outline-offset: 2px;
 		}
 
 		// remove the default details arrow icon
@@ -47,7 +49,7 @@
 			content: ' ';
 			position: absolute;
 			top: 50%;
-			@include QLD-space( margin-top, -0.5unit ); // Pull it up half of it's height
+			@include QLD-space( margin-top, -10px ); // Pull it up 10px
 			@include QLD-space( right, 1unit );
 			@include QLD-space( width, 1.5unit );
 			@include QLD-space( height, 1.5unit );
@@ -157,6 +159,15 @@
 	}
 }
 
+.qld__body--dark, .qld__body--dark-alt  {
+	.qld__accordion {
+		&__title{
+			&:focus {
+				outline: 3px solid var(--QLD-color-dark-focus);
+				outline-offset: 2px
+			} 
+		}
+}
 
 .qld__accordion-group {
 	list-style: none;
