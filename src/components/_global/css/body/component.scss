@@ -55,7 +55,10 @@ form {
         + data + .qld__body,
         + h1.sr-only + .qld__body,
         + h1.sr-only + data + .qld__body {
-            padding-top: 0;
+
+            & + &:not(.qld__body--full-width.qld__tab-section) {
+                padding-top: 0;
+            }
             
             &.qld__body--alt{
                 @include QLD-container-padding($QLD-container-padding-mobile);
