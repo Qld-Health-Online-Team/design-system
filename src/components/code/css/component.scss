@@ -89,6 +89,19 @@
                     @include QLD-space('font-size', 1.25unit);
                     @include QLD-space('margin-right', .5unit);
                 }
+
+                text-underline-offset: var(--QLD-underline__offset);
+                color: var(--QLD-color-dark-link) !important;
+                -webkit-text-decoration-color: var(--QLD-color-dark-underline);
+                text-decoration-color: var(--QLD-color-dark-underline);
+                text-decoration-thickness: var(--QLD-underline__thickness-thin);
+
+                &:hover {
+                    text-underline-offset: var(--QLD-underline__offset);
+                    -webkit-text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
             }
         }
     }
