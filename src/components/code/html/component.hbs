@@ -85,6 +85,9 @@
                     {{#if figma_link.value}}
                         <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
+                    {{#if action_link_title.value}}
+                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                    {{/if}}
                 </div>
             </div>
             {{else if figma_link.value}}
@@ -95,6 +98,23 @@
                     {{/if}}
                     {{#if figma_link.value}}
                         <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                    {{#if action_link_title.value}}
+                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                    {{/if}}
+                </div>
+            </div>
+            {{else if figma_link.value}}
+            <div class="qld__code-header">
+                <div class="qld__code-header-left">
+                    {{#if github_link.value}}
+                        <a href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                    {{/if}}
+                    {{#if figma_link.value}}
+                        <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                    {{#if action_link_title.value}}
+                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
             </div>
@@ -107,6 +127,9 @@
                     {{/if}}
                     {{#if figma_link.value}}
                         <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                    {{/if}}
+                    {{#if action_link_title.value}}
+                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
                 {{#ifCond show_code.value '==' 'true'}}
