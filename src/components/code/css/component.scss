@@ -247,9 +247,10 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        // @include QLD-space('max-width', 48unit);
+        @include QLD-space('max-width', 65unit);
 
         &.with-preview {
+            display: inline-grid;
             background-color: var(--QLD-color-light-background);
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
@@ -353,9 +354,5 @@ main .qld__body #content .qld__code .qld__code-preview-body.qld__body {
     &.qld__body--dark,
     &.qld__body--dark-alt {
         @include QLD-space('padding-bottom', 1.5unit);
-    }
-
-    * {
-        max-width: none;
     }
 }
