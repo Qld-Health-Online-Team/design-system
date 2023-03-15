@@ -192,7 +192,13 @@
                         @include QLD-space(width, 2unit);
                         @include QLD-space(border-radius, 50%);
                         background-color: var(--QLD-color-light-background);
-                        background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light-alt-button));
+                        // background-image: QLD-svg-with-fill($QLD-icon-chevron-up, --QLD-color-light-alt-button);
+                        mask-image: QLD-svguri($QLD-icon-chevron-up);
+                        mask-size: 1rem;
+                        mask-repeat: no-repeat;
+                        mask-position: center;
+                        background-color: var(--QLD-color-light-alt-button);
+                        
                         background-repeat: no-repeat;
                         background-position: center;
                         @include QLD-space(background-size, 1unit);
