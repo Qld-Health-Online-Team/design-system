@@ -4,6 +4,18 @@
 
 .qld__left-nav {
     display: none;
+    nav {
+        ul {
+            li {
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        @include QLD-underline();
+                    }
+                }
+            }
+        }
+    }
 }
 
 @include QLD-media(lg) {
