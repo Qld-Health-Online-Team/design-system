@@ -195,6 +195,13 @@
                     svg{
                         color: var(--QLD-color-light-alt-button);
                     }
+
+                    &:has(svg) {
+                        text-decoration: none;
+                        span {
+                            @include QLD-underline();
+                        }
+                    }
                 }
             }
         }
@@ -376,6 +383,13 @@
                         }
                         svg{
                             color: var(--QLD-color-dark-alt-button);
+                        }
+
+                        &:has(svg) {
+                            text-decoration: none;
+                            span {
+                                @include QLD-underline('dark');
+                            }
                         }
                     } 
                 } 
