@@ -201,6 +201,41 @@
 
                         toggleClasses(target, state);
                     },
+                    callback: function (target, state) {
+
+                        const controller = new AbortController();
+
+                        function toggleNavOnDocumentClick(event) {
+                            if (!event.target.closest(".qld__main-nav__menu-sub.qld__accordion__body.qld__accordion--open")) {
+
+                                controller.abort();
+                                if(elements[0].classList.contains('qld__accordion--open')) {
+                                    accordion.Toggle(elements, speed, callbacks);   
+                                }
+                            }
+                        }
+
+                        if (state === "open" || state === "opening") {
+                            //if it is a mega nav add an event listener to close it when document is clicked
+                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                                document.addEventListener(
+                                    "click",
+                                    toggleNavOnDocumentClick,
+                                    { signal: controller.signal }
+                                )
+                            }
+                        } else {
+                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                                document.removeEventListener(
+                                    "click",
+                                    toggleNavOnDocumentClick,
+                                    { signal: controller.signal }
+                                )
+                                controller.abort();
+                            }
+                        }
+
+                    },
                 });
             })(element);
 
