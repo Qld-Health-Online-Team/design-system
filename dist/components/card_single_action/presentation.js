@@ -250,7 +250,7 @@
         return undefined
     };
 
-  return "                    <li class=\"col-xs-12  "
+  return "                    <li class=\"col-xs-12 "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"col_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\n                        \n                        <div class=\"qld__card qld__card__action "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"show_arrow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","true",{"name":"ifCond","hash":{},"fn":container.program(38, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":68,"column":64},"end":{"line":68,"column":158}}})) != null ? stack1 : "")
