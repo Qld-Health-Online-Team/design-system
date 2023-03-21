@@ -59,11 +59,11 @@
                 {{#each component.children}}
 
                     {{#isPage type_code}}
-                    {{!-- {{#ifCond ../current.data.metadata.pageType.value '==' 'content'}}
+                    {{!-- {{#ifCond ../current.data.metadata.pageType.value '==' 'content'}}  --}}
                     <li class="col-xs-12 {{../component.data.metadata.col_width.value}}">
-                    {{else}} --}}
+                    {{!--  {{else}}
                     <li class="col-xs-12 col-md-6 {{../component.data.metadata.col_width.value}}"> 
-                    {{!-- {{/ifCond}} --}}
+                    {{/ifCond}} --}}
                         
                         <div class="qld__card qld__card__multi-action {{#ifCond ../component.data.metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}qld__card--image{{/ifCond}} {{../component.data.metadata.background.value}} {{#ifCond ../component.data.metadata.icon_align.value '==' 'left'}}qld__card--icon-left{{/ifCond}}" >
 
