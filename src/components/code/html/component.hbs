@@ -42,6 +42,7 @@
             {{#ifCond show_preview.value '==' 'true'}}
             <div class="qld__code-preview">
                 <span class="qld__code-preview-tab">Example</span>
+                {{#ifCond show_theme_colors.value '==' 'true'}}
                 <div class="qld__code-preview-colours">
                     <span class="qld__code-preview-colours-label">Theme</span>
                     <ul>
@@ -63,7 +64,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="qld__code-preview-body qld__body">
+                {{/ifCond}}
+                <div class="qld__code-preview-body qld__body" {{#ifCond show_theme_colors.value '==' 'false'}} style="border-radius: 0 12px 0 0;" {{/ifCond}}>
                     {{{code.value}}}
                 </div>
             </div>
