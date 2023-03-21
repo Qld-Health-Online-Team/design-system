@@ -55,7 +55,10 @@ form {
         + data + .qld__body,
         + h1.sr-only + .qld__body,
         + h1.sr-only + data + .qld__body {
-            padding-top: 0;
+
+            &:not(.qld__tab-section) {
+                padding-top: 0;
+            }
             
             &.qld__body--alt{
                 @include QLD-container-padding($QLD-container-padding-mobile);
@@ -148,13 +151,16 @@ form {
             }
 
             @include QLD-media(lg) {
-                @include QLD-container-margin($QLD-grid-gutter-sm, neg, horizontal );
+                @include QLD-space(margin-left, 0unit);
+                @include QLD-space(margin-right, 0unit);
+                @include QLD-space(padding-left, 0unit);
+                @include QLD-space(padding-right, 0unit);
+                // @include QLD-container-margin($QLD-grid-gutter-xs, neg, horizontal );
                 @include QLD-container-padding($QLD-container-padding-mobile);
             }
 
             &:first-of-type{
-                @include QLD-space(padding-top, 0);
-
+                padding-top: 0 ;
                 &:last-of-type{
                     @include QLD-space(padding-top, 2.5unit);
                     @include QLD-media(lg) {
@@ -166,13 +172,17 @@ form {
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-space(padding-top, 2.5unit);
+                    // @include QLD-container-padding($QLD-container-padding-mobile, !important);
 
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-space(padding-top, 4unit);
+                        // @include QLD-container-padding($QLD-container-padding-desktop, !important);
                     }
                 }
             }
+
+            
             &:last-of-type{
                 @include QLD-space(padding-bottom, 0);
                 
@@ -294,16 +304,13 @@ form {
 
     a {
         color: var(--QLD-color-light-link);
-        text-decoration: underline;
-        text-decoration-skip-ink: auto;
+        @include QLD-underline('light');
         @include QLD-space(max-width, $QLD-font-maxwidth);
-       
-        &:hover {
-            // color: var(--QLD-color-light-text);
-            text-decoration: none;
-        }
-       
         @include QLD-focus();
+    }
+    ol:not(*),
+    ul:not(*){
+        @include QLD-space(max-width, $QLD-font-maxwidth);
     }
 
     p {
@@ -614,6 +621,10 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light-alt-background);
 
+        a{
+            @include QLD-underline('light');
+        }
+
         hr {
             background-color: var(--QLD-color-light-alt-border);
         }
@@ -644,6 +655,7 @@ form {
         
         a{
             color: var(--QLD-color-dark-text);
+            @include QLD-underline('dark');
             
             &:hover {
                 color: var(--QLD-color-dark-text);
@@ -692,6 +704,7 @@ form {
         
         a {
             color: var(--QLD-color-dark-text);
+            @include QLD-underline('dark');
             
             &:hover {
                 color: var(--QLD-color-dark-text);

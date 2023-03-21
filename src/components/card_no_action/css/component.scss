@@ -9,7 +9,7 @@
     border-radius: $QLD-border-radius-sm;
 	border:$QLD-border-width-thin solid var(--QLD-color-light-alt-border);
     position: relative;
-    color: var(--QLD-color-light-text__muted);
+    color: var(--QLD-color-light-text);
     background: var(--QLD-color-light-background);
     overflow: hidden;
 
@@ -253,7 +253,7 @@
     //Dark theme
     &.qld__card--dark{
         background-color: var(--QLD-color-dark-background);
-        color: var(--QLD-color-dark-text__muted);
+        color: var(--QLD-color-dark-text);
 
         .qld__responsive-media-img--bg {
             // outline: $QLD-border-width-thin solid var(--QLD-color-dark-alt-border);
@@ -290,7 +290,7 @@
     //Dark Alt theme
     &.qld__card--dark-alt {
         background-color: var(--QLD-color-dark-alt-background);
-        color: var(--QLD-color-dark-text__muted);
+        color: var(--QLD-color-dark-text);
 
         .qld__responsive-media-img--bg {
             // outline: $QLD-border-width-thin solid var(--QLD-color-dark-alt-border);
@@ -474,6 +474,13 @@
         &.qld__card--wrapper-bg-pattern,
         &.qld__card--wrapper-bg-image{
             @include QLD-space(margin-top, 0unit);
+        }
+        
+    }
+    + .qld__body:not(.qld__card--wrapper){
+        @include QLD-space(padding-top, 2.5unit !important);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-top, 4unit !important);
         }
     }
     &.qld__body--alt{

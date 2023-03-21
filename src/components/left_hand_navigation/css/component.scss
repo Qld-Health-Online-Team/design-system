@@ -15,27 +15,21 @@
     .qld__body--left-nav {
         flex-grow: 1;
 
+
+
         .qld__body:first-of-type{
-            padding-top: 0;
+            // padding-top: 0;
         }
         
-        > .qld__banner > .container-fluid{
-            @include QLD-space(margin-left, 0unit); 
-                @include QLD-space(padding-left, 8unit !important) ; 
-        }
-        > .qld__body > .container-fluid{
-            max-width: 100%;
+        #content > .qld__body > .container-fluid{
+            // max-width: 100%;
+            // @include QLD-space(margin-left, 0unit); 
+                @include QLD-space(padding-left, 2unit) ; 
+                @include QLD-space(padding-left, 2unit) ;
             
             >.row{
-                @include QLD-space(margin, 0 -3unit) ;
+                // @include QLD-space(margin, 0 -3unit) ;
             }
-
-            div[class^="col-"] > .qld__body > .container-fluid,
-            .qld__banner > .container-fluid{
-                @include QLD-space(margin-left, 0unit); 
-                @include QLD-space(padding-left, 7unit !important) ; 
-            }
-            // @include QLD-space(padding, 0 3unit);
             
         }
         // > .qld__body > .container-fluid > row{
@@ -65,6 +59,7 @@
         &__item-text {
             @include QLD-space(font-size, 1unit);
             @include QLD-space(line-height, 1.5unit);
+            @include QLD-space(max-width, 10.8unit);
         }
 
         .qld__left-nav__content {
@@ -121,10 +116,6 @@
                         fill: var(--QLD-color-light-button__hover);
                     }
 
-                    .qld__left-nav__item-text {
-                        text-decoration: underline;
-                    }
-
                     &:after {
                         background-color: var(--QLD-color-light-button__hover);
                     }
@@ -135,9 +126,9 @@
                     display: flex;
                     align-items: center;
                     color: var(--QLD-color-light-text);
-                    text-decoration: none;
                     position: relative;
                     flex-grow: 1;
+                    // max-width: 13.3rem;
 
                     &.qld__left-nav__item-link--close {
                         @include QLD-space(border-top-right-radius, 1unit);
@@ -276,6 +267,18 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@include QLD-media(xl) {
+    .qld__body--left-nav {
+        > .qld__banner > .container-fluid,
+        > .qld__body > .container-fluid,
+        #content > .qld__body > .container-fluid{
+
+            @include QLD-space(margin-left, 0unit); 
+                @include QLD-space(padding-left, 8unit) ; 
         }
     }
 }

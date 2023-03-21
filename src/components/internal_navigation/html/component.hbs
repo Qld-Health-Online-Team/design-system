@@ -4,13 +4,13 @@
     </button>
     <nav aria-label="side navigation" id="nav-default" class="qld__side-nav__content qld__accordion--closed qld__accordion__body"> 
         <h2 class="qld__sidenav__title">
-            <a href="{{current.top.asset_url}}">{{current.top.asset_name}}</a>
+            <a class="qld__sidenav__link" href="{{current.top.asset_url}}">{{current.top.asset_name}}</a>
         </h2>
         <ul class="qld__link-list">
         {{#each current.children}}
             {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
             <li>
-                <a href="{{asset_url}}">{{asset_short_name}}</a>
+                <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
             {{/ifCond}}
             {{#ifCond asset_assetid '==' @root.current.data.assetid}}
             <li class="active" aria-current="page">
@@ -22,7 +22,7 @@
                     {{#each children}}
                         {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                         <li>
-                            <a href="{{asset_url}}">{{asset_short_name}}</a>
+                            <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
                         {{/ifCond}}
                         {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                         <li class="active" aria-current="page">
@@ -34,7 +34,7 @@
                                 {{#each children}}
                                     {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                                     <li>
-                                        <a href="{{asset_url}}">{{asset_short_name}}</a>
+                                        <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
                                     {{/ifCond}}
                                     {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                                     <li class="active" aria-current="page">

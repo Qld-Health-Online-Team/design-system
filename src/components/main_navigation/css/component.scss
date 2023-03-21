@@ -123,6 +123,7 @@ $QLD-header-md: 72px;
                         background-color: var(--QLD-color-light-background);
                         .qld__main-nav__item-icon{
                             color: var(--QLD-color-light-alt-button__hover);
+                            
                         }
                     }
                 }
@@ -170,7 +171,6 @@ $QLD-header-md: 72px;
             display: flex;
             align-items: center;
             color: var(--QLD-color-light-text);
-            text-decoration: none;
 
             @include QLD-media(md) {
                 @include QLD-space(padding, 1.25unit 1unit 1.25unit 0.75unit);
@@ -183,9 +183,8 @@ $QLD-header-md: 72px;
             }
 
             &:hover {
-                color: var(--QLD-color-light-text);
+                color: var(--QLD-color-light-link);
                 background-color: var(--QLD-color-light-alt-background);
-                text-decoration: underline;
                 border-left: $QLD-border-width-thick solid var(--QLD-color-light-button);
 
                 
@@ -196,7 +195,6 @@ $QLD-header-md: 72px;
                 }
                 
                 .qld__main-nav__item-icon{
-                    // text-decoration: none;
                     color: var(--QLD-color-light-alt-button__hover);
                 }
                 
@@ -222,9 +220,6 @@ $QLD-header-md: 72px;
                     @include QLD-space(margin-bottom, -0.5unit);
                 }
                 
-                &:hover{
-                    text-decoration: underline;
-                }
             }
             
             
@@ -281,7 +276,6 @@ $QLD-header-md: 72px;
                 }
                 &:hover{
                     background-color: var(--QLD-color-dark-background__shade);
-                    
                     svg{
                         color: var(--QLD-color-dark-alt-button__hover);
                     }
@@ -303,7 +297,6 @@ $QLD-header-md: 72px;
 
                         &:hover{
                             background-color: var(--QLD-color-dark-background);
-                            
                             .qld__main-nav__item-icon{
                                 color: var(--QLD-color-dark-alt-button__hover);
                             }
@@ -481,13 +474,10 @@ $QLD-header-md: 72px;
         cursor: pointer;
         align-items: center;
         color: var(--QLD-color-light-link);
-        text-decoration: none;
         @include QLD-focus();
         border-left: solid $QLD-border-width-thin var(--QLD-color-light-border);
         
         &:hover {
-            text-decoration: underline;
-            text-decoration-skip-ink: auto;
             background-color: var(--QLD-color-light-background__shade);
 
             svg{
@@ -667,7 +657,6 @@ $QLD-header-md: 72px;
         }
 
         .active a {
-            text-decoration: underline;
             border-color: #fff !important;
             background-color: transparent !important;
         }
