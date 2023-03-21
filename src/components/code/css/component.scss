@@ -55,11 +55,6 @@
         &:focus,
         &:hover {
             box-shadow: none;
-            text-decoration: none;
-
-            .qld__code-copy--button-text {
-                text-decoration: underline;
-            }
 
             @include QLD-media(sm, down) {
                 .qld__code-tooltip {
@@ -123,7 +118,6 @@
             border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
             color: var(--QLD-color-dark-text);
             cursor: pointer;
-            text-decoration: underline;
             @include QLD-space('padding', .75unit 1unit);
 
             i {
@@ -131,11 +125,6 @@
                 @include QLD-space('font-size', 1.25unit);
                 @include QLD-space('margin-left', .5unit);
                 transition: transform 0.25s ease-in;
-            }
-
-            &:focus,
-            &:hover {
-                text-decoration: none;
             }
 
             &:focus {

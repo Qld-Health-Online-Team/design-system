@@ -36,7 +36,7 @@
 
   return "                <li class=\"prev\">\n                    <a href=\""
     + alias1(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":14,"column":29},"end":{"line":14,"column":36}}}) : helper)))
-    + "\" rel=\"prev\" aria-label=\"Previous page of results\">\n                        <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
+    + "\" rel=\"prev\" aria-label=\"Previous page of results\" class=\"qld__search-pagination_link\">\n                        <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"siteDefaultIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#qld__icon__arrow-left\"></use></svg>\n                        <span>Back</span>\n                    </a>\n";
 },"6":function(container,depth0,helpers,partials,data) {
@@ -67,7 +67,7 @@
 
   return "                <li class=\"next\">\n                    <a href=\""
     + alias1(((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":27,"column":29},"end":{"line":27,"column":36}}}) : helper)))
-    + "\" rel=\"next\" aria-label=\"Next page of results\">\n                    <span>Next</span>\n                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
+    + "\" rel=\"next\" aria-label=\"Next page of results\" class=\"qld__search-pagination_link\">\n                    <span>Next</span>\n                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"siteDefaultIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#qld__icon__arrow-right\"></use></svg>\n                    </a>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {

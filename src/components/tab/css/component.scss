@@ -3,6 +3,13 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__tab {
+
+    &-intro{
+        @include QLD-space(padding-bottom, 1.5unit);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-bottom, 2unit);
+        }
+    }
 	
     &s {
         display: flex;
@@ -396,11 +403,11 @@
     }
 }
 
-* + .qld__tab-container {
+*:not(.row) + .qld__tab-container {
     margin-top: 32px;
 }
 
-.tab-section {
+.qld__tab-section {
     border-top: 1px solid var(--QLD-color-light-alt-border);
     margin-top: 48px;
     box-shadow: 0 -49px 0 0 var(--QLD-color-light-background);
@@ -450,11 +457,35 @@
     }
 }
 
-.qld__body--alt+.tab-section {
+.qld__banner.qld__banner--alt+#content > section:first-child {
+
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
+    }
+    
+}
+.qld__banner.qld__banner--dark+#content > section:first-child {
+
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-dark-background);
+    }
+    
+}
+.qld__banner.qld__banner--dark-alt+#content > section:first-child {
+
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-dark-alt-background);
+    }
+    
+}
+
+.qld__body--alt+.qld__tab-section,
+.qld__body--alt+data+.qld__tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
 }
 
-.qld__body--dark+.tab-section {
+.qld__body--dark+.qld__tab-section,
+.qld__body--dark+data+.qld__tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-dark-background);
 
     .qld__tab-container__fixed .qld__tabs {
@@ -464,7 +495,8 @@
     }
 }
 
-.qld__body--dark-alt+.tab-section {
+.qld__body--dark-alt+.qld__tab-section,
+.qld__body--dark-alt+data+.qld__tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-dark-alt-background);
 
     .qld__tab-container__fixed .qld__tabs {

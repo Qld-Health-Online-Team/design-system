@@ -11,7 +11,7 @@
             
                 {{#ifCond linkType '===' 'prev'}}
                 <li class="prev">
-                    <a href="{{url}}" rel="prev" aria-label="Previous page of results">
+                    <a href="{{url}}" rel="prev" aria-label="Previous page of results" class="qld__search-pagination_link">
                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-left"></use></svg>
                         <span>Back</span>
                     </a>
@@ -24,7 +24,7 @@
 
                 {{#ifCond linkType '===' 'next'}}
                 <li class="next">
-                    <a href="{{url}}" rel="next" aria-label="Next page of results">
+                    <a href="{{url}}" rel="next" aria-label="Next page of results" class="qld__search-pagination_link">
                     <span>Next</span>
                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
                     </a>

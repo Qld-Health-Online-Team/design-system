@@ -38,7 +38,7 @@
 
             &:hover{
                 @include QLD-box-shadow(3);
-
+                color: var(--QLD-color-light-link);
                 @include QLD-media(lg) {
                     box-shadow: none;
                     background-color: var(--QLD-color-light-alt-background);
@@ -117,7 +117,8 @@
 
             &.qld__main-nav__item-home{
 
-                @include QLD-media(lg) {
+                @include QLD-media(lg) {                 
+
                     .qld__main-nav__item-icon{
                         @include QLD-space(margin, 0);
                     }
@@ -167,7 +168,6 @@
             @include QLD-media(lg) {
                 display: inline-flex;
                 align-items: center;
-                text-decoration: none;
                 border-bottom: none;
                 color: var(--QLD-color-light-link);
                 margin: 0;
@@ -195,8 +195,6 @@
 
                 &:hover{
                     background-color: transparent;
-
-                    text-decoration: underline;
 
                     .qld__icon{
                         @include QLD-space(margin, 0 -4px 0 1.25unit);
@@ -314,7 +312,6 @@
                     background-color: transparent;
                     color: var(--QLD-color-light-text);
                     border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
-                    text-decoration: none;
                     width: 100%;
 
                     @include QLD-media(lg) {
@@ -327,6 +324,8 @@
                         border-color: var(--QLD-color-light-button);
                         background-color: var(--QLD-color-light-background);
                         text-decoration: underline;
+
+                        
 
                         .qld__main-nav__sub-item-text .qld__icon{
                             @include QLD-space(margin, 0 -4px 0 1unit);
@@ -364,6 +363,20 @@
                             }
                         }
                     }
+
+                &:hover{
+                    border-color: var(--QLD-color-light-button);
+                    background-color: var(--QLD-color-light-background);
+
+                    @include QLD-media(lg) {
+                        background-color: transparent;
+                    }
+
+                    .qld__main-nav__sub-item-text .qld__icon{
+                        @include QLD-space(margin, 0 -4px 0 1unit);
+                        color: var(--QLD-color-light-alt-button__hover);
+                    }
+                }
 
                 &:nth-child(-n+3){
                     .qld__main-nav__sub-item-text {
@@ -435,7 +448,6 @@
                 &:hover{
                     border-color: var(--QLD-color-light-button);
                     background-color: var(--QLD-color-light-background);
-                    text-decoration: underline;
                 }
             }
         }

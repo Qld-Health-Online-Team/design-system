@@ -25,11 +25,51 @@
 					"type": "metadata_field_select",
 					"description": "",
 					"friendly_name": "Tab Display",
-					"value": "",
+					"value": "fixed",
 					"options": {
 						"fixed": "Fixed width",
 						"full": "Full width"
 					},
+					"required": false,
+					"editable": true
+				},
+				"intro_width": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Intro width",
+					"value": "col-md-6",
+					"options": {
+						"col-md-6": "Half width",
+						"col-md-12": "Full width"
+					},
+					"required": false,
+					"editable": true
+				},
+				"intro_heading": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Intro heading",
+					"value": "Intro heading",
+					"required": false,
+					"editable": true
+				},
+                "intro_heading_level": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Intro heading level",
+                    "value": "h2",
+                    "options": {
+                        "h2": "h2",
+                        "h3": "h3",
+                        "h4": "h4",
+                        "h5": "h5"
+                    }
+                },
+				"intro_body": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"friendly_name": "Intro body",
+					"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 					"required": false,
 					"editable": true
 				},
@@ -58,7 +98,9 @@
 						"5": "5",
 						"6": "6",
 						"7": "7",
-						"8": "8"
+						"8": "8",
+						"9": "9",
+						"10": "10"
 					},
 					"required": false,
 					"editable": true,
@@ -648,6 +690,156 @@
 								"field": "tab_num",
 								"operator": "greater_than",
 								"value": "7"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"title_9": {
+					"type": "metadata_field_text",
+					"description": "",
+					"fieldid":"title_9",
+					"friendly_name": "Tab 9 - Title",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "8"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"icon_9": {
+					"type": "metadata_field_text",
+					"description": "",
+					"fieldid":"icon_9",
+					"friendly_name": "Tab 9 - Icon",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "8"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"content_9": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"fieldid":"content_9",
+					"friendly_name": "Tab 9 - Content",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "8"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"title_10": {
+					"type": "metadata_field_text",
+					"description": "",
+					"fieldid":"title_10",
+					"friendly_name": "Tab 10 - Title",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "9"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"icon_10": {
+					"type": "metadata_field_text",
+					"description": "",
+					"fieldid":"icon_10",
+					"friendly_name": "Tab 10 - Icon",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "9"
+                        	},
+							{
+								"field": "type",
+								"operator": "equals",
+                            	"value": "wysiwyg"
+                        	}
+						]
+                    }
+				},
+				"content_10": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"fieldid":"content_10",
+					"friendly_name": "Tab 10 - Content",
+					"value": "",
+					"required": false,
+					"editable": true,
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+							{
+								"field": "tab_num",
+								"operator": "greater_than",
+								"value": "9"
                         	},
 							{
 								"field": "type",
