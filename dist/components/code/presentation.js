@@ -15,7 +15,7 @@
         return undefined
     };
 
-  return "    <section class=\"qld__body\">\r\n        <div class=\"container-fluid\">\r\n"
+  return "    <section class=\"qld__body\">\n        <div class=\"container-fluid\">\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"code_snippet_type") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),"==","singleline",{"name":"ifCond","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":8},"end":{"line":38,"column":19}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"code_snippet_type") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),"==","multiline",{"name":"ifCond","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":40,"column":8},"end":{"line":159,"column":19}}})) != null ? stack1 : "")
@@ -37,16 +37,16 @@
         return undefined
     };
 
-  return "\r\n"
+  return "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"mainNavVerticalNav"))) && lookupProperty(stack1,"value")),"==","Yes",{"name":"ifCond","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":9,"column":16},"end":{"line":12,"column":27}}})) != null ? stack1 : "")
-    + "\r\n                \r\n                        <div class=\"qld__code singleline\">\r\n                            <code class=\"qld__code-body\">"
+    + "\n                \n                        <div class=\"qld__code singleline\">\n                            <code class=\"qld__code-body\">"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"code") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</code>\r\n                            <button class=\"qld__btn qld__code-copy--button\" type=\"button\">\r\n                                <div class=\"clean\">\r\n                                    <i class=\"fa-light fa-copy\"></i><span class=\"qld__code-copy--button-text\">Copy</span>\r\n                                </div>\r\n                                <div class=\"dirty\">\r\n                                    <i class=\"fa-solid fa-circle-check\"></i><span class=\"qld__code-copy--button-text\">Copied</span>\r\n                                </div>\r\n                                <div class=\"qld__code-tooltip\">\r\n                                    <span class=\"clean\">Copy</span>\r\n                                    <span class=\"dirty\">Copied</span>\r\n                                </div>\r\n                            </button>\r\n                        </div>\r\n            \r\n\r\n                \r\n"
+    + "</code>\n                            <button class=\"qld__btn qld__code-copy--button\" type=\"button\">\n                                <div class=\"clean\">\n                                    <i class=\"fa-light fa-copy\"></i><span class=\"qld__code-copy--button-text\">Copy</span>\n                                </div>\n                                <div class=\"dirty\">\n                                    <i class=\"fa-solid fa-circle-check\"></i><span class=\"qld__code-copy--button-text\">Copied</span>\n                                </div>\n                                <div class=\"qld__code-tooltip\">\n                                    <span class=\"clean\">Copy</span>\n                                    <span class=\"dirty\">Copied</span>\n                                </div>\n                            </button>\n                        </div>\n            \n\n                \n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"mainNavVerticalNav"))) && lookupProperty(stack1,"value")),"==","Yes",{"name":"ifCond","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":33,"column":16},"end":{"line":36,"column":27}}})) != null ? stack1 : "");
 },"5":function(container,depth0,helpers,partials,data) {
-    return "                <section class=\"qld__body\">\r\n                    <div class=\"container-fluid\">\r\n";
+    return "                <section class=\"qld__body\">\n                    <div class=\"container-fluid\">\n";
 },"7":function(container,depth0,helpers,partials,data) {
-    return "                    </div>\r\n                </section>\r\n";
+    return "                    </div>\n                </section>\n";
 },"9":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -111,25 +111,25 @@
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__default-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\" value=\"\" checked>\r\n                            <label for=\"qld__code-preview-colours__default-"
+    + "\" value=\"\" checked>\n                            <label for=\"qld__code-preview-colours__default-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\">Default</label>\r\n                        </li>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
+    + "\">Default</label>\n                        </li>\n                        <li>\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__alt-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\" value=\"qld__body--alt\">\r\n                            <label for=\"qld__code-preview-colours__alt-"
+    + "\" value=\"qld__body--alt\">\n                            <label for=\"qld__code-preview-colours__alt-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\">Alt</label>\r\n                        </li>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
+    + "\">Alt</label>\n                        </li>\n                        <li>\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__dark-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\" value=\"qld__body--dark\">\r\n                            <label for=\"qld__code-preview-colours__dark-"
+    + "\" value=\"qld__body--dark\">\n                            <label for=\"qld__code-preview-colours__dark-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\">Dark</label>\r\n                        </li>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
+    + "\">Dark</label>\n                        </li>\n                        <li>\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__dark-alt-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\" value=\"qld__body--dark-alt\">\r\n                            <label for=\"qld__code-preview-colours__dark-alt-"
+    + "\" value=\"qld__body--dark-alt\">\n                            <label for=\"qld__code-preview-colours__dark-alt-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\"> Dark-alt</label>\n                        </li>\n                    </ul>\n                </div>\n";
 },"19":function(container,depth0,helpers,partials,data) {
@@ -282,7 +282,7 @@
 
   return "            <code class=\"qld__code-body\">"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"code") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</code>\r\n";
+    + "</code>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
