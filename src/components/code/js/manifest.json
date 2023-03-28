@@ -61,6 +61,40 @@
                         }]
                     }
 				},
+				"action_link_title": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Action Link Title",
+					"value": "A link to any url",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				},
+				"action_link_address": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Action Link URL",
+					"value": "https://health.qld.gov.au.com",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "code_snippet_type",
+                            "operator": "equals",
+                            "value": "multiline"
+                        }]
+                    }
+				},
 				"show_more_button": {
 					"type": "metadata_field_select",
 					"description": "",
@@ -107,6 +141,18 @@
 					"type": "metadata_field_select",
 					"description": "",
 					"friendly_name": "Display code",
+					"value": "true",
+					"options": {
+						"true": "Yes",
+						"false": "No"
+					},
+					"required": false,
+					"editable": true
+				},
+				"show_theme_colors": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display theme colours",
 					"value": "true",
 					"options": {
 						"true": "Yes",
