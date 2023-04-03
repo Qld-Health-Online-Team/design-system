@@ -240,7 +240,9 @@ form {
             &.qld__body--alt{
                 + .qld__body.qld__body--alt,
                 + data + .qld__body--alt{
-                    padding-top: 0 !important;
+                    &:not(.qld__tab-section) {
+                        padding-top: 0 !important;
+                    }
                 }
                 + .qld__body,
                 + data + .qld__body{
@@ -253,7 +255,9 @@ form {
             &.qld__body--dark{
                 + .qld__body.qld__body--dark,
                 + data + .qld__body.qld__body--dark{
-                    padding-top: 0 !important;
+                    &:not(.qld__tab-section) {
+                        padding-top: 0 !important;
+                    }
                 }
                 + .qld__body,
                 + data + .qld__body{
@@ -266,7 +270,9 @@ form {
             &.qld__body--dark-alt{
                 + .qld__body.qld__body--dark-alt,
                 + data + .qld__body.qld__body--dark-alt{
-                    padding-top: 0 !important;
+                    &:not(.qld__tab-section) {
+                        padding-top: 0 !important;
+                    }
                 }
                 + .qld__body,
                 + data + .qld__body{
@@ -298,6 +304,13 @@ form {
            
     }
 
+    .qld__banner {
+        .qld__body {
+            &:first-of-type {
+                margin-top: 0
+            }
+        }
+    }
 }
 
 .qld__body,
