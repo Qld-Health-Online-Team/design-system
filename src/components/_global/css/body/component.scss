@@ -311,10 +311,12 @@ form {
     }
 
     .qld__banner {
-        + .qld__body,
-        + data + .qld__body {
-            &:first-of-type {
-                margin-top: 0
+        + #content {
+            .qld__body,
+            data + .qld__body {
+                &:first-of-type {
+                    margin-top: 0
+                }
             }
         }
     }
