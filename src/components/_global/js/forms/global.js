@@ -195,7 +195,7 @@
             var dependantOnField = $('#' + fieldName);
 
             if (fieldName.indexOf(':') !== -1) {
-                dependantOnField = $("[name=" + fieldName + "]");
+                dependantOnField = $(`[name="${fieldName}"]`);
             }
             var fieldValue = dependantOnField.val();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
           <actions>
           <action>
-            <action_id>create_Content_Container_Template_6780074385</action_id>
+            <action_id>create_Content_Container_Template_1237759297</action_id>
             <action_type>create_asset</action_type>
             <type_code>Content_Container_Template</type_code>
             <link_type>1</link_type>
@@ -11,83 +11,83 @@
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Content_Container_Template_6780074385_name</action_id>
+            <action_id>set_Content_Container_Template_1237759297_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_6780074385.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1237759297.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Global Alert]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_6780074385_edit_interface_in_admin</action_id>
+            <action_id>set_Content_Container_Template_1237759297_edit_interface_in_admin</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_6780074385.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1237759297.assetid]]</asset>
             <attribute>edit_interface_in_admin</attribute>
             <value><![CDATA[1]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_6780074385_icon_color</action_id>
+            <action_id>set_Content_Container_Template_1237759297_icon_color</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_6780074385.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1237759297.assetid]]</asset>
             <attribute>icon_color</attribute>
             <value><![CDATA[blue]]></value>
           </action>
           
           <action>
-          <action_id>create_Metadata_Schema_7388484925</action_id>
+          <action_id>create_Metadata_Schema_2494616403</action_id>
           <action_type>create_asset</action_type>
           <type_code>Metadata_Schema</type_code>
           <link_type>1</link_type>
-          <parentid>[[output://create_Content_Container_Template_6780074385.assetid]]</parentid>
+          <parentid>[[output://create_Content_Container_Template_1237759297.assetid]]</parentid>
           <value></value>
           <is_dependant>0</is_dependant>
           <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Metadata_Schema_7388484925_name</action_id>
+            <action_id>set_Metadata_Schema_2494616403_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Schema_7388484925.assetid]]</asset>
+            <asset>[[output://create_Metadata_Schema_2494616403.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Global Alert]]></value>
           </action>
           <action>
-              <action_id>set_permission_7388484925_read_5</action_id>
+              <action_id>set_permission_2494616403_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Schema_7388484925.assetid]]</asset>
+              <asset>[[output://create_Metadata_Schema_2494616403.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>
           
           <action>
-            <action_id>create_Metadata_Section_7263389421</action_id>
+            <action_id>create_Metadata_Section_7724521038</action_id>
             <action_type>create_asset</action_type>
             <type_code>Metadata_Section</type_code>
             <link_type>2</link_type>
-            <parentid>[[output://create_Metadata_Schema_7388484925.assetid]]</parentid>
+            <parentid>[[output://create_Metadata_Schema_2494616403.assetid]]</parentid>
             <value></value>
             <is_dependant>1</is_dependant>
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>add_Metadata_Section_7263389421_path</action_id>
+            <action_id>add_Metadata_Section_7724521038_path</action_id>
             <action_type>add_web_path</action_type>
-            <asset>[[output://create_Metadata_Section_7263389421.assetid]]</asset>
-            <parent_asset>[[output://create_Metadata_Schema_7388484925.assetid]]</parent_asset>
+            <asset>[[output://create_Metadata_Section_7724521038.assetid]]</asset>
+            <parent_asset>[[output://create_Metadata_Schema_2494616403.assetid]]</parent_asset>
             <path>settings</path>
           </action>
           <action>
-            <action_id>set_Metadata_Section_7263389421_name</action_id>
+            <action_id>set_Metadata_Section_7724521038_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Section_7263389421.assetid]]</asset>
+            <asset>[[output://create_Metadata_Section_7724521038.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Settings]]></value>
           </action>
           <action>
-              <action_id>set_permission_7263389421_read_5</action_id>
+              <action_id>set_permission_7724521038_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Section_7263389421.assetid]]</asset>
+              <asset>[[output://create_Metadata_Section_7724521038.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
