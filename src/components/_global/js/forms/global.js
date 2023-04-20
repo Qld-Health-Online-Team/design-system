@@ -199,7 +199,7 @@
                 displayCheck(field);
             });
             
-            if(dependantOnField.is(`input[type="checkbox"]`)) {
+            if(dependantOnField.is(`input[type="checkbox"], input[type="radio"]`)) {
                 if(!dependantOnField.is(':checked')) {
                     fieldValue = ""; 
                 }
