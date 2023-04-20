@@ -193,13 +193,17 @@
             var ruleValue = rule.value;
             
             var dependantOnField = $('#' + fieldName);
+
+            if (fieldName.indexOf(':') !== -1) {
+                dependantOnField = $("[name=" + fieldName + "]");
+            }
             var fieldValue = dependantOnField.val();
 
             dependantOnField.on('change', function() {
                 displayCheck(field);
             });
             
-            if(dependantOnField.is(`input[type="checkbox"], input[type="radio"]`)) {
+            if(dependantOnField.is(`input[type="checkbox"]`)) {
                 if(!dependantOnField.is(':checked')) {
                     fieldValue = ""; 
                 }
