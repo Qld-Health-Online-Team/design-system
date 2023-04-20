@@ -101,6 +101,10 @@
                 $(this).valid();
             });
         });
+
+        $('[data-displayif-show]').each(function() {
+            displayCheck($(this));
+        });
     }
 
     // Make forms available to public
@@ -172,11 +176,93 @@
                 });
             }
         }
-        
-
-
-
-
     };
+
+    function displayCheck(field) {
+        var show_hide = field[0].dataset.displayifShow;
+        var logic_operator = field[0].dataset.displayifOperator;
+        var rules = field[0].dataset.displayifRule.replaceAll('}{','},{');
+        rules = JSON.parse(rules);
+        var rulesPassed = 0;
+        var ruleCount = rules.length;
+
+        for (var j = 0; j < ruleCount; j++) {
+            var rule = rules[j];
+            var fieldName = rule.field;
+            var operator = rule.operator;
+            var ruleValue = rule.value;
+            
+            var dependantOnField = $('#' + fieldName);
+            var fieldValue = dependantOnField.val();
+
+            dependantOnField.on('change', function() {
+                displayCheck(field);
+            });
+            
+            if(dependantOnField.is(`input[type="checkbox"`)) {
+                if(!dependantOnField.is(':checked')) {
+                    fieldValue = ""; 
+                }
+            }
+            
+            
+            if (operator == "equals") {
+                if (fieldValue == ruleValue) {
+                    rulesPassed++;
+                }
+
+            } else if(operator == "less_than") {
+                
+                var dependantNumber = Number(fieldValue);
+                var valueNumber = Number(ruleValue);
+                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber) ){
+                    if (dependantNumber < valueNumber) {
+                        rulesPassed++;
+                    }
+                }
+                
+            } else if (operator == "greater_than"){
+                
+                var dependantNumber = Number(fieldValue);
+                var valueNumber = Number(ruleValue);
+                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber) ){
+                    if (dependantNumber > valueNumber) {
+                        rulesPassed++;
+                    }
+                }
+                
+            } else if (operator == "contains"){
+                if (fieldValue.indexOf(ruleValue) !== -1) {
+                    rulesPassed++;
+                }
+            
+            }
+        }
+
+        // For 'AND', check that all rules have passed
+        if (logic_operator === 'AND') {
+            if (rulesPassed === ruleCount) {
+                showHideField($(field).closest('.sq-form-question'), show_hide);
+            } else {
+                showHideField($(field).closest('.sq-form-question'), !show_hide);
+            }
+            
+        // For 'OR', check that at least 1 rule has passed
+        } else if (logic_operator === 'OR') {
+            if (rulesPassed > 0) {
+                showHideField($(field).closest('.sq-form-question'), show_hide);
+            } else {
+                showHideField($(field).closest('.sq-form-question'), !show_hide);
+            }
+        }
+    }
+
+    function showHideField(field, show_hide) {
+        if (show_hide) {
+            $(field).removeClass('hidden');
+        } else {
+            $(field).addClass('hidden');
+        }
+    }
     
 }());
