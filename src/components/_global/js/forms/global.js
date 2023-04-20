@@ -193,11 +193,12 @@
             var ruleValue = rule.value;
             
             var dependantOnField = $('#' + fieldName);
+            var fieldValue = dependantOnField.val();
 
             if (fieldName.indexOf(':') !== -1) {
                 dependantOnField = $(`[name="${fieldName}"]`);
+                fieldValue = $(`[name="${fieldName}"]:checked`).val();
             }
-            var fieldValue = dependantOnField.val();
 
             dependantOnField.on('change', function() {
                 displayCheck(field);
