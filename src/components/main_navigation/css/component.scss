@@ -654,6 +654,30 @@ $QLD-header-md: 72px;
     }
 }
 
+.qld__main-nav__menu-inner {
+
+    div.qld__mega-nav_mobile-filler-120 {
+        display: block;
+        height: 0;
+        padding-bottom: 120px;
+
+        @include QLD-media(lg) {
+            display: none;
+        }
+    }
+
+    div.qld__mega-nav_mobile-filler-60 {
+        display: block;
+        height: 0;
+        padding-bottom: 60px;
+
+        @include QLD-media(lg) {
+            display: none;
+        }
+    }
+
+}
+
 // Print styles
 @media print {
 	.qld__main-nav {

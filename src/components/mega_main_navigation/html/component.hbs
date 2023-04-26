@@ -111,6 +111,13 @@
                         {{/each}}
                     </ul>
                     {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
+                        {{#ifCond site.metadata.mainNavCtaOne.value '&&' site.metadata.mainNavCtaTwo.value}}
+                            <div class="qld__mega-nav_mobile-filler-120"></div>
+                        {{else}}
+                            <div class="qld__mega-nav_mobile-filler-60"></div>
+                        {{/ifCond}}
+                    {{/ifCond}}
+                    {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
                     <div class="qld__main-nav__cta-wrapper">
                         <ul class="qld__link-list qld__link-list--flex">
                         {{#if site.metadata.mainNavCtaOne.value}}
