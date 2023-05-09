@@ -4,9 +4,9 @@
         {{#each current.lineage}}        
             <li {{#if @last}}aria-current="page"{{/if}}>
                 {{#if @last}}
-                    {{asset_short_name}}
+                    {{renderSpecialChar asset_short_name}}
                 {{else}}
-                <a href="{{asset_url}}">{{#if @first}}Home{{else}}{{asset_short_name}}{{/if}}</a>
+                <a href="{{asset_url}}">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>
                 {{/if}}
             </li>
         {{/each}}
@@ -18,7 +18,7 @@
                 {{#ifCond asset_is_site_asset '==' '1'}}
                     Home
                 {{else}}
-                   {{asset_short_name}}
+                   {{renderSpecialChar asset_short_name}}
                 {{/ifCond}}
             </a>    
         </li>
