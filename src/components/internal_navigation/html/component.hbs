@@ -10,11 +10,11 @@
         {{#each current.children}}
             {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
             <li>
-                <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
+                <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
             {{/ifCond}}
             {{#ifCond asset_assetid '==' @root.current.data.assetid}}
             <li class="active" aria-current="page">
-                <span>{{asset_short_name}}</span>
+                <span>{{renderSpecialChar asset_short_name}}</span>
             {{/ifCond}}
             {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
                 {{#if children}}
@@ -22,11 +22,11 @@
                     {{#each children}}
                         {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                         <li>
-                            <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
+                            <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
                         {{/ifCond}}
                         {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                         <li class="active" aria-current="page">
-                            <span>{{asset_short_name}}</span>
+                            <span>{{renderSpecialChar asset_short_name}}</span>
                         {{/ifCond}}
                         {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
                             {{#if children}}
@@ -34,11 +34,11 @@
                                 {{#each children}}
                                     {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                                     <li>
-                                        <a class="qld__sidenav__link" href="{{asset_url}}">{{asset_short_name}}</a>
+                                        <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
                                     {{/ifCond}}
                                     {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                                     <li class="active" aria-current="page">
-                                        <span>{{asset_short_name}}</span>
+                                        <span>{{renderSpecialChar asset_short_name}}</span>
                                     {{/ifCond}}
                                     </li>    
                                 {{/each}}

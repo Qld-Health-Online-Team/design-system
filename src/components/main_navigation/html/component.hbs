@@ -32,7 +32,7 @@
                         <li class="qld__main-nav__item {{#ifCond asset_assetid '==' ../current.data.assetid}}active{{/ifCond}}{{#ifCond asset_assetid '==' ../current.top.asset_assetid}}active{{/ifCond}}">
                             <div class="qld__main-nav__item-title">
                                 <a class="qld__main-nav__item-link" {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" >
-                                    <span class="qld__main-nav__item-text" data-name="{{asset_short_name}}">{{{asset_short_name}}}</span>
+                                    <span class="qld__main-nav__item-text" data-name="{{asset_short_name}}">{{{renderSpecialChar asset_short_name}}}</span>
                                 </a>
                             </div>
                         </li>
