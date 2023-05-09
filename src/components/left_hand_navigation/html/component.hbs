@@ -32,13 +32,13 @@
                     {{else}}
                     <a class="qld__left-nav__item-link" href="{{asset_url}}">
                     {{/inArray}}
-                        <span class="qld__left-nav__item-text" data-name="{{asset_short_name}}">{{asset_short_name}}
+                        <span class="qld__left-nav__item-text" data-name="{{asset_short_name}}">{{renderSpecialChar asset_short_name}}
                         </span>
                     </a>
                 {{else}}
                 <li class="active" aria-current="page">
                     <span class="qld__left-nav__item-link">
-                        <span class="qld__left-nav__item-text">{{asset_short_name}}</span>
+                        <span class="qld__left-nav__item-text">{{renderSpecialChar asset_short_name}}</span>
                     </span>
                 {{/ifCond}}
                 {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
@@ -56,7 +56,7 @@
                                 <li>
                                     <a class="qld__left-nav__item-link" href="{{asset_url}}">
                                         <span class="qld__left-nav__item-text">
-                                            {{asset_short_name}}
+                                            {{renderSpecialChar asset_short_name}}
                                         </span>
                                     </a>
                                 {{/ifCond}}
@@ -64,7 +64,7 @@
                                 <li class="active" aria-current="page">
                                     <span class="qld__left-nav__item-link">
                                         <span class="qld__left-nav__item-text">
-                                            {{asset_short_name}}
+                                            {{renderSpecialChar asset_short_name}}
                                         </span>
                                     </span>
                                 {{/ifCond}}
