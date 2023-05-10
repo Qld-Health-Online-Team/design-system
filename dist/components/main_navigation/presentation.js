@@ -45,7 +45,7 @@
     + "\" >\r\n                                    <span class=\"qld__main-nav__item-text\" data-name=\""
     + alias4(((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":35,"column":86},"end":{"line":35,"column":106}}}) : helper)))
     + "\">"
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":35,"column":108},"end":{"line":35,"column":130}}}) : helper))) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"renderSpecialChar")||(depth0 && lookupProperty(depth0,"renderSpecialChar"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0),{"name":"renderSpecialChar","hash":{},"data":data,"loc":{"start":{"line":35,"column":108},"end":{"line":35,"column":148}}})) != null ? stack1 : "")
     + "</span>\r\n                                </a>\r\n                            </div>\r\n                        </li>\r\n";
 },"14":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
