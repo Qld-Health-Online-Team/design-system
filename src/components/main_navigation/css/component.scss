@@ -17,6 +17,49 @@ $QLD-header-md: 72px;
     @include QLD-media(lg) {
         background-color: var(--QLD-color-light-background__shade);
         border-bottom-width: $QLD-border-width-extra-thick;
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle .qld__icon {
+            margin: 0rem 0.75rem 0rem -4px;
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link.qld__main-nav__item-home .qld__main-nav__item-icon{
+            line-height: 1;
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__menu-sub {
+            position: absolute;
+            left: -16px;
+            right: -16px;
+            box-shadow: 0px 1px 2px rgb(0 0 0 / 30%), 0px 2px 2px 2px rgb(0 0 0 / 5%);
+            border-radius: 12px;
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link {
+            padding: 10px 8px 10px 8px;
+            line-height:32px;
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
+            padding: 10px 8px 10px 8px;
+            line-height:32px;
+        }
+
+    }
+
+    @include QLD-media(xl) {
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle .qld__icon {
+            margin: 0rem 0.75rem 0rem -4px;
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link {
+            padding: 10px 12px 10px 12px;
+            line-height:32px; 
+        }
+
+        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
+            padding: 10px 12px 10px 12px;
+            line-height:32px; 
+        }
     }
 
     .qld__main-nav__no-desktop{
@@ -37,12 +80,16 @@ $QLD-header-md: 72px;
     .qld__main-nav__menu {
         &::before {
             content: "";
-            display: none;
+            display: block;
             @include QLD-space(width, 0.25unit);
             position: absolute;
             top: 0;
             bottom: 0;
             right: 0;
+            
+            @include QLD-media(lg) {
+                display: none;
+            }
         }
         // Move the menu content off the screen so it can slide in
         .js & {
@@ -137,7 +184,7 @@ $QLD-header-md: 72px;
         // Menu item title
         & .qld__main-nav__item-title {
             display: flex;
-            align-items: stretch;
+            align-items: center;
             justify-content: space-between;
             position: relative; 
             @include QLD-fontgrid(sm, heading);
@@ -157,15 +204,7 @@ $QLD-header-md: 72px;
                     @include QLD-space(height, 0);
                 }
             }
-
-            @include QLD-media(lg) {
-                font-size: 14px;
-                line-height: 20px;
-            }
-
-            @include QLD-media(xl) {
-                @include QLD-fontgrid(sm, heading);
-            }
+           
         }
         // Menu item link
         & .qld__main-nav__item-link {
@@ -183,7 +222,7 @@ $QLD-header-md: 72px;
             @include QLD-media(lg) {
                 border-left: none;
                 @include QLD-space(padding, .75unit 1unit .75unit 0.75unit);
-                @include QLD-space(line-height, 1.25unit);
+                @include QLD-space(line-height, 2unit);
             }
 
             &:hover {
@@ -578,12 +617,13 @@ $QLD-header-md: 72px;
         }
 
         &--flex {
-            @include QLD-media(lg) {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
+            flex-wrap: wrap;
         }
+    }
+
+    .qld__icon--md {
+        height: 16px;
+        width: 16px;
     }
 
     .qld__main-nav__cta-wrapper .qld__link-list{
