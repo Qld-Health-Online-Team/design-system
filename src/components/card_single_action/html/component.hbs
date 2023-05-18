@@ -121,7 +121,7 @@
                                         
                                         {{#if metadata.shortDescription.value}}
                                         <p id="card-{{assetid}}" class="qld__card__description">
-                                            {{metadata.shortDescription.value}}
+                                            {{{metadata.shortDescription.value}}}
                                         </p>
                                         {{/if}}
                                     </div>
@@ -133,7 +133,7 @@
                                 <div class="qld__card__footer">
                                     <hr class="qld__horizontal-rule">
                                     <div class="qld__card__footer-inner">
-                                    
+                                        {{{metadata.cardFooterContent.value}}}
                                     </div>
                                 </div>
                                 {{/ifCond}}
