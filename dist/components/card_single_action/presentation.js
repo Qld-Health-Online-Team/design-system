@@ -432,7 +432,7 @@
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(51, data, 0),"inverse":container.program(54, data, 0),"data":data,"loc":{"start":{"line":114,"column":44},"end":{"line":118,"column":51}}})) != null ? stack1 : "")
     + "                                            </h3>\r\n                                        ";
 },"67":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -440,14 +440,23 @@
     };
 
   return "                                        <p id=\"card-"
-    + alias1(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":123,"column":52},"end":{"line":123,"column":63}}}) : helper)))
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":123,"column":52},"end":{"line":123,"column":63}}}) : helper)))
     + "\" class=\"qld__card__description\">\r\n                                            "
-    + alias1(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
     + "\r\n                                        </p>\r\n";
 },"69":function(container,depth0,helpers,partials,data) {
     return "                                    <div class=\"qld__card__arrow\"></div>\r\n";
 },"71":function(container,depth0,helpers,partials,data) {
-    return "                                <div class=\"qld__card__footer\">\r\n                                    <hr class=\"qld__horizontal-rule\">\r\n                                    <div class=\"qld__card__footer-inner\">\r\n                                    \r\n                                    </div>\r\n                                </div>\r\n";
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                                <div class=\"qld__card__footer\">\r\n                                    <hr class=\"qld__horizontal-rule\">\r\n                                    <div class=\"qld__card__footer-inner\">\r\n                                        "
+    + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardFooterContent") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
+    + "\r\n                                    </div>\r\n                                </div>\r\n";
 },"73":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
