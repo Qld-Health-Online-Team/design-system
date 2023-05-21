@@ -31,10 +31,9 @@
                 @include QLD-space(margin, 0);
                 @include QLD-space(border-radius, 0);
                 box-shadow: none;
-                line-height: 20px;
+                line-height: 32px;
                 background-color: transparent;
                 display: flex;
-                align-items: center;
             }
 
             &:hover{
@@ -50,9 +49,15 @@
             .qld__icon{
                 color: var(--QLD-color-light-alt-button);
                 transition: transform 0.25s ease-in;
+
+                &--md{
+                    height: $QLD-icon-size-sm;
+                    width: $QLD-icon-size-sm;
+                }
+                
                 @include QLD-media(lg) {
-                    @include QLD-space(margin, 0unit .625unit 0unit 0unit);
-                    display: inline-block;               
+                    @include QLD-space(margin, 0unit 0.75unit 0unit -0.3unit);
+
                 }
             }
 
@@ -80,13 +85,11 @@
             &-text{
                 display: none;
                 @include QLD-media(lg) {
-                    @include QLD-space(padding, 1unit .5unit 1unit .5unit);
+                    @include QLD-space(padding, .625unit .75unit .625unit .75unit);
                     display: inline-flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
-                    width: calc(100% - 16px);
-                    text-align: left;
 
                     &::before{
                         content: attr(data-name) / "";
@@ -99,24 +102,14 @@
                     }
                     
                 }
-
-                @include QLD-media(xl) {
-                    @include QLD-space(padding, 1unit .625unit 1unit .625unit);
-                    width: calc(100% - 20px);
-                }
             }
         }
 
         &-link{
             @include QLD-media(lg) {
                 display: block;
-                @include QLD-space(padding, 1unit .5unit 1unit .5unit);
+                @include QLD-space(padding, .625unit .75unit .625unit .75unit);
             }
-
-            @include QLD-media(xl) {
-                @include QLD-space(padding, 1unit .625unit 1unit .625unit);
-            }
-
             &--open{
                 background-color: var(--QLD-color-light-background);
                 color: var(--QLD-color-light-link);
@@ -152,6 +145,11 @@
     }
 
     .qld__main-nav__menu-sub{
+        left: -16px;
+        right: -16px;
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 2px 2px rgba(0, 0, 0 ,0.05);
+        border-radius: 12px;
+
         background-color: var(--QLD-color-light-background);
         z-index: 10;
 
@@ -575,3 +573,4 @@
     
     }
 }
+
