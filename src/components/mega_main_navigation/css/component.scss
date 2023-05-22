@@ -101,6 +101,10 @@
                     }
                     
                 }
+
+                @include QLD-media(xl) {
+                    @include QLD-space(padding, .625unit .75unit .625unit .75unit);
+                }
             }
         }
 
@@ -109,6 +113,11 @@
                 display: block;
                 @include QLD-space(padding, .625unit .5unit .625unit .5unit);
             }
+
+            @include QLD-media(xl) {
+                @include QLD-space(padding, .625unit .75unit .625unit .75unit);
+            }
+            
             &--open{
                 background-color: var(--QLD-color-light-background);
                 color: var(--QLD-color-light-link);
