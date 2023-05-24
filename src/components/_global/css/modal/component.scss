@@ -10,7 +10,7 @@
         display: block;
     }
 
-    .qld__modal__underlay {
+    &__underlay {
         position: fixed;
         top: 0;
         right: 0;
@@ -20,10 +20,72 @@
         z-index: 1;
     }
 
-    &__body__content{
-        @include QLD-space(padding, 1.5unit  0);
+    &__inner{
+        min-width: pxToRem(360);
+        max-width: pxToRem(654);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background-color: $QLD-color-system-white;
+        padding: 1.5rem;
+        border: $QLD-border-width-thin solid var(--QLD-color-light-border);
+        border-radius: $QLD-border-radius-sm;
+        @include QLD-box-shadow(4);
+        z-index: 101;
+
+        @include QLD-media(lg) {
+            padding: 2rem;
+        }
     }
 
+    &__header{
+        display: flex;
+        align-items: center;
+
+        & &-heading{
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            margin-right: 1.5rem;
+            color: var(--QLD-color-light-heading);
+        }
+
+        & &-icon{
+            margin-right: 1rem;
+        }   
+    }
+
+    &__close-btn{
+        min-width: auto;
+        padding: 0;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        background: var(--QLD-color-light-background__shade);
+        border-color: var(--QLD-color-light-background__shade);
+
+        &:hover{
+            background: var(--QLD-color-light-alt-background__shade);
+            border-color: var(--QLD-color-light-alt-background__shade);
+        }
+
+        i{
+            color: $QLD-color-system-darkest;
+        }
+    }
+
+    &__content{
+        margin-top: 1.5rem;
+    }
+
+
+
+
+    //TO be removed once service finder is updated START
     &.qld__services-modal__set-location, &.qld__services-modal__update-location {
         .qld__modal__body {
             min-width: pxToRem(360);
@@ -31,24 +93,13 @@
             @include QLD-media(md) {
                 min-width: pxToRem(654);
             }
-
-            // .qld__search {
-
-            //     .qld__btn {
-            //         min-width: auto;
-            //         @include QLD-space( padding-left, 2px );
-            //         @include QLD-space( padding-right, 2px );
-
-            //         @include QLD-media(md) {
-            //             min-width: pxToRem(108);
-            //             @include QLD-space( padding-left, 1unit );
-            //             @include QLD-space( padding-right, 1unit );
-            //         }
-            //     }
-            // }
         }
     }
 
+    &__body__content{
+        @include QLD-space(padding, 1.5unit  0);
+    }
+   
 	.qld__modal__body {
         min-width: pxToRem(360);
         max-width: pxToRem(654);
@@ -57,7 +108,7 @@
         left: 50%;
         transform: translate(-50%, -100%);
         background-color: white;
-        padding: pxToRem(30) pxToRem(20);
+        padding: 1.5rem;
         border: 2px solid var(--QLD-color-light-border);
         @include sq-border-radius(4px);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -70,7 +121,6 @@
         .qld__modal__body__header {
             display: flex;
             justify-content: space-between;
-
             
         }
         .qld__modal__close {
@@ -81,11 +131,6 @@
             box-shadow: none;
             color: var(--QLD-color-light-text);
             border: 0;
-
-            // padding: 0;
-            // margin: 5px 0 0 0;
-            // width: pxToRem(17);
-            // height: pxToRem(20);
             min-width: auto;
             line-height: 0;
 
@@ -103,54 +148,6 @@
             }
         }
 
-        // .qld__search {
-
-        //     .qld__btn {
-        //         span {
-        //             display: none;
-        //         }
-    
-        //         @include QLD-media(md) {
-        //             min-width: pxToRem(108);
-
-        //             span {
-        //                 display: inline-block;
-        //             }
-    
-        //             svg {
-        //                 display: none;
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        .qld__modal__body__controls {
-            // margin-top: pxToRem(20);
-        }
-
-        // .qld__btn {
-        //     margin-right: pxToRem(10);
-        //     margin-bottom: 0;
-
-        //     @include QLD-media(md) {
-        //         min-width: pxToRem(118);
-        //     }
-        // }
-
-        // .qld__cta-btn {
-        //     border-color: var(--QLD-color-dark-alt-button);
-        //     background-color: white;
-        //     color: var(--QLD-color-light-text);
-            
-        //     &:not(:disabled) {
-        //         &:hover{
-        //             background-color: var(--QLD-color-dark-alt-button);
-        //             border-color: var(--QLD-color-dark-alt-button);
-        //             color: var(--QLD-color-light-text);
-        //         }
-        //     }
-        // }
     }
 
     &.qld__modal--small {
@@ -167,16 +164,6 @@
             text-align: center;
         }
     }
-
-    // .qld__modal__close {
-    //     position: fixed;
-    //     top: pxToRem(20);
-    //     right: pxToRem(20);
-    //     z-index: 1;
-    //     font-size: pxToRem(30);
-    //     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    //     padding: 0 pxToRem(10);
-    //     width: auto;
-    // }
+    //TO be removed once service finder is updated FINISH
 
 }
