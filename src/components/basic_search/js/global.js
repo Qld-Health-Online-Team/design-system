@@ -1,5 +1,3 @@
-import '.././../../externals/funnelback.autocompletion-2.6.0.js';
-
 (function () {
     /**
      * The Basic Search
