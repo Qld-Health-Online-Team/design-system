@@ -28,7 +28,7 @@
     .qld__table__header,
     th{
         @include QLD-standard-space(padding, 5 4 5 4);
-        box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light-designAccent);
+        box-shadow: inset 0 0 - var(--QLD-border-width-default) 0 var(--QLD-color-light-designAccent);
         color: var(--QLD-color-light-heading);
         font-weight: bold;
         @include QLD-fontgrid( md, heading);
@@ -38,7 +38,7 @@
     .qld__table__cell,
     td{
         @include QLD-standard-space(padding, 3);
-        box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-light-border);
+        box-shadow: inset 0 0 - var(--QLD-border-width-thin) 0 var(--QLD-color-light-border);
     }
 
     .qld__table__row,
@@ -46,19 +46,19 @@
         display: table-row;
     }
 
-    //Dark and Alt dark styles
+    //Dark and Alt dark stylesas
 	.qld__body--dark &,
 	.qld__body--dark-alt &{
 
         .qld__table__header,
         th{
             color: var(--QLD-color-dark-heading);
-            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 0 - var(--QLD-border-width-default) 0 var(--QLD-color-dark-border);
         }
 
         .qld__table__cell,
         td{
-            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 0 - var(--QLD-border-width-thin) 0 var(--QLD-color-dark-border);
         }
     }
 }

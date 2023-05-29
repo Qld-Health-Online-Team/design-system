@@ -66,13 +66,13 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
 @mixin QLD-grid-12-calc-grid-column( $index, $class, $type ) {
 	@if ( $type == width ) and ( $index > 0 ) {
         .col-#{ $class }-#{ $index } {
-            width: percentage( ( $index / $QLD-grid-12-columns ) );
+            width: percentage( calc( $index / $QLD-grid-12-columns ) );
         }
 	}
 
 	@if ( $type == push ) and ( $index > 0 ) {
         .col-#{ $class }-push-#{ $index } {
-            left: percentage( ( $index / $QLD-grid-12-columns ) );
+            left: percentage( calc( $index / $QLD-grid-12-columns ) );
         }
 	}
 
@@ -84,7 +84,7 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
 
 	@if ($type == pull) and ( $index > 0 ) {
         .col-#{ $class }-pull-#{ $index } {
-            right: percentage( ( $index / $QLD-grid-12-columns ) );
+            right: percentage( calc( $index / $QLD-grid-12-columns ) );
         }
 	}
 
@@ -96,7 +96,7 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
 
 	@if ($type == offset) {
         .col-#{ $class }-offset-#{ $index } {
-            margin-left: percentage( ( $index / $QLD-grid-12-columns ) );
+            margin-left: percentage( calc( $index / $QLD-grid-12-columns ) );
         }
 	}
 }

@@ -1,11 +1,11 @@
 // Convert a pixel value to EM units
 @function pxToEm($pixel) {
-  @return $pixel/$base-font-pixel + em;
+  @return calc($pixel/$base-font-pixel) + em;
 }
 
 // Convert a pixel value to REM units
 @function pxToRem($pixel) {
-  @return $pixel/$base-font-pixel + rem;
+  @return calc($pixel/$base-font-pixel) + rem;
 }
 
 // Strip unit taken from foundation
@@ -99,7 +99,7 @@
 	$encoded:'';
 	$slice: 2000;
 	$index: 0;
-	$loops: ceil( str-length( $svg ) / $slice ); // Chunk up string in order to avoid "stack level too deep" error
+	$loops: ceil( calc(str-length( $svg ) / $slice) ); // Chunk up string in order to avoid "stack level too deep" error
 
 	@for $i from 1 through $loops {
 	$chunk: str-slice( $svg, $index, $index + $slice - 1 );
@@ -204,7 +204,7 @@
 		$base: $base * $base;
 	}
 
-	@return if( $exponent < 0, 1 / $rest, $rest );
+	@return if( $exponent < 0, calc(1 / $rest), $rest );
 	}
 
 	// decimal number
@@ -213,7 +213,7 @@
 		@return 0 / 0;
 	}
 
-	$normalized: ( $base / $SQRT2 );
+	$normalized: calc( $base / $SQRT2 );
 	$log: 0;
 
 	@if $normalized < 0 {
