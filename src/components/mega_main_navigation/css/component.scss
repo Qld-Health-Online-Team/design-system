@@ -28,6 +28,7 @@
             }
 
             @include QLD-media(lg) {
+                @include QLD-underline('light','noUnderline');
                 @include QLD-space(margin, 0);
                 @include QLD-space(border-radius, 0);
                 box-shadow: none;
@@ -321,12 +322,13 @@
                 }
 
                 a{
+                    @include QLD-underline('light','noUnderline');
                     display: flex;
                     flex-wrap: wrap;
                     position: relative;
                     margin: 0;
                     background-color: transparent;
-                    color: var(--QLD-color-light-text);
+                    color: var(--QLD-color-light-link);
                     border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
                     width: 100%;
 
@@ -339,9 +341,7 @@
                     &:hover{
                         border-color: var(--QLD-color-light-button);
                         background-color: var(--QLD-color-light-background);
-                        text-decoration: underline;
-
-                        
+                                             
 
                         .qld__main-nav__sub-item-text .qld__icon{
                             @include QLD-space(margin, 0 -4px 0 1unit);
@@ -462,6 +462,7 @@
                 }
 
                 &:hover{
+                    color: var(--QLD-color-light-link);
                     border-color: var(--QLD-color-light-button);
                     background-color: var(--QLD-color-light-background);
                 }
@@ -482,6 +483,7 @@
             }
             @include QLD-media(lg) {
                 .qld__main-nav__item-toggle{
+                    @include QLD-underline('dark','noUnderline');
                     color: var(--QLD-color-dark-link);
                     fill:var(--QLD-color-dark-link);
                     &.qld__accordion--open{
@@ -495,6 +497,7 @@
                     }
 
                     &:hover{
+                        border-bottom-color: var(--QLD-color-dark-alt-button__hover);
                         background-color: var(--QLD-color-dark-background__shade);
                     }
                 }
@@ -522,6 +525,7 @@
 
                     li{
                         a{
+                            @include QLD-underline('dark','noUnderline');
                             color: var(--QLD-color-dark-link);
                             border-color: var(--QLD-color-dark-background__shade);
 

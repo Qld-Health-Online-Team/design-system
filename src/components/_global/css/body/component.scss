@@ -314,7 +314,6 @@ form {
 .qld__body,
 .qld__footer {
     @include QLD-fontgrid(sm) ;
-    @include QLD-space(font-size, 1.063unit);
     margin: 0;
     text-size-adjust: 100%;
     font-family: $QLD-font;
@@ -641,10 +640,7 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light-alt-background);
 
-        a{
-            @include QLD-underline('light');
-        }
-
+        
         hr {
             background-color: var(--QLD-color-light-alt-border);
         }
@@ -674,7 +670,7 @@ form {
         }
         
         a{
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
             
             &:hover {
@@ -723,7 +719,7 @@ form {
         }
         
         a {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
             
             &:hover {
@@ -762,13 +758,6 @@ form {
         }
     }
 }
-
-// .qld__body{
-//     p{
-//         @include QLD-space(font-size, 1.063unit);
-//     }
-// }
-
 
 @media print {
 	.qld__body {

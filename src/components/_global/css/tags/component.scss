@@ -50,10 +50,12 @@
 }
 
 a.qld__tag,
-.qld__tag.qld__tag--link{
+.qld__body .qld__tag.qld__tag--link{
 	color: var(--QLD-color-light-link);
 	border-color: var(--QLD-color-light-link);
-
+	text-decoration: none;
+	text-underline-offset: auto;
+	text-decoration-color :var(--QLD-color-dark-link);
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light-link);
 		border-color: var(--QLD-color-light-link);
@@ -62,6 +64,7 @@ a.qld__tag,
 			background-color: var(--QLD-color-light-button__hover);
 			color: var(--QLD-color-dark-link); 
 			border-color: var(--QLD-color-light-button__hover);
+			
 		}
 	}
 
@@ -69,6 +72,8 @@ a.qld__tag,
 		background-color: var(--QLD-color-light-button__hover);
 		color: var(--QLD-color-dark-link); 
 		border-color: var(--QLD-color-light-button__hover);
+		text-decoration: underline;
+		text-decoration-color :var(--QLD-color-dark-link);
 	}
 
 	.qld__body--alt &,
@@ -89,11 +94,16 @@ a.qld__tag,
 	.qld__card--dark-alt .qld__card__footer &{
 		border-color: var(--QLD-color-dark-link);
 		color: var(--QLD-color-dark-link);
+		text-underline-offset: auto;
+		text-decoration-color :var(--QLD-color-light-link);
+		text-decoration: none;
 
 		&:hover {
 			background-color: var(--QLD-color-dark-button__hover);
 			color: var(--QLD-color-dark-button__text); 
 			border-color: var(--QLD-color-dark-button__hover);
+			text-decoration: underline;
+			text-decoration-color :var(--QLD-color-light-link);
 		}
 	}
 }

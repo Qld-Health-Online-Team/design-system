@@ -2,21 +2,30 @@
 // Global Alert
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__global_alert_include {
+.qld__global-alert_include {
     max-height:0;
     transition:max-height 1s ease-in;
     overflow:hidden;
 }
 
-.qld__global_alert {
+.qld__global-alert {
     padding:5px 0 5px 0;
     
-    &.qld__global_alert--critical {
+    &.qld__global-alert--critical {
         background-color: $QLD-color-error;
         color: $QLD-color-system-white;
         font-size:pxToEm(13);
         
         a {
+            color: $QLD-color-system-white;
+            @include QLD-underline('light');
+            text-decoration-color: $QLD-color-system-white;
+            &:hover, 
+            &:visited{
+                text-decoration-color: $QLD-color-system-white;
+            }
+        }
+        svg{
             color: $QLD-color-system-white;
         }
         
@@ -25,12 +34,21 @@
         }
     }
     
-    &.qld__global_alert--default {
+    &.qld__global-alert--default {
         background-color: $QLD-color-warning;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
         
         a {
+            color: $QLD-color-system-grey-text;
+            @include QLD-underline('light');
+            text-decoration-color: $QLD-color-system-grey-text;
+            &:hover, 
+            &:visited{
+                text-decoration-color: $QLD-color-system-grey-text;
+            }
+        }
+        svg{
             color: $QLD-color-system-grey-text;
         }
         
@@ -39,13 +57,18 @@
         }
     }
     
-    &.qld__global_alert--general {
+    &.qld__global-alert--general {
         background-color: $QLD-color-general;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
         
         a {
             color: $QLD-color-system-grey-text;
+            text-decoration-color: $QLD-color-system-grey-text;
+            &:hover, 
+            &:visited{
+                text-decoration-color: $QLD-color-system-grey-text;
+            }
         }
         
         svg path {
@@ -53,12 +76,12 @@
         }
     }
 
-    .qld__global_alert__icon {
+    .qld__global-alert__icon {
         line-height:1;
         margin-top: 2px;
     }
     
-    .qld__global_alert__main {
+    .qld__global-alert__main {
         display:flex;
         margin:6px 0;
         
@@ -72,7 +95,7 @@
         }
     }
     
-    .qld__global_alert__content {
+    .qld__global-alert__content {
         display: flex;
         flex-direction: column;
         padding:0 16px 0 16px;
@@ -83,7 +106,7 @@
         }
     }
     
-    .qld__global_alert__action { 
+    .qld__global-alert__action { 
         flex-shrink: 0;
         font-weight: bold;
         margin-top: 0.75rem;
@@ -119,7 +142,7 @@
         }
     }
     
-    .qld__global_alert__close {
+    .qld__global-alert__close {
         margin-left:auto;
         position:relative;
         line-height:1;
@@ -142,8 +165,9 @@
             svg {
                 width:12px;
                 height:12px;
-                margin:0;
+                margin:50%;
                 padding:0;
+                transform: translate(-50%, -50%);
                 
             }
             

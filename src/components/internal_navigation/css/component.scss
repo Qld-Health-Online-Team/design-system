@@ -44,9 +44,10 @@ $QLD-side-nav-breakpoint: lg !default;
     
     a {
         max-width: 100%;
-        
+        @include QLD-underline('light','noUnderline');
         
         &:hover {
+            color: var(--QLD-color-light-link);
             background-color: var(--QLD-color-light-alt-background);
         }
         
@@ -213,7 +214,7 @@ $QLD-side-nav-breakpoint: lg !default;
 
         &:hover,
         &:focus {
-            color: var(--QLD-color-light-heading);
+            color: var(--QLD-color-light-link);
         }
     }
 }
@@ -262,7 +263,7 @@ $QLD-side-nav-breakpoint: lg !default;
     
     a {
         color: var(--QLD-color-dark-text);
-        
+        @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark-alt-background__shade);
         }
@@ -337,7 +338,7 @@ $QLD-side-nav-breakpoint: lg !default;
     
     a {
         color: var(--QLD-color-dark-text);
-        
+        @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark-alt-background);
         }

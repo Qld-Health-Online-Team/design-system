@@ -13,6 +13,7 @@
 
     .qld__card--clickable__link{
         color: var(--QLD-color-light-link);
+        @include QLD-underline('light');
 
         //make hit area entire card
         &:after {
@@ -92,6 +93,7 @@
     &.qld__card--dark-alt{
         .qld__card--clickable__link{
             color: var(--QLD-color-dark-link);
+            @include QLD-underline('dark');
         }
 
         &.qld__card--icon {
