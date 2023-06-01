@@ -6,11 +6,11 @@
         return undefined
     };
 
-  return "<div class=\"qld__widgets\">\r\n\r\n"
+  return "<div class=\"qld__widgets\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteQuickExitLink") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":4},"end":{"line":9,"column":11}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteBackToTopShow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":11,"column":4},"end":{"line":16,"column":11}}})) != null ? stack1 : "")
-    + "\r\n</div>\r\n";
+    + "\n</div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -21,13 +21,13 @@
 
   return "    <a href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteQuickExitUrl") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__btn qld__btn--floating\r\n    qld__btn--quick-exit\" aria-label=\""
+    + "\" class=\"qld__btn qld__btn--floating\n    qld__btn--quick-exit\" aria-label=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteQuickExitLabel") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\r\n        <span>"
+    + "\">\n        <span>"
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteQuickExitLabel") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</span>\r\n    </a>\r\n";
+    + "</span>\n    </a>\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    return "    <a href=\"#\" class=\"qld__btn qld__btn--floating\r\n    qld__btn--back-to-top show\" aria-label=\"Back to top\">\r\n        <span>Back to top</span>\r\n    </a>\r\n";
+    return "    <a href=\"#\" class=\"qld__btn qld__btn--floating\n    qld__btn--back-to-top show\" aria-label=\"Back to top\">\n        <span>Back to top</span>\n    </a>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {

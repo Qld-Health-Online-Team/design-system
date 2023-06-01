@@ -7,7 +7,8 @@
 */
 .qld__btn,
 a.qld__btn,
-.sq-form-submit {
+.sq-form-submit { 
+	@include QLD-underline('light','noUnderline','buttonText');
 	cursor: pointer;
 	display: inline-block;
 	@include QLD-space( padding, .625unit 1.5unit );
@@ -72,6 +73,7 @@ a.qld__btn,
 	.qld__footer--dark-alt &,
 	.qld__code-header &,
 	.qld__code.singleline & {
+		@include QLD-underline('dark','noUnderline','buttonText');
 		background-color: var(--QLD-color-dark-button);
 		color: var(--QLD-color-dark-button__text);
 		border-color: var(--QLD-color-dark-button);
@@ -116,6 +118,7 @@ a.qld__btn,
 				color: var(--QLD-color-dark-text__muted);
 			}
 		}
+		
 	}
 }
 
@@ -124,6 +127,7 @@ a.qld__btn,
 */
 .qld__btn.qld__btn--secondary,
 a.qld__btn.qld__btn--secondary {
+	@include QLD-underline('light','noUnderline');
 	color: var(--QLD-color-light-link);
 	background-color: transparent;
 	border: 3px solid var(--QLD-color-light-alt-button);
@@ -182,6 +186,7 @@ a.qld__btn.qld__btn--secondary {
 	.qld__banner--dark-alt &,
 	.qld__footer--dark &,
 	.qld__footer--dark-alt &{
+		@include QLD-underline('dark','noUnderline');
 		color: var(--QLD-color-dark-link);
 		background-color: transparent;
 		border: 3px solid var(--QLD-color-dark-alt-button);
@@ -239,6 +244,7 @@ a.qld__btn.qld__btn--secondary {
 */
 .qld__btn.qld__btn--tertiary,
 a.qld__btn.qld__btn--tertiary {
+	@include QLD-underline('light','underline');
 	background-color: transparent;
 	color: var(--QLD-color-light-link);
 	border-color: transparent;
@@ -297,7 +303,7 @@ a.qld__btn.qld__btn--tertiary {
 	.qld__banner--dark-alt &,
 	.qld__footer--dark &,
 	.qld__footer--dark-alt &{
-		
+		@include QLD-underline('dark','underline');
 		color: var(--QLD-color-dark-link);
 
 		i{
@@ -368,7 +374,7 @@ a.qld__btn.qld__btn--toggle {
 	background-color: var(--QLD-color-light-background__shade);
 	color: var(--QLD-color-light-link);
 	border-color: var(--QLD-color-light-background__shade);
-
+	@include QLD-underline('light','noUnderline');
 	i,
 	svg{
 		color: var(--QLD-color-light-alt-button);
@@ -395,6 +401,7 @@ a.qld__btn.qld__btn--toggle {
 		background-color: var(--QLD-color-dark-background__shade);
 		color: var(--QLD-color-dark-link);
 		border-color: var(--QLD-color-dark-background__shade);
+		@include QLD-underline('dark','noUnderline');
 
 		i,
 		svg{
@@ -408,6 +415,7 @@ a.qld__btn.qld__btn--toggle {
 		background-color: var(--QLD-color-dark-alt-background__shade);
 		color: var(--QLD-color-dark-link);
 		border-color: var(--QLD-color-dark-alt-background__shade);
+		@include QLD-underline('dark','noUnderline');
 
 		i,
 		svg{
@@ -485,19 +493,6 @@ a.qld__btn.qld__btn--pride {
 	color: var(--QLD-color-dark-link);
 }
 
-// 	/**
-// 	* BLOCK
-// 	*/
-// 	&.qld__btn--block {
-// 		display: block;
-// 		width: 100%;
-// 		box-sizing: border-box;
-// 		text-align: center;
-// 	}
-// }
-.qld__btn{
-	
-}
 
 a.qld__btn + a.qld__btn{
 	@include QLD-space(margin-top, 1unit);

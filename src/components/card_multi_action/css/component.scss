@@ -34,6 +34,7 @@
 
     .qld__card--clickable__link{
         color: var(--QLD-color-light-link);
+        @include QLD-underline('light');
         &:hover{
             color: var(--QLD-color-light-link);
         }
@@ -93,25 +94,26 @@
         color: var(--QLD-color-light-alt-button);
         vertical-align: middle;
         width: 24px;
+        text-decoration: none;
     }
 
     .qld__card__footer-link{
+        color: var(--QLD-color-light-link);
         @include QLD-space(font-size, 1unit);
         font-weight: bold;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        text-decoration: none;
 
         span {
-            text-decoration: none;
+            @include QLD-underline('light');
         }
 
         &:hover{
+            color: var(--QLD-color-light-link);
             text-decoration: none;
-            span {
-                text-decoration: underline;
-            }
             .qld__card__footer-link-icon{
                 color: var(--QLD-color-light-alt-button__hover);
             }
@@ -122,6 +124,7 @@
     &.qld__card--dark-alt{
         .qld__card--clickable__link{
             color: var(--QLD-color-dark-link);
+            @include QLD-underline('dark');
         }
 
         //Card Icon
@@ -147,14 +150,12 @@
         }
 
         .qld__card__footer-link{  
+            color: var(--QLD-color-dark-link);
             span {
-                text-decoration: none;
+                @include QLD-underline('dark');
             }  
             &:hover{
-                text-decoration: none;
-                span {
-                    text-decoration: underline;
-                }
+
                 .qld__card__footer-link-icon{
                     color: var(--QLD-color-dark-alt-button__hover);
                 }

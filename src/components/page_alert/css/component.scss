@@ -2,6 +2,7 @@
 // Page alerts
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
 .qld__page-alerts {
 	@include QLD-space( padding, 1unit );
 	@include QLD-fontgrid( sm );
@@ -28,13 +29,15 @@
 		transform: translate(-50%, -50%);
 	}
 
-	& &--heading {
-	  	color: var(--QLD-color-light-heading);
+	& &--heading.qld__display-lg {
+		color: var(--QLD-color-light-heading);
 		@include QLD-space(margin-bottom, 1unit);
- 
-		&.qld__display-lg {
-			@include QLD-space(margin-top, 1unit);
-		}
+		@include QLD-space(margin-top, 1unit);
+
+	}
+	& a{
+		color: var(--QLD-color-light-link);
+		@include QLD-underline('light');
 	}
 
 	/**
@@ -81,8 +84,17 @@
 		h3{
 			color: var(--QLD-color-light-heading);
 		}
+
+		& a{
+			color: var(--QLD-color-light-link);
+			@include QLD-underline('light');
+			&:hover{
+				color: var(--QLD-color-light-link);
+			}
+		}
 	}
 }
+
 
 .qld__body #content > * + .qld__page-alerts  {
 	@include QLD-space( margin-top, 2unit );

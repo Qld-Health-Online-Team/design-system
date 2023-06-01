@@ -43,6 +43,11 @@
             }
 
             &.next,
+            &.prev{
+                @include QLD-underline('light','noUnderline');
+            }
+
+            &.next,
             &.prev,
             &.ellipsis{
                 a{
@@ -108,6 +113,7 @@
         }
 
         a {
+            text-decoration: none;
             @include QLD-space(height, 2unit);
             @include QLD-space(width, 2unit);
             align-items: center;
@@ -124,6 +130,7 @@
                 color: var(--QLD-color-light-link);
                 border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
                 outline: none;
+                text-decoration: none;
             }
 
             &[rel] {
@@ -198,11 +205,12 @@
         a{
             background-color: var(--QLD-color-dark-background);
             border-color: var(--QLD-color-dark-border);
-
+            text-decoration: none;
             &:hover{
                 color: var(--QLD-color-dark-link);
                 border-color: var(--QLD-color-dark-alt-button);
                 outline: none;
+                text-decoration: none;
             }
         }
 

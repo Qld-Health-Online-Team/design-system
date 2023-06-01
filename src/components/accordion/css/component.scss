@@ -9,6 +9,7 @@
 
 	&__title{
 		background-color: var(--QLD-color-light-background__shade);
+		@include QLD-underline('light');
 		@include QLD-fontgrid( md, heading );
 		@include QLD-space( padding, 1unit 3unit 1unit 1unit );
 		width: 100%;
@@ -104,8 +105,10 @@
 		justify-content: end;
 		@include QLD-space(padding, .5unit 0);
 		@include QLD-space(font-size, 0.75unit);
+		
 
 		&-btn{
+			@include QLD-underline('light');
 			background-color: transparent;
 			color: var(--QLD-color-light-link);
 			border: none;
@@ -162,6 +165,7 @@
 .qld__body--dark, .qld__body--dark-alt  {
 	.qld__accordion {
 		&__title {
+			
 			&:focus {
 				outline: 3px solid var(--QLD-color-dark-focus);
 				outline-offset: 2px
@@ -190,10 +194,8 @@
 		.qld__body--dark &,
 		.qld__body--dark-alt &{
 			color: var(--QLD-color-dark-link);
+			@include QLD-underline('dark');
 
-			// &::after{
-			// 	background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-dark-alt-button));
-			// }
 			&::after{
 				background-color: var(--QLD-color-dark-alt-button);
 			}
@@ -222,12 +224,10 @@
 		}
 
 		.qld__accordion__title{
+			@include QLD-underline('dark');
 			background-color: var(--QLD-color-dark-background__shade);
 			color: var(--QLD-color-dark-link);
 
-			// &::after{
-			// 	background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-dark-alt-button));
-			// }
 			&::after{
 				background-color: var(--QLD-color-dark-alt-button);
 			}
@@ -238,6 +238,11 @@
 			background-color: var(--QLD-color-dark-background);
 			border-color: var(--QLD-color-dark-border);
 			color: var(--QLD-color-dark-text);
+
+			a{
+				color: var(--QLD-color-dark-link);
+				@include QLD-underline('dark');
+			}
 		}
 	}
 
@@ -247,12 +252,10 @@
 		}
 
 		.qld__accordion__title{
+			@include QLD-underline('dark');
 			background-color: var(--QLD-color-dark-alt-background__shade);
 			color: var(--QLD-color-dark-link);
 
-			// &::after{
-			// 	background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-dark-alt-button));
-			// }
 			&::after{
 				background-color: var(--QLD-color-dark-alt-button);
 			}
@@ -262,6 +265,11 @@
 			background-color: var(--QLD-color-dark-alt-background);
 			border-color: var(--QLD-color-dark-alt-border);
 			color: var(--QLD-color-dark-text);
+
+			a{
+				color: var(--QLD-color-dark-link);
+				@include QLD-underline('dark');
+			}
 		}
 	}
 }
