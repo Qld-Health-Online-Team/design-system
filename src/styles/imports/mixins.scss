@@ -267,8 +267,8 @@
 	@each $value in $values {
 	// This is a pixel on unitless unit. Let’s convert it to rems
 	@if type-of( $value ) == 'number' and unit( $value ) == 'unit' {
-		$value: $value / 1unit; // This is to remove the unit value
-		$rem: $value / ( ( $value / $unit ) * 0 + 1 );
+		$value: calc($value / 1unit); // This is to remove the unit value
+		$rem: calc($value / ( calc($value / $unit) * 0 + 1 ));
 
 		$fallback: join( $fallback, round( $value * ( $unit * $unit ) ) + 0px );
 		$output: join( $output, #{ $rem }rem );
@@ -317,7 +317,7 @@
         $value: map-get( $QLD-space-map, $value );
 
         // Get the value from supplied key for pixel and calculate the rem value
-        $rem: $value / $QLD-rem;
+        $rem: calc($value / $QLD-rem);
         
         $fallback: join( $fallback, $value + 0px );
 		$output: join( $output, #{ $rem }rem );
@@ -470,11 +470,11 @@
 
 	// Get the value from supplied key for pixel and calculate the rem value
 	$fontsize-px: map-get( $QLD-fontsize-map, $fontsize-key );
-	$fontsize-rem: $fontsize-px / $QLD-rem;
+	$fontsize-rem: calc($fontsize-px / $QLD-rem);
 
 	// Change the lineheight if it doesn't hit a QLD-unit e.g. 40px font size with 1.5 lineheight = 50px should be 52px
-	$lineheight-pixel: round( ( map-get( $QLD-lineheight-map, $lineheight-key ) * $fontsize-px ) / $QLD-unit ) * $QLD-unit;
-	$lineheight: $lineheight-pixel / $fontsize-px;
+	$lineheight-pixel: round( calc((map-get( $QLD-lineheight-map, $lineheight-key ) * $fontsize-px ) / $QLD-unit) ) * $QLD-unit;
+	$lineheight: calc($lineheight-pixel / $fontsize-px);
 
 	// Mixin output
 	font-size: $fontsize-px + 0px;   // Pixel fallback for non-rem support
@@ -498,7 +498,7 @@
         @if type-of( $value ) == 'number' {
             // Get the value from supplied key for pixel and calculate the rem value
             $padding-px: map-get( $QLD-space-map, $value );
-            $padding-rem: $padding-px / $QLD-rem;
+            $padding-rem: calc($padding-px / $QLD-rem);
 
             @if $verHoz == 'vertical'{
                 padding-top: $padding-px + px + $option;   // Pixel fallback for non-rem support
@@ -539,7 +539,7 @@
         @if type-of( $value ) == 'number' {
             // Get the value from supplied key for pixel and calculate the rem value
             $padding-px: map-get( $QLD-space-map, $value );
-            $padding-rem: $padding-px / $QLD-rem;
+            $padding-rem: calc($padding-px / $QLD-rem);
             
             @if $posNeg == 'pos'{
                 $padding-px:($padding-px);
