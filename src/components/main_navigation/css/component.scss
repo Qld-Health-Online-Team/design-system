@@ -351,7 +351,7 @@ $QLD-header-md: 72px;
                 .qld__main-nav__item--cta{
                     .qld__main-nav__item-link{
                         color: var(--QLD-color-dark-link);
-                        @include QLD-underline('dark','noUnderline');
+                        // @include QLD-underline('dark','noUnderline');
 
                         &:hover{
                             background-color: var(--QLD-color-dark-background);
@@ -665,13 +665,17 @@ $QLD-header-md: 72px;
             .qld__main-nav__item-title::before{
                 background-color: var(--QLD-color-dark-border);
             }
+            .qld__main-nav__item{
+                a{
+                    @include QLD-underline('dark','noUnderline');
+                }
+            }
+
             .qld__main-nav__item-link{
                 color: var(--QLD-color-dark-link);
                 border-color: var(--QLD-color-dark-designAccent);
 
-                a{
-                    @include QLD-underline('dark','noUnderline');
-                }
+                
 
                 &:hover{
                     background-color: var(--QLD-color-dark-background);
