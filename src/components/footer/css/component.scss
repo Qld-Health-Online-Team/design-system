@@ -22,12 +22,16 @@
         @include QLD-space(margin-top, 0unit);
         margin-bottom: 0;
 
-        &.qld__footer__copyrightMessage, &.qld__footer__acknowledgements {
+        &.qld__footer__copyrightMessage {
             @include QLD-space(margin-top, 1unit);
             font-size: 0.875rem;
         }
 
-        &.qld__footer__cta-content {
+        &.qld__footer__cta-content, &.qld__footer__acknowledgements {
+            @include QLD-space(margin-top, 1unit);
+        }
+
+        &.qld__footer__cta-content, &.qld__footer__acknowledgements {
             font-size: 1rem;
         }
     }
@@ -38,7 +42,7 @@
 
         @include QLD-media(lg) {
             float: none;
-            @include QLD-space(margin-top, 2unit);
+            @include QLD-space(margin-top, 1.5unit);
         }
     }
 
@@ -191,7 +195,7 @@
                 }
                 a {
                     display: inline-block;
-                    font-size: 1rem;
+                    font-size: 0.875rem;
                     line-height: 1rem;
                     font-weight: 400;
 
