@@ -27,8 +27,15 @@
             font-size: 0.875rem;
         }
 
-        &.qld__footer__cta-content, &.qld__footer__acknowledgements {
+        &.qld__footer__cta-content {
             @include QLD-space(margin-top, 1unit);
+        }
+
+        &.qld__footer__acknowledgements {
+            @include QLD-space(margin-top, 1unit);
+            &:first-child {
+                margin-top: 0;
+            }
         }
 
         &.qld__footer__cta-content, &.qld__footer__acknowledgements {
