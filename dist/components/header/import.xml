@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
           <actions>
           <action>
-            <action_id>create_Content_Container_Template_2162693440</action_id>
+            <action_id>create_Content_Container_Template_1429799</action_id>
             <action_type>create_asset</action_type>
             <type_code>Content_Container_Template</type_code>
             <link_type>1</link_type>
@@ -11,83 +11,83 @@
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Content_Container_Template_2162693440_name</action_id>
+            <action_id>set_Content_Container_Template_1429799_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_2162693440.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1429799.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Header]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_2162693440_edit_interface_in_admin</action_id>
+            <action_id>set_Content_Container_Template_1429799_edit_interface_in_admin</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_2162693440.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1429799.assetid]]</asset>
             <attribute>edit_interface_in_admin</attribute>
             <value><![CDATA[1]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_2162693440_icon_color</action_id>
+            <action_id>set_Content_Container_Template_1429799_icon_color</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_2162693440.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_1429799.assetid]]</asset>
             <attribute>icon_color</attribute>
             <value><![CDATA[blue]]></value>
           </action>
           
           <action>
-          <action_id>create_Metadata_Schema_1735607883</action_id>
+          <action_id>create_Metadata_Schema_214536082</action_id>
           <action_type>create_asset</action_type>
           <type_code>Metadata_Schema</type_code>
           <link_type>1</link_type>
-          <parentid>[[output://create_Content_Container_Template_2162693440.assetid]]</parentid>
+          <parentid>[[output://create_Content_Container_Template_1429799.assetid]]</parentid>
           <value></value>
           <is_dependant>0</is_dependant>
           <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Metadata_Schema_1735607883_name</action_id>
+            <action_id>set_Metadata_Schema_214536082_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Schema_1735607883.assetid]]</asset>
+            <asset>[[output://create_Metadata_Schema_214536082.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Header]]></value>
           </action>
           <action>
-              <action_id>set_permission_1735607883_read_5</action_id>
+              <action_id>set_permission_214536082_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Schema_1735607883.assetid]]</asset>
+              <asset>[[output://create_Metadata_Schema_214536082.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>
           
           <action>
-            <action_id>create_Metadata_Section_9986127487</action_id>
+            <action_id>create_Metadata_Section_1635159462</action_id>
             <action_type>create_asset</action_type>
             <type_code>Metadata_Section</type_code>
             <link_type>2</link_type>
-            <parentid>[[output://create_Metadata_Schema_1735607883.assetid]]</parentid>
+            <parentid>[[output://create_Metadata_Schema_214536082.assetid]]</parentid>
             <value></value>
             <is_dependant>1</is_dependant>
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>add_Metadata_Section_9986127487_path</action_id>
+            <action_id>add_Metadata_Section_1635159462_path</action_id>
             <action_type>add_web_path</action_type>
-            <asset>[[output://create_Metadata_Section_9986127487.assetid]]</asset>
-            <parent_asset>[[output://create_Metadata_Schema_1735607883.assetid]]</parent_asset>
+            <asset>[[output://create_Metadata_Section_1635159462.assetid]]</asset>
+            <parent_asset>[[output://create_Metadata_Schema_214536082.assetid]]</parent_asset>
             <path>settings</path>
           </action>
           <action>
-            <action_id>set_Metadata_Section_9986127487_name</action_id>
+            <action_id>set_Metadata_Section_1635159462_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Section_9986127487.assetid]]</asset>
+            <asset>[[output://create_Metadata_Section_1635159462.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Settings]]></value>
           </action>
           <action>
-              <action_id>set_permission_9986127487_read_5</action_id>
+              <action_id>set_permission_1635159462_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Section_9986127487.assetid]]</asset>
+              <asset>[[output://create_Metadata_Section_1635159462.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
