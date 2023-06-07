@@ -15,6 +15,7 @@
 	@include QLD-focus();
 	// white-space: nowrap;
 	text-align: center;
+	text-decoration: none;
 
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light-text__muted);
@@ -46,6 +47,7 @@
 		@include QLD-space ( font-size, 1unit);
 		@include QLD-space ( padding, .5unit 1unit );
 		border-radius: $QLD-border-radius-lg;
+		
 	}
 }
 
@@ -66,6 +68,9 @@ a.qld__tag,
 			border-color: var(--QLD-color-light-button__hover);
 			
 		}
+	}
+	&.qld__tag--large{
+		@include QLD-underline('light','noUnderline','buttonText');
 	}
 
 	&:hover {
@@ -104,6 +109,10 @@ a.qld__tag,
 			border-color: var(--QLD-color-dark-button__hover);
 			text-decoration: underline;
 			text-decoration-color :var(--QLD-color-light-link);
+		}
+
+		&.qld__tag--large{
+			@include QLD-underline('dark','noUnderline','buttonText');
 		}
 	}
 }
@@ -145,11 +154,13 @@ a.qld__tag,
 	@include QLD-space ( font-size, 1unit);
 	@include QLD-space ( padding, .5unit 1unit );
 	border-radius: $QLD-border-radius-lg;
+	text-decoration: none;
 
 	&:hover {
 		color: var(--QLD-color-light-text);
 		background-color: transparent;
 		border-color: var(--QLD-color-light-border);
+		text-decoration: none;
 	}
 
 	.qld__tag--filter-close{
@@ -201,6 +212,7 @@ a.qld__tag,
 			color: var(--QLD-color-dark-text);
 			background-color: transparent;
 			border-color: var(--QLD-color-dark-alt-border);
+			text-decoration: none;
 		}
 
 		.qld__tag--filter-close{
@@ -223,6 +235,7 @@ a.qld__tag,
 			color: var(--QLD-color-dark-text);
 			background-color: transparent;
 			border-color: var(--QLD-color-dark-border);
+			text-decoration: none;
 		}
 
 		.qld__tag--filter-close{

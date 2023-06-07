@@ -32,13 +32,6 @@
         }
     }
 
-    .qld__card--clickable__link{
-        color: var(--QLD-color-light-link);
-        @include QLD-underline('light');
-        &:hover{
-            color: var(--QLD-color-light-link);
-        }
-    }
     .qld__card__image-link {
         display: flex;
         position: relative;
@@ -106,14 +99,31 @@
         justify-content: flex-start;
         align-items: center;
         text-decoration: none;
-
+        
         span {
             @include QLD-underline('light');
-        }
 
+        }
+        &:visited{
+            span {
+                color: var(--QLD-color-light-hover-visited-underline);
+                text-decoration-color: var(--QLD-color-light-visited-underline);
+            }
+        }
+        &:hover:visited {
+            span{
+                color: var(--QLD-color-light-hover-visited-underline);
+                text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+        }
         &:hover{
             color: var(--QLD-color-light-link);
             text-decoration: none;
+            span{
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+            }
+            
             .qld__card__footer-link-icon{
                 color: var(--QLD-color-light-alt-button__hover);
             }
@@ -122,10 +132,6 @@
 
     &.qld__card--dark,
     &.qld__card--dark-alt{
-        .qld__card--clickable__link{
-            color: var(--QLD-color-dark-link);
-            @include QLD-underline('dark');
-        }
 
         //Card Icon
         &.qld__card--icon {
@@ -154,6 +160,20 @@
             span {
                 @include QLD-underline('dark');
             }  
+
+            &:visited{
+                span {
+                    color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-dark-visited-underline);
+                }
+            }
+            &:hover:visited {
+                span{
+                    color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+            }
             &:hover{
 
                 .qld__card__footer-link-icon{

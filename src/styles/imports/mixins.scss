@@ -688,16 +688,18 @@
  * @param  {keywords} $defaultUnderline  - Either 'underline' or 'noUnderline' underlines but default before hover or other state
  *
  * @param  {keywords} $buttonTextColor  - 'buttonText' for when you need to use $QLD-color-light-button__text or $QLD-color-dark-button__text
+  *
+ * @param  {keywords} $visitedState  - 'noVisited' for when you need to remove the visited state 
  *
  * @return {string}                 - Returns the underline color and style of the link.
  */ 
-@mixin QLD-underline($colorScheme: 'light', $defaultUnderline: 'underline', $buttonTextColor: 'default') {
+@mixin QLD-underline($colorScheme: 'light', $defaultUnderline: 'underline', $buttonTextColor: 'default', $visitedState: 'hasVisited') {
 
     //the colorScheme refers to the color of the body that contains the element. So, colorShcheme of the element itself is managed within this mixin.
-    @if $colorScheme=='light' {
+    @if $colorScheme =="light" {
 
         //Has underline showing by default
-        @if $defaultUnderline== underline{
+        @if $defaultUnderline == "underline"{
 
             @include QLD-webkit-text-underline();
             text-decoration-line: solid;
@@ -706,29 +708,48 @@
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-skip-ink: auto;
     
-            &:hover {
-                @include QLD-webkit-text-underline();
+            &:hover,
+            &:focus {
+                // @include QLD-webkit-text-underline();
                 text-decoration-color: var(--QLD-color-light-hover-underline);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
             }
-    
-            &:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-light-visited-underline);
+
+            @if $visitedState == "hasVisited"{
+
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-light-visited-underline);
+                }
+        
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+            }@else{
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light-link);
+                    text-decoration-color: var(--QLD-color-light-underline);
+                }
+
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light-link);
+                    text-decoration-color: var(--QLD-color-light-link);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
             }
-    
-            &:hover:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-light-hover-visited-underline);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            }
+            
             &:disabled,
             &[disabled]{
                 @include QLD-webkit-text-decoration-none();
             }
 
         //Doesn't have underline showing by default
-        }@else if $defaultUnderline== noUnderline{
+        }@else if $defaultUnderline== "noUnderline"{
 
             @include QLD-webkit-text-decoration-none();
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
@@ -736,11 +757,12 @@
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-skip-ink: auto;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 @include QLD-webkit-text-underline();
                 
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                @if $buttonTextColor == buttonText{
+                @if $buttonTextColor == "buttonText"{
                     text-decoration-color: var(--QLD-color-light-button__text);
                 }@else{
                     text-decoration-color: var(--QLD-color-light-hover-underline);
@@ -748,108 +770,45 @@
                 
             }
             
+            @if $visitedState == "hasVisited"{
+
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    
+                    text-decoration-color: var(--QLD-color-light-visited-underline);
+                    @if $buttonTextColor == "buttonText"{
+                        color: var(--QLD-color-light-button__text);
+                    }@else{
+                        text-decoration-color: var(--QLD-color-light-hover-underline);
+                    }
+                }
     
-            &:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-light-visited-underline);
-            }
-    
-            &:hover:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-light-hover-visited-underline);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    // color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    @if $buttonTextColor == "buttonText"{
+                        color: var(--QLD-color-light-button__text);
+                        text-decoration-color: var(--QLD-color-light-button__text);
+                    }@else{
+                        color: var(--QLD-color-light-hover-visited-underline);
+                        text-decoration-color: var(--QLD-color-light-visited-underline);
+                    }
+                }
             }
 
             &:disabled,
             &[disabled]{
                 @include QLD-webkit-text-decoration-none();
             }
-        }
-
-
-        
-
-        // &.qld__btn {
-        //     @include QLD-webkit-text-decoration-none();
-
-        //     &:hover, &:focus {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //     }
-
-        //     &:active {
-        //         @include QLD-webkit-text-decoration-none();
-        //     }
-
-        //     &.qld__btn--secondary,
-        //     &.qld__btn--toggle {
-        //         &:hover, &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-
-        //     &.qld__btn--tertiary {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-light-underline);
-        //         &:hover, &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-        // }
-
-        // &.qld__cta-link:not(.qld__cta-link--view-all) {
-        //     color: var(--QLD-color-light-link) !important;
-        //     text-decoration-color: var(--QLD-color-light-underline) !important;
-
-        //     &:visited {
-        //         color: var(--QLD-color-light-link__visited) !important;
-        //         text-decoration-color: var(--QLD-color-light-visited-underline) !important;
-        //     }
-
-        //     &:hover {
-        //         text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-        //     }
-
-        //     &:hover:visited {
-        //         color: var(--QLD-color-light-link__visited) !important;
-        //         text-decoration-color: var(--QLD-color-light-hover-visited-underline) !important;
-        //     }
-        // }
-
-        // &:not(.qld__btn):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__sidenav__link):not(.qld__code-header-link){
-        //     color: var(--QLD-color-light-link);
-        //     &:hover {
-        //         color: var(--QLD-color-light-link);
-        //     }
-    
-        //     &:visited {
-        //         color: var(--QLD-color-light-link__visited);
-        //     }
-    
-        //     &:hover:visited {
-        //         color: var(--QLD-color-light-link__visited);
-        //     }
-        // }
-        
+        }       
     }
 
-    @else if $colorScheme=='dark' {
+    @else if $colorScheme== "dark" {
 
         //Has underline showing by default
-        @if $defaultUnderline== underline{
+        @if $defaultUnderline== "underline"{
 
             @include QLD-webkit-text-underline();
             text-decoration-line: solid;
@@ -858,21 +817,39 @@
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-skip-ink: auto;
 
-            &:hover {
-                @include QLD-webkit-text-underline();
+            &:hover,
+            &:focus {
+                // @include QLD-webkit-text-underline();
                 text-decoration-color: var(--QLD-color-dark-hover-underline);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
 
-            &:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-dark-visited-underline);
-            }
+            @if $visitedState == "hasVisited"{
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-dark-visited-underline);
+                }
 
-            &:hover:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+            }@else{
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark-link);
+                    text-decoration-color: var(--QLD-color-dark-underline);
+                }
+
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark-link);
+                    text-decoration-color: var(--QLD-color-dark-link);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
             }
 
             &:disabled,
@@ -881,7 +858,7 @@
             }
 
         //Doesn't have underline showing by default
-        }@else if $defaultUnderline== noUnderline{
+        }@else if $defaultUnderline== "noUnderline"{
             @include QLD-webkit-text-decoration-none();
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
@@ -889,29 +866,48 @@
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-skip-ink: auto;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 @include QLD-webkit-text-underline();
                 
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
 
-                @if $buttonTextColor == buttonText{
-                    text-decoration-color: var(--QLD-color-dark-button__text);
+                @if $buttonTextColor == "buttonText"{
+                    text-decoration-color: var(--QLD-color-dark-button__text); 
                 }@else{
                     text-decoration-color: var(--QLD-color-dark-hover-underline);
                 }
+
                 
             }
 
-           
-            &:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-dark-visited-underline);
-            }
+            @if $visitedState == "hasVisited"{
 
-            &:hover:visited {
-                @include QLD-webkit-text-underline();
-                text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                &:visited {
+                    @include QLD-webkit-text-underline();
+                    text-decoration-color: var(--QLD-color-dark-visited-underline);
+
+                    @if $buttonTextColor == "buttonText"{
+                        color: var(--QLD-color-dark-button__text);
+                    }@else{
+                        color: var(-QLD-color-dark-hover-visited-underline);
+                        text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    }
+                }
+
+                &:hover:visited {
+                    @include QLD-webkit-text-underline();
+                    // text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+                    @if $buttonTextColor == "buttonText"{
+                        color: var(--QLD-color-dark-button__text);
+                        text-decoration-color: var(--QLD-color-dark-button__text);
+                    }@else{
+                        color: var(--QLD-color-dark-hover-visited-underline);
+                        text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    }
+                }
             }
 
             &:disabled,
@@ -920,845 +916,5 @@
             }
         }
 
-
-        
-
-        // &.qld__btn {
-        //     @include QLD-webkit-text-decoration-none();
-
-        //     &:hover, &:focus {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-dark-button__text);
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //     }
-            
-        //     &:active {
-        //         @include QLD-webkit-text-decoration-none();
-        //     }
-
-        //     &.qld__btn--secondary,
-        //     &.qld__btn--toggle {
-        //         &:hover, &:focus {
-        //             text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-
-        //     &.qld__btn--tertiary {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-dark-underline);
-        //         &:hover, &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }   
-        // } 
-
-        // &.qld__cta-link:not(.qld__cta-link--view-all) {
-        //     color: var(--QLD-color-dark-link) !important;
-        //     text-decoration-color: var(--QLD-color-dark-underline)!important;
-
-        //     &:visited {
-        //         color: var(--QLD-color-dark-link__visited) !important;
-        //         text-decoration-color: var(--QLD-color-dark-visited-underline)!important;
-        //     }
-
-        //     &:hover {
-        //         text-decoration-color: var(--QLD-color-dark-hover-underline)!important;
-        //     }
-
-        //     &:hover:visited {
-        //         color: var(--QLD-color-dark-link__visited)!important;
-        //         text-decoration-color: var(--QLD-color-dark-hover-visited-underline)!important;
-        //     }
-        // }
-
-        // &:not(.qld__btn):not(.navigation):not(.qld__footer__clickable__link):not(.qld__footer__social__label):not(.qld__tag ):not(.qld__card--clickable__link):not(.qld__search-pagination_link):not(.qld__breadcrumbs):not(.qld__direction-link):not(.qld__cta-link--view-all):not(.qld__sidenav__link):not(.qld__code-header-link){
-        //     color: var(--QLD-color-dark-link);
-        //     &:hover {
-        //         color: var(--QLD-color-dark-link);
-        //     }
-    
-        //     &:visited {
-        //         color: var(--QLD-color-dark-link__visited);
-        //     }
-    
-        //     &:hover:visited {
-        //         color: var(--QLD-color-dark-link__visited);
-        //     }
-        // }
-
     }
-
-    // @at-root {
-
-        // a.qld__code-header-link {
-        //     @include QLD-webkit-text-underline();
-        //     text-decoration-line: solid;
-        //     text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //     text-decoration-color: var(--QLD-color-dark-underline);
-        //     text-underline-offset: var(--QLD-underline__offset);
-        //     text-decoration-skip-ink: auto;
-    
-        //     &:hover {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //     }
-    
-        //     &:visited {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-dark-visited-underline);
-        //     }
-    
-        //     &:hover:visited {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //     }
-        // }
-
-        // .qld__tag {
-        //     &.qld__tag--link,
-        //     &.qld__tag--large,
-        //     &.qld__tag--filter {
-        //         text-decoration: none !important;
-        //         -webkit-text-decoration: none !important;
-        //         &:hover {
-        //             text-decoration: underline !important;
-        //             -webkit-text-decoration: underline !important;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin) !important;
-        //             text-underline-offset: auto;
-        //         }
-        //     }
-        // }
-        
-        // .qld__card {
-        //     .qld__card--clickable__link {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //         text-decoration-color: var(--QLD-color-light-underline) !important;
-        //         text-underline-offset: var(--QLD-underline__offset);
-        //         &:hover {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-        //         }
-
-        //         &:visited {
-        //             text-decoration-color: var(--QLD-color-light-underline) !important;
-        //         }
-
-        //         &:hover:visited {
-        //             text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &.qld__card__footer-link {
-        //             @include QLD-webkit-text-decoration-none();
-        //             text-decoration-color: var(--QLD-color-light-underline) !important;
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             span {
-        //                 text-decoration: underline !important;
-        //                 -webkit-text-decoration: underline !important;
-        //                 text-decoration-color: var(--QLD-color-light-underline) !important;
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             }
-
-        //             &:visited {
-        //                 span {
-        //                     text-decoration-color: var(--QLD-color-light-underline) !important;
-        //                 }
-        //             }
-
-        //             &:hover:visited {
-        //                 span {
-        //                     text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-
-        //             &:hover {
-        //                 span {
-        //                     @include QLD-webkit-text-underline();
-        //                     text-decoration-color: var(--QLD-color-light-hover-underline) !important;
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        //     &.qld__card--dark,
-        //     &.qld__card--dark-alt {
-        //         .qld__card--clickable__link {
-        //             text-decoration: underline !important;
-        //             -webkit-text-decoration: underline !important;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin) !important;
-        //             text-decoration-color: var(--QLD-color-dark-underline) !important;
-        //             text-underline-offset: var(--QLD-underline__offset);
-
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
-        //             }
-
-        //             &.qld__card__footer-link {
-        //                 text-decoration: none !important;
-        //                 -webkit-text-decoration: none !important;
-        //                 text-decoration-color: var(--QLD-color-dark-underline) !important;
-        //                 span {
-        //                     @include QLD-webkit-text-underline();
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //                     text-decoration-color: var(--QLD-color-dark-underline) !important;
-        //                 }
-
-        //                 &:hover:visited {
-        //                     span {
-        //                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                         text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
-        //                     }
-        //                 }
-
-        //                 &:hover {
-        //                     span {
-        //                         @include QLD-webkit-text-underline();
-        //                         text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
-        //                         text-decoration-color: var(--QLD-color-dark-hover-underline) !important;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__global_alert {
-        //     .qld__global_alert__action {
-        //         a {
-        //             text-decoration-color: var(--QLD-color-dark-button__text);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             &:hover, &:hover:visited, &:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-button__text);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 color: currentColor;
-        //             }
-        //         }
-        //     }
-
-        //     &.qld__global_alert--critical {
-        //         .qld__global_alert__action {
-        //             a {
-        //                 text-decoration-color: var(--QLD-color-light-button__text);
-        //                 text-underline-offset: var(--QLD-underline__offset);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //                 &:hover, &:hover:visited, &:visited {
-        //                     text-decoration-color: var(--QLD-color-light-button__text);
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                     color: currentColor;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__body {
-
-        //     &, &.qld__body--alt {
-        //         .qld__direction-link {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: var(--QLD-color-light-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: var(--QLD-color-light-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //             &:visited {
-        //                 text-decoration-color: var(--QLD-color-light-underline);
-        //             }
-        //             &:hover:visited {
-        //                 text-decoration-color: var(--QLD-color-light-hover-underline);
-        //             }
-        //         }
-
-        //         a.qld__cta-link.qld__cta-link--view-all {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-line: solid;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             color: var(--QLD-color-light-link);
-        //             text-decoration-color: var(--QLD-color-light-underline);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        
-        //             &:visited {
-        //                 text-decoration-color: var(--QLD-color-light-underline);
-        //             }
-        
-        //             &:hover:visited {
-        //                 text-decoration-color: var(--QLD-color-light-hover-underline);
-        //             }
-        
-        //             &:hover {
-        //                 text-decoration-color: var(--QLD-color-light-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-        //     }
-
-        //     .sq-form-submit { //cahnge them to black and white / 
-        //         @include QLD-webkit-text-decoration-none();
-        //         text-decoration-color: var(--QLD-color-light-button__text);
-        //         color: var(--QLD-color-light-button__text);
-        //         text-underline-offset: var(--QLD-underline__offset);
-        //         text-decoration-skip-ink: auto;
-
-        //         &:hover {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: var(--QLD-color-light-button__text);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             color: var(--QLD-color-light-button__text);
-        //         }
-
-        //         &.qld__btn--secondary {
-        //             &:hover {
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-
-        //         &.qld__btn--tertiary {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: var(--QLD-color-light-underline);
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: var(--QLD-color-light-button__text);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-        //     }
-
-        //     &.qld__body--dark, &.qld__body--dark-alt {
-
-        //         a.qld__cta-link.qld__cta-link--view-all {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-line: solid;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             color: var(--QLD-color-dark-link);
-        //             text-decoration-color: var(--QLD-color-dark-underline);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        
-        //             &:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-underline);
-        //             }
-        
-        //             &:hover:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //             }
-        
-        //             &:hover {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-
-        //         .qld__direction-link {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: var(--QLD-color-dark-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-
-        //             &:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-underline);
-        //             }
-        //             &:hover:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //             }
-        //         }
-
-        //         .sq-form-submit {
-        //             @include QLD-webkit-text-decoration-none();
-        //             text-decoration-color: var(--QLD-color-dark-button__text);
-        //             color: var(--QLD-color-dark-button__text);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             text-decoration-skip-ink: auto;
-    
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: var(--QLD-color-dark-button__text);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 color: var(--QLD-color-dark-button__text);
-        //             }
-    
-        //             &.qld__btn--secondary {
-        //                 &:hover {
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-    
-        //             &.qld__btn--tertiary {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: var(--QLD-color-dark-underline);
-        //                 &:hover {
-        //                     @include QLD-webkit-text-underline();
-        //                     text-decoration-color: var(--QLD-color-dark-button__text);
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-        //         }
-
-        //         .qld__search-pagination__list {
-        //             .active {
-        //                 a {
-        //                     @include QLD-webkit-text-decoration-none();
-        //                     color: var(--QLD-color-light-heading) !important;
-        //                 }
-        //             }
-        //             .next {
-        //                 a {
-        //                     &:hover {
-        //                         @include QLD-webkit-text-underline();
-        //                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                     }
-        //                 }
-        //             }
-        //             a {
-        //                 @include QLD-webkit-text-decoration-none();        
-        //                 &:hover {
-        //                     @include QLD-webkit-text-decoration-none();
-        //                 }
-        //             }
-        //         }
-
-        //         .qld__breadcrumbs {
-        //             a {
-        //                 color: var(--QLD-color-dark-link);
-        //                 text-decoration-color: var(--QLD-color-dark-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //                 &:hover {
-        //                     text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                     color: var(--QLD-color-dark-link);
-        //                 }
-        //                 &:visited {
-        //                     text-decoration-color: var(--QLD-color-dark-visited-underline) !important;
-        //                     color: var(--QLD-color-dark-link__visited) !important;
-        //                 }
-        //                 &:hover:visited {
-        //                     text-decoration-color: var(--QLD-color-dark-hover-visited-underline) !important;
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                     color: var(--QLD-color-dark-link__visited) !important;
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        //     .qld__search-pagination__list {
-        //         .active {
-        //             a {
-        //                 @include QLD-webkit-text-decoration-none();
-        //                 color: var(--QLD-color-light-button__text) !important;
-        //             }
-        //         }
-        //         .next {
-        //             a {
-        //             &:hover {
-        //                     @include QLD-webkit-text-underline();
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-        //         }
-        //         a {
-        //             @include QLD-webkit-text-decoration-none();                    
-        //             &:hover {
-        //                 @include QLD-webkit-text-decoration-none();
-        //             }
-        //         }
-        //     }
-
-        //     .qld__link-columns {
-        //         a {
-        //             @include QLD-webkit-text-decoration-none();
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: currentColor;
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 text-underline-offset: var(--QLD-underline__offset);
-        //             }
-        //         }
-
-        //     }
-        // }
-
-        // &.qld__body--alt {
-        //     .qld__search-pagination__list {
-        //         a {
-        //             @include QLD-webkit-text-decoration-none();
-        //             &:hover {
-        //                 @include QLD-webkit-text-decoration-none();
-        //             }
-        //         }
-        //         .next {
-        //             a {
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__breadcrumbs {
-        //     a {
-        //          color: var(--QLD-color-light-link);
-        //          text-underline-offset: var(--QLD-underline__offset);
-        //          text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //          text-decoration-color: var(--QLD-color-light-underline);
-
-        //          &:hover {
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //             color: var(--QLD-color-light-link);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &:visited {
-        //             text-decoration-color: var(--QLD-color-light-visited-underline);
-        //             color: var(--QLD-color-light-link__visited) !important;
-        //         }
-
-        //         &:hover:visited {
-        //             text-decoration-color: var(--QLD-color-light-hover-visited-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             color: var(--QLD-color-light-link__visited) !important;;
-        //         }
-        //     }
-
-        //     &.qld__breadcrumbs--dark, &.qld__breadcrumbs--dark-alt {
-        //         a {
-        //             color: var(--QLD-color-dark-link);
-        //             text-decoration-color: var(--QLD-color-dark-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             &:hover {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 color: var(--QLD-color-dark-link);
-        //             }
-
-        //             &:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-visited-underline) !important;
-        //                 color: var(--QLD-color-dark-link__visited) !important;
-        //             }
-
-        //             &:hover:visited {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-visited-underline) !important;
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 color: var(--QLD-color-dark-link__visited);
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        // .qld__banner {
-        //     &.qld__banner--dark,
-        //     &.qld__banner--dark-alt {
-
-        //         a.qld__btn {
-        //             &.qld__btn--secondary {
-        //                 &:hover {
-        //                     text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__footer {
-        //     &.qld__footer--dark,
-        //     &.qld__footer--dark-alt {
-        //         a {
-        //             text-decoration-color: var(--QLD-color-dark-underline);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //             &:hover {
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-
-        //             &.qld__btn.qld__btn--secondary {
-        //                 text-decoration-color: white;
-                        
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__header__brand {
-        //     a {
-        //         @include QLD-webkit-text-decoration-none();
-
-        //         &:hover {
-        //             @include QLD-webkit-text-underline();
-        //         }
-        //     }
-        // }
-
-        // .qld__tile-nav__list {
-        //     a {
-        //         @include QLD-webkit-text-decoration-none();
-        //         &:hover {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //         }
-        //     }
-        // }
-
-        // .qld__side-nav.qld__accordion, .qld__list, .qld__main-nav {
-        //     button, a {
-        //         @include QLD-webkit-text-decoration-none();
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         // 
-        //         text-decoration-color: var(--QLD-color-light-underline);
-        //         &:hover {
-        //             color: var(--QLD-color-light-link);
-        //             @include QLD-webkit-text-underline();
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick) !important;
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //         }
-
-        //         &:hover:visited {
-        //             color: var(--QLD-color-light-link);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //         }
-        //     }
-
-        //     a.qld__cta-link {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //         text-underline-offset: var(--QLD-underline__offset);
-        //     }
-
-        // }
-
-        
-        // .qld__header__pre-header {
-
-        //     a {
-        //         @include QLD-webkit-text-decoration-none();
-        //         &:hover {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-line: solid;
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-light-hover-underline);
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //         }
-        //     }
-
-        //     &.qld__header__pre-header--dark-alt, &.qld__header__pre-header--dark {
-        //         a {
-        //             @include QLD-webkit-text-decoration-none();
-        //             &:hover {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-line: solid;
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //                 text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //                 text-underline-offset: var(--QLD-underline__offset);
-        //             }
-        //         }
-        //     }
-        // }
-        
-        // .qld__accordion__title {
-        //     @include QLD-webkit-text-underline();
-        //     text-decoration-line: solid;
-        //     text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //     text-decoration-color: var(--QLD-color-light-underline);
-        //     text-underline-offset: var(--QLD-underline__offset);
-
-        //     &:hover {
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         text-decoration-color: var(--QLD-color-light-hover-underline);
-        //     }
-        // }
-
-        // .qld__accordion__toggle-btn {
-        //     @include QLD-webkit-text-underline();
-        //     text-decoration-line: solid;
-        //     text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //     text-decoration-color: var(--QLD-color-light-underline);
-        //     text-underline-offset: var(--QLD-underline__offset);
-
-        //     &:hover {
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         text-decoration-color: var(--QLD-color-light-hover-underline);
-        //     }
-        // }
-
-        // .qld__accordion-group--dark, .qld__accordion-group--dark-alt {
-        //     .qld__accordion__title {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-line: solid;
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //         text-decoration-color: var(--QLD-color-dark-underline);
-        //         text-underline-offset: var(--QLD-underline__offset);
-    
-        //         &:hover {
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //         }
-        //     }
-        // }
-
-        // .qld__body--dark-alt, .qld__body--dark {
-
-        //     .qld__accordion__toggle-btn {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-line: solid;
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thin);
-        //         text-decoration-color: var(--QLD-color-dark-underline);
-        //         text-underline-offset: var(--QLD-underline__offset);
-    
-        //         &:hover {
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             text-decoration-color: var(--QLD-color-dark-hover-underline);
-        //         }
-        //     }
-        // }
-
-        // .qld__btn {
-        //     @include QLD-webkit-text-decoration-none();
-        //     text-underline-offset: var(--QLD-underline__offset);
-
-        //     &:hover,
-        //     &:focus {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //     }
-        //     &:active {
-        //         @include QLD-webkit-text-decoration-none();
-        //     }
-        //     &.qld__btn--secondary,
-        //     &.qld__btn--toggle {
-        //         &:hover,
-        //         &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-        //     &.qld__btn--tertiary {
-        //         @include QLD-webkit-text-underline();
-        //         &:hover,
-        //         &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-        //     &.qld__btn--back-to-top,
-        //     &.qld__btn--quick-exit, 
-        //     &.qld__code-toggle-button {
-        //         @include QLD-webkit-text-decoration-none();
-        //         &:hover,
-        //         &:focus {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: currentColor;
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //     }
-
-        //     &.qld__code-copy--button {
-        //         @include QLD-webkit-text-decoration-none();
-        //         &:hover,
-        //         &:focus {
-        //             .qld__code-copy--button-text {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: currentColor;
-        //                 text-underline-offset: var(--QLD-underline__offset);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-        //         &:active {
-        //             @include QLD-webkit-text-decoration-none();
-        //         } 
-        //     }
-
-        //     &.qld__btn--search {
-        //         .qld__btn__text {
-        //             @include QLD-webkit-text-decoration-none();
-        //         }
-        //         &:hover,
-        //         &:focus {
-        //             .qld__btn__text {
-        //                 @include QLD-webkit-text-underline();
-        //                 text-decoration-color: currentColor;
-        //                 text-underline-offset: var(--QLD-underline__offset);
-        //                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //             }
-        //         }
-        //         &:active {
-        //             .qld__btn__text {
-        //                 @include QLD-webkit-text-decoration-none();
-        //             }
-        //         }
-        //     }
-        // }
-
-        // .qld__code-toggle-button {
-        //     @include QLD-webkit-text-decoration-none();
-        //     &:hover,
-        //     &:focus {
-        //         @include QLD-webkit-text-underline();
-        //         text-decoration-color: currentColor;
-        //         text-underline-offset: var(--QLD-underline__offset);
-        //         text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //     }
-        //     &:active {
-        //         @include QLD-webkit-text-decoration-none();
-        //     } 
-        // }
-
-        // .qld__code-copy--button {
-        //     @include QLD-webkit-text-decoration-none();
-        //     &:hover,
-        //     &:focus {
-        //         .qld__code-copy--button-text {
-        //             @include QLD-webkit-text-underline();
-        //             text-decoration-color: currentColor;
-        //             text-underline-offset: var(--QLD-underline__offset);
-        //             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-        //         }
-        //     }
-        //     &:active {
-        //         @include QLD-webkit-text-decoration-none();
-        //     } 
-        // }
-    // }
 }

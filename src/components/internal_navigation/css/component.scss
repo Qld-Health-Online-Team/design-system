@@ -206,7 +206,7 @@ $QLD-side-nav-breakpoint: lg !default;
             border-bottom,
             solid 0.125unit var(--QLD-color-light-designAccent)
         );
-        
+        @include QLD-underline('light','noUnderline','default','noVisited');
 
         @include QLD-media(md) {
             font-weight: bold;
@@ -296,7 +296,8 @@ $QLD-side-nav-breakpoint: lg !default;
     
     .qld__sidenav__title a {
         border-color: var(--QLD-color-dark-designAccent);
-        color: var(--QLD-color-dark-text)
+        color: var(--QLD-color-dark-text);
+        @include QLD-underline('light','noUnderline','default','noVisited');
     }
     
     @include QLD-media($QLD-side-nav-breakpoint) {
@@ -305,6 +306,7 @@ $QLD-side-nav-breakpoint: lg !default;
         a:hover {
             background-color: var(--QLD-color-dark-background__shade);
         }
+        
     }
     
     .qld__link-list {

@@ -30,6 +30,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
+    // @include QLD-underline('dark','noUnderline','buttonText','noVisited');
     @include QLD-space(margin-top, 0.5unit);
     background-color: var(--QLD-color-light-background__shade);
     border-color:  var(--QLD-color-light-background__shade);
@@ -52,7 +53,7 @@ body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
     &:active {
         background-color: var(--QLD-color-light-alt-background__shade);
         border-color:  var(--QLD-color-light-alt-background__shade);
-
+        text-decoration-color: var(--QLD-color-light-link);
         &::after{
             content: '↑';
             color: var(--QLD-color-light-alt-button__hover);

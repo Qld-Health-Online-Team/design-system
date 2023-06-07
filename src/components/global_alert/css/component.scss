@@ -18,7 +18,7 @@
         
         a {
             color: $QLD-color-system-white;
-            @include QLD-underline('light');
+            @include QLD-underline('light','underline','default','noVisited');
             text-decoration-color: $QLD-color-system-white;
             &:hover, 
             &:visited{
@@ -41,7 +41,7 @@
         
         a {
             color: $QLD-color-system-grey-text;
-            @include QLD-underline('light');
+            @include QLD-underline('light','underline','default', 'noVisited');
             text-decoration-color: $QLD-color-system-grey-text;
             &:hover, 
             &:visited{
@@ -63,7 +63,7 @@
         font-size:pxToEm(14);
         
         a {
-            @include QLD-underline('light');
+            @include QLD-underline('light','underline','default', 'noVisited');
             color: $QLD-color-system-grey-text;
             text-decoration-color: $QLD-color-system-grey-text;
             &:hover, 
