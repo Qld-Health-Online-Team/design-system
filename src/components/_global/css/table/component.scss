@@ -300,6 +300,12 @@ table {
     }
 }
 
+.qld__table, .qld__table--scroll, .qld__table--contained {
+    &:not(:first-child) {
+      @include QLD-space( margin-top, 1.5unit);
+    }
+}
+
 .qld__table--contained,
 .qld__table--scroll {
     border-radius: $QLD-border-radius-sm;
