@@ -14,6 +14,9 @@
     * + & {
         @include QLD-space(margin-top, 2.3125unit);
     }
+    a{
+        @include QLD-underline('light','underline','default','noVisited');
+    }
     
     .qld__body & > ul,
     .qld__body & > ol {
@@ -29,13 +32,16 @@
             margin-left: 0;
         }
         li + li{
-            @include QLD-space(margin-top, 0.25unit);
+            @include QLD-space(margin-top, 0.5unit);
         }
     }
     
     .qld__body--dark &,
     .qld__body--dark-alt &{
         border-color: var(--QLD-color-dark-button);
+        a{
+            @include QLD-underline('dark','underline','default','noVisited');
+        }
     }
     
 }

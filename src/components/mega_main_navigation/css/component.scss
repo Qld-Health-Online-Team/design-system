@@ -28,7 +28,7 @@
             }
 
             @include QLD-media(lg) {
-                @include QLD-underline('light','noUnderline');
+                @include QLD-underline('light','noUnderline','default','noVisited');
                 @include QLD-space(margin, 0);
                 @include QLD-space(border-radius, 0);
                 box-shadow: none;
@@ -322,7 +322,7 @@
                 }
 
                 a{
-                    @include QLD-underline('light','noUnderline');
+                    @include QLD-underline('light','noUnderline','default','noVisited');
                     display: flex;
                     flex-wrap: wrap;
                     position: relative;
@@ -483,7 +483,7 @@
             }
             @include QLD-media(lg) {
                 .qld__main-nav__item-toggle{
-                    @include QLD-underline('dark','noUnderline');
+                    @include QLD-underline('dark','noUnderline','default','noVisited');
                     color: var(--QLD-color-dark-link);
                     fill:var(--QLD-color-dark-link);
                     &.qld__accordion--open{
@@ -525,7 +525,7 @@
 
                     li{
                         a{
-                            @include QLD-underline('dark','noUnderline');
+                            @include QLD-underline('dark','noUnderline','default','noVisited');
                             color: var(--QLD-color-dark-link);
                             border-color: var(--QLD-color-dark-background__shade);
 
