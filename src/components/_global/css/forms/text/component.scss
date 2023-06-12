@@ -42,6 +42,11 @@ textarea{
 	&:hover{
 		background-color: var(--QLD-color-light-alt-background);
 	}
+	
+	&[aria-expanded="true"],
+	&:hover[aria-expanded="true"]{
+		background-color: var(--QLD-color-light-background);
+	}
 
 	.qld__body--dark &,
 	.qld__body--dark-alt &,
@@ -80,6 +85,12 @@ textarea{
 			color: var(--QLD-color-dark-text);
 			background-color: var(--QLD-color-dark-background__shade);
 		}
+
+		&[aria-expanded="true"],
+		&:hover[aria-expanded="true"]{
+			color: var(--QLD-color-light-text);
+			background-color: var(--QLD-color-light-background);
+		}
 	}
 }
 
@@ -88,14 +99,21 @@ textarea{
 	.sq-form-question textarea,
 	.sq-form-question-email-address input,
 	.qld__text-input {
-		background-color: var(--QLD-color-light-border);
+		background-color: var(--QLD-color-light-alt-background);
 		border-width: 0 0 2px 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 
 		&:hover {
 			background-color: var(--QLD-color-light-alt-background__shade);
+			border-color: var(--QLD-color-light-button__hover);
 			cursor: pointer;
+		}
+
+		&[aria-expanded="true"],
+		&:hover[aria-expanded="true"]{
+			background-color: var(--QLD-color-light-border);
+			border-color: transparent;
 		}
 
 		&:focus {
@@ -157,12 +175,20 @@ textarea{
 
 			&:hover {
 				background-color: var(--QLD-color-dark-background__shade);
+				border-color: var(--QLD-color-dark-button);
 			}
 
 			&:focus {
-				background-color: var(--QLD-color-dark-text);
+				background-color: var(--QLD-color-light-background);
 				border-color: transparent;
 				color: var(--QLD-color-light-text);
+			}
+
+			&[aria-expanded="true"],
+			&:hover[aria-expanded="true"]{
+				color: var(--QLD-color-light-text);
+				background-color: var(--QLD-color-light-background);
+				border-color: transparent;
 			}
 
 			&.qld__text-input--dark.qld__input--error,
@@ -208,7 +234,7 @@ textarea{
 			&.qld__input--valid,
 			&--valid {
 				&:focus {
-					background-color: var(--QLD-color-dark-text);
+					background-color: var(--QLD-color-light-background);
 					border-color: transparent;
 				}
 			}
