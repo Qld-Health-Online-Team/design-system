@@ -1,4 +1,53 @@
-<div class="qld__data_table">
-    <span>Hello, data_table!</span>
-    <p>{{component.data.metadata.field1.value}}</p>
-</div>
+{{#with component.data}}
+<section class="qld__data_table--wrapper qld__body">
+    <div class="container-fluid">
+        <table class="qld__data_table qld__data_table--striped qld__data_table--contained">
+            <caption>Table caption<br>
+                <span class="qld__caption">Table is ordered by</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">Header</th>
+                    <th scope="col">Header</th>
+                    <th scope="col">Header</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Footer</td>
+                    <td>Footer</td>
+                    <td>Footer</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    </div>
+</section>
+{{/with}}
