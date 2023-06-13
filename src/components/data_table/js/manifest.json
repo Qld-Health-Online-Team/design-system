@@ -7,27 +7,37 @@
 		"data": {
 			"assetid": "data_table-123",
 			"metadata": {
-				"field1": {
+				"Table_title": {
 					"type": "metadata_field_text",
 					"description": "A text field",
-					"friendly_name": "Field 1",
-					"value": "Example text",
+					"friendly_name": "Table title",
+					"value": "Table title",
 					"required": false,
 					"editable": true
 				},
-				"root_node": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Parent asset (populates 'children' and 'childrenThumbnails')",
-					"value": "123",
+				"Table_caption": {
+					"type": "metadata_field_text",
+					"description": "A text field",
+					"friendly_name": "Table caption",
+					"value": "Table caption",
 					"required": false,
 					"editable": true
 				},
-				"asset_select": {
+				"Table_data_CSV": {
+					"value": "http://localhost:8080/mysource_files/data-tables-csv-test.csv",
+					"fieldid": "",
+					"friendly_name": "Table data CSV",
 					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Assets to link to (populates 'assets')",
-					"value": "1; 2; 3",
+					"is_contextable": true,
+					"default_value": false,
+					"use_default": true
+
+				},
+				"table_in_HTML": {
+					"type": "metadata_field_wysiwyg",
+					"description": "Content to display",
+					"friendly_name": "Table in HTML",
+					"value": "",
 					"required": false,
 					"editable": true
 				}
