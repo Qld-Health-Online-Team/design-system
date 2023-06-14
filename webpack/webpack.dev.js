@@ -5,12 +5,12 @@ const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: false,
+    plugins: [new webpack.SourceMapDevToolPlugin({})],
     devServer: {
-        before(app, server) {
-            devServer = server;
+        static: {
+            directory: path.join(__dirname, '../dist'),
         },
-        contentBase: path.join(__dirname, '../dist'),
         hot: true,
         host: '0.0.0.0',
         port: 8080
@@ -47,8 +47,5 @@ module.exports = merge(common, {
                 enforce:"post"
             }
         ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    }
 });

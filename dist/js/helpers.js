@@ -446,15 +446,6 @@ Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
     return obj['title_' + index].value;
 }); 
-Handlebars.registerHelper('if_eq', function () {
-    const args = Array.prototype.slice.call(arguments, 0, -1);
-    const options = arguments[arguments.length - 1];
-    const allEqual = args.every(function (expression) {
-        return args[0] === expression;
-    });
-
-    return allEqual ? options.fn(this) : options.inverse(this);
-}); 
 Handlebars.registerHelper('ifAny', function () {
     var options = arguments[arguments.length - 1];
     for (var i = 0; i < arguments.length - 1; i++) {
@@ -512,6 +503,15 @@ Handlebars.registerHelper('ifEqualsOrChained', function() {
 }); 
 Handlebars.registerHelper('ifProp', function (obj,key,prop,options) {
     return (obj[key][prop]) ? options.fn(this) : options.inverse(this);
+}); 
+Handlebars.registerHelper('if_eq', function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    const options = arguments[arguments.length - 1];
+    const allEqual = args.every(function (expression) {
+        return args[0] === expression;
+    });
+
+    return allEqual ? options.fn(this) : options.inverse(this);
 }); 
 Handlebars.registerHelper('inArray', function(array,key,value,options) {
     for(var x = 0; x<array.length;x++) {

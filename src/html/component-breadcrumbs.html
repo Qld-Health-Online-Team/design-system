@@ -24,19 +24,19 @@
     <body class="qld__grid">
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!--endnoindex-->
         ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
                 <div class="container-fluid">
                     ${require('../components/breadcrumbs/html/component.hbs')({
-                        "site":require('/src/data/site.json'),
-                        "current":require('/src/data/current.json'),
+                        "site":require('src/data/site.json'),
+                        "current":require('src/data/current.json'),
                     })}
                 </div>
             </section>
@@ -47,19 +47,19 @@
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
                             ${require('../components/internal_navigation/html/component.hbs')({
-                                "site":require('/src/data/site.json'),
-                                "current":require('/src/data/current.json')
+                                "site":require('src/data/site.json'),
+                                "current":require('src/data/current.json')
                             })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
                             
                             ${require('../components/_global/html/component.hbs')({
-                                "manifest":require('../components/breadcrumbs/js/manifest.json'),
-                                "component":require('!url-loader!../components/breadcrumbs/html/component.hbs'),
-                                "component_output":require('../components/breadcrumbs/html/component.hbs')({
-                                    "data":require('../components/breadcrumbs/js/manifest.json').data,
-                                    "site":require('/src/data/site.json'),
-                                    "current":require('/src/data/current.json'),
+                                "manifest":require('src/components/breadcrumbs/js/manifest.json'),
+                                "component":require('src/components/breadcrumbs/html/component.hbs'),
+                                "component_output":require('src/components/breadcrumbs/html/component.hbs')({
+                                    "data":require('src/components/breadcrumbs/js/manifest.json').data,
+                                    "site":require('src/data/site.json'),
+                                    "current":require('src/data/current.json'),
                                     "content":"Lorem Ipsum"
                                 })
                             })}
@@ -69,16 +69,10 @@
             </div>  
         </main>
         <!-- END MAIN BODY -->
-
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
-        })}
         
         <!-- FOOTER-->
         ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
 
         <div class="footer-scripts" id="footer_js" style="display: none !important;">

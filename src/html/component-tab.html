@@ -21,19 +21,19 @@
     <body class="qld__grid">
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!--endnoindex-->
         ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
                 <div class="container-fluid">
                     ${require('../components/breadcrumbs/html/component.hbs')({
-                        "site":require('/src/data/site.json'),
-                        "current":require('/src/data/current.json'),
+                        "site":require('src/data/site.json'),
+                        "current":require('src/data/current.json'),
                     })}
                 </div>
             </section>
@@ -44,19 +44,19 @@
                         <div class="col-xs-12 col-md-4 col-lg-3">
                             <!-- INTERNAL NAVIGATION -->
                             ${require('../components/internal_navigation/html/component.hbs')({
-                                "site":require('/src/data/site.json'),
-                                "current":require('/src/data/current.json')
+                                "site":require('src/data/site.json'),
+                                "current":require('src/data/current.json')
                             })}
                         </div>
                         <div class="col-xs-12 col-md-8 col-lg-9" id="content">
                             
                             ${require('../components/_global/html/component.hbs')({
-                                "manifest":require('../components/tab/js/manifest.json'),
-                                "component":require('!url-loader!../components/tab/html/component.hbs'),
-                                "component_output":require('../components/tab/html/component.hbs')({
-                                    "component":require('../components/tab/js/manifest.json').component,
-                                    "site":require('/src/data/site.json'),
-                                    "current":require('/src/data/current.json'),
+                                "manifest":require('src/components/tab/js/manifest.json'),
+                                "component":require('src/components/tab/html/component.hbs'),
+                                "component_output":require('src/components/tab/html/component.hbs')({
+                                    "component":require('src/components/tab/js/manifest.json').component,
+                                    "site":require('src/data/site.json'),
+                                    "current":require('src/data/current.json'),
                                     "content":"Lorem Ipsum"
                                 })
                             })}
@@ -69,13 +69,13 @@
 
         <!-- WIDGETS -->
         ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
+            "site":require('src/data/site.json'),
+            "current":require('src/data/current.json')
         })}
         
         <!-- FOOTER-->
         ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
 
         <div class="footer-scripts" id="footer_js" style="display: none !important;">

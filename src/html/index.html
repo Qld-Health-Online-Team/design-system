@@ -20,11 +20,11 @@
     <body class="qld__grid">
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!--endnoindex-->
         ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         
         <main class="main landing" role="main">
@@ -126,13 +126,13 @@
 
         <!-- WIDGETS -->
         ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
+            "site":require('src/data/site.json'),
+            "current":require('src/data/current.json')
         })}
         
         <!-- FOOTER-->
         ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
 
         <div class="footer-scripts" id="footer_js" style="display: none !important;">

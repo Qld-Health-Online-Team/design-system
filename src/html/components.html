@@ -20,18 +20,18 @@
     <body class="qld__grid qld__form-style–filled">
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <!--endnoindex-->
         ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
                 <div class="container-fluid">
                     ${require('../components/breadcrumbs/html/component.hbs')({
-                        "site":require('/src/data/site.json'),
-                        "current":require('/src/data/current.json'),
+                        "site":require('src/data/site.json'),
+                        "current":require('src/data/current.json'),
                     })}
                 </div>
             </section>
@@ -42,8 +42,8 @@
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
                             ${require('../components/internal_navigation/html/component.hbs')({
-                                "site":require('/src/data/site.json'),
-                                "current":require('/src/data/current.json')
+                                "site":require('src/data/site.json'),
+                                "current":require('src/data/current.json')
                             })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-9" id="content">
@@ -120,13 +120,13 @@
 
         <!-- WIDGETS -->
         ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
+            "site":require('src/data/site.json'),
+            "current":require('src/data/current.json')
         })}
         
         <!-- FOOTER-->
         ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
+            "site":require('src/data/site.json')
         })}
 
         <div class="footer-scripts" id="footer_js" style="display: none !important;">

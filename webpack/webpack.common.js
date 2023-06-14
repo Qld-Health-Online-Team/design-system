@@ -4,6 +4,7 @@ const fs = require('fs');
 const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // Our function that generates our html plugins
 function generateHtmlPlugins(templateDir) {
@@ -30,27 +31,6 @@ const htmlPlugins = generateHtmlPlugins('../src/html');
 
 // File arrays
 let js_files = glob.sync('./src/**/**/global.js') // Module JS
-
-function reloadHtml() {
-    const cache = {};
-    const plugin = {
-        name: 'CustomHtmlReloadPlugin'
-    };
-
-    this.hooks.compilation.tap(plugin, compilation => {
-        compilation.hooks.htmlWebpackPluginAfterEmit.tap(plugin, data => {
-            const orig = cache[data.outputName];
-            const html = data.html.source();
-
-            // plugin seems to emit on any unrelated change?
-            if (orig && orig !== html) {
-                devServer.sockWrite(devServer.sockets, 'content-changed')
-            }
-
-            cache[data.outputName] = html
-        })
-    })
-}
 
 const copyWebPack = new CopyWebpackPlugin([
     {
@@ -94,10 +74,7 @@ module.exports = {
             { // JavaScript and JSX only (no JSON)
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: [
-                    "babel-loader",
-                    "eslint-loader"
-                ]
+                use: "babel-loader"
             },
             { // Images
                 test: /\.(png|svg|jpg|gif|ico)$/,
@@ -143,7 +120,7 @@ module.exports = {
             }
         ]
     },
-    plugins: htmlPlugins.concat(reloadHtml).concat(copyWebPack).concat(new MiniCssExtractPlugin()),
+    plugins: htmlPlugins.concat(copyWebPack).concat(new MiniCssExtractPlugin()).concat(new ESLintPlugin()),
     optimization: {
         minimize: false,
         runtimeChunk: 'single'
