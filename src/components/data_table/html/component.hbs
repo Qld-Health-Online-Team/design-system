@@ -1,8 +1,11 @@
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-{{!-- <script src="../js/jquery-3.5.1.js"></script>
+{{!--
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" /> --}}
+{{!--
+<script src="../js/jquery-3.5.1.js"></script>
 <script src="../js/jquery.dataTables.min.js"></script> --}}
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="http://localhost:8080/mysource_files/jquery.dataTables.min.js"></script>
+{{!-- <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script> --}}
 {{#with component.data.metadata}}
 {{!-- <section class="qld__data_table--wrapper qld__body">
     <div class="container-fluid">
@@ -161,17 +164,24 @@
 
 <section class="qld__data_table--wrapper qld__body">
     <div class="container-fluid">
+        <div class="qld__data_table--contained">
             <input id="csvFileInput" type="hidden" value="{{Table_data_CSV.value}}" />
-            <caption>{{Table_title.value}}<br>
-                    <span class="qld__caption">{{Table_caption.value}}</span>
-            </caption>
+            <div class="qld__data_table_header">
+                <caption>{{Table_title.value}}
+                    <span class="qld__caption">
+                        {{Table_caption.value}}
+                    </span>
+                </caption>
+            </div>
             {{#if table_in_HTML.value}}
-                <table id="qld_table_html" class="" aria-describedby="">
-                    {{{table_in_HTML.value}}}
-                </table>
+            <table id="qld_table_html" class="qld__data_table" aria-describedby="">
+                {{{table_in_HTML.value}}}
+            </table>
             {{else}}
-                <table id="qld_table_csv" class="" aria-describedby=""></table>
+            <table id="qld_table_csv" class="qld__data_table" aria-describedby="">
+            </table>
             {{/if}}
+        </div>
     </div>
 </section>
 {{/with}}
