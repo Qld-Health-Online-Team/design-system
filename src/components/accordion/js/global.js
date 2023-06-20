@@ -234,11 +234,6 @@
                                 controller.abort();
                             }
                         }
-<<<<<<< HEAD
-                        
-=======
-
->>>>>>> fix/search-auto-complete
                     },
                 });
             })(element);
