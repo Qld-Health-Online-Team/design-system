@@ -2,6 +2,9 @@
 // {{component_name}}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+$arrowUpDow: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M171.3 36.7c-6.2-6.2-16.4-6.2-22.6 0l-96 96c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L144 86.6V464c0 8.8 7.2 16 16 16s16-7.2 16-16V86.6l68.7 68.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-96-96zm352 342.6c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 425.4V48c0-8.8-7.2-16-16-16s-16 7.2-16 16V425.4l-68.7-68.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l96 96c6.2 6.2 16.4 6.2 22.6 0l96-96z" fill="rgb(115,190,39)" /></svg>';
+$arrowUp: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M203.3 36.7c-6.2-6.2-16.4-6.2-22.6 0l-176 176c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L176 86.6V464c0 8.8 7.2 16 16 16s16-7.2 16-16V86.6L356.7 235.3c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-176-176z" fill="rgb(115,190,39)" /></svg>';
+$arrowDown: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M180.7 475.3c6.2 6.2 16.4 6.2 22.6 0l176-176c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L208 425.4 208 48c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 377.4L27.3 276.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l176 176z" fill="rgb(115,190,39)" /></svg>';
 
 .qld__caption {
     font-style: normal;
@@ -17,7 +20,8 @@
     }
 }
 
-#qld_table_csv_wrapper {
+.dataTables_wrapper {
+
     div.top, div.bottom {
         display: flex;
         flex-direction: row;
@@ -27,6 +31,49 @@
         gap: 16px;
     }
 
+    a {
+        cursor: pointer;
+    }
+
+    #qld_table_csv_length > label > select {
+        border: 2px solid var(--QLD-color-light-alt-border);
+        background-color: var(--QLD-color-light-background);
+        background-color: transparent;
+        padding: 0.75rem 2rem 0.75rem 1rem;
+        margin-left: 0.75rem;
+    }
+
+    input[type=text], input[type=search], .qld__text-input {
+        color: var(--QLD-color-light-text);
+        border: 2px solid var(--QLD-color-light-alt-border);
+        background-color: var(--QLD-color-light-background);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    input[type=search] {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+    }
+
+    button.qld__btn--search {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    #qld_table_csv {
+        & > tbody > tr > td, & > tfoot > th {
+            padding: 0.75rem;
+        }
+    }
+
+}
+
+#qld_table_csv_wrapper {  
     .item-numbers {
         color: $QLD-color-system-grey-dark;
 
@@ -49,7 +96,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px;
+        padding: 12px;
         font-weight: 600;
         font-size: 20px;
         line-height: 32px;
@@ -59,7 +106,6 @@
             font-size: 14px;
             line-height: 20px;
         }
-    
 }
 
 .qld__data_table {
@@ -101,6 +147,7 @@
         padding: 1.25rem 0.75rem 1.25rem 0.75rem;
         box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light-alt-border);
         color: var(--QLD-color-light-heading);
+
         font-weight: bold;
         @include QLD-fontgrid(md, heading);
 
@@ -145,10 +192,38 @@
             width: 75%;
         }
 
+        background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
+        // background-color: #008635;
+        background-repeat: no-repeat;
+        background-position: right 11px center;
+        background-size: 1rem auto;
+        box-sizing: border-box;
+      
+
         &.sorting_asc, &.sorting_desc {
             background-color: var(--QLD-color-light-background__shade);
             box-shadow: inset 0 -2px 0 var(--QLD-color-light-designAccent);
+            text-decoration: underline;
         }
+
+        &.sorting_desc {
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
+        }
+
+        &.sorting_asc {
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUp}");
+        }
+    }
+    
+    thead > tr > th {
+        
+        &, &.sorting, &.sorting.sorting_desc, &.sorting.sorting_asc {
+            &::before, &::after {
+                content:none !important;
+            }
+        }
+        color: var(--QLD-color-light-hover-underline);
+        padding: 1.25rem 0.75rem 1.25rem 0.75rem;
     }
 
     @for $i from 1 through 10 {
@@ -162,10 +237,10 @@
             }
         }
     }
-
     .qld__data_table__cell,
     td {
         @include QLD-standard-space(padding, 3);
+        padding: 12px 12px 12px 12px;
         box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-light-border);
 
         &.qld__data_table__cell--numeric {

@@ -64,13 +64,24 @@
                 let tableColumns = tableColumnHeads.map(column => {
                     return { data: column, title: column }
                 });
-                let tableFooter = tableFooterData.map(f => {
-                    return `<th>${f}</th>`;
+
+                let footerHasContent = false;
+                let tableFooter = tableFooterData.map((f, i) => {
+                    footerHasContent = (footerHasContent || f.trim().length > 0);
+                    return i == 0 ? `<th class="sorting_1">${f}</th>` : `<th>${f}</th>`;
                 });
                 let csvTable = new DataTable('#qld_table_csv', {
                     data: tableData ? tableData : [], 
                     columns: tableColumns ? tableColumns : [],
                     dom: '<"top"if>rt<"bottom"lp><"clear">',
+                    language: {
+                        paginate: {
+                            next: `<a rel="next" aria-label="Next page of results" class="qld__search-pagination_link">
+                            <span>Next</span>
+                            </a>`,
+                            previous: ''
+                        }
+                    },
                     columnDefs: [
                         {
                             targets: -1,
@@ -80,12 +91,17 @@
                 });
                 
                 //footer is appended to the table here after table exists on the page
-                $("#qld_table_csv").append( //sorting_asc
-                    $('<tfoot/>').append(tableFooter)
-                ).addClass("qld__table");
+                if(footerHasContent) {
+                    $("#qld_table_csv").append( //sorting_asc
+                        $('<tfoot/>').append(tableFooter)
+                    ).addClass("qld__table");
+                }
+
+                
     
                 const htmlTable = new DataTable('#qld_table_html');
-                
+
+                $("#qld_table_csv_wrapper .bottom").addClass('qld__search-pagination');
             });
         };
 
