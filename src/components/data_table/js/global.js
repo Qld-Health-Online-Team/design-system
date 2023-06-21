@@ -2,6 +2,7 @@
 (function () {
     'use strict';
 
+    
     //this function gets a url of a csv file and a callback function, then feeds the content of the csv to the callback and runs it.
     function readCSVFile(url, callback) {
         fetch(url)
