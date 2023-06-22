@@ -36,7 +36,6 @@
         font-family: $QLD-font;
         font-weight: 600;
         margin: 0;
-        // color: var(--QLD-color-light-heading);
         color: var(--QLD-color-light-heading);
         @include QLD-space(max-width, $QLD-font-maxwidth);
     }
@@ -67,10 +66,6 @@
     * Also ref. https://github.com/govau/design-system-components/issues/282
     */
 
-    .qld__display-xxxl {
-        @include QLD-fontgrid(xxxl, heading);
-    }
-
     h1{
         @include QLD-fontgrid(xl, heading);
 
@@ -79,8 +74,7 @@
         }
     }
 
-    h2,
-    .qld__display-xl{
+    h2{
         @include QLD-space(font-size, 1.75unit); 
         @include QLD-space(line-height, 2.25unit);
 
@@ -89,24 +83,71 @@
         }
     }
 
-    h3,
-    .qld__display-lg{
+    h3{
         @include QLD-fontgrid(lg, heading);
     }
 
-    h4,
-    .qld__display-md{
+    h4{
         @include QLD-fontgrid(md, heading);
     }
 
-    h5,
-    .qld__display-sm{
+    h5{
         @include QLD-fontgrid(sm, heading);
     }
 
-    h6,
-    .qld__display-xs{
+    h6{
         @include QLD-fontgrid(xs, heading);
+    }
+
+    .qld__display-xxxl {
+        font-size: var(--QLD-font-size-mobile-xxxl);
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-xxxl);
+        }
+    }
+
+    .qld__display-xxl {
+        font-size: var(--QLD-font-size-mobile-xxl);
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-lg);
+        }
+    }
+
+    .qld__display-xl{
+        font-size: var(--QLD-font-size-mobile-xl);
+
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-lg);
+        }
+    }
+
+    .qld__display-lg{
+        font-size: var(--QLD-font-size-mobile-lg);
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-lg);
+        }
+    }
+
+    .qld__display-md{
+        font-size: var(--QLD-font-size-mobile-md);
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-md);
+        }
+    }
+
+    .qld__display-sm{
+        font-size: var(--QLD-font-size-mobile-sm);
+        @include QLD-media(lg) {
+            font-size: var(--QLD-font-size-desktop-sm);
+        }
+    }
+
+    .qld__display-xs{
+       font-size: var(--QLD-font-size-mobile-xs);
+       @include QLD-media(lg) {
+        font-size: var(--QLD-font-size-desktop-xs);
+        }
+
     }
 
     /**
@@ -117,7 +158,7 @@
         + .qld__display-xxxl{
             @include QLD-space(margin-top, 2.25unit);
 
-            @include QLD-media(md) {
+            @include QLD-media(lg) {
                 @include QLD-space(margin-top, 3.5unit);
             }
         }
@@ -126,8 +167,8 @@
         + .qld__display-xl{
             @include QLD-space(margin-top, 2unit);
 
-            @include QLD-media(md) {
-                @include QLD-space(margin-top, 3unit);
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 4unit);
             }
         }
 
@@ -135,7 +176,7 @@
         + h2{
             @include QLD-space(margin-top, 2unit);
 
-            @include QLD-media(md) {
+            @include QLD-media(lg) {
                 @include QLD-space(margin-top, 3unit);
             }
         }
@@ -144,16 +185,16 @@
         + h3{
             @include QLD-space(margin-top, 2unit);
 
-            @include QLD-media(md) {
+            @include QLD-media(lg) {
                 @include QLD-space(margin-top, 2.25unit);
             }
         }
 
         + .qld__display-sm,
         + h4{
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.25unit);
 
-            @include QLD-media(md) {
+            @include QLD-media(lg) {
                 @include QLD-space(margin-top, 2unit);
             }
         }
@@ -161,9 +202,9 @@
         + .qld__display-xs,
         + h5,
         + h6{
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.25unit);
 
-            @include QLD-media(md) {
+            @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
             }
         }
