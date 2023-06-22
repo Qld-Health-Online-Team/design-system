@@ -336,14 +336,11 @@ form {
         margin: 0;
         @include QLD-space(max-width, $QLD-font-maxwidth);
         
-        // &.abstract {
-        //     @include QLD-fontgrid(lg, h3);
-        // }
     }
 
     *:not([type="hidden"]) {
         + p {
-        @include QLD-space(margin-top, 1unit);
+        @include QLD-space(margin-top, 1.25unit);
 
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
@@ -611,7 +608,7 @@ form {
     .qld__block-quote {
         @include QLD-fontgrid(md, small);
         color: var(--QLD-color-light-heading);
-        font-weight: 700;
+        font-weight: 600;
         padding-left: 1.375rem;
         border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
         margin: 0;
@@ -643,9 +640,15 @@ form {
     }
 
     .qld__caption {
-        @include QLD-fontgrid(xs, heading);
+        @include QLD-fontgrid(xs);
         font-weight: 400;
         color: var(--QLD-color-light-text__muted);
+    }
+    *:not([type="hidden"]) {
+        + .qld__caption {
+        @include QLD-space(margin-top, 1unit);
+
+        }
     }
 
     &.qld__body--alt {
