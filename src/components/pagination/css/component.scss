@@ -108,8 +108,9 @@
         }
 
         a {
+            text-decoration: none;
             @include QLD-space(height, 2unit);
-            @include QLD-space(width, 2unit);
+            @include QLD-space(padding, 0 0.625unit);
             align-items: center;
             background-color: transparent;
             border: $QLD-border-width-thin solid var(--QLD-color-light-border);
@@ -122,8 +123,7 @@
 
             &:hover{
                 color: var(--QLD-color-light-link);
-                border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
-                outline: none;
+                outline: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
             }
 
             &[rel] {
@@ -173,12 +173,9 @@
                         span {
                             text-decoration: underline;
                         }
-                        svg{
-                            color: var(--QLD-color-dark-alt-button);
-                        }
                     }
                     svg{
-                        color: var(--QLD-color-dark-button);
+                        color: var(--QLD-color-dark-alt-button);
                     }
                 }
             }
@@ -198,11 +195,12 @@
         a{
             background-color: var(--QLD-color-dark-background);
             border-color: var(--QLD-color-dark-border);
-
+            text-decoration: none;
             &:hover{
                 color: var(--QLD-color-dark-link);
                 border-color: var(--QLD-color-dark-alt-button);
                 outline: none;
+                text-decoration: none;
             }
         }
 
