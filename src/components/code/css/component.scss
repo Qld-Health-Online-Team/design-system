@@ -81,7 +81,6 @@
             a {
                 display: inline-block;
                 border-radius: $QLD-border-radius-xs;
-                color: var(--QLD-color-dark-text);
                 @include QLD-space('margin-right', 1.25unit);
 
                 i {
@@ -148,6 +147,18 @@
 
         + .qld__code-header {
             border-radius: $QLD-border-radius-xs 0 0 0;
+        }
+
+        &:not(.qld__code-preview ~ .qld__code-toggle) {
+            justify-content: flex-start;
+            + .qld__code-header {
+                border-radius: 0 $QLD-border-radius-xs 0 0;
+            }
+            .qld__code-toggle-button {
+                i {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -219,6 +230,8 @@
             @include QLD-space('line-height', 1unit);
             @include QLD-space('padding', 0.25unit 1unit);
         }
+
+
     }
 
     // Single line type
