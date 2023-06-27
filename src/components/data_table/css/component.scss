@@ -625,4 +625,76 @@ table.qld__data-table { // the table needs to be used for this as an exception t
     }
 
 
+    &.qld__body--dark-alt {
+        input[type=text],
+        input[type=search],
+        .qld__text-input {
+            color: var(--QLD-color-dark-text);
+            border: 2px solid var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark-alt-background);
+        }
+
+        .dataTables_length>label>select {
+            border: 2px solid var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark-alt-background);
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDownDark}");
+        }
+
+        .qld__data-table {
+            
+
+            .qld__data-table__cell,
+            td {
+                &.sorting_1 {
+                    background-color: var(--QLD-color-dark-alt-background__shade);
+                }
+            }
+
+            .qld__data-table__header,
+            th {
+                box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+                color: var(--QLD-color-dark-heading);
+                background-color: var(--QLD-color-dark-alt-background);
+
+                &.sorting_asc,
+                &.sorting_desc {
+                    background-color: var(--QLD-color-dark-alt-background__shade);
+                }
+
+            }
+
+            .qld__data-table__header,
+            th {
+                box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+                color: var(--QLD-color-dark-heading);
+                background-color: var(--QLD-color-dark-alt-background);
+
+               
+                
+            }
+
+            caption,
+            .qld__data-table__caption {
+                color: var(--QLD-color-dark-heading);
+                box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+                background-color: var(--QLD-color-dark-alt-background);
+            }
+
+            tfoot {
+                background-color: var(--QLD-color-dark-alt-background);
+                box-shadow: 0 1px 0 var(--QLD-color-dark-border);
+
+                th {
+                    box-shadow: 0 -2px 0 var(--QLD-color-dark-border);
+
+                    &.sorting_1 {
+                        box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
+                        background-color: var(--QLD-color-dark-alt-background__shade);
+                    }
+
+                }
+            }
+        }
+    }
+
 }
