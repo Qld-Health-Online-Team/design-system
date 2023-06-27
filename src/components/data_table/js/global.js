@@ -355,12 +355,18 @@
                     }
                 );
                 $("li.previous").addClass("prev"); //adding the appropriate class
+
+                
+
             },
         });
 
+        $( // this line enforces the correct sorting class to the html table's first column's footer. 
+            "#qld_table_html tfoot tr th:first-child"
+        ).addClass("sorting_1");
+
         QLD_DataTable.on("order.dt", function () {
             let order = QLD_DataTable.order()[0]; // Get the column index being sorted
-            let columns = QLD_DataTable.columns(); // Get all columns in the table
 
             $("#qld_table_html tfoot tr th").removeClass(
                 "sorting_asc sorting_desc sorting sorting_1"
