@@ -11,7 +11,7 @@ $arrowUpDark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!-
 $arrowDownDark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M180.7 475.3c6.2 6.2 16.4 6.2 22.6 0l176-176c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L208 425.4 208 48c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 377.4L27.3 276.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6l176 176z" fill="rgb(239, 215, 0)" /></svg>';
 $chevronDownDark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 417.9l17-17L465 209l17-17L448 158.1l-17 17-175 175L81 175l-17-17L30.1 192l17 17L239 401l17 17z" fill="rgb(239, 215, 0)" /></svg>';
 
-table.qld__data-table { // the table needs to be used for this as an exception to strengthen the scss for .sorting
+table.qld__data-table, table.dataTable { // the table needs to be used for this as an exception to strengthen the scss for .sorting
     thead {
         tr {
             th{
@@ -220,7 +220,7 @@ table.qld__data-table { // the table needs to be used for this as an exception t
         background-color: var(--QLD-color-light-background);
         box-shadow: 0 1px 0 var(--QLD-color-light-border);
 
-        &.qld__data-table-footer {
+        &.qld__data-table-footer, tr {
             th {
                 box-shadow: 0 -2px 0 var(--QLD-color-light-alt-border);
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
@@ -542,7 +542,7 @@ table.qld__data-table { // the table needs to be used for this as an exception t
                 background-color: var(--QLD-color-dark-background);
                 box-shadow: 0 1px 0 var(--QLD-color-dark-border);
 
-                th {
+                th, tr th {
                     box-shadow: 0 -2px 0 var(--QLD-color-dark-alt-border);
 
                     &.sorting_1 {
@@ -666,7 +666,7 @@ table.qld__data-table { // the table needs to be used for this as an exception t
                 background-color: var(--QLD-color-dark-alt-background);
                 box-shadow: 0 1px 0 var(--QLD-color-dark-border);
 
-                th {
+                th, tr th {
                     box-shadow: 0 -2px 0 var(--QLD-color-dark-border);
 
                     &.sorting_1 {
