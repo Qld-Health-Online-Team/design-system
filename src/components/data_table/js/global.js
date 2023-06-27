@@ -383,8 +383,6 @@
             dataTableCsv();
         } else if ($(".qld__data-table").hasClass("qld__data-table--html")) {
             dataTableHtml();
-        } else {
-            throw new Error("Data source has not been selected."); //can be removed after the dev.
         }
     });
 })();
