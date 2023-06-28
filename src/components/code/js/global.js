@@ -57,21 +57,6 @@
             showToggle.forEach(function(showToggleButton){
                 const parent = showToggleButton.closest('.qld__code');
                 const target = parent.querySelector('code')
-
-                if(target.offsetHeight < 121) {
-                    showToggleButton.innerHTML = "Show more"
-                    showToggleButton.style.textDecoration = "none"
-                    showToggleButton.style.cursor = "default"
-                    showToggle.disabled = true;
-
-                    const buttonDiv = parent.querySelector('.qld__code-toggle');
-                    buttonDiv.style.justifyContent="flex-start"
-                    const codeHeader = parent.querySelector('.qld__code-header');
-                    codeHeader.style.borderTopLeftRadius = 0;
-
-                    return
-                }
-
                 target.style.height = '120px'
 
                 showToggleButton.addEventListener('click', function () {

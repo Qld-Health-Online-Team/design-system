@@ -38,7 +38,7 @@
         {{/ifCond}}
 
         {{#ifCond code_snippet_type.value '==' 'multiline'}}
-        <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}" {{#ifCond width_pixels.value.length '>' 0}}style="max-width: {{width_pixels.value}}px; width: {{width_pixels.value}}px"{{/ifCond}}>
+        <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}">
             {{#ifCond show_preview.value '==' 'true'}}
             <div class="qld__code-preview">
                 <span class="qld__code-preview-tab">Example</span>
@@ -82,13 +82,13 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a class="qld__code-header-link" href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a class="qld__code-header-link" href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
             </div>
@@ -96,13 +96,13 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a class="qld__code-header-link" href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a class="qld__code-header-link" href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
             </div>
@@ -110,13 +110,13 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
             </div>
@@ -125,13 +125,13 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a class="qld__code-header-link" href="{{github_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Github</a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a class="qld__code-header-link" href="{{figma_link.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i>{{action_link_title.value}}</a>
                     {{/if}}
                 </div>
                 {{#ifCond show_code.value '==' 'true'}}
