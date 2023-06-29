@@ -29,9 +29,8 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 }
 
-.qld__data-table{
+.qld__data-table { // first level styles except for border and border radius need to be removed after merging with tables.
 
-    border: none;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -54,7 +53,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
-    &__header {
+    &__header { //header can go after merging with tables.
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -161,24 +160,24 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 }
     
                 &.sorting_asc,
-                &.sorting_desc {
+                &.sorting_desc { //needs to stayl
                     background-color: var(--QLD-color-light-background__shade);
                     box-shadow: inset 0 -2px 0 var(--QLD-color-light-designAccent);
                     text-decoration: underline;
                 }
     
-                &.sorting_desc {
+                &.sorting_desc { //needs to stayl
                     background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
                 }
     
-                &.sorting_asc {
+                &.sorting_asc { //needs to stayl
                     background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUp}");
                 }
             }
         }
     }
 
-    @for $i from 1 through 10 {
+    @for $i from 1 through 10 { //needs to stay.
         &.qld__data-table__col-#{$i}-num {
             tr {
 
@@ -206,7 +205,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             text-align: center;
         }
 
-        &.sorting_1 {
+        &.sorting_1 { //needs to stayl
             background-color: var(--QLD-color-light-background__shade);
         }
     }
@@ -220,11 +219,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         background-color: var(--QLD-color-light-background);
         box-shadow: 0 1px 0 var(--QLD-color-light-border);
 
-        &.qld__data-table-footer, tr {
+        &.qld__data-table-footer, tr { //needs to stayl
             th {
                 box-shadow: 0 -2px 0 var(--QLD-color-light-alt-border);
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
-                &.sorting_1 {
+                &.sorting_1 { 
                     box-shadow: 0 -2px 0 var(--QLD-color-light-designAccent);
                     background-color: var(--QLD-color-light-background__shade);
                 }
@@ -241,7 +240,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         border-right: 1px solid var(--QLD-color-light-border);
     }
 
-    &.qld__data-table__col-1-left-border tr td:nth-child(1),
+    &.qld__data-table__col-1-left-border tr td:nth-child(1), //needs to go after merging with tables
     &.qld__data-table__col-2-left-border tr td:nth-child(2),
     &.qld__data-table__col-3-left-border tr td:nth-child(3),
     &.qld__data-table__col-4-left-border tr td:nth-child(4),
@@ -254,7 +253,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         border-left: 1px solid var(--QLD-color-light-border);
     }
 
-    &.qld__data-table__col-1-right-border tr td:nth-child(1),
+    &.qld__data-table__col-1-right-border tr td:nth-child(1), //needs to go after merging with tables
     &.qld__data-table__col-2-right-border tr td:nth-child(2),
     &.qld__data-table__col-3-right-border tr td:nth-child(3),
     .qld__data-table__header {
@@ -262,7 +261,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
     }
 
-    &.qld__data-table__col-4-right-border tr td:nth-child(4),
+    &.qld__data-table__col-4-right-border tr td:nth-child(4), //needs to go after merging with tables
     &.qld__data-table__col-5-right-border tr td:nth-child(5),
     &.qld__data-table__col-6-right-border tr td:nth-child(6),
     &.qld__data-table__col-7-right-border tr td:nth-child(7),
@@ -272,8 +271,6 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         border-right: 1px solid var(--QLD-color-light-border);
     }
 
-    &.qld__data-table--scroll,
-    &.qld__data-table--contained {
         border-radius: $QLD-border-radius-sm;
 
         &:not(:first-child) {
@@ -281,9 +278,9 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
 
         overflow-x: hidden;
-    }
 
-    &.qld__data-table--scroll {
+
+    &.qld__data-table--scroll { //needs to go after tables come in place or if Kenny asks for non scroll
         border: 1px solid var(--QLD-color-light-border);
         border-radius: $QLD-border-radius-sm;
         max-height: 640px;
@@ -333,17 +330,18 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
-    &.qld__data-table--contained {
+    & {
         width: 100%;
         overflow: auto;
         border: 1px solid var(--QLD-color-light-border);
+        border-radius: $QLD-border-radius-sm;
         overflow-x: hidden;
 
     }
 
     input[type=text],
     input[type=search],
-    .qld__text-input {
+    .qld__text-input { //needs to stay
         color: var(--QLD-color-light-text);
         border: 2px solid var(--QLD-color-light-alt-border);
         background-color: var(--QLD-color-light-background);
@@ -354,18 +352,14 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         appearance: none;
     }
 
-    input[type=search] {
+    input[type=search] { //needs to stay
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-right: none;
     }
-}
-
-
-.qld__data-table--wrapper {
 
     .top,
-    .bottom {
+    .bottom { //needs to stay
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -374,11 +368,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         gap: 16px;
     }
 
-    .top {
+    .top { //needs to stay
         box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
     }
 
-    .dataTables_length>label>select {
+    .dataTables_length>label>select { //needs to stay
         border: 2px solid var(--QLD-color-light-alt-border);
         background-color: var(--QLD-color-light-background);
         background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDown}");
@@ -387,12 +381,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         margin-left: 0.75rem;
     }
 
-    .qld__btn--search {
+    .qld__btn--search { //needs to stay
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
 
-    .dataTables_wrapper {
+    .dataTables_wrapper { //needs to stay
         .item-numbers {
             color: $QLD-color-system-grey-dark;
 
@@ -411,8 +405,8 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
-    &.qld__body--dark,
-    &.qld__body--dark-alt {
+    .qld__body--dark &,
+    .qld__body--dark-alt &{
 
         .qld__caption {
             color: var(--QLD-color-dark-text__muted);
@@ -454,160 +448,211 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
 
         }
-        .qld__data-table {
 
-            .qld__data-table__cell,
-            td {
-                box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
-                &.sorting_1 {
-                    background-color: var(--QLD-color-dark-background__shade);
-                }
-            }
-
-            .qld__data-table__header,
-            th {
-                box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-alt-border);
-                color: var(--QLD-color-dark-heading);
-                background-color: var(--QLD-color-dark-background);
-
-                &.sorting_asc,
-                &.sorting_desc {
-                    background-color: var(--QLD-color-dark-background__shade);
-                    box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
-                }
-                
-                &.sorting_desc {
-                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
-                }
-
-                &.sorting_asc {
-                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDark}");
-                }
-            }
-
-            thead>tr>th {              
-
-                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
-
-
-                &:hover,
-                &:focus {
-                    box-shadow: inset 0 -2px 0 var(--QLD-color-dark-button__hover);
-                }
-
-                &:active {
-                    box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
-                }
-
-                color: var(--QLD-color-dark-hover-underline);
-
-            }
-
-            .qld__data-table__head,
-            thead {
-                tr {
-                    &:nth-child(2) {
-                        background-color: var(--QLD-color-dark-background__shade);
-                    }
-                }
-
-            }
-
-            .qld__data-table__header,
-            th {
-                color: var(--QLD-color-dark-heading);
-                -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark-designAccent);
-                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
-
-                tr {
-                    &:nth-child(2) {
-                        background-color: var(--QLD-color-dark-background__shade);
-                    }
-                }
-            }
-
-            .qld__data-table__cell,
-            td {
-                box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
-            }
-
-            caption,
-            .qld__data-table__caption {
-                color: var(--QLD-color-dark-heading);
-                box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-                background-color: var(--QLD-color-dark-background);
-            }
-
-            tfoot {
-                background-color: var(--QLD-color-dark-background);
-                box-shadow: 0 1px 0 var(--QLD-color-dark-border);
-
-                th, tr th {
-                    box-shadow: 0 -2px 0 var(--QLD-color-dark-alt-border);
-
-                    &.sorting_1 {
-                        box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
-                        background-color: var(--QLD-color-dark-background__shade);
-                    }
-                }
-            }
-
-            .qld__data-table__cell-left-border {
-                border-left: 1px solid var(--QLD-color-dark-border);
-            }
-
-            .qld__data-table__cell-right-border {
-                border-right: 1px solid var(--QLD-color-dark-border);
-            }
-
-            .bottom {
-                a {
-                    color: var(--QLD-color-dark-text);
-                }
-            }
-
-            &.qld__data-table__col-1-left-border tr td:nth-child(1),
-            &.qld__data-table__col-2-left-border tr td:nth-child(2),
-            &.qld__data-table__col-3-left-border tr td:nth-child(3),
-            &.qld__data-table__col-4-left-border tr td:nth-child(4),
-            &.qld__data-table__col-5-left-border tr td:nth-child(5),
-            &.qld__data-table__col-6-left-border tr td:nth-child(6),
-            &.qld__data-table__col-7-left-border tr td:nth-child(7),
-            &.qld__data-table__col-8-left-border tr td:nth-child(8),
-            &.qld__data-table__col-9-left-border tr td:nth-child(9),
-            &.qld__data-table__col-10-left-border tr td:nth-child(10) {
-                border-left: 1px solid var(--QLD-color-dark-border);
-            }
-
-            &.qld__data-table__col-1-right-border tr td:nth-child(1),
-            &.qld__data-table__col-2-right-border tr td:nth-child(2),
-            &.qld__data-table__col-3-right-border tr td:nth-child(3),
-            .qld__data-table__header {
-                color: var(--QLD-color-light-system-underline);
-                box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-            }
-
-            &.qld__data-table__col-1-right-border tr td:nth-child(1),
-            &.qld__data-table__col-2-right-border tr td:nth-child(2),
-            &.qld__data-table__col-3-right-border tr td:nth-child(3),
-            &.qld__data-table__col-4-right-border tr td:nth-child(4),
-            &.qld__data-table__col-5-right-border tr td:nth-child(5),
-            &.qld__data-table__col-6-right-border tr td:nth-child(6),
-            &.qld__data-table__col-7-right-border tr td:nth-child(7),
-            &.qld__data-table__col-8-right-border tr td:nth-child(8),
-            &.qld__data-table__col-9-right-border tr td:nth-child(9),
-            &.qld__data-table__col-10-right-border tr td:nth-child(10) {
-                border-right: 1px solid var(--QLD-color-dark-border);
-            }
-
-            &.qld__data-table--contained {
-                border: 1px solid var(--QLD-color-dark-border);
+        .qld__data-table__cell,
+        td { //needs to stayl
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            &.sorting_1 {
+                background-color: var(--QLD-color-dark-background__shade);
             }
         }
+
+        .qld__data-table__header,
+        th {
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-alt-border);
+            color: var(--QLD-color-dark-heading);
+            background-color: var(--QLD-color-dark-background);
+
+            &.sorting_asc,
+            &.sorting_desc { //needs to stayl
+                background-color: var(--QLD-color-dark-background__shade);
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+            }
+            
+            &.sorting_desc { //needs to stayl
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
+            }
+
+            &.sorting_asc { //needs to stayl
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDark}");
+            }
+        }
+
+        thead>tr>th {              
+
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
+
+
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-button__hover);
+            }
+
+            &:active {
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+            }
+
+            color: var(--QLD-color-dark-hover-underline);
+
+        }
+
+        .qld__data-table__head,
+        thead {
+            tr {
+                &:nth-child(2) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+
+        }
+
+        .qld__data-table__header,
+        th {
+            color: var(--QLD-color-dark-heading);
+            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark-designAccent);
+            box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+
+            tr {
+                &:nth-child(2) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+
+        .qld__data-table__cell,
+        td {
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+        }
+
+        caption,
+        .qld__data-table__caption {
+            color: var(--QLD-color-dark-heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark-background);
+        }
+
+        tfoot {
+            background-color: var(--QLD-color-dark-background);
+            box-shadow: 0 1px 0 var(--QLD-color-dark-border);
+
+            th, tr th {
+                box-shadow: 0 -2px 0 var(--QLD-color-dark-alt-border);
+
+                &.sorting_1 { //needs to stayl
+                    box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+
+        .qld__data-table__cell-left-border {
+            border-left: 1px solid var(--QLD-color-dark-border);
+        }
+
+        .qld__data-table__cell-right-border {
+            border-right: 1px solid var(--QLD-color-dark-border);
+        }
+
+        .bottom {
+            a {
+                color: var(--QLD-color-dark-text);
+            }
+        }
+
+        &.qld__data-table__col-1-left-border tr td:nth-child(1),
+        &.qld__data-table__col-2-left-border tr td:nth-child(2),
+        &.qld__data-table__col-3-left-border tr td:nth-child(3),
+        &.qld__data-table__col-4-left-border tr td:nth-child(4),
+        &.qld__data-table__col-5-left-border tr td:nth-child(5),
+        &.qld__data-table__col-6-left-border tr td:nth-child(6),
+        &.qld__data-table__col-7-left-border tr td:nth-child(7),
+        &.qld__data-table__col-8-left-border tr td:nth-child(8),
+        &.qld__data-table__col-9-left-border tr td:nth-child(9),
+        &.qld__data-table__col-10-left-border tr td:nth-child(10) {
+            border-left: 1px solid var(--QLD-color-dark-border);
+        }
+
+        &.qld__data-table__col-1-right-border tr td:nth-child(1),
+        &.qld__data-table__col-2-right-border tr td:nth-child(2),
+        &.qld__data-table__col-3-right-border tr td:nth-child(3),
+        .qld__data-table__header {
+            color: var(--QLD-color-light-system-underline);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+        }
+
+        &.qld__data-table__col-1-right-border tr td:nth-child(1),
+        &.qld__data-table__col-2-right-border tr td:nth-child(2),
+        &.qld__data-table__col-3-right-border tr td:nth-child(3),
+        &.qld__data-table__col-4-right-border tr td:nth-child(4),
+        &.qld__data-table__col-5-right-border tr td:nth-child(5),
+        &.qld__data-table__col-6-right-border tr td:nth-child(6),
+        &.qld__data-table__col-7-right-border tr td:nth-child(7),
+        &.qld__data-table__col-8-right-border tr td:nth-child(8),
+        &.qld__data-table__col-9-right-border tr td:nth-child(9),
+        &.qld__data-table__col-10-right-border tr td:nth-child(10) {
+            border-right: 1px solid var(--QLD-color-dark-border);
+        }
+
+        // &.qld__data-table--contained { 
+            border: 1px solid var(--QLD-color-dark-border);
+        // }
     }
 
 
-    &.qld__body--dark-alt {
+    .qld__body--dark-alt &{
+        
+        .qld__data-table__cell,
+        td {
+            &.sorting_1 { //needs to stayl
+                background-color: var(--QLD-color-dark-alt-background__shade);
+            }
+        }
+
+        .qld__data-table__header,
+        th {
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+            color: var(--QLD-color-dark-heading);
+            background-color: var(--QLD-color-dark-alt-background);
+
+            &.sorting_asc,
+            &.sorting_desc { //needs to stayl
+                background-color: var(--QLD-color-dark-alt-background__shade);
+            }
+
+        }
+
+        .qld__data-table__header,
+        th {
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+            color: var(--QLD-color-dark-heading);
+            background-color: var(--QLD-color-dark-alt-background);
+
+           
+            
+        }
+
+        caption,
+        .qld__data-table__caption {
+            color: var(--QLD-color-dark-heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark-alt-background);
+        }
+
+        tfoot {
+            background-color: var(--QLD-color-dark-alt-background);
+            box-shadow: 0 1px 0 var(--QLD-color-dark-border);
+
+            th, tr th {
+                box-shadow: 0 -2px 0 var(--QLD-color-dark-border);
+
+                &.sorting_1 { //needs to stayl
+                    box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
+                    background-color: var(--QLD-color-dark-alt-background__shade);
+                }
+
+            }
+        }
+
         input[type=text],
         input[type=search],
         .qld__text-input {
@@ -622,61 +667,6 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDownDark}");
         }
 
-        .qld__data-table {
-            
-
-            .qld__data-table__cell,
-            td {
-                &.sorting_1 {
-                    background-color: var(--QLD-color-dark-alt-background__shade);
-                }
-            }
-
-            .qld__data-table__header,
-            th {
-                box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
-                color: var(--QLD-color-dark-heading);
-                background-color: var(--QLD-color-dark-alt-background);
-
-                &.sorting_asc,
-                &.sorting_desc {
-                    background-color: var(--QLD-color-dark-alt-background__shade);
-                }
-
-            }
-
-            .qld__data-table__header,
-            th {
-                box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
-                color: var(--QLD-color-dark-heading);
-                background-color: var(--QLD-color-dark-alt-background);
-
-               
-                
-            }
-
-            caption,
-            .qld__data-table__caption {
-                color: var(--QLD-color-dark-heading);
-                box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-                background-color: var(--QLD-color-dark-alt-background);
-            }
-
-            tfoot {
-                background-color: var(--QLD-color-dark-alt-background);
-                box-shadow: 0 1px 0 var(--QLD-color-dark-border);
-
-                th, tr th {
-                    box-shadow: 0 -2px 0 var(--QLD-color-dark-border);
-
-                    &.sorting_1 {
-                        box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
-                        background-color: var(--QLD-color-dark-alt-background__shade);
-                    }
-
-                }
-            }
-        }
     }
 
 }

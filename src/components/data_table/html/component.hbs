@@ -1,8 +1,8 @@
 
 {{#with component.data.metadata}}
-<section class="qld__data-table--wrapper qld__body {{body_background.value}}">
+<section class="qld__body {{body_background.value}}">
     <div class="container-fluid">
-        <div class="qld__data-table qld__data-table--contained {{table_data_source.value}}">
+        <div class="qld__data-table  {{table_data_source.value}}">
             <input id="csvFileInput" type="hidden" value="{{Table_data_CSV.value}}" />
             <div class="qld__data-table__header">
                 <caption>{{Table_title.value}}
@@ -12,11 +12,11 @@
                 </caption>
             </div>
             {{#if table_in_HTML.value}}
-            <table id="" class="qld__data-table" aria-describedby="">
+            <table id="" class="qld__data-table-content" aria-describedby="">
                 {{{table_in_HTML.value}}}
             </table>
             {{else}}
-            <table id="qld_table_csv" class="qld__data-table" aria-describedby="">
+            <table id="qld_table_csv" class="qld__data-table-content" aria-describedby="">
             </table>
             {{/if}}
         </div>
