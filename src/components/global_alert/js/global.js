@@ -12,11 +12,11 @@
      * @private
      */
     function initGlobalAlert() {
-        var alert = document.querySelector(".qld__global_alert");
+        var alert = document.querySelector(".qld__global-alert");
     
         if (alert !== null) {
-            var alertContainer = document.querySelector(".qld__global_alert_include");
-            var closeButton = document.querySelector(".qld__global_alert__close button");
+            var alertContainer = document.querySelector(".qld__global-alert_include");
+            var closeButton = document.querySelector(".qld__global-alert__close button");
 
             var siteName = '';
             if (alertContainer !== null) {

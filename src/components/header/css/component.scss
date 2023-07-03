@@ -78,6 +78,7 @@
             a{
                 font-size: 14px;
                 line-height: 1;
+                @include QLD-underline('light','noUnderline','default','noVisited');
             }
         }
 
@@ -236,6 +237,9 @@
             .qld__header__pre-header-url {
                 color: var(--QLD-color-dark-link);
             }
+            a{
+                @include QLD-underline('dark','noUnderline','default','noVisited');
+            }
 
             .qld__header__cta-link{
                 color: var(--QLD-color-dark-link);
@@ -280,6 +284,9 @@
 
             .qld__header__pre-header-url {
                 color: var(--QLD-color-dark-link);
+            }
+            a{
+                @include QLD-underline('dark','noUnderline','default','noVisited');
             }
 
             .qld__header__cta-link{
@@ -347,10 +354,12 @@
             }
 
             a {
+                text-decoration: none;
                 display: flex;
 
                 &:hover{
                     color: var(--QLD-color-light-link);
+                    text-decoration: underline;
                     .qld__header__brand-image{
                         color: var(--QLD-color-light-link);
                     }

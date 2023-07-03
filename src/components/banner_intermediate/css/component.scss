@@ -180,6 +180,7 @@
     }
 
     .qld__tile-nav__link {
+        @include QLD-underline('light','noUnderline');
         color: var(--QLD-color-light-link);
         display: inline-block;
         margin-top: 4px;
@@ -241,6 +242,7 @@
     
         .qld__tile-nav__link {
             color: var(--QLD-color-dark-link);
+            @include QLD-underline('dark','noUnderline');
             
             &:hover {
                 color: var(--QLD-color-dark-link);;
@@ -266,7 +268,7 @@
     
         .qld__tile-nav__link {
             color: var(--QLD-color-dark-link);
-            
+            @include QLD-underline('dark','noUnderline');
             &:hover {
                 color: var(--QLD-color-dark-link);
             }

@@ -28,6 +28,7 @@
         flex: 0 0 100%;
 
         a{
+            @include QLD-underline('light','noUnderline');
             &:before {
                 content: "";
                 position: absolute;
@@ -131,6 +132,9 @@
     .qld__main-nav--dark &{
         > li{
             box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            a{
+                @include QLD-underline('dark','noUnderline');
+            }
             &:hover{
                 &::after{
                     background-color: var(--QLD-color-dark-alt-button__hover);
@@ -157,6 +161,10 @@
     .qld__main-nav--dark-alt &{
         > li{
             box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark-alt-border);
+
+            a{
+                @include QLD-underline('dark','noUnderline');
+            }
 
             &:hover{
                 &::after{

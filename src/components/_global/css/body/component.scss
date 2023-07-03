@@ -314,7 +314,6 @@ form {
 .qld__body,
 .qld__footer {
     @include QLD-fontgrid(sm) ;
-    @include QLD-space(font-size, 1.063unit);
     margin: 0;
     text-size-adjust: 100%;
     font-family: $QLD-font;
@@ -337,14 +336,11 @@ form {
         margin: 0;
         @include QLD-space(max-width, $QLD-font-maxwidth);
         
-        // &.abstract {
-        //     @include QLD-fontgrid(lg, h3);
-        // }
     }
 
     *:not([type="hidden"]) {
         + p {
-        @include QLD-space(margin-top, 1unit);
+        @include QLD-space(margin-top, 1.25unit);
 
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
@@ -608,18 +604,23 @@ form {
     /**
 	 * Blockquote
 	 */
-    blockquote {
-
-        .qld__quote-text {
-            // @extend .qld__display-lg;
-            font-weight: 700;
-            color: var(--QLD-color-light-heading);
-        }
+    blockquote,
+    .qld__block-quote {
+        @include QLD-fontgrid(md, small);
+        color: var(--QLD-color-light-heading);
+        font-weight: 600;
+        padding-left: 1.375rem;
+        border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
+        margin: 0;
 
         .qld__quote-source {
-            font-size: pxToRem(20);
+            @include QLD-fontgrid(xs, small);
             color: var(--QLD-color-light-text__muted);
             margin-top: 10px;
+        }
+
+        *:not([type="hidden"]) + &{
+            margin-top: 1.5rem;
         }
     }
 
@@ -638,13 +639,22 @@ form {
 
     }
 
+    .qld__caption {
+        @include QLD-fontgrid(xs);
+        font-weight: 400;
+        color: var(--QLD-color-light-text__muted);
+    }
+    *:not([type="hidden"]) {
+        + .qld__caption {
+        @include QLD-space(margin-top, 1unit);
+
+        }
+    }
+
     &.qld__body--alt {
         background: var(--QLD-color-light-alt-background);
 
-        a{
-            @include QLD-underline('light');
-        }
-
+        
         hr {
             background-color: var(--QLD-color-light-alt-border);
         }
@@ -656,7 +666,8 @@ form {
         }
     }
     
-    &.qld__body--dark {
+    &.qld__body--dark,
+    &.qld__footer--dark {
         background: var(--QLD-color-dark-background);
         color: var(--QLD-color-dark-text);
         
@@ -674,7 +685,7 @@ form {
         }
         
         a{
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
             
             &:hover {
@@ -703,9 +714,24 @@ form {
             color: var(--QLD-color-dark-text);
             background-color: var(--QLD-color-dark-background__shade);
         }
+
+        .qld__caption {
+            color: var(--QLD-color-dark-text__muted);
+        }
+
+        blockquote,
+        .qld__block-quote {
+            color: var(--QLD-color-dark-heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+
+            .qld__quote-source {
+                color: var(--QLD-color-dark-text__muted);
+            }
+        }
     }
     
-    &.qld__body--dark-alt {
+    &.qld__body--dark-alt,
+    &.qld__footer--dark-alt {
         background: var(--QLD-color-dark-alt-background);
         color: var(--QLD-color-dark-text);
         
@@ -723,7 +749,7 @@ form {
         }
         
         a {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
             
             &:hover {
@@ -752,6 +778,19 @@ form {
             color: var(--QLD-color-dark-text);
             background-color: var(--QLD-color-dark-alt-background__shade);
         }
+        .qld__caption {
+            color: var(--QLD-color-dark-text__muted);
+        }
+
+        blockquote,
+        .qld__block-quote {
+            color: var(--QLD-color-dark-heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+
+            .qld__quote-source {
+                color: var(--QLD-color-dark-text__muted);
+            }
+        }
     }
 
     &.qld__body--half-width {
@@ -762,13 +801,6 @@ form {
         }
     }
 }
-
-// .qld__body{
-//     p{
-//         @include QLD-space(font-size, 1.063unit);
-//     }
-// }
-
 
 @media print {
 	.qld__body {

@@ -40,6 +40,7 @@
             @include QLD-space(padding, 0.25unit 0);
 
             a {
+                @include QLD-underline('light','underline','default','noVisited');
                 color: var(--QLD-color-light-link);
             }
 
@@ -93,8 +94,7 @@
     .qld__body--dark &,
     .qld__body--dark-alt &,
     .qld__banner--dark &,
-    .qld__banner--dark-alt &,
-    .qld__banner--dark-alt & {
+    .qld__banner--dark-alt &{
         color: var(--QLD-color-dark-text__muted);
         
         > .qld__link-list {
@@ -106,6 +106,8 @@
 
             > li {
                 a {
+                    // @include QLD-underline('dark');
+                    @include QLD-underline('dark','underline','default','noVisited');
                     color: var(--QLD-color-dark-text);
                 }
             }

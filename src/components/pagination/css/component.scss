@@ -43,6 +43,11 @@
             }
 
             &.next,
+            &.prev{
+                @include QLD-underline('light','noUnderline');
+            }
+
+            &.next,
             &.prev,
             &.ellipsis{
                 a{
@@ -123,7 +128,9 @@
 
             &:hover{
                 color: var(--QLD-color-light-link);
-                outline: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
+                border: $QLD-border-width-default solid var(--QLD-color-light-alt-button);
+                outline: none;
+                text-decoration: none;
             }
 
             &[rel] {

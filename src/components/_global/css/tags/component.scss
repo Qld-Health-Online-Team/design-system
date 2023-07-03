@@ -15,6 +15,7 @@
 	@include QLD-focus();
 	// white-space: nowrap;
 	text-align: center;
+	text-decoration: none;
 
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light-text__muted);
@@ -46,14 +47,17 @@
 		@include QLD-space ( font-size, 1unit);
 		@include QLD-space ( padding, .5unit 1unit );
 		border-radius: $QLD-border-radius-lg;
+		
 	}
 }
 
 a.qld__tag,
-.qld__tag.qld__tag--link{
+.qld__body .qld__tag.qld__tag--link{
 	color: var(--QLD-color-light-link);
 	border-color: var(--QLD-color-light-link);
-
+	text-decoration: none;
+	text-underline-offset: auto;
+	text-decoration-color :var(--QLD-color-dark-link);
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light-link);
 		border-color: var(--QLD-color-light-link);
@@ -62,13 +66,19 @@ a.qld__tag,
 			background-color: var(--QLD-color-light-button__hover);
 			color: var(--QLD-color-dark-link); 
 			border-color: var(--QLD-color-light-button__hover);
+			
 		}
+	}
+	&.qld__tag--large{
+		@include QLD-underline('light','noUnderline','buttonText');
 	}
 
 	&:hover {
 		background-color: var(--QLD-color-light-button__hover);
 		color: var(--QLD-color-dark-link); 
 		border-color: var(--QLD-color-light-button__hover);
+		text-decoration: underline;
+		text-decoration-color :var(--QLD-color-dark-link);
 	}
 
 	.qld__body--alt &,
@@ -89,11 +99,20 @@ a.qld__tag,
 	.qld__card--dark-alt .qld__card__footer &{
 		border-color: var(--QLD-color-dark-link);
 		color: var(--QLD-color-dark-link);
+		text-underline-offset: auto;
+		text-decoration-color :var(--QLD-color-light-link);
+		text-decoration: none;
 
 		&:hover {
 			background-color: var(--QLD-color-dark-button__hover);
 			color: var(--QLD-color-dark-button__text); 
 			border-color: var(--QLD-color-dark-button__hover);
+			text-decoration: underline;
+			text-decoration-color :var(--QLD-color-light-link);
+		}
+
+		&.qld__tag--large{
+			@include QLD-underline('dark','noUnderline','buttonText');
 		}
 	}
 }
@@ -135,11 +154,13 @@ a.qld__tag,
 	@include QLD-space ( font-size, 1unit);
 	@include QLD-space ( padding, .5unit 1unit );
 	border-radius: $QLD-border-radius-lg;
+	text-decoration: none;
 
 	&:hover {
 		color: var(--QLD-color-light-text);
 		background-color: transparent;
 		border-color: var(--QLD-color-light-border);
+		text-decoration: none;
 	}
 
 	.qld__tag--filter-close{
@@ -191,6 +212,7 @@ a.qld__tag,
 			color: var(--QLD-color-dark-text);
 			background-color: transparent;
 			border-color: var(--QLD-color-dark-alt-border);
+			text-decoration: none;
 		}
 
 		.qld__tag--filter-close{
@@ -213,6 +235,7 @@ a.qld__tag,
 			color: var(--QLD-color-dark-text);
 			background-color: transparent;
 			border-color: var(--QLD-color-dark-border);
+			text-decoration: none;
 		}
 
 		.qld__tag--filter-close{

@@ -8,9 +8,12 @@
         @include QLD-space(padding, 0.3125unit 0.8125unit);
         min-width: initial;
         position: relative;
+        text-decoration: none;
+        
 
         &-text {
             @include QLD-space('margin-left', .5unit);
+            
             
             @include QLD-media(sm, down) {
                 display: none;
@@ -55,8 +58,15 @@
         &:focus,
         &:hover {
             box-shadow: none;
+            text-decoration: none;
 
+            .qld__code-copy--button-text {
+                @include QLD-underline('dark','noUnderline','buttonText');
+            }
+
+            
             @include QLD-media(sm, down) {
+                text-decoration: underline;
                 .qld__code-tooltip {
                     display: block;
                     bottom: calc(100% + 8px);
@@ -187,7 +197,7 @@
             }
 
             &-label {
-                font-weight: 700;
+                font-weight: 600;
                 @include QLD-space('padding-right', 0.75unit);
             }
 
@@ -222,7 +232,7 @@
             border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
             bottom: 100%;
             color: var(--QLD-color-dark-text);
-            font-weight: 700;
+            font-weight: 600;
             display: inline-block;
             position: absolute;
             @include QLD-space('font-size', 0.875unit);

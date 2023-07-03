@@ -10,38 +10,9 @@
         outline: 3px solid var(--QLD-color-light-focus);
         outline-offset: 2px;
     }
-
-    .qld__card--clickable__link{
-        color: var(--QLD-color-light-link);
-
-        //make hit area entire card
-        &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1;
-        }
-
-        // don't focus on anchor inside the tag
-        &:focus {
-            outline: none;
-        }
-
-        .lt-ie9 &:focus {
-            outline: 3px solid var(--QLD-color-light-focus);
-            outline-offset: 2px;
-        }
-    }
         
     &:hover{
         box-shadow: none;
-
-        .qld__card--clickable__link{
-            color: var(--QLD-color-light-link);
-        }
     }
 
     @include QLD-media(lg) {
@@ -90,9 +61,6 @@
 
     &.qld__card--dark,
     &.qld__card--dark-alt{
-        .qld__card--clickable__link{
-            color: var(--QLD-color-dark-link);
-        }
 
         &.qld__card--icon {
             .qld__card__icon{
@@ -116,8 +84,6 @@
 
 .qld__card.qld__card--arrow {
     .qld__card__content{
-        // @include QLD-space(padding-right, 1.375unit);
-        // position: relative;
         display: flex;
         justify-content: space-between;
 
@@ -128,10 +94,6 @@
             transition: margin 0.2s ease;
             color: var(--QLD-color-light-alt-button);
             display: inline-block;
-            // position: absolute;
-            // @include QLD-space(right, 0unit);
-            // bottom: 50%;
-            // transform: translateY(50%);
             mask-image: QLD-svguri($QLD-icon-arrow-right);
             mask-repeat: no-repeat;
             mask-position: center;
