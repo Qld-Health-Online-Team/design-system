@@ -114,6 +114,10 @@
         @include QLD-underline('light');
         // @include QLD-underline('light','noUnderline','buttonText','noVisited');
 
+        &:hover{
+            color: var(--QLD-color-light-link);
+        }
+
         //make hit area entire card
         
         &:after {
@@ -315,6 +319,10 @@
         a.qld__card--clickable__link{
             color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
+
+            &:hover{
+                color: var(--QLD-color-dark-link);
+            }
         }
             
         
@@ -356,6 +364,9 @@
         a.qld__card--clickable__link{
             color: var(--QLD-color-dark-link);
             @include QLD-underline('dark');
+            &:hover{
+                color: var(--QLD-color-dark-link);
+            }
         }
             
     }

@@ -351,34 +351,34 @@
                 }
 
                 .qld__main-nav__sub-item-text{
-                        display: flex;
-                        justify-content: space-between;
-                        width: 100%;
-                        @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
-                        @include QLD-fontgrid(xs);             
-                        border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light-border);
-                        @include QLD-media(md) {
-                            @include QLD-fontgrid(sm);
-                        }      
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
+                    @include QLD-fontgrid(xs);             
+                    border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                    @include QLD-media(md) {
+                        @include QLD-fontgrid(sm);
+                    }      
+                    @include QLD-media(lg) {
+                        padding: 0;
+                        // border-top: solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                        border-bottom: none;
+                        font-weight: bold;
+                    }
+
+                    .qld__icon{
+                        display: none;
+                        color: var(--QLD-color-light-alt-button);
+                        @include QLD-space(margin, 0 0 0 1unit);
+                        flex: 0 0 auto;
+                        transition: margin 0.2s ease;
+
                         @include QLD-media(lg) {
-                            padding: 0;
-                            // border-top: solid $QLD-border-width-thin  var(--QLD-color-light-border);
-                            border-bottom: none;
-                            font-weight: bold;
-                        }
-
-                        .qld__icon{
-                            display: none;
-                            color: var(--QLD-color-light-alt-button);
-                            @include QLD-space(margin, 0 0 0 1unit);
-                            flex: 0 0 auto;
-                            transition: margin 0.2s ease;
-
-                            @include QLD-media(lg) {
-                                display: block;
-                            }
+                            display: block;
                         }
                     }
+                }
 
                 &:hover{
                     border-color: var(--QLD-color-light-button);
@@ -435,6 +435,7 @@
                         // @include QLD-space(padding, 1unit 0);
                     }
                     .qld__main-nav__sub-item-text{
+                        color: var(--QLD-color-light-link);
                         border-bottom: solid $QLD-border-width-thin  var(--QLD-color-light-border);
                     }
                 }
@@ -518,6 +519,7 @@
 
                 .qld__main-nav__item-desc{
                     color: var(--QLD-color-dark-text);
+
                 }
 
                 .qld__link-columns{
@@ -531,6 +533,7 @@
 
                             .qld__main-nav__sub-item-text{
                                 border-color: var(--QLD-color-dark-border);
+                                color: var(--QLD-color-dark-link);
 
                                 .qld__icon{
                                     color: var(--QLD-color-dark-alt-button);
@@ -540,6 +543,9 @@
                             &:hover{
                                 background-color: var(--QLD-color-dark-background);
                             }
+                        }
+                        .qld__main-nav__sub-item-text{
+                            color: var(--QLD-color-dark-link);
                         }
                     }
                 }

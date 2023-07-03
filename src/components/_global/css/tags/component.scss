@@ -52,12 +52,13 @@
 }
 
 a.qld__tag,
-.qld__body .qld__tag.qld__tag--link{
+.qld__tag.qld__tag--link{
 	color: var(--QLD-color-light-link);
 	border-color: var(--QLD-color-light-link);
 	text-decoration: none;
 	text-underline-offset: auto;
 	text-decoration-color :var(--QLD-color-dark-link);
+	@include QLD-underline('light','noUnderline','buttonText');
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light-link);
 		border-color: var(--QLD-color-light-link);
@@ -70,7 +71,7 @@ a.qld__tag,
 		}
 	}
 	&.qld__tag--large{
-		@include QLD-underline('light','noUnderline','buttonText');
+		// @include QLD-underline('light','noUnderline','buttonText');
 	}
 
 	&:hover {
@@ -102,6 +103,7 @@ a.qld__tag,
 		text-underline-offset: auto;
 		text-decoration-color :var(--QLD-color-light-link);
 		text-decoration: none;
+		@include QLD-underline('dark','noUnderline','buttonText');
 
 		&:hover {
 			background-color: var(--QLD-color-dark-button__hover);
@@ -112,7 +114,7 @@ a.qld__tag,
 		}
 
 		&.qld__tag--large{
-			@include QLD-underline('dark','noUnderline','buttonText');
+			
 		}
 	}
 }
@@ -155,6 +157,7 @@ a.qld__tag,
 	@include QLD-space ( padding, .5unit 1unit );
 	border-radius: $QLD-border-radius-lg;
 	text-decoration: none;
+	@include QLD-underline('light','noUnderline','default');
 
 	&:hover {
 		color: var(--QLD-color-light-text);
@@ -207,6 +210,7 @@ a.qld__tag,
 	.qld__card--dark .qld__card__footer &{
 		color: var(--QLD-color-dark-text);
 		border-color: var(--QLD-color-dark-alt-border);
+		@include QLD-underline('dark','noUnderline','default');
 
 		&:hover {
 			color: var(--QLD-color-dark-text);
@@ -230,6 +234,7 @@ a.qld__tag,
 	.qld__card--dark-alt .qld__card__footer &{
 		color: var(--QLD-color-dark-text);
 		border-color: var(--QLD-color-dark-border);
+		@include QLD-underline('dark','noUnderline','default');
 
 		&:hover {
 			color: var(--QLD-color-dark-text);
