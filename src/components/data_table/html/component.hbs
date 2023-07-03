@@ -3,20 +3,20 @@
 <section class="qld__body {{body_background.value}}">
     <div class="container-fluid">
         <div class="qld__data-table  {{table_data_source.value}}">
-            <input id="csvFileInput" type="hidden" value="{{Table_data_CSV.value}}" />
             <div class="qld__data-table__header">
-                <caption>{{Table_title.value}}
+                <caption>
+                    <span class="qld__display-sm">{{table_title.value}}</span>
                     <span class="qld__caption">
-                        {{Table_caption.value}}
+                        {{table_caption.value}}
                     </span>
                 </caption>
             </div>
-            {{#if table_in_HTML.value}}
-            <table id="" class="qld__data-table-content" aria-describedby="">
-                {{{table_in_HTML.value}}}
-            </table>
+            {{#if table_in_html.value}}
+            <div id="qld_data-table_html" class="qld__data-table-content" aria-describedby="">
+                {{{table_in_html.value}}}
+            </div>
             {{else}}
-            <table id="qld_table_csv" class="qld__data-table-conten" aria-describedby="">
+            <table id="qld_data-table_csv" class="qld__data-table-content" aria-describedby="" data-csv-source="{{table_data_csv.value}}">
             </table>
             {{/if}}
         </div>

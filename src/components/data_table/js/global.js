@@ -55,7 +55,7 @@
     }
 
     function dataTableCsv() {
-        const csvFileURL = document.getElementById("csvFileInput").value;
+        const csvFileURL = document.getElementById("qld_data-table_csv").getAttribute('data-csv-source');
 
         readCSVFile(csvFileURL, (err, tableLines) => {
             if (err) {
@@ -81,7 +81,7 @@
                     : `<th>${f}</th>`;
             });
 
-            const QLD_DataTable = $("#qld_table_csv").DataTable({
+            const QLD_DataTable = $("#qld_data-table_csv").DataTable({
                 data: tableData ? tableData : [],
                 columns: tableColumns ? tableColumns : [],
                 dom: '<"top"if>rt<"bottom"lp><"clear">',
@@ -213,17 +213,17 @@
                 let order = QLD_DataTable.order()[0]; // Get the column index being sorted
                 let columns = QLD_DataTable.columns(); // Get all columns in the table
 
-                $("#qld_table_csv tfoot th").removeClass(
+                $("#qld_data-table_csv tfoot th").removeClass(
                     "sorting_asc sorting_desc sorting sorting_1"
                 );
 
                 $(
-                    "#qld_table_csv tfoot th:nth-child(" + (order[0] + 1) + ")"
+                    "#qld_data-table_csv tfoot th:nth-child(" + (order[0] + 1) + ")"
                 ).addClass("sorting_1");
             });
 
             if (footerHasContent) {
-                $("#qld_table_csv")
+                $("#qld_data-table_csv")
                     .append(
                         $("<tfoot class='qld__data-table-footer' />").append(
                             tableFooter
@@ -235,7 +235,10 @@
     }
 
     function dataTableHtml() {
-        const QLD_DataTable = $("#qld_table_html").DataTable({
+
+        const tableElement = $("#qld_data-table_html table");
+
+        const QLD_DataTable = tableElement.DataTable({
             dom: '<"top"if>rt<"bottom"lp><"clear">',
             pagingType: "simple_numbers",
             pagingTag: "li",
@@ -360,6 +363,8 @@
 
             },
         });
+
+        // QLD_DataTable.destroy();
 
         $( // this line enforces the correct sorting class to the html table's first column's footer. 
             "#qld_table_html tfoot tr th:first-child"
