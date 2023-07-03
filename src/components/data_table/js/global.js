@@ -364,8 +364,6 @@
             },
         });
 
-        // QLD_DataTable.destroy();
-
         $( // this line enforces the correct sorting class to the html table's first column's footer. 
             "#qld_table_html tfoot tr th:first-child"
         ).addClass("sorting_1");
