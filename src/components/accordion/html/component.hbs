@@ -12,7 +12,7 @@
     <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
         {{#ifCond metadata.toggle_all.value '==' 'yes'}}
         <div class="qld__accordion__toggle">
-            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed">Open all</button>
+            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button">Open all</button>
         </div>
         {{/ifCond}}
         <ul class="qld__accordion-list">
@@ -20,7 +20,7 @@
                 {{#ifCond this.content '!=' ''}}
                 <li>
                     <section class="qld__accordion">
-                        <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" >
+                        <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
                             {{this.title}}
                         </button>
             

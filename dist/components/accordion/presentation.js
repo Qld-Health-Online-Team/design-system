@@ -60,7 +60,7 @@
   return "accordion-"
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":12,"column":145},"end":{"line":12,"column":156}}}) : helper)));
 },"10":function(container,depth0,helpers,partials,data) {
-    return "        <div class=\"qld__accordion__toggle\">\n            <button class=\"qld__accordion__toggle-btn qld__accordion__toggle-btn--closed\">Open all</button>\n        </div>\n";
+    return "        <div class=\"qld__accordion__toggle\">\n            <button class=\"qld__accordion__toggle-btn qld__accordion__toggle-btn--closed\" type=\"button\">Open all</button>\n        </div>\n";
 },"12":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -82,7 +82,7 @@
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"assetid") : depths[1]), depth0))
     + "-"
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"fieldid") : depth0), depth0))
-    + "\" aria-expanded=\"false\" >\n                            "
+    + "\" aria-expanded=\"false\" type=\"button\">\n                            "
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"title") : depth0), depth0))
     + "\n                        </button>\n            \n                        <div class=\"qld__accordion__body qld__accordion--closed\" id=\"accordion-group-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"assetid") : depths[1]), depth0))

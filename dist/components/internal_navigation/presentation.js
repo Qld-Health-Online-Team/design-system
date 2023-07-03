@@ -158,7 +158,7 @@
     + "\n    </button>\n    <nav aria-label=\"side navigation\" id=\"nav-default\" class=\"qld__side-nav__content qld__accordion--closed qld__accordion__body\"> \n        <h2 class=\"qld__sidenav__title\">\n            <a class=\"qld__sidenav__link\" href=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_url") : stack1), depth0))
     + "\">"
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_name") : stack1), depth0))
+    + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_name") : stack1), depth0)) != null ? stack1 : "")
     + "</a>\n        </h2>\n        <ul class=\"qld__link-list\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"children") : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":10,"column":8},"end":{"line":54,"column":17}}})) != null ? stack1 : "")
     + "        </ul>\n    </nav>\n</div>";
