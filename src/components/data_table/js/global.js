@@ -24,18 +24,19 @@
 
         if (tableLines?.length > 0) {
             tableColumnHeads = tableLines.shift().split(","); //whatever is the first element is the header.
-            if (tableLines?.length > 0) {
-                //If anything left then goes to the footer.
-                tableFooterData = tableLines.pop().split(",");
-                if (tableLines?.length > 0 && !tableFooterData[0]) {
-                    tableFooterData = tableLines.pop().split(",");
-                }
-            }
+            // if (tableLines?.length > 0) { //This allows us to have a separate footer to the header. 
+            //     //If anything left then goes to the footer.
+            //     tableFooterData = tableLines.pop().split(",");
+            //     if (tableLines?.length > 0 && !tableFooterData[0]) {
+            //         tableFooterData = tableLines.pop().split(",");
+            //     }
+            // }
         }
 
         return {
             header: tableColumnHeads,
-            footer: tableFooterData,
+            // footer: tableFooterData,
+            footer: tableColumnHeads
         };
     }
 
