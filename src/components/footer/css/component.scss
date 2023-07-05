@@ -56,7 +56,7 @@
     & &__heading { // double & & to increase specificity because of clash
         color: var(--QLD-color-light-heading);
         @include QLD-fontgrid(sm, heading);
-        font-weight: 600;
+        font-weight: 700;
 
         @include QLD-media(md) {
             @include QLD-fontgrid(md, heading);
@@ -116,7 +116,7 @@
         }
         &:last-of-type{
             border-top: 1px solid var(--QLD-color-light-alt-border);
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.5unit);
             @include QLD-media(lg) {
                 border-top: none;
                 @include QLD-space(margin-top, 0unit);
@@ -331,9 +331,6 @@
             }
         }
     }
-    // a.qld__footer__clickable__link{
-    //     @include QLD-underline('light');
-    // }
     
     &.qld__footer--dark,
     &.qld__footer--dark-alt{
@@ -341,10 +338,9 @@
         background-color: var(--QLD-color-dark-background);
         color: var(--QLD-color-dark-text);
 
-        // a {
-        //     @include QLD-underline('dark');
-        //     // color: var(--QLD-color-dark-link);
-        // }
+        a {
+            color: var(--QLD-color-dark-link);
+        }
 
         .qld__footer__heading{
             color: var(--QLD-color-dark-heading);
@@ -379,13 +375,13 @@
             color: var(--QLD-color-dark-alt-button);
         }
 
-        // a.qld__footer__clickable__link{
-        //     // color: var(--QLD-color-dark-link);
-        //     &:focus{
-        //         outline: 3px solid var(--QLD-color-dark-focus);
-		// 		outline-offset: 2px;
-        //     }
-        // }
+        a.qld__footer__clickable__link{
+            color: var(--QLD-color-dark-link);
+            &:focus{
+                outline: 3px solid var(--QLD-color-dark-focus);
+				outline-offset: 2px;
+            }
+        }
 
         .qld__footer__logo {
             &:focus{
@@ -459,6 +455,7 @@
 
     // Print styles
     @media print {
+        display: none;
         color: #000 !important;
         background: #fff !important;
         border-color: #000 !important;
