@@ -53,10 +53,11 @@
 
         return [...returnArray];
     }
-
     function dataTableCsv() {
-        const csvFileURL = document.getElementById("qld_data-table_csv").getAttribute('data-csv-source');
-
+        const csvTable = document.getElementById("qld_data-table_csv");
+        csvTable.style.display = "table";
+        const csvFileURL = csvTable.getAttribute('data-csv-source');
+        
         readCSVFile(csvFileURL, (err, tableLines) => {
             if (err) {
                 console.log("Error: ", err);
@@ -235,7 +236,7 @@
     }
 
     function dataTableHtml() {
-
+        const htmlTable = document.getElementById("qld_data-table_html").style.display = "block";
         const tableElement = $("#qld_data-table_html table");
 
         const QLD_DataTable = tableElement.DataTable({
