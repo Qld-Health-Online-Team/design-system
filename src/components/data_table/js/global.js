@@ -1,6 +1,13 @@
 (function () {
     "use strict";
 
+    /**
+     * @module dataTable
+     */
+
+    var dataTable = {};
+
+
     function readCSVFile(url, callback) {
         fetch(url)
             .then((response) => {
@@ -383,11 +390,16 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
+    
+    dataTable.init = function () {
         if ($(".qld__data-table").hasClass("qld__data-table--csv")) {
             dataTableCsv();
         } else if ($(".qld__data-table").hasClass("qld__data-table--html")) {
             dataTableHtml();
         }
-    });
+    }
+
+    QLD.dataTable = dataTable;
+
+    document.addEventListener("DOMContentLoaded", QLD.dataTable.init);
 })();
