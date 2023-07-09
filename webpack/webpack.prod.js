@@ -1,7 +1,6 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrecompilePlugin = require('./PrecompilePlugin');
 const JsonMergePlugin = require('./JsonMergePlugin');
@@ -50,7 +49,6 @@ module.exports = env => {
                 filename: "[name].css",
                 chunkFilename: "[name].css",
             }),
-            new CleanWebpackPlugin(['dist'], {}),
             new PrecompilePlugin({
                 'input': './src/components/**/**/*.hbs',
                 'manifest':'./src/components/**/js/manifest.json',

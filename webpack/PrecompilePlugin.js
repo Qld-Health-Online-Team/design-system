@@ -53,7 +53,7 @@ class PrecompilePlugin {
 
       fs.writeFileSync(`./dist/js/helpers.js`, hbsHelpersFile);
 
-      compiler.plugin('done', (stats) => {
+      compiler.hooks.done.tap('PrecompilePlugin', (stats) => {
 
         // For each HBS template compile a Presentation and a static Version of the template;
 
