@@ -8,7 +8,7 @@
 
   return "<section class=\"qld__body "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"body_background") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"qld__data-table  "
+    + "\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"qld__data-table "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_data_source") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\r\n            <div class=\"qld__data-table__header\">\r\n                <span class=\"qld__display-sm\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
