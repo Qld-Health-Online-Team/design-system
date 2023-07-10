@@ -65,7 +65,7 @@
         const csvTable = document.getElementById("qld_data-table_csv");
         csvTable.style.display = "table";
         const csvFileURL = csvTable.getAttribute('data-csv-source');
-        
+
         readCSVFile(csvFileURL, (err, tableLines) => {
             if (err) {
                 console.log("Error: ", err);
@@ -368,7 +368,7 @@
                 );
                 $("li.previous").addClass("prev"); //adding the appropriate class
 
-                
+
 
             },
         });
@@ -390,16 +390,35 @@
         });
     }
 
-    
+
     dataTable.init = function () {
-        if ($(".qld__data-table").hasClass("qld__data-table--csv")) {
+
+        var tableClass = ''
+
+        var tableDiv = $(".qld__data-table");      
+
+        if (tableDiv.hasClass("qld__data-table--csv")) {
             dataTableCsv();
-        } else if ($(".qld__data-table").hasClass("qld__data-table--html")) {
+            tableClass = "qld__data-table--csv";
+        } else if (tableDiv.hasClass("qld__data-table--html")) {
             dataTableHtml();
+            tableClass = "qld__data-table--html";
         }
+
+        setInterval(function(){ // This function is to provide preview by reloading the table if the user changes the value of the 
+            //table_data_source 
+            if ($(".qld__data-table").hasClass("qld__data-table--csv") && tableClass != "qld__data-table--csv") {
+                dataTableCsv();
+                tableClass = "qld__data-table--csv";
+            } else if ($(".qld__data-table").hasClass("qld__data-table--html") && tableClass != "qld__data-table--html") {
+                dataTableHtml();
+                tableClass = "qld__data-table--html";
+            }
+        }, 500)
     }
 
     QLD.dataTable = dataTable;
 
     document.addEventListener("DOMContentLoaded", QLD.dataTable.init);
+
 })();
