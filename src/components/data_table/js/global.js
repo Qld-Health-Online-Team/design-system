@@ -7,7 +7,6 @@
 
     var dataTable = {};
 
-
     function readCSVFile(url, callback) {
         fetch(url)
             .then((response) => {
@@ -61,6 +60,7 @@
 
         return [...returnArray];
     }
+
     function dataTableCsv() {
         const csvTable = document.getElementById("qld_data-table_csv");
         csvTable.style.display = "table";
@@ -83,12 +83,12 @@
             });
 
             let footerHasContent = false;
-            let tableFooter = tableFooterData.map((f, i) => {
-                footerHasContent = footerHasContent || f.trim().length > 0;
-                return i == 0
-                    ? `<th class="sorting_1">${f}</th>`
-                    : `<th>${f}</th>`;
-            });
+            // let tableFooter = tableFooterData.map((f, i) => {
+            //     footerHasContent = footerHasContent || f.trim().length > 0;
+            //     return i == 0
+            //         ? `<th class="sorting_1">${f}</th>`
+            //         : `<th>${f}</th>`;
+            // });
 
             const QLD_DataTable = $("#qld_data-table_csv").DataTable({
                 data: tableData ? tableData : [],
@@ -390,31 +390,36 @@
         });
     }
 
-
     dataTable.init = function () {
+        
 
-        var tableClass = ''
+        var tableDiv = document.querySelector(".qld__data-table");
 
-        var tableDiv = $(".qld__data-table");      
+        var observer = new MutationObserver(function(mutationsList) {
+            for (var mutation of mutationsList) {
+                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                    triggerFunctionBasedOnClass();
+                    break;
+                }
+            }
+        });
 
-        if (tableDiv.hasClass("qld__data-table--csv")) {
-            dataTableCsv();
-            tableClass = "qld__data-table--csv";
-        } else if (tableDiv.hasClass("qld__data-table--html")) {
-            dataTableHtml();
-            tableClass = "qld__data-table--html";
+        var config = { attributes: true };
+
+        observer.observe(tableDiv, config);
+
+        function triggerFunctionBasedOnClass() {
+            var tableDiv = $(".qld__data-table");
+
+            if (tableDiv.hasClass("qld__data-table--csv")) {
+                dataTableCsv();
+            } else if (tableDiv.hasClass("qld__data-table--html")) {
+                dataTableHtml();
+            }
         }
 
-        setInterval(function(){ // This function is to provide preview by reloading the table if the user changes the value of the 
-            //table_data_source 
-            if ($(".qld__data-table").hasClass("qld__data-table--csv") && tableClass != "qld__data-table--csv") {
-                dataTableCsv();
-                tableClass = "qld__data-table--csv";
-            } else if ($(".qld__data-table").hasClass("qld__data-table--html") && tableClass != "qld__data-table--html") {
-                dataTableHtml();
-                tableClass = "qld__data-table--html";
-            }
-        }, 500)
+        triggerFunctionBasedOnClass();
+        
     }
 
     QLD.dataTable = dataTable;
