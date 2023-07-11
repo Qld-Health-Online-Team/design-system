@@ -390,35 +390,44 @@
         });
     }
 
+    function triggerFunctionBasedOnClass() {
+        var tableDiv = $(".qld__data-table");
+
+        if (tableDiv.hasClass("qld__data-table--csv")) {
+            dataTableCsv();
+        } else if (tableDiv.hasClass("qld__data-table--html")) {
+            dataTableHtml();
+        }
+    }
+
+    var observer = new MutationObserver(function(mutationsList) {
+        for (var mutation of mutationsList) {
+            if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                triggerFunctionBasedOnClass();
+                break;
+            }
+        }
+    });
+
     dataTable.init = function () {
-        
 
         var tableDiv = document.querySelector(".qld__data-table");
 
-        var observer = new MutationObserver(function(mutationsList) {
-            for (var mutation of mutationsList) {
-                if (mutation.type === "attributes" && mutation.attributeName === "class") {
-                    triggerFunctionBasedOnClass();
-                    break;
-                }
-            }
-        });
+
 
         var config = { attributes: true };
 
         observer.observe(tableDiv, config);
 
-        function triggerFunctionBasedOnClass() {
-            var tableDiv = $(".qld__data-table");
 
-            if (tableDiv.hasClass("qld__data-table--csv")) {
-                dataTableCsv();
-            } else if (tableDiv.hasClass("qld__data-table--html")) {
-                dataTableHtml();
-            }
-        }
 
         triggerFunctionBasedOnClass();
+
+        // if (tableDiv.hasClass("qld__data-table--csv")) {
+        //     dataTableCsv();
+        // } else if (tableDiv.hasClass("qld__data-table--html")) {
+        //     dataTableHtml();
+        // }
         
     }
 
