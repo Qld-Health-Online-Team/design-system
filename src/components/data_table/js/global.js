@@ -409,13 +409,15 @@
         }
     });
 
+    var config = { attributes: true };
+
+    observer.observe(document.querySelector(".qld__data-table"), config);
+
     dataTable.init = function () {
 
         var tableDiv = document.querySelector(".qld__data-table");
 
-
-
-        var config = { attributes: true };
+        
 
         observer.observe(tableDiv, config);
 
