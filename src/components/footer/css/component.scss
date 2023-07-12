@@ -21,15 +21,6 @@
         @include QLD-space(margin-top, 1unit);
         @include QLD-space(margin-top, 0unit);
         margin-bottom: 0;
-
-        &.qld__footer__copyrightMessage, &.qld__footer__acknowledgements {
-            @include QLD-space(margin-top, 1unit);
-            font-size: 0.875rem;
-        }
-
-        &.qld__footer__cta-content {
-            font-size: 1rem;
-        }
     }
 
     .qld__btn{
@@ -45,7 +36,7 @@
     & &__heading { // double & & to increase specificity because of clash
         color: var(--QLD-color-light-heading);
         @include QLD-fontgrid(sm, heading);
-        font-weight: 600;
+        font-weight: 700;
 
         @include QLD-media(md) {
             @include QLD-fontgrid(md, heading);
@@ -105,7 +96,7 @@
         }
         &:last-of-type{
             border-top: 1px solid var(--QLD-color-light-alt-border);
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.5unit);
             @include QLD-media(lg) {
                 border-top: none;
                 @include QLD-space(margin-top, 0unit);
@@ -191,7 +182,7 @@
                 }
                 a {
                     display: inline-block;
-                    font-size: 1rem;
+                    font-size: 0.875rem;
                     line-height: 1rem;
                     font-weight: 400;
 
@@ -312,9 +303,6 @@
             }
         }
     }
-    // a.qld__footer__clickable__link{
-    //     @include QLD-underline('light');
-    // }
     
     &.qld__footer--dark,
     &.qld__footer--dark-alt{
@@ -322,10 +310,9 @@
         background-color: var(--QLD-color-dark-background);
         color: var(--QLD-color-dark-text);
 
-        // a {
-        //     @include QLD-underline('dark');
-        //     // color: var(--QLD-color-dark-link);
-        // }
+        a {
+            color: var(--QLD-color-dark-link);
+        }
 
         .qld__footer__heading{
             color: var(--QLD-color-dark-heading);
@@ -360,13 +347,13 @@
             color: var(--QLD-color-dark-alt-button);
         }
 
-        // a.qld__footer__clickable__link{
-        //     // color: var(--QLD-color-dark-link);
-        //     &:focus{
-        //         outline: 3px solid var(--QLD-color-dark-focus);
-		// 		outline-offset: 2px;
-        //     }
-        // }
+        a.qld__footer__clickable__link{
+            color: var(--QLD-color-dark-link);
+            &:focus{
+                outline: 3px solid var(--QLD-color-dark-focus);
+				outline-offset: 2px;
+            }
+        }
 
         .qld__footer__logo {
             &:focus{
@@ -432,6 +419,7 @@
 
     // Print styles
     @media print {
+        display: none !important;
         color: #000 !important;
         background: #fff !important;
         border-color: #000 !important;
