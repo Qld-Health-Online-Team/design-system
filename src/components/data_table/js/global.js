@@ -400,27 +400,9 @@
         }
     }
 
-    var observer = new MutationObserver(function(mutationsList) {
-        for (var mutation of mutationsList) {
-            if (mutation.type === "attributes" && mutation.attributeName === "class") {
-                triggerFunctionBasedOnClass();
-                break;
-            }
-        }
-    });
-
-    var config = { attributes: true };
-
-    observer.observe(document.querySelector(".qld__data-table"), config);
-
     dataTable.init = function () {
 
         var tableDiv = document.querySelector(".qld__data-table");
-
-        
-
-        observer.observe(tableDiv, config);
-
 
 
         triggerFunctionBasedOnClass();
