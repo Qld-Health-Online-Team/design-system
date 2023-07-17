@@ -16,7 +16,7 @@
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_caption") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\r\n                </span>\r\n            </div>\r\n            <div id=\"qld_data-table_html\" class=\"qld__data-table-content\" aria-describedby=\"\" style=\"display: none\">\r\n                "
     + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_in_html") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\r\n            </div>\r\n            <table id=\"qld_data-table_csv\" class=\"qld__data-table-content\" aria-describedby=\"\" data-csv-source=\""
+    + "\r\n            </div>\r\n            <table id=\"qld_data-table_csv\" class=\"qld__data-table-content\" aria-describedby=\"\" data-csv-source=\"./?a="
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_data_csv") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" style=\"display: none\">\r\n            </table>\r\n        </div>\r\n    </div>\r\n</section>\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
