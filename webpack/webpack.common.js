@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
@@ -18,7 +19,8 @@ function generateHtmlPlugins(templateDir) {
         const parts = item.split('.')
         const name = parts[0]
         const extension = parts[1]
-            // Create new HTMLWebpackPlugin with options
+
+        // Create new HTMLWebpackPlugin with options
         return new HtmlWebPackPlugin({
             'filename': `${name}.html`,
             'template': path.resolve(__dirname, `${templateDir}/${name}.${extension}`)
@@ -74,17 +76,9 @@ module.exports = {
                     options: {
                         minimize: false,
                         sources:false,
-                        interpolate: true // allow HTML snippets with commonJs require tags
+                        interpolate: true, // allow HTML snippets with commonJs require tags
                     }
                 }]
-            },
-            { // JavaScript and JSX only (no JSON)
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                use: [
-                    "babel-loader",
-                    "eslint-loader"
-                ]
             },
             { // Images
                 test: /\.(png|svg|jpg|gif|ico)$/,
@@ -123,7 +117,7 @@ module.exports = {
             }
         ]
     },
-    plugins: htmlPlugins.concat(reloadHtml),
+    plugins: htmlPlugins.concat(reloadHtml, new ESLintPlugin),
     optimization: {
         minimize: false,
         runtimeChunk: 'single'

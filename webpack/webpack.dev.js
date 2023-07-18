@@ -4,9 +4,14 @@ const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'eval-cheap-source-map',
     devServer: {
-        static: path.join(__dirname, '../dist'),
+        static: {
+            directory: path.join(__dirname, '../dist'),
+        },
+        client: {
+            overlay: false,
+        },
         hot: true,
         host: '0.0.0.0',
         port: 8080,
