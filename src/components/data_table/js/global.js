@@ -122,10 +122,7 @@
                     sLengthMenu: "<span>Items per page</span> _MENU_",
                     sLoadingRecords: "Loading...",
                     sProcessing: "",
-                    sSearch: `<div class=""><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
-                    <div class="qld__search__btn">
-
-                    </div></div>`,
+                    sSearch: `<input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value=""></input>`,
                     sSearchPlaceholder: "Search this table",
                     sUrl: "",
                     sZeroRecords: "No matching records found",
@@ -239,8 +236,7 @@
                 sLengthMenu: "<span>Items per page</span> _MENU_",
                 sLoadingRecords: "Loading...",
                 sProcessing: "",
-                sSearch: `<div class=""><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
-                            </div>`,
+                sSearch: `<input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value=""></input>`,
                 sSearchPlaceholder: "Search this table",
                 sUrl: "",
                 sZeroRecords: "No matching records found",
