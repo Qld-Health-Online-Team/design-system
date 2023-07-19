@@ -57,7 +57,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
-    &__header { //header can go after merging with tables.
+    & &__header { //header can go after merging with tables.
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -68,19 +68,14 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         color: var(--QLD-color-dark-system-underline);
         box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
 
-        .qld__caption{
+        span.qld__caption{
             font-style: normal;
             color: var(--QLD-color-light-text__muted);
             font-size: 14px;
             font-size: 0.87rem;
             line-height: 1.4;
             font-weight: 400;
-
-            span {
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 20px;
-            }
+            margin-top: 0;
         }
     }
 
@@ -103,7 +98,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 background-size: 1rem auto;
                 box-sizing: border-box;
                 color: var(--QLD-color-light-link);
-
+                
                 &:hover,
                 &:focus {
                     text-decoration: underline;
@@ -120,7 +115,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light-alt-border);
     
                 font-weight: bold;
-                @include QLD-fontgrid(md, heading);
+                @include QLD-fontgrid(sm, heading);
     
                 &.qld__data-table__cell--numeric {
                     text-align: right;
