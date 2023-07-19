@@ -97,7 +97,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
             th {
     
-                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
                 background-repeat: no-repeat;
                 background-position: right 11px center;
                 background-size: 1rem auto;
@@ -171,7 +171,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 }
     
                 &.sorting_desc { //needs to stayl
-                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
+                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
                 }
     
                 &.sorting_asc { //needs to stayl
@@ -356,12 +356,6 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         appearance: none;
     }
 
-    input[type=search] { //needs to stay
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: none;
-    }
-
     .top,
     .bottom { //needs to stay
         display: flex;
@@ -474,7 +468,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             }
             
             &.sorting_desc { //needs to stayl
-                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
             }
 
             &.sorting_asc { //needs to stayl
@@ -484,7 +478,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         thead>tr>th {              
 
-            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
 
 
             &:hover,

@@ -122,11 +122,9 @@
                     sLengthMenu: "<span>Items per page</span> _MENU_",
                     sLoadingRecords: "Loading...",
                     sProcessing: "",
-                    sSearch: `<div class="qld__search__inner"><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
+                    sSearch: `<div class=""><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
                     <div class="qld__search__btn">
-                        <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                            <span style="display:block" class="qld__btn__icon"></span>
-                        </button>
+
                     </div></div>`,
                     sSearchPlaceholder: "Search this table",
                     sUrl: "",
@@ -241,12 +239,8 @@
                 sLengthMenu: "<span>Items per page</span> _MENU_",
                 sLoadingRecords: "Loading...",
                 sProcessing: "",
-                sSearch: `<div class="qld__search__inner"><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
-                    <div class="qld__search__btn">
-                        <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                            <span style="display:block" class="qld__btn__icon"></span>
-                        </button>
-                    </div></div>`,
+                sSearch: `<div class=""><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
+                            </div>`,
                 sSearchPlaceholder: "Search this table",
                 sUrl: "",
                 sZeroRecords: "No matching records found",
