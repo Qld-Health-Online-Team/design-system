@@ -26,7 +26,7 @@ module.exports = function(items, options) {
 
     for(var i = 0; i < letters.length; i++) {
 
-        html += '<li class="qld__services_a-z__options__item"><a class="qld__services_a-z__options__item__link" href="#' + letters[i] + '">' + letters[i] + '</a></li>';
+        html += '<li class="qld__a-z_listing__options__item"><a class="qld__a-z_listing__options__item__link" href="#' + letters[i] + '">' + letters[i] + '</a></li>';
 
     }
 

@@ -1,16 +1,16 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// A-Z Listing
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__services_a-z {
+.qld__a-z_listing {
 	
-    .qld__services_a-z__header {
+    .qld__a-z_listing__header {
 
         @include QLD-media(lg) {
             max-width: 60%;
         }
 
-        .qld__services_a-z__header__intro {
+        .qld__a-z_listing__header__intro {
             font-size: pxToRem(16); 
             line-height: pxToRem(24);
 
@@ -21,14 +21,14 @@
         }
     }
 
-    .qld__services_a-z__options {
+    .qld__a-z_listing__options {
         @include sq-list-reset;
         display: flex;
         flex-direction: row;
         flex-flow: row wrap;
         @include QLD-space(margin, 32px 0);
 
-        .qld__services_a-z__options__item {
+        .qld__a-z_listing__options__item {
             @include QLD-space(margin, 0 12px 12px 0);
 
             a {
@@ -59,12 +59,12 @@
         }
     }
 
-    .qld__services_a-z__list {
+    .qld__a-z_listing__list {
         @include sq-list-reset;
         display: flex;
         flex-direction: column;
 
-        .qld__services_a-z__list__item__header {
+        .qld__a-z_listing__list__item__header {
             font-size: pxToRem(50);
             @include QLD-space(margin, 24px 0 24px);
             text-transform: uppercase;
@@ -96,7 +96,7 @@
             }
         }
 
-        .qld__services_a-z__list__item__services {
+        .qld__a-z_listing__list__item__services {
             list-style: none;
             padding: 0;
             flex-direction: column;
@@ -111,10 +111,10 @@
             }
 
 
-            .qld__services_a-z__list__item__services__item {
+            .qld__a-z_listing__list__item__services__item {
                 
 
-                .qld__services_a-z__list__item__services__item__link {
+                .qld__a-z_listing__list__item__services__item__link {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -139,6 +139,6 @@
     }
 }
 
-.qld__body .qld__services_a-z ul {
+.qld__body .qld__a-z_listing ul {
     max-width: none;
 }
