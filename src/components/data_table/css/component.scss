@@ -47,14 +47,9 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         cursor: pointer;
     }
 
-    .dataTables_filter { // Data table plugin adds extra input.
-        label {
-            input {
-                &:last-child {
-                    // display: none;
-                }
-            }
-        }
+    //this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables. 
+    #qld__header__search-query {
+        display: none;
     }
 
     & &__header { //header can go after merging with tables.
