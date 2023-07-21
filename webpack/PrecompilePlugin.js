@@ -51,7 +51,7 @@ class PrecompilePlugin {
         fs.mkdirSync(jsDir, {recursive: true});
       }
 
-      fs.writeFileSync(`./dist/js/helpers.js`, hbsHelpersFile);
+      fs.writeFileSync('./dist/js/helpers.js', hbsHelpersFile);
 
       compiler.hooks.done.tap('PrecompilePlugin', (stats) => {
 

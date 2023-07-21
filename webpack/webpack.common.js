@@ -3,6 +3,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // Our function that generates our html plugins
@@ -53,6 +54,25 @@ function reloadHtml() {
     return plugin;
 }
 
+const copyWebPack = new CopyWebpackPlugin({
+    patterns: [
+        {
+            from: path.resolve(__dirname, '../src/externals'),
+            to: 'externals',
+            globOptions: {
+                ignore: ['__What is this folder for']
+            }
+        },
+        {
+            from: path.resolve(__dirname, '../src/assets'),
+            to: 'mysource_files',
+            globOptions: {
+                ignore: ['__What is this folder for']
+            }
+        }
+    ],
+});
+
 module.exports = {
     entry: {
         main: ['./src/index.js'].concat(js_files)
@@ -60,7 +80,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'), // Output folder
         filename: 'js/[name].js', // JS output path
-        clean: true
     },
     resolve: {
         alias: {
@@ -117,7 +136,7 @@ module.exports = {
             }
         ]
     },
-    plugins: htmlPlugins.concat(reloadHtml, new ESLintPlugin),
+    plugins: htmlPlugins.concat(reloadHtml).concat(copyWebPack).concat(new ESLintPlugin),
     optimization: {
         minimize: false,
         runtimeChunk: 'single'

@@ -4,17 +4,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrecompilePlugin = require('./PrecompilePlugin');
 const JsonMergePlugin = require('./JsonMergePlugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = env => {
-
-    // Environment variables from script command
-    const env_minify = env.minify;
-    let minimize = false;
-
-    // Conditional minification
-    if (env_minify === 'true') {
-        minimize = true;
-    }
 
     return merge(common, {
         mode: 'production',
@@ -61,7 +53,12 @@ module.exports = env => {
             })
         ],
         optimization: {
-            minimize: minimize,
+            minimize: true,
+            minimizer: [
+                new TerserPlugin({
+                    extractComments: false
+                }),
+            ]
         }
     });
 
