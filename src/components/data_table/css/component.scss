@@ -403,6 +403,18 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
+    &.qld__table--striped {
+
+        .qld__table__body,
+        tbody {
+
+            .qld__table__row:nth-last-child(odd),
+            tr:nth-last-child(odd) {
+                background-color: var(--QLD-color-light-background__shade);
+            }
+        }
+    }
+
     .qld__body--dark &,
     .qld__body--dark-alt &{
 
@@ -594,6 +606,19 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         // &.qld__data-table--contained { 
             border: 1px solid var(--QLD-color-dark-border);
         // }
+
+        &.qld__table--striped {
+
+            .qld__table__body,
+            tbody {
+
+                .qld__table__row:nth-last-child(odd),
+                tr:nth-last-child(odd) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+    
+        }
     }
 
 
