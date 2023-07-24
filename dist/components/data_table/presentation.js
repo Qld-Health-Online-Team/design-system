@@ -12,7 +12,7 @@
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_data_source") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_styling") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\r\n            <div class=\"qld__data-table__header\">\r\n                <span class=\"qld__display-sm\">"
+    + "\">\r\n            <div class=\"qld__data-table__header\">\r\n                <span class=\"qld__display-md\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "</span>\r\n                <span class=\"qld__caption\">\r\n                    "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_caption") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
