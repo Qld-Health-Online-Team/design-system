@@ -698,26 +698,6 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     
         }
 
-        
-        &.qld__table--striped {
-
-            .qld__data-table__cell,
-            td {
-                &.sorting_1 { //needs to stayl
-                    filter: brightness(95%);
-                }
-            }
-
-            .qld__data-table__header,
-            th {
-                &.sorting_asc,
-                &.sorting_desc { //needs to stayl
-                    filter: brightness(95%);
-                }
-
-            }
-    
-        }
     }
 
 
@@ -787,6 +767,26 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             border: 2px solid var(--QLD-color-dark-border);
             background-color: var(--QLD-color-dark-alt-background);
             background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDownDark}");
+        }
+
+    }
+
+    &.qld__table--striped {
+
+        .qld__data-table__cell,
+        td {
+            &.sorting_1 { //needs to stayl
+                filter: brightness(95%);
+            }
+        }
+
+        .qld__data-table__header,
+        th {
+            &.sorting_asc,
+            &.sorting_desc { //needs to stayl
+                filter: brightness(95%);
+            }
+
         }
 
     }
