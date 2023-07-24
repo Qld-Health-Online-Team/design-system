@@ -28,6 +28,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
     }
 
+    tbody {
+        th, td {
+            padding: 0.75rem;
+        }
+    }
+
     &.no-footer {
         border-bottom: none;
     }
@@ -47,15 +53,85 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         cursor: pointer;
     }
 
-    //this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables. 
+    //start* this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables. 
     #qld__header__search-query {
         display: none;
     }
 
-    & .dataTables_paginate > .qld__search-pagination__list {
-        display: flex;
-        justify-content: flex-end;
+    .dataTables_filter {
+        max-width: 360px;
+        flex: 40%;
+
+        label {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            input {
+                height: 3rem;
+                flex: 1;
+            }
+
+            input:not(#qld__data-table__search-field) {
+                display: none;
+            }
+        }
+
     }
+
+    //end*
+
+    & .bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 12px;
+        align-items: center;
+        gap: 16px;
+        
+
+
+        @include QLD-media(sm) {
+            flex-direction: row;
+            
+        }        
+
+        .dataTables_length {
+            display: flex;
+            justify-content: flex-start;
+
+            label {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            @include QLD-media(sm) {
+                display: block;
+                max-width: 40%;   
+                label {
+                    display: block;
+                }
+            }
+        }
+
+        & .dataTables_paginate > .qld__search-pagination__list {
+    
+            display: flex;
+            justify-content: flex-start;
+            & li.disabled {
+                display: none;
+            }
+    
+            @include QLD-media(sm) {
+                justify-content: flex-end;
+    
+            }
+    
+        }
+    }
+
+
+    
 
     & &__header { //header can go after merging with tables.
         display: flex;
@@ -68,14 +144,19 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         color: var(--QLD-color-dark-system-underline);
         box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
 
-        span.qld__caption{
+        .qld__caption{
             font-style: normal;
             color: var(--QLD-color-light-text__muted);
             font-size: 14px;
             font-size: 0.87rem;
             line-height: 1.4;
             font-weight: 400;
-            margin-top: 0;
+
+            span {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+            }
         }
     }
 
@@ -98,7 +179,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 background-size: 1rem auto;
                 box-sizing: border-box;
                 color: var(--QLD-color-light-link);
-                
+
                 &:hover,
                 &:focus {
                     text-decoration: underline;
@@ -115,7 +196,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light-alt-border);
     
                 font-weight: bold;
-                @include QLD-fontgrid(sm, heading);
+                @include QLD-fontgrid(md, heading);
     
                 &.qld__data-table__cell--numeric {
                     text-align: right;
@@ -351,8 +432,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         appearance: none;
     }
 
-    .top,
-    .bottom { //needs to stay
+    .top { //needs to stay
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -393,6 +473,10 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             }
         }
 
+        .dataTables_info {
+            padding-top: 0;
+        }
+
         .bottom {
             gap: 24px;
         }
@@ -407,6 +491,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             tr:nth-last-child(odd) {
                 background-color: var(--QLD-color-light-background__shade);
             }
+            
         }
     }
 
@@ -611,6 +696,28 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 tr:nth-last-child(odd) {
                     background-color: var(--QLD-color-dark-background__shade);
                 }
+                
+            }
+    
+        }
+
+        
+        &.qld__table--striped {
+
+            .qld__data-table__cell,
+            td {
+                &.sorting_1 { //needs to stayl
+                    filter: brightness(95%);
+                }
+            }
+
+            .qld__data-table__header,
+            th {
+                &.sorting_asc,
+                &.sorting_desc { //needs to stayl
+                    filter: brightness(95%);
+                }
+
             }
     
         }
