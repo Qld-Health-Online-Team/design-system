@@ -26,7 +26,7 @@
         display: flex;
         flex-direction: row;
         flex-flow: row wrap;
-        @include QLD-space(margin, 32px 0);
+        @include QLD-space(margin, 32px 0 64px);
 
         .qld__a-z_listing__options__item {
             @include QLD-space(margin, 0 12px 12px 0);
@@ -38,22 +38,21 @@
                 line-height: 1.82;
                 text-align: center;
                 color: var(--QLD-color-light-link);
-                border: 1px solid var(--QLD-color-light-border);
+                border: 1px solid var(--QLD-color-light-alt-border);
                 @include sq-border-radius(3px);
                 text-transform: uppercase;
                 text-decoration: none;
 
                 &:not(:disabled) {
                     &:hover{
-                        border-color: var(--QLD-color-dark-alt-button);
-                        border-width: 2px;
-                        line-height: 1.72;
+                        background-color: var(--QLD-color-light-background__shade);
+                        color: var(--QLD-color-light-text__muted);
                     }
                 }
 
                 &.active, &:active, &:focus {
-                    color: var(--QLD-color-dark-text);
-                    background-color: var(--QLD-color-dark-background);
+                    color: var(--QLD-color-light-text__muted);
+                    background-color: var(--QLD-color-light-background__shade);
                 }
             }
         }
@@ -65,13 +64,13 @@
         flex-direction: column;
 
         .qld__a-z_listing__list__item__header {
-            font-size: pxToRem(50);
+            font-size: pxToRem(32);
             @include QLD-space(margin, 24px 0 24px);
             text-transform: uppercase;
-            line-height: 1.5;
+            // line-height: 1.5;
 
             @include QLD-media(md) {
-                @include QLD-space(margin, 32px 0 32px);
+                @include QLD-space(margin, 48px 0 24px);
             }
 
             &:first-of-type {
@@ -79,13 +78,15 @@
             }
 
             span {
-                display: inline-block;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
                 border: 1px solid var(--QLD-color-light-border);
                 text-align: center;
-                @include sq-border-radius(4px);
-                width: pxToRem(78);
-                height: pxToRem(78);
-                background-color: var(--QLD-color-light-alt-background);
+                @include sq-border-radius(8px);
+                width: pxToRem(64);
+                height: pxToRem(64);
+                background-color: var(--QLD-color-light-background__shade);
             }
 
             &.active {
@@ -97,12 +98,14 @@
         }
 
         .qld__a-z_listing__list__item__services {
+            border: 1px solid var(--QLD-color-light-border);
+            border-radius: pxToRem(12);
             list-style: none;
+            overflow-y: hidden;
             padding: 0;
             flex-direction: column;
 
             @include QLD-media(md) {
-                flex-direction: row;
                 @include QLD-space(margin-bottom, 4px);
 
                 &:last-of-type {
@@ -113,26 +116,26 @@
 
             .qld__a-z_listing__list__item__services__item {
                 
+                border-bottom: 1px solid var(--QLD-color-light-border);
 
                 .qld__a-z_listing__list__item__services__item__link {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    line-height: pxToRem(16);
-                    @include QLD-space(padding, 20px 0);
-                    border-top: 1px solid var(--QLD-color-light-alt-background__shade);
-
-                    svg {
-                        align-self: center;
-                        color: var(--QLD-color-light-alt-button);
-                        @include QLD-space(margin, 0 15px 0 20px);
-                    }
+                    display: inline-block;
+                    line-height: pxToRem(24);
+                    @include QLD-space(padding, 12px);
 
                     &:hover {
                         svg {
                             color: var(--QLD-color-light-alt-button__hover);
                         }
                     }
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:nth-child(2n) {
+                    background-color: var(--QLD-color-light-background__shade);
                 }
             }
         }
