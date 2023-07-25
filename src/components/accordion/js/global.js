@@ -140,19 +140,19 @@
             (function (element) {
                 QLD.animate.Toggle({
                     element: target,
-                    property: 'height',
+                    property: "height",
                     speed: speed || 250,
                     prefunction: function (target, state) {
-                        if (state === 'opening') {
-                            target.style.display = 'block';
+                        if (state === "opening") {
+                            target.style.display = "block";
 
                             // run when opening
-                            if (typeof callbacks.onOpen === 'function') {
+                            if (typeof callbacks.onOpen === "function") {
                                 callbacks.onOpen();
                             }
                         } else {
                             // run when closing
-                            if (typeof callbacks.onClose === 'function') {
+                            if (typeof callbacks.onClose === "function") {
                                 callbacks.onClose();
                             }
                         }
@@ -161,40 +161,40 @@
                         toggleClasses(element, state);
                     },
                     postfunction: function (target, state) {
-                        if (state === 'closed') {
+                        if (state === "closed") {
                             // run after closing
-                            target.style.display = '';
-                            target.style.height = '';
+                            target.style.display = "";
+                            target.style.height = "";
 
                             // GTM event
-                            if (typeof(window.dataLayer) !== 'undefined') {
+                            if (typeof window.dataLayer !== "undefined") {
                                 window.dataLayer.push({
-                                    event: 'accordion closed',
-                                    category: 'accordion',
-                                    action: 'close',
-                                    label: targetId
+                                    event: "accordion closed",
+                                    category: "accordion",
+                                    action: "close",
+                                    label: targetId,
                                 });
                             }
 
-                            if (typeof callbacks.afterClose === 'function') {
+                            if (typeof callbacks.afterClose === "function") {
                                 callbacks.afterClose();
                             }
                         } else {
                             // run after opening
-                            target.style.display = '';
-                            target.style.height = '';
+                            target.style.display = "";
+                            target.style.height = "";
 
                             // GTM event
-                            if (typeof(window.dataLayer) !== 'undefined') {
+                            if (typeof window.dataLayer !== "undefined") {
                                 window.dataLayer.push({
-                                    event: 'accordion open',
-                                    category: 'accordion',
-                                    action: 'open',
-                                    label: targetId
+                                    event: "accordion open",
+                                    category: "accordion",
+                                    action: "open",
+                                    label: targetId,
                                 });
                             }
 
-                            if (typeof callbacks.afterOpen === 'function') {
+                            if (typeof callbacks.afterOpen === "function") {
                                 callbacks.afterOpen();
                             }
                         }
@@ -234,7 +234,6 @@
                                 controller.abort();
                             }
                         }
-
                     },
                 });
             })(element);

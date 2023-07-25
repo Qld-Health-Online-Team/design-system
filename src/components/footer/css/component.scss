@@ -21,6 +21,26 @@
         @include QLD-space(margin-top, 1unit);
         @include QLD-space(margin-top, 0unit);
         margin-bottom: 0;
+
+        &.qld__footer__copyrightMessage {
+            @include QLD-space(margin-top, 1unit);
+            font-size: 0.875rem;
+        }
+
+        &.qld__footer__cta-content {
+            @include QLD-space(margin-top, 1unit);
+        }
+
+        &.qld__footer__acknowledgements {
+            @include QLD-space(margin-top, 1unit);
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &.qld__footer__cta-content, &.qld__footer__acknowledgements {
+            font-size: 1rem;
+        }
     }
 
     .qld__btn{
@@ -29,7 +49,7 @@
 
         @include QLD-media(lg) {
             float: none;
-            @include QLD-space(margin-top, 2unit);
+            @include QLD-space(margin-top, 1.5unit);
         }
     }
 
@@ -195,6 +215,13 @@
                     svg{
                         color: var(--QLD-color-light-alt-button);
                     }
+                    
+                    &:has(svg) {
+                        text-decoration: none;
+                        span {
+                            @include QLD-underline();
+                        }
+                    }
                 }
             }
         }
@@ -298,6 +325,7 @@
         }
         img.qld__footer__logo-image {
             @include QLD-space( max-height, 3unit );
+            @include QLD-space( min-height, 2.5unit );
             @include QLD-media(md) {
                 @include QLD-space( height, 2.5unit );
             }
@@ -374,8 +402,16 @@
                                 color: var(--QLD-color-dark-alt-button__hover);
                             }
                         }
+                        
                         svg{
                             color: var(--QLD-color-dark-alt-button);
+                        }
+                        
+                        &:has(svg) {
+                            text-decoration: none;
+                            span {
+                                @include QLD-underline('dark');
+                            }
                         }
                     } 
                 } 
