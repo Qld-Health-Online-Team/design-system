@@ -119,7 +119,7 @@
                     {{/ifCond}}
                     {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
                     <div class="qld__main-nav__cta-wrapper">
-                        <ul class="qld__link-list">
+                        <ul class="qld__link-list qld__link-list--flex">
                         {{#if site.metadata.mainNavCtaOne.value}}
                             <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}active{{/ifCond}}">
                                 <div class="qld__main-nav__item-title">
