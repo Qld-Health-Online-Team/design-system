@@ -7,7 +7,6 @@
 
     var dataTable = {};
 
-
     function readCSVFile(url, callback) {
         fetch(url)
             .then((response) => {
@@ -61,6 +60,7 @@
 
         return [...returnArray];
     }
+
     function dataTableCsv() {
         const csvTable = document.getElementById("qld_data-table_csv");
         csvTable.style.display = "table";
@@ -83,12 +83,12 @@
             });
 
             let footerHasContent = false;
-            let tableFooter = tableFooterData.map((f, i) => {
-                footerHasContent = footerHasContent || f.trim().length > 0;
-                return i == 0
-                    ? `<th class="sorting_1">${f}</th>`
-                    : `<th>${f}</th>`;
-            });
+            // let tableFooter = tableFooterData.map((f, i) => {
+            //     footerHasContent = footerHasContent || f.trim().length > 0;
+            //     return i == 0
+            //         ? `<th class="sorting_1">${f}</th>`
+            //         : `<th>${f}</th>`;
+            // });
 
             const QLD_DataTable = $("#qld_data-table_csv").DataTable({
                 data: tableData ? tableData : [],
@@ -112,9 +112,9 @@
                             </a>`,
                     },
                     sEmptyTable: "No data available in table",
-                    sInfo: "<span class='item-numbers'><span class='item-numbers-heading'>Showing:</span> _START_-_END_ of <span class='item-numbers-total'>_TOTAL_ entries</span></span>",
+                    sInfo: "<span class='qld__data-table-item-numbers'><span class='qld__data-table-item-numbers-heading'>Showing:</span> _START_-_END_ of <span class='qld__data-table-item-numbers-total'>_TOTAL_ entries</span></span>",
                     sInfoEmpty:
-                        "<span class='item-numbers'><span class='item-numbers-heading'>Showing:</span> 0-0 of <span class='item-numbers-total'>0 entries</span></span>",
+                        "<span class='qld__data-table-item-numbers'><span class='qld__data-table-item-numbers-heading'>Showing:</span> 0-0 of <span class='qld__data-table-item-numbers-total'>0 entries</span></span>",
                     sInfoFiltered: "(filtered from _MAX_ total entries)",
                     sInfoPostFix: "",
                     sDecimal: "",
@@ -122,13 +122,8 @@
                     sLengthMenu: "<span>Items per page</span> _MENU_",
                     sLoadingRecords: "Loading...",
                     sProcessing: "",
-                    sSearch: `<div class="qld__search__inner"><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
-                    <div class="qld__search__btn">
-                        <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                            <span style="display:block" class="qld__btn__icon"></span>
-                        </button>
-                    </div></div>`,
-                    sSearchPlaceholder: "Search this table",
+                    sSearch: `Search:<input type="search" id="qld__data-table__search-field" name="query" class="qld__text-input" autocomplete="off" value=""></input>`,
+                    sSearchPlaceholder: "",
                     sUrl: "",
                     sZeroRecords: "No matching records found",
                 },
@@ -140,46 +135,10 @@
                 ],
                 oClasses: {
                     sFilterInput: "qld__text-input",
-                    sTable: "dataTable",
-                    sNoFooter: "no-footer",
                     sPageButton: "qld__search-pagination_link ",
                     sPageButtonActive: "active",
                     sPageButtonDisabled: "disabled",
-                    sStripeOdd: "odd",
-                    sStripeEven: "even",
-                    sRowEmpty: "dataTables_empty",
-                    sWrapper: "dataTables_wrapper",
-                    sFilter: "dataTables_filter",
-                    sInfo: "dataTables_info",
-                    sPaging:
-                        "dataTables_paginate paging_ qld__search-pagination ",
-                    sLength: "dataTables_length ",
-                    sProcessing: "dataTables_processing",
-                    sSortAsc: "sorting_asc",
-                    sSortDesc: "sorting_desc",
-                    sSortable: "sorting",
-                    sSortableAsc: "sorting_desc_disabled",
-                    sSortableDesc: "sorting_asc_disabled",
-                    sSortableNone: "sorting_disabled",
-                    sSortColumn: "sorting_",
-                    sLengthSelect: "",
-                    sScrollWrapper: "dataTables_scroll",
-                    sScrollHead: "dataTables_scrollHead",
-                    sScrollHeadInner: "dataTables_scrollHeadInner",
-                    sScrollBody: "dataTables_scrollBody",
-                    sScrollFoot: "dataTables_scrollFoot",
-                    sScrollFootInner: "dataTables_scrollFootInner",
-                    sHeaderTH: "",
-                    sFooterTH: "",
-                    sSortJUIAsc: "",
-                    sSortJUIDesc: "",
-                    sSortJUI: "",
-                    sSortJUIAscAllowed: "",
-                    sSortJUIDescAllowed: "",
-                    sSortJUIWrapper: "",
-                    sSortIcon: "",
-                    sJUIHeader: "",
-                    sJUIFooter: "bottom AAAA",
+                    sPaging: "dataTables_paginate paging_ qld__search-pagination "
                 },
                 drawCallback: function (settings) {
                     var parentDiv = $("div.qld__search-pagination");
@@ -267,9 +226,9 @@
                             </a>`,
                 },
                 sEmptyTable: "No data available in table",
-                sInfo: "<span class='item-numbers'><span class='item-numbers-heading'>Showing:</span> _START_-_END_ of <span class='item-numbers-total'>_TOTAL_ entries</span></span>",
+                sInfo: "<span class='qld__data-table-item-numbers'><span class='qld__data-table-item-numbers-heading'>Showing:</span> _START_-_END_ of <span class='qld__data-table-item-numbers-total'>_TOTAL_ entries</span></span>",
                 sInfoEmpty:
-                    "<span class='item-numbers'><span class='item-numbers-heading'>Showing:</span> 0-0 of <span class='item-numbers-total'>0 entries</span></span>",
+                    "<span class='qld__data-table-item-numbers'><span class='qld__data-table-item-numbers-heading'>Showing:</span> 0-0 of <span class='qld__data-table-item-numbers-total'>0 entries</span></span>",
                 sInfoFiltered: "(filtered from _MAX_ total entries)",
                 sInfoPostFix: "",
                 sDecimal: "",
@@ -277,13 +236,8 @@
                 sLengthMenu: "<span>Items per page</span> _MENU_",
                 sLoadingRecords: "Loading...",
                 sProcessing: "",
-                sSearch: `<div class="qld__search__inner"><input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="" />
-                    <div class="qld__search__btn">
-                        <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                            <span style="display:block" class="qld__btn__icon"></span>
-                        </button>
-                    </div></div>`,
-                sSearchPlaceholder: "Search this table",
+                sSearch: `Search:<input type="search" id="qld__data-table__search-field" name="query" class="qld__text-input" autocomplete="off" value=""></input>`,
+                sSearchPlaceholder: "",
                 sUrl: "",
                 sZeroRecords: "No matching records found",
             },
@@ -295,45 +249,11 @@
             ],
             oClasses: {
                 sFilterInput: "qld__text-input",
-                sTable: "dataTable",
-                sNoFooter: "no-footer",
                 sPageButton: "qld__search-pagination_link ",
                 sPageButtonActive: "active",
                 sPageButtonDisabled: "disabled",
-                sStripeOdd: "odd",
-                sStripeEven: "even",
-                sRowEmpty: "dataTables_empty",
-                sWrapper: "dataTables_wrapper",
-                sFilter: "dataTables_filter",
-                sInfo: "dataTables_info",
                 sPaging: "dataTables_paginate paging_ qld__search-pagination ",
-                sLength: "dataTables_length ",
-                sProcessing: "dataTables_processing",
-                sSortAsc: "sorting_asc",
-                sSortDesc: "sorting_desc",
-                sSortable: "sorting",
-                sSortableAsc: "sorting_desc_disabled",
-                sSortableDesc: "sorting_asc_disabled",
-                sSortableNone: "sorting_disabled",
-                sSortColumn: "sorting_",
-                sLengthSelect: "",
-                sScrollWrapper: "dataTables_scroll",
-                sScrollHead: "dataTables_scrollHead",
-                sScrollHeadInner: "dataTables_scrollHeadInner",
-                sScrollBody: "dataTables_scrollBody",
-                sScrollFoot: "dataTables_scrollFoot",
-                sScrollFootInner: "dataTables_scrollFootInner",
-                sHeaderTH: "",
-                sFooterTH: "",
-                sSortJUIAsc: "",
-                sSortJUIDesc: "",
-                sSortJUI: "",
-                sSortJUIAscAllowed: "",
-                sSortJUIDescAllowed: "",
-                sSortJUIWrapper: "",
-                sSortIcon: "",
-                sJUIHeader: "",
-                sJUIFooter: "bottom AAAA",
+
             },
             drawCallback: function (settings) {
                 var parentDiv = $("div.qld__search-pagination");
@@ -390,31 +310,29 @@
         });
     }
 
-
-    dataTable.init = function () {
-
-        var tableClass = ''
-
-        var tableDiv = $(".qld__data-table");      
+    function triggerFunctionBasedOnClass() {
+        var tableDiv = $(".qld__data-table");
 
         if (tableDiv.hasClass("qld__data-table--csv")) {
             dataTableCsv();
-            tableClass = "qld__data-table--csv";
         } else if (tableDiv.hasClass("qld__data-table--html")) {
             dataTableHtml();
-            tableClass = "qld__data-table--html";
         }
+    }
 
-        setInterval(function(){ // This function is to provide preview by reloading the table if the user changes the value of the 
-            //table_data_source 
-            if ($(".qld__data-table").hasClass("qld__data-table--csv") && tableClass != "qld__data-table--csv") {
-                dataTableCsv();
-                tableClass = "qld__data-table--csv";
-            } else if ($(".qld__data-table").hasClass("qld__data-table--html") && tableClass != "qld__data-table--html") {
-                dataTableHtml();
-                tableClass = "qld__data-table--html";
-            }
-        }, 500)
+    dataTable.init = function () {
+
+        var tableDiv = document.querySelector(".qld__data-table");
+
+
+        triggerFunctionBasedOnClass();
+
+        // if (tableDiv.hasClass("qld__data-table--csv")) {
+        //     dataTableCsv();
+        // } else if (tableDiv.hasClass("qld__data-table--html")) {
+        //     dataTableHtml();
+        // }
+        
     }
 
     QLD.dataTable = dataTable;

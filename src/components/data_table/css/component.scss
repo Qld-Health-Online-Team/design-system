@@ -14,7 +14,7 @@ $chevronDownDark: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
 table.qld__data-table, table.dataTable { // the table needs to be used for this as an exception to strengthen the scss for .sorting
     thead {
         tr {
-            th{
+            th {
                 &,
                 &.sorting::before,
                 &.sorting::after, 
@@ -23,13 +23,30 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 &.sorting.sorting_asc::before,
                 &.sorting.sorting_asc::after {
                     content: none;
+                    font-size: 1rem;
                 }
             }
         }
     }
+
+    tbody {
+        th, td {
+            padding: 0.75rem;
+        }
+    }
+
+    tfoot {
+        th {
+            font-size: 1rem;
+        }
+    }
+
+    &.no-footer {
+        border-bottom: none;
+    }
 }
 
-.qld__data-table { // first level styles except for border and border radius need to be removed after merging with tables.
+.qld__data-table { //first level styles except for border and border radius need to be removed after merging with tables.
 
     border-collapse: collapse;
     border-spacing: 0;
@@ -43,17 +60,85 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         cursor: pointer;
     }
 
-    .dataTables_filter { // Data table plugin adds extra input.
+    //start* this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables. 
+    #qld__header__search-query {
+        display: none;
+    }
+
+    .dataTables_filter {
+        max-width: 360px;
+        flex: 40%;
+
         label {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             input {
-                &:last-child {
-                    display: none;
+                height: 3rem;
+                flex: 1;
+                margin-left: 12px;
+            }
+
+            input:not(#qld__data-table__search-field) {
+                display: none;
+            }
+        }
+
+    }
+
+    //end*
+
+    & .bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 12px;
+        align-items: center;
+        gap: 16px;
+        
+
+
+        @include QLD-media(sm) {
+            flex-direction: row;
+            
+        }        
+
+        .dataTables_length {
+            display: flex;
+            justify-content: flex-start;
+
+            label {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            @include QLD-media(sm) {
+                display: block;
+                max-width: 40%;   
+                label {
+                    display: block;
                 }
             }
         }
+
+        & .dataTables_paginate > .qld__search-pagination__list {
+    
+            display: flex;
+            justify-content: flex-start;
+            & li.disabled {
+                display: none;
+            }
+    
+            @include QLD-media(sm) {
+                justify-content: flex-end;
+    
+            }
+    
+        }
     }
 
-    &__header { //header can go after merging with tables.
+    & &__header { //header can go after merging with tables.
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -71,7 +156,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             font-size: 0.87rem;
             line-height: 1.4;
             font-weight: 400;
-
+            margin-top: 0;
             span {
                 font-weight: 400;
                 font-size: 14px;
@@ -93,7 +178,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
             th {
     
-                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
                 background-repeat: no-repeat;
                 background-position: right 11px center;
                 background-size: 1rem auto;
@@ -167,7 +252,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 }
     
                 &.sorting_desc { //needs to stayl
-                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
+                    background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
                 }
     
                 &.sorting_asc { //needs to stayl
@@ -223,7 +308,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             th {
                 box-shadow: 0 -2px 0 var(--QLD-color-light-alt-border);
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
-                &.sorting_1 { 
+                &.sorting_1 {
                     box-shadow: 0 -2px 0 var(--QLD-color-light-designAccent);
                     background-color: var(--QLD-color-light-background__shade);
                 }
@@ -259,6 +344,9 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     .qld__data-table__header {
         color: var(--QLD-color-dark-system-underline);
         box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
+        .qld__display-md {
+            font-size: 1rem;
+        }
     }
 
     &.qld__data-table__col-4-right-border tr td:nth-child(4), //needs to go after merging with tables
@@ -352,14 +440,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         appearance: none;
     }
 
-    input[type=search] { //needs to stay
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: none;
-    }
-
-    .top,
-    .bottom { //needs to stay
+    .top { //needs to stay
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -387,7 +468,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .dataTables_wrapper { //needs to stay
-        .item-numbers {
+        .qld__data-table-item-numbers {
             color: $QLD-color-system-grey-dark;
 
             &-total {
@@ -400,20 +481,46 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             }
         }
 
+        .dataTables_info {
+            padding-top: 0;
+        }
+
         .bottom {
             gap: 24px;
+        }
+    }
+
+    &.qld__table--striped {
+
+        .qld__table__body,
+        tbody {
+            .qld__table__row:nth-last-child(odd),
+            tr:nth-last-child(odd) {
+                background-color: var(--QLD-color-light-background__shade);
+            }
+            
+        }
+
+        .qld__table__row:nth-last-child(odd),
+        tr:nth-last-child(odd) {
+            .qld__data-table__cell,
+            td {
+                &.sorting_1 {
+                    background-color: rgba(black, 0.05);
+                }
+            }
         }
     }
 
     .qld__body--dark &,
     .qld__body--dark-alt &{
 
-        .qld__caption {
+        span.qld__caption {
             color: var(--QLD-color-dark-text__muted);
         }
 
         .dataTables_wrapper {
-            .item-numbers {
+            .qld__data-table-item-numbers {
                 color: var(--QLD-color-dark-text__muted);
 
 
@@ -470,7 +577,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             }
             
             &.sorting_desc { //needs to stayl
-                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
+                background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
             }
 
             &.sorting_asc { //needs to stayl
@@ -480,7 +587,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         thead>tr>th {              
 
-            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
+            background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
 
 
             &:hover,
@@ -596,6 +703,27 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         // &.qld__data-table--contained { 
             border: 1px solid var(--QLD-color-dark-border);
         // }
+
+        &.qld__table--striped {
+            .qld__table__body,
+            tbody {
+                .qld__table__row:nth-last-child(odd),
+                tr:nth-last-child(odd) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+
+                .qld__table__row:nth-last-child(odd),
+                tr:nth-last-child(odd) {
+                    .qld__data-table__cell,
+                    td {
+                        &.sorting_1{ //needs to stayl
+                            background-color: rgba(black, 0.05);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
 

@@ -2,9 +2,9 @@
 {{#with component.data.metadata}}
 <section class="qld__body {{body_background.value}}">
     <div class="container-fluid">
-        <div class="qld__data-table {{table_data_source.value}}">
+        <div class="qld__data-table {{table_data_source.value}} {{table_styling.value}}">
             <div class="qld__data-table__header">
-                <span class="qld__display-sm">{{table_title.value}}</span>
+                <span class="qld__display-md">{{table_title.value}}</span>
                 <span class="qld__caption">
                     {{table_caption.value}}
                 </span>
@@ -12,7 +12,7 @@
             <div id="qld_data-table_html" class="qld__data-table-content" aria-describedby="" style="display: none">
                 {{{table_in_html.value}}}
             </div>
-            <table id="qld_data-table_csv" class="qld__data-table-content" aria-describedby="" data-csv-source="{{table_data_csv.value}}" style="display: none">
+            <table id="qld_data-table_csv" class="qld__data-table-content" aria-describedby="" data-csv-source="./?a={{table_data_csv.value}}" style="display: none">
             </table>
         </div>
     </div>
