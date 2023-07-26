@@ -135,7 +135,7 @@ $QLD-header-md: 72px;
 
                 @include QLD-media(lg) {
                     // border-bottom-color: transparent;
-                    border-bottom: solid $QLD-border-width-extra-thick var(--QLD-color-light-background__shade);
+                    // border-bottom: solid $QLD-border-width-extra-thick var(--QLD-color-light-background__shade);
                     @include QLD-space(margin-bottom, -.5unit);
                 }
                 
@@ -220,6 +220,7 @@ $QLD-header-md: 72px;
 
             @include QLD-media(lg) {
                 border-left: none;
+                @include QLD-underline('dark','noUnderline','default','noVisited');
                 @include QLD-space(padding, .625unit .5unit .625unit .5unit);
                 @include QLD-space(line-height, 2unit);
             }
