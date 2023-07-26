@@ -113,6 +113,7 @@
             @include QLD-media(lg) {
                 display: block;
                 @include QLD-space(padding, .625unit .5unit .625unit .5unit);
+                @include QLD-underline('light','noUnderline','default','noVisited');
             }
 
             @include QLD-media(xl) {
@@ -501,6 +502,9 @@
                         border-bottom-color: var(--QLD-color-dark-alt-button__hover);
                         background-color: var(--QLD-color-dark-background__shade);
                     }
+                }
+                .qld__main-nav__item-link {
+                    @include QLD-underline('dark','noUnderline','default','noVisited');
                 }
             }
 
