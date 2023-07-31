@@ -17,49 +17,6 @@ $QLD-header-md: 72px;
     @include QLD-media(lg) {
         background-color: var(--QLD-color-light-background__shade);
         border-bottom-width: $QLD-border-width-extra-thick;
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle .qld__icon {
-            margin: 0rem 0.75rem 0rem -4px;
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link.qld__main-nav__item-home .qld__main-nav__item-icon{
-            line-height: 1;
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__menu-sub {
-            position: absolute;
-            left: -16px;
-            right: -16px;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 30%), 0px 2px 2px 2px rgba(0, 0, 0, 5%);
-            border-radius: 12px;
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link {
-            padding: 10px 8px 10px 8px;
-            line-height:32px;
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
-            padding: 10px 8px 10px 8px;
-            line-height:32px;
-        }
-
-    }
-
-    @include QLD-media(xl) {
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle .qld__icon {
-            margin: 0rem 0.75rem 0rem -4px;
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link {
-            padding: 10px 12px 10px 12px;
-            line-height:32px; 
-        }
-
-        .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
-            padding: 10px 12px 10px 12px;
-            line-height:32px; 
-        }
     }
 
     .qld__main-nav__no-desktop{
@@ -121,6 +78,10 @@ $QLD-header-md: 72px;
         & .qld__main-nav__item {
             width: 100%;
             margin: 0; 
+            a{
+                @include QLD-underline('light','noUnderline','default','noVisited');
+            }
+           
 
             @include QLD-media(lg) {
                 width: auto;
@@ -129,18 +90,20 @@ $QLD-header-md: 72px;
             }
 
             &.active .qld__main-nav__item-link {
+                
                 font-weight: bold;
                 color: var(--QLD-color-light-text);
                 border-left-color: transparent;
 
                 @include QLD-media(lg) {
                     // border-bottom-color: transparent;
-                    // border-bottom: solid $QLD-border-width-extra-thick var(--QLD-color-light-background__shade);
+                    border-bottom: solid $QLD-border-width-extra-thick var(--QLD-color-light-background__shade);
                     @include QLD-space(margin-bottom, -.5unit);
                 }
                 
                 &:hover {
                     border-color: var(--QLD-color-light-button__hover);
+                    color: var(--QLD-color-light-link);
                 }
             }
         }
@@ -160,6 +123,9 @@ $QLD-header-md: 72px;
                 .qld__main-nav__item-link{
                     color: var(--QLD-color-light-link);
                     border: none;
+                    a{
+                        @include QLD-underline('light','noUnderline','default','noVisited');
+                    }
     
                     &:hover{
                         background-color: var(--QLD-color-light-background);
@@ -220,7 +186,6 @@ $QLD-header-md: 72px;
 
             @include QLD-media(lg) {
                 border-left: none;
-                @include QLD-underline('dark','noUnderline','default','noVisited');
                 @include QLD-space(padding, .625unit .5unit .625unit .5unit);
                 @include QLD-space(line-height, 2unit);
             }
@@ -290,6 +255,7 @@ $QLD-header-md: 72px;
             svg{
                 height: 100%;
                 width: 100%;
+                vertical-align: baseline;
             }
         }
         & .qld__main-nav__item-text {
@@ -342,6 +308,7 @@ $QLD-header-md: 72px;
                 .qld__main-nav__item--cta{
                     .qld__main-nav__item-link{
                         color: var(--QLD-color-dark-link);
+                        // @include QLD-underline('dark','noUnderline');
 
                         &:hover{
                             background-color: var(--QLD-color-dark-background);
@@ -395,6 +362,9 @@ $QLD-header-md: 72px;
                 .qld__main-nav__item--cta{
                     .qld__main-nav__item-link{
                         color: var(--QLD-color-dark-link);
+                        
+                        @include QLD-underline('dark','noUnderline','default','noVisited');
+                        
 
                         &:hover{
                             background-color: var(--QLD-color-dark-alt-background);
@@ -514,7 +484,7 @@ $QLD-header-md: 72px;
     &__toggle{
         display: flex;
         flex-direction: column;
-        @include QLD-space(padding, 0.5unit 1unit);
+        @include QLD-space(padding, 0.5unit 1unit 0.25unit 1unit);
         @include QLD-fontgrid(xs, nospace);
         border: 0;
         appearance: none;
@@ -539,9 +509,11 @@ $QLD-header-md: 72px;
 
         .qld__main-nav__toggle-text{
             @include QLD-space(font-size, .625unit);
-            @include QLD-space(margin-top, .125unit);
+            @include QLD-space(margin-top, .25unit);
+            line-height: 1rem;
 
             @include QLD-media(md) {
+                @include QLD-space(margin-top, .625unit);
                 @include QLD-fontgrid(xs, nospace);
             }
 
@@ -555,14 +527,14 @@ $QLD-header-md: 72px;
         }
 
         svg{
-            @include QLD-space(height, 1.25unit);
-            @include QLD-space(width, 1.25unit);
+            @include QLD-space(height, 1unit);
+            @include QLD-space(width, 1unit);
             margin: 1px auto;
             color: var(--QLD-color-light-alt-button);
 
             @include QLD-media(md) {
-                @include QLD-space(height, 2unit);
-                @include QLD-space(width, 2unit);
+                @include QLD-space(height, 1.25unit);
+                @include QLD-space(width, 1.25unit);
                 margin: 0 auto;
             }
         }
@@ -620,15 +592,6 @@ $QLD-header-md: 72px;
             // display: flex;
             @include QLD-space(padding-bottom, 0unit);
         }
-
-        &--flex {
-            flex-wrap: wrap;
-        }
-    }
-
-    .qld__icon--md {
-        height: 16px;
-        width: 16px;
     }
 
     .qld__main-nav__cta-wrapper .qld__link-list{
@@ -650,9 +613,17 @@ $QLD-header-md: 72px;
             .qld__main-nav__item-title::before{
                 background-color: var(--QLD-color-dark-border);
             }
+            .qld__main-nav__item{
+                a{
+                    @include QLD-underline('dark','noUnderline','default','noVisited');
+                }
+            }
+
             .qld__main-nav__item-link{
                 color: var(--QLD-color-dark-link);
                 border-color: var(--QLD-color-dark-designAccent);
+
+                
 
                 &:hover{
                     background-color: var(--QLD-color-dark-background);
@@ -726,9 +697,8 @@ $QLD-header-md: 72px;
 // Print styles
 @media print {
 	.qld__main-nav {
-        // background: transparent !important;
-        // border-bottom: none !important;
-        display: none !important;
+        background: transparent !important;
+        border-bottom: none !important;
 
         a {
             color: #000 !important;
