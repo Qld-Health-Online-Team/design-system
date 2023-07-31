@@ -12,13 +12,13 @@
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_data_source") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_styling") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\r\n            <div class=\"qld__data-table__header\">\r\n                <span class=\"qld__display-md\">"
+    + "\">\n            <div class=\"qld__data-table__header\">\n                <span class=\"qld__display-md\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "</span>\n                <span class=\"qld__caption\">\n                    "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_caption") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\n                </span>\n            </div>\n            <div id=\"qld_data-table_html\" class=\"qld__data-table-content\" aria-describedby=\"\" style=\"display: none\">\n                "
     + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_in_html") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\r\n            </div>\r\n            <table id=\"qld_data-table_csv\" class=\"qld__data-table-content\" aria-describedby=\"\" data-csv-source=\"./?a="
+    + "\n            </div>\n            <table id=\"qld_data-table_csv\" class=\"qld__data-table-content\" aria-describedby=\"\" data-csv-source=\"./?a="
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"table_data_csv") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" style=\"display: none\">\n            </table>\n        </div>\n    </div>\n</section>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
