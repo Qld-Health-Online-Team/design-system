@@ -21,7 +21,7 @@
         </script>
     </head>
 
-    <body class="qld__grid qld__form-style-filled {{site.metadata.siteFormStyle.value}}">
+    <body class="qld__grid qld__form-style-outlined {{site.metadata.siteFormStyle.value}}">
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({
             "site":require('/src/data/site.json')
@@ -70,7 +70,107 @@
                                             <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label> 
                                             <div class="sq-form-question-answer"><input type="text" name="q83209:q1" value="" size="30" maxlength="300" id="q83209_q1" class="sq-form-field"></div>
                                          </div>
+                                         <div class="qld__form-style-filled sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q1">
+                                            <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label> 
+                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1" value="" size="30" maxlength="300" id="q83209_q1" class="qld__text-input"></div>
+                                         </div>
                                     </fieldset>
+                                    <hr>
+                                <fieldset>
+                                    <label class="qld__label" for="TFN">What is your tax file number (TFN)?</label>
+<span class="qld__hint-text" id="TFN-hint">Tax file numbers are 9 digits</span>
+<input type="text" class="qld__field-width--md qld__text-input qld__text-input--block qld__text-input--number" id="TFN" inputmode="numeric" name="Tax file number" aria-describedby="TFN-hint"/>
+</fieldset>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <div class="co-xs-12 col-lg-4">
+                                        <p>Required field</p><br>
+                                        
+                                        <!-- Example 1: Required field -->
+                                        <label for="text-field-id" class="qld__label">
+                                            <!-- Required field indicator using aria-required attribute -->
+                                            <abbr title="required">*</abbr>
+                                            Text-field label
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <input type="text" id="text-field-id" class="qld__text-input qld__text-input--block" aria-required="true" aria-describedby="text-field-hint">
+                                        </div>
+                                        
+                                        
+                                        <div class="co-xs-12 col-lg-4">
+                                        <p>Optional field</p><br>
+                                        
+                                        <!-- Example 2: Optional field -->
+                                        <label for="text-field-id-2" class="qld__label">
+                                            Text-field label
+                                            <!-- Optional field indicator using aria-label attribute -->
+                                            <span class="qld__label--optional"> (Optional)</span>
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint-2">Hint text</span>
+                                        <input type="text" id="text-field-id-2" class="qld__text-input qld__text-input--block" aria-describedby="text-field-hint-2">
+                                        </div>
+                                        
+                                        </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+                                        <!-- Example: Success field -->
+                                        <div class="co-xs-12 col-lg-4" >
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        
+                                        <!-- Example: Success field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+                                        <!-- Example: Success field -->
+                                        <div class="co-xs-12 col-lg-4" >
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        
+                                        <!-- Example: Success field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <!-- Example: Error field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label>
+                                            <span id="text-field-success" class="qld__input--error">Error message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+                                        
+                                        
+                                        <!-- Example: Error field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                           <label for="text-field-id" class="qld__label">Text-field label</label>
+                                           <span id="text-field-success" class="qld__input--error">Error message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+                                        
+                                        </div>
+                                        <p>Error field emphasised</p><br>
+                                        <!-- Example: Error style emphasis -->
+                                        <div class="qld__form-group qld__form-style-filled qld__form-group--invalid co-xs-12 col-lg-4">
+                                           
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--error">Error message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
                                     <hr>
                                     <fieldset>
                                         <div>
@@ -172,109 +272,12 @@
                                            </select>
                                         </div>
                                     </div>
-                                    
-                                    
-                                </div>
-                            </div>
-                            <div class="qld__body qld__body--alt">
-                                <div class="container-fluid">
-                                    <h2>Alternative</h2>
 
-                                    <fieldset>
-                                        <legend>Checkbox</legend>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="one" name="one"
-                                                 checked>
-                                          <label for="one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
-                                        <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
-                                            <div class="sq-form-question-answer">
-                                                <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
-                                                </ul>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
+                                    <hr>
+                                    <fieldset class="qld__form-style-filled">
                                         <label for="pet-select">Select</label>
 
-                                        <select id="pet-select">
+                                        <select class="qld__select qld__text-input--valid" id="pet-select">
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
                                             <option value="cat">Cat</option>
@@ -283,43 +286,150 @@
                                             <option value="spider">Spider</option>
                                             <option value="goldfish">Goldfish</option>
                                         </select>
-                                     </fieldset>
+                                    </fieldset>
 
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
+                                    <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
                                         <label class="sq-form-question-title" for="q49141_q18">Select</label> 
                                         <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
+                                           <select name="q49141:q18" id="q49141_q18" class="qld__select qld__text-input--valid" aria-invalid="false">
                                               <option value="1" selected="selected">1</option>
                                               <option value="2">2</option>
                                               <option value="3">3</option>
                                            </select>
                                         </div>
-                                     </div>
-
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
-
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
+                                    </div>
+                                    <hr>                                    
+                                    
                                 </div>
                             </div>
                             <div class="qld__body qld__body--dark">
                                 <div class="container-fluid">
-                                    <h2>Dark</h2>
+                                    <h2>Default (Light)</h2>
+                                    <fieldset>
+                                        <legend>Text field</legend>
+                                        <div>
+                                            <label for="name">Text input</label>
+                                            <input type="text" id="name" name="name" required placeholder="Placeholder text">
+                                        </div>
+                                        <hr>
+                                        <div class="sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q1">
+                                            <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label> 
+                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1" value="" size="30" maxlength="300" id="q83209_q1" class="sq-form-field"></div>
+                                         </div>
+                                         <div class="qld__form-style-filled sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q1">
+                                            <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label> 
+                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1" value="" size="30" maxlength="300" id="q83209_q1" class="qld__text-input"></div>
+                                         </div>
+                                    </fieldset>
+                                    <hr>
+                                <fieldset>
+                                    <label class="qld__label" for="TFN">What is your tax file number (TFN)?</label>
+<span class="qld__hint-text" id="TFN-hint">Tax file numbers are 9 digits</span>
+<input type="text" class="qld__field-width--md qld__text-input qld__text-input--block qld__text-input--number" id="TFN" inputmode="numeric" name="Tax file number" aria-describedby="TFN-hint"/>
+</fieldset>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <div class="co-xs-12 col-lg-4">
+                                        <p>Required field</p><br>
+                                        
+                                        <!-- Example 1: Required field -->
+                                        <label for="text-field-id" class="qld__label">
+                                            <!-- Required field indicator using aria-required attribute -->
+                                            <abbr title="required">*</abbr>
+                                            Text-field label
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <input type="text" id="text-field-id" class="qld__text-input qld__text-input--block" aria-required="true" aria-describedby="text-field-hint">
+                                        </div>
+                                        
+                                        
+                                        <div class="co-xs-12 col-lg-4">
+                                        <p>Optional field</p><br>
+                                        
+                                        <!-- Example 2: Optional field -->
+                                        <label for="text-field-id-2" class="qld__label">
+                                            Text-field label
+                                            <!-- Optional field indicator using aria-label attribute -->
+                                            <span class="qld__label--optional"> (Optional)</span>
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint-2">Hint text</span>
+                                        <input type="text" id="text-field-id-2" class="qld__text-input qld__text-input--block" aria-describedby="text-field-hint-2">
+                                        </div>
+                                        
+                                        </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+                                        <!-- Example: Success field -->
+                                        <div class="co-xs-12 col-lg-4" >
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        
+                                        <!-- Example: Success field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--success">Success message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                        </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <!-- Example: Error field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label>
+                                            <span id="text-field-success" class="qld__input--error">Error message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+                                        
+                                        
+                                        <!-- Example: Error field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                           <label for="text-field-id" class="qld__label">Text-field label</label>
+                                           <span id="text-field-success" class="qld__input--error">Error message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+                                        
+                                        </div>
+                                        <p>Error field emphasised</p><br>
+                                        <!-- Example: Error style emphasis -->
+                                        <div class="qld__form-group qld__form-style-filled qld__form-group--invalid co-xs-12 col-lg-4">
+                                           
+                                           <label for="text-field-id" class="qld__label">Text-field label</label><span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                           <span id="text-field-success" class="qld__input--error">Error message</span>
+                                           <input type="text" id="text-field-id" placeholder="placeholder text" class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+                                    <hr>
+                                    <fieldset>
+                                        <div>
+                                            <label for="story">Tell us your story:</label>
+
+                                            <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
+                                        </div>
+                                        <hr>
+                                        <div class="sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q7">
+                                            <label class="sq-form-question-title" for="q83209_q7">Text area <abbr class="sq-form-required-field" title="required">*</abbr></label> <em class="sq-form-question-note">Hint text example</em> 
+                                            <div class="sq-form-question-answer"><textarea name="q83209:q7" id="q83209_q7" cols="30" rows="5" maxlength="300" class="sq-form-field" placeholder="Placeholder text"></textarea></div>
+                                         </div>
+                                    </fieldset>
                                     
+
+                                   
+
                                     <fieldset>
                                         <legend>Checkbox</legend>
                                     
                                         <div>
-                                          <input type="checkbox" id="one" name="one"
+                                          <input type="checkbox" id="check-one" name="check-one"
                                                  checked>
-                                          <label for="one">One</label>
+                                          <label for="check-one">One</label>
                                         </div>
                                     
                                         <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
+                                          <input type="checkbox" id="check-two" name="check-two">
+                                          <label for="check-two">Two</label>
                                         </div>
                                     </fieldset>
 
@@ -335,6 +445,7 @@
                                         </fieldset>
                                     </div>
 
+
                                     <fieldset>
                                         <legend>Option / radio</legend>
                                     
@@ -364,170 +475,10 @@
                                                  <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
                                               </ul>
                                            </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <label for="pet-select">Select</label>
-
-                                        <select id="pet-select">
-                                            <option value="">--Please choose an option--</option>
-                                            <option value="dog">Dog</option>
-                                            <option value="cat">Cat</option>
-                                            <option value="hamster">Hamster</option>
-                                            <option value="parrot">Parrot</option>
-                                            <option value="spider">Spider</option>
-                                            <option value="goldfish">Goldfish</option>
-                                        </select>
-                                     </fieldset>
-
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
-                                        <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
-                                              <option value="1" selected="selected">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                           </select>
-                                        </div>
-                                     </div>
-
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
-
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
-                                </div>
-                            </div>
-                            <div class="qld__body qld__body--dark-alt">
-                                <div class="container-fluid">
-                                    <h2>Dark Alternative</h2>
-
-                                    <fieldset>
-                                        <legend>Checkbox</legend>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="one" name="one"
-                                                 checked>
-                                          <label for="one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
-                                        <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
-                                            <div class="sq-form-question-answer">
-                                                <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
-                                                </ul>
-                                            </div>
                                         </fieldset>
                                     </div>
 
                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
                                         <label for="pet-select">Select</label>
 
                                         <select id="pet-select">
@@ -539,9 +490,9 @@
                                             <option value="spider">Spider</option>
                                             <option value="goldfish">Goldfish</option>
                                         </select>
-                                     </fieldset>
+                                    </fieldset>
 
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
+                                    <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
                                         <label class="sq-form-question-title" for="q49141_q18">Select</label> 
                                         <div class="sq-form-question-answer">
                                            <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
@@ -550,16 +501,36 @@
                                               <option value="3">3</option>
                                            </select>
                                         </div>
-                                     </div>
+                                    </div>
+                                    <hr>
+                                    <fieldset class="qld__form-style-filled">
+                                        <label for="pet-select">Select</label>
+                                        <select class="qld__select qld__text-input--valid" id="pet-select">
+                                            <option value="">--Please choose an option--</option>
+                                            <option value="dog">Dog</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="hamster">Hamster</option>
+                                            <option value="parrot">Parrot</option>
+                                            <option value="spider">Spider</option>
+                                            <option value="goldfish">Goldfish</option>
+                                        </select>
+                                    </fieldset>
 
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
+                                    <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
+                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
+                                        <div class="sq-form-question-answer">
+                                           <select name="q49141:q18" id="q49141_q18" class="qld__select qld__text-input--valid" aria-invalid="false">
+                                              <option value="1" selected="selected">1</option>
+                                              <option value="2">2</option>
+                                              <option value="3">3</option>
+                                           </select>
+                                        </div>
+                                    </div>
+                                    <hr>    
                                     
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -30,6 +30,8 @@ select{
 	text-indent: 0.01px;
 	text-overflow: unset;
 	vertical-align: middle;
+	width: 100%;
+	max-width: 12.8125rem;
 	@include QLD-focus();
 
 	&::-ms-expand {
@@ -37,7 +39,10 @@ select{
 	}
 
 	&:hover{
-		background-color: var(--QLD-color-light-alt-background__shade);
+		&:not(:focus) {
+			background-color: var(--QLD-color-light-background__shade);
+			border-color: var(--QLD-color-light-button__hover);
+		}
 	}
 
 	&:disabled,
@@ -51,14 +56,24 @@ select{
 		}
 	}
 
-	&.qld__input--valid {
-		border-color: $QLD-color-success;
-		background-color: RGBA(107,190,39,0.05); //$QLD-color-success with .05 opacity
+		
+	&.qld__text-input--valid {
+			
+		&:not(:focus) {
+			border-color: $QLD-color-success;
+			background-color: $QLD-color-success__light;
+
+		}
 	}
+	
 
 	&.qld__input--error {
 		border-color: $QLD-color-error;
 		background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+	}
+
+	&:focus{
+		border-color: var(--QLD-color-light-border);
 	}
 
 	.qld__body--dark &,
@@ -67,9 +82,21 @@ select{
 		border-color: var(--QLD-color-dark-alt-border);
 		background-image: QLD-svg-with-fill($QLD-icon-chevron-down, var(--QLD-color-dark-alt-button));
 
-		&.qld__input--valid {
+		&.qld__text-input--valid {
 			border-color: $QLD-color-success;
-			background-color: RGBA(107,190,39,0.05); //$QLD-color-success with .05 opacity
+			background-color: $QLD-color-success__light; //$QLD-color-success with .05 opacity
+			color: var(--QLD-color-light-text);
+
+			&:hover {
+				&:not(:focus) { 
+					background-color: $QLD-color-success__shade;
+					border-color: $QLD-color-success;
+				}
+			}
+
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
 		}
 	
 		&.qld__input--error {
@@ -78,7 +105,19 @@ select{
 		}
 
 		&:hover{
-			background-color: var(--QLD-color-dark-background__shade);
+			&:not(:focus) {
+				background-color: var(--QLD-color-dark-background__shade);
+				border-color: var(--QLD-color-dark-button__hover);
+			}
+		}
+
+		&:focus {
+			background-color: var(--QLD-color-light-background);
+			color: var(--QLD-color-light-text);
+			border-color: var(--QLD-color-light-border);
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
 		}
 	}
 }
@@ -96,15 +135,48 @@ select{
 				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
 				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
 			'</svg>');
+			
+			&:hover{
+				&:not(:focus) { 
+					background-color: var(--QLD-color-dark-background__shade);
+					border-color: var(--QLD-color-dark-button__hover);
+				}
+			}
+			
+			&:focus {
+				background-color: var(--QLD-color-light-background);
+				color: var(--QLD-color-light-text);
+				border-color: var(--QLD-color-light-border);
+				&::placeholder {
+					color: var(--QLD-color-light-text__muted);
+				}
+			}
+
+			&.qld__text-input--valid {
+				color: var(--QLD-color-light-text);
+			}
 		}
 	}
 	.sq-form-question-select select,
 	.sq-form-question-datetime select,
 	.qld__select {
-		background-color: var(--QLD-color-light-border);
+		background-color: var(--QLD-color-light-background__shade);
 		border-width: 0 0 2px 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
+		@include QLD-space( padding, 0.875unit 1.125unit 0.75unit 1.125unit);
+
+		&:focus{
+			background-color: var(--QLD-color-light-background);
+			border-radius: $QLD-border-radius-xs;
+			border:$QLD-border-width-default solid var(--QLD-color-light-border);
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
+		}
 
 		&.qld__select--dark {
 			background-color: var(--QLD-color-dark-background__shade);
@@ -114,6 +186,10 @@ select{
 				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
 				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
 			'</svg>');
+		}
+
+		&.qld__text-input--valid {
+			color: var(--QLD-color-light-text);
 		}
 	}
 }

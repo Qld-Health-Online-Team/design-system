@@ -322,7 +322,7 @@
 
     dataTable.init = function () {
 
-        var tableDiv = document.querySelector(".qld__data-table");
+        // var tableDiv = document.querySelector(".qld__data-table");
 
 
         triggerFunctionBasedOnClass();
