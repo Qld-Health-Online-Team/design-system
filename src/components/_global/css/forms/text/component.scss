@@ -36,6 +36,24 @@ textarea{
 		background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
 	}
 
+	.qld__input--success + &,
+	.qld__input--error + & {
+		@include QLD-space(margin-top, 0.5unit);
+	}
+
+	&.qld__text-input--error {
+		
+		&:not(:focus) { 
+			border-color: $QLD-color-error;
+			background-color: $QLD-color-error__light;
+		}
+
+		&:hover:not(:focus) {
+			border-color: $QLD-color-error;
+			background-color: $QLD-color-error__shade;
+		}
+	}
+
 	// disabled styling
 	&[disabled],
 	&:disabled {
@@ -45,7 +63,7 @@ textarea{
 	}
 
 	&:hover{
-		&:not(:focus) { 
+		&:not(:focus):not(.qld__text-input--error) { 
 			background-color: var(--QLD-color-light-background__shade);
 			border-color: var(--QLD-color-light-button__hover);
 		}
@@ -62,6 +80,11 @@ textarea{
 		border:$QLD-border-width-default solid var(--QLD-color-light-border);
 		&::placeholder {
 			color: var(--QLD-color-light-text__muted);
+		}
+
+		&::selection {
+			background-color: var(--QLD-color-dark-background);
+			color: var(--QLD-color-dark-text);
 		}
 	}
 
@@ -105,6 +128,25 @@ textarea{
 		&.qld__input--error {
 			border-color: $QLD-color-error;
 			background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+		}
+
+		&.qld__text-input--valid {
+			&:hover:not(:focus) {
+				color: var(--QLD-color-light-text);
+			}
+		}
+
+		&.qld__text-input--error {
+			&:hover:not(:focus) {
+				border-color: $QLD-color-error;
+				background-color: $QLD-color-error__shade;
+				color: var(--QLD-color-light-text);
+			}
+
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
+			color: var(--QLD-color-light-text);
 		}
 
 		&:hover{
@@ -292,7 +334,6 @@ textarea{
 	&.qld__text-input--block {
 		display: block;
 		width: 100%;
-		max-width: 100%;
 	}
 
 	&.qld__text-input--number {

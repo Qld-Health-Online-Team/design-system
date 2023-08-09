@@ -67,11 +67,13 @@
                 }
             }
         }
+        &__item-link:has(+ button){
+                @include QLD-space(max-width, 13.3unit);
+        }
 
         &__item-text {
             @include QLD-space(font-size, 1unit);
             @include QLD-space(line-height, 1.5unit);
-            @include QLD-space(max-width, 10.8unit);
         }
 
         .qld__left-nav__content {
@@ -164,7 +166,7 @@
                     position: relative;
                     @include QLD-space(min-height, 2unit);
                     @include QLD-space(min-width, 2unit);
-                    background-color: transparent;
+                    background-color: var(--QLD-color-light-background);
                     @include QLD-space(margin, 0 1unit);
                     align-self: center;
                     @include QLD-box-shadow(1);

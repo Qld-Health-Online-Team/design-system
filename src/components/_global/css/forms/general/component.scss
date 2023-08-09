@@ -129,7 +129,13 @@ label{
     //Add space above form consecutive
 	+.qld__form-group,
 	+.sq-form-question {
-        @include QLD-space(margin-top, 1.25unit);
+        * + & {
+            @include QLD-space(margin-top, 1.5unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 2unit);
+            }
+        }
     }
 
     .sq-form-question-answer,
@@ -234,6 +240,21 @@ form {
         text-decoration:none;
     }
 }
+
+
+.qld__control-group {
+    @include QLD-space(margin-top, 1.5unit);
+}
+
+.qld__control-input {
+    padding: 0;
+
+    * + & {
+        @include QLD-space(margin-top, 1unit);
+    }
+}
+
+
 
 
 // .qld__control-input,
