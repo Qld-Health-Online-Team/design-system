@@ -24,11 +24,11 @@
             });
     }
 
-    function getTableHeaderAndFooter(tableLines) {
+    function getTableHeaderAndFooter(tableLines = []) {
         let tableColumnHeads = [];
         let tableFooterData = [];
 
-        if (tableLines?.length > 0) {
+        if (tableLines.length > 0) {
             tableColumnHeads = tableLines.shift().split(","); //whatever is the first element is the header.
             // if (tableLines?.length > 0) { //This allows us to have a separate footer to the header. 
             //     //If anything left then goes to the footer.
@@ -46,10 +46,10 @@
         };
     }
 
-    function getTableData(tableLines, tableColumnHeads) {
+    function getTableData(tableLines = [], tableColumnHeads) {
         let returnArray = [];
 
-        for (let i = 0; i < tableLines?.length; i++) {
+        for (let i = 0; i < tableLines.length; i++) {
             let line = tableLines.shift().split(",");
             let obj = {};
             for (let j = 0; j < line.length; j++) {
