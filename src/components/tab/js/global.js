@@ -14,137 +14,139 @@
         This code will work for multiple tab components on the same page.
 
     */
+    var tab = {};
 
-    // Get all tab components on the page
-    const tabComponents = document.querySelectorAll(".qld__tab-container");
+    tab.init = function() {
+        // Get all tab components on the page
+        const tabComponents = document.querySelectorAll(".qld__tab-container");
 
-    // Loop through each tab component
-    tabComponents.forEach((tabComponent) => {
-        // Get all tab heading elements within the tab component
-        const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
-        // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
-        tabHeadings[0].setAttribute("tabindex", "0");
-        tabHeadings[0].setAttribute("aria-selected", "true");
-        const tabContentId = tabHeadings[0].getAttribute("data-tab");
-        const tabContent = tabComponent.querySelector(
-            `.qld__tab-content[data-tab="${tabContentId}"]`
-        );
-        tabContent.setAttribute("tabindex", "0");
-        tabContent.setAttribute("aria-hidden", "false");
-        // Add the 'active' class to the first tab heading and its corresponding content element
-        tabHeadings[0].classList.add("active");
-        tabContent.classList.add("active");
-        // Loop through each tab heading element
-        tabHeadings.forEach((tabHeading) => {
-            // Attach a click event listener to the tab heading
-            tabHeading.addEventListener("click", (event) => {
-                // Remove the 'active' class from all tab heading and content elements
-                const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
-                tabHeadings.forEach((tabHeading) => {
-                    tabHeading.classList.remove("active");
-                    tabHeading.setAttribute("aria-selected", "false");
-                    tabHeading.setAttribute("tabindex", "-1");
+        // Loop through each tab component
+        tabComponents.forEach((tabComponent) => {
+            // Get all tab heading elements within the tab component
+            const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
+            // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
+            tabHeadings[0].setAttribute("tabindex", "0");
+            tabHeadings[0].setAttribute("aria-selected", "true");
+            const tabContentId = tabHeadings[0].getAttribute("data-tab");
+            const tabContent = tabComponent.querySelector(
+                `.qld__tab-content[data-tab="${tabContentId}"]`
+            );
+            tabContent.setAttribute("tabindex", "0");
+            tabContent.setAttribute("aria-hidden", "false");
+            // Add the 'active' class to the first tab heading and its corresponding content element
+            tabHeadings[0].classList.add("active");
+            tabContent.classList.add("active");
+            // Loop through each tab heading element
+            tabHeadings.forEach((tabHeading) => {
+                // Attach a click event listener to the tab heading
+                tabHeading.addEventListener("click", (event) => {
+                    // Remove the 'active' class from all tab heading and content elements
+                    const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
+                    tabHeadings.forEach((tabHeading) => {
+                        tabHeading.classList.remove("active");
+                        tabHeading.setAttribute("aria-selected", "false");
+                        tabHeading.setAttribute("tabindex", "-1");
+                    });
+                    const tabContents = tabComponent.querySelectorAll(".qld__tab-content");
+                    tabContents.forEach((tabContent) => {
+                        tabContent.classList.remove("active");
+                        tabContent.setAttribute("aria-hidden", "true");
+                        tabContent.setAttribute("tabindex", "-1");
+                    });
+                    // Add the 'active' class to the clicked tab heading and its corresponding content element
+                    event.currentTarget.classList.add("active");
+                    event.currentTarget.setAttribute("aria-selected", "true");
+                    event.currentTarget.setAttribute("tabindex", "0");
+                    const tabContentId = event.currentTarget.getAttribute("data-tab");
+                    const tabContent = tabComponent.querySelector(
+                        `.qld__tab-content[data-tab="${tabContentId}"]`
+                    );
+                    tabContent.classList.add("active");
+                    tabContent.setAttribute("aria-hidden", "false");
+                    tabContent.setAttribute("tabindex", "0");
                 });
-                const tabContents = tabComponent.querySelectorAll(".qld__tab-content");
-                tabContents.forEach((tabContent) => {
-                    tabContent.classList.remove("active");
-                    tabContent.setAttribute("aria-hidden", "true");
-                    tabContent.setAttribute("tabindex", "-1");
-                });
-                // Add the 'active' class to the clicked tab heading and its corresponding content element
-                event.currentTarget.classList.add("active");
-                event.currentTarget.setAttribute("aria-selected", "true");
-                event.currentTarget.setAttribute("tabindex", "0");
-                const tabContentId = event.currentTarget.getAttribute("data-tab");
-                const tabContent = tabComponent.querySelector(
-                    `.qld__tab-content[data-tab="${tabContentId}"]`
-                );
-                tabContent.classList.add("active");
-                tabContent.setAttribute("aria-hidden", "false");
-                tabContent.setAttribute("tabindex", "0");
             });
-        });
 
-        let currentTabIndex = 0;
+            let currentTabIndex = 0;
 
-        tabHeadings.forEach((tabHeading, index) => {
-            tabHeading.addEventListener("keydown", (event) => {
+            tabHeadings.forEach((tabHeading, index) => {
+                tabHeading.addEventListener("keydown", (event) => {
 
-                // If the key that was pressed was the "Enter" or "Space" key, treat it as if the tab heading was clicked
-                if (event.key === "Enter" || event.key === "Space") {
-                    event.preventDefault();
-                    event.currentTarget.click();
-                }
-                // If the key that was pressed was the left arrow key, switch to the previous tab if not already on the first tab
-                if (event.key === "ArrowLeft") {
-                    if (currentTabIndex > 0) {
+                    // If the key that was pressed was the "Enter" or "Space" key, treat it as if the tab heading was clicked
+                    if (event.key === "Enter" || event.key === "Space") {
                         event.preventDefault();
-                        const previousTabHeading = tabHeadings[index - 1];
-                        if (previousTabHeading) {
-                            currentTabIndex = index - 1;
-                            previousTabHeading.focus();
+                        event.currentTarget.click();
+                    }
+                    // If the key that was pressed was the left arrow key, switch to the previous tab if not already on the first tab
+                    if (event.key === "ArrowLeft") {
+                        if (currentTabIndex > 0) {
+                            event.preventDefault();
+                            const previousTabHeading = tabHeadings[index - 1];
+                            if (previousTabHeading) {
+                                currentTabIndex = index - 1;
+                                previousTabHeading.focus();
+                            }
                         }
                     }
-                }
-                // If the key that was pressed was the right arrow key, switch to the next tab if not already on the last tab
-                if (event.key === "ArrowRight") {
-                    if (currentTabIndex < tabHeadings.length - 1) {
-                        event.preventDefault();
-                        const nextTabHeading = tabHeadings[index + 1];
-                        if (nextTabHeading) {
-                            currentTabIndex = index + 1;
-                            nextTabHeading.focus();
+                    // If the key that was pressed was the right arrow key, switch to the next tab if not already on the last tab
+                    if (event.key === "ArrowRight") {
+                        if (currentTabIndex < tabHeadings.length - 1) {
+                            event.preventDefault();
+                            const nextTabHeading = tabHeadings[index + 1];
+                            if (nextTabHeading) {
+                                currentTabIndex = index + 1;
+                                nextTabHeading.focus();
+                            }
                         }
                     }
-                }
+                });
+
+                // Add a focus and blur event listener to the tab heading
+                tabHeading.addEventListener("focus", (event) => {
+                    // Add the 'focused' class on the corresponding tab content element
+                    const tabContentId = event.currentTarget.getAttribute("data-tab");
+                    const tabContent = tabComponent.querySelector(
+                        `.qld__tab-content[data-tab="${tabContentId}"]`
+                    );
+                    tabContent.classList.add("focused");
+                });
+
+                tabHeading.addEventListener("blur", (event) => {
+                    // Remove the 'focused' class on the corresponding tab content element
+                    const tabContentId = event.currentTarget.getAttribute("data-tab");
+                    const tabContent = tabComponent.querySelector(
+                        `.qld__tab-content[data-tab="${tabContentId}"]`
+                    );
+                    tabContent.classList.remove("focused");
+                });
+
             });
 
-            // Add a focus and blur event listener to the tab heading
-            tabHeading.addEventListener("focus", (event) => {
-                // Add the 'focused' class on the corresponding tab content element
-                const tabContentId = event.currentTarget.getAttribute("data-tab");
-                const tabContent = tabComponent.querySelector(
-                    `.qld__tab-content[data-tab="${tabContentId}"]`
-                );
-                tabContent.classList.add("focused");
-            });
+            
 
-            tabHeading.addEventListener("blur", (event) => {
-                // Remove the 'focused' class on the corresponding tab content element
-                const tabContentId = event.currentTarget.getAttribute("data-tab");
-                const tabContent = tabComponent.querySelector(
-                    `.qld__tab-content[data-tab="${tabContentId}"]`
-                );
-                tabContent.classList.remove("focused");
-            });
 
         });
 
-        
+    }
 
+            /*  This script implements horizontal scrolling for fixed tab components on a page. 
 
-    });
+                It selects the main nav elements and tab list elements, and defines functions to scroll the tab list element to the left or right.
+                It also shows or hides the scroll buttons based on whether the tab list element overflows the main nav element. 
+                THe script includes event listeners for the elements to call the appropriate functions when the page loads or is resized, or when the scroll buttons are clicked. 
+                It also includes a debounce function to limit the number of times that a function is called. 
 
+            */
 
+            const SCROLL_AMOUNT = 500;
+            // Get the main nav elements and the tab list elements
+            const TabHeaders = document.getElementsByClassName("qld__tab-container__fixed");
+            const tabLists = [];
 
-        /*  This script implements horizontal scrolling for fixed tab components on a page. 
-
-            It selects the main nav elements and tab list elements, and defines functions to scroll the tab list element to the left or right.
-            It also shows or hides the scroll buttons based on whether the tab list element overflows the main nav element. 
-            THe script includes event listeners for the elements to call the appropriate functions when the page loads or is resized, or when the scroll buttons are clicked. 
-            It also includes a debounce function to limit the number of times that a function is called. 
-
-        */
-
-        const SCROLL_AMOUNT = 500;
-        // Get the main nav elements and the tab list elements
-        const TabHeaders = document.getElementsByClassName("qld__tab-container__fixed");
-        const tabLists = [];
-
-        for (let i = 0; i < TabHeaders.length; i++) {
-            const tabs = TabHeaders[i].getElementsByClassName("qld__tabs");
-            tabLists.push(tabs[0]);
-        }
+            for (let i = 0; i < TabHeaders.length; i++) {
+                const tabs = TabHeaders[i].getElementsByClassName("qld__tabs");
+                tabLists.push(tabs[0]);
+            }
 
         /**
          * The functions below scroll the tab list to the left or right by the defined scroll amount
@@ -245,4 +247,8 @@
                 timeout = setTimeout(() => func.apply(this, args), wait);
             };
         }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            tab.init();
+        });
 }());
