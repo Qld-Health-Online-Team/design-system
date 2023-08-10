@@ -34,12 +34,9 @@
 
     & &__inner &__title {
         color: var(--QLD-color-light-heading);
-        @include QLD-fontgrid(md, heading);
+        @include QLD-space(font-size, 1.25unit);
+        line-height: 1.4;
         @include QLD-space(margin, 0unit); 
-
-        @include QLD-media(lg) {
-            @include QLD-fontgrid(lg, heading);
-        }
     }
 
     & &__inner &__description{
