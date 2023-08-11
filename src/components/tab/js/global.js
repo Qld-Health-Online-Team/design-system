@@ -29,6 +29,7 @@
 
 
     var tab = {};
+    const SCROLL_AMOUNT = 500;
 
         /**
          * The functions below scroll the tab list to the left or right by the defined scroll amount
@@ -218,7 +219,7 @@
 
             */
 
-            const SCROLL_AMOUNT = 500;
+            
             // Get the main nav elements and the tab list elements
             const TabHeaders = document.getElementsByClassName("qld__tab-container__fixed");
             const tabLists = [];
