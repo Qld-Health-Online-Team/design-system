@@ -10,67 +10,811 @@
     <![endif]-->
 <!--[if !(IE)]><!-->
 <html class="no-js" lang="en">
-    <!--<![endif]-->
+<!--<![endif]-->
 
-    <head>
-        <title>Queensland Design System</title>
-        
-        ${require('../components/_global/html/head.html')}
-        <script>
-            var globals = {"site":{"data":{"assetid":"136","type_code":"site","version":"0.0.8","name":"Design System","short_name":"Design System","status":"2","force_secure":"0","languages":"en","charset":"utf-8","created":"2020-12-09 13:11:12","created_userid":"54","updated":"2021-01-20 15:08:30","updated_userid":"312","published":"Never","published_userid":"","status_changed":"2020-12-09 13:11:12","status_changed_userid":"54","thumbnail":"","attributes":{"name":{"attrid":"685","type":"text","value":"Design System","is_contextable":true,"use_default":true},"not_found_page_cache_globally":{"attrid":"686","type":"boolean","value":false,"is_contextable":false,"use_default":true},"available_conditions":{"attrid":"687","type":"serialise","value":[],"is_contextable":false,"use_default":true}},"metadata":{"displayInPageNav":{"value":"","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteTitle":{"value":"Queensland Health Design System","fieldid":"166","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"siteLogo":{"value":"169","fieldid":"127","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteFavicon":{"value":"106","fieldid":"128","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteAppleTouch":{"value":"106","fieldid":"129","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderLogo":{"value":"170","fieldid":"171","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderText":{"value":"digital.qld.gov.au","fieldid":"167","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderURL":{"value":"http://www.digital.qld.gov.au","fieldid":"168","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"showHomeIcon":{"value":"true","fieldid":"481","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteRepository":{"value":"164","fieldid":"213","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerLinks":{"value":"[\"186\",\"194\",\"198\",\"458\",\"676\"]","fieldid":"715","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCopyrightMessage":{"value":"© The State of Queensland 2020","fieldid":"722","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"footerCopyrightLink":{"value":"206","fieldid":"723","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCTAHeading":{"value":"Help us improve","fieldid":"724","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALead":{"value":"We are always looking for ways to improve our website.","fieldid":"725","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALink":{"value":"186","fieldid":"726","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true}}},"metadata":{"displayInPageNav":{"value":"","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteTitle":{"value":"Queensland Health Design System","fieldid":"166","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"siteLogo":{"value":"169","fieldid":"127","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteFavicon":{"value":"106","fieldid":"128","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteAppleTouch":{"value":"106","fieldid":"129","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderLogo":{"value":"170","fieldid":"171","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderText":{"value":"digital.qld.gov.au","fieldid":"167","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderURL":{"value":"http://www.digital.qld.gov.au","fieldid":"168","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"showHomeIcon":{"value":"true","fieldid":"481","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteRepository":{"value":"164","fieldid":"213","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerLinks":{"value":"[\"186\",\"194\",\"198\",\"458\",\"676\"]","fieldid":"715","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCopyrightMessage":{"value":"© The State of Queensland 2020","fieldid":"722","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"footerCopyrightLink":{"value":"206","fieldid":"723","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCTAHeading":{"value":"Help us improve","fieldid":"724","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALead":{"value":"We are always looking for ways to improve our website.","fieldid":"725","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALink":{"value":"186","fieldid":"726","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true}},"children":[{"asset_name":"Get started","asset_assetid":"186"},{"asset_name":"Brand guidelines","asset_assetid":"190"},{"asset_name":"Content guidelines","asset_assetid":"194"},{"asset_name":"Components","asset_assetid":"198"},{"asset_name":"Examples","asset_assetid":"202"},{"asset_name":"Support","asset_assetid":"206"}]},"current":{"data":{"assetid":"676","type_code":"page_standard","version":"0.0.16","name":"Links","short_name":"Links","status":"2","force_secure":"0","languages":"en","charset":"utf-8","created":"2021-01-11 11:48:22","created_userid":"312","updated":"2021-01-20 15:08:29","updated_userid":"312","published":"Never","published_userid":"","status_changed":"2021-01-11 11:48:22","status_changed_userid":"312","thumbnail":"","attributes":{"name":{"attrid":"631","type":"text","value":"Links","is_contextable":true,"use_default":true},"short_name":{"attrid":"632","type":"text","value":"Links","is_contextable":true,"use_default":true},"available_conditions":{"attrid":"633","type":"serialise","value":[],"is_contextable":false,"use_default":true},"conditions":{"attrid":"634","type":"serialise","value":[],"is_contextable":true,"use_default":true}},"metadata":{"description":{"value":"","fieldid":"132","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"pageType":{"value":"landing","fieldid":"680","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"displayBreadcrumbs":{"value":"true","fieldid":"681","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"displayBanner":{"value":"true","fieldid":"682","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"displayInPageNav":{"value":"true","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true}}},"home":0,"children":[{"asset_assetid":"458","asset_url":"https://qhscb.squiz.cloud/components/accordion","asset_name":"Accordion","children":[]},{"asset_assetid":"325","asset_url":"https://qhscb.squiz.cloud/components/callout","asset_name":"Callout","children":[]},{"asset_assetid":"659","asset_url":"https://qhscb.squiz.cloud/components/card-listing","asset_name":"Card Listing","children":[]},{"asset_assetid":"676","asset_url":"https://qhscb.squiz.cloud/components/links","asset_name":"Links","children":[]},{"asset_assetid":"683","asset_url":"https://qhscb.squiz.cloud/components/search-box","asset_name":"Search Box","children":[]},{"asset_assetid":"785","asset_url":"https://qhscb.squiz.cloud/components/page-alert","asset_name":"Page Alert","children":[]}],"lineage":[{"asset_assetid":"136","asset_name":"Design System","asset_url":"https://qhscb.squiz.cloud"},{"asset_assetid":"198","asset_name":"Components","asset_url":"https://qhscb.squiz.cloud/components"},{"asset_assetid":"676","asset_name":"Links","asset_url":"https://qhscb.squiz.cloud/components/links"}],"top":{"asset_assetid":"198","asset_name":"Components","asset_url":"https://qhscb.squiz.cloud/components"}}};
-        </script>
-    </head>
+<head>
+    <title>Queensland Design System</title>
 
-    <body class="qld__grid qld__form-style-filled {{site.metadata.siteFormStyle.value}}">
-        <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
-        <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
-        <!-- MAIN BODY -->
-        <main class="main" role="main">
-            <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
+    ${require('../components/_global/html/head.html')}
+    <script>
+        var globals = { "site": { "data": { "assetid": "136", "type_code": "site", "version": "0.0.8", "name": "Design System", "short_name": "Design System", "status": "2", "force_secure": "0", "languages": "en", "charset": "utf-8", "created": "2020-12-09 13:11:12", "created_userid": "54", "updated": "2021-01-20 15:08:30", "updated_userid": "312", "published": "Never", "published_userid": "", "status_changed": "2020-12-09 13:11:12", "status_changed_userid": "54", "thumbnail": "", "attributes": { "name": { "attrid": "685", "type": "text", "value": "Design System", "is_contextable": true, "use_default": true }, "not_found_page_cache_globally": { "attrid": "686", "type": "boolean", "value": false, "is_contextable": false, "use_default": true }, "available_conditions": { "attrid": "687", "type": "serialise", "value": [], "is_contextable": false, "use_default": true } }, "metadata": { "displayInPageNav": { "value": "", "fieldid": "808", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_heading": { "value": "On this page", "fieldid": "809", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_headingType": { "value": "h2", "fieldid": "810", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "siteTitle": { "value": "Queensland Health Design System", "fieldid": "166", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "siteLogo": { "value": "169", "fieldid": "127", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "siteFavicon": { "value": "106", "fieldid": "128", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "siteAppleTouch": { "value": "106", "fieldid": "129", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderLogo": { "value": "170", "fieldid": "171", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderText": { "value": "digital.qld.gov.au", "fieldid": "167", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderURL": { "value": "http://www.digital.qld.gov.au", "fieldid": "168", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "showHomeIcon": { "value": "true", "fieldid": "481", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "siteRepository": { "value": "164", "fieldid": "213", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerLinks": { "value": "[\"186\",\"194\",\"198\",\"458\",\"676\"]", "fieldid": "715", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerCopyrightMessage": { "value": "© The State of Queensland 2020", "fieldid": "722", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "footerCopyrightLink": { "value": "206", "fieldid": "723", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTAHeading": { "value": "Help us improve", "fieldid": "724", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTALead": { "value": "We are always looking for ways to improve our website.", "fieldid": "725", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTALink": { "value": "186", "fieldid": "726", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true } } }, "metadata": { "displayInPageNav": { "value": "", "fieldid": "808", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_heading": { "value": "On this page", "fieldid": "809", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_headingType": { "value": "h2", "fieldid": "810", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "siteTitle": { "value": "Queensland Health Design System", "fieldid": "166", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "siteLogo": { "value": "169", "fieldid": "127", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "siteFavicon": { "value": "106", "fieldid": "128", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "siteAppleTouch": { "value": "106", "fieldid": "129", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderLogo": { "value": "170", "fieldid": "171", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderText": { "value": "digital.qld.gov.au", "fieldid": "167", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "sitePreHeaderURL": { "value": "http://www.digital.qld.gov.au", "fieldid": "168", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "showHomeIcon": { "value": "true", "fieldid": "481", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "siteRepository": { "value": "164", "fieldid": "213", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerLinks": { "value": "[\"186\",\"194\",\"198\",\"458\",\"676\"]", "fieldid": "715", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerCopyrightMessage": { "value": "© The State of Queensland 2020", "fieldid": "722", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "footerCopyrightLink": { "value": "206", "fieldid": "723", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTAHeading": { "value": "Help us improve", "fieldid": "724", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTALead": { "value": "We are always looking for ways to improve our website.", "fieldid": "725", "type": "metadata_field_text", "is_contextable": true, "default_value": false, "use_default": true }, "footerCTALink": { "value": "186", "fieldid": "726", "type": "metadata_field_related_asset", "is_contextable": true, "default_value": false, "use_default": true } }, "children": [{ "asset_name": "Get started", "asset_assetid": "186" }, { "asset_name": "Brand guidelines", "asset_assetid": "190" }, { "asset_name": "Content guidelines", "asset_assetid": "194" }, { "asset_name": "Components", "asset_assetid": "198" }, { "asset_name": "Examples", "asset_assetid": "202" }, { "asset_name": "Support", "asset_assetid": "206" }] }, "current": { "data": { "assetid": "676", "type_code": "page_standard", "version": "0.0.16", "name": "Links", "short_name": "Links", "status": "2", "force_secure": "0", "languages": "en", "charset": "utf-8", "created": "2021-01-11 11:48:22", "created_userid": "312", "updated": "2021-01-20 15:08:29", "updated_userid": "312", "published": "Never", "published_userid": "", "status_changed": "2021-01-11 11:48:22", "status_changed_userid": "312", "thumbnail": "", "attributes": { "name": { "attrid": "631", "type": "text", "value": "Links", "is_contextable": true, "use_default": true }, "short_name": { "attrid": "632", "type": "text", "value": "Links", "is_contextable": true, "use_default": true }, "available_conditions": { "attrid": "633", "type": "serialise", "value": [], "is_contextable": false, "use_default": true }, "conditions": { "attrid": "634", "type": "serialise", "value": [], "is_contextable": true, "use_default": true } }, "metadata": { "description": { "value": "", "fieldid": "132", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "pageType": { "value": "landing", "fieldid": "680", "type": "metadata_field_select", "is_contextable": true, "default_value": false, "use_default": true }, "displayBreadcrumbs": { "value": "true", "fieldid": "681", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "displayBanner": { "value": "true", "fieldid": "682", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "displayInPageNav": { "value": "true", "fieldid": "808", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_heading": { "value": "On this page", "fieldid": "809", "type": "metadata_field_text", "is_contextable": true, "default_value": true, "use_default": true }, "inPageNav_headingType": { "value": "h2", "fieldid": "810", "type": "metadata_field_select", "is_contextable": true, "default_value": true, "use_default": true } } }, "home": 0, "children": [{ "asset_assetid": "458", "asset_url": "https://qhscb.squiz.cloud/components/accordion", "asset_name": "Accordion", "children": [] }, { "asset_assetid": "325", "asset_url": "https://qhscb.squiz.cloud/components/callout", "asset_name": "Callout", "children": [] }, { "asset_assetid": "659", "asset_url": "https://qhscb.squiz.cloud/components/card-listing", "asset_name": "Card Listing", "children": [] }, { "asset_assetid": "676", "asset_url": "https://qhscb.squiz.cloud/components/links", "asset_name": "Links", "children": [] }, { "asset_assetid": "683", "asset_url": "https://qhscb.squiz.cloud/components/search-box", "asset_name": "Search Box", "children": [] }, { "asset_assetid": "785", "asset_url": "https://qhscb.squiz.cloud/components/page-alert", "asset_name": "Page Alert", "children": [] }], "lineage": [{ "asset_assetid": "136", "asset_name": "Design System", "asset_url": "https://qhscb.squiz.cloud" }, { "asset_assetid": "198", "asset_name": "Components", "asset_url": "https://qhscb.squiz.cloud/components" }, { "asset_assetid": "676", "asset_name": "Links", "asset_url": "https://qhscb.squiz.cloud/components/links" }], "top": { "asset_assetid": "198", "asset_name": "Components", "asset_url": "https://qhscb.squiz.cloud/components" } } };
+    </script>
+</head>
+
+<body class="qld__grid qld__form-style-outlined {{site.metadata.siteFormStyle.value}}">
+    <!--noindex-->
+    ${require('../components/header/html/component.hbs')({
+    "site":require('/src/data/site.json')
+    })}
+    <!--endnoindex-->
+    ${require('../components/mega_main_navigation/html/component.hbs')({
+    "site":require('/src/data/site.json')
+    })}
+    <!-- MAIN BODY -->
+    <main class="main" role="main">
+        <section class="qld__body qld__body--breadcrumb">
+            <div class="container-fluid">
+                ${require('../components/breadcrumbs/html/component.hbs')({
+                "site":require('/src/data/site.json'),
+                "current":require('/src/data/current.json'),
+                })}
+            </div>
+        </section>
+        <!--CONTENT-->
+        <div class="qld__body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-4 col-xl-3">
+                        <!-- INTERNAL NAVIGATION -->
+                        ${require('../components/internal_navigation/html/component.hbs')({
                         "site":require('/src/data/site.json'),
-                        "current":require('/src/data/current.json'),
-                    })}
-                </div>
-            </section>
-            <!--CONTENT-->
-            <div class="qld__body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12 col-lg-4 col-xl-3">
-                            <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                                "site":require('/src/data/site.json'),
-                                "current":require('/src/data/current.json')
-                            })}
+                        "current":require('/src/data/current.json')
+                        })}
+                    </div>
+                    <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
+                        <h1>Forms</h1>
+                        <div class="qld__abstract">
+                            <p>Form desc</p>
                         </div>
-                        <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            <h1>Forms</h1>
-                            <div class="qld__abstract">
-                                <p>Form desc</p>
+                        <div class="qld__body">
+                            <div class="container-fluid">
+                                <h2>Default (Light)</h2>
+                                <fieldset>
+                                    <legend>Text field</legend>
+                                    <div>
+                                        <label for="name">Text input</label>
+                                        <input type="text" id="name" name="name" required
+                                            placeholder="Placeholder text">
+                                    </div>
+                                    <hr>
+                                    <div class="sq-form-question sq-form-question-text "
+                                        id="sq_form_field_wrapper_q83209_q1">
+                                        <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label>
+                                        <div class="sq-form-question-answer"><input type="text" name="q83209:q1"
+                                                value="" size="30" maxlength="300" id="q83209_q1" class="sq-form-field">
+                                        </div>
+                                    </div>
+                                    <div class="qld__form-style-filled sq-form-question sq-form-question-text "
+                                        id="sq_form_field_wrapper_q83209_q1">
+                                        <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label>
+                                        <div class="sq-form-question-answer"><input type="text" name="q83209:q1"
+                                                value="" size="30" maxlength="300" id="q83209_q1"
+                                                class="qld__text-input"></div>
+                                    </div>
+                                </fieldset>
+                                <hr>
+                                <fieldset>
+                                    <label class="qld__label" for="TFN">What is your tax file number (TFN)?</label>
+                                    <span class="qld__hint-text" id="TFN-hint">Tax file numbers are 9 digits</span>
+                                    <input type="text"
+                                        class="qld__field-width--md qld__text-input qld__text-input--block qld__text-input--number"
+                                        id="TFN" inputmode="numeric" name="Tax file number"
+                                        aria-describedby="TFN-hint" />
+                                </fieldset>
+                                <hr>
+                                <div class="row qld__row-gap--components">
+
+                                    <div class="co-xs-12 col-lg-4">
+                                        <p>Required field</p><br>
+
+                                        <!-- Example 1: Required field -->
+                                        <label for="text-field-id" class="qld__label">
+                                            <!-- Required field indicator using aria-required attribute -->
+                                            <abbr title="required">*</abbr>
+                                            Text-field label
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <input type="text" id="text-field-id"
+                                            class="qld__text-input qld__text-input--block" aria-required="true"
+                                            aria-describedby="text-field-hint">
+                                    </div>
+
+
+                                    <div class="co-xs-12 col-lg-4">
+                                        <p>Optional field</p><br>
+
+                                        <!-- Example 2: Optional field -->
+                                        <label for="text-field-id-2" class="qld__label">
+                                            Text-field label
+                                            <!-- Optional field indicator using aria-label attribute -->
+                                            <span class="qld__label--optional"> (Optional)</span>
+                                        </label>
+                                        <span class="qld__hint-text" id="text-field-hint-2">Hint text</span>
+                                        <input type="text" id="text-field-id-2"
+                                            class="qld__text-input qld__text-input--block"
+                                            aria-describedby="text-field-hint-2">
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <div class="row qld__row-gap--components">
+                                    <!-- Example: Success field -->
+                                    <div class="co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                            class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <span id="text-field-success" class="qld__input--success">Success message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                    </div>
+
+                                    <!-- Example: Success field filled style -->
+                                    <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                            class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <span id="text-field-success" class="qld__input--success">Success message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row qld__row-gap--components">
+                                    <!-- Example: Success field -->
+                                    <div class="co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                            class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <span class="qld__input--success">Success message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input--block qld__text-input--valid">
+                                    </div>
+
+                                    <!-- Example: Success field filled style -->
+                                    <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                            class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <span class="qld__input--success">Success message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input--block qld__text-input--valid">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row qld__row-gap--components">
+
+                                    <!-- Example: Error field -->
+                                    <div class="co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label>
+                                        <span id="text-field-success" class="qld__input--error">Error message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input qld__text-input--block qld__text-input--error">
+                                    </div>
+
+
+                                    <!-- Example: Error field filled style -->
+                                    <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                        <label for="text-field-id" class="qld__label">Text-field label</label>
+                                        <span id="text-field-success" class="qld__input--error">Error message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input qld__text-input--block qld__text-input--error">
+                                    </div>
+
+                                </div>
+                                <p>Error field emphasised</p><br>
+                                <!-- Example: Error style emphasis -->
+                                <div
+                                    class="qld__form-group qld__form-style-filled qld__form-group--invalid co-xs-12 col-lg-4">
+
+                                    <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                        class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                    <span id="text-field-success" class="qld__input--error">Error message</span>
+                                    <input type="text" id="text-field-id" placeholder="placeholder text"
+                                        class="qld__text-input qld__text-input--block qld__text-input--error">
+                                </div>
+                                <hr>
+                                <fieldset>
+                                    <div>
+                                        <label for="story">Tell us your story:</label>
+
+                                        <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
+                                    </div>
+                                    <hr>
+                                    <div class="sq-form-question sq-form-question-text "
+                                        id="sq_form_field_wrapper_q83209_q7">
+                                        <label class="sq-form-question-title" for="q83209_q7">Text area <abbr
+                                                class="sq-form-required-field" title="required">*</abbr></label> <em
+                                            class="sq-form-question-note">Hint text example</em>
+                                        <div class="sq-form-question-answer"><textarea name="q83209:q7" id="q83209_q7"
+                                                cols="30" rows="5" maxlength="300" class="sq-form-field"
+                                                placeholder="Placeholder text"></textarea></div>
+                                    </div>
+                                </fieldset>
+
+
+
+
+                                <fieldset>
+                                    <legend>Checkbox</legend>
+
+                                    <div>
+                                        <input type="checkbox" id="check-one" name="check-one" checked>
+                                        <label for="check-one">One</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="checkbox" id="check-two" name="check-two">
+                                        <label for="check-two">Two</label>
+                                    </div>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-tickbox-list "
+                                    id="sq_form_field_wrapper_q49141_q17">
+                                    <fieldset>
+                                        <legend class="sq-form-question-title">checkbox - Matrix output</legend>
+                                        <div class="sq-form-question-answer">
+                                            <ul>
+                                                <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0"
+                                                        value="0" class="sq-form-field"> <label
+                                                        for="q49141_q17_0">One</label></li>
+                                                <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1"
+                                                        value="1" class="sq-form-field"> <label
+                                                        for="q49141_q17_1">Two</label></li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+
+                                <fieldset>
+                                    <legend>Option / radio</legend>
+
+                                    <div>
+                                        <input type="radio" id="radio-one" name="radio" value="radio-one" checked>
+                                        <label for="radio-one">One</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="radio-two" name="radio" value="radio-two">
+                                        <label for="radio-two">Two</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="radio-three" name="radio" value="radio-three">
+                                        <label for="radio-three">Three</label>
+                                    </div>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-option-list "
+                                    id="sq_form_field_wrapper_q49141_q15">
+                                    <fieldset>
+                                        <legend class="sq-form-question-title">Option / radio - Matrix output <abbr
+                                                class="sq-form-required-field" title="required">*</abbr></legend>
+                                        <div class="sq-form-question-answer">
+                                            <ul>
+                                                <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0"
+                                                        required="" class="sq-form-field"> <label
+                                                        for="q49141_q15_0">Yes</label></li>
+                                                <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1"
+                                                        required="" class="sq-form-field"> <label
+                                                        for="q49141_q15_1">No</label></li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <fieldset>
+                                    <label for="pet-select">Select</label>
+
+                                    <select id="pet-select">
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="hamster">Hamster</option>
+                                        <option value="parrot">Parrot</option>
+                                        <option value="spider">Spider</option>
+                                        <option value="goldfish">Goldfish</option>
+                                    </select>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-select "
+                                    id="sq_form_field_wrapper_q49141_q18">
+                                    <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                    <div class="sq-form-question-answer">
+                                        <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                            aria-invalid="false">
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <fieldset class="qld__form-style-filled">
+                                    <label for="pet-select">Select</label>
+
+                                    <select class="qld__select qld__text-input--valid" id="pet-select">
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="hamster">Hamster</option>
+                                        <option value="parrot">Parrot</option>
+                                        <option value="spider">Spider</option>
+                                        <option value="goldfish">Goldfish</option>
+                                    </select>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-select "
+                                    id="sq_form_field_wrapper_q49141_q18">
+                                    <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                    <div class="sq-form-question-answer">
+                                        <select name="q49141:q18" id="q49141_q18"
+                                            class="qld__select qld__text-input--valid" aria-invalid="false">
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+
+                                            <!-- Start fieldset -->
+                                            <fieldset class="qld__fieldset">
+
+                                                <!-- Legend of the fieldset -->
+                                                <legend class="qld__fieldset__legend">
+                                                    <abbr title="required">*</abbr>Checkbox Invalid
+                                                    <span class="qld__label--optional">(Optional)</span>
+                                                </legend>
+
+                                                <!-- Error message with SVG icon -->
+                                                <span id="text-field-error" class="qld__input--error">
+                                                    <!-- Inline SVG as example -->
+                                                    <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>Error icon</title>
+                                                        <desc>Indicates an error</desc>
+                                                        <use href="./?a=151118#icon-Status-Error">
+                                                    </svg>Please choose an option
+                                                </span>
+
+                                                <!-- Start control group -->
+                                                <div class="qld__control-group">
+
+                                                    <!-- Checkbox 1 with label and error class -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input qld__input--error"
+                                                            type="checkbox" name="checkbox-example" id="Phone-1"
+                                                            aria-describedby="text-field-error">
+                                                        <label class="qld__control-input__text"
+                                                            for="Phone-1">Phone</label>
+                                                    </div>
+
+                                                    <!-- Checkbox 2 with label and error class -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input qld__input--error"
+                                                            type="checkbox" name="checkbox-example" id="Email-2"
+                                                            aria-describedby="text-field-error">
+                                                        <label class="qld__control-input__text"
+                                                            for="Email-2">Email</label>
+                                                    </div>
+
+                                                    <!-- Checkbox 3 with label and error class -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input qld__input--error"
+                                                            type="checkbox" name="checkbox-example" id="Mail-3"
+                                                            aria-describedby="text-field-error">
+                                                        <label class="qld__control-input__text"
+                                                            for="Mail-3">Mail</label>
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="col-xs-6">
+                                            <!-- Start fieldset -->
+                                            <fieldset class="qld__fieldset">
+
+                                                <!-- Legend of the fieldset -->
+                                                <legend class="qld__fieldset__legend">Checkbox success</legend>
+
+                                                <!-- Success message with SVG icon -->
+                                                <span id="text-field-success" class="qld__input--success">
+                                                    <!-- Inline SVG as example -->
+                                                    <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>Success icon</title>
+                                                        <desc>Indicates a correct answer</desc>
+                                                        <use href="./?a=151118#icon-Status-Success">
+                                                    </svg>
+                                                    Correct
+                                                </span>
+
+                                                <!-- Start control group -->
+                                                <div class="qld__control-group">
+
+                                                    <!-- Checkbox 1 with label and success class -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input qld__input--valid"
+                                                            type="checkbox" name="checkbox-example" id="Answer-1"
+                                                            aria-describedby="text-field-success">
+                                                        <label class="qld__control-input__text" for="Answer-1">Answer
+                                                            1</label>
+                                                    </div>
+
+                                                    <!-- Checkbox 2 with label -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input" type="checkbox"
+                                                            name="checkbox-example" id="Answer-2"
+                                                            aria-describedby="text-field-success">
+                                                        <label class="qld__control-input__text" for="Answer-2">Answer
+                                                            2</label>
+                                                    </div>
+
+                                                    <!-- Checkbox 3 with label -->
+                                                    <div class="qld__control-input qld__control-input--block">
+                                                        <input class="qld__control-input__input" type="checkbox"
+                                                            name="checkbox-example" id="Answer-3"
+                                                            aria-describedby="text-field-success">
+                                                        <label class="qld__control-input__text" for="Answer-3">Answer
+                                                            3</label>
+                                                    </div>
+
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!-- This code snippet is an HTML structure containing two sets of radio buttons, one with a valid state and the other with an invalid state. -->
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+
+                                                <!-- Start of the fieldset element-->
+                                                <fieldset class="qld__fieldset">
+
+                                                    <!-- Fieldset legend describing the purpose of the radio buttons -->
+                                                    <legend class="qld__fieldset__legend" id="legend-valid"><abbr
+                                                            title="required">*</abbr>Radio valid<span
+                                                            class="qld__label--optional">(Optional)</span></legend>
+
+                                                    <!-- Success message with SVG icon -->
+                                                    <span id="text-field-success" class="qld__input--success">
+                                                        <!-- Inline SVG as example -->
+                                                        <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                            aria-hidden="true" focusable="false">
+                                                            <title>Success icon</title>
+                                                            <desc>Indicates a correct answer</desc>
+                                                            <use href="./?a=151118#icon-Status-Success">
+                                                            </use>
+                                                        </svg>
+                                                        Correct
+                                                    </span>
+                                                    <!-- Start of the form field container with a qld custom class 'qld_form-field' -->
+                                                    <div class="qld_form-field qld__control-group" role="radiogroup"
+                                                        aria-labelledby="legend-valid">
+
+                                                        <!-- Radio option 1-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--valid"
+                                                                type="radio" name="2-radio-ex" id="2-rb-laptop"
+                                                                role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="2-rb-laptop">Laptop</label>
+                                                        </div>
+
+                                                        <!-- Radio option 2-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input" type="radio"
+                                                                name="2-radio-ex" id="2-rb-phone" role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="2-rb-phone">Phone</label>
+                                                        </div>
+
+                                                        <!-- Radio option 3-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input" type="radio"
+                                                                name="2-radio-ex" id="2-rb-tablet" role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="2-rb-tablet">Tablet</label>
+                                                        </div>
+
+                                                    </div>
+
+                                                </fieldset>
+
+                                            </div>
+                                            <div class="col-xs-6">
+
+                                                <!-- Start of the fieldset element-->
+                                                <fieldset class="qld__fieldset">
+
+                                                    <!-- Fieldset legend describing the purpose of the radio buttons -->
+                                                    <legend class="qld__fieldset__legend" id="legend-error"><abbr
+                                                            title="required">*</abbr>Radio error</legend>
+
+                                                    <!-- Error message with SVG icon -->
+                                                    <span id="text-field-error" class="qld__input--error">
+                                                        <!-- Inline SVG as example -->
+                                                        <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                            aria-hidden="true" focusable="false">
+                                                            <title>Error icon</title>
+                                                            <use href="./?a=151118#icon-Status-Error">
+                                                            </use>
+                                                        </svg>
+                                                        This field is required
+                                                    </span>
+
+                                                    <!-- Hint text providing instructions for the user -->
+                                                    <span class="qld__hint-text" id="radio-hint-3">Select an
+                                                        option</span>
+
+                                                    <!-- Start of the form field container with a qld custom class 'qld_form-field' -->
+                                                    <div class="qld_form-field qld__control-group" role="radiogroup"
+                                                        aria-labelledby="legend-error" aria-describedby="radio-hint-3">
+
+                                                        <!-- Radio option 1-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-laptop"
+                                                                role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="3-rb-laptop">Laptop</label>
+                                                        </div>
+
+                                                        <!-- Radio option 2-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-phone"
+                                                                role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="3-rb-phone">Phone</label>
+                                                        </div>
+
+                                                        <!-- Radio option 3-->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-tablet"
+                                                                role="radio">
+                                                            <label class="qld__control-input__text"
+                                                                for="3-rb-tablet">Tablet</label>
+                                                        </div>
+
+                                                    </div>
+                                                </fieldset>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="row">
+                                        <!-- Example: Error field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="select-example-3" class="qld__label">Selecct label</label>
+                                            <span id="text-field-success" class="qld__input--error"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                    aria-hidden="true" focusable="false">
+                                                    <title>
+                                                        Error status icon
+                                                    </title>
+                                                    <desc>
+                                                        Indicates a error state
+                                                    </desc>
+                                                    <use href="./?a=151118#icon-Status-Error">
+                                                    </use>
+                                                </svg>
+                                                Error message</span>
+                                            <select id="select-example-3"
+                                                class="qld__select qld__text-input--block qld__text-input--error">
+                                                <option value="">Please select</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    
+                                    
+                                        <!-- Example: Error field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                            <label for="select-example-4" class="qld__label">Select label</label>
+                                            <span id="text-field-success" class="qld__input--error"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                    aria-hidden="true" focusable="false">
+                                                    <title>
+                                                        Error status icon
+                                                    </title>
+                                                    <desc>
+                                                        Indicates a error state
+                                                    </desc>
+                                                    <use href="./?a=151118#icon-Status-Error">
+                                                    </use>
+                                                </svg>
+                                                Error message</span>
+                                            <select id="select-example-4"
+                                                class="qld__select qld__text-input--block qld__text-input--error">
+                                                <option value="">Please select</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row qld__form-group">
+                                        <!-- Example: Success field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="select-example-6" class="qld__label">Select label</label><span class="qld__hint-text"
+                                                id="select-example-5">Hint text</span>
+                                            <span id="text-field-success" class="qld__input--success"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                    aria-hidden="true" focusable="false">
+                                                    <title>
+                                                        Success status icon
+                                                    </title>
+                                                    <desc>
+                                                        Indicates a success state
+                                                    </desc>
+                                                    <use href="./?a=151118#icon-Status-Success">
+                                                    </use>
+                                                </svg>
+                                                Success message</span>
+                                            <select id="select-example-5"
+                                                class="qld__select qld__text-input--block qld__text-input--valid"
+                                                aria-describedby="select-example-hint-5">
+                                                <option value="">Please select</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    
+                                        <!-- Example: Success field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                            <label for="select-example-6" class="qld__label">Select label</label><span class="qld__hint-text"
+                                                id="select-example-6">Hint text</span>
+                                            <span id="text-field-success" class="qld__input--success"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                    aria-hidden="true" focusable="false">
+                                                    <title>
+                                                        Success status icon
+                                                    </title>
+                                                    <desc>
+                                                        Indicates a success state
+                                                    </desc>
+                                                    <use href="./?a=151118#icon-Status-Success">
+                                                    </use>
+                                                </svg>
+                                                Success message</span>
+                                            <select id="select-example-6"
+                                                class="qld__select qld__text-input--block qld__text-input--valid"
+                                                aria-describedby="select-example-hint-6">
+                                                <option value="">Please select</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    
+                                    </div>
+                                    <hr>
+                                </div>
                             </div>
-                            <div class="qld__body">
+                            <div class="qld__body qld__body--dark">
                                 <div class="container-fluid">
                                     <h2>Default (Light)</h2>
                                     <fieldset>
                                         <legend>Text field</legend>
                                         <div>
                                             <label for="name">Text input</label>
-                                            <input type="text" id="name" name="name" required placeholder="Placeholder text">
+                                            <input type="text" id="name" name="name" required
+                                                placeholder="Placeholder text">
                                         </div>
                                         <hr>
-                                        <div class="sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q1">
-                                            <label class="sq-form-question-title" for="q83209_q1">Text input Matrix</label> 
-                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1" value="" size="30" maxlength="300" id="q83209_q1" class="sq-form-field"></div>
-                                         </div>
+                                        <div class="sq-form-question sq-form-question-text "
+                                            id="sq_form_field_wrapper_q83209_q1">
+                                            <label class="sq-form-question-title" for="q83209_q1">Text input
+                                                Matrix</label>
+                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1"
+                                                    value="" size="30" maxlength="300" id="q83209_q1"
+                                                    class="sq-form-field">
+                                            </div>
+                                        </div>
+                                        <div class="qld__form-style-filled sq-form-question sq-form-question-text "
+                                            id="sq_form_field_wrapper_q83209_q1">
+                                            <label class="sq-form-question-title" for="q83209_q1">Text input
+                                                Matrix</label>
+                                            <div class="sq-form-question-answer"><input type="text" name="q83209:q1"
+                                                    value="" size="30" maxlength="300" id="q83209_q1"
+                                                    class="qld__text-input"></div>
+                                        </div>
                                     </fieldset>
+                                    <hr>
+                                    <fieldset>
+                                        <label class="qld__label" for="TFN">What is your tax file number (TFN)?</label>
+                                        <span class="qld__hint-text" id="TFN-hint">Tax file numbers are 9 digits</span>
+                                        <input type="text"
+                                            class="qld__field-width--md qld__text-input qld__text-input--block qld__text-input--number"
+                                            id="TFN" inputmode="numeric" name="Tax file number"
+                                            aria-describedby="TFN-hint" />
+                                    </fieldset>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <div class="co-xs-12 col-lg-4">
+                                            <p>Required field</p><br>
+
+                                            <!-- Example 1: Required field -->
+                                            <label for="text-field-id" class="qld__label">
+                                                <!-- Required field indicator using aria-required attribute -->
+                                                <abbr title="required">*</abbr>
+                                                Text-field label
+                                            </label>
+                                            <span class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                            <input type="text" id="text-field-id"
+                                                class="qld__text-input qld__text-input--block" aria-required="true"
+                                                aria-describedby="text-field-hint">
+                                        </div>
+
+
+                                        <div class="co-xs-12 col-lg-4">
+                                            <p>Optional field</p><br>
+
+                                            <!-- Example 2: Optional field -->
+                                            <label for="text-field-id-2" class="qld__label">
+                                                Text-field label
+                                                <!-- Optional field indicator using aria-label attribute -->
+                                                <span class="qld__label--optional"> (Optional)</span>
+                                            </label>
+                                            <span class="qld__hint-text" id="text-field-hint-2">Hint text</span>
+                                            <input type="text" id="text-field-id-2"
+                                                class="qld__text-input qld__text-input--block"
+                                                aria-describedby="text-field-hint-2">
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+                                        <!-- Example: Success field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                                class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                            <span id="text-field-success" class="qld__input--success">Success
+                                                message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text"
+                                                class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+
+                                        <!-- Example: Success field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                                class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                            <span id="text-field-success" class="qld__input--success">Success
+                                                message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text"
+                                                class="qld__text-input qld__text-input--block qld__text-input--valid">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row qld__row-gap--components">
+
+                                        <!-- Example: Error field -->
+                                        <div class="co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label>
+                                            <span id="text-field-success" class="qld__input--error">Error message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text"
+                                                class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+
+
+                                        <!-- Example: Error field filled style -->
+                                        <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                            <label for="text-field-id" class="qld__label">Text-field label</label>
+                                            <span id="text-field-success" class="qld__input--error">Error message</span>
+                                            <input type="text" id="text-field-id" placeholder="placeholder text"
+                                                class="qld__text-input qld__text-input--block qld__text-input--error">
+                                        </div>
+
+                                    </div>
+                                    <p>Error field emphasised</p><br>
+                                    <!-- Example: Error style emphasis -->
+                                    <div
+                                        class="qld__form-group qld__form-style-filled qld__form-group--invalid co-xs-12 col-lg-4">
+
+                                        <label for="text-field-id" class="qld__label">Text-field label</label><span
+                                            class="qld__hint-text" id="text-field-hint">Hint text</span>
+                                        <span id="text-field-success" class="qld__input--error">Error message</span>
+                                        <input type="text" id="text-field-id" placeholder="placeholder text"
+                                            class="qld__text-input qld__text-input--block qld__text-input--error">
+                                    </div>
                                     <hr>
                                     <fieldset>
                                         <div>
@@ -79,37 +823,47 @@
                                             <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
                                         </div>
                                         <hr>
-                                        <div class="sq-form-question sq-form-question-text " id="sq_form_field_wrapper_q83209_q7">
-                                            <label class="sq-form-question-title" for="q83209_q7">Text area <abbr class="sq-form-required-field" title="required">*</abbr></label> <em class="sq-form-question-note">Hint text example</em> 
-                                            <div class="sq-form-question-answer"><textarea name="q83209:q7" id="q83209_q7" cols="30" rows="5" maxlength="300" class="sq-form-field" placeholder="Placeholder text"></textarea></div>
-                                         </div>
+                                        <div class="sq-form-question sq-form-question-text "
+                                            id="sq_form_field_wrapper_q83209_q7">
+                                            <label class="sq-form-question-title" for="q83209_q7">Text area <abbr
+                                                    class="sq-form-required-field" title="required">*</abbr></label> <em
+                                                class="sq-form-question-note">Hint text example</em>
+                                            <div class="sq-form-question-answer"><textarea name="q83209:q7"
+                                                    id="q83209_q7" cols="30" rows="5" maxlength="300"
+                                                    class="sq-form-field" placeholder="Placeholder text"></textarea>
+                                            </div>
+                                        </div>
                                     </fieldset>
-                                    
 
-                                   
+
+
 
                                     <fieldset>
                                         <legend>Checkbox</legend>
-                                    
+
                                         <div>
-                                          <input type="checkbox" id="check-one" name="check-one"
-                                                 checked>
-                                          <label for="check-one">One</label>
+                                            <input type="checkbox" id="check-one" name="check-one" checked>
+                                            <label for="check-one">One</label>
                                         </div>
-                                    
+
                                         <div>
-                                          <input type="checkbox" id="check-two" name="check-two">
-                                          <label for="check-two">Two</label>
+                                            <input type="checkbox" id="check-two" name="check-two">
+                                            <label for="check-two">Two</label>
                                         </div>
                                     </fieldset>
 
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
+                                    <div class="sq-form-question sq-form-question-tickbox-list "
+                                        id="sq_form_field_wrapper_q49141_q17">
                                         <fieldset>
                                             <legend class="sq-form-question-title">checkbox - Matrix output</legend>
                                             <div class="sq-form-question-answer">
                                                 <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0"
+                                                            value="0" class="sq-form-field"> <label
+                                                            for="q49141_q17_0">One</label></li>
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1"
+                                                            value="1" class="sq-form-field"> <label
+                                                            for="q49141_q17_1">Two</label></li>
                                                 </ul>
                                             </div>
                                         </fieldset>
@@ -118,33 +872,38 @@
 
                                     <fieldset>
                                         <legend>Option / radio</legend>
-                                    
+
                                         <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
+                                            <input type="radio" id="radio-one" name="radio" value="radio-one" checked>
+                                            <label for="radio-one">One</label>
                                         </div>
-                                    
+
                                         <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
+                                            <input type="radio" id="radio-two" name="radio" value="radio-two">
+                                            <label for="radio-two">Two</label>
                                         </div>
-                                    
+
                                         <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
+                                            <input type="radio" id="radio-three" name="radio" value="radio-three">
+                                            <label for="radio-three">Three</label>
                                         </div>
                                     </fieldset>
 
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
+                                    <div class="sq-form-question sq-form-question-option-list "
+                                        id="sq_form_field_wrapper_q49141_q15">
                                         <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
+                                            <legend class="sq-form-question-title">Option / radio - Matrix output <abbr
+                                                    class="sq-form-required-field" title="required">*</abbr></legend>
+                                            <div class="sq-form-question-answer">
+                                                <ul>
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_0"
+                                                            value="0" required="" class="sq-form-field"> <label
+                                                            for="q49141_q15_0">Yes</label></li>
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_1"
+                                                            value="1" required="" class="sq-form-field"> <label
+                                                            for="q49141_q15_1">No</label></li>
+                                                </ul>
+                                            </div>
                                         </fieldset>
                                     </div>
 
@@ -162,119 +921,22 @@
                                         </select>
                                     </fieldset>
 
-                                    <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
+                                    <div class="sq-form-question sq-form-question-select "
+                                        id="sq_form_field_wrapper_q49141_q18">
+                                        <label class="sq-form-question-title" for="q49141_q18">Select</label>
                                         <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
-                                              <option value="1" selected="selected">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                           </select>
+                                            <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                                aria-invalid="false">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    
-                                    
-                                </div>
-                            </div>
-                            <div class="qld__body qld__body--alt">
-                                <div class="container-fluid">
-                                    <h2>Alternative</h2>
-
-                                    <fieldset>
-                                        <legend>Checkbox</legend>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="one" name="one"
-                                                 checked>
-                                          <label for="one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
-                                        <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
-                                            <div class="sq-form-question-answer">
-                                                <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
-                                                </ul>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-
-                                    <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
+                                    <hr>
+                                    <fieldset class="qld__form-style-filled">
                                         <label for="pet-select">Select</label>
-
-                                        <select id="pet-select">
+                                        <select class="qld__select qld__text-input--valid" id="pet-select">
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
                                             <option value="cat">Cat</option>
@@ -283,303 +945,393 @@
                                             <option value="spider">Spider</option>
                                             <option value="goldfish">Goldfish</option>
                                         </select>
-                                     </fieldset>
-
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
-                                        <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
-                                              <option value="1" selected="selected">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                           </select>
-                                        </div>
-                                     </div>
-
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
-
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
-                                </div>
-                            </div>
-                            <div class="qld__body qld__body--dark">
-                                <div class="container-fluid">
-                                    <h2>Dark</h2>
-                                    
-                                    <fieldset>
-                                        <legend>Checkbox</legend>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="one" name="one"
-                                                 checked>
-                                          <label for="one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
-                                        </div>
                                     </fieldset>
 
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
-                                        <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
-                                            <div class="sq-form-question-answer">
-                                                <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
-                                                </ul>
-                                            </div>
-                                        </fieldset>
+                                    <div class="sq-form-question sq-form-question-select "
+                                        id="sq_form_field_wrapper_q49141_q18">
+                                        <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                        <div class="sq-form-question-answer">
+                                            <select name="q49141:q18" id="q49141_q18"
+                                                class="qld__select qld__text-input--valid" aria-invalid="false">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
                                     </div>
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-6">
 
-                                    <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
+                                                <!-- Start fieldset -->
+                                                <fieldset class="qld__fieldset">
 
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
+                                                    <!-- Legend of the fieldset -->
+                                                    <legend class="qld__fieldset__legend">
+                                                        <abbr title="required">*</abbr>Checkbox Invalid
+                                                        <span class="qld__label--optional">(Optional)</span>
+                                                    </legend>
 
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
+                                                    <!-- Error message with SVG icon -->
+                                                    <span id="text-field-error" class="qld__input--error">
+                                                        <!-- Inline SVG as example -->
+                                                        <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                            aria-hidden="true" focusable="false">
+                                                            <title>Error icon</title>
+                                                            <desc>Indicates an error</desc>
+                                                            <use href="./?a=151118#icon-Status-Error">
+                                                        </svg>Please choose an option
+                                                    </span>
 
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
+                                                    <!-- Start control group -->
+                                                    <div class="qld__control-group">
 
-                                     <fieldset>
-                                        <label for="pet-select">Select</label>
+                                                        <!-- Checkbox 1 with label and error class -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="checkbox" name="checkbox-example" id="Phone-1"
+                                                                aria-describedby="text-field-error">
+                                                            <label class="qld__control-input__text"
+                                                                for="Phone-1">Phone</label>
+                                                        </div>
 
-                                        <select id="pet-select">
-                                            <option value="">--Please choose an option--</option>
-                                            <option value="dog">Dog</option>
-                                            <option value="cat">Cat</option>
-                                            <option value="hamster">Hamster</option>
-                                            <option value="parrot">Parrot</option>
-                                            <option value="spider">Spider</option>
-                                            <option value="goldfish">Goldfish</option>
-                                        </select>
-                                     </fieldset>
+                                                        <!-- Checkbox 2 with label and error class -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="checkbox" name="checkbox-example" id="Email-2"
+                                                                aria-describedby="text-field-error">
+                                                            <label class="qld__control-input__text"
+                                                                for="Email-2">Email</label>
+                                                        </div>
 
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
-                                        <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
-                                              <option value="1" selected="selected">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                           </select>
-                                        </div>
-                                     </div>
+                                                        <!-- Checkbox 3 with label and error class -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--error"
+                                                                type="checkbox" name="checkbox-example" id="Mail-3"
+                                                                aria-describedby="text-field-error">
+                                                            <label class="qld__control-input__text"
+                                                                for="Mail-3">Mail</label>
+                                                        </div>
 
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
-
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
-                                </div>
-                            </div>
-                            <div class="qld__body qld__body--dark-alt">
-                                <div class="container-fluid">
-                                    <h2>Dark Alternative</h2>
-
-                                    <fieldset>
-                                        <legend>Checkbox</legend>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="one" name="one"
-                                                 checked>
-                                          <label for="one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="checkbox" id="two" name="two">
-                                          <label for="two">Two</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-tickbox-list " id="sq_form_field_wrapper_q49141_q17">
-                                        <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
-                                            <div class="sq-form-question-answer">
-                                                <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0" value="0" class="sq-form-field"> <label for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1" value="1" class="sq-form-field"> <label for="q49141_q17_1">Two</label></li>
-                                                </ul>
+                                                    </div>
+                                                </fieldset>
                                             </div>
-                                        </fieldset>
+
+                                            <div class="col-xs-6">
+                                                <!-- Start fieldset -->
+                                                <fieldset class="qld__fieldset">
+
+                                                    <!-- Legend of the fieldset -->
+                                                    <legend class="qld__fieldset__legend">Checkbox success</legend>
+
+                                                    <!-- Success message with SVG icon -->
+                                                    <span id="text-field-success" class="qld__input--success">
+                                                        <!-- Inline SVG as example -->
+                                                        <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                            aria-hidden="true" focusable="false">
+                                                            <title>Success icon</title>
+                                                            <desc>Indicates a correct answer</desc>
+                                                            <use href="./?a=151118#icon-Status-Success">
+                                                        </svg>
+                                                        Correct
+                                                    </span>
+
+                                                    <!-- Start control group -->
+                                                    <div class="qld__control-group">
+
+                                                        <!-- Checkbox 1 with label and success class -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input qld__input--valid"
+                                                                type="checkbox" name="checkbox-example-dark-1" id="checkbox-example-dark-1"
+                                                                aria-describedby="text-field-success">
+                                                            <label class="qld__control-input__text"
+                                                                for="checkbox-example-dark-1">Answer 1</label>
+                                                        </div>
+
+                                                        <!-- Checkbox 2 with label -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input" type="checkbox"
+                                                                name="checkbox-example" id="Answer-2"
+                                                                aria-describedby="text-field-success">
+                                                            <label class="qld__control-input__text"
+                                                                for="Answer-2">Answer 2</label>
+                                                        </div>
+
+                                                        <!-- Checkbox 3 with label -->
+                                                        <div class="qld__control-input qld__control-input--block">
+                                                            <input class="qld__control-input__input" type="checkbox"
+                                                                name="checkbox-example" id="Answer-3"
+                                                                aria-describedby="text-field-success">
+                                                            <label class="qld__control-input__text"
+                                                                for="Answer-3">Answer 3</label>
+                                                        </div>
+
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <!-- This code snippet is an HTML structure containing two sets of radio buttons, one with a valid state and the other with an invalid state. -->
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+
+                                                    <!-- Start of the fieldset element-->
+                                                    <fieldset class="qld__fieldset">
+
+                                                        <!-- Fieldset legend describing the purpose of the radio buttons -->
+                                                        <legend class="qld__fieldset__legend" id="legend-valid"><abbr
+                                                                title="required">*</abbr>Radio valid<span
+                                                                class="qld__label--optional">(Optional)</span></legend>
+
+                                                        <!-- Success message with SVG icon -->
+                                                        <span id="text-field-success" class="qld__input--success">
+                                                            <!-- Inline SVG as example -->
+                                                            <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                                aria-hidden="true" focusable="false">
+                                                                <title>Success icon</title>
+                                                                <desc>Indicates a correct answer</desc>
+                                                                <use href="./?a=151118#icon-Status-Success">
+                                                                </use>
+                                                            </svg>
+                                                            Correct
+                                                        </span>
+                                                        <!-- Start of the form field container with a qld custom class 'qld_form-field' -->
+                                                        <div class="qld_form-field qld__control-group" role="radiogroup"
+                                                            aria-labelledby="legend-valid">
+
+                                                            <!-- Radio option 1-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input
+                                                                    class="qld__control-input__input qld__input--valid"
+                                                                    type="radio" name="2-radio-ex" id="2-rb-laptop"
+                                                                    role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="2-rb-laptop">Laptop</label>
+                                                            </div>
+
+                                                            <!-- Radio option 2-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input class="qld__control-input__input" type="radio"
+                                                                    name="2-radio-ex" id="2-rb-phone" role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="2-rb-phone">Phone</label>
+                                                            </div>
+
+                                                            <!-- Radio option 3-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input class="qld__control-input__input" type="radio"
+                                                                    name="2-radio-ex" id="2-rb-tablet" role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="2-rb-tablet">Tablet</label>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </fieldset>
+
+                                                </div>
+                                                <div class="col-xs-6">
+
+                                                    <!-- Start of the fieldset element-->
+                                                    <fieldset class="qld__fieldset">
+
+                                                        <!-- Fieldset legend describing the purpose of the radio buttons -->
+                                                        <legend class="qld__fieldset__legend" id="legend-error"><abbr
+                                                                title="required">*</abbr>Radio error</legend>
+
+                                                        <!-- Error message with SVG icon -->
+                                                        <span id="text-field-error" class="qld__input--error">
+                                                            <!-- Inline SVG as example -->
+                                                            <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                                aria-hidden="true" focusable="false">
+                                                                <title>Error icon</title>
+                                                                <use href="./?a=151118#icon-Status-Error">
+                                                                </use>
+                                                            </svg>
+                                                            This field is required
+                                                        </span>
+
+                                                        <!-- Hint text providing instructions for the user -->
+                                                        <span class="qld__hint-text" id="radio-hint-3">Select an
+                                                            option</span>
+
+                                                        <!-- Start of the form field container with a qld custom class 'qld_form-field' -->
+                                                        <div class="qld_form-field qld__control-group" role="radiogroup"
+                                                            aria-labelledby="legend-error"
+                                                            aria-describedby="radio-hint-3">
+
+                                                            <!-- Radio option 1-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input
+                                                                    class="qld__control-input__input qld__input--error"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-laptop"
+                                                                    role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="3-rb-laptop">Laptop</label>
+                                                            </div>
+
+                                                            <!-- Radio option 2-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input
+                                                                    class="qld__control-input__input qld__input--error"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-phone"
+                                                                    role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="3-rb-phone">Phone</label>
+                                                            </div>
+
+                                                            <!-- Radio option 3-->
+                                                            <div class="qld__control-input qld__control-input--block">
+                                                                <input
+                                                                    class="qld__control-input__input qld__input--error"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-tablet"
+                                                                    role="radio">
+                                                                <label class="qld__control-input__text"
+                                                                    for="3-rb-tablet">Tablet</label>
+                                                            </div>
+
+                                                        </div>
+                                                    </fieldset>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="row">
+                                            <!-- Example: Error field -->
+                                            <div class="co-xs-12 col-lg-4">
+                                                <label for="select-example-3" class="qld__label">Selecct label</label>
+                                                <span id="text-field-success" class="qld__input--error"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>
+                                                            Error status icon
+                                                        </title>
+                                                        <desc>
+                                                            Indicates a error state
+                                                        </desc>
+                                                        <use href="./?a=151118#icon-Status-Error">
+                                                        </use>
+                                                    </svg>
+                                                    Error message</span>
+                                                <select id="select-example-3"
+                                                    class="qld__select qld__text-input--block qld__text-input--error">
+                                                    <option value="">Please select</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
+                                            </div>
+                                        
+                                        
+                                            <!-- Example: Error field filled style -->
+                                            <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                                <label for="select-example-4" class="qld__label">Select label</label>
+                                                <span id="text-field-success" class="qld__input--error"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>
+                                                            Error status icon
+                                                        </title>
+                                                        <desc>
+                                                            Indicates a error state
+                                                        </desc>
+                                                        <use href="./?a=151118#icon-Status-Error">
+                                                        </use>
+                                                    </svg>
+                                                    Error message</span>
+                                                <select id="select-example-4"
+                                                    class="qld__select qld__text-input--block qld__text-input--error">
+                                                    <option value="">Please select</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row qld__form-group">
+                                            <!-- Example: Success field -->
+                                            <div class="co-xs-12 col-lg-4">
+                                                <label for="select-example-6" class="qld__label">Select label</label><span class="qld__hint-text"
+                                                    id="select-example-5">Hint text</span>
+                                                <span id="text-field-success" class="qld__input--success"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>
+                                                            Success status icon
+                                                        </title>
+                                                        <desc>
+                                                            Indicates a success state
+                                                        </desc>
+                                                        <use href="./?a=151118#icon-Status-Success">
+                                                        </use>
+                                                    </svg>
+                                                    Success message</span>
+                                                <select id="select-example-5"
+                                                    class="qld__select qld__text-input--block qld__text-input--valid"
+                                                    aria-describedby="select-example-hint-5">
+                                                    <option value="">Please select</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
+                                            </div>
+                                        
+                                            <!-- Example: Success field filled style -->
+                                            <div class="qld__form-style-filled co-xs-12 col-lg-4">
+                                                <label for="select-example-6" class="qld__label">Select label</label><span class="qld__hint-text"
+                                                    id="select-example-6">Hint text</span>
+                                                <span id="text-field-success" class="qld__input--success"> <svg class="qld__icon qld__icon--lead qld__icon--sm"
+                                                        aria-hidden="true" focusable="false">
+                                                        <title>
+                                                            Success status icon
+                                                        </title>
+                                                        <desc>
+                                                            Indicates a success state
+                                                        </desc>
+                                                        <use href="./?a=151118#icon-Status-Success">
+                                                        </use>
+                                                    </svg>
+                                                    Success message</span>
+                                                <select id="select-example-6"
+                                                    class="qld__select qld__text-input--block qld__text-input--valid"
+                                                    aria-describedby="select-example-hint-6">
+                                                    <option value="">Please select</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
+                                            </div>
+                                        
+                                        </div>
+                                        <hr>
+
                                     </div>
-
-                                    <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <legend>Option / radio</legend>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-one" name="radio" value="radio-one"
-                                                 checked>
-                                          <label for="radio-one">One</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                          <label for="radio-two">Two</label>
-                                        </div>
-                                    
-                                        <div>
-                                          <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                          <label for="radio-three">Three</label>
-                                        </div>
-                                    </fieldset>
-
-                                    <div class="sq-form-question sq-form-question-option-list " id="sq_form_field_wrapper_q49141_q15">
-                                        <fieldset>
-                                           <legend class="sq-form-question-title">Option / radio - Matrix output <abbr class="sq-form-required-field" title="required">*</abbr></legend>
-                                           <div class="sq-form-question-answer">
-                                              <ul>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0" required="" class="sq-form-field"> <label for="q49141_q15_0">Yes</label></li>
-                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1" required="" class="sq-form-field"> <label for="q49141_q15_1">No</label></li>
-                                              </ul>
-                                           </div>
-                                        </fieldset>
-                                     </div>
-
-                                     <fieldset>
-                                        <label for="pet-select">Select</label>
-
-                                        <select id="pet-select">
-                                            <option value="">--Please choose an option--</option>
-                                            <option value="dog">Dog</option>
-                                            <option value="cat">Cat</option>
-                                            <option value="hamster">Hamster</option>
-                                            <option value="parrot">Parrot</option>
-                                            <option value="spider">Spider</option>
-                                            <option value="goldfish">Goldfish</option>
-                                        </select>
-                                     </fieldset>
-
-                                     <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label> 
-                                        <div class="sq-form-question-answer">
-                                           <select name="q49141:q18" id="q49141_q18" class="sq-form-field" aria-invalid="false">
-                                              <option value="1" selected="selected">1</option>
-                                              <option value="2">2</option>
-                                              <option value="3">3</option>
-                                           </select>
-                                        </div>
-                                     </div>
-
-                                     <label for="name">Text input</label>
-                                    <input type="text" id="name" name="name" required placeholder="Placeholder text">
-                                    
-                                    <label for="story">Tell us your story:</label>
-
-                                    <textarea id="story" name="story" rows="5" cols="33">Text area</textarea>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
-        </main>
-        <!-- END MAIN BODY -->
+    </main>
+    <!-- END MAIN BODY -->
 
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
-        })}
-        
-        <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
+    <!-- WIDGETS -->
+    ${require('../components/widgets/html/component.hbs')({
+    "site":require('/src/data/site.json'),
+    "current":require('/src/data/current.json')
+    })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important;">
-            ${require('../components/_global/html/scripts.html')}
-        </div>
-    </body>
+    <!-- FOOTER-->
+    ${require('../components/footer/html/component.hbs')({
+    "site":require('/src/data/site.json')
+    })}
+
+    <div class="footer-scripts" id="footer_js" style="display: none !important;">
+        ${require('../components/_global/html/scripts.html')}
+    </div>
+</body>
+
 </html>

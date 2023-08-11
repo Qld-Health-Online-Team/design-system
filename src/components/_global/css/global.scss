@@ -7,15 +7,120 @@ body {
 }
 
 .qld__table__attributes {
-    font-size:0.9em;
+    font-size: 0.9em;
 
     .qld__model_field {
-        width:100%;
+        width: 100%;
     }
+
     textarea {
-        height:100px;
+        height: 100px;
     }
 }
+
+/*   New Classes that apply the form sizes variables
+  ----------------------------------------------------------------------------------------------------------
+      
+New classes to dictate field size, this applied variables that affec thte max-width of a for inpout field
+
+---------------------------------------------------------------------------------------------------------- */
+
+input.qld__field-width--2char,
+select.qld__field-width--2char {
+    max-width: $QLD-fixed-width__char-2;
+}
+
+input.qld__field-width--3char,
+select.qld__field-width--3char {
+    max-width: $QLD-fixed-width__char-3;
+}
+
+input.qld__field-width--4char,
+select.qld__field-width--4char {
+    max-width: $QLD-fixed-width__char-4;
+}
+
+input.qld__field-width--5char,
+select.qld__field-width--5char {
+    max-width: $QLD-fixed-width__char-5;
+}
+
+input.qld__field-width--10char,
+select.qld__field-width--10char {
+    max-width: $QLD-fixed-width__char-10;
+}
+
+input.qld__field-width--20char,
+select.qld__field-width--20char {
+    max-width: $QLD-fixed-width__char-20;
+}
+
+input.qld__field-width--xs,
+select.qld__field-width--xs {
+    max-width: $QLD-form-input__width-xs;
+}
+
+input.qld__field-width--sm,
+select.qld__field-width--sm {
+    max-width: $QLD-form-input__width-sm;
+}
+
+input.qld__field-width--md,
+select.qld__field-width--md {
+    max-width: $QLD-form-input__width-md;
+}
+
+input.qld__field-width--lg,
+select.qld__field-width--lg
+{
+max-width: $QLD-form-input__width-lg;
+}
+
+input.qld__field-width--xl,
+select.qld__field-width--xl
+{
+max-width: $QLD-form-input__width-xl;
+}
+
+/*  Default for all fluid styls is full - these are adjusts at larger break points, they keeps the fluid width style fomrs looking good on mobile  */
+
+input.qld__field-width--full,
+select.qld__field-width--full {
+    max-width: $QLD-fluid-width__full;
+}
+
+input.qld__field-width--3-quarters,
+select.qld__field-width--3-quarters {
+    max-width: $QLD-fluid-width__full;
+}
+
+input.qld__field-width--half,
+select.qld__field-width--half {
+    max-width: $QLD-fluid-width__full;
+}
+
+input.qld__field-width--1-quarter,
+select.qld__field-width--1-quarter {
+    max-width: $QLD-fluid-width__full;
+}
+
+@include QLD-media (md) {
+    input.qld__field-width--1-quarter,
+    select.qld__field-width--1-quarter {
+        max-width:$QLD-fluid-width__1-quarter;
+    }
+
+    input.qld__field-width--half,
+    select.qld__field-width--half {
+        max-width:$QLD-fluid-width__half;
+    }
+
+    input.qld__field-width--3-quarters,
+    select.qld__field-width--3-quarters {
+        max-width:$QLD-fluid-width__3-quarters;
+    }
+}
+
 
 /* Default text size overrides */
 
@@ -80,6 +185,89 @@ body {
 
     .qld__default--xxxl {
         font-size: var(--QLD-default-desktop-xxxl) !important;
+    }
+}
+
+
+/* Default global captions' style */
+
+.qld__caption {
+    font-style: normal;
+    color: var(--QLD-color-light-text__muted);
+    font-size: var(--QLD-default-desktop-xs) !important;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.qld__body--dark, .qld__body--dark-alt {
+    .qld__caption {
+        color: var(--QLD-color-dark-text__muted);
+    }
+}
+
+/* Default text size overrides */
+
+.qld__default--xs {
+    font-size: var(--QLD-font-size-mobile-xs) ;
+}
+
+.qld__default--sm {
+    font-size: var(--QLD-font-size-mobile-sm);
+}
+
+.qld__default--md {
+    font-size: var(--QLD-font-size-mobile-md);
+}
+
+.qld__default--lg {
+    font-size: var(--QLD-font-size-mobile-lg);
+}
+
+.qld__default--xl {
+    font-size: var(--QLD-font-size-mobile-xl);
+    ;
+}
+
+.qld__default--xxl {
+    font-size: var(--QLD-font-size-mobile-xx);
+}
+
+.qld__default--xxxl {
+    font-size: var(--QLD-font-size-mobile-xxxl);
+}
+
+
+/* Desktop sizes for default text style overrides */
+
+@media (min-width: 992px) {
+
+    .qld__default--xs {
+        font-size: var(--QLD-font-size-desktop-xs);
+    }
+
+    .qld__default--sm {
+        font-size: var(--QLD-font-size-desktop-sm);
+    }
+
+    .qld__default--md {
+        font-size: var(--QLD-font-size-desktop-md);
+    }
+
+    .qld__default--lg {
+        font-size: var(--QLD-font-size-desktop-lg);
+    }
+
+    .qld__default--xl {
+        font-size: var(--QLD-font-size-desktop-xl);
+        ;
+    }
+
+    .qld__default--xxl {
+        font-size: var(--QLD-font-size-desktop-xxl);
+    }
+
+    .qld__default--xxxl {
+        font-size: var(--QLD-font-size-desktop-xxxl);
     }
 }
 
@@ -171,7 +359,7 @@ body {
  * Tablet layout
  */
 
-@media screen and (min-width: md){
+@media screen and (min-width: md) {
     body {
         z-index: 2;
     }
@@ -182,7 +370,7 @@ body {
  * Desktop layout
  */
 
-@media screen and (min-width: lg){
+@media screen and (min-width: lg) {
     body {
         z-index: 3;
     }

@@ -30,19 +30,21 @@ legend.sq-form-section-title{
     }
 }
 
-legend.sq-form-question-title{
+legend, legend.sq-form-question-title{
     margin-bottom : 0;
     padding: 0;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 
 //Label
 .qld__label,
 label{
-    color: var(--QLD-color-light-text__muted);
-    display: inline-block;
-    font-weight: bold;
+    color: var(--QLD-color-light-text);
+    display: block;
+    font-weight: 600;
+    line-height: 1.5rem;
+
     @include QLD-media (lg) {
         vertical-align: middle;
     }
@@ -51,7 +53,7 @@ label{
     &+select,
     +input,
     +textarea {
-        @include QLD-space(margin-top, 0.25unit);
+        @include QLD-space(margin-top, 0.5unit);
     }
 
     &--inline {
@@ -62,6 +64,13 @@ label{
         +textarea {
             margin-top: 0;
         }
+    }
+
+    &--optional {
+        font-size: 0.875rem;
+        display: inline-block;
+        margin-left: 0.25rem;
+        font-weight: 400;
     }
 
     + .qld__select,
@@ -85,14 +94,14 @@ label{
     @include QLD-fontgrid(sm, default);
 
     *+& {
-        @include QLD-space(margin-top, 0.25unit);
+        @include QLD-space(margin-top, 0.5unit);
     }
 
     //add space between form control and hint text
     &+select,
     +input,
     +textarea {
-        @include QLD-space(margin-top, 0.25unit);
+        @include QLD-space(margin-top, 0.5unit);
     }
 
     .qld__body--dark &,
@@ -120,7 +129,13 @@ label{
     //Add space above form consecutive
 	+.qld__form-group,
 	+.sq-form-question {
-        @include QLD-space(margin-top, 1.25unit);
+        * + & {
+            @include QLD-space(margin-top, 1.5unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 2unit);
+            }
+        }
     }
 
     .sq-form-question-answer,
@@ -129,7 +144,7 @@ label{
     }
 
     .sq-form-question-answer{
-        @include QLD-space(margin-top, 0.25unit);
+        @include QLD-space(margin-top, 0.5unit);
         ul{
             padding: 0;
             list-style: none;
@@ -182,9 +197,14 @@ fieldset {
     border: 0;
 }
 
-form{
+form {
     > .sq-form-control{
         @include QLD-space(margin-top, 1.25unit);
+    }
+    &+select,
+    +input,
+    +textarea {
+        @include QLD-space(margin-top, 0.5unit);
     }
 }
 
@@ -202,7 +222,7 @@ form{
 .qld__hint-text,
 .qld__input--error {
     * + & {
-        @include QLD-space(margin-top, 0.375unit);
+        @include QLD-space(margin-top, 0.5unit);
     }
 }
 
@@ -210,11 +230,31 @@ form{
 //     color: $QLD-color-error;
 // }
 
-.qld__body abbr.sq-form-required-field {
-    color:$QLD-color-error;
-    border:0;
-    text-decoration:none;
+.qld__body {
+    .sq-form-required-field, abbr[title="required"]  {
+        float: left;
+        @include QLD-space(margin-right, 0.25unit);
+        color:$QLD-color-error;
+        font-size: 1rem;
+        border:0;
+        text-decoration:none;
+    }
 }
+
+
+.qld__control-group {
+    @include QLD-space(margin-top, 1.5unit);
+}
+
+.qld__control-input {
+    padding: 0;
+
+    * + & {
+        @include QLD-space(margin-top, 1unit);
+    }
+}
+
+
 
 
 // .qld__control-input,
@@ -262,15 +302,14 @@ p.sq-form-error {
 	display: block;
 
     *+& {
-		@include QLD-space(margin-top, 0.25unit);
-		@include QLD-space(margin-bottom, 0.25unit);
+		@include QLD-space(margin-top, 0.5unit);
     }
 
     //add space between form control and hint text
     &+select,
     +input,
     +textarea {
-        @include QLD-space(margin-top, 0.25unit);
+        @include QLD-space(margin-top, 0.5unit);
     }
 
     &--inline {

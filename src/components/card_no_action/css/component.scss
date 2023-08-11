@@ -34,12 +34,9 @@
 
     & &__inner &__title {
         color: var(--QLD-color-light-heading);
-        @include QLD-fontgrid(md, heading);
+        @include QLD-space(font-size, 1.25unit);
+        line-height: 1.4;
         @include QLD-space(margin, 0unit); 
-
-        @include QLD-media(lg) {
-            @include QLD-fontgrid(lg, heading);
-        }
     }
 
     & &__inner &__description{
@@ -168,12 +165,7 @@
 
             .qld__card__title{
                 @include QLD-space(font-size, 1.25unit);
-                line-height: 24px;
-
-                @include QLD-media(lg) {
-                    @include QLD-space(font-size, 1.5unit);
-                    line-height: 32px;
-                }
+                line-height: 1.4;
             }
         }
         .qld__card__icon {

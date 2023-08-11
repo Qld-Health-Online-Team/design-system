@@ -6,13 +6,20 @@
     display: none;
     nav {
         ul {
+            padding-bottom: 0px;
             li {
                 a {
                     text-decoration: none;
                     &:hover {
                         @include QLD-underline();
                     }
+                    &:focus {
+                        box-shadow: inset 0px 0px 0px 3px var(--QLD-color-light-focus);
+                        outline: none;
+                    }
                 }
+
+                
             }
         }
     }
@@ -68,10 +75,13 @@
             }
         }
 
+        &__item-link:has(+ button){
+                @include QLD-space(max-width, 13.3unit);
+        }
+
         &__item-text {
             @include QLD-space(font-size, 1unit);
             @include QLD-space(line-height, 1.5unit);
-            @include QLD-space(max-width, 10.8unit);
         }
 
         .qld__left-nav__content {
@@ -81,6 +91,7 @@
         ul {
             // @include QLD-space(padding, 3.25unit 0 0 0);
             padding-top: 0;
+            padding-bottom: 0px;
 
             li {
                 border-top: $QLD-border-width-thin solid var(--QLD-color-light-border);
@@ -124,6 +135,7 @@
                 &:hover {
                     background-color: var(--QLD-color-light-alt-background);
                 }
+
                 a.qld__left-nav__item-link:hover{
                     background-color: var(--QLD-color-light-alt-background);
 
@@ -154,6 +166,10 @@
                         color: var(--QLD-color-light-link);
                         @include QLD-space(border-top-right-radius, 1unit);
 
+                        &:hover {
+                            background-color: var(--QLD-color-light-background);
+                        }
+
                         .qld__left-nav__item-icon svg * {
                             fill: var(--QLD-color-light-link);
                         }
@@ -164,7 +180,7 @@
                     position: relative;
                     @include QLD-space(min-height, 2unit);
                     @include QLD-space(min-width, 2unit);
-                    background-color: transparent;
+                    background-color: var(--QLD-color-light-background);
                     @include QLD-space(margin, 0 1unit);
                     align-self: center;
                     @include QLD-box-shadow(1);
@@ -239,6 +255,13 @@
             ul li {
                 border-color: var(--QLD-color-dark-border);
 
+                a {
+                    &:focus {
+                        box-shadow: inset 0px 0px 0px 3px var(--QLD-color-dark-focus);
+                        outline: none;
+                    }
+                }
+
                 &.active {
                     .qld__left-nav__item-icon svg * {
                         fill: var(--QLD-color-dark-heading);
@@ -275,6 +298,10 @@
                     &.qld__left-nav__item-link--open {
                         background-color: var(--QLD-color-dark-background);
                         color: var(--QLD-color-dark-link);
+
+                        &:hover {
+                            background-color: var(--QLD-color-dark-background);
+                        }
 
                         .qld__left-nav__item-icon svg * {
                             fill: var(--QLD-color-dark-link);

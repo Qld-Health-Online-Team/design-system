@@ -4,14 +4,11 @@
 
 .qld__footer {
     @include QLD-fontgrid(xs);
-    @include QLD-space(padding-bottom, 1unit);
+    @include QLD-space(padding-bottom, 2.5unit);
     border-top: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
     background-color: var(--QLD-color-light-background__shade);
     color: var(--QLD-color-light-text);
 
-    @include QLD-media(md) {
-        @include QLD-space(padding-bottom, 1unit);
-    }
     @include QLD-media(lg) {
         @include QLD-space(padding-top, 2unit);
         @include QLD-space(padding-bottom, 4unit);
@@ -39,17 +36,16 @@
         }
 
         &.qld__footer__cta-content, &.qld__footer__acknowledgements {
-            font-size: 1rem;
+            font-size: 0.875rem;
         }
     }
 
     .qld__btn{
         float: right;
-        @include QLD-space(margin, 0unit);
+        @include QLD-space(margin-top, 1.5unit);
 
         @include QLD-media(lg) {
             float: none;
-            @include QLD-space(margin-top, 1.5unit);
         }
     }
 
@@ -182,14 +178,16 @@
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
+            line-height: 1.4;
 
             > li {
                 margin-left: 0;
                 margin-right: 0;
-                @include QLD-space( margin-top, 0unit );
+                @include QLD-space( margin-top, .5unit );
                 @include QLD-space( margin-bottom, 0unit );
                 width: 50%;
                 flex-basis: 50%;
+
                 @include QLD-media(md) {
                     width: 33%;
                     flex-basis: 33%;
@@ -197,13 +195,13 @@
                 @include QLD-media(lg) {
                     width: auto;
                     flex-basis: 100%;
-                    @include QLD-space( margin-top, .375unit );
-                    @include QLD-space( margin-bottom, .375unit );
+                    @include QLD-space( margin-top, .75unit);
                 }
+
                 a {
                     display: inline-block;
                     font-size: 0.875rem;
-                    line-height: 1rem;
+                    line-height: 1.4;
                     font-weight: 400;
 
                     &:hover{
@@ -212,9 +210,9 @@
                         }
                     }
 
-                    svg{
-                        color: var(--QLD-color-light-alt-button);
-                    }
+                    // svg{
+                    //     color: var(--QLD-color-light-alt-button);
+                    // }
                     
                     &:has(svg) {
                         text-decoration: none;
@@ -373,6 +371,8 @@
         
         .qld__footer__cta__icon{
             color: var(--QLD-color-dark-alt-button);
+            text-align: middle;
+            line-height: 1.4;
         }
 
         a.qld__footer__clickable__link{
@@ -403,9 +403,9 @@
                             }
                         }
                         
-                        svg{
-                            color: var(--QLD-color-dark-alt-button);
-                        }
+                        // svg{
+                        //     color: var(--QLD-color-dark-alt-button);
+                        // }
                         
                         &:has(svg) {
                             text-decoration: none;

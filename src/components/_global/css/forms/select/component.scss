@@ -30,6 +30,8 @@ select{
 	text-indent: 0.01px;
 	text-overflow: unset;
 	vertical-align: middle;
+	width: 100%;
+	max-width: 12.8125rem;
 	@include QLD-focus();
 
 	&::-ms-expand {
@@ -37,7 +39,10 @@ select{
 	}
 
 	&:hover{
-		background-color: var(--QLD-color-light-alt-background__shade);
+		&:not(:focus) {
+			background-color: var(--QLD-color-light-background__shade);
+			border-color: var(--QLD-color-light-button__hover);
+		}
 	}
 
 	&:disabled,
@@ -51,25 +56,68 @@ select{
 		}
 	}
 
-	&.qld__input--valid {
-		border-color: $QLD-color-success;
-		background-color: RGBA(107,190,39,0.05); //$QLD-color-success with .05 opacity
+	.qld__input--success + &,
+	.qld__input--error + & {
+		@include QLD-space(margin-top, 0.5unit);
 	}
+
+		
+	&.qld__text-input--valid {
+			
+		&:not(:focus) {
+			border-color: $QLD-color-success;
+			background-color: $QLD-color-success__light;
+
+		}
+	}
+	
 
 	&.qld__input--error {
 		border-color: $QLD-color-error;
 		background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
 	}
 
+	&.qld__text-input--error {
+		
+		&:not(:focus) { 
+			border-color: $QLD-color-error;
+			background-color: $QLD-color-error__light;
+		}
+
+		&:hover:not(:focus) {
+			border-color: $QLD-color-error;
+			background-color: $QLD-color-error__shade;
+		}
+	}
+
+	&:focus{
+		border-color: var(--QLD-color-light-border);
+	}
+
 	.qld__body--dark &,
 	.qld__body--dark-alt & {
 		color: var(--QLD-color-dark-text__muted);
 		border-color: var(--QLD-color-dark-alt-border);
-		background-image: QLD-svg-with-fill($QLD-icon-chevron-down, var(--QLD-color-dark-alt-button));
+		
+		&:not(:focus):not(.qld__text-input--valid):not(.qld__text-input--error) { 
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+		}
 
-		&.qld__input--valid {
+		&.qld__text-input--valid {
 			border-color: $QLD-color-success;
-			background-color: RGBA(107,190,39,0.05); //$QLD-color-success with .05 opacity
+			background-color: $QLD-color-success__light; //$QLD-color-success with .05 opacity
+			color: var(--QLD-color-light-text);
+
+			&:hover {
+				&:not(:focus) { 
+					background-color: $QLD-color-success__shade;
+					border-color: $QLD-color-success;
+				}
+			}
+
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
 		}
 	
 		&.qld__input--error {
@@ -77,8 +125,35 @@ select{
 			background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
 		}
 
+		&.qld__text-input--error {
+		
+			&:not(:focus) { 
+				border-color: $QLD-color-error;
+				background-color: $QLD-color-error__light;
+			}
+	
+			&:hover:not(:focus) {
+				border-color: $QLD-color-error;
+				background-color: $QLD-color-error__shade;
+			}
+
+			color: var(--QLD-color-light-text);
+		}
+
 		&:hover{
-			background-color: var(--QLD-color-dark-background__shade);
+			&:not(:focus) {
+				background-color: var(--QLD-color-dark-background__shade);
+				border-color: var(--QLD-color-dark-button__hover);
+			}
+		}
+
+		&:focus {
+			background-color: var(--QLD-color-light-background);
+			color: var(--QLD-color-light-text);
+			border-color: var(--QLD-color-light-border);
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
 		}
 	}
 }
@@ -96,15 +171,48 @@ select{
 				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
 				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
 			'</svg>');
+			
+			&:hover{
+				&:not(:focus) { 
+					background-color: var(--QLD-color-dark-background__shade);
+					border-color: var(--QLD-color-dark-button__hover);
+				}
+			}
+			
+			&:focus {
+				background-color: var(--QLD-color-light-background);
+				color: var(--QLD-color-light-text);
+				border-color: var(--QLD-color-light-border);
+				&::placeholder {
+					color: var(--QLD-color-light-text__muted);
+				}
+			}
+
+			&.qld__text-input--valid {
+				color: var(--QLD-color-light-text);
+			}
 		}
 	}
 	.sq-form-question-select select,
 	.sq-form-question-datetime select,
 	.qld__select {
-		background-color: var(--QLD-color-light-border);
+		background-color: var(--QLD-color-light-background__shade);
 		border-width: 0 0 2px 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
+		@include QLD-space( padding, 0.875unit 1.125unit 0.75unit 1.125unit);
+
+		&:focus{
+			background-color: var(--QLD-color-light-background);
+			border-radius: $QLD-border-radius-xs;
+			border:$QLD-border-width-default solid var(--QLD-color-light-border);
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
+			&::placeholder {
+				color: var(--QLD-color-light-text__muted);
+			}
+		}
 
 		&.qld__select--dark {
 			background-color: var(--QLD-color-dark-background__shade);
@@ -114,6 +222,10 @@ select{
 				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
 				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
 			'</svg>');
+		}
+
+		&.qld__text-input--valid {
+			color: var(--QLD-color-light-text);
 		}
 	}
 }
