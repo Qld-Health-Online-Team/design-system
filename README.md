@@ -1,9 +1,27 @@
-# Queensland Health Design System
-## This is an alpha version and is not production ready
+# The Design System by Qld Health
+## This is an alpha version, provided to the community for their use. Qld Health will not provide support for this design system.
 
-If you are using assets from this Repo, please send an email to designandcapability@chde.qld.gov.au so we can add you to our change management communications list
+If you are using assets from this Repo, please send an email to qgdesignsystem@chde.qld.gov.au so we can add you to the change management communications list for the formal future state Qld Gov Design System.
 
-An attached MIT (basic) licence with “THIS REPOSITORY (SOFTWARE) IS PROVIDED AS IS WITHOUT WARRANTY”
+Copyright (c) The State of Queensland 2023 (Queensland Health)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THIS REPOSITORY SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 This boilerplate is the frontend starting point for design cutups and front end component development for the Queensland Design System.
 
