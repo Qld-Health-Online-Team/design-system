@@ -453,33 +453,6 @@ To import your finished component, go to the Matrix Admin interface and in the '
 
 After successful import, you should have a new Content Template in Matrix with a Metadata Schema that matches your *manifest.json* file.
 
-
-## Advanced Features
-### Figma colour sync
-
-The Figma script pulls in all colour variables from the Figma file via the API which can be at '.figma.js'.
-
-By default the script points the design system file which can be updated to pull in new designs colour matrix.
-
-To pull in a new colour matrix you will need to update line 6 with the new path.
-```
-/qKsxl3ogIlBp7dafgxXuCA
-```
-The new path can be found in the url of the figma file, simply copy the figma file id '/file/<figma-file-id>'.
-e.g
-```
-https://www.figma.com/file/**qKsxl3ogIlBp7dafgxXuCA**/QLDH-DDS?node-id=5990%3A97450&viewport=241%2C48%2C0.5
-```
-Once the path has been updated and save you can now run the script with:
-```
-npm run get-figma
-```
-This will hit the figma API via a get request, process the values and save the new SASS varibles in:
-```
-/src/styles/imports/figma.scss
-```
-The figma variables can now be used by running either of the local or production scripts.
-
 ## General Boilerplate Features
 This section contains some general tips for writing code using this boilerplate
 ### Working in HTML files
