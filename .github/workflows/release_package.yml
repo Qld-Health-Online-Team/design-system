@@ -12,8 +12,7 @@ jobs:
       # Checkout project repository
       - name: Checkout
         uses: actions/checkout@v2.3.4
-        with:
-          persist-credentials: false
+        
 
       # Setup Node.js environment
       - name: Setup Node.js
@@ -82,6 +81,8 @@ jobs:
       - name: Push changes to repository
         env:
           GITHUB_TOKEN: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+        with:
+          persist-credentials: false
         run: |
           git push origin && git push --tags
 
