@@ -11,13 +11,13 @@ jobs:
     steps:
       # Checkout project repository
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
         with:
             DIGITAL_QHEALTH_WORKFLOW: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
 
       # Setup Node.js environment
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
           node-version: '14'
