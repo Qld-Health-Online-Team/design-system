@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
         with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
 
       # Setup Node.js environment
       - name: Setup Node.js
@@ -81,7 +81,7 @@ jobs:
       # Push repository changes
       - name: Push changes to repository
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
         run: |
           git push origin && git push --tags
 
@@ -102,4 +102,4 @@ jobs:
           body: ${{ steps.get-changelog.outputs.changelog }}
           prerelease: ${{ startsWith(github.event.inputs.release-type, 'pre') }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
