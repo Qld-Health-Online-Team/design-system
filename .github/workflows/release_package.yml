@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
         with:
-            DIGITAL_QHEALTH_WORKFLOW: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+            persist-credentials: false
 
       # Setup Node.js environment
       - name: Setup Node.js
