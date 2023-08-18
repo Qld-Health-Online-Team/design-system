@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
           <actions>
           <action>
-            <action_id>create_Content_Container_Template_1128880093</action_id>
+            <action_id>create_Content_Container_Template_64188687</action_id>
             <action_type>create_asset</action_type>
             <type_code>Content_Container_Template</type_code>
             <link_type>1</link_type>
@@ -11,287 +11,287 @@
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Content_Container_Template_1128880093_name</action_id>
+            <action_id>set_Content_Container_Template_64188687_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_1128880093.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_64188687.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[[component_name]]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_1128880093_edit_interface_in_admin</action_id>
+            <action_id>set_Content_Container_Template_64188687_edit_interface_in_admin</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_1128880093.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_64188687.assetid]]</asset>
             <attribute>edit_interface_in_admin</attribute>
             <value><![CDATA[1]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_1128880093_icon_color</action_id>
+            <action_id>set_Content_Container_Template_64188687_icon_color</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_1128880093.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_64188687.assetid]]</asset>
             <attribute>icon_color</attribute>
             <value><![CDATA[blue]]></value>
           </action>
           
           <action>
-          <action_id>create_Metadata_Schema_9882742020</action_id>
+          <action_id>create_Metadata_Schema_1505905617</action_id>
           <action_type>create_asset</action_type>
           <type_code>Metadata_Schema</type_code>
           <link_type>1</link_type>
-          <parentid>[[output://create_Content_Container_Template_1128880093.assetid]]</parentid>
+          <parentid>[[output://create_Content_Container_Template_64188687.assetid]]</parentid>
           <value></value>
           <is_dependant>0</is_dependant>
           <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Metadata_Schema_9882742020_name</action_id>
+            <action_id>set_Metadata_Schema_1505905617_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Schema_9882742020.assetid]]</asset>
+            <asset>[[output://create_Metadata_Schema_1505905617.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[[component_name]]]></value>
           </action>
           <action>
-              <action_id>set_permission_9882742020_read_5</action_id>
+              <action_id>set_permission_1505905617_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Schema_9882742020.assetid]]</asset>
+              <asset>[[output://create_Metadata_Schema_1505905617.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>
           
           <action>
-            <action_id>create_Metadata_Section_3246475099</action_id>
+            <action_id>create_Metadata_Section_1100011146</action_id>
             <action_type>create_asset</action_type>
             <type_code>Metadata_Section</type_code>
             <link_type>2</link_type>
-            <parentid>[[output://create_Metadata_Schema_9882742020.assetid]]</parentid>
+            <parentid>[[output://create_Metadata_Schema_1505905617.assetid]]</parentid>
             <value></value>
             <is_dependant>1</is_dependant>
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>add_Metadata_Section_3246475099_path</action_id>
+            <action_id>add_Metadata_Section_1100011146_path</action_id>
             <action_type>add_web_path</action_type>
-            <asset>[[output://create_Metadata_Section_3246475099.assetid]]</asset>
-            <parent_asset>[[output://create_Metadata_Schema_9882742020.assetid]]</parent_asset>
+            <asset>[[output://create_Metadata_Section_1100011146.assetid]]</asset>
+            <parent_asset>[[output://create_Metadata_Schema_1505905617.assetid]]</parent_asset>
             <path>settings</path>
           </action>
           <action>
-            <action_id>set_Metadata_Section_3246475099_name</action_id>
+            <action_id>set_Metadata_Section_1100011146_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Section_3246475099.assetid]]</asset>
+            <asset>[[output://create_Metadata_Section_1100011146.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Settings]]></value>
           </action>
           <action>
-              <action_id>set_permission_3246475099_read_5</action_id>
+              <action_id>set_permission_1100011146_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Section_3246475099.assetid]]</asset>
+              <asset>[[output://create_Metadata_Section_1100011146.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>           
           
               <action>
-                  <action_id>create_metadata_field_text_8769896400</action_id>
+                  <action_id>create_metadata_field_text_1201529672</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_3246475099.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_1100011146.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_8769896400_name</action_id>
+                  <action_id>set_metadata_field_text_1201529672_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[field1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_1201529672_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Field 1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_default</action_id>
+                  <action_id>set_metadata_field_text_1201529672_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Example text]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_description</action_id>
+                  <action_id>set_metadata_field_text_1201529672_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[A text field]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_editable</action_id>
+                  <action_id>set_metadata_field_text_1201529672_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_editable</action_id>
+                  <action_id>set_metadata_field_text_1201529672_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8769896400_required</action_id>
+                  <action_id>set_metadata_field_text_1201529672_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8769896400_read_5</action_id>
+                  <action_id>set_permission_1201529672_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_8769896400.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_1201529672.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_related_asset_8938991237</action_id>
+                  <action_id>create_metadata_field_related_asset_6462815588</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_related_asset</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_3246475099.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_1100011146.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_name</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[root_node]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_friendly_name</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Parent asset (populates 'children' and 'childrenThumbnails')]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_default</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[123]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_description</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_editable</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_editable</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8938991237_required</action_id>
+                  <action_id>set_metadata_field_related_asset_6462815588_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8938991237_read_5</action_id>
+                  <action_id>set_permission_6462815588_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8938991237.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_6462815588.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_related_asset_8847310422</action_id>
+                  <action_id>create_metadata_field_related_asset_8112550322</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_related_asset</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_3246475099.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_1100011146.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_name</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[asset_select]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_friendly_name</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Assets to link to (populates 'assets')]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_default</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[1; 2; 3]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_description</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_editable</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_editable</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_related_asset_8847310422_required</action_id>
+                  <action_id>set_metadata_field_related_asset_8112550322_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8847310422_read_5</action_id>
+                  <action_id>set_permission_8112550322_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_related_asset_8847310422.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_related_asset_8112550322.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
