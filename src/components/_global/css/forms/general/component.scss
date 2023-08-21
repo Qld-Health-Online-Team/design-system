@@ -4,7 +4,7 @@
 
 //Legend
 .qld__fieldset__legend,
-.sq-form-question-title {	
+.sq-form-question-title {
     color: var(--QLD-color-light-text);
 	display: block;
 
@@ -143,8 +143,8 @@ label{
         order: 1;
     }
 
-    .sq-form-question-answer{
-        @include QLD-space(margin-top, 0.5unit);
+    .sq-form-question-answer {
+        @include QLD-space(margin-top, 1.5unit);
         ul{
             padding: 0;
             list-style: none;
@@ -170,6 +170,20 @@ label{
     }
 }
 
+.sq-form-question {
+    * + & {
+        margin-top: 2rem;
+    }
+}
+
+.qld__fieldset {
+
+}
+
+.qld__btn {
+    margin-top: 2rem;
+}
+
 //Forms spacing
 * + form {
     @include QLD-space(margin-top, 2unit);
@@ -191,7 +205,9 @@ label{
 fieldset {
     display: flex;
     flex-direction: column;
-
+    * + & {
+        margin-top: 2rem;
+    }
     margin: 0;
     padding: 0;
     border: 0;
