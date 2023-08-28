@@ -54,7 +54,7 @@
             line-height:1;
         }
     }
-
+    
     .qld__header__pre-header {
         color: var(--QLD-color-light-text);
         background-color: var(--QLD-color-light-background);
@@ -88,10 +88,11 @@
 
         &-brand-image {
             display: block;
+            @include QLD-space(height, 1.75unit);
+            width: auto;
 
             @include QLD-media(md) {
                 @include QLD-space(height, 2.5unit);
-                width: auto;
             }
 
             @include QLD-media(lg) {
