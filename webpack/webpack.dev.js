@@ -1,19 +1,20 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'cheap-eval-source-map',
+    devtool: 'eval-cheap-source-map',
     devServer: {
-        before(app, server) {
-            devServer = server;
+        static: {
+            directory: path.join(__dirname, '../dist'),
         },
-        contentBase: path.join(__dirname, '../dist'),
+        client: {
+            overlay: false,
+        },
         hot: true,
         host: '0.0.0.0',
-        port: 8080
+        port: 8080,
     },
     module: {
         rules: [
@@ -47,8 +48,5 @@ module.exports = merge(common, {
                 enforce:"post"
             }
         ]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    }
 });
