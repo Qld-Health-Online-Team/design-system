@@ -66,25 +66,44 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .dataTables_filter {
+
         max-width: 360px;
         flex: 40%;
 
         label {
             width: 100%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             input {
                 height: 3rem;
-                flex: 1;
-                margin-left: 12px;
             }
 
             input:not(#qld__data-table__search-field) {
                 display: none;
             }
         }
-
+        
+        @include QLD-media(md) {
+            max-width: 360px;
+            flex: 40%;
+    
+            label {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                input {
+                    height: 3rem;
+                    flex: 1;
+                    margin-left: 12px;
+                }
+    
+                input:not(#qld__data-table__search-field) {
+                    display: none;
+                }
+            }
+        }
     }
 
     //end*
@@ -101,7 +120,6 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         @include QLD-media(sm) {
             flex-direction: row;
-            
         }        
 
         .dataTables_length {
@@ -442,11 +460,15 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
     .top { //needs to stay
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         padding: 16px 12px;
         align-items: center;
         gap: 16px;
+
+        @include QLD-media(md) {
+            flex-direction: row;
+        }
     }
 
     .top { //needs to stay
