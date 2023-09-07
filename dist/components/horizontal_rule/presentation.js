@@ -8,7 +8,7 @@
 
   return "<section class=\"qld__body\" id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":2,"column":31},"end":{"line":2,"column":131}}})) != null ? stack1 : "")
-    + "\">\r\n<hr class=\"qld__horizontal-rule "
+    + "\">\n<hr class=\"qld__horizontal-rule "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
@@ -18,7 +18,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ";margin-bottom:"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ";\r\n\">\r\n</section>\r\n";
+    + ";\n\">\n</section>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
