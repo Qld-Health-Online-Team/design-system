@@ -41,15 +41,17 @@
                                     {{/ifCond}}
                                     {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
 
-                                        <a class="qld__main-nav__item-link {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}{{#if this}} qld__main-nav__item-link--desktop-hide{{/if}}{{/arrayWith}}"
+                                        <a class="qld__main-nav__item-link {{#ifCond this.asset_metadata_showInMegaNav '!=' 'true'}}qld__main-nav__item-link--desktop-hide{{/ifCond}}"
                                             {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}">{{{renderSpecialChar asset_short_name}}}</a>
-                                            {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
-                                                {{#if this}}
-                                                    <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{../asset_short_name}}">{{{renderSpecialChar ../asset_short_name}}}</span>
-                                                    <svg class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__chevron-up"></use></svg>
-                                                    </button>
-                                                {{/if}}
-                                        {{/arrayWith}}
+                                                {{#ifCond asset_metadata_showInMegaNav '==' 'true'}}
+                                                    {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
+                                                        {{#if this}}
+                                                            <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{../asset_short_name}}">{{{renderSpecialChar ../asset_short_name}}}</span>
+                                                            <svg class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__chevron-up"></use></svg>
+                                                            </button>
+                                                        {{/if}}
+                                                    {{/arrayWith}}
+                                                {{/ifCond}}
 
                                     {{/ifCond}}
                                 </div>
