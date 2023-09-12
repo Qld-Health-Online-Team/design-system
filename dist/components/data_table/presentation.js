@@ -1,5 +1,5 @@
 {"1":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -12,8 +12,8 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"table_data_source") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"table_styling") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" id=\"qld-data-table-"
-    + alias2(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":5,"column":126},"end":{"line":5,"column":137}}}) : helper)))
+    + "\" id=\""
+    + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":5,"column":111},"end":{"line":5,"column":210}}})) != null ? stack1 : "")
     + "\">\n            <div class=\"qld__data-table__header\">\n                <span class=\"qld__display-md\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"table_title") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "</span>\n                <span class=\"qld__caption\">\n                    "
@@ -23,6 +23,25 @@
     + "\n            </div>\n            <table id=\"qld_data-table_csv\" class=\"qld__data-table-content\" aria-describedby=\"\" data-csv-source=\"./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"table_data_csv") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" style=\"display: none\">\n            </table>\n        </div>\n    </div>\n</section>\n";
+},"2":function(container,depth0,helpers,partials,data) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0));
+},"4":function(container,depth0,helpers,partials,data) {
+    var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "qld-data-table-"
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":5,"column":192},"end":{"line":5,"column":203}}}) : helper)));
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
