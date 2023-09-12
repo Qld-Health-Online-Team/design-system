@@ -17,6 +17,7 @@
     </ul>
     <ul class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
         {{#with (itemAt current.lineage -2)}}
+        {{#ifCond asset_type_code '!=' 'folder'}} 
             <li>
             <a href="{{asset_url}}">
                 {{#ifCond asset_is_site_asset '==' '1'}}
@@ -26,6 +27,7 @@
                 {{/ifCond}}
             </a>    
         </li>
+        {{/ifCond}}
         {{/with}}
     </ul>
 </nav>
