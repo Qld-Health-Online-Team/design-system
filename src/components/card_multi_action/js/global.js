@@ -16,16 +16,21 @@
         let cards = document.querySelectorAll(".qld__card__multi-action");
 
         cards.forEach(function(card){
-            let imageLink = card.querySelector('.qld__responsive-media-img--bg');
-            let link = card.querySelector(".qld__card__title");
+            let imageLink = card.querySelector('.qld__card__image-link');
+            let link = card.querySelector(".qld__card__title .qld__card--clickable__link");
             
             if (imageLink) {
-              imageLink.addEventListener('mouseenter', function(e) {
-                link.dispatchEvent(new MouseEvent('mouseenter', {'bubbles': true}));
+              imageLink.addEventListener('mouseover', () => {
+                link.classList.add('qld__card--clickable__link--active');
               });
-            
-              imageLink.addEventListener('mouseleave', function(e) {
-                link.dispatchEvent(new MouseEvent('mouseleave', {'bubbles': true}));
+              imageLink.addEventListener('mouseout', () => {
+                link.classList.remove('qld__card--clickable__link--active');
+              });
+              link.addEventListener('mouseover', () => {
+                imageLink.classList.add('qld__card__image-link--active');
+              });
+              link.addEventListener('mouseout', () => {
+                imageLink.classList.remove('qld__card__image-link--active');
               });
             }
             

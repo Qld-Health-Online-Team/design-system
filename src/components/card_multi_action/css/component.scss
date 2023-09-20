@@ -8,11 +8,6 @@
     @include QLD-media(lg) {
         box-shadow: none;
     }
-    .qld__card__inner{
-        .qld__card__title{
-            @include QLD-fontgrid(lg, heading);
-        }
-    }
 
     //Card Icon
     &.qld__card--icon {
@@ -52,7 +47,8 @@
         }
     
         &:hover,
-        &:focus {
+        &:focus,
+        &--active {
             &::before {
                 opacity: 0.1;
             }
@@ -230,13 +226,8 @@
         }
 
         .qld__card__title {
-            @include QLD-space(font-size, 1.5unit);
-                    line-height: 32px;
-    
-            @include QLD-media(lg) {
-                @include QLD-fontgrid(xl);
-                line-height: 40px;
-            }
+            @include QLD-space(font-size, 1.25unit);
+            line-height: 1.4;
         }
     }
 
@@ -261,13 +252,8 @@
         .qld__card__inner{
 
             .qld__card__title {
-                @include QLD-space(font-size, 1.5unit);
-                line-height: 32px;
-        
-                @include QLD-media(lg) {
-                    @include QLD-space(font-size, 1.5unit);
-                    line-height: 32px;
-                }
+                @include QLD-space(font-size, 1.25unit);
+                line-height: 1.4;
             }
         }
     }
