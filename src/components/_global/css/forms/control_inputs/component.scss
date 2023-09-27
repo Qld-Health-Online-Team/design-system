@@ -13,19 +13,14 @@ input[type='checkbox'],
 		cursor: pointer;
 		position: relative;
 		vertical-align: bottom;
-		@include QLD-space(line-height, 1.25unit);
+		@include QLD-space(line-height, 2unit);
 		@include QLD-space(padding-left, 2.5unit);
-		@include QLD-space(margin-bottom, 0.375unit);
-
-		@include QLD-media (lg) {
-			@include QLD-space(line-height, 2unit);
-			// @include QLD-space(padding-left, 3.25unit);
-		}
+		font-weight: 400;
 
 		&:before,
 		&:after {
-			@include QLD-space(width, 1.25unit);
-			@include QLD-space(height, 1.25unit);
+			@include QLD-space(width, 2unit);
+			@include QLD-space(height, 2unit);
 			visibility: visible;
 			content: ' ';
 			display: block;
@@ -36,11 +31,6 @@ input[type='checkbox'],
 			@include QLD-space(left, 0unit);
 			border: $QLD-border-width-default solid transparent;
 			top: 0;
-
-			@include QLD-media (lg) {
-				@include QLD-space(width, 2unit);
-				@include QLD-space(height, 2unit);
-			}
 
 			.qld__control-input--small & {
 				@include QLD-space( width, 1.25unit );
@@ -79,12 +69,8 @@ input[type='checkbox'],
 	&:checked {
 		+ label:after {
 			@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text)  );
-			@include QLD-space(background-size, 1.25unit);
+			@include QLD-space(background-size, 1.85unit);
 			background-position: -2px -2px;
-
-			@include QLD-media (lg) {
-				@include QLD-space(background-size, 1.85unit);
-			}
 		}
 	}
 
@@ -97,34 +83,34 @@ input[type='checkbox'],
 
 	// disabled
 	&:disabled {
+		
 		+ label:before {
-			background-color: transparent;
+			opacity: 0.3;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+
+		+ label {
+			color: var(--QLD-color-light-text__muted);
+			cursor: not-allowed;
 		}
 
 		&:checked + label:after {
+			opacity: 0.5; //amir
 			@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text__muted) );
 		}
 	}
 
 	&.qld__input--valid{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-success );
+			box-shadow: 0 0 0 3px $QLD-color-success;
 			border-color: var(--QLD-color-light-text);
-
-			@include QLD-media (lg) {
-				box-shadow: 0 0 0 3px $QLD-color-success;
-			}
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-error );
+			box-shadow: 0 0 0 3px $QLD-color-error;
 			border-color: var(--QLD-color-light-text);
-
-			@include QLD-media (lg) {
-				box-shadow: 0 0 0 3px $QLD-color-error;
-			}
 		}
 	}
 
@@ -132,7 +118,7 @@ input[type='checkbox'],
 	.qld__body--dark-alt & {
 
 		+ label:before {
-			background-color: transparent;
+			// background-color: transparent;
 			border-color: var(--QLD-color-dark-heading);
 			background-image: none !important;
 		}
@@ -147,7 +133,7 @@ input[type='checkbox'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-dark-heading)  );
+				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff  );
 			}
 		}
 
@@ -162,8 +148,15 @@ input[type='checkbox'],
 				background-color: transparent;
 			}
 
+			+ label {
+				color: var(--QLD-color-dark-text__muted);
+				cursor: not-allowed;
+			}
+
 			&:checked + label:after {
-				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light-text__muted) );
+				opacity: 0.5;
+
+				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff );
 			}
 		}
 
@@ -190,19 +183,13 @@ input[type='radio'],
 		font-weight: 400;
 		cursor: pointer;
 		position: relative;
-		@include QLD-space(line-height, 1.25unit);
+		@include QLD-space(line-height, 2unit);
 		@include QLD-space(padding-left, 2.5unit);
-		@include QLD-space(margin-bottom, 0.375unit);
-
-		@include QLD-media (lg) {
-			@include QLD-space(line-height, 2unit);
-			// @include QLD-space(padding-left, 3.25unit);
-		}
 
 		&:before,
 		&:after {
-			@include QLD-space(width, 1.25unit);
-			@include QLD-space(height, 1.25unit);
+			@include QLD-space(width, 1.85unit);
+			@include QLD-space(height, 1.85unit);
 			visibility: visible;
 			content: ' ';
 			display: block;
@@ -214,11 +201,6 @@ input[type='radio'],
 			border: $QLD-border-width-default solid transparent;
 			border-radius: 50%;
 			top: 0;
-
-			@include QLD-media (lg) {
-				@include QLD-space(width, 1.85unit);
-				@include QLD-space(height, 1.85unit);
-			}
 
 			.qld__control-input--small & {
 				@include QLD-space( width, 1.25unit );
@@ -234,10 +216,6 @@ input[type='radio'],
 	
 		&:after {
 			z-index: 101;
-			@include QLD-media (lg) {
-				height: 29px;
-				width: 29px;
-			}
 		}
 	}
 
@@ -272,24 +250,33 @@ input[type='radio'],
 
 	// disabled
 	&:disabled {
+
 		+ label:before {
-			background-color: transparent;
+			opacity: 0.3;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+
+		+ label {
+			color: var(--QLD-color-light-text__muted);
+			cursor: not-allowed;
 		}
 
 		&:checked + label:after {
-			@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light-text__muted) );
+			opacity: 0.5; //amir
+			@include QLD-getControlShape( 'radio', 'foreground', #636363 );
 		}
+		
 	}
 
 	&.qld__input--valid{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-success );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-success );
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.0625unit $QLD-color-error );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-error );
 		}
 	}
 
@@ -312,7 +299,7 @@ input[type='radio'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-dark-heading) );
+				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
 			}
 		}
 
@@ -325,12 +312,25 @@ input[type='radio'],
 
 		// disabled
 		&:disabled {
-			+ label:before {
-				background-color: transparent;
-			}
+
 
 			&:checked + label:after {
 				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light-text__muted) );
+			}
+
+			+ label:before {
+				opacity: 0.3;
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+	
+			+ label {
+				color: var(--QLD-color-dark-text__muted);
+				cursor: not-allowed;
+			}
+	
+			&:checked + label:after {
+				opacity: 0.5; //amir
+				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
 			}
 		}
 	}

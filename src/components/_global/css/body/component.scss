@@ -319,7 +319,7 @@ form {
     font-family: $QLD-font;
     color: var(--QLD-color-light-text);
     background-color: var(--QLD-color-light-background);
-
+    letter-spacing: .009rem;
 
     a {
         color: var(--QLD-color-light-link);
@@ -334,18 +334,24 @@ form {
 
     p {
         margin: 0;
-        @include QLD-space(max-width, $QLD-font-maxwidth);
-        
+        // @include QLD-space(max-width, $QLD-font-maxwidth);
+        max-width: 80ch;
+        line-height: 1.75;
     }
 
-    *:not([type="hidden"]) {
+    *:not([type="hidden"]):not(p) {
         + p {
-        @include QLD-space(margin-top, 1.25unit);
+            @include QLD-space(margin-top, 1.25unit);
 
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
             }
+
         }
+    }
+
+    p + p {
+        @include QLD-space(margin-top, 1unit);
     }
 
     img {
@@ -398,10 +404,19 @@ form {
         white-space: pre-wrap;
     }
     
-    * + ul:not([class]),
-    * + ol:not([class]),
+    
     * + dl:not([class]),
     * + pre {
+        @include QLD-space(margin-top, 1unit);
+    }
+
+    * + ol:not([class]),
+    * + ul:not([class]) {
+        @include QLD-space(margin-top, 1.5unit);
+    }
+
+    p + ol:not([class]),
+    p + ul:not([class]) {
         @include QLD-space(margin-top, 1unit);
     }
 
@@ -604,6 +619,12 @@ form {
     /**
 	 * Blockquote
 	 */
+
+    figure {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     blockquote,
     .qld__block-quote {
         @include QLD-fontgrid(md, small);
@@ -616,12 +637,13 @@ form {
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
             color: var(--QLD-color-light-text__muted);
-            margin-top: 10px;
+            margin-top: .625rem;
         }
 
         *:not([type="hidden"]) + &{
             margin-top: 1.5rem;
         }
+        
     }
 
     /**
@@ -727,6 +749,7 @@ form {
             .qld__quote-source {
                 color: var(--QLD-color-dark-text__muted);
             }
+            
         }
     }
     
@@ -835,11 +858,10 @@ form {
             content: " (" attr(title) ")";
         }
 
-        pre,
-        blockquote {
+        pre {
             border: 1px solid #000;
             padding: 6px;
-            page-break-inside: avoid;
+            page-break-inside: avoid; 
         }
 
         thead {
@@ -919,8 +941,7 @@ form {
             content: " (" attr(title) ")";
         }
 
-        pre,
-        blockquote {
+        pre {
             border: 1px solid #000;
             padding: 6px;
             page-break-inside: avoid;
