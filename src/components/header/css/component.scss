@@ -54,7 +54,7 @@
             line-height:1;
         }
     }
-
+    
     .qld__header__pre-header {
         color: var(--QLD-color-light-text);
         background-color: var(--QLD-color-light-background);
@@ -88,15 +88,17 @@
 
         &-brand-image {
             display: block;
+            @include QLD-space(height, 1.75unit);
+            width: auto;
 
             @include QLD-media(md) {
                 @include QLD-space(height, 2.5unit);
-                width: auto;
             }
 
             @include QLD-media(lg) {
                 display: none;
             }
+
         }
 
         &-url {
@@ -384,6 +386,11 @@
                 @include QLD-space(padding-right, 1.5unit);
                 @include QLD-space(margin-right, 1.5unit);
                 border-right: solid $QLD-border-width-default var(--QLD-color-light-designAccent);
+            }
+
+            img{
+                margin: auto 0;
+                display: block;
             }
 
             svg{

@@ -1,27 +1,33 @@
 {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
 <nav class="qld__breadcrumbs" aria-label="breadcrumb">
     <ul class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
-        {{#each current.lineage}}        
+        {{#each current.lineage}} 
+            {{#ifCond asset_type_code '!=' 'folder'}}       
             <li {{#if @last}}aria-current="page"{{/if}}>
                 {{#if @last}}
                     {{renderSpecialChar asset_short_name}}
                 {{else}}
-                <a href="{{asset_url}}">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>
+                    {{#ifCond asset_type_code '!=' 'folder'}}
+                        <a href="{{asset_url}}">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>
+                    {{/ifCond}}    
                 {{/if}}
             </li>
+            {{/ifCond}}
         {{/each}}
     </ul>
     <ul class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
         {{#with (itemAt current.lineage -2)}}
+        {{#ifCond asset_type_code '!=' 'folder'}} 
             <li>
             <a href="{{asset_url}}">
                 {{#ifCond asset_is_site_asset '==' '1'}}
                     Home
                 {{else}}
-                   {{renderSpecialChar asset_short_name}}
+                    {{renderSpecialChar asset_short_name}}
                 {{/ifCond}}
             </a>    
         </li>
+        {{/ifCond}}
         {{/with}}
     </ul>
 </nav>

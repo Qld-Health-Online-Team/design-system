@@ -6,6 +6,10 @@
     position: relative;
     display: none;
 
+    &--content-centre{
+        text-align: center;
+    }
+
     &.active {
         display: block;
     }
@@ -21,12 +25,12 @@
     }
 
     &__inner{
-        min-width: pxToRem(360);
-        max-width: pxToRem(654);
+        min-width: 17.5rem;
+        max-width: 17.5rem;
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -100%);
+        transform: translate(-50%, -50%);
         background-color: $QLD-color-system-white;
         padding: 1.5rem;
         border: $QLD-border-width-thin solid var(--QLD-color-light-border);
@@ -34,8 +38,15 @@
         @include QLD-box-shadow(4);
         z-index: 101;
 
+        @include QLD-media(md) {
+            min-width: 22.5rem;
+            max-width: 37.5rem;
+        }
+
         @include QLD-media(lg) {
             padding: 2rem;
+            min-width: 25.5rem;
+            max-width: 53.5rem;
         }
     }
 
@@ -49,11 +60,16 @@
             line-height: 2rem;
             margin-right: 1.5rem;
             color: var(--QLD-color-light-heading);
+            word-break: break-all;
         }
 
         & &-icon{
             margin-right: 1rem;
-        }   
+        }
+
+        .qld__btn.qld__btn--close{
+            margin-left: auto;
+        }
     }
 
     &__close-btn{
@@ -65,7 +81,7 @@
         border-radius: 50%;
         height: 2rem;
         width: 2rem;
-        background: var(--QLD-color-light-background__shade);
+        background-color: var(--QLD-color-light-background__shade);
         border-color: var(--QLD-color-light-background__shade);
 
         &:hover{
@@ -80,6 +96,7 @@
 
     &__content{
         margin-top: 1.5rem;
+        word-break: break-all;
     }
 
 

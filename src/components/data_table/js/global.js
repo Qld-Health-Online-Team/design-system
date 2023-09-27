@@ -61,14 +61,20 @@
         return [...returnArray];
     }
 
-    function dataTableCsv() {
-        const csvTable = document.getElementById("qld_data-table_csv");
-        csvTable.style.display = "table";
-        const csvFileURL = csvTable.getAttribute('data-csv-source');
+    function dataTableCsv(tableDiv) {
+        
+        let tableDivId = tableDiv.attr("id");
+        tableDivId = '#' + tableDivId;
+
+        const csvTable = tableDiv.children("#qld_data-table_csv");
+        csvTable.css("display", "table");
+
+        const csvFileURL = csvTable.attr('data-csv-source');
 
         readCSVFile(csvFileURL, (err, tableLines) => {
-            if (err) {
+            if (err) { //the file reader is prone to throwing errors - CORS errors etc.
                 console.log("Error: ", err);
+                csvTable.css("display", "none");
             }
 
             let tableHeaderAndFooter = getTableHeaderAndFooter(tableLines);
@@ -90,7 +96,10 @@
             //         : `<th>${f}</th>`;
             // });
 
-            const QLD_DataTable = $("#qld_data-table_csv").DataTable({
+            const QLD_DataTable = $(csvTable).DataTable({
+                "sScrollX": "100%",
+                "sScrollXInner": "100%",
+                "bScrollCollapse": true,
                 data: tableData ? tableData : [],
                 columns: tableColumns ? tableColumns : [],
                 dom: '<"top"if>rt<"bottom"lp><"clear">',
@@ -141,7 +150,7 @@
                     sPaging: "dataTables_paginate paging_ qld__search-pagination "
                 },
                 drawCallback: function (settings) {
-                    var parentDiv = $("div.qld__search-pagination");
+                    var parentDiv = $(tableDivId + " div.qld__search-pagination");
                     var ulElement = $(
                         '<ul class="qld__search-pagination__list"></ul>'
                     );
@@ -181,17 +190,16 @@
                 let order = QLD_DataTable.order()[0]; // Get the column index being sorted
                 let columns = QLD_DataTable.columns(); // Get all columns in the table
 
-                $("#qld_data-table_csv tfoot th").removeClass(
+                $(`${tableDivId} > #qld_data-table_csv tfoot th`).removeClass(
                     "sorting_asc sorting_desc sorting sorting_1"
                 );
 
-                $(
-                    "#qld_data-table_csv tfoot th:nth-child(" + (order[0] + 1) + ")"
+                $(tableDivId + " > #qld_data-table_csv tfoot th:nth-child(" + (order[0] + 1) + ")"
                 ).addClass("sorting_1");
             });
 
             if (footerHasContent) {
-                $("#qld_data-table_csv")
+                $(`${tableDivId} > #qld_data-table_csv`)
                     .append(
                         $("<tfoot class='qld__data-table-footer' />").append(
                             tableFooter
@@ -202,11 +210,19 @@
         });
     }
 
-    function dataTableHtml() {
-        const htmlTable = document.getElementById("qld_data-table_html").style.display = "block";
-        const tableElement = $("#qld_data-table_html table");
+    function dataTableHtml(tableDiv) {
+
+        let tableDivId = tableDiv.attr("id");
+        tableDivId = '#' + tableDivId;
+
+        const htmlTable = tableDiv.children("#qld_data-table_html");
+        htmlTable.css("display", "block");
+        const tableElement = $(tableDivId + " #qld_data-table_html table");
 
         const QLD_DataTable = tableElement.DataTable({
+            "sScrollX": "100%",
+            "sScrollXInner": "100%",
+            "bScrollCollapse": true,
             dom: '<"top"if>rt<"bottom"lp><"clear">',
             pagingType: "simple_numbers",
             pagingTag: "li",
@@ -256,7 +272,7 @@
 
             },
             drawCallback: function (settings) {
-                var parentDiv = $("div.qld__search-pagination");
+                var parentDiv = $(tableDivId + " div.qld__search-pagination");
                 var ulElement = $(
                     '<ul class="qld__search-pagination__list"></ul>'
                 );
@@ -294,44 +310,38 @@
         });
 
         $( // this line enforces the correct sorting class to the html table's first column's footer. 
-            "#qld_table_html tfoot tr th:first-child"
+            tableDivId + " #qld_table_html tfoot tr th:first-child"
         ).addClass("sorting_1");
 
         QLD_DataTable.on("order.dt", function () {
             let order = QLD_DataTable.order()[0]; // Get the column index being sorted
 
-            $("#qld_table_html tfoot tr th").removeClass(
+            $(tableDivId + " #qld_table_html tfoot tr th").removeClass(
                 "sorting_asc sorting_desc sorting sorting_1"
             );
 
             $(
-                "#qld_table_html tfoot tr th:nth-child(" + (order[0] + 1) + ")"
+                tableDivId + " #qld_table_html tfoot tr th:nth-child(" + (order[0] + 1) + ")"
             ).addClass("sorting_1");
         });
     }
 
-    function triggerFunctionBasedOnClass() {
-        var tableDiv = $(".qld__data-table");
+    function triggerFunctionBasedOnClass(tableDiv) {
 
         if (tableDiv.hasClass("qld__data-table--csv")) {
-            dataTableCsv();
+            dataTableCsv(tableDiv);
         } else if (tableDiv.hasClass("qld__data-table--html")) {
-            dataTableHtml();
+            dataTableHtml(tableDiv);
         }
     }
 
     dataTable.init = function () {
 
-        // var tableDiv = document.querySelector(".qld__data-table");
+        const tableDivs = $(".qld__data-table");
 
-
-        triggerFunctionBasedOnClass();
-
-        // if (tableDiv.hasClass("qld__data-table--csv")) {
-        //     dataTableCsv();
-        // } else if (tableDiv.hasClass("qld__data-table--html")) {
-        //     dataTableHtml();
-        // }
+        for(let tableDiv of tableDivs) {
+            triggerFunctionBasedOnClass($(tableDiv));
+        }
         
     }
 
