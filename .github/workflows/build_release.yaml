@@ -9,17 +9,17 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: npm install and build webpack
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+            token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
       - uses: actions/setup-node@v3
-      - name: npm install and build webpack
-        run: |
+        with:
           node-version: 16 
           cache: npm
+      - run: | 
           npm ci
           npm run build
-          registry-url: 'https://registry.npmjs.org'
           npm publish --access public --tag ${{ env.RELEASE_TAG }}
             env:
               NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
