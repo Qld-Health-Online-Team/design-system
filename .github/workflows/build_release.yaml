@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
       - name: npm install and build webpack
         run: |
-          npm install
+          npm ci
           run: npm run build
       - uses: actions/setup-node@v3
         with:
