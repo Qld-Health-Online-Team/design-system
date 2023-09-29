@@ -9,6 +9,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      # Checkout project repository
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+            token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+            
       # Configure Git
       - name: Git configuration
         run: |
@@ -36,9 +42,6 @@ jobs:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
           
       - name: npm install and build webpack
-      - uses: actions/checkout@v3
-        with:
-            token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16 
