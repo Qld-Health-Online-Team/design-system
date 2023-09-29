@@ -14,6 +14,18 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          registry-url: https://registry.npmjs.org/
+          node-version: '16' 
+          cache: npm
+
+      - name: npm install and build webpack   
+        run: | 
+          npm ci
+          npm run build
             
       # Configure Git
       - name: Git configuration
@@ -39,19 +51,7 @@ jobs:
           echo "NEW_VERSION=$(npm --no-git-tag-version --preid=beta version $RELEASE_TYPE)" >> $GITHUB_ENV
           echo "RELEASE_TAG=beta" >> $GITHUB_ENV
         env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
-          
-      - name: npm install and build webpack
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16 
-          cache: npm
-      - run: | 
-          npm ci
-          npm run build
-          npm publish --access public --tag ${{ env.RELEASE_TAG }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+          RELEASE_TYPE: ${{ github.event.inputs.release-type }}    
   
       # Update changelog unreleased section with new version
       - name: Update changelog
@@ -60,6 +60,12 @@ jobs:
           path-to-changelog: CHANGELOG.md
           version: ${{ env.NEW_VERSION }}
           operation: release
+
+      # Publish version to public repository
+      - name: Publish
+        run: npm publish --access public --tag ${{ env.RELEASE_TAG }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
   
       # Commit changes
       - name: Commit CHANGELOG.md and package.json changes and create tag
