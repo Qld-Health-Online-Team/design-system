@@ -591,8 +591,14 @@ Handlebars.registerHelper('listAZ', function(items, url, options) {
 
     for(var i = 0; i < letters.length; i++) {
         services[letters[i]] = services[letters[i]].sort(function(a, b){
-            if(a.name < b.name) { return -1; }
-            if(a.name > b.name) { return 1; }
+
+            //sorting the letters disregarding the case.
+            let lowerCaseA = a.name.toLowerCase();
+            let lowerCaseB = b.name.toLowerCase();
+            
+            if(lowerCaseA < lowerCaseB) { return -1; }
+            if(lowerCaseA > lowerCaseB) { return 1; }
+
             return 0;
         })
         html += '<h3 class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></h3>';

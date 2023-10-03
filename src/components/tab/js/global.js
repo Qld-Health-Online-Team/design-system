@@ -112,17 +112,28 @@
                 // Get all tab heading elements within the tab component
                 const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
                 // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
-                tabHeadings[0].setAttribute("tabindex", "0");
-                tabHeadings[0].setAttribute("aria-selected", "true");
-                const tabContentId = tabHeadings[0].getAttribute("data-tab");
-                const tabContent = tabComponent.querySelector(
-                    `.qld__tab-content[data-tab="${tabContentId}"]`
-                );
-                tabContent.setAttribute("tabindex", "0");
-                tabContent.setAttribute("aria-hidden", "false");
+                if(tabHeadings.length){
+                    tabHeadings[0].setAttribute("tabindex", "0");
+                    tabHeadings[0].setAttribute("aria-selected", "true");
+                    const tabContentId = tabHeadings[0].getAttribute("data-tab");
+                    tabHeadings[0].classList.add("active");  
+
+                    const tabContent = tabComponent.querySelector(
+                        `.qld__tab-content[data-tab="${tabContentId}"]`
+                    );
+
+                    if(tabContent.length){
+                        tabContent.setAttribute("tabindex", "0");
+                        tabContent.setAttribute("aria-hidden", "false");
+                        tabContent.classList.add("active");
+                    }
+                }
+                
+
+                
                 // Add the 'active' class to the first tab heading and its corresponding content element
-                tabHeadings[0].classList.add("active");
-                tabContent.classList.add("active");
+                
+                
                 // Loop through each tab heading element
                 tabHeadings.forEach((tabHeading) => {
                     // Attach a click event listener to the tab heading

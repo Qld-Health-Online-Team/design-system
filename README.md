@@ -24,9 +24,6 @@ This boilerplate is the frontend starting point for design cutups and front end 
 - [Build / Commit / Push](#build--commit--push)
 - [Importing into Matrix](#importing-into-matrix)
 
-#### [Advanced Features](#advanced-features-1)
-- [Figma colour sync](#figma-colour-sync)
-
 #### [General Boilerplate Features](#general-boilerplate-features-1)
 - [Working in HTML Files](#working-in-html-files)
 - [Working in SCSS Files](#working-in-scss-files)

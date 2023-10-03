@@ -468,56 +468,73 @@
 			}
 		}
 	}
+
+
+
+	/**
+	* SEARCH
+	*/
+	.qld__btn.qld__btn--search,
+	a.qld__btn.qld__btn--search {
+		position: relative;
+		min-width: 0;
+		@include QLD-space( padding, .875unit .875unit .875unit .875unit);
+		border-width: $QLD-border-width-default;
+
+		@include QLD-media(lg) {
+			@include QLD-space( padding, .75unit 1.5unit);
+		}
+
+		.qld__btn__icon{
+			display: block;
+			@include QLD-space( width, 1.25unit );
+			@include QLD-space( height, 1.25unit );
+			transition: transform 0.25s ease-in;
+			mask-image: QLD-svguri($QLD-icon-search);
+			mask-repeat: no-repeat;
+			mask-position: center;
+			background-color: var(--QLD-color-light-button__text);
+
+			@include QLD-media(lg) {
+				display: none;
+			}
+		}
+
+		i{
+			@include QLD-media(lg) {
+				display: none;
+			}
+		}
+
+		.qld__btn__text{
+			@include QLD-sronly();
+
+			@include QLD-media(lg) {
+				position: relative;
+				width: auto;
+				height: auto;
+			}
+
+		}
+	}
+
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+		.qld__btn.qld__btn--search,
+		a.qld__btn.qld__btn--search {
+			
+			.qld__btn__icon{
+				background-color: var(--QLD-color-dark-button__text);
+			}
+		}
+	}
 }
-
-
-/**
-* SEARCH
-*/
-.qld__btn.qld__btn--search,
-a.qld__btn.qld__btn--search {
-	position: relative;
-	min-width: 0;
-	@include QLD-space( padding, .875unit .875unit .875unit .875unit);
-	border-width: $QLD-border-width-default;
-
-	@include QLD-media(lg) {
-		@include QLD-space( padding, .75unit 1.5unit);
-	}
-
-	.qld__btn__icon{
-		display: block;
-		@include QLD-space( width, 1.25unit );
-		@include QLD-space( height, 1.25unit );
-		transition: transform 0.25s ease-in;
-		mask-image: QLD-svguri($QLD-icon-search);
-		mask-repeat: no-repeat;
-		mask-position: center;
-		background-color: var(--QLD-color-light-button__text);
-
-		@include QLD-media(lg) {
-			display: none;
-		}
-	}
-
-	i{
-		@include QLD-media(lg) {
-			display: none;
-		}
-	}
-
-	.qld__btn__text{
-		@include QLD-sronly();
-
-		@include QLD-media(lg) {
-			position: relative;
-			width: auto;
-			height: auto;
-		}
-
-	}
-}
-
 /**
 * Close Button
 */
