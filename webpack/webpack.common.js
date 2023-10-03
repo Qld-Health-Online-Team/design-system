@@ -80,6 +80,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'), // Output folder
         filename: 'js/[name].js', // JS output path
+        clean: true,
     },
     resolve: {
         alias: {
