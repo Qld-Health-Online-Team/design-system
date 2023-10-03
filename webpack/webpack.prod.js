@@ -45,7 +45,8 @@ module.exports = env => {
                 'input': './src/components/**/**/*.hbs',
                 'manifest':'./src/components/**/js/manifest.json',
                 'output': './dist/components/',
-                'helpersInput': './src/helpers/Handlebars/*.js'
+                'helpersInput': './src/helpers/Handlebars/*.js',
+                'helpersOutput': './src/helpers/Handlebars/*.js'
             }),
             new JsonMergePlugin({
                 'input': './src/api/service_finder/schemas/*.json',
