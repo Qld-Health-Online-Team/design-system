@@ -28,8 +28,8 @@
                     alertContainer.style.maxHeight = '0';
 
                     if (siteName.length > 0) {
-                        QH.utils.setCookie(siteName + "_alertSeen","true");
-                    }
+                        QLD.utils.setCookie(siteName + "_alertSeen","true");
+                    } 
                 }, false);
             }
         }
