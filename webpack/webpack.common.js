@@ -76,7 +76,6 @@ const copyWebPack = new CopyWebpackPlugin({
 module.exports = {
     entry: {
         main: ['./src/index.js'].concat(js_files),
-       
     },
     output: {
         path: path.resolve(__dirname, '../dist'), // Output folder
