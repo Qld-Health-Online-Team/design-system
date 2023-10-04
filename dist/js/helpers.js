@@ -522,7 +522,7 @@ Handlebars.registerHelper('inArray', function(array,key,value,options) {
     return options.inverse(this);
 }); 
 Handlebars.registerHelper('isPage', function(pageType, options) {
-    if (pageType == 'page_standard' || pageType == 'page_redirect') {
+    if (pageType == 'page_standard' || pageType == 'page_redirect' || pageType == 'page_custom_form'|| pageType == 'page_decision_tree') {
         return options.fn(this)
     } else {
         return options.inverse(this)
