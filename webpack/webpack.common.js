@@ -76,7 +76,7 @@ const copyWebPack = new CopyWebpackPlugin({
 module.exports = {
     entry: {
         main: ['./src/index.js'].concat(js_files),
-        helpers: path.resolve(__dirname, '../src/helpers/Handlebars/*'), 
+       
     },
     output: {
         path: path.resolve(__dirname, '../dist'), // Output folder
