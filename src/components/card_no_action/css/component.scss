@@ -302,15 +302,7 @@
             &--length{
                 background-color: var(--QLD-color-dark-button);
             }
-        }
-
-        a.qld__card--clickable__link{
-            color: var(--QLD-color-dark-link);
-            @include QLD-underline('dark');
-
-        }
-            
-        
+        }   
     }
 
     //Dark Alt theme
@@ -345,13 +337,7 @@
             &--length{
                 background-color: var(--QLD-color-dark-button);
             }
-        }
-        a.qld__card--clickable__link{
-            color: var(--QLD-color-dark-link);
-            @include QLD-underline('dark');
-
-        }
-            
+        }         
     }
 
     .qld__body--dark &,
@@ -363,6 +349,40 @@
 
 }
 
+
+.qld__body--dark, .qld__body--dark-alt {
+    .qld__card{
+        a.qld__card--clickable__link {
+            color: var(--QLD-color-light-link);
+            @include QLD-underline('light');
+        }
+
+        &.qld__card--dark, &.qld__card--dark-alt{
+            a.qld__card--clickable__link{
+                color: var(--QLD-color-dark-link);
+                @include QLD-underline('dark');
+    
+            }
+        }
+    }
+} 
+
+.qld__body, .qld__body--alt {
+    .qld__card{
+        a.qld__card--clickable__link {
+            color: var(--QLD-color-light-link);
+            @include QLD-underline('light');
+        }
+
+        &.qld__card--dark, &.qld__card--dark-alt{
+            a.qld__card--clickable__link{
+                color: var(--QLD-color-dark-link);
+                @include QLD-underline('dark');
+    
+            }
+        }
+    }
+} 
 
 // Card listing match height
 .qld__body .qld__card-list,
