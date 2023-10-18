@@ -28,7 +28,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 60%;
+            &:not(:has(.qld__banner__image)) {
+                max-width: 60%;
+            }
+            // width: 60%;
             @include QLD-space(padding-top, 3unit);
             @include QLD-space(padding-bottom, 3unit);
         }
