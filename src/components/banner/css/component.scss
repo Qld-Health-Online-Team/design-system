@@ -12,6 +12,14 @@
     padding: 0;
     position: relative;
 
+    &:not(.qld__banner__advanced):not(.qld__banner__basic) {
+        & &__content {
+            @include QLD-media(lg) {
+                width: 90%;
+            }
+        }
+    }
+
     & &__content {
         color: var(--QLD-color-light-text);
         position: relative;
@@ -28,10 +36,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            &:not(:has(.qld__banner__image)) {
-                max-width: 60%;
-            }
-            // width: 60%;
+            width: 60%;
             @include QLD-space(padding-top, 3unit);
             @include QLD-space(padding-bottom, 3unit);
         }
