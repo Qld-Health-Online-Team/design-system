@@ -37,7 +37,7 @@
                             <li class="qld__main-nav__item {{#ifCond asset_assetid '==' ../current.data.assetid}}active{{/ifCond}} {{#ifCond asset_assetid '==' ../current.top.asset_assetid}}active{{/ifCond}}">
                                 <div class="qld__main-nav__item-title">
                                     {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '!=' 'true'}} 
-                                        <a {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" data-name="{{{asset_short_name}}}" class="qld__main-nav__item-link">{{{renderSpecialChar asset_short_name}}}</a>
+                                        <a {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" data-name="{{{renderSpecialChar asset_short_name}}}" class="qld__main-nav__item-link">{{{renderSpecialChar asset_short_name}}}</a>
                                     {{/ifCond}}
                                     {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
 
