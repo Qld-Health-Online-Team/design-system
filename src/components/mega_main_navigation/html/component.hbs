@@ -37,15 +37,15 @@
                             <li class="qld__main-nav__item {{#ifCond asset_assetid '==' ../current.data.assetid}}active{{/ifCond}} {{#ifCond asset_assetid '==' ../current.top.asset_assetid}}active{{/ifCond}}">
                                 <div class="qld__main-nav__item-title">
                                     {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '!=' 'true'}} 
-                                        <a {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" data-name="{{{renderSpecialChar asset_short_name}}}" class="qld__main-nav__item-link">{{{renderSpecialChar asset_short_name}}}</a>
+                                        <a {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" data-name="{{{asset_short_name}}}" class="qld__main-nav__item-link">{{{asset_short_name}}}</a>
                                     {{/ifCond}}
                                     {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
 
                                         <a class="qld__main-nav__item-link {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}{{#if this}} qld__main-nav__item-link--desktop-hide{{/if}}{{/arrayWith}}"
-                                            {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}">{{{renderSpecialChar asset_short_name}}}</a>
+                                            {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}">{{{asset_short_name}}}</a>
                                             {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                                                 {{#if this}}
-                                                    <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{{../asset_short_name}}}">{{{renderSpecialChar ../asset_short_name}}}</span>
+                                                    <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{{../asset_short_name}}}">{{{../asset_short_name}}}</span>
                                                     <svg class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__chevron-up"></use></svg>
                                                     </button>
                                                 {{/if}}
@@ -80,13 +80,13 @@
                                                                 
                                                                 
                                                                 <a href="{{asset_url}}">
-                                                                    <span class="qld__main-nav__sub-item-text">{{{renderSpecialChar asset_short_name}}}</span>
+                                                                    <span class="qld__main-nav__sub-item-text">{{{asset_short_name}}}</span>
                                                                     
                                                                 </a>
                                                             {{/ifCond}}
                                                             {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                                                             <li class="active {{#ifCond @root.site.metadata.mainNavPageDescLevelTwo.value '==' 'true'}}qld__main-nav__item--has-desc{{#if ../this.asset_metadata_shortDescription}}{{/if}}{{/ifCond}}">
-                                                                <span {{#ifCond asset_assetid '==' @root.data.assetid}}aria-current="page"{{/ifCond}} class="qld__main-nav__sub-item-text">{{{renderSpecialChar asset_short_name}}}</span>
+                                                                <span {{#ifCond asset_assetid '==' @root.data.assetid}}aria-current="page"{{/ifCond}} class="qld__main-nav__sub-item-text">{{{asset_short_name}}}</span>
                                                             {{/ifCond}}
                                                             {{#ifCond @root.site.metadata.mainNavPageDescLevelTwo.value '==' 'true'}}
                                                                 {{#if asset_metadata_shortDescription}}
