@@ -1,6 +1,6 @@
 <div class="qld__side-nav qld__accordion">
     <button class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed" aria-controls="nav-default" aria-expanded="false" aria-selected="false" >
-    In {{current.top.asset_name}}
+    In {{{current.top.asset_name}}}
     </button>
     <nav aria-label="side navigation" id="nav-default" class="qld__side-nav__content qld__accordion--closed qld__accordion__body"> 
         <h2 class="qld__sidenav__title">
@@ -10,11 +10,11 @@
         {{#each current.children}}
             {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
             <li>
-                <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
+                <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
             {{/ifCond}}
             {{#ifCond asset_assetid '==' @root.current.data.assetid}}
             <li class="active" aria-current="page">
-                <span>{{renderSpecialChar asset_short_name}}</span>
+                <span>{{{asset_short_name}}}</span>
             {{/ifCond}}
             {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
                 {{#if children}}
@@ -22,11 +22,11 @@
                     {{#each children}}
                         {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                         <li>
-                            <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
+                            <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
                         {{/ifCond}}
                         {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                         <li class="active" aria-current="page">
-                            <span>{{renderSpecialChar asset_short_name}}</span>
+                            <span>{{{asset_short_name}}}</span>
                         {{/ifCond}}
                         {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
                             {{#if children}}
@@ -34,11 +34,11 @@
                                 {{#each children}}
                                     {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                                     <li>
-                                        <a class="qld__sidenav__link" href="{{asset_url}}">{{renderSpecialChar asset_short_name}}</a>
+                                        <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
                                     {{/ifCond}}
                                     {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                                     <li class="active" aria-current="page">
-                                        <span>{{renderSpecialChar asset_short_name}}</span>
+                                        <span>{{{asset_short_name}}}</span>
                                     {{/ifCond}}
                                     </li>    
                                 {{/each}}

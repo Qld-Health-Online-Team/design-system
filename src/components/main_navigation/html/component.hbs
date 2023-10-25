@@ -23,7 +23,7 @@
                                     <span class="qld__main-nav__item-icon">
                                         <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
                                     </span>
-                                    <span class="qld__main-nav__item-text" data-name="{{asset_short_name}}">Home</span>
+                                    <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
                                 </a>
                             </div>
                         </li>
@@ -32,7 +32,7 @@
                         <li class="qld__main-nav__item {{#ifCond asset_assetid '==' ../current.data.assetid}}active{{/ifCond}}{{#ifCond asset_assetid '==' ../current.top.asset_assetid}}active{{/ifCond}}">
                             <div class="qld__main-nav__item-title">
                                 <a class="qld__main-nav__item-link" {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" >
-                                    <span class="qld__main-nav__item-text" data-name="{{asset_short_name}}">{{{renderSpecialChar asset_short_name}}}</span>
+                                    <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">{{{asset_short_name}}}</span>
                                 </a>
                             </div>
                         </li>
@@ -58,7 +58,7 @@
                                             <i class="{{site.metadata.mainNavCtaOneIcon.value}}"></i>
                                         </span>
                                         {{/if}}
-                                        <span class="qld__main-nav__item-text" data-name="{{site.metadata.mainNavCtaOneText.value}}">{{{site.metadata.mainNavCtaOneText.value}}}</span>
+                                        <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaOneText.value}}}">{{{site.metadata.mainNavCtaOneText.value}}}</span>
                                     </a>
                                 </div>
                             </li>
@@ -72,7 +72,7 @@
                                             <i class="{{site.metadata.mainNavCtaTwoIcon.value}}"></i>
                                         </span>
                                         {{/if}}
-                                        <span class="qld__main-nav__item-text" data-name="{{site.metadata.mainNavCtaTwoText.value}}">{{{site.metadata.mainNavCtaTwoText.value}}}</span>
+                                        <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaTwoText.value}}}">{{{site.metadata.mainNavCtaTwoText.value}}}</span>
                                     </a>
                                 </div>
                             </li>
