@@ -13,7 +13,7 @@
      */
     function initGlobalAlert() {
         var alerts =
-            document.getElementsByClassName(".qld__global-alert") || [];
+            document.getElementsByClassName("qld__global-alert") || [];
 
         for (const alert of alerts) {
             // if (alert !== null) {
