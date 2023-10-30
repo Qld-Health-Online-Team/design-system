@@ -30,7 +30,7 @@ This boilerplate is the frontend starting point for design cutups and front end 
 #### [Contributing](#contributing)
 #### [Copyright and Warrannty](#copyright-and-warrannty)
 
-## Getting Started 
+## Getting Started
 
 ### Inclusions
 When you first clone down the Design System, you automatically get the following:
