@@ -1,10 +1,12 @@
 name: PR Build and Release package
+
 on:
   pull_request_target:
     types:
       - closed
     branches:
       - 'master'
+
 jobs:
   release:
     if: github.event.pull_request.merged == true
@@ -19,11 +21,6 @@ jobs:
         with:
           node-version: '16'
           cache: npm
-
-      - name: npm install and build webpack
-        run: |
-          npm ci
-          npm run build
 
       - name: Configure Git
         run: |
@@ -48,6 +45,11 @@ jobs:
             exit 0
           fi
 
+      - name: npm install and build webpack
+        run: |
+          npm ci
+          npm run build
+
       - name: Update changelog
         uses: superfaceai/release-changelog-action@v1
         with:
@@ -55,16 +57,16 @@ jobs:
           version: $(node -p "require('./package.json').version")
           operation: release
 
-      - name: Publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
-
       - name: Commit and push changes
         run: |
           git add "package.json" "CHANGELOG.md"
           git commit -m "chore: release $(node -p "require('./package.json').version")"
           git push origin HEAD:master
+
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
 
       - name: Get version changelog
         id: get-changelog
