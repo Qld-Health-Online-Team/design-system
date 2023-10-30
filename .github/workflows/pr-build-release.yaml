@@ -1,4 +1,3 @@
-
 name: PR Build and Release package
 on:
   pull_request_target:
@@ -10,98 +9,75 @@ jobs:
   release:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+
     steps:
-      # Checkout project repository
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+        uses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          registry-url: https://registry.npmjs.org/
-          node-version: '16' 
+          node-version: '16'
           cache: npm
 
-      - name: npm install and build webpack   
-        run: | 
+      - name: npm install and build webpack
+        run: |
           npm ci
           npm run build
-            
-      # Configure Git
-      - name: Git configuration
+
+      - name: Configure Git
         run: |
-          git config --global user.email "digital@health.qld.gov.au"
-          git config --global user.name "digital-qhealth"
-  
-      # Bump package version
-      # Use tag latest
-      - name: Bump release version
-        if: contains(github.event.pull_request.labels.*.name, 'major')
-        if: contains(github.event.pull_request.labels.*.name, 'minor')
-        if: contains(github.event.pull_request.labels.*.name, 'patch')
-        if: startsWith(github.event.inputs.release-type, 'pre') != true
+          git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
+          git config --global user.name "${{ secrets.GH_ORG_NAME }}"
+
+      - name: Bump version
         run: |
-          echo "NEW_VERSION=$(npm --no-git-tag-version version $RELEASE_TYPE)" >> $GITHUB_ENV
-          echo "RELEASE_TAG=latest" >> $GITHUB_ENV
-        env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
-  
-      # Bump package pre-release version
-      # Use tag beta for pre-release versions
-      - name: Bump pre-release version
-        if: startsWith(github.event.inputs.release-type, 'pre')
-        run: |
-          echo "NEW_VERSION=$(npm --no-git-tag-version --preid=beta version $RELEASE_TYPE)" >> $GITHUB_ENV
-          echo "RELEASE_TAG=beta" >> $GITHUB_ENV
-        env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}    
-  
-      # Update changelog unreleased section with new version
+          # Get the labels from the closed pull request
+          LABELS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/labels")
+
+          # Extract the version bump from labels
+          if echo "$LABELS" | jq -e 'map(.name == "major") | any'; then
+            npm version major
+          elif echo "$LABELS" | jq -e 'map(.name == "minor") | any'; then
+            npm version minor
+          elif echo "$LABELS" | jq -e 'map(.name == "patch") | any'; then
+            npm version patch
+          else
+            echo "No version bump label found, skipping release"
+            exit 0
+          fi
+
       - name: Update changelog
         uses: superfaceai/release-changelog-action@v1
         with:
           path-to-changelog: CHANGELOG.md
-          version: ${{ env.NEW_VERSION }}
+          version: $(node -p "require('./package.json').version")
           operation: release
 
-      # Publish version to public repository
       - name: Publish
-        run: npm publish --access public --tag ${{ env.RELEASE_TAG }}
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
-  
-      # Commit changes
-      - name: Commit CHANGELOG.md and package.json changes and create tag
-        run: |
-          git add "package.json"
-          git add "CHANGELOG.md"
-          git commit -m "chore: release ${{ env.NEW_VERSION }}"
-          git tag ${{ env.NEW_VERSION }}
-          
-        # Push repository changes
-      - name: Push changes to repository
-        env:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
-        run: |
-          git push origin && git push --tags
 
-      # Read version changelog
-      - id: get-changelog
-        name: Get version changelog
+      - name: Commit and push changes
+        run: |
+          git add "package.json" "CHANGELOG.md"
+          git commit -m "chore: release $(node -p "require('./package.json').version")"
+          git push origin HEAD:master
+
+      - name: Get version changelog
+        id: get-changelog
         uses: superfaceai/release-changelog-action@v1
         with:
           path-to-changelog: CHANGELOG.md
-          version: ${{ env.NEW_VERSION }}
+          version: $(node -p "require('./package.json').version")
           operation: read
 
-      # Update GitHub release with changelog
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.NEW_VERSION }}
+          tag_name: $(node -p "require('./package.json').version")
           body: ${{ steps.get-changelog.outputs.changelog }}
-          prerelease: ${{ startsWith(github.event.inputs.release-type, 'pre') }}
         env:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
