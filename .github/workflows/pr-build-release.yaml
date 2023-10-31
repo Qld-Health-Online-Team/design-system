@@ -93,7 +93,6 @@ jobs:
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.NEW_VERSION }}
           body: ${{ steps.get-changelog.outputs.changelog }}
         env:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
