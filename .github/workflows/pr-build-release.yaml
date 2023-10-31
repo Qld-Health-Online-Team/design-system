@@ -50,10 +50,14 @@ jobs:
           # Check if a valid label was found
           if [ -n "$HIGHEST_LABEL" ]; then
             npm version "$HIGHEST_LABEL"
+            echo "New version: $NEW_VERSION"
           else
             echo "No version bump label found, skipping release"
             exit 0
           fi
+
+      - name: Set new version as environment variable
+        run: echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
 
       - name: npm install and build webpack
         run: |
@@ -64,13 +68,13 @@ jobs:
         uses: superfaceai/release-changelog-action@v1
         with:
           path-to-changelog: CHANGELOG.md
-          version: ${{ runner.command }} -c "node -p \"require('./package.json').version\""
+          version: ${{ env.NEW_VERSION }}
           operation: release
 
       - name: Commit and push changes
         run: |
           git add "package.json" "CHANGELOG.md"
-          git commit -m "chore: release $(node -p "require('./package.json').version")"
+          git commit -m "chore: release ${{ env.NEW_VERSION }}"
           git push origin HEAD:master
 
       - name: Publish
@@ -83,13 +87,12 @@ jobs:
         uses: superfaceai/release-changelog-action@v1
         with:
           path-to-changelog: CHANGELOG.md
-          version: ${{ runner.command }} -c "node -p \"require('./package.json').version\""
+          version: ${{ env.NEW_VERSION }}
           operation: read
 
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ runner.command }} -c "node -p \"require('./package.json').version\""
           body: ${{ steps.get-changelog.outputs.changelog }}
         env:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
