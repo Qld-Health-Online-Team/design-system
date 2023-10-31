@@ -49,16 +49,12 @@ jobs:
 
           # Check if a valid label was found
           if [ -n "$HIGHEST_LABEL" ]; then
-            npm version "$HIGHEST_LABEL"
-            NEW_VERSION= "$HIGHEST_LABEL"
-            echo "New version: $NEW_VERSION "
+            echo "NEW_VERSION=$(npm --no-git-tag-version version $HIGHEST_LABEL)" >> $GITHUB_ENV
+            echo "RELEASE_TAG=latest" >> $GITHUB_ENV
           else
             echo "No version bump label found, skipping release"
             exit 0
           fi
-
-      - name: Set new version as environment variable
-        run: echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
 
       - name: npm install and build webpack
         run: |
@@ -72,17 +68,24 @@ jobs:
           version: ${{ env.NEW_VERSION }}
           operation: release
 
-      - name: Commit and push changes
-        run: |
-          git add "package.json" "CHANGELOG.md"
-          git commit -m "chore: release ${{ env.NEW_VERSION }}"
-          git push origin HEAD:master
-
       - name: Publish
-        run: npm publish --access public
+        run: npm publish --access public --tag ${{ env.RELEASE_TAG }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
 
+      - name: Commit CHANGELOG.md and package.json changes and create tag
+        run: |
+          git add "package.json"
+          git add "CHANGELOG.md"
+          git commit -m "chore: release ${{ env.NEW_VERSION }}"
+          git tag ${{ env.NEW_VERSION }}
+ 
+      - name: Push changes to repository
+        env:
+          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+        run: |
+          git push origin && git push --tags
+    
       - name: Get version changelog
         id: get-changelog
         uses: superfaceai/release-changelog-action@v1
@@ -94,6 +97,7 @@ jobs:
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ env.NEW_VERSION }}
           body: ${{ steps.get-changelog.outputs.changelog }}
         env:
           token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
