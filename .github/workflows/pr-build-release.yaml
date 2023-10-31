@@ -50,7 +50,7 @@ jobs:
           # Check if a valid label was found
           if [ -n "$HIGHEST_LABEL" ]; then
             npm version "$HIGHEST_LABEL"
-            NEW_VERSION=$ "$HIGHEST_LABEL"
+            NEW_VERSION= "$HIGHEST_LABEL"
             echo "New version: $NEW_VERSION "
           else
             echo "No version bump label found, skipping release"
