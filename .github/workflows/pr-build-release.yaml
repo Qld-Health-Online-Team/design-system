@@ -14,7 +14,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -29,17 +31,25 @@ jobs:
 
       - name: Bump version
         run: |
-          # Get the labels from the closed pull request
-          LABELS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/labels")
+          # Get the label names from the pull request event
+          LABELS=$(jq -r '.pull_request.labels[].name' "$GITHUB_EVENT_PATH")
 
-          # Extract the version bump from labels
-          if echo "$LABELS" | jq -e 'map(.name == "major") | any'; then
-            npm version major
-          elif echo "$LABELS" | jq -e 'map(.name == "minor") | any'; then
-            npm version minor
-          elif echo "$LABELS" | jq -e 'map(.name == "patch") | any'; then
-            npm version patch
+          # Convert the labels into an array
+          IFS=',' read -ra LABEL_ARRAY <<< "$LABELS"
+
+          # Initialize variable to store the highest label
+          HIGHEST_LABEL=""
+
+          # Loop through the labels and check for "major, minor, patch"
+          for LABEL in "${LABEL_ARRAY[@]}"; do
+            if [ "$LABEL" == "major" ] || [ "$LABEL" == "minor" ] || [ "$LABEL" == "patch" ]; then
+              HIGHEST_LABEL="$LABEL"
+            fi
+          done
+
+          # Check if a valid label was found
+          if [ -n "$HIGHEST_LABEL" ]; then
+            npm version "$HIGHEST_LABEL"
           else
             echo "No version bump label found, skipping release"
             exit 0
