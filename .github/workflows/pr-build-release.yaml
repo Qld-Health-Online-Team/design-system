@@ -29,6 +29,9 @@ jobs:
           git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
           git config --global user.name "${{ secrets.GH_ORG_NAME }}"
 
+      - name: npm install
+        run: npm ci
+
       - name: Bump version
         run: |
           # Get the label names from the pull request event
@@ -56,10 +59,8 @@ jobs:
             exit 0
           fi
 
-      - name: npm install and build webpack
-        run: |
-          npm ci
-          npm run build 
+      - name: npm build webpack
+        run: npm run build 
 
       - name: Update changelog
         uses: superfaceai/release-changelog-action@v1
