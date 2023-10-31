@@ -50,7 +50,8 @@ jobs:
           # Check if a valid label was found
           if [ -n "$HIGHEST_LABEL" ]; then
             npm version "$HIGHEST_LABEL"
-            echo "New version: $NEW_VERSION"
+            NEW_VERSION=$ "$HIGHEST_LABEL"
+            echo "New version: $NEW_VERSION "
           else
             echo "No version bump label found, skipping release"
             exit 0
@@ -62,7 +63,7 @@ jobs:
       - name: npm install and build webpack
         run: |
           npm ci
-          npm run build
+          npm run build 
 
       - name: Update changelog
         uses: superfaceai/release-changelog-action@v1
