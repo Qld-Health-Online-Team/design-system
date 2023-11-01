@@ -670,3 +670,32 @@
     // }
 
 }
+
+@media print {
+    .qld__banner {
+        background-color: $QLD-color-system-white !important;
+        
+        .qld__card-list,
+        .qld__search,
+        .qld__banner__hero,
+        .qld__link-list {
+            display: none !important;
+        }
+
+        .qld__banner__content {
+            padding: 2rem 0 !important;
+
+            h1 {
+                color: $QLD-color-system-darkest !important;
+            }
+        }
+    }
+    .qld__banner__heading {
+        background-color: $QLD-color-system-white !important;
+        box-shadow: none !important;
+        color: $QLD-color-system-darkest !important;
+    }
+    .qld__banner__heading__wrapper {
+        padding: 0 !important;
+    }
+}

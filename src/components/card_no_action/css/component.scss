@@ -651,3 +651,23 @@
         }
     }
 }
+
+@media print {
+    .qld__card--wrapper-bg-image {
+        background-image: none !important;
+    }
+    
+    .qld__card__inner {
+        a[href]:after {
+            content: " (" attr(href) ")" !important;
+            display: inline !important;
+            position: relative !important;
+        }
+    }
+
+    .qld__card-list__footer,
+    .qld__responsive-media-img--bg,
+    .qld__card__image-link {
+        display: none !important;
+    }
+}

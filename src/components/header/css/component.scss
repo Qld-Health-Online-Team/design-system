@@ -686,8 +686,9 @@
 
 // Print styles
 @media print {
-	.qld__header {
-        background: #fff !important;
+	.qld__header,
+    .qld__header__main {
+        background-color: #fff !important;
 
         a img {
             border: 0 !important;
@@ -697,15 +698,17 @@
 	.qld__header,
 	.qld__header__brand,
 	.qld__header__subline,
-    .qld__banner__content--body {
+    .qld__banner__content--body,
+    .qld__header__heading {
 	    color: #000 !important;
 	}
 
-	.qld__header__brand-image {
+	.qld__header__brand-image,
+    .qld__header__search {
 	    display: none !important;
 	}
 
     .qld__header__pre-header {
-        display: none;
+        display: none !important;
     }
 }
