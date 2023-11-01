@@ -29,6 +29,9 @@ This boilerplate is the frontend starting point for design cutups and front end 
 - [Working in SCSS Files](#working-in-scss-files)
 - [Working in JS Files](#working-in-js-files)
 
+#### [Contributing](#contributing)
+#### [Copyright and Warrannty](#copyright-and-warrannty)
+
 ## Getting Started
 
 ### Inclusions
@@ -40,8 +43,8 @@ When you first clone down the Design System, you automatically get the following
 - Hot-reload HTML, CSS and JS
 
 ### Requirements
-- Node 12.6.0
-- NPM 6.9.0
+- Node: 16.20.0
+- NPM: 8.19.4
 
 ### Local Development
 
@@ -412,7 +415,7 @@ Also take care to follow a 'mobile-first' approach with your SCSS code, where st
 @include QH-media( xl ) {}
 
 // >xxl breakpoint
-@include QH-media( xxl ) {}
+@include QH-media( xxl ) {} 
 
 ```
 
@@ -526,3 +529,62 @@ You may want to reference an external JSON file that does not need to be a part 
 - To build and test all: ```mvn install```
 - To build js docs ```mvn com.github.eirslett:frontend-maven-plugin:npm@jsdoc```
 - To run webpack serve ```mvn com.github.eirslett:frontend-maven-plugin:npm@serve```
+
+### Contributing
+
+#### Pull Request Guidelines
+Thank you for contributing to our project! To ensure a smooth and efficient review process, please follow these guidelines when submitting a pull request.
+
+##### Pull Request Template
+Before creating a pull request, please make sure to:
+
+- Fork the repository and create a branch for your changes.
+- Ensure your code follows our coding standards and guidelines.
+- Update the documentation if your changes affect it.
+- Write tests for your changes if applicable.
+
+##### Labels
+We use labels to categorize pull requests based on the type of change. Please add one of the following labels to your pull request:
+
+- Label: major
+- - Use this label for significant changes that require attention.
+- - Examples: Breaking changes, major feature enhancements.
+- - Expect a thorough review and discussion before merging.
+
+- Label: minor
+- - Apply this label for smaller, backward-compatible changes.
+- - Examples: New features, improvements.
+- - Generally, a quicker review process compared to major changes.
+
+- Label: patch
+- - Assign this label for minor bug fixes and patches.
+- - Examples: Bug fixes, small improvements.
+- - Typically fast-tracked for a swift review and merging.
+
+### Submitting the Pull Request
+When your changes are ready, submit the pull request with a clear and informative title. Provide a brief description of the changes and reference any relevant issues.
+
+### Communication
+Feel free to reach out if you have questions or need assistance during the review process. We appreciate your contributions and look forward to collaborating with you!
+
+
+### Copyright and Warrannt
+Copyright (c) The State of Queensland 2023 (Queensland Health)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THIS REPOSITORY SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
