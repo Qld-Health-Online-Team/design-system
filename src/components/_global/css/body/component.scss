@@ -626,12 +626,23 @@ form {
     }
 
     blockquote {
-        @include QLD-fontgrid(md, small);
-        color: var(--QLD-color-light-heading);
-        font-weight: 600;
+        padding-left: 0px;
+        border-left: none;
+        margin: 0;
+    }
+
+    .qld__block-quote{
         padding-left: 1.375rem;
         border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
         margin: 0;
+    }
+
+    blockquote,
+    .qld__block-quote {
+        @include QLD-fontgrid(md, small);
+        color: var(--QLD-color-light-heading);
+        font-weight: 600;
+        
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
@@ -740,7 +751,8 @@ form {
             color: var(--QLD-color-dark-text__muted);
         }
 
-        blockquote {
+        blockquote,
+        .qld__block-quote {
             color: var(--QLD-color-dark-heading);
             border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
 
@@ -803,7 +815,8 @@ form {
             color: var(--QLD-color-dark-text__muted);
         }
 
-        blockquote{
+        blockquote,
+        .qld__block-quote {
             color: var(--QLD-color-dark-heading);
             border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
 
