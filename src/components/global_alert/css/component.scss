@@ -20,12 +20,9 @@
         background-color: $QLD-color-error;
         color: $QLD-color-system-white;
         font-size:pxToEm(13);
-        border-top: 1px solid #8A1220;
-
-        &:first-of-type {
-            border-top: none;
+        & + & {
+            border-top: 1px solid #8A1220;
         }
-
         a {
             color: $QLD-color-system-white;
             @include QLD-underline('light','underline','default','noVisited');
@@ -49,9 +46,8 @@
         background-color: $QLD-color-warning;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
-        border-top: 1px solid #B38800;
-        &:first-of-type {
-            border-top: none;
+        & + & {
+            border-top: 1px solid #B38800;
         }
         a {
             color: $QLD-color-system-grey-text;
@@ -75,9 +71,8 @@
         background-color: $QLD-color-general;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
-        border-top: 1px solid #5c94c0;
-        &:first-of-type {
-            border-top: none;
+        & + & {
+            border-top: 1px solid #5c94c0;
         }
         a {
             @include QLD-underline('light','underline','default', 'noVisited');
