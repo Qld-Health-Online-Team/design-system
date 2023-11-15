@@ -24,7 +24,11 @@
             border-top: 1px solid #8A1220;
         }
         a {
-            @include QLD-underline('light','underline','default', 'noVisited');
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-white;
             text-decoration-color: $QLD-color-system-white;
             span {
@@ -40,6 +44,7 @@
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-white;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
             }
         }
         
@@ -60,7 +65,11 @@
             border-top: 1px solid #B38800;
         }
         a {
-            @include QLD-underline('light','underline','default', 'noVisited');
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-grey-text;
             text-decoration-color: $QLD-color-system-grey-text;
             span {
@@ -75,6 +84,7 @@
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-grey-text;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
             }
         }
         svg{
@@ -94,7 +104,11 @@
             border-top: 1px solid #5c94c0;
         }
         a {
-            @include QLD-underline('light','underline','default', 'noVisited');
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-grey-text;
             text-decoration-color: $QLD-color-system-grey-text;
             span {
@@ -105,6 +119,12 @@
                     color: $QLD-color-system-grey-text;
                     text-decoration-color: $QLD-color-system-grey-text;
                 }
+            }
+
+            &:hover, 
+            &:visited{
+                text-decoration-color: $QLD-color-system-grey-text;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
             }
         }
         
