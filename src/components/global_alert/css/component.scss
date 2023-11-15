@@ -25,8 +25,17 @@
         }
         a {
             color: $QLD-color-system-white;
-            @include QLD-underline('light','underline','default','noVisited');
             text-decoration-color: $QLD-color-system-white;
+            span {
+                color: $QLD-color-system-white;
+                text-decoration-color: $QLD-color-system-white;
+                &:hover,
+                &:visited {
+                    color: $QLD-color-system-white;
+                    text-decoration-color: $QLD-color-system-white;
+                }
+            }
+
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-white;
