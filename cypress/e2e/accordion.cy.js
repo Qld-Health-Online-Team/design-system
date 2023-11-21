@@ -4,13 +4,13 @@ describe("Accordion tests ", () => {
         cy.visit("http://localhost:8080/component-accordion.html");
     });
 
-    it("Accordion renders correctly", () => {
+    it("Accordion renders correctly", () => { //unit test
         cy.get('.qld__accordion').should('exist');
         cy.get('.qld__accordion__title').should('exist');
         cy.get('.qld__accordion__body').should('exist');
     });
 
-    it("Accordion's title displays correctly", () => {
+    it("Accordion's title displays correctly", () => { //unit test
         cy.get('button.qld__accordion__title.js-qld__accordion').first().invoke('text').then((buttonContent) => {
             // Get the value of the text field by its name attribute
             cy.get('input[name="heading"]').first().invoke('val').then((textFieldValue) => {
@@ -20,13 +20,13 @@ describe("Accordion tests ", () => {
         });
     });
 
-    it("Accordion's content collapsed (hidden) by default", () => {
+    it("Accordion's content collapsed (hidden) by default", () => { //behaviour 
         cy.get('section.qld__accordion').first().should('have.css', 'height', '58px').within(() => {
             cy.get('button.qld__accordion__title').should('have.class', 'qld__accordion--closed');
         });
     });
     
-    it("All ccordions expands after clicking on the title and then it collapses after clicking again ", () => {
+    it("All ccordions expands after clicking on the title and then it collapses after clicking again ", () => { //behaviur 
         cy.get("section.qld__accordion").each(($accordionSection, index) => {
             let initialHeight;
             cy.get($accordionSection)
