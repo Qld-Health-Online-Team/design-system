@@ -48,8 +48,10 @@
 
     function getTableData(tableLines = [], tableColumnHeads) {
         let returnArray = [];
+        
+        let tableLength = tableLines.length - 1;
 
-        for (let i = 0; i < tableLines.length; i++) {
+        for (let i = 0; i < tableLength; i++) {
             let line = tableLines.shift().split(",");
             let obj = {};
             for (let j = 0; j < line.length; j++) {
