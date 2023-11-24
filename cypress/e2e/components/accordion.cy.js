@@ -1,7 +1,10 @@
+
+import consts from "../../consts";
+let {url} = consts;
 describe("Accordion tests ", () => {
 
     beforeEach(() => {
-        cy.visit("http://localhost:8080/component-accordion.html");
+        cy.visit(`${url}component-accordion.html`);
     });
 
     it("Accordion renders correctly", () => { //unit test
