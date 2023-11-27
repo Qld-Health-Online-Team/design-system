@@ -12,7 +12,8 @@
     "jsdoc": "./node_modules/jsdoc/jsdoc.js -a all -c jsdoc.json -r -R README.md ./src/components/ -d ./documentation/jsdoc",
     "lint:js": "eslint \"./src/**/*.js\"",
     "lint:styles": "stylelint \"./src/**/*.css\" \"./src/**/*.scss\" \"!./src/**/*.min.css\"",
-    "lint": "npm run lint:js && npm run lint:styles"
+    "lint": "npm run lint:js && npm run lint:styles",
+    "test": "npx cypress run"
   },
   "keywords": [],
   "author": "",
