@@ -14,7 +14,12 @@
     function initGlobalAlert() {
 
         var alerts = document.getElementsByClassName("qld__global-alert") || [];
-        var siteName = document.querySelector(".qld__global-alert__include")?.alertContainer?.getAttribute("data-name");
+        var siteName = undefined;
+
+        if(document.querySelector(".qld__global-alert__include") && document.querySelector(".qld__global-alert__include").alertContainer) {
+            siteName = document.querySelector(".qld__global-alert__include").alertContainer.getAttribute("data-name");
+        }
+
         var index = 0;
 
         for (const alert of alerts) {
