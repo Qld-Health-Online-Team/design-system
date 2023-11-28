@@ -23,11 +23,11 @@
         for (const alert of alerts) {
 
             if (siteName) {
-                var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`); //increment index so the next alert can be checked. 
-                if (alertSeen) { //if this specific alert is seen and closed, hide it.
+                var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
+                if (alertSeen) {
                     alert.style.maxHeight = "0";
                     alert.style.display ="none";
-                    break; // no need to the rest of the loop, go check the next alert.
+                    break; 
                 }
             }
 
