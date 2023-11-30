@@ -25,9 +25,9 @@
             var alertSeen = null;
 
             if (siteName !== null) {
-                alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
+                alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${index}`);
             } else {
-                alertSeen = QLD.utils.getCookie(`global_alert_dev_alertSeen_${++index}`);
+                alertSeen = QLD.utils.getCookie(`global_alert_dev_alertSeen_${index}`);
             }
 
             if (alertSeen !== null) {
@@ -46,14 +46,16 @@
                         alert.style.display ="none";
 
                         if (siteName !== null) {
-                            QLD.utils.setCookie(`${siteName}_alertSeen_${++index}`,"true");
+                            QLD.utils.setCookie(`${siteName}_alertSeen_${index}`,"true");
                         } else {
-                            QLD.utils.setCookie(`global_alert_dev_alertSeen_${++index}`,"true");
+                            QLD.utils.setCookie(`global_alert_dev_alertSeen_${index}`,"true");
                         }
                     },
                     false
                 );
             }
+
+            index++;
         }
     }
     initGlobalAlert();
