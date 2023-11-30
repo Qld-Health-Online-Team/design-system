@@ -21,14 +21,19 @@
         var index = 0;
 
         for (const alert of alerts) {
+            
+            var alertSeen = null;
 
             if (siteName !== null) {
-                var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
-                if (alertSeen) {
-                    alert.style.maxHeight = "0";
-                    alert.style.display ="none";
-                    break; 
-                }
+                alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
+            } else {
+                alertSeen = QLD.utils.getCookie(`global_alert_dev_alertSeen_${++index}`);
+            }
+
+            if (alertSeen !== null) {
+                alert.style.maxHeight = "0";
+                alert.style.display ="none";
+                break; 
             }
 
             let closeButton = alert.querySelector(".qld__global-alert__close button");
@@ -42,6 +47,8 @@
 
                         if (siteName !== null) {
                             QLD.utils.setCookie(`${siteName}_alertSeen_${++index}`,"true");
+                        } else {
+                            QLD.utils.setCookie(`global_alert_dev_alertSeen_${++index}`,"true");
                         }
                     },
                     false
