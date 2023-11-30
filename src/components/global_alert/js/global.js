@@ -58,5 +58,7 @@
             index++;
         }
     }
-    initGlobalAlert();
+    
+    document.addEventListener("DOMContentLoaded", initGlobalAlert);
+    
 })();
