@@ -22,7 +22,7 @@
 
         for (const alert of alerts) {
 
-            if (siteName) {
+            if (siteName !== null) {
                 var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
                 if (alertSeen) {
                     alert.style.maxHeight = "0";
@@ -40,7 +40,7 @@
                         alert.style.maxHeight = "0";
                         alert.style.display ="none";
 
-                        if (siteName?.length > 0) {
+                        if (siteName !== null) {
                             QLD.utils.setCookie(`${siteName}_alertSeen_${++index}`,"true");
                         }
                     },
