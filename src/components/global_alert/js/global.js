@@ -13,8 +13,8 @@
      */
     function initGlobalAlert() {
 
-        var alerts = document.getElementsByClassName("qld__global-alert") || [];
-        var siteName = null;
+        let alerts = document.getElementsByClassName("qld__global-alert") || [];
+        let siteName = null;
         if( document.querySelector(".qld__global-alert__include") && document.querySelector(".qld__global-alert__include").alertContainer) {
             siteName = document.querySelector(".qld__global-alert__include").alertContainer.getAttribute("data-name");
         }
@@ -23,25 +23,24 @@
             siteName = 'global_alert_dev_alertSeen';
         }
 
-        for(var index = 0; index < alerts.length; index++) {
+        for(let index = 0; index < alerts.length; index++) {
 
-            var alert = alerts[index];
-            var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${index}`);
+            let alert = alerts[index];
+            let alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${index}`);
 
             if (alertSeen !== null) {
                 alert.style.maxHeight = "0";
-                alert.style.display ="none";
-                break;
+                alert.style.display = "none";
             }
 
-            var closeButton = alert.querySelector(".qld__global-alert__close button");
+            let closeButton = alert.querySelector(".qld__global-alert__close button");
 
             if (closeButton !== null) {
                 closeButton.addEventListener(
                     "click",
                     function () {
                         alert.style.maxHeight = "0";
-                        alert.style.display ="none";
+                        alert.style.display = "none";
                         QLD.utils.setCookie(`${siteName}_alertSeen_${index}`,"true");
                     },
                     false
