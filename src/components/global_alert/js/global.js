@@ -20,7 +20,7 @@
         }
 
         if (siteName == null) {
-            siteName = 'global_alert_dev_alertSeen';
+            siteName = 'global_alert_dev';
         }
 
         for(let index = 0; index < alerts.length; index++) {
