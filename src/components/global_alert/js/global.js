@@ -13,22 +13,24 @@
      */
     function initGlobalAlert() {
 
-        var alerts = document.getElementsByClassName("qld__global-alert") || [];
-        var siteName = null;
+        let alerts = document.getElementsByClassName("qld__global-alert") || [];
+        let siteName = null;
         if( document.querySelector(".qld__global-alert__include") && document.querySelector(".qld__global-alert__include").alertContainer) {
             siteName = document.querySelector(".qld__global-alert__include").alertContainer.getAttribute("data-name");
         }
-        var index = 0;
 
-        for (const alert of alerts) {
+        if (siteName == null) {
+            siteName = 'global_alert_dev';
+        }
 
-            if (siteName) {
-                var alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${++index}`);
-                if (alertSeen) {
-                    alert.style.maxHeight = "0";
-                    alert.style.display ="none";
-                    break; 
-                }
+        for(let index = 0; index < alerts.length; index++) {
+
+            let alert = alerts[index];
+            let alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${index}`);
+
+            if (alertSeen !== null) {
+                alert.style.maxHeight = "0";
+                alert.style.display = "none";
             }
 
             let closeButton = alert.querySelector(".qld__global-alert__close button");
@@ -38,16 +40,15 @@
                     "click",
                     function () {
                         alert.style.maxHeight = "0";
-                        alert.style.display ="none";
-
-                        if (siteName?.length > 0) {
-                            QLD.utils.setCookie(`${siteName}_alertSeen_${++index}`,"true");
-                        }
+                        alert.style.display = "none";
+                        QLD.utils.setCookie(`${siteName}_alertSeen_${index}`,"true");
                     },
                     false
                 );
             }
         }
     }
+
     initGlobalAlert();
+    
 })();
