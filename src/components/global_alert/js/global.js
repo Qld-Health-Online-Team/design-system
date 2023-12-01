@@ -21,7 +21,7 @@
 
         for(let index = 0; index < alerts.length; index++) {
 
-            alert = alerts[index];
+            var alert = alerts[index];
 
             var alertSeen = null;
 
