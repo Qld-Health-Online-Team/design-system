@@ -18,10 +18,11 @@
         if( document.querySelector(".qld__global-alert__include") && document.querySelector(".qld__global-alert__include").alertContainer) {
             siteName = document.querySelector(".qld__global-alert__include").alertContainer.getAttribute("data-name");
         }
-        var index = 0;
 
-        for (const alert of alerts) {
-            
+        for(let index = 0; index < alerts.length; index++) {
+
+            alert = alerts[index];
+
             var alertSeen = null;
 
             if (siteName !== null) {
