@@ -56,7 +56,8 @@
             }
         }
     }
+
+    initGlobalAlert();
     
-    document.addEventListener("DOMContentLoaded", initGlobalAlert);
     
 })();
