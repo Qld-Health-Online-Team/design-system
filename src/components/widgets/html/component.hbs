@@ -1,12 +1,12 @@
 {{#ifCond current.data.metadata.displayQuickExit.value '||' site.metadata.siteBackToTopShow.value}}
 <div class="qld__widgets">
 
-    {{#if site.metadata.siteQuickExitLink.value}}
+    {{#ifCond current.data.metadata.displayQuickExit.value '&&' current.data.metadata.siteQuickExitLink.value}}
     <a href="{{site.metadata.siteQuickExitUrl.value}}" class="qld__btn qld__btn--floating
     qld__btn--quick-exit" aria-label="{{site.metadata.siteQuickExitLabel.value}}">
         <span>{{site.metadata.siteQuickExitLabel.value}}</span>
     </a>
-    {{/if}}
+    {{/ifCond}}
 
     {{#if site.metadata.siteBackToTopShow.value}}
     <a href="#" class="qld__btn qld__btn--floating
