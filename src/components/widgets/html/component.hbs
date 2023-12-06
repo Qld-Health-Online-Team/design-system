@@ -1,7 +1,7 @@
 {{#ifCond current.data.metadata.displayQuickExit.value '||' site.metadata.siteBackToTopShow.value}}
 <div class="qld__widgets">
 
-    {{#ifCond current.data.metadata.displayQuickExit.value '&&' current.data.metadata.siteQuickExitLink.value}}
+    {{#ifCond current.data.metadata.displayQuickExit.value '&&' site.metadata.siteQuickExitLink.value}}
     <a href="{{site.metadata.siteQuickExitUrl.value}}" class="qld__btn qld__btn--floating
     qld__btn--quick-exit" aria-label="{{site.metadata.siteQuickExitLabel.value}}">
         <span>{{site.metadata.siteQuickExitLabel.value}}</span>
