@@ -49,10 +49,14 @@ module.exports = function(items, url, options) {
 
             return 0;
         })
-        html += '<h3 class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></h3>';
+        html += `<h3 class="qld__a-z_listing__list__item__header"><span id="${letters[i]}">${letters[i]}</span></h3>`;
         html += '<ul class="qld__a-z_listing__list__item__services">';
         for(var k = 0; k < services[letters[i]].length; k++) {
-            html += '<li class="qld__a-z_listing__list__item__services__item"><a class="qld__a-z_listing__list__item__services__item__link" href="./?a='+services[letters[i]][k].id+'"><span>'+services[letters[i]][k].name+'</span></a></li>';
+            html += `<li class="qld__a-z_listing__list__item__services__item">
+                        <a class="qld__a-z_listing__list__item__services__item__link" href="./?a=${services[letters[i]][k].id}">
+                            <span>${services[letters[i]][k].name}</span>
+                        </a>
+                    </li>`;
         }
         html += '</ul>';
     }
