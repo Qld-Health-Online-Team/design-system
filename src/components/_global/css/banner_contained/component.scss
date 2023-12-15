@@ -89,72 +89,80 @@ body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
 
   /*  This applies a background to the whole top of the header */
 
-  .qld__header::before {
-      width: 100%;
-      content: " ";
-      position: absolute;
-      height: 100%;
-  
-      /* img or colour set by user */
-      // background-color: #D7ECF2;
-      // background-image: url('/?a=190085');
-  
-      /* These settings should be able to be changed by user */
-      background-size: contain;
-      background-position: top left;
-      background-repeat: no-repeat;    
+    .qld__header::before {
+        width: 100%;
+        content: " ";
+        position: absolute;
+        height: 100%;
+    
+        /* img or colour set by user */
+        // background-color: #D7ECF2;
+        // background-image: url('/?a=190085');
+    
+        /* These settings should be able to be changed by user */
+        background-size: contain;
+        background-position: top left;
+        background-repeat: no-repeat;    
+        }
+
+    .qld__header__main {
+        background: transparent;
+        /* removes current header background */
+        position: relative;
       }
 
-  .qld__header__main {
-      background: transparent;
-      /* removes current header background */
-      position: relative;
+    /* Better alignment for hero image in contained style (this may requite some more experimentation to achieve best result */
+    .qld__banner.qld__banner--hero-right .qld__banner__image {
+      max-width: 620px;
+      width: 45vw;
     }
 
-  /* Better alignment for hero image in contained style (this may requite some more experimentation to achieve best result */
-  .qld__banner.qld__banner--hero-right .qld__banner__image {
-    max-width: 620px;
-    width: 45vw;
-  }
+    .qld__main-nav {
+      /* Curved edges for nav*/  
+      border-radius: 48px 48px 0px 0px; /* Should be variable */
+      /* Shadow for nav*/  
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    }
 
-  .qld__main-nav {
-     /* Curved edges for nav*/  
-    border-radius: 48px 48px 0px 0px; /* Should be variable */
-     /* Shadow for nav*/  
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-  }
+    .qld__banner {
+      /* Curved edges for banner*/
+      border-radius: 0px 0px 48px 48px; /* Should be variable */
+      /* Makes sure banner sits in the correct stack position */  
+      z-index: 200;
+    }
 
-  .qld__banner {
-    /* Curved edges for banner*/
-    border-radius: 0px 0px 48px 48px; /* Should be variable */
-    /* Makes sure banner sits in the correct stack position */  
-    z-index: 200;
-  }
-
-  /* The following code adds more padding to the succeeding section and pulls the div below the banner to sit under it slightly creating the overlap */
-  /* The overlap is the trickiest part and needs to be checked on all page types and background colours this code is just set to work for standard white background */
+    /* The following code adds more padding to the succeeding section and pulls the div below the banner to sit under it slightly creating the overlap */
+    /* The overlap is the trickiest part and needs to be checked on all page types and background colours this code is just set to work for standard white background */
 
 
-  /* Next div */
-  .qld__banner + div.qld__body {
-    margin-top: -64px;
-    padding-top: 128px;
-  }
+    /* Next div */
+    .qld__banner + div.qld__body {
+      margin-top: -64px;
+      padding-top: 128px;
+    }
 
-  /* Content pages (this needs to be updated tp work for all coloured backgrounds) */
-  .qld__banner + #content {
-    background-color: var(--QLD-color-light-background);
-    padding-top: 64px;
-    margin-top: -64px;
-  }
-  
-  /* Search pages */
-  .qld__banner + .qld__body.qld__search {
-    position: relative;
-    margin-top: -64px;
-    padding-top: 124px;
-  }
+    /* Content pages (this needs to be updated tp work for all coloured backgrounds) */
+    .qld__banner + #content {
+      background-color: var(--QLD-color-light-background);
+      padding-top: 64px;
+      margin-top: -64px;
+    }
     
+    /* Search pages */
+    .qld__banner + .qld__body.qld__search {
+      position: relative;
+      margin-top: -64px;
+      padding-top: 124px;
+    }
+    
+    // Body breadcrumbs 
+    .qld__body--breadcrumb{
+      padding-bottom: 32px;
+      padding-top: 32px;
+      max-width: 100rem;
+      margin: auto;
+      border-radius: 0 0 48px 48px;
+    }
 
-}
+  }
 }
