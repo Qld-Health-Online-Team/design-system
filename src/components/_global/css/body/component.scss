@@ -430,7 +430,12 @@ form {
                 @include QLD-space(margin-top, 1unit);
                 
                 > li {
-                    list-style-type: disc;
+                    list-style-type: none;
+                }
+
+                > li::before {
+                    content: '–';
+     
                 }
             }
             
@@ -446,9 +451,7 @@ form {
         > ul:not([class]) {
             li::before {
                 content: '–';
-                position: absolute;
-                left: 0;
-                top: 0;
+
             }
         }
     }
