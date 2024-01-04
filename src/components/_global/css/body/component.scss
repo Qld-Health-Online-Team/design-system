@@ -431,11 +431,14 @@ form {
                 
                 > li {
                     list-style-type: none;
+                    padding-left: 1em;
+                    position: relative;
                 }
 
                 > li::before {
                     content: '–';
-     
+                    left: 0;
+                    top: 0
                 }
             }
             
@@ -446,12 +449,15 @@ form {
         
         > ul:not([class]) {
             list-style-type: none;
+            padding-left: 1em;
+            position: relative;
         }
 
         > ul:not([class]) {
             li::before {
                 content: '–';
-
+                left: 0;
+                top: 0
             }
         }
     }
