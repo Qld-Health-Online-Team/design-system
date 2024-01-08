@@ -8,29 +8,29 @@
 
   return "<footer class=\"qld__footer "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerStyle") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" role=\"contentinfo\">\r\n\r\n"
+    + "\" role=\"contentinfo\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerSiteTitle") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":5,"column":4},"end":{"line":15,"column":11}}})) != null ? stack1 : "")
-    + "\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-12 col-lg-3 qld__footer__column\">\r\n                <div class=\"container-fluid\">\r\n                    <div class=\"row \">\r\n                        <div class=\"col-xs-12 col-sm-8 col-lg-12\">\r\n"
+    + "\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-xs-12 col-lg-3 qld__footer__column\">\n                <div class=\"container-fluid\">\n                    <div class=\"row \">\n                        <div class=\"col-xs-12 col-sm-8 col-lg-12\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTAHeading") : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":23,"column":28},"end":{"line":25,"column":35}}})) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTALead") : depth0),{"name":"if","hash":{},"fn":container.program(6, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":26,"column":28},"end":{"line":30,"column":35}}})) != null ? stack1 : "")
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAContact") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":31,"column":27},"end":{"line":38,"column":35}}})) != null ? stack1 : "")
-    + "                        </div>\r\n                        <div class=\"col-xs-12 col-sm-4 col-lg-12\">\r\n"
+    + "                        </div>\n                        <div class=\"col-xs-12 col-sm-4 col-lg-12\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":41,"column":36},"end":{"line":41,"column":72}}}),{"name":"with","hash":{},"fn":container.program(11, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":41,"column":28},"end":{"line":49,"column":37}}})) != null ? stack1 : "")
-    + "                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            \r\n"
+    + "                        </div>\n                    </div>\n                </div>\n            </div>\n            \n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":55,"column":20},"end":{"line":55,"column":56}}}),{"name":"with","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":55,"column":12},"end":{"line":77,"column":21}}})) != null ? stack1 : "")
-    + "            \r\n"
+    + "            \n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":79,"column":20},"end":{"line":79,"column":56}}}),{"name":"with","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":79,"column":12},"end":{"line":98,"column":21}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":100,"column":20},"end":{"line":100,"column":56}}}),{"name":"with","hash":{},"fn":container.program(29, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":100,"column":12},"end":{"line":134,"column":21}}})) != null ? stack1 : "")
-    + "            \r\n            <div class=\"col-xs-12 qld__footer__column\">\r\n                <div class=\"\">\r\n"
+    + "            \n            <div class=\"col-xs-12 qld__footer__column\">\n                <div class=\"\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":138,"column":28},"end":{"line":138,"column":64}}}),{"name":"with","hash":{},"fn":container.program(48, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":138,"column":20},"end":{"line":148,"column":29}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerAcknowledgements") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(51, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":150,"column":20},"end":{"line":154,"column":27}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCopyrightMessage") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(53, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":156,"column":20},"end":{"line":160,"column":27}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"jsonParse")||(depth0 && lookupProperty(depth0,"jsonParse"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"footerMetaMetadata") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"jsonParse","hash":{},"data":data,"loc":{"start":{"line":162,"column":28},"end":{"line":162,"column":64}}}),{"name":"with","hash":{},"fn":container.program(55, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":162,"column":20},"end":{"line":171,"column":29}}})) != null ? stack1 : "")
-    + "                </div>\r\n            </div> \r\n        </div>\r\n    </div>\r\n</footer>\r\n\r\n";
+    + "                </div>\n            </div> \n        </div>\n    </div>\n</footer>\n\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -39,9 +39,9 @@
         return undefined
     };
 
-  return "    <div class=\"container-fluid\">\r\n        <div class=\"row qld__footer__row\">\r\n            <div class=\"col-xs-12 qld__footer__column\">\r\n                <div class=\"qld__footer__title\">\r\n                    <h4 class=\"qld__footer__heading\">"
+  return "    <div class=\"container-fluid\">\n        <div class=\"row qld__footer__row\">\n            <div class=\"col-xs-12 qld__footer__column\">\n                <div class=\"qld__footer__title\">\n                    <h4 class=\"qld__footer__heading\">"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerSiteTitle") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+    + "</h4>\n                </div>\n            </div>\n        </div>\n    </div>\n";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -52,7 +52,7 @@
 
   return "                            <h4 class=\"qld__footer__heading\">"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAHeading") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4> \r\n";
+    + "</h4> \n";
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -61,9 +61,9 @@
         return undefined
     };
 
-  return "                            <p class=\"qld__footer__cta-content\">\r\n                                "
+  return "                            <p class=\"qld__footer__cta-content\">\n                                "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTALead") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n                            </p>\r\n";
+    + "\n                            </p>\n";
 },"8":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -72,11 +72,11 @@
         return undefined
     };
 
-  return "                            <p class=\"qld__footer__cta-content\">\r\n"
+  return "                            <p class=\"qld__footer__cta-content\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAContactIcon") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":33,"column":32},"end":{"line":35,"column":39}}})) != null ? stack1 : "")
     + "                                "
     + ((stack1 = container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAContact") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\r\n                            </p>\r\n";
+    + "\n                            </p>\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -87,7 +87,7 @@
 
   return "                                <i class=\"qld__footer__cta__icon "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAContactIcon") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"></i>\r\n";
+    + "\"></i>\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -118,7 +118,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTALink") : depth0),"redirect_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":44,"column":53},"end":{"line":44,"column":100}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":44,"column":41},"end":{"line":44,"column":102}}}))
     + "\" class=\"qld__btn qld__btn--secondary\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTALink") : depth0),"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":44,"column":141},"end":{"line":44,"column":197}}}))
-    + "</a>\r\n";
+    + "</a>\n";
 },"15":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -131,7 +131,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTALink") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":46,"column":53},"end":{"line":46,"column":97}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":46,"column":41},"end":{"line":46,"column":99}}}))
     + "\" class=\"qld__btn qld__btn--secondary\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCTALink") : depth0),"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":46,"column":138},"end":{"line":46,"column":194}}}))
-    + "</a>\r\n";
+    + "</a>\n";
 },"17":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -149,11 +149,11 @@
         return undefined
     };
 
-  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\r\n                <nav class=\"qld__footer__navigation\" aria-label=\"footer\">\r\n"
+  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\n                <nav class=\"qld__footer__navigation\" aria-label=\"footer\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"footerOptionalExtraLinksHeading") : depths[1])) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(19, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":59,"column":20},"end":{"line":61,"column":27}}})) != null ? stack1 : "")
-    + "                    <ul class=\"qld__link-list\">\r\n"
+    + "                    <ul class=\"qld__link-list\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerOptionalSecondLinksList") : depth0),{"name":"each","hash":{},"fn":container.program(21, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":63,"column":24},"end":{"line":72,"column":33}}})) != null ? stack1 : "")
-    + "                    </ul>\r\n                </nav>\r\n            </div>\r\n";
+    + "                    </ul>\n                </nav>\n            </div>\n";
 },"19":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -164,7 +164,7 @@
 
   return "                    <h4 class=\"qld__footer__heading\">"
     + container.escapeExpression(container.lambda(((stack1 = (depths[1] != null ? lookupProperty(depths[1],"footerOptionalExtraLinksHeading") : depths[1])) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\r\n";
+    + "</h4>\n";
 },"21":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -173,9 +173,9 @@
         return undefined
     };
 
-  return "                        <li>\r\n"
+  return "                        <li>\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"asset_type_code") : depth0),"==","page_redirect",{"name":"ifCond","hash":{},"fn":container.program(22, data, 0),"inverse":container.program(24, data, 0),"data":data,"loc":{"start":{"line":65,"column":28},"end":{"line":70,"column":39}}})) != null ? stack1 : "")
-    + "                        </li>\r\n";
+    + "                        </li>\n";
 },"22":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -188,7 +188,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"redirect_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":66,"column":86},"end":{"line":66,"column":124}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":66,"column":74},"end":{"line":66,"column":126}}}))
     + "\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":66,"column":128},"end":{"line":66,"column":175}}}))
-    + "</a>\r\n\r\n";
+    + "</a>\n\n";
 },"24":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -201,7 +201,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":69,"column":86},"end":{"line":69,"column":121}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":69,"column":74},"end":{"line":69,"column":123}}}))
     + "\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":69,"column":125},"end":{"line":69,"column":172}}}))
-    + "</a>\r\n";
+    + "</a>\n";
 },"26":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -219,9 +219,9 @@
         return undefined
     };
 
-  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\r\n                <nav class=\"qld__footer__navigation\" aria-label=\"footer\">\r\n                    <ul class=\"qld__link-list\">\r\n"
+  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\n                <nav class=\"qld__footer__navigation\" aria-label=\"footer\">\n                    <ul class=\"qld__link-list\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"footerLinks") : depth0),{"name":"each","hash":{},"fn":container.program(21, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":84,"column":24},"end":{"line":93,"column":33}}})) != null ? stack1 : "")
-    + "                    </ul>\r\n                </nav>\r\n            </div>\r\n";
+    + "                    </ul>\n                </nav>\n            </div>\n";
 },"29":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -239,11 +239,11 @@
         return undefined
     };
 
-  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\r\n                <nav class=\"qld__footer__social\" aria-label=\"social media links\">\r\n"
+  return "            <div class=\"col-xs-12 col-lg-2 qld__footer__column\">\n                <nav class=\"qld__footer__social\" aria-label=\"social media links\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"footerSocialLinksHeading") : depths[1])) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(31, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":104,"column":20},"end":{"line":106,"column":27}}})) != null ? stack1 : "")
-    + "                    <ul class=\"qld__link-list\">\r\n"
+    + "                    <ul class=\"qld__link-list\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerSocialLinks") : depth0),{"name":"each","hash":{},"fn":container.program(33, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":108,"column":24},"end":{"line":129,"column":33}}})) != null ? stack1 : "")
-    + "                    </ul>\r\n                </nav>\r\n            </div>\r\n";
+    + "                    </ul>\n                </nav>\n            </div>\n";
 },"31":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -254,7 +254,7 @@
 
   return "                    <h4 class=\"qld__footer__heading\">"
     + container.escapeExpression(container.lambda(((stack1 = (depths[1] != null ? lookupProperty(depths[1],"footerSocialLinksHeading") : depths[1])) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\r\n";
+    + "</h4>\n";
 },"33":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -263,20 +263,20 @@
         return undefined
     };
 
-  return "                        <li>\r\n"
+  return "                        <li>\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_type_code") : depth0),"==","page_redirect",{"name":"ifCond","hash":{},"fn":container.program(34, data, 0),"inverse":container.program(36, data, 0),"data":data,"loc":{"start":{"line":110,"column":28},"end":{"line":114,"column":39}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":115,"column":42},"end":{"line":115,"column":87}}}),"contains","facebook",{"name":"ifCond","hash":{},"fn":container.program(38, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":115,"column":32},"end":{"line":116,"column":587}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":117,"column":42},"end":{"line":117,"column":87}}}),"contains","linkedin",{"name":"ifCond","hash":{},"fn":container.program(40, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":117,"column":32},"end":{"line":118,"column":1134}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":119,"column":42},"end":{"line":119,"column":87}}}),"contains","youtube",{"name":"ifCond","hash":{},"fn":container.program(42, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":119,"column":32},"end":{"line":120,"column":1233}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":121,"column":42},"end":{"line":121,"column":87}}}),"contains","instagram",{"name":"ifCond","hash":{},"fn":container.program(44, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":121,"column":32},"end":{"line":122,"column":3634}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":123,"column":42},"end":{"line":123,"column":87}}}),"contains","twitter",{"name":"ifCond","hash":{},"fn":container.program(46, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":123,"column":32},"end":{"line":124,"column":465}}})) != null ? stack1 : "")
-    + "\r\n                                <span class=\"qld__footer__social__label\">"
+    + "\n                                <span class=\"qld__footer__social__label\">"
     + container.escapeExpression(lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":125,"column":73},"end":{"line":125,"column":120}}}))
-    + "</span>\r\n                                \r\n                            </a>\r\n                        </li>\r\n";
+    + "</span>\n                                \n                            </a>\n                        </li>\n";
 },"34":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -287,7 +287,7 @@
 
   return "                            <a class=\"qld__footer__clickable__link\" href=\""
     + container.escapeExpression((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"redirect_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":111,"column":86},"end":{"line":111,"column":124}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":111,"column":74},"end":{"line":111,"column":126}}}))
-    + "\">\r\n";
+    + "\">\n";
 },"36":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -298,7 +298,7 @@
 
   return "                            <a class=\"qld__footer__clickable__link\" href=\""
     + container.escapeExpression((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,depth0,"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":113,"column":86},"end":{"line":113,"column":121}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":113,"column":74},"end":{"line":113,"column":123}}}))
-    + "\">\r\n";
+    + "\">\n";
 },"38":function(container,depth0,helpers,partials,data) {
     return "                                <svg aria-hidden=\"true\" focusable=\"false\" width=\"32\" height=\"20\" viewBox=\"0 0 12 21\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><title>Facebook icon</title><path d=\"M3.85156 20.5H7.52344V11.5547H10.375L10.8438 8H7.52344V5.53906C7.52344 4.99219 7.60156 4.5625 7.83594 4.28906C8.07031 3.97656 8.57812 3.82031 9.28125 3.82031H11.1562V0.65625C10.4531 0.578125 9.51562 0.5 8.42188 0.5C7.01562 0.5 5.92188 0.929688 5.10156 1.75C4.24219 2.57031 3.85156 3.70312 3.85156 5.1875V8H0.84375V11.5547H3.85156V20.5Z\" fill=\"currentColor\"/></svg>";
 },"40":function(container,depth0,helpers,partials,data) {
@@ -326,9 +326,9 @@
         return undefined
     };
 
-  return "                    <a class=\"qld__footer__logo\" href=\"https://www.qld.gov.au/\">\r\n                        <img\r\n                            class=\"qld__footer__logo-image\"\r\n                            alt=\"Queensland Government\"\r\n                            src=\""
+  return "                    <a class=\"qld__footer__logo\" href=\"https://www.qld.gov.au/\">\n                        <img\n                            class=\"qld__footer__logo-image\"\n                            alt=\"Queensland Government\"\n                            src=\""
     + container.escapeExpression((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogo") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":144,"column":45},"end":{"line":144,"column":86}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":144,"column":33},"end":{"line":144,"column":88}}}))
-    + "\"\r\n                        />\r\n                    </a>\r\n";
+    + "\"\n                        />\n                    </a>\n";
 },"51":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -337,9 +337,9 @@
         return undefined
     };
 
-  return "                    <p class=\"qld__footer__acknowledgements\">\r\n                        "
+  return "                    <p class=\"qld__footer__acknowledgements\">\n                        "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerAcknowledgements") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n                    </p>\r\n";
+    + "\n                    </p>\n";
 },"53":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -348,9 +348,9 @@
         return undefined
     };
 
-  return "                    <p class=\"qld__footer__copyrightMessage\">\r\n                        "
+  return "                    <p class=\"qld__footer__copyrightMessage\">\n                        "
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCopyrightMessage") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n                    </p>\r\n";
+    + "\n                    </p>\n";
 },"55":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -360,7 +360,7 @@
     };
 
   return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"footerCopyrightLink") : depth0),{"name":"if","hash":{},"fn":container.program(56, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":163,"column":24},"end":{"line":169,"column":31}}})) != null ? stack1 : "")
-    + "                        \r\n";
+    + "                        \n";
 },"56":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -382,7 +382,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCopyrightLink") : depth0),"redirect_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":165,"column":86},"end":{"line":165,"column":139}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":165,"column":74},"end":{"line":165,"column":141}}}))
     + "\" rel=\"external\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCopyrightLink") : depth0),"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":165,"column":158},"end":{"line":165,"column":220}}}))
-    + "</a>\r\n";
+    + "</a>\n";
 },"59":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -395,7 +395,7 @@
     + alias2((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCopyrightLink") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":167,"column":86},"end":{"line":167,"column":136}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":167,"column":74},"end":{"line":167,"column":138}}}))
     + "\" rel=\"external\">"
     + alias2(lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerCopyrightLink") : depth0),"asset_short_name^escapequotes",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":167,"column":155},"end":{"line":167,"column":217}}}))
-    + "</a>\r\n";
+    + "</a>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -404,6 +404,6 @@
         return undefined
     };
 
-  return "<!--FOOTER -->\r\n"
+  return "<!--FOOTER -->\n"
     + ((stack1 = lookupProperty(helpers,"with").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1),{"name":"with","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":0},"end":{"line":178,"column":9}}})) != null ? stack1 : "");
 },"useData":true,"useDepths":true}
