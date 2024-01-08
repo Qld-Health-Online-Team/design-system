@@ -35,6 +35,11 @@ $QLD-header-md: 72px;
 
     // The content area that becomes the menu menu
     .qld__main-nav__menu {
+
+        @include QLD-media(md) {
+            display: none;
+        }
+
         &::before {
             content: "";
             display: block;
