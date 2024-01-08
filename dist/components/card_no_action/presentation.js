@@ -288,7 +288,7 @@
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"></i></div>\n";
 },"46":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -296,9 +296,9 @@
     };
 
   return "                            <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
-    + alias1(((helper = (helper = lookupProperty(helpers,"thumbnail") || (depth0 != null ? lookupProperty(depth0,"thumbnail") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"thumbnail","hash":{},"data":data,"loc":{"start":{"line":74,"column":106},"end":{"line":74,"column":119}}}) : helper)))
+    + alias4(((helper = (helper = lookupProperty(helpers,"thumbnail") || (depth0 != null ? lookupProperty(depth0,"thumbnail") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"thumbnail","hash":{},"data":data,"loc":{"start":{"line":74,"column":106},"end":{"line":74,"column":119}}}) : helper)))
     + "');\" aria-label=\"Images for "
-    + alias1(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"attributes") : depth0)) != null ? lookupProperty(stack1,"short_name") : stack1), depth0))
+    + alias4(((helper = (helper = lookupProperty(helpers,"short_name") || (depth0 != null ? lookupProperty(depth0,"short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"short_name","hash":{},"data":data,"loc":{"start":{"line":74,"column":147},"end":{"line":74,"column":161}}}) : helper)))
     + "\"></div>          \n";
 },"48":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
