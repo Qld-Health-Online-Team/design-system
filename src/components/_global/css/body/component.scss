@@ -432,7 +432,6 @@ form {
 
                     > ul:not([class]) {
                         > li {
-                            @include QLD-space(padding-left, 1unit);
                             list-style-type: none;
                             &::before {
                                 content: "";
@@ -483,7 +482,12 @@ form {
         }
     }
     
-    
+    ol:not([class]),
+    ul:not([class]) {
+        li {
+            @include QLD-space(line-height, 1.75unit);
+        }
+    }
     
     dl:not([class]) {
         > dd {
