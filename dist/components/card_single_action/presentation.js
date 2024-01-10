@@ -304,7 +304,7 @@
   return "                            <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"thumbnail") || (depth0 != null ? lookupProperty(depth0,"thumbnail") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"thumbnail","hash":{},"data":data,"loc":{"start":{"line":74,"column":106},"end":{"line":74,"column":119}}}) : helper)))
     + "');\" "
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_thumbnail_alt") : depth0),{"name":"if","hash":{},"fn":container.program(49, data, 0),"inverse":container.program(51, data, 0),"data":data,"loc":{"start":{"line":74,"column":124},"end":{"line":74,"column":252}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_thumbnail_alt") : depth0),{"name":"if","hash":{},"fn":container.program(49, data, 0),"inverse":container.program(51, data, 0),"data":data,"loc":{"start":{"line":74,"column":124},"end":{"line":74,"column":246}}})) != null ? stack1 : "")
     + "></div>          \n";
 },"49":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -326,7 +326,7 @@
     };
 
   return " aria-label=\"Images for "
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"short_name") || (depth0 != null ? lookupProperty(depth0,"short_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"short_name","hash":{},"data":data,"loc":{"start":{"line":74,"column":230},"end":{"line":74,"column":244}}}) : helper)))
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data,"loc":{"start":{"line":74,"column":230},"end":{"line":74,"column":238}}}) : helper)))
     + "\"";
 },"53":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {

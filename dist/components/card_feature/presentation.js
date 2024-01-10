@@ -164,9 +164,9 @@
     + "\">\n\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "');\" alt=\""
-    + alias2(((helper = (helper = lookupProperty(helpers,"attribute_alt") || (depth0 != null ? lookupProperty(depth0,"attribute_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(alias3,{"name":"attribute_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":149},"end":{"line":48,"column":166}}}) : helper)))
+    + alias2(((helper = (helper = lookupProperty(helpers,"asset_attribute_alt") || (depth0 != null ? lookupProperty(depth0,"asset_attribute_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(alias3,{"name":"asset_attribute_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":149},"end":{"line":48,"column":172}}}) : helper)))
     + "\""
-    + ((stack1 = lookupProperty(helpers,"if").call(alias3,(depth0 != null ? lookupProperty(depth0,"attribute_alt") : depth0),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.program(30, data, 0),"data":data,"loc":{"start":{"line":48,"column":167},"end":{"line":48,"column":301}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias3,(depth0 != null ? lookupProperty(depth0,"attribute_alt") : depth0),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.program(30, data, 0),"data":data,"loc":{"start":{"line":48,"column":173},"end":{"line":48,"column":315}}})) != null ? stack1 : "")
     + "></div>\n\n                            </a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -188,7 +188,7 @@
     };
 
   return "aria-label=\"Image for "
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_thumbnail_alt") || (depth0 != null ? lookupProperty(depth0,"asset_thumbnail_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_thumbnail_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":210},"end":{"line":48,"column":233}}}) : helper)))
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_attribute_alt") || (depth0 != null ? lookupProperty(depth0,"asset_attribute_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_attribute_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":216},"end":{"line":48,"column":239}}}) : helper)))
     + "\"";
 },"30":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -199,7 +199,7 @@
     };
 
   return "aria-label=\"Image for "
-    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"matadata") : depth0)) != null ? lookupProperty(stack1,"card_title") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"matadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"friendly_name") : stack1), depth0))
     + "\"";
 },"32":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
