@@ -472,7 +472,7 @@
     + ((stack1 = lookupProperty(helpers,"with").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1),{"name":"with","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":4},"end":{"line":54,"column":13}}})) != null ? stack1 : "")
     + "\n        <div class=\"row\">\n            <ul class=\"qld__card-list qld__card-list--matchheight\">\n              \n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"children") : stack1),{"name":"each","hash":{},"fn":container.program(36, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":59,"column":16},"end":{"line":110,"column":25}}})) != null ? stack1 : "")
-    + "                \n            </ul>\n        </div>\n"
+    + "              \n            </ul>\n        </div>\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1),{"name":"with","hash":{},"fn":container.program(68, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":114,"column":8},"end":{"line":122,"column":17}}})) != null ? stack1 : "")
     + "\n\n    </div>\n\n    \n</section>\n";
 },"useData":true,"useDepths":true}

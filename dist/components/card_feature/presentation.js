@@ -164,7 +164,7 @@
     + "\">\n\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "');\" "
-    + ((stack1 = lookupProperty(helpers,"if").call(alias3,(depths[1] != null ? lookupProperty(depths[1],"image_alt") : depths[1]),{"name":"if","hash":{},"fn":container.program(28, data, 0, blockParams, depths),"inverse":container.program(30, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":48,"column":144},"end":{"line":48,"column":270}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"image_altt") : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0, blockParams, depths),"inverse":container.program(30, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":48,"column":144},"end":{"line":48,"column":291}}})) != null ? stack1 : "")
     + "></div>\n\n                            </a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -178,7 +178,7 @@
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":46,"column":136},"end":{"line":46,"column":147}}}) : helper)))
     + "\"";
 },"28":function(container,depth0,helpers,partials,data,blockParams,depths) {
-    var lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -186,7 +186,7 @@
     };
 
   return "aria-label=\"Image for "
-    + container.escapeExpression(container.lambda((depths[1] != null ? lookupProperty(depths[1],"image_alt") : depths[1]), depth0))
+    + container.escapeExpression(container.lambda(((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"image_alt") : stack1), depth0))
     + "\"";
 },"30":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
