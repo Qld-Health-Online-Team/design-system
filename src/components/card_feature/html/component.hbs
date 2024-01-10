@@ -44,7 +44,8 @@
                         {{/ifCond}} 
                         {{#ifCond metadata.show_icon_image.value '==' 'image'}}
                             <a aria-label="{{metadata.card_title.value}}" {{#if metadata.shortDescription.value}}aria-describedby="card-{{assetid}}"{{/if}} class="qld__card__image-link" href="./?a={{metadata.card_title_url.value}}">
-                                <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{metadata.card_image.value}}');" aria-label="Image for {{matadata.card_title.value}}"></div>
+                                <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{metadata.card_image.value}}');" {{#if asset_attribute_alt}}aria-label="Image for {{asset_attribute_alt}}"{{else}}aria-label="Image for {{matadata.card_title.value}}"{{/if}}>
+                                </div>
                             </a>
                         {{/ifCond}}
 
