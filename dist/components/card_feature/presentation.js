@@ -164,7 +164,7 @@
     + "\">\n\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "');\" "
-    + ((stack1 = lookupProperty(helpers,"if").call(alias3,(depth0 != null ? lookupProperty(depth0,"asset_attribute_alt") : depth0),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.program(30, data, 0),"data":data,"loc":{"start":{"line":48,"column":144},"end":{"line":48,"column":284}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias3,(depth0 != null ? lookupProperty(depth0,"attribute_alt") : depth0),{"name":"if","hash":{},"fn":container.program(28, data, 0),"inverse":container.program(30, data, 0),"data":data,"loc":{"start":{"line":48,"column":144},"end":{"line":48,"column":272}}})) != null ? stack1 : "")
     + "></div>\n\n                            </a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -186,7 +186,7 @@
     };
 
   return "aria-label=\"Image for "
-    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_attribute_alt") || (depth0 != null ? lookupProperty(depth0,"asset_attribute_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_attribute_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":193},"end":{"line":48,"column":216}}}) : helper)))
+    + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"attribute_alt") || (depth0 != null ? lookupProperty(depth0,"attribute_alt") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"attribute_alt","hash":{},"data":data,"loc":{"start":{"line":48,"column":187},"end":{"line":48,"column":204}}}) : helper)))
     + "\"";
 },"30":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
