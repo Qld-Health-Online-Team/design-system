@@ -421,20 +421,28 @@ form {
     }
 
     ul:not([class]) {
+        @include QLD-space(padding-inline-start, 2unit);
         > li {
-            @include QLD-space(margin-top, .5unit);
+            @include QLD-space(margin-top, 0.5unit);
             
             > ul:not([class]) {
                 list-style-type: none;
+                @include QLD-space(padding-inline-start, 1unit);
                 > li {
                     @include QLD-space(padding-left, 1unit);
+                    @include QLD-space(margin-top, 0.5unit);
                     position: relative;
 
                     > ul:not([class]) {
+                        @include QLD-space(padding-inline-start, 1unit);
                         > li {
+                            @include QLD-space(margin-top, 0.5unit);
                             list-style-type: none;
                             &::before {
-                                content: "";
+                                position: absolute;
+                                content: "–";
+                                left: 0px;
+                                top: 0px;
                             }
                         }
                     }
@@ -446,30 +454,30 @@ form {
                         top: 0px;
                     }
                 }
-                
             }
             
             &:first-child {
                 @include QLD-space(margin-top, 0unit);
             }
         }
-
-       
     }
 
     ol:not([class]) {
+        @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
             
             > ol:not([class]) {
-                @include QLD-space(margin-top, 1unit);
+                // @include QLD-space(margin-top, 1unit);
                     > li {
                     list-style-type: lower-alpha;
+                    @include QLD-space(margin-top, 0.5unit);
     
                     > ol:not([class]) {
-                        @include QLD-space(margin-top, 1unit);
+                        // @include QLD-space(margin-top, 1unit);
     
                         > li {
+                            @include QLD-space(margin-top, 0.5unit);
                             list-style-type: lower-roman;
                         }
                     }
