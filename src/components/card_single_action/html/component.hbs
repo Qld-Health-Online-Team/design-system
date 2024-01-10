@@ -71,7 +71,7 @@
                                 <div class="qld__card__icon"><i class="{{metadata.cardIcon.value}}"></i></div>
                             {{/ifCond}} 
                             {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}
-                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" {{#if asset_thumbnail_alt}} aria-label="Image for {{asset_thumbnail_alt}}"{{else}} aria-label="Images for {{name}}"{{/if}}></div>          
+                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" {{#if component.childrenThumbnails.asset_thumbnail_alt}} aria-label="Image for {{component.childrenThumbnails.asset_thumbnail_alt}}"{{else}} aria-label="Images for {{name}}"{{/if}}></div>          
                             {{/ifCond}}
 
                             <div class="qld__card__inner">
