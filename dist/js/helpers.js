@@ -442,6 +442,18 @@ Handlebars.registerHelper('getTags', function(selectValues, tags, options) {
 
     return output;
 }); 
+Handlebars.registerHelper('getThumbnailAlt', function(thumbnails, index, shortName) {
+    var ariaLabel = 'aria-label="Image for '
+
+    if(thumbnails[index].asset_thumbnail_alt.length){
+        
+        ariaLabel += thumbnails[index].asset_thumbnail_alt + '"';
+    } else {
+        ariaLabel += shortName + '"';
+    }
+
+    return ariaLabel
+}); 
 Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
     return obj['title_' + index].value;
