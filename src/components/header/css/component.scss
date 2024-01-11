@@ -98,7 +98,6 @@
             @include QLD-media(lg) {
                 display: none;
             }
-
         }
 
         &-url {
@@ -169,6 +168,7 @@
             }
     
         }
+
         .qld__header__toggle-main-nav{
             display: flex;
             flex-direction: column;
@@ -179,8 +179,6 @@
             background-color: transparent;
             cursor: pointer;
             align-items: center;
-            // display: none;
-            // height: 48px;
             color: var(--QLD-color-light-link);
             @include QLD-focus();
             border-left: solid $QLD-border-width-thin var(--QLD-color-light-border);
@@ -194,7 +192,6 @@
             }
 
             @include QLD-media(md) {
-                // height: 72px;
                 @include QLD-space(padding, 0.75unit 1unit 0.625unit 1unit);
             }
     
@@ -274,11 +271,8 @@
                     }
                 }
             }
-
-            
-
-    
         }
+
         //Dark alt theme
         &.qld__header__pre-header--dark-alt{
             background-color: var(--QLD-color-dark-alt-background);
@@ -434,6 +428,7 @@
                 }
             }
         }
+
         //Main header dark theme
         &.qld__header__main--dark{
             background-color: var(--QLD-color-dark-background);
@@ -470,17 +465,18 @@
                 @include QLD-media(md) {
                     background-color: var(--QLD-color-dark-background);
 
-                    .qld__search__label{
+                    .qld__display-lg{
                         color: var(--QLD-color-dark-heading);
                     }
                 }
             }
         }
+
         //Main header dark alt theme
         &.qld__header__main--dark-alt{
             background-color: var(--QLD-color-dark-alt-background);
 
-            .qld__header__site-name {   
+            .qld__header__site-name {
                 .qld__header__heading {
                     color: var(--QLD-color-dark-siteTitle);
                 }
@@ -512,17 +508,16 @@
                 @include QLD-media(md) {
                     background-color: var(--QLD-color-dark-alt-background);
 
-                    .qld__search__label{
+                    .qld__display-lg{
                         color: var(--QLD-color-dark-heading);
                     }
                 }
-                
             }
         }
         
     }
-
-    .qld__header__search {
+    
+    .qld__header__search{
         display: none;
         position: absolute;
         left: 0;
@@ -530,14 +525,13 @@
         top: 0;
         background-color: var(--QLD-color-light-background);
         box-shadow: 0px 0px 25px rgba(200, 200, 200, 0.25);
-        @include QLD-space(padding, 1unit);
+        padding: 1rem;
         z-index: 1;
 
         @include QLD-media(md) {
             box-shadow: none;
+            padding: 2rem 2rem 4rem 2rem;
         }
-
-        
 
         @include QLD-media(lg) {
             display: inline-block;
@@ -547,94 +541,45 @@
             @include QLD-space(padding, 3unit 0);
             padding: 32px 0;
         }
-        .qld__search__label{
 
-            @include QLD-media(md) {
-                @include QLD-fontgrid(lg);
-                position: inherit;
-                width: auto;
-                height: auto;
-                color: var(--QLD-color-light-heading);
-                @include QLD-space(margin, 0 0 1unit 0);
-                
-            }
-
-            @include QLD-media(lg) {
-                position: absolute;
-                width: 1px;
-                height: 1px;
-            }
-        }
-
-        .qld__search {
-            width: 100%;
-            @include QLD-space(margin-top, 0unit);
-            @include QLD-fontgrid(sm);
-
-            @include QLD-media(xs) {
-                width: 75%;
-            }
-        
-            @include QLD-media(sm) {
-                width: 100%;
-            }
-            @include QLD-media(md) {
-                @include QLD-space(padding,1unit 3.5unit 3unit 3.5unit);
-                flex-wrap: wrap;
-                height: auto;
-            }
-
-            @include QLD-media(lg) {
-                display: table;
-                @include QLD-space(padding,0);
-            }
-        }
-       
-        .qld__text-input{           
-
+        .qld__search-form{
             @include QLD-media(md, down) {
-                background-color: var(--QLD-color-light-background);
-                color: var(--QLD-color-light-text);
-                border-color: transparent;
+                @include QLD-focus();
 
-                &:hover{
-                        background-color: var(--QLD-color-light-background__shade);
-                
-                }
-            }
-
-            @include QLD-media(lg) {
-                width: 72%;
-                @include QLD-space(padding, 0.563unit 1.5unit);
-            }
-        }
-
-        .qld__search__btn{           
-
-            .qld__btn{
-                min-width: auto;
-
-                @include QLD-media(md, down) {
-                    background-color: transparent;
+                .qld__text-input{
                     border-color: transparent;
-                    box-shadow: none;
-                    @include QLD-space(padding, 1unit);
-                    
+                    background-color: transparent;
+                    color: var(--QLD-color-light-text);
+                    @include QLD-focus();
                 }
 
-                @include QLD-media(md, down) {
+                .qld__btn{
+                    border-color: transparent;
+                    background-color: transparent;
+                    box-shadow: none;
+                    @include QLD-focus();
+
                     .qld__btn__icon{
                         background-color: var(--QLD-color-light-text);
+                        
                     }
+                }
+            }
+
+            .qld__search-form__label{
+                @include QLD-media(md) {
+                    position: inherit;
+                    width: auto;
+                    height: auto;
+                    @include QLD-space(margin, 0 0 1unit 0);
                 }
 
                 @include QLD-media(lg) {
-                    @include QLD-space(border-bottom-left-radius, 0);
-                    @include QLD-space(border-top-left-radius, 0);
-                    @include QLD-space(padding, 0.563unit 1.5unit);
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
                 }
             }
-        
         }
 
         .qld__header__search-link{
@@ -649,9 +594,7 @@
             &:hover{
                 color: var(--QLD-color-light-text);
             }
-        }
-
-        
+        }    
     }
 
     .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-link, .qld__main-nav.qld__main-nav--mega .qld__main-nav__item-toggle-text {
