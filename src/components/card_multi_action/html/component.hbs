@@ -55,23 +55,23 @@
 
         <div class="row">
             <ul class="qld__card-list qld__card-list--matchheight">
-            {{#with (createMap component.childrenThumbnails 'asset_thumbnail_assetid' 'asset_thumbnail_alt') as |thumbnailAlt|}}
-                {{#each @root.component.children}}
+            
+                {{#each component.children}}
                 
                     {{#isPage type_code}}
                     {{!-- {{#ifCond ../current.data.metadata.pageType.value '==' 'content'}} --}}
-                    <li class="col-xs-12 {{@root.component.data.metadata.col_width.value}}">
+                    <li class="col-xs-12 {{../component.data.metadata.col_width.value}}">
                     {{!-- {{else}} --}}
                     {{!-- <li class="col-xs-12 col-md-6 {{../component.data.metadata.col_width.value}}">  --}}
                     {{!-- {{/ifCond}} --}}
                         
-                        <div class="qld__card qld__card__multi-action {{#ifCond @root.component.data.metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond @root.component.data.metadata.card_type.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond @root.component.data.metadata.card_type.value '==' 'image'}}qld__card--image{{/ifCond}} {{@root.component.data.metadata.background.value}} {{#ifCond @root.component.data.metadata.icon_align.value '==' 'left'}}qld__card--icon-left{{/ifCond}}" >
+                        <div class="qld__card qld__card__multi-action {{#ifCond ../component.data.metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}qld__card--image{{/ifCond}} {{component.data.metadata.background.value}} {{#ifCond ../component.data.metadata.icon_align.value '==' 'left'}}qld__card--icon-left{{/ifCond}}" >
 
-                            {{#ifCond @root.component.data.metadata.card_type.value '==' 'icon'}}
+                            {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}
                                 <div class="qld__card__icon"><i class="{{metadata.cardIcon.value}}"></i></div>
                             {{/ifCond}} 
-                            {{#ifCond @root.component.data.metadata.card_type.value '==' 'image'}}
-                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" alt="{{thumbnailAlt}}"{{#if thumbnailAlt}} aria-label="Image for {{thumbnailAlt}}"{{else}} aria-label="Images for {{short_name}}"{{/if}}></div>          
+                            {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}
+                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" {{#getThumbnailAlt ../component.childrenThumbnails @index short_name}}{{/getThumbnailAlt}}  ></div>          
                             {{/ifCond}}
 
                             <div class="qld__card__inner">
@@ -173,7 +173,7 @@
                     </li>
                     {{/isPage}}
                 {{/each}}
-            {{/with}}
+         
             </ul>
         </div>
         {{#with component.data}}
