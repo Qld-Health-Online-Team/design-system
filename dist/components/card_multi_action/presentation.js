@@ -324,7 +324,7 @@
     + alias4(((helper = (helper = lookupProperty(helpers,"thumbnail") || (depth0 != null ? lookupProperty(depth0,"thumbnail") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"thumbnail","hash":{},"data":data,"loc":{"start":{"line":74,"column":106},"end":{"line":74,"column":119}}}) : helper)))
     + "');\" aria-label=\"Images for "
     + alias4(((helper = (helper = lookupProperty(helpers,"short_name") || (depth0 != null ? lookupProperty(depth0,"short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"short_name","hash":{},"data":data,"loc":{"start":{"line":74,"column":147},"end":{"line":74,"column":161}}}) : helper)))
-    + "\"></div>                \r\n";
+    + "\"></div>          \r\n";
 },"51":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {

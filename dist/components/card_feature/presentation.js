@@ -164,7 +164,7 @@
     + "\">\r\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "');\" aria-label=\"Image for "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_title") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"matadata") : depth0)) != null ? lookupProperty(stack1,"card_title") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"></div>\r\n                            </a>\r\n";
 },"26":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
