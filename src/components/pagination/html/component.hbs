@@ -26,14 +26,14 @@
                 <li class="next">
                     <a href="{{url}}" rel="next" aria-label="Next page of results" class="qld__search-pagination_link">
                     <span>Next</span>
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
                     </a>
                 {{/ifCond}}
             </li>
         
             {{#ifCond linkType '===' 'first'}}
                 <li class="ellipsis">
-                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__ellipsis"></use></svg>
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg"><use href="{{site.metadata.siteDefaultIcons.value}}#qld__icon__ellipsis"></use></svg>
                 </li>
             {{/ifCond}}
         {{/each}}

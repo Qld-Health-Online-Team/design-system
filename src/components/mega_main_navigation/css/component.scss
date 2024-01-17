@@ -50,14 +50,12 @@
             .qld__icon{
                 color: var(--QLD-color-light-alt-button);
                 transition: transform 0.25s ease-in;
-
-                &--md{
-                    height: $QLD-icon-size-sm;
-                    width: $QLD-icon-size-sm;
-                }
                 
                 @include QLD-media(lg) {
-                    @include QLD-space(margin, 0unit 0.75unit 0unit -0.25unit);
+                    margin: 0 8px 0 8px;
+                }
+                @include QLD-media(xl) {
+                    margin: 0 12px 0 8px;
                 }
             }
 
@@ -498,6 +496,7 @@
                     @include QLD-underline('dark','noUnderline','default','noVisited');
                     color: var(--QLD-color-dark-link);
                     fill:var(--QLD-color-dark-link);
+
                     &.qld__accordion--open{
                         background-color: var(--QLD-color-dark-background);
                         border-color: var(--QLD-color-dark-background);
@@ -505,7 +504,6 @@
 
                     .qld__icon{
                         color: var(--QLD-color-dark-alt-button);
-                        @include QLD-space(margin, 0unit 0.75unit 0unit -0.3unit);
                     }
 
                     &:hover{

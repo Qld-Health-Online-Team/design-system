@@ -2,28 +2,99 @@
 // Icons
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__icon{
-    height: $QLD-icon-size-xs;
-    width: $QLD-icon-size-xs;
+svg.qld__icon{
+    height: $QLD-icon-size__xs;
+    width: $QLD-icon-size__xs;
     vertical-align: middle;
     align-self: center;
 
     &--sm{
-        height: $QLD-icon-size-sm;
-        width: $QLD-icon-size-sm;
+        height: $QLD-icon-size__sm;
+        width: $QLD-icon-size__sm;
     }
     &--md{
-        height: $QLD-icon-size-md;
-        width: $QLD-icon-size-md;
+        height: $QLD-icon-size__md;
+        width: $QLD-icon-size__md;
     }
     &--lg{
-        height: $QLD-icon-size-lg;
-        width: $QLD-icon-size-lg;
+        height: $QLD-icon-size__lg;
+        width: $QLD-icon-size__lg;
     }
 
     &--xl{
-        height: $QLD-icon-size-xl;
-        width: $QLD-icon-size-xl;
+        height: $QLD-font-size__feature;
+        width: $QLD-font-size__feature;
+    }
+
+    &--feature-lg{
+        font-size: $QLD-font-size__feature-lg;
     }
 }
 
+i.qld__icon{
+    font-size: $QLD-icon-size__xs;
+
+    &--sm{
+        font-size: $QLD-icon-size__sm;
+    }
+    &--md{
+        font-size: $QLD-icon-size__md;
+    }
+    &--lg{
+        font-size: $QLD-icon-size__lg;
+    }
+
+    &--xl{
+        font-size: $QLD-font-size__feature;
+    }
+
+    &--feature-lg{
+        font-size: $QLD-font-size__feature-lg;
+    }
+}
+
+.qld__header__pre-header,
+.qld__header__main,
+.qld__body,
+.qld__footer,
+.qld__banner{
+
+    .qld__icon{
+        color: var(--QLD-color-light-alt-button);
+    }
+
+    a:hover{
+        .qld__icon{
+            color: var(--QLD-color-light-alt-button__hover);
+        }
+    }
+
+    &.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+
+        .qld__icon{
+            color: var(--QLD-color-dark-alt-button);
+        }
+
+        a:hover{
+            .qld__icon{
+                color: var(--QLD-color-dark-alt-button__hover);
+            }
+        }
+    }    
+}
+    
+
+
+//Font awesome fix to remove underline when link is on hover
+.fa-light{
+    &::before{
+        display: inline-block;
+    }
+}

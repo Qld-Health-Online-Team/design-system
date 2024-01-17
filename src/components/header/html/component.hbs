@@ -273,22 +273,21 @@
             <div class="qld__header__search" id="qld-header-search">
                 <div class="qld__main-nav__focus-trap-top"></div>
 
-
-                <form role="search" aria-label="sitewide" class="qld__search qld__search--responsive" action="{{site.metadata.siteSearchUrl.value}}">
-                    <label for="qld__header__search-query" class="qld__search__label">Search this website</label>
-                    <div class="qld__search__inner">
-                        <input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete='off'>
-                        <div class="qld__search__btn">
-                            <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                                <span class="qld__btn__icon"></span>
-                                <span class="qld__btn__text">Search</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-
-
+                <div class="qld__search-form--wrapper">
+                    <form role="search" aria-label="sitewide" class="qld__search-form" id="search-input-global-header" action="{{site.metadata.siteSearchUrl.value}}">
+                        <label for="search-input-global-header-query" class="qld__label qld__display-lg qld__search-form__label">Search this website</label>
+                        <div class="qld__search-form__inner">
+                            <input type="search" id="search-input-global-header-query" name="query" class="qld__text-input data-hj-allow" autocomplete='off'>
+                            <div class="qld__search-form__btn">
+                                <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
+                                    <span class="qld__btn__icon"></span>
+                                    <span class="qld__btn__text">Search</span>
+                                </button>
+                            </div>
+                        </div>  
+                    </form>
+                </div>
+                
                 <div class="qld__main-nav__focus-trap-bottom"></div>
             </div>
             {{/if}}
