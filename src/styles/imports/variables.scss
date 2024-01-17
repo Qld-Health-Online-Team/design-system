@@ -61,27 +61,27 @@ $base-font-pixel: 16; // Used for font size calculations & conversions
 /**
   * QLD-maxwidth for line lengths (the ‘measure’)
   */
-  $QLD-font-maxwidth: 46rem !default; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
+  $QLD-font-maxwidth: 80ch; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
 
   /**
   * QLD typography sizes
   *
   */
-  $QLD-font-size-desktop-xs: .875rem;
-  $QLD-font-size-desktop-sm: 1rem;
-  $QLD-font-size-desktop-md: 1.25rem;
-  $QLD-font-size-desktop-lg: 1.5rem;
-  $QLD-font-size-desktop-xl: 2rem;
-  $QLD-font-size-desktop-xxl: 2.5rem;
-  $QLD-font-size-desktop-xxxl: 3rem;
+$QLD-font-size-desktop-xs: .875rem;
+$QLD-font-size-desktop-sm: 1rem;
+$QLD-font-size-desktop-md: 1.25rem;
+$QLD-font-size-desktop-lg: 1.5rem;
+$QLD-font-size-desktop-xl: 2rem;
+$QLD-font-size-desktop-xxl: 2.5rem;
+$QLD-font-size-desktop-xxxl: 3rem;
 
-  $QLD-font-size-mobile-xs: .875rem;
-  $QLD-font-size-mobile-sm: 1rem;
-  $QLD-font-size-mobile-md: 1.25rem;
-  $QLD-font-size-mobile-lg: 1.5rem;
-  $QLD-font-size-mobile-xl: 1.75rem;
-  $QLD-font-size-mobile-xxl: 2rem;
-  $QLD-font-size-mobile-xxxl: 2.5rem;
+$QLD-font-size-mobile-xs: .875rem;
+$QLD-font-size-mobile-sm: 1rem;
+$QLD-font-size-mobile-md: 1.25rem;
+$QLD-font-size-mobile-lg: 1.5rem;
+$QLD-font-size-mobile-xl: 1.75rem;
+$QLD-font-size-mobile-xxl: 2rem;
+$QLD-font-size-mobile-xxxl: 2.5rem;
  
  /**
   * QLD-lineheight-map
@@ -150,16 +150,6 @@ $QLD-grid-inner-container-desktop: 7;
 */
 
 $QLD-grid-maxwidth: 86rem;
-
-
-
-
-
-  // $QLD-container-padding-xs: 1rem;
-  // $QLD-container-padding-md: 2.5rem;
-  // $QLD-container-padding-lg: 4rem;
-  // $QLD-container-padding-xl: 9rem;
-  // $QLD-container-padding-xxl: 10rem;
 
 /**
 * QLD border-width values
@@ -246,11 +236,12 @@ $QLD-fluid-width__1-quarter: 25%;
 /**
 * QLD icon sizes
 */
-$QLD-icon-size-xs:map-get( $QLD-space-map, 2 ) + px;//8px
-$QLD-icon-size-sm:map-get( $QLD-space-map, 4 ) + px;//16px
-$QLD-icon-size-md:map-get( $QLD-space-map, 5 ) + px;//20px
-$QLD-icon-size-lg:map-get( $QLD-space-map, 6 ) + px;//24px
-$QLD-icon-size-xl:map-get( $QLD-space-map, 12 ) + px;//64px
+$QLD-icon-size__xs: 1rem;
+$QLD-icon-size__sm: 1.25rem;
+$QLD-icon-size__md: 1.5rem;
+$QLD-icon-size__lg: 2rem;
+$QLD-font-size__feature: 4rem;
+$QLD-font-size__feature-lg: 8rem;
 
 /**
 * QLD default icons
@@ -365,141 +356,6 @@ $QLD-color-dark-alt-background: #05325F !default;
 $QLD-color-dark-alt-background__shade: #052C53 !default;
 
 
-
-
- /**
-  * Figma QLD-color-light styles
-  */
-@if global-variable-exists(Figma-QLD-color-light-siteTitle){
-    $QLD-color-light-siteTitle: $Figma-QLD-color-light-siteTitle;
-}
-@if global-variable-exists(Figma-QLD-color-light-designAccent){
-    $QLD-color-light-designAccent: $Figma-QLD-color-light-designAccent;
-}
-@if global-variable-exists(Figma-QLD-color-light-heading){
-  $QLD-color-light-heading: $Figma-QLD-color-light-heading;
-}
-@if global-variable-exists(Figma-QLD-color-light-text){
-  $QLD-color-light-text: $Figma-QLD-color-light-text;
-}
-@if global-variable-exists(Figma-QLD-color-light-text__muted){
-  $QLD-color-light-text__muted: $Figma-QLD-color-light-text__muted;
-}
-@if global-variable-exists(Figma-QLD-color-light-link){
-  $QLD-color-light-link: $Figma-QLD-color-light-link;
-}
-@if global-variable-exists(Figma-QLD-color-light-link__visited){
-  $QLD-color-light-link__visited: $Figma-QLD-color-light-link__visited;
-}
-@if global-variable-exists(Figma-QLD-color-light-button__text){
-  $QLD-color-light-button__text: $Figma-QLD-color-light-button__text;
-}
-@if global-variable-exists(Figma-QLD-color-light-button){
-  $QLD-color-light-button: $Figma-QLD-color-light-button;
-}
-@if global-variable-exists(Figma-QLD-color-light-button__hover){
-  $QLD-color-light-button__hover: $Figma-QLD-color-light-button__hover;
-}
-@if global-variable-exists(Figma-QLD-color-light-focus){
-  $QLD-color-light-focus: $Figma-QLD-color-light-focus;
-}
-@if global-variable-exists(Figma-QLD-color-light-border){
-  $QLD-color-light-border: $Figma-QLD-color-light-border;
-}
-@if global-variable-exists(Figma-QLD-color-light-background){
-  $QLD-color-light-background: $Figma-QLD-color-light-background;
-}
-@if global-variable-exists(Figma-QLD-color-light-background__shade){
-  $QLD-color-light-background__shade: $Figma-QLD-color-light-background__shade;
-}
-
-  
-   /**
-    * Figma QLD-color-light-alt styles
-    */
-@if global-variable-exists(Figma-QLD-color-light-alt-button){
-  $QLD-color-light-alt-button: $Figma-QLD-color-light-alt-button;
-}
-@if global-variable-exists(Figma-QLD-color-light-alt-button__hover){
-  $QLD-color-light-alt-button__hover: $Figma-QLD-color-light-alt-button__hover;
-}
-@if global-variable-exists(Figma-QLD-color-light-alt-border){
-  $QLD-color-light-alt-border: $Figma-QLD-color-light-alt-border;
-}
-@if global-variable-exists(Figma-QLD-color-light-alt-background){
-  $QLD-color-light-alt-background: $Figma-QLD-color-light-alt-background;
-}
-@if global-variable-exists(Figma-QLD-color-light-alt-background__shade){
-  $QLD-color-light-alt-background__shade: $Figma-QLD-color-light-alt-background__shade;
-}
-
-  
-   /**
-    * Figma QLD-color-dark styles
-    */
-@if global-variable-exists(Figma-QLD-color-dark-siteTitle){
-  $QLD-color-dark-siteTitle: $Figma-QLD-color-dark-siteTitle;
-}
-@if global-variable-exists(Figma-QLD-color-dark-designAccent){
-  $QLD-color-dark-designAccent: $Figma-QLD-color-dark-designAccent;
-}
-@if global-variable-exists(Figma-QLD-color-dark-heading){
-  $QLD-color-dark-heading: $Figma-QLD-color-dark-heading;
-}
-@if global-variable-exists(Figma-QLD-color-dark-text){
-  $QLD-color-dark-text: $Figma-QLD-color-dark-text;
-}
-@if global-variable-exists(Figma-QLD-color-dark-text__muted){
-  $QLD-color-dark-text__muted: $Figma-QLD-color-dark-text__muted;
-}
-@if global-variable-exists(Figma-QLD-color-dark-link){
-  $QLD-color-dark-link: $Figma-QLD-color-dark-link;
-}
-@if global-variable-exists(Figma-QLD-color-dark-link__visited){
-  $QLD-color-dark-link__visited: $Figma-QLD-color-dark-link__visited;
-}
-@if global-variable-exists(Figma-QLD-color-dark-button__text){
-  $QLD-color-dark-button__text: $Figma-QLD-color-dark-button__text;
-}
-@if global-variable-exists(Figma-QLD-color-dark-button){
-  $QLD-color-dark-button: $Figma-QLD-color-dark-button;
-}
-@if global-variable-exists(Figma-QLD-color-dark-button__hover){
-  $QLD-color-dark-button__hover: $Figma-QLD-color-dark-button__hover;
-}
-@if global-variable-exists(Figma-QLD-color-dark-focus){
-  $QLD-color-dark-focus: $Figma-QLD-color-dark-focus;
-}
-@if global-variable-exists(Figma-QLD-color-dark-border){
-  $QLD-color-dark-border: $Figma-QLD-color-dark-border;
-}
-@if global-variable-exists(Figma-QLD-color-dark-background){
-  $QLD-color-dark-background: $Figma-QLD-color-dark-background;
-}
-@if global-variable-exists(Figma-QLD-color-dark-background__shade){
-  $QLD-color-dark-background__shade: $Figma-QLD-color-dark-background__shade;
-}
-  
-   /**
-    * Figma QLD-color-alt-dark styles
-    */
-@if global-variable-exists(Figma-QLD-color-dark-alt-button){
-  $QLD-color-dark-alt-button: $Figma-QLD-color-dark-alt-button;
-}
-@if global-variable-exists(Figma-QLD-color-dark-alt-button__hover){
-  $QLD-color-dark-alt-button__hover: $Figma-QLD-color-dark-alt-button__hover;
-}
-@if global-variable-exists(Figma-QLD-color-dark-alt-border){
-  $QLD-color-dark-alt-border: $Figma-QLD-color-dark-alt-border;
-}
-@if global-variable-exists(Figma-QLD-color-dark-alt-background){
-  $QLD-color-dark-alt-background: $Figma-QLD-color-dark-alt-background;
-}
-@if global-variable-exists(Figma-QLD-color-dark-alt-background__shade){
-  $QLD-color-dark-alt-background__shade: $Figma-QLD-color-dark-alt-background__shade;
-}
-
-
  /**
   * QLD-border-radius styles
   */
@@ -571,14 +427,6 @@ $QLD-border-radius: $QLD-unit + 0px !default;
   --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
   --QLD-underline__offset: #{$QLD-underline__offset};
 
-  --QLD-font-size-desktop-xs: #{$QLD-font-size-desktop-xs};
-  --QLD-font-size-desktop-sm: #{$QLD-font-size-desktop-sm};
-  --QLD-font-size-desktop-md: #{$QLD-font-size-desktop-md};
-  --QLD-font-size-desktop-lg: #{$QLD-font-size-desktop-lg};
-  --QLD-font-size-desktop-xl: #{$QLD-font-size-desktop-xl};
-  --QLD-font-size-desktop-xxl: #{$QLD-font-size-desktop-xxl};
-  --QLD-font-size-desktop-xxxl: #{$QLD-font-size-desktop-xxxl};
-
   --QLD-border-radius-xs: #{$QLD-border-radius-xs};
   --QLD-border-radius-sm: #{$QLD-border-radius-sm};
   --QLD-border-radius-md: #{$QLD-border-radius-md};
@@ -591,11 +439,4 @@ $QLD-border-radius: $QLD-unit + 0px !default;
   --QLD-border-width-medium: #{$QLD-border-width-medium};
   --QLD-border-width-thick: #{$QLD-border-width-thick};
   --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
-  --QLD-font-size-mobile-xs: #{$QLD-font-size-mobile-xs};
-  --QLD-font-size-mobile-sm: #{$QLD-font-size-mobile-sm};
-  --QLD-font-size-mobile-md: #{$QLD-font-size-mobile-md};
-  --QLD-font-size-mobile-lg: #{$QLD-font-size-mobile-lg};
-  --QLD-font-size-mobile-xl: #{$QLD-font-size-mobile-xl};
-  --QLD-font-size-mobile-xxl: #{$QLD-font-size-mobile-xxl};
-  --QLD-font-size-mobile-xxxl: #{$QLD-font-size-mobile-xxxl};
 }

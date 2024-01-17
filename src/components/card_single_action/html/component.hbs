@@ -55,7 +55,6 @@
 
         <div class="row">
             <ul class="qld__card-list qld__card-list--matchheight">
-
                 {{#each component.children}}
 
                     {{#isPage type_code}}
@@ -71,7 +70,7 @@
                                 <div class="qld__card__icon"><i class="{{metadata.cardIcon.value}}"></i></div>
                             {{/ifCond}} 
                             {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}
-                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" aria-label="Images for {{short_name}}"></div>          
+                            <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{thumbnail}}');" {{#getThumbnailAlt ../component.childrenThumbnails @index short_name}}{{/getThumbnailAlt}}></div>          
                             {{/ifCond}}
 
                             <div class="qld__card__inner">

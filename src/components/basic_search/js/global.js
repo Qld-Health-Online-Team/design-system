@@ -28,15 +28,14 @@
                 currentUrl.search = searchParams.toString();
                 window.location.href = currentUrl.toString();
             });
-        }
+        };           
 
-    }
+    };
 
 
-    // Make accordion public
+    // Make basic search public
     QLD.basicSearch = basicSearch;
 
-    // Add toggle event listeners to accordion buttons
     window.addEventListener('DOMContentLoaded', function () {
         QLD.basicSearch.init();
     });

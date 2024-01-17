@@ -334,8 +334,7 @@ form {
 
     p {
         margin: 0;
-        // @include QLD-space(max-width, $QLD-font-maxwidth);
-        max-width: 80ch;
+        max-width: $QLD-font-maxwidth;
         line-height: 1.75;
     }
 
@@ -739,7 +738,6 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light-alt-background);
 
-        
         hr {
             background-color: var(--QLD-color-light-alt-border);
         }

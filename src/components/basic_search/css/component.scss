@@ -9,12 +9,11 @@
         flex-direction: column;
 
         &-query{
-            width: 100%;
-            font-weight: bold; 
-            color: var(--QLD-color-light-heading);
-    
-            @include QLD-media(md) {
-                @include QLD-space(font-size, 1.5unit);
+
+            @include QLD-media(md, 'down') {
+               .qld__display-lg{ 
+                    font-size: 1rem;
+               }
             }
     
             &-term{
@@ -29,6 +28,7 @@
             border-bottom: 1px solid var(--QLD-color-light-alt-border);
             align-items: baseline;
         }
+        
         &-summary{
             @include QLD-space(font-size, .875unit);
             @include QLD-space(margin-top, 1unit);
@@ -49,7 +49,6 @@
 
     &__sort{
         display: flex;
-        flex-wrap: wrap;
         flex-direction: row;
         justify-content: end;
         align-items: center;
@@ -59,6 +58,7 @@
             font-weight: bold;
             color: var(--QLD-color-light-heading);
             @include QLD-space(padding-right, .75unit);
+            white-space: nowrap;
         }
         select{
             max-width: 200px;
@@ -67,7 +67,6 @@
 
     &__filters{
         @include QLD-space(padding-top, 1.25unit);
-        // @include QLD-space(padding-bottom, 1.5unit);
         display: flex;
         flex-direction: column;
         
@@ -233,9 +232,6 @@
             &:first-letter{
                 text-transform: capitalize;
             }
-            &-name{
-
-            }
             &-query{
                 font-weight: bold;
             }
@@ -263,51 +259,18 @@
 }
 
 //Search Facets
-.qld__search{
+// .qld__search{
     
-    .qld__body &-link-list{
-        list-style-type: disc;
-        @include QLD-space(padding-top, 1unit);
-        @include QLD-space(padding-left, 1unit);
-        margin: 0;
-        li{
-            display: list-item;
-        }
-    }
-}
+//     .qld__body &-link-list{
+//         list-style-type: disc;
+//         @include QLD-space(padding-top, 1unit);
+//         @include QLD-space(padding-left, 1unit);
+//         margin: 0;
+//         li{
+//             display: list-item;
+//         }
+//     }
+// }
     
 
-.qld__search{
-    .twitter-typeahead{
-        display: block !important;
-        width: 100%;
-
-        @include QLD-media(lg) {
-            width: 72%;
-        }
-
-        .qld__text-input{
-            // height: 100%;
-            @include QLD-media(lg) {
-                width: 100%;
-            }
-        }
-    }
-
-
-    .tt-menu{
-        width: 100%;
-        @include QLD-space(padding, .5unit 1unit 1unit 1unit );
-        background-color: var(--QLD-color-light-background);
-        @include QLD-space(
-            border-bottom,
-            0.25unit solid var(--QLD-color-light-designAccent)
-        );
-        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .tt-selectable{
-        @include QLD-space(padding, .5unit 0);
-    }
-}
 
