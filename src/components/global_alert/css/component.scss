@@ -45,16 +45,16 @@
             &:visited{
                 text-decoration-color: $QLD-color-system-white;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon{
+                    color: $QLD-color-system-white;
+                }
             }
         }
         
-        svg{
+        .qld__icon{
             color: $QLD-color-system-white;
         }
         
-        svg path {
-            fill: $QLD-color-system-white;
-        }
     }
     
     &.qld__global-alert--default {
@@ -85,14 +85,13 @@
             &:visited{
                 text-decoration-color: $QLD-color-system-grey-text;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon{
+                    color: $QLD-color-system-grey-text;
+                }
             }
         }
-        svg{
+        .qld__icon{
             color: $QLD-color-system-grey-text;
-        }
-        
-        svg path {
-            fill: $QLD-color-system-grey-text;
         }
     }
     
@@ -125,11 +124,14 @@
             &:visited{
                 text-decoration-color: $QLD-color-system-grey-text;
                 text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon {
+                    color: $QLD-color-system-grey-text;
+                }
             }
         }
         
-        svg path {
-            fill: $QLD-color-system-grey-text;
+        .qld__icon {
+            color: $QLD-color-system-grey-text;
         }
     }
 

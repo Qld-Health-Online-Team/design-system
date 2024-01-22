@@ -176,14 +176,6 @@ label{
     }
 }
 
-.qld__fieldset {
-
-}
-
-.qld__btn {
-    margin-top: 2rem;
-}
-
 //Forms spacing
 * + form {
     @include QLD-space(margin-top, 2unit);
@@ -194,11 +186,6 @@ label{
         @include QLD-space(margin-top, 2unit);
     }
 }
-
-// .qld__fieldset__legend,
-// legend {
-//     @include QLD-space(margin-bottom, 0.5unit);
-// }
 
 // Reset fieldset styling to avoid inconsistency across different browsers
 .qld__fieldset,
@@ -221,6 +208,9 @@ form {
     +input,
     +textarea {
         @include QLD-space(margin-top, 0.5unit);
+    }
+    .qld__btn {
+        margin-top: 2rem;
     }
 }
 

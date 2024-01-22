@@ -18,17 +18,11 @@
         
         @include QLD-space(padding-top, 2unit);
         @include QLD-space(padding-bottom, 2unit);
-
-        @include QLD-media(md) {
-            @include QLD-space(padding-right, 1.5unit);
-
-        }
     
         @include QLD-media(lg) {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 60%;
             @include QLD-space(padding-top, 3unit);
             @include QLD-space(padding-bottom, 3unit);
         }
@@ -48,11 +42,6 @@
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
             }
-
-            // @include QLD-media(lg) {
-            //     line-height: 52px;
-            //     @include QLD-space(font-size, 2.5unit);
-            // }
         }
 
         p {
@@ -385,98 +374,44 @@
     //Base search
     &.qld__banner--search{
         overflow: visible;
+
         .qld__banner__content{
             @include QLD-space(padding-bottom, 1unit);
-            @include QLD-media(md ) {
-                @include QLD-space(padding-bottom, 1.5unit);
+
+            @include QLD-media(md) {
+                padding-bottom: 1rem;
             }
-           
+
+            @include QLD-media(lg) {
+                padding-bottom: 3rem;
+            }
         }
+
         .qld__banner__search{
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            @include QLD-space(padding-bottom, 3unit);
+            padding-bottom: 2rem;
+
+            @include QLD-media(md) {
+                padding-bottom: 2rem;
+            }
+
+            @include QLD-media(lg) {
+                padding-bottom: 3rem;
+            }
         }
-        // .qld__search{
-        //     // display: table;
-
-        //     .qld__search__label{
-        //         position: absolute;
-        //         width: 1px;
-        //         height: 1px;
-        //         padding: 0;
-        //         margin: -1px;
-        //         overflow: hidden;
-        //         clip: rect(0, 0, 0, 0);
-        //         border: 0;
-        //     }
-
-        //     .qld__text-input{
-        //         border-bottom-right-radius: 0;
-        //         border-right: 0;
-        //         border-top-right-radius: 0;
-        //         display: table-cell;
-        //         max-width: 100%;
-        //         position: relative;
-        //         vertical-align: top;
-        //         width: 100%;
-        //         margin: 0;
-        //     }
-
-        //     .qld__search__btn{
-        //         position: relative;
-        //         display: table-cell;
-        //         vertical-align: top;
-        //         width: 1%;
-        //         white-space: nowrap;
-        //     }
-        //     .qld__btn{
-        //         min-width: auto;
-        //         border-bottom-left-radius: 0;
-        //         border-top-left-radius: 0;
-        //         @include QLD-space(padding, 0.625rem .625rem);
-
-        //         @include QLD-media(lg) {
-        //             @include QLD-space(padding, 0.68rem 1.5rem);
-        //         }
-                
-
-        //         &::after{
-        //             content: '';
-        //             mask-image: QLD-svguri($QLD-icon-close);
-        //             mask-repeat: no-repeat;
-        //             mask-position: center;
-        //             background-color: var(--QLD-color-light-button__text);
-        //             display: block;
-        //             @include QLD-space(height, 1.5unit);
-        //             @include QLD-space(width, 1.5unit);
-
-        //             @include QLD-media(lg) {
-        //                 content: none;
-        //             }
-        //         }
-
-
-               
-        //     }
-        //     .qld__search__submit-btn-text{
-        //         position: absolute;
-        //         width: 1px;
-        //         height: 1px;
-        //         padding: 0;
-        //         margin: -1px;
-        //         overflow: hidden;
-        //         clip: rect(0, 0, 0, 0);
-        //         border: 0;
-
-        //         @include QLD-media(lg) {
-        //             position: initial;
-        //             width: auto;
-        //             height: auto
-        //         }
-        //     }
-        // }
+    }
+    
+    &.qld__banner--search.qld__banner--breadcrumbs{
+        .qld__banner__content{
+            @include QLD-media(md) {
+                padding-bottom: 1.5rem;
+            }
+            @include QLD-media(lg) {
+                padding-bottom: 3rem;
+            }
+        }
     }
 
     .qld__banner__breadcrumbs--desktop {
@@ -487,9 +422,6 @@
             }
         }
     }
-
-        
-
 
     &--alt{
         background-color: var(--QLD-color-light-alt-background);

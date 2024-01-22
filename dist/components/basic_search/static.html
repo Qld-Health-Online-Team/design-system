@@ -25,7 +25,7 @@
             
             <div class="qld__banner__main row">              
                 
-                <div class="qld__banner__content col-xs-12 col-md-4 col-lg-4">
+                <div class="qld__banner__content col-xs-12 col-md-12 col-lg-4">
         
                     <!--@@ Breadcrumbs - Desktop @@-->
                         <nav class="qld__breadcrumbs 
@@ -48,30 +48,61 @@
                     <!--@@ Abstract @@-->
                     
                 </div>
-                <div class="qld__banner__search col-xs-12 col-md-8 col-lg-8 ">
-                    <form role="search" aria-label="sitewide" class="qld__search qld__search--responsive" action="https://qhscb.squiz.cloud/wog-design-system/search">
-                        <label for="qld__header__search-query" class="qld__search__label">Search this website</label>
-                        <div class="qld__search__inner">
-                            <input type="search" id="qld__header__search-query" name="query" class="qld__text-input" autocomplete="off" value="">
-                            <div class="qld__search__btn">
-                                <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
-                                    <span class="qld__btn__icon"></span>
-                                    <span class="qld__btn__text">Search</span>
-                                </button>
+                <div class="qld__banner__search col-xs-12 col-md-12 col-lg-8">
+                    <div class="qld__search-form--wrapper">
+                        <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="https://qhscb.squiz.cloud/wog-design-system/search">
+                            <div class="qld__search-form__inner">
+                                <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" value="">
+                                <div class="qld__search-form__btn">
+                                    <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
+                                        <span class="qld__btn__icon"></span>
+                                        <span class="qld__btn__text">Search</span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="qld__body qld__search">
+<section class="qld__body qld__search"> 
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-md-12">
+                <div class="qld__search__info">
+                    <div class="qld__search__info-query">
+                        <h2 class="qld__display-lg">Results for </span><span class="qld__search__info-query-term">‘’</h2>
+                    </div>
+                    <div class="qld__search__info-inner">
+                        <div class="qld__search__info-summary">
+                            <span class="qld__search__info-summary-text">Showing:</span> 
+                            <span class="qld__search__info-summary-start-end"> -  of</span>
+                            <span class="qld__search__info-summary-matching"> results</span>
+                            
+                        </div>
+
+                        <div class="qld__search__sort">
+                            <div class="qld__search__sort-text">Sort by:</div>
+                            <label for="sort" class="sr-only">Sort</label>
+                            <select id="search-sort" class="qld__select" name="sort" aria-label="sort">
+                                <option value="" selected="">Relevance</option>
+                                <option value="title">A-Z</option>   
+                                <option value="dtitle">Z-A</option>   
+                                <option value="date">Newest</option>   
+                                <option value="adate">Oldest</option>
+                            </select>                    
+                        </div>
+                    </div>
+                </div>
+                <div class="qld__search__results">
+                </div>
+                
+
+                
+
             </div>
         </div>
     </div>

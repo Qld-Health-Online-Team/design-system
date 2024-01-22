@@ -413,7 +413,7 @@ Also take care to follow a 'mobile-first' approach with your SCSS code, where st
 @include QH-media( xl ) {}
 
 // >xxl breakpoint
-@include QH-media( xxl ) {}
+@include QH-media( xxl ) {} 
 
 ```
 
