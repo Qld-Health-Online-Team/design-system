@@ -9,7 +9,6 @@
         flex-direction: column;
 
         &-query{
-
             @include QLD-media(md, 'down') {
                .qld__display-lg{ 
                     font-size: 1rem;
@@ -20,6 +19,7 @@
                 font-style: italic;
             }
         }
+
         &-inner{
             width: 100%;
             display: flex;
@@ -31,8 +31,9 @@
         
         &-summary{
             @include QLD-space(font-size, .875unit);
-            @include QLD-space(margin-top, 1unit);
+            margin-top: .5rem;
             @include QLD-space(margin-bottom, 1unit);
+            
             @include QLD-media(md) {
                 @include QLD-space(font-size, 1unit);
             }
@@ -69,18 +70,16 @@
         @include QLD-space(padding-top, 1.25unit);
         display: flex;
         flex-direction: column;
-        
 
         @include QLD-media(md) {
             flex-direction: row;
         
         }
+    
         @include QLD-media(lg) {
             @include QLD-space(padding-top, 1.5unit);
-        
         }
       
-
         &-title{
             font-weight: bold;
             display: block;
@@ -94,15 +93,13 @@
             }
                
         }
+
         &-list{
             margin: 0;
         }
-       
 
     }
     
-
-
     &__results &__result{
         margin: 0;
         @include QLD-space(padding-top, 1.5unit);
@@ -114,32 +111,30 @@
         }
 
         &-header{
-            @include QLD-media(lg) {
-                h4{
-                    @include QLD-space(padding-bottom, .5unit);
-                }
-               
+            h3{
+                margin-bottom: .5rem;
             }
+               
         }
         &-inner{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
-            @include QLD-space(padding-bottom, .5unit);
-
-            @include QLD-media(lg) {
-                @include QLD-space(padding-bottom, 0unit);
-            }
+            position: relative;
         }
+
         &-type{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
             @include QLD-space(font-size, .875unit);
+            margin-bottom: .5rem;
 
             @include QLD-media(lg) {
+                position: absolute;
+                right: 0;
                 width: auto;
                 flex-direction: column;
                 @include QLD-space(padding-top, 0unit);
@@ -179,14 +174,14 @@
         }
 
         &-breadcrumbs{
+            margin-top: 0;
+            margin-bottom: 0.5rem;
             
-            @include QLD-space(margin, .25unit 0);
-
-            // @include QLD-media(lg) {
-            //     @include QLD-space(margin-top, .25unit);
-            // }
             .qld__link-list{
-                @include QLD-space(font-size, .875unit);
+                font-size: .875rem;
+            }
+            > .qld__link-list > li{
+                padding: 0;
             }
 
             li:after{
@@ -197,7 +192,6 @@
         *:not([type="hidden"]) &-summary{
             @include QLD-space(font-size, .875unit);
             @include QLD-space(margin-top, .5unit);
-            // @include QLD-space(margin-bottom, .5unit);
             @include QLD-media(lg) {
                 @include QLD-space(font-size, 1unit);
             }
@@ -257,20 +251,3 @@
     }
     
 }
-
-//Search Facets
-// .qld__search{
-    
-//     .qld__body &-link-list{
-//         list-style-type: disc;
-//         @include QLD-space(padding-top, 1unit);
-//         @include QLD-space(padding-left, 1unit);
-//         margin: 0;
-//         li{
-//             display: list-item;
-//         }
-//     }
-// }
-    
-
-
