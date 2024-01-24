@@ -1,10 +1,12 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 import path from 'path';
+import { mergeConfig } from 'vite';
 
 const config = {
   stories: [
     "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx|hbs)",
+    "../stories/**/*.stories.js",
+    "../stories/**/*.stories.hbs",
   ],
   addons: [
     "@storybook/addon-links",
@@ -19,7 +21,7 @@ const config = {
     name: "@storybook/html-vite",
     options: {
       builder: {
-        viteConfigPath: path.resolve(__dirname, '../design-system/vite.config.js'),
+        viteConfigPath: '../design-system/vite.config.js',
       },
     },
   },
@@ -35,3 +37,22 @@ const config = {
   },
 };
 export default config;
+
+// import { mergeConfig } from 'vite';
+
+// export default {
+//   stories: ['../src/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+//   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+//   core: {
+//     builder: '@storybook/builder-vite',
+//   },
+//   async viteFinal(config) {
+//     // Merge custom configuration into the default config
+//     return mergeConfig(config, {
+//       // Add dependencies to pre-optimization
+//       optimizeDeps: {
+//         include: ['storybook-dark-mode'],
+//       },
+//     });
+//   },
+// };
