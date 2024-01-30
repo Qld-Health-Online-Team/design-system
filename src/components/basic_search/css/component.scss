@@ -38,6 +38,7 @@
                 @include QLD-space(font-size, 1unit);
             }
         }
+
         &-summary-text{
             font-weight: bold;
             color: var(--QLD-color-light-heading);
@@ -54,6 +55,11 @@
         justify-content: end;
         align-items: center;
         margin-left: auto;
+        font-size: $QLD-font-size-mobile-xs;
+
+        @include QLD-media(md) {
+            font-size: $QLD-font-size-desktop-sm;
+        }
         
         &-text{
             font-weight: bold;
@@ -61,6 +67,7 @@
             @include QLD-space(padding-right, .75unit);
             white-space: nowrap;
         }
+
         select{
             max-width: 200px;
         }
@@ -189,6 +196,7 @@
                 
             }
         }
+
         *:not([type="hidden"]) &-summary{
             @include QLD-space(font-size, .875unit);
             @include QLD-space(margin-top, .5unit);
