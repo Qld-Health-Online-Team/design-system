@@ -50,25 +50,27 @@
         }
     }
 
-    &__header{
+    .qld__modal__header{
         display: flex;
         align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        line-height: 1.5rem;
 
-        & &-heading{
+        .qld__modal__header-heading{
             font-weight: bold;
-            font-size: 1.5rem;
-            line-height: 2rem;
-            margin-right: 1.5rem;
+            margin-top: 0;
             color: var(--QLD-color-light-heading);
             word-break: break-all;
         }
 
         & &-icon{
-            margin-right: 1rem;
+            flex: 1 0 auto;
         }
 
         .qld__btn.qld__btn--close{
-            margin-left: auto;
+            flex: 1 0 auto;
         }
     }
 
