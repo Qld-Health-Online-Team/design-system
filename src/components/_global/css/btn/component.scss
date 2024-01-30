@@ -513,6 +513,7 @@
 				position: relative;
 				width: auto;
 				height: auto;
+				white-space: nowrap;
 			}
 
 		}
@@ -547,7 +548,7 @@ a.qld__btn.qld__btn--close {
 	min-width: auto;
 	background-color: var(--QLD-color-light-background__shade);
 	border-color: var(--QLD-color-light-background__shade);
-
+	position: relative;
 	&:hover{
 		background-color: var(--QLD-color-light-alt-background__shade);
 		border-color: var(--QLD-color-light-alt-background__shade);
@@ -556,6 +557,10 @@ a.qld__btn.qld__btn--close {
 	i,
 	svg{
 		color: $QLD-color-system-darkest;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 
