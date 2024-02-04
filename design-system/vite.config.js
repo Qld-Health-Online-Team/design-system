@@ -28,12 +28,28 @@
 
 
 // vite.config.js
-import { resolve } from 'path';
+// vite.config.js
+import { defineConfig } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
+import { resolve } from 'path';
+// import  {siteData, pagesData}  from './data/test';
 
-export default {
-    assetsInclude: ['**/*.hbs'],
-    plugins: handlebars({
-      partialDirectory: resolve(__dirname, 'partials'),
+export default defineConfig({
+  root: 'src',
+  build: {
+    outDir: '../dist',
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname,  'index.html')
+      },
+    },
+  },
+  plugins: [
+    handlebars({
+      partialDirectory: resolve(__dirname, siteData.root, 'src/components'),
+      context(pagePath) {
+        return pagesData[pagePath];
+      },
     }),
-};
+  ],
+});

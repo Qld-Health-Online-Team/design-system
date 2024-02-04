@@ -1,5 +1,5 @@
 // src/main.js
-import handlebarsTemplate from '/stories/header.hbs';
+import handlebarsTemplate from './src/components/header/header.hbs';
 
 const data = {
     pageTitle: 'My Vite + Handlebars Project',
