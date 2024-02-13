@@ -14,7 +14,7 @@ const siteData = {
     twitterSite: '@SiteAccount',
     themeColor: '#FFA800',
     backgroundColor: '#fff'
-  }
+  };
   
   // Page Infomation
   const pagesData = {
@@ -42,6 +42,6 @@ const siteData = {
       twitterCard: siteData.twitterCard,
       twitterSite: siteData.twitterSite
     },
-  }
+  };
   
   export { siteData, pagesData };

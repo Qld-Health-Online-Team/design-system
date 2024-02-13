@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head {{global.site.personData.name}}>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title></title>
   </head>
   <body>
+    {{> header/html/component global}}
+    {{> mega_main_navigation/html/component global}}
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
   </body>
