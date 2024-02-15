@@ -1,42 +1,95 @@
-// vite.config.js
-// import Handlebars from 'handlebars/runtime'; // Import Handlebars runtime
-
-// export default {
-//   optimizeDeps: {
-//     include: ['handlebars/runtime'],
-//   },
-//   configureServer: {
-//     async configureServer({ app }) {
-//       // Serve the Handlebars runtime
-//       app.use('/handlebars', (req, res) => {
-//         res.type('js').send(Handlebars.precompile(''));
-//       });
-//     },
-//   },
-// };
-
 
 
 import { defineConfig } from 'vite'
 import { resolve } from 'path';
+import path from 'path';
+import fs from 'fs-extra';
 import handlebars from 'vite-plugin-handlebars';
+import sassGlobImports from 'vite-plugin-sass-glob-import';
 import site from './data/site.json';
 import current from './data/current.json';
-
+// import { ifCond } from './src/global/handlebars/helpers/ifCond.js';
+// const customHelpers = ifCond;
+// console.log("customHelpers  "+ customHelpers ); 
 
 const globalData = {site, current};
 const siteData = {site};
 const pageData = {current};
 
-function handlebarsOverride(options) {
-    const plugin = handlebars(options);
+
+async function loadHelpersFromDirectory(directory) {
+    try {
+        var files = await fs.readdir(directory);
+        console.log("directory  "+ directory );
+        var helperPath = directory + '/';
+
+        for (let file of files) {
+            var helperName = helperPath + path.basename(file);
+            console.log("helperName  "+ helperName );
+            var test = './src/global/handlebars/helpers/ifCond.js';
+            var module = await import(test);
+            console.log("module  "+ module );
+        }
+        // design-system/src/global/handlebars/helpers/ifCond.js
+        console.log("module  "+ module );
+        return module;
+
+    } catch (error) {
+        console.error('Error importing modules:', error);
+    }
+
     
-    console.log('handlebars-------------'+ JSON.stringify(options.helpers));
-    // Currently handleHotUpdate skips further processing, which bypasses
-    // postcss and in turn tailwind doesn't pick up file changes
-    // delete plugin.handleHotUpdate;
-    return plugin;
+    // var helpers = [];
+    // var helperPath = directory + '/';
+    // var files = await fs.readdir(directory);
+
+    
+
+    // for (let file of files) {
+
+    //     if (file.endsWith('.js')) {
+
+    //         var helperName = path.basename(file, '.js');
+
+    //         var helperImport = 'import' + ' { ' + helperName + ' } ' + 'from ' + '"' + helperPath + file + '"';
+            
+    //         console.log("helperImport  "+ helperImport ); 
+
+    //         helpers.push(helperImport);
+
+            // fs.readFile(resolve(__dirname, file), 'utf8', (err, data) => {
+            //     if (err) {
+            //         console.error('Error reading file:', err);
+            //         return;
+            //     }
+            //     console.log('File contents:', data); 
+            // })
+            // var module = await import(path.join(directory, file));
+            // console.log("module " + module); 
+            // helpers[helperName] = module.default || module;
+    //     }
+    // }
+
+    // console.log("helpers  "+ helpers ); 
+    // return helperImport;
 }
+
+// function handlebarsOverride(options) {
+//     const plugin = handlebars(options);
+
+//     // if (options.helpers) {
+//     //     Object.keys(options.helpers).forEach(helper => {
+//     //         Handlebars.registerHelper(helper, options.helpers[helper])
+//     //     })
+//     // }
+    
+//     console.log('handlebars-------------'+ JSON.stringify(plugin.handleHotUpdate));
+//     // Currently handleHotUpdate skips further processing, which bypasses
+//     // postcss and in turn tailwind doesn't pick up file changes
+//     // delete plugin.handleHotUpdate;
+//     return plugin;
+// }
+
 
 export default defineConfig({
     root: ".",
@@ -50,57 +103,14 @@ export default defineConfig({
         },
     },
     plugins: [
-        handlebarsOverride({
+        handlebars({
             partialDirectory: resolve(__dirname, 'src/components'),
             context: {
                 global: globalData
             },
-            helpers: {
-                ifCond: function(v1, operator, v2, options) {
-                    switch (operator) {
-                        case '==':
-                            return (v1 == v2) ? options.fn(this) : options.inverse(this);
-                        case '===':
-                            return (v1 === v2) ? options.fn(this) : options.inverse(this);
-                        case '!=':
-                            return (v1 != v2) ? options.fn(this) : options.inverse(this);
-                        case '!==':
-                            return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-                        case '<':
-                            return (v1 < v2) ? options.fn(this) : options.inverse(this);
-                        case '<=':
-                            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-                        case '>':
-                            return (v1 > v2) ? options.fn(this) : options.inverse(this);
-                        case '>=':
-                            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-                        case '&&':
-                            return (v1 && v2) ? options.fn(this) : options.inverse(this);
-                        case '||':
-                            return (v1 || v2) ? options.fn(this) : options.inverse(this);
-                        case 'contains':
-                            if(typeof v1 == 'string' && typeof v2 == 'string') {
-                                return (v1.toLowerCase().indexOf(v2.toLowerCase()) >= 0) ? options.fn(this) : options.inverse(this);
-                            }
-                            else return options.inverse(this);
-                        default:
-                            return options.inverse(this);
-                    }
-                },
-                arrayWith: function(array,key,value,options) {
-                    var childArray = []
-                    for(var x = 0; x<array.length;x++) {
-                        if(array[x][key] == value) {
-                          childArray.push(array[x]);
-                            
-                        }
-                    }
-                    if(childArray.length > 0){
-                      return options.fn(childArray)
-                    }
-                }
-            },
+            helpers: await loadHelpersFromDirectory('./src/global/handlebars/helpers'),
         }),
+        sassGlobImports()
     ],
     server: {
         watch: {
