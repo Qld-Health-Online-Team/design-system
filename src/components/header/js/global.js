@@ -12,7 +12,7 @@
 
     // Add action so the search works only if JS is enabled
     if (searchForm) {
-        searchForm.action = searchForm.getAttribute('data-action');
+        searchForm.querySelector('.qld__btn--search').setAttribute('type', 'submit');
         checkHoneypot();
     }
 
