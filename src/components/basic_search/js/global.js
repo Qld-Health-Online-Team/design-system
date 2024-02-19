@@ -54,6 +54,8 @@
             // Prevent form submission if the honeypot field is filled
             if (honeypot.value !== '') {
                 event.preventDefault(); // Stop the form submission
+            } else {
+                honeypot.removeAttribute('name');
             }
         });
     }
