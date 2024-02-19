@@ -72,6 +72,9 @@
                 </div>
                 <div class="qld__banner__search col-xs-12 col-md-12 col-lg-8">
                     <div class="qld__search-form--wrapper">
+                        <noscript>
+                            <div class="qld__search-form--noscript">Please enable JavaScript to use the search feature.</div>
+                        </noscript>
                         <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="" data-action="{{site.metadata.siteSearchUrl.value}}">
                             <div class="qld__search-form__inner">
                                 <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{resultsPage.question.query}}{{/ifCond}}">
