@@ -72,9 +72,10 @@
                 </div>
                 <div class="qld__banner__search col-xs-12 col-md-12 col-lg-8">
                     <div class="qld__search-form--wrapper">
-                        <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="{{site.metadata.siteSearchUrl.value}}">
+                        <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="" data-action="{{site.metadata.siteSearchUrl.value}}">
                             <div class="qld__search-form__inner">
                                 <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{resultsPage.question.query}}{{/ifCond}}">
+                                 <input type="text" id="name" name="name" autocomplete="off" tabindex="-1" class="qld__text-input--validation">
                                 <div class="qld__search-form__btn">
                                     <button class="qld__btn qld__btn--search" type="submit" aria-label="Search">
                                         <span class="qld__btn__icon"></span>
