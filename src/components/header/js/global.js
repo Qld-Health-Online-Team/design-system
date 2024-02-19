@@ -5,14 +5,41 @@
 
     // Search toggle button
     var searchToggle = document.querySelector('.qld__main-nav__toggle-search');
-    
+    var searchForm = document.querySelector('.qld__header__search .qld__search-form');
+
     // Global events object
     var headerSearchEvents = {};
+
+    // Add action so the search works only if JS is enabled
+    if (searchForm) {
+        searchForm.action = searchForm.getAttribute('data-action');
+        checkHoneypot();
+    }
 
     // Add event listener to search toggle button
     if (searchToggle) {
         searchToggle.addEventListener('click', toggleHeaderSearch);
     }
+
+    /**
+     * Check if honeypot field is empty
+     * 
+     * @memberof module:header
+     * @instance
+     * @private
+     */
+    function checkHoneypot() {
+        var honeypot = searchForm.querySelector('.qld__text-input--validation');
+        honeypot.value = '';
+
+        searchForm.addEventListener('submit', function(event) {
+            // Prevent form submission if the honeypot field is filled
+            if (honeypot.value !== '') {
+                event.preventDefault(); // Stop the form submission
+            }
+        });
+    }
+
 
     /**
      * Toggle the header search on mobile/tablet
