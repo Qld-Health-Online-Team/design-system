@@ -13,6 +13,9 @@
     // Add action so the search works only if JS is enabled
     if (searchForm) {
         searchForm.querySelector('.qld__btn--search').setAttribute('type', 'submit');
+        searchForm.querySelectorAll('.qld__btn--search, .qld__text-input').forEach((el) => {
+            el.removeAttribute('disabled');
+        });
         checkHoneypot();
     }
 

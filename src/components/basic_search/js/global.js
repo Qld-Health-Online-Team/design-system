@@ -17,6 +17,9 @@
         var searchForm = document.querySelector('.qld__banner__search .qld__search-form');
         if (searchForm) {
             searchForm.querySelector('.qld__btn--search').setAttribute('type', 'submit');
+            searchForm.querySelectorAll('.qld__btn--search, .qld__text-input').forEach((el) => {
+                el.removeAttribute('disabled');
+            });
             checkHoneypot(searchForm);
         }
 
