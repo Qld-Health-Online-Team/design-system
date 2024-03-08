@@ -279,9 +279,15 @@ $QLD-side-nav-breakpoint: lg !default;
             background: var(--QLD-color-dark-alt-background__shade);
 
             &:visited {
+                color: var(--QLD-color-dark-text);
                 text-decoration: none;
             }
         }
+
+        &:visited {
+            all: unset;
+        }
+        
         
         @include QLD-focus("dark");
     }
@@ -360,8 +366,13 @@ $QLD-side-nav-breakpoint: lg !default;
             background: var(--QLD-color-dark-alt-background);
 
             &:visited {
+                color: var(--QLD-color-dark-text);
                 text-decoration: none;
             }
+        }
+
+        &:visited {
+            all: unset;
         }
         
         @include QLD-focus("dark");
