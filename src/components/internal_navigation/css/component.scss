@@ -49,6 +49,12 @@ $QLD-side-nav-breakpoint: lg !default;
         &:hover {
             color: var(--QLD-color-light-link);
             background-color: var(--QLD-color-light-alt-background);
+
+            &:visited {
+                color: var(--QLD-color-light-link);
+                background-color: var(--QLD-color-light-alt-background);
+                text-decoration: none;
+            }
         }
         
         @include QLD-focus();
@@ -57,6 +63,7 @@ $QLD-side-nav-breakpoint: lg !default;
     a:visited {
         all: unset;
     }
+
     
     // Link list
     .qld__link-list {
@@ -270,6 +277,10 @@ $QLD-side-nav-breakpoint: lg !default;
         @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark-alt-background__shade);
+
+            &:visited {
+                text-decoration: none;
+            }
         }
         
         @include QLD-focus("dark");
@@ -347,6 +358,10 @@ $QLD-side-nav-breakpoint: lg !default;
         @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark-alt-background);
+
+            &:visited {
+                text-decoration: none;
+            }
         }
         
         @include QLD-focus("dark");
