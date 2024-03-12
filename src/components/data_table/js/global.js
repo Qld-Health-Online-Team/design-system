@@ -52,7 +52,13 @@
         let tableLength = tableLines.length - 1;
 
         for (let i = 0; i < tableLength; i++) {
-            let line = tableLines.shift().split(",");
+            let unprocessedLine = tableLines.shift();
+
+            let line = unprocessedLine.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g).map(cell => {
+                // Remove surrounding quotes if present
+                return cell.replace(/^"(.+(?="$))"$/, '$1');
+            });
+
             let obj = {};
             for (let j = 0; j < line.length; j++) {
                 obj[tableColumnHeads[j]] = line[j].replace(/\r/g, "");
@@ -91,12 +97,6 @@
             });
 
             let footerHasContent = false;
-            // let tableFooter = tableFooterData.map((f, i) => {
-            //     footerHasContent = footerHasContent || f.trim().length > 0;
-            //     return i == 0
-            //         ? `<th class="sorting_1">${f}</th>`
-            //         : `<th>${f}</th>`;
-            // });
 
             const QLD_DataTable = $(csvTable).DataTable({
                 "sScrollX": "100%",
