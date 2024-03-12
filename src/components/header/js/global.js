@@ -45,22 +45,6 @@
         });
     }
 
-    function updateImageSource() {
-        var imageElement = document.querySelector('.qld__header__secondary-image');
-        if (window.innerWidth <= 991) {
-            imageElement.src = './?a={{sit.metadata.siteLogoSecondaryMobile.value}}';
-        } else {
-            imageElement.src = './?a={{sit.metadata.siteLogoSecondary.value}}';
-        }
-    }
-    
-    // Run the function on window resize
-    window.addEventListener('resize', updateImageSource);
-    
-    // Run the function on page load
-    document.addEventListener('DOMContentLoaded', updateImageSource);
-
-
     /**
      * Toggle the header search on mobile/tablet
      * 
