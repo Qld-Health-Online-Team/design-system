@@ -1,11 +1,11 @@
 module.exports = function(desktopLogo, mobileLogo) {
-  
-  let logo = desktopLogo; // Default to desktop for wider screens
-
-  // Employ a ternary operator for concise conditional return
-  const isMobileScreen = window.innerWidth <= 991;
-  logo = isMobileScreen ? mobileLogo : logo;
-
-  return logo;
+   
+    if (typeof window !== 'undefined') { // Check if window exists
+        let logo = window.innerWidth <= 991 ? mobileLogo : desktopLogo;
+        return logo;
+      } else {
+        // Handle server-side rendering or non-browser environments
+        return desktopLogo; // Or some default behavior
+      }
 
 }
