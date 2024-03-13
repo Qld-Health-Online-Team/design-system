@@ -249,7 +249,8 @@
                             <img
                                 class="qld__header__secondary-image"
                                 alt="{{site.metadata.siteTitle.value}}"
-                                src="./?a={{site.metadata.siteLogoSecondary.value}}"
+                                srcset= "./?a={{site.metadata.siteLogoSecondaryMobile.value}} 991w, ./?a={{site.metadata.siteLogoSecondary.value}} 100vw"
+                                sizes="(max-width: 991px) 991px, 100vw"
                             />
                         </div>
                         {{else}}
