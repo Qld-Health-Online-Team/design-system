@@ -45,6 +45,7 @@
         });
     }
 
+    //updated secondary image to mobile image at screen width <=991
     function updateImageSource() {
         var imageElement = document.querySelector('.qld__header__secondary-image');
         if (window.innerWidth <= 991) {
