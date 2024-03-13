@@ -44,23 +44,6 @@
             }
         });
     }
-
-    //updated secondary image to mobile image at screen width <=991
-    function updateImageSource() {
-        var imageElement = document.querySelector('.qld__header__secondary-image');
-        if (window.innerWidth <= 991) {
-            imageElement.src = `./?a=${site_metadata_siteLogoSecondaryMobile.value}`;
-        } else {
-            imageElement.src = `./?a=${site_metadata_siteLogoSecondary.value}`;
-        }
-    }
-    
-    // Run the function on window resize
-    window.addEventListener('resize', updateImageSource);
-    
-    // Run the function on page load
-    document.addEventListener('DOMContentLoaded', updateImageSource);
-
     /**
      * Toggle the header search on mobile/tablet
      * 
