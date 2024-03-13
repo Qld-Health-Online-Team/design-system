@@ -1,5 +1,5 @@
 {"1":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"qld__widgets\">\r\n    <a href=\"#\" class=\"qld__btn qld__btn--floating\r\n    qld__btn--back-to-top show\" aria-label=\"Back to top\">\r\n        <span>Back to top</span>\r\n    </a>\r\n</div>\r\n";
+    return "<div class=\"qld__widgets\">\n    <a href=\"#\" class=\"qld__btn qld__btn--floating\n    qld__btn--back-to-top show\" aria-label=\"Back to top\">\n        <span>Back to top</span>\n    </a>\n</div>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
