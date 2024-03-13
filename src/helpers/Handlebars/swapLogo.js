@@ -1,6 +1,6 @@
 module.exports = function (desktopLogo, mobileLogo) {
  
-    return function handleImageLogic() {
+      function handleImageLogic() {
         if (typeof document !== 'undefined') {  
           var desktopSize = desktopLogo;
           var mobileSize = mobileLogo;
@@ -20,7 +20,8 @@ module.exports = function (desktopLogo, mobileLogo) {
           });
         }
       };
-
+      
+    handleImageLogic();
 };
 
 
