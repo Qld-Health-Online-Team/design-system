@@ -174,12 +174,12 @@ $QLD-border-radius-xxl: map-get( $QLD-space-map, 12 ) + px;
 /**
 * QLD underline-color values
 */
-$QLD-color-light-system-underline: #FFFFFF !default;
+$QLD-color-status__light-underline: rgba(255, 255, 255, 0.72) !default;
 $QLD-color-light-underline: #3F7AB4 !default;
 $QLD-color-light-hover-underline: #09549F !default; 
 $QLD-color-light-visited-underline: #8B63B0 !default;
 $QLD-color-light-hover-visited-underline: #551A8B !default;
-$QLD-color-dark-system-underline: #03213F !default;
+$QLD-color-status__dark-underline: rgba(3, 33, 63, 0.72) !default;
 $QLD-color-dark-underline: #B5CCE2 !default;
 $QLD-color-dark-hover-underline: #FFFFFF !default;
 $QLD-color-dark-visited-underline: #B5CCE2 !default;
@@ -299,10 +299,8 @@ $QLD-color-status__caution__darker: #B38800 !default;
 
 $QLD-color-status__info: #0085B3 !default;
 $QLD-color-status__info--lighter: #E5EEF5 !default;
-$QLD-color-status__info--lighter: #E5EEF5 !default;
-$QLD-color-status__info--lighter: #E5EEF5 !default;
-
-$QLD-color-general: #E5EEF5 !default;
+$QLD-color-status__info--lightest: #EFF4F9 !default;
+$QLD-color-status__info--darker: #006A8F !default;
 
  /**
   * QLD-color-light styles
@@ -389,7 +387,7 @@ $QLD-border-radius: $QLD-unit + 0px !default;
   --QLD-color-light-background: #{$QLD-color-light-background};
   --QLD-color-light-background__shade: #{$QLD-color-light-background__shade};
   --QLD-color-light-hint: #{$QLD-color-light-hint};
-  --QLD-color-light-system-underline: #{$QLD-color-light-system-underline};
+  --QLD-color-light-system-underline: #{$QLD-color-status__light-underline};
   --QLD-color-light-underline: #{$QLD-color-light-underline};
   --QLD-color-light-hover-underline: #{$QLD-color-light-hover-underline};
   --QLD-color-light-visited-underline: #{$QLD-color-light-visited-underline};
@@ -416,7 +414,7 @@ $QLD-border-radius: $QLD-unit + 0px !default;
   --QLD-color-dark-border: #{$QLD-color-dark-border};
   --QLD-color-dark-background: #{$QLD-color-dark-background};
   --QLD-color-dark-background__shade: #{$QLD-color-dark-background__shade};
-  --QLD-color-dark-system-underline: #{$QLD-color-dark-system-underline};
+  --QLD-color-dark-system-underline: #{$QLD-color-status__dark-underline};
   --QLD-color-dark-underline: #{$QLD-color-dark-underline};
   --QLD-color-dark-hover-underline: #{$QLD-color-dark-hover-underline};
   --QLD-color-dark-visited-underline: #{$QLD-color-dark-visited-underline};
