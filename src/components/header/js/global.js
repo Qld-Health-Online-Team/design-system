@@ -49,9 +49,9 @@
     function updateImageSource() {
         var imageElement = document.querySelector('.qld__header__secondary-image');
         if (window.innerWidth <= 991) {
-            imageElement.src = './?a=' + '%asset_metadata_siteLogoSecondaryMobile%';
+            imageElement.src = `./?a=${asset_metadata_siteLogoSecondaryMobile.value}`;
         } else {
-            imageElement.src = './?a=' + '%asset_metadata_siteLogoSecondary%';
+            imageElement.src = `./?a=${asset_metadata_siteLogoSecondary.value}`;
         }
     }
     
