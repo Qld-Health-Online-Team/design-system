@@ -24,15 +24,15 @@ textarea{
 
 	&.qld__input--valid {
 		&:not(:focus) { 
-			border-color: $QLD-color-success;
-			background-color: $QLD-color-success__light; //$QLD-color-success with .05 opacity
+			border-color: $QLD-color-status__success;
+			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 		}
 
 	}
 
 	&.qld__input--error {
-		border-color: $QLD-color-error;
-		background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+		border-color: $QLD-color-status__error;
+		background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
 	}
 
 	.qld__input--success + &,
@@ -43,13 +43,13 @@ textarea{
 	&.qld__text-input--error {
 		
 		&:not(:focus) { 
-			border-color: $QLD-color-error;
-			background-color: $QLD-color-error__light;
+			border-color: $QLD-color-status__error;
+			background-color: $QLD-color-status__error--lightest;
 		}
 
 		&:hover:not(:focus) {
-			border-color: $QLD-color-error;
-			background-color: $QLD-color-error__shade;
+			border-color: $QLD-color-status__error;
+			background-color: $QLD-color-status__error--lighter;
 		}
 	}
 
@@ -120,13 +120,13 @@ textarea{
 
 		&.qld__input--valid {
 			color: var(--QLD-color-light-text);
-			border-color: $QLD-color-success;
-			background-color: $QLD-color-success__light; //$QLD-color-success with .05 opacity
+			border-color: $QLD-color-status__success;
+			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 		}
 	
 		&.qld__input--error {
-			border-color: $QLD-color-error;
-			background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+			border-color: $QLD-color-status__error;
+			background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
 		}
 
 		&.qld__text-input--valid {
@@ -137,8 +137,8 @@ textarea{
 
 		&.qld__text-input--error {
 			&:hover:not(:focus) {
-				border-color: $QLD-color-error;
-				background-color: $QLD-color-error__shade;
+				border-color: $QLD-color-status__error;
+				background-color: $QLD-color-status__error--lighter;
 				color: var(--QLD-color-light-text);
 			}
 
@@ -206,7 +206,7 @@ textarea{
 		&.qld__input--error,
 		&--invalid {
 			background-color: var(--QLD-color-light-alt-error-background);
-			border-color: $QLD-color-error;
+			border-color: $QLD-color-status__error;
 
 			&:hover {
 				background-color: var(--QLD-color-light-alt-error-hover);
@@ -221,14 +221,14 @@ textarea{
 		&.qld__text-input--dark.qld__input--valid,
 		&.qld__input--valid,
 		&--valid {
-			background-color: $QLD-color-success__light;
-			border-color: $QLD-color-success;
+			background-color: $QLD-color-status__success--lightest;
+			border-color: $QLD-color-status__success;
 			color: var(--QLD-color-light-text);
 			
 			&:hover {
 				&:not(:focus) { 
-					background-color: $QLD-color-success__shade;
-					border-color: $QLD-color-success;
+					background-color: $QLD-color-status__success--lighter;
+					border-color: $QLD-color-status__success;
 				}
 			}
 		}
@@ -278,8 +278,8 @@ textarea{
 			&.qld__text-input--dark.qld__input--error,
 			&.qld__input--error,
 			&--invalid {
-				background-color: $QLD-color-error__light;
-				border-color: $QLD-color-error;
+				background-color: $QLD-color-status__error--lightest;
+				border-color: $QLD-color-status__error;
 				color: var(--QLD-color-light-text);
 
 				&::placeholder {
@@ -287,7 +287,7 @@ textarea{
 				}
 			
 				&:hover {
-					background-color: $QLD-color-error__shade;
+					background-color: $QLD-color-status__error--lighter;
 				}
 
 				&:focus {
@@ -298,13 +298,13 @@ textarea{
 			&.qld__text-input--dark.qld__input--valid,
 			&.qld__input--valid,
 			&--valid {
-				background-color: $QLD-color-success__light;
-				border-color: $QLD-color-success;
+				background-color: $QLD-color-status__success--lightest;
+				border-color: $QLD-color-status__success;
 				color: var(--QLD-color-light-text__muted);
 
 				&:hover {
 					&:not(:focus) { 
-						background-color: $QLD-color-success__shade;
+						background-color: $QLD-color-status__success--lighter;
 					}
 				}
 
@@ -370,13 +370,13 @@ textarea{
 // 	&.qld__text-input--dark.qld__input--error,
 // 	&.qld__input--error {
 // 		background-color: var(--QLD-color-light-background__shade);
-// 		border-color: $QLD-color-error;
+// 		border-color: $QLD-color-status__error;
 // 	}
 
 // 	&.qld__text-input--dark.qld__input--valid,
 // 	&.qld__input--valid {
 // 		background-color: var(--QLD-color-light-background__shade);
-// 		border-color: $QLD-color-success;
+// 		border-color: $QLD-color-status__success;
 // 	}
 
 // 	// disabled styling
@@ -402,12 +402,12 @@ textarea{
 
 // 		&.qld__input--error {
 // 			background-color: var(--QLD-color-dark-background__shade);
-// 			border-color: $QLD-color-error;
+// 			border-color: $QLD-color-status__error;
 // 		}
 
 // 		&.qld__input--valid {
 // 			background-color: var(--QLD-color-dark-background__shade);
-// 			border-color: $QLD-color-success;
+// 			border-color: $QLD-color-status__success;
 // 		}
 
 // 		&[disabled] {
@@ -462,11 +462,11 @@ textarea{
 // 	}
 
 // 	&--valid {
-//         border-color: $QLD-color-success !important;
+//         border-color: $QLD-color-status__success !important;
 //         background-color: var(--QLD-color-light-background__shade) !important;
 //     }
 //     &--invalid {
-//         border-color: $QLD-color-error !important;
+//         border-color: $QLD-color-status__error !important;
 //         background-color: var(--QLD-color-light-background__shade) !important;
 //     }
 //     &--width {
@@ -488,7 +488,7 @@ textarea{
 // 	input,
 // 	textarea {
 // 		background-color: var(--QLD-color-light-background__shade);
-// 		border-color: $QLD-color-error;
+// 		border-color: $QLD-color-status__error;
 // 	}
 // }
 // .sq-form-question-answer .sq-inline-block{

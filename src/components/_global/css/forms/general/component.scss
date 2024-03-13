@@ -122,7 +122,7 @@ label{
 
     // Error state for form group
     &--invalid {
-        border-left: solid 5px $QLD-color-error;
+        border-left: solid 5px $QLD-color-status__error;
         padding-left: 15px;
     }
 
@@ -233,14 +233,14 @@ form {
 }
 
 // .qld__input--error {
-//     color: $QLD-color-error;
+//     color: $QLD-color-status__error;
 // }
 
 .qld__body {
     .sq-form-required-field, abbr[title="required"]  {
         float: left;
         @include QLD-space(margin-right, 0.25unit);
-        color:$QLD-color-error;
+        color:$QLD-color-status__error;
         font-size: 1rem;
         border:0;
         text-decoration:none;
@@ -304,7 +304,7 @@ p.sq-form-error {
     font-family: $QLD-font;
     font-weight: bold;
     @include QLD-fontgrid(sm, default);
-    color: $QLD-color-error;
+    color: $QLD-color-status__error;
 	display: block;
 
     *+& {
@@ -334,7 +334,7 @@ p.sq-form-error {
     }
     
     .qld__body--dark & {
-        background-color: $QLD-color-error;
+        background-color: $QLD-color-status__error;
         color: white;
         @include QLD-space(padding, 0.5unit 0.75unit);
     }

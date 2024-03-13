@@ -7,7 +7,7 @@
 	@include QLD-space( padding, 1unit );
 	@include QLD-fontgrid( sm );
 	position: relative;
-	border: solid $QLD-border-width-default $QLD-color-info;
+	border: solid $QLD-border-width-default $QLD-color-status__info;
 	@include QLD-space( border-left-width, 3unit );
 	border-radius: $QLD-border-radius-xs;
 	word-wrap: break-word;
@@ -44,10 +44,10 @@
 	* Page alert success
 	*/
 	&.qld__page-alerts--success {
-		border-color: $QLD-color-success;
+		border-color: $QLD-color-status__success;
 
 		&::before{
-			background-color: $QLD-color-system-darkest;
+			background-color: $QLD-color-neutral--black;
 			mask-image: QLD-svguri($QLD-icon-success);
 		}
 	}
@@ -56,10 +56,10 @@
 	* Page alert warning.
 	*/
 	&.qld__page-alerts--warning {
-		border-color: $QLD-color-warning;
+		border-color: $QLD-color-status__caution;
 
 		&::before{
-			background-color: $QLD-color-system-darkest;
+			background-color: $QLD-color-neutral--black;
 			mask-image: QLD-svguri($QLD-icon-warning);
 		}
 	}
@@ -68,7 +68,7 @@
 	* Page alert error.
 	*/
 	&.qld__page-alerts--error {
-		border-color: $QLD-color-error;
+		border-color: $QLD-color-status__error;
 
 		&::before{
 			background-color: $QLD-color-system-white;

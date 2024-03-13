@@ -102,14 +102,14 @@ input[type='checkbox'],
 
 	&.qld__input--valid{
 		+ label:before {
-			box-shadow: 0 0 0 3px $QLD-color-success;
+			box-shadow: 0 0 0 3px $QLD-color-status__success;
 			border-color: var(--QLD-color-light-text);
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			box-shadow: 0 0 0 3px $QLD-color-error;
+			box-shadow: 0 0 0 3px $QLD-color-status__error;
 			border-color: var(--QLD-color-light-text);
 		}
 	}
@@ -270,13 +270,13 @@ input[type='radio'],
 
 	&.qld__input--valid{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-success );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-status__success );
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-error );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-status__error );
 		}
 	}
 

@@ -65,28 +65,28 @@ select{
 	&.qld__text-input--valid {
 			
 		&:not(:focus) {
-			border-color: $QLD-color-success;
-			background-color: $QLD-color-success__light;
+			border-color: $QLD-color-status__success;
+			background-color: $QLD-color-status__success--lightest;
 
 		}
 	}
 	
 
 	&.qld__input--error {
-		border-color: $QLD-color-error;
-		background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+		border-color: $QLD-color-status__error;
+		background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
 	}
 
 	&.qld__text-input--error {
 		
 		&:not(:focus) { 
-			border-color: $QLD-color-error;
-			background-color: $QLD-color-error__light;
+			border-color: $QLD-color-status__error;
+			background-color: $QLD-color-status__error--lightest;
 		}
 
 		&:hover:not(:focus) {
-			border-color: $QLD-color-error;
-			background-color: $QLD-color-error__shade;
+			border-color: $QLD-color-status__error;
+			background-color: $QLD-color-status__error--lighter;
 		}
 	}
 
@@ -104,14 +104,14 @@ select{
 		}
 
 		&.qld__text-input--valid {
-			border-color: $QLD-color-success;
-			background-color: $QLD-color-success__light; //$QLD-color-success with .05 opacity
+			border-color: $QLD-color-status__success;
+			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 			color: var(--QLD-color-light-text);
 
 			&:hover {
 				&:not(:focus) { 
-					background-color: $QLD-color-success__shade;
-					border-color: $QLD-color-success;
+					background-color: $QLD-color-status__success--lighter;
+					border-color: $QLD-color-status__success;
 				}
 			}
 
@@ -121,20 +121,20 @@ select{
 		}
 	
 		&.qld__input--error {
-			border-color: $QLD-color-error;
-			background-color: RGBA(226,35,57,0.05); //$QLD-color-error with .05 opacity
+			border-color: $QLD-color-status__error;
+			background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
 		}
 
 		&.qld__text-input--error {
 		
 			&:not(:focus) { 
-				border-color: $QLD-color-error;
-				background-color: $QLD-color-error__light;
+				border-color: $QLD-color-status__error;
+				background-color: $QLD-color-status__error--lightest;
 			}
 	
 			&:hover:not(:focus) {
-				border-color: $QLD-color-error;
-				background-color: $QLD-color-error__shade;
+				border-color: $QLD-color-status__error;
+				background-color: $QLD-color-status__error--lighter;
 			}
 
 			color: var(--QLD-color-light-text);
@@ -262,13 +262,13 @@ select{
 // 	&.qld__select--dark.qld__input--error,
 // 	&.qld__input--error {
 // 		background-color: var(--QLD-color-light-background__shade);
-// 		border-color: $QLD-color-error;
+// 		border-color: $QLD-color-status__error;
 // 	}
 
 // 	&.qld__select--dark.qld__input--valid,
 // 	&.qld__input--valid {
 // 		background-color: var(--QLD-color-light-background__shade);
-// 		border-color: $QLD-color-success;
+// 		border-color: $QLD-color-status__success;
 // 	}
 
 // 	.ie8 &,
@@ -304,7 +304,7 @@ select{
 // Matrix error styling
 .sq-form-question-select.sq-form-question-error select{
 	background-color: var(--QLD-color-light-background__shade);
-	border-color: $QLD-color-error;
+	border-color: $QLD-color-status__error;
 }
 
 
