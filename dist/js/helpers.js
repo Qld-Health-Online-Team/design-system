@@ -907,7 +907,7 @@ Handlebars.registerHelper('split', function(string, separator) {
 }); 
 Handlebars.registerHelper('swapLogo', function (desktopLogo, mobileLogo) {
  
-    return function handleImageLogic() {
+      function handleImageLogic() {
         if (typeof document !== 'undefined') {  
           var desktopSize = desktopLogo;
           var mobileSize = mobileLogo;
@@ -927,7 +927,8 @@ Handlebars.registerHelper('swapLogo', function (desktopLogo, mobileLogo) {
           });
         }
       };
-
+      
+    handleImageLogic();
 }); 
 Handlebars.registerHelper('toUpperCase', function(string) {
   if(string) {
