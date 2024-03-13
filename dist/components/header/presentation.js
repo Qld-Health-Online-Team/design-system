@@ -137,7 +137,7 @@
 
   return "                        <div class=\"qld__header__site-name\">\n                            <picture>\n                                <source media=\"(max-width: 991px)\" \n                                srcset=\"./?a="
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteLogoSecondaryMobile") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" />\n                                <source media=\"(max-width: 991px)\" \n                                srcset=\"./?a="
+    + "\" />\n                                <source media=\"(max-width: 3000px)\" \n                                srcset=\"./?a="
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteLogoSecondary") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" />\n                            <img\n                                class=\"qld__header__secondary-image\"\n                                alt=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteTitle") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
