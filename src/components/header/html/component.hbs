@@ -246,12 +246,17 @@
 
                     {{#if site.metadata.siteLogoSecondary.value}}
                         <div class="qld__header__site-name">
+                            <picture>
+                                <source media="(max-width: 991px)" 
+                                srcset="./?a={{site.metadata.siteLogoSecondaryMobile.value}}" />
+                                <source media="(max-width: 991px)" 
+                                srcset="./?a={{site.metadata.siteLogoSecondary.value}}" />
                             <img
                                 class="qld__header__secondary-image"
                                 alt="{{site.metadata.siteTitle.value}}"
-                                srcset= "./?a={{site.metadata.siteLogoSecondaryMobile.value}} 991w, ./?a={{site.metadata.siteLogoSecondary.value}} 100vw"
-                                sizes="(max-width: 991px) 991px, 100vw"
+                                srcs= "./?a={{site.metadata.siteLogoSecondary.value}}"
                             />
+                            </picture>
                         </div>
                         {{else}}
                         <div class="qld__header__site-name">
