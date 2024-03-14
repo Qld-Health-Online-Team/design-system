@@ -10,7 +10,7 @@
             position: relative;
             @include QLD-space(min-height, 1.75unit);
             @include QLD-space(min-width, 1.75unit);
-            background-color: var(--QLD-color-light-background);
+            background-color: var(--QLD-color-light__background);
             @include QLD-space(margin, 0 .625unit);
             align-self: center;
             @include QLD-box-shadow(1);
@@ -20,7 +20,7 @@
             @include QLD-focus();
         
             padding: 0;
-            color: var(--QLD-color-light-text);
+            color: var(--QLD-color-light__text);
 
             @include QLD-media(md) {
                 @include QLD-space(min-height, 2unit);
@@ -39,16 +39,16 @@
 
             &:hover{
                 @include QLD-box-shadow(3);
-                color: var(--QLD-color-light-link);
+                color: var(--QLD-color-light__link);
                 @include QLD-media(lg) {
                     box-shadow: none;
-                    background-color: var(--QLD-color-light-alt-background);
-                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light-button__hover);
+                    background-color: var(--QLD-color-light__background--alt);
+                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light__action--primary-hover);
                     @include QLD-space(margin-bottom, -.5unit);
                 }
             }
             .qld__icon{
-                color: var(--QLD-color-light-alt-button);
+                color: var(--QLD-color-light__action--secondary);
                 transition: transform 0.25s ease-in;
                 
                 @include QLD-media(lg) {
@@ -68,13 +68,13 @@
 
                 @include QLD-media(lg) {
                     z-index: 2;
-                    background-color: var(--QLD-color-light-background);
-                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light-background);
+                    background-color: var(--QLD-color-light__background);
+                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light__background);
                     @include QLD-space(margin-bottom, -0.5unit);
 
                     &:hover{
-                        background-color: var(--QLD-color-light-background__shade);
-                        border-color: var(--QLD-color-light-button__hover);
+                        background-color: var(--QLD-color-light__background--shade);
+                        border-color: var(--QLD-color-light__action--primary-hover);
                     }
                 }
 
@@ -119,14 +119,14 @@
             }
             
             &--open{
-                background-color: var(--QLD-color-light-background);
-                color: var(--QLD-color-light-link);
+                background-color: var(--QLD-color-light__background);
+                color: var(--QLD-color-light__link);
                 font-weight: bold;
                 @include QLD-space(border-top-right-radius, 1unit);
 
                 &:hover{
-                    background-color: var(--QLD-color-light-background);
-                    color: var(--QLD-color-light-link);
+                    background-color: var(--QLD-color-light__background);
+                    color: var(--QLD-color-light__link);
                 }
             }
 
@@ -162,7 +162,7 @@
     }
 
     .qld__main-nav__menu-sub{
-        background-color: var(--QLD-color-light-background);
+        background-color: var(--QLD-color-light__background);
         z-index: 10;
 
         @include QLD-media(lg) {
@@ -195,12 +195,12 @@
                 display: inline-flex;
                 align-items: center;
                 border-bottom: none;
-                color: var(--QLD-color-light-link);
+                color: var(--QLD-color-light__link);
                 margin: 0;
                 @include QLD-space(padding, 0);
 
                 .qld__icon{
-                    color: var(--QLD-color-light-alt-button);
+                    color: var(--QLD-color-light__action--secondary);
                     @include QLD-space(margin, 0 0 0 .875unit);
                     transition: margin 0.2s ease;
                 }
@@ -210,12 +210,12 @@
 
                     .qld__icon{
                         @include QLD-space(margin, 0 -4px 0 1.25unit);
-                        color: var(--QLD-color-light-alt-button__hover);
+                        color: var(--QLD-color-light__action--secondary-hover);
                     }
                 }
 
                 .qld__main-nav__sub-item-text{
-                    color: var(--QLD-color-light-link);
+                    color: var(--QLD-color-light__link);
                 }
             }
         }
@@ -240,7 +240,7 @@
                 margin: 0;
             }
 
-            background-color: var(--QLD-color-light-background);
+            background-color: var(--QLD-color-light__background);
             &::before,
             &::after{
                 display: none;
@@ -277,7 +277,7 @@
                 }
 
                 &:hover{
-                    background-color: var(--QLD-color-light-alt-background);
+                    background-color: var(--QLD-color-light__background--alt);
                     @include QLD-media(lg) {
                         background-color: transparent;
                     }
@@ -290,24 +290,24 @@
                     position: relative;
                     margin: 0;
                     background-color: transparent;
-                    color: var(--QLD-color-light-link);
-                    border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
+                    color: var(--QLD-color-light__link);
+                    border-left: solid $QLD-border-width-thick var(--QLD-color-light__background--alt);
                     width: 100%;
 
                     @include QLD-media(lg) {
-                        color: var(--QLD-color-light-link);
+                        color: var(--QLD-color-light__link);
                         border: none;
                         @include QLD-space(padding, 0);
                     }
                     
                     &:hover{
-                        border-color: var(--QLD-color-light-button);
-                        background-color: var(--QLD-color-light-background);
+                        border-color: var(--QLD-color-light__action--primary);
+                        background-color: var(--QLD-color-light__background);
                                              
 
                         .qld__main-nav__sub-item-text .qld__icon{
                             @include QLD-space(margin, 0 -4px 0 1unit);
-                            color: var(--QLD-color-light-alt-button__hover);
+                            color: var(--QLD-color-light__action--secondary-hover);
                         }
                     }
                 }
@@ -318,7 +318,7 @@
                     width: 100%;
                     @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
                     @include QLD-fontgrid(xs);             
-                    border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                    border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light__border);
                     @include QLD-media(md) {
                         @include QLD-fontgrid(sm);
                     }      
@@ -330,7 +330,7 @@
 
                     .qld__icon{
                         display: none;
-                        color: var(--QLD-color-light-alt-button);
+                        color: var(--QLD-color-light__action--secondary);
                         @include QLD-space(margin, 0 0 0 1unit);
                         flex: 0 0 auto;
                         transition: margin 0.2s ease;
@@ -342,8 +342,8 @@
                 }
 
                 &:hover{
-                    border-color: var(--QLD-color-light-button);
-                    background-color: var(--QLD-color-light-background);
+                    border-color: var(--QLD-color-light__action--primary);
+                    background-color: var(--QLD-color-light__background);
 
                     @include QLD-media(lg) {
                         background-color: transparent;
@@ -351,7 +351,7 @@
 
                     .qld__main-nav__sub-item-text .qld__icon{
                         @include QLD-space(margin, 0 -4px 0 1unit);
-                        color: var(--QLD-color-light-alt-button__hover);
+                        color: var(--QLD-color-light__action--secondary-hover);
                     }
                 }
 
@@ -363,7 +363,7 @@
                 }
                 
                 .qld__main-nav__item-desc{
-                    color: var(--QLD-color-light-text__muted);
+                    color: var(--QLD-color-light__text--lighter);
                     @include QLD-fontgrid(xs);
                     font-weight: normal;
                 }
@@ -392,8 +392,8 @@
                     }
 
                     .qld__main-nav__sub-item-text{
-                        color: var(--QLD-color-light-link);
-                        border-bottom: solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                        color: var(--QLD-color-light__link);
+                        border-bottom: solid $QLD-border-width-thin  var(--QLD-color-light__border);
                     }
                 }
                  
@@ -407,10 +407,10 @@
                 @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
                 @include QLD-space(font-size, .875unit);
                 @include QLD-space(line-height, 1.5unit);
-                border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
+                border-left: solid $QLD-border-width-thick var(--QLD-color-light__background--alt);
 
                 @include QLD-media(lg) {
-                    color: var(--QLD-color-light-link);
+                    color: var(--QLD-color-light__link);
                     border: none;
                     justify-content: end;
                     display: inline-flex;
@@ -420,9 +420,9 @@
                 }
 
                 &:hover{
-                    color: var(--QLD-color-light-link);
-                    border-color: var(--QLD-color-light-button);
-                    background-color: var(--QLD-color-light-background);
+                    color: var(--QLD-color-light__link);
+                    border-color: var(--QLD-color-light__action--primary);
+                    background-color: var(--QLD-color-light__background);
                 }
             }
         }

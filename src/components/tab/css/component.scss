@@ -30,9 +30,9 @@
         padding: 8px 20px 0px 20px;
         min-width: fit-content;
         border: none;
-        background: var(--QLD-color-light-background__shade);
+        background: var(--QLD-color-light__background--shade);
         font-size: 1rem;
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         cursor: pointer;
         border-radius: 4px 4px 0px 0px;
         display: flex;
@@ -62,16 +62,16 @@
         }
 
         &:not(.active):hover {
-            background: var(--QLD-color-light-button__hover);
-            color: var(--QLD-color-light-button__text);
+            background: var(--QLD-color-light__action--primary-hover);
+            color: var(--QLD-color-light__link--on-action);
             text-decoration: underline;
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            text-decoration-color: var(--QLD-color-light-button__text);
+            text-decoration-color: var(--QLD-color-light__link--on-action);
             outline: none;
 
             span i {
-                color: var(--QLD-color-light-button__text);
+                color: var(--QLD-color-light__link--on-action);
                 text-decoration: none;
                 display: inline-block;
             }
@@ -79,29 +79,29 @@
 
         &[tabindex="0"]:focus {
             outline: none;
-            border-color: var(--QLD-color-light-focus);
+            border-color: var(--QLD-color-light__focus);
         }
 
         &[tabindex="-1"]:focus,
         &:focus-visible {
-            outline: 3px solid var(--QLD-color-light-focus);
+            outline: 3px solid var(--QLD-color-light__focus);
             outline-offset: -3px;
         }
 
         &.active {
-            color: var(--QLD-color-light-heading);
-            background-color: var(--QLD-color-light-background);
+            color: var(--QLD-color-light__heading);
+            background-color: var(--QLD-color-light__background);
             height: 48px;
-            border-left: 1px solid var(--QLD-color-light-alt-border);
-            border-right: 1px solid var(--QLD-color-light-alt-border);
-            border-top: 1px solid var(--QLD-color-light-alt-border);
+            border-left: 1px solid var(--QLD-color-light__border--alt);
+            border-right: 1px solid var(--QLD-color-light__border--alt);
+            border-top: 1px solid var(--QLD-color-light__border--alt);
             font-weight: 600;
             z-index: 1;
             text-decoration: none;
 
             span {
                 i {
-                    color: var(--QLD-color-light-heading);
+                    color: var(--QLD-color-light__heading);
                 }
             }
 
@@ -110,7 +110,7 @@
             }
 
             &:focus::after{
-                background-color: var(--QLD-color-light-focus);
+                background-color: var(--QLD-color-light__focus);
                 transition: background-color 0.2s ease-in-out;
             }
         }
@@ -118,7 +118,7 @@
 
     &-content {
         padding: 24px;
-        border: 1px solid var(--QLD-color-light-alt-border);
+        border: 1px solid var(--QLD-color-light__border--alt);
         margin-top: -1px;
         display: none;
         position: relative;
@@ -130,14 +130,14 @@
         }
 
         &.focused{
-            border-color: var(--QLD-color-light-focus);
+            border-color: var(--QLD-color-light__focus);
         }
 
     }
 
     &-nav__item-scroll {
         position: absolute;
-        color: var(--QLD-color-light-alt-button);
+        color: var(--QLD-color-light__action--secondary);
         z-index: 2;
         height: 47px;
         width: 48px;
@@ -146,7 +146,7 @@
         i {
             min-height: 32px;
             min-width: 32px;
-            background-color: var(--QLD-color-light-background);
+            background-color: var(--QLD-color-light__background);
             align-self: center;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             cursor: pointer;
@@ -166,7 +166,7 @@
 
         &:hover {
             position: absolute;
-            color: var(--QLD-color-light-alt-button__hover);
+            color: var(--QLD-color-light__action--secondary-hover);
             z-index: 2;
             height: 47px;
             width: 48px;
@@ -175,7 +175,7 @@
 
         &:focus {
             i {
-                outline: 3px solid var(--QLD-color-light-focus);
+                outline: 3px solid var(--QLD-color-light__focus);
                 outline-offset: 2px;
             }
         }
@@ -183,14 +183,14 @@
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
     
         }
     
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
         }
     }
 
@@ -202,25 +202,25 @@
 
         &.qld__tab-container--alt {
             .qld__tab-button {
-                background: var(--QLD-color-light-alt-background__shade);
+                background: var(--QLD-color-light__background--alt-shade);
 
                 &:not(.active):hover {
-                    background: var(--QLD-color-light-button__hover);
+                    background: var(--QLD-color-light__action--primary-hover);
                 }
                 &.active {
-                    background-color: var(--QLD-color-light-alt-background);
+                    background-color: var(--QLD-color-light__background--alt);
                 }
             }
 
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
-                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light-alt-background));
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
                 }
 
                 &.tab-overflow-nav-button-right {
                     display: none;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light-alt-background));
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
                 }
             }
         }
@@ -342,8 +342,8 @@
                 }
 
                 &:not(.active) {
-                    // background: var(--QLD-color-light-alt-background__shade);
-                    // color: var(--QLD-color-light-link);
+                    // background: var(--QLD-color-light__background--alt-shade);
+                    // color: var(--QLD-color-light__link);
                 }
 
                 &:not(.active):hover {
@@ -437,13 +437,13 @@
 }
 
 .qld__tab-section {
-    border-top: 1px solid var(--QLD-color-light-alt-border);
+    border-top: 1px solid var(--QLD-color-light__border--alt);
     margin-top: 48px;
-    box-shadow: 0 -49px 0 0 var(--QLD-color-light-background);
+    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
 
     .qld__tab-button[tabindex="0"]:focus{
         outline: none;
-        border-color:var(--QLD-color-light-alt-border);
+        border-color:var(--QLD-color-light__border--alt);
     }
 
     .qld__tab-container {
@@ -490,7 +490,7 @@
 .qld__banner.qld__banner--alt+#content > data:first-child + section {
 
         &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
+            box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
         }
     
 }
@@ -513,7 +513,7 @@
 
 .qld__body--alt+.qld__tab-section,
 .qld__body--alt+data+.qld__tab-section {
-    box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
+    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
 }
 
 .qld__body--dark+.qld__tab-section,
@@ -572,7 +572,7 @@
 
                     &.active {
                         span i {
-                            color: var(--QLD-color-light-heading);
+                            color: var(--QLD-color-light__heading);
                         }
                     }
                 }
@@ -580,17 +580,17 @@
                 &--alt {
                     .qld__tab-button {
                         &:not(.active) {
-                            background: var(--QLD-color-light-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
 
                             span i {
-                                color: var(--QLD-color-light-alt-button);
+                                color: var(--QLD-color-light__action--secondary);
                             }
 
                             &:hover {
-                                background: var(--QLD-color-light-button__hover);
-                                color: var(--QLD-color-light-button__text);
-                                text-decoration-color: var(--QLD-color-light-button__text);
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
 
                                 span i {
                                     color: var(--QLD-color-dark-heading);
@@ -600,7 +600,7 @@
 
                         &.active {
                             span i {
-                                color: var(--QLD-color-light-heading);
+                                color: var(--QLD-color-light__heading);
                             }
                         }
                     }
@@ -609,8 +609,8 @@
                 &--dark {
                     .qld__tab-button {
                         &:not(.active) {
-                            background: var(--QLD-color-light-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
                         }
                     }
                 }
@@ -619,18 +619,18 @@
                 &--dark-alt {
                     .qld__tab-button {
                         span i {
-                            color: var(--QLD-color-light-alt-button);
+                            color: var(--QLD-color-light__action--secondary);
                         }
 
                         &:not(.active) {
-                            background-color: var(--QLD-color-light-alt-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background-color: var(--QLD-color-light__background--alt-shade);
+                            color: var(--QLD-color-light__link);
                         }
         
                         &:not(.active):hover {
-                            background: var(--QLD-color-light-button__hover);
-                            color: var(--QLD-color-light-button__text);
-                            text-decoration-color: var(--QLD-color-light-button__text);
+                            background: var(--QLD-color-light__action--primary-hover);
+                            color: var(--QLD-color-light__link--on-action);
+                            text-decoration-color: var(--QLD-color-light__link--on-action);
 
                             span i {
                                 color: var(--QLD-color-dark-heading);

@@ -5,7 +5,7 @@
 //Legend
 .qld__fieldset__legend,
 .sq-form-question-title {
-    color: var(--QLD-color-light-text);
+    color: var(--QLD-color-light__text);
 	display: block;
 
     .qld__body--dark &,
@@ -18,7 +18,7 @@ legend.sq-form-section-title{
     @include QLD-space(padding-top, 2unit);
     @include QLD-fontgrid(lg, heading);
     font-weight: bold;
-    color: var(--QLD-color-light-heading);
+    color: var(--QLD-color-light__heading);
 
     + *{
         @include QLD-space(margin-top, 1.25unit);
@@ -40,7 +40,7 @@ legend, legend.sq-form-question-title{
 //Label
 .qld__label,
 label{
-    color: var(--QLD-color-light-text);
+    color: var(--QLD-color-light__text);
     display: block;
     font-weight: 600;
     line-height: 1.5rem;
@@ -89,7 +89,7 @@ label{
 .sq-form-question-note {
     font-family: $QLD-font;
 	font-style: normal;
-    color: var(--QLD-color-light-hint);
+    color: var(--QLD-color-light__text--lighter);
 	display: block;
     @include QLD-fontgrid(sm, default);
 
@@ -110,7 +110,7 @@ label{
     }
 
     &--alt {
-        color: var(--QLD-color-light-alt-hint);
+        color: var(--QLD-color-light__text--lighter);
     }
 }
 

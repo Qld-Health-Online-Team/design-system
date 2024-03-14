@@ -317,12 +317,12 @@ form {
     margin: 0;
     text-size-adjust: 100%;
     font-family: $QLD-font;
-    color: var(--QLD-color-light-text);
-    background-color: var(--QLD-color-light-background);
+    color: var(--QLD-color-light__text);
+    background-color: var(--QLD-color-light__background);
     letter-spacing: .009rem;
 
     a {
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         @include QLD-underline('light');
         @include QLD-space(max-width, $QLD-font-maxwidth);
         @include QLD-focus();
@@ -388,7 +388,7 @@ form {
     img::selection,
     video::selection,
     iframe::selection {
-        background-color: var(--QLD-color-light-link);
+        background-color: var(--QLD-color-light__link);
         opacity: .75;
     }
 
@@ -623,8 +623,8 @@ form {
         font-family: $QLD-font-monospace;
         display: inline-block;
         border-radius: $QLD-border-radius-xs;
-        background-color: var(--QLD-color-light-background__shade);
-        color: var(--QLD-color-light-text);
+        background-color: var(--QLD-color-light__background--shade);
+        color: var(--QLD-color-light__text);
     }
 
     code {
@@ -685,20 +685,20 @@ form {
 
     .qld__block-quote{
         padding-left: 1.375rem;
-        border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
+        border-left: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
         margin: 0;
     }
 
     blockquote,
     .qld__block-quote {
         @include QLD-fontgrid(md, small);
-        color: var(--QLD-color-light-heading);
+        color: var(--QLD-color-light__heading);
         font-weight: 600;
         
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
-            color: var(--QLD-color-light-text__muted);
+            color: var(--QLD-color-light__text--lighter);
             margin-top: .625rem;
         }
 
@@ -716,7 +716,7 @@ form {
         @include QLD-space(height, 0.063unit);
         overflow: visible;
         border: none;
-        background-color: var(--QLD-color-light-border);
+        background-color: var(--QLD-color-light__border);
         @include QLD-space(margin-top, 1.25unit);
         @include QLD-space(margin-bottom, 1.188unit);
         width: 100%;
@@ -726,7 +726,7 @@ form {
     .qld__caption {
         @include QLD-fontgrid(xs);
         font-weight: 400;
-        color: var(--QLD-color-light-text__muted);
+        color: var(--QLD-color-light__text--lighter);
     }
     *:not([type="hidden"]) {
         + .qld__caption {
@@ -736,16 +736,16 @@ form {
     }
 
     &.qld__body--alt {
-        background: var(--QLD-color-light-alt-background);
+        background: var(--QLD-color-light__background--alt);
 
         hr {
-            background-color: var(--QLD-color-light-alt-border);
+            background-color: var(--QLD-color-light__border--alt);
         }
         
         code,
         kbd,
         samp {
-            background-color: var(--QLD-color-light-alt-background__shade);
+            background-color: var(--QLD-color-light__background--alt-shade);
         }
     }
     

@@ -3,8 +3,8 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__banner {
-    color: var(--QLD-color-light-text);
-    background-color: var(--QLD-color-light-background);
+    color: var(--QLD-color-light__text);
+    background-color: var(--QLD-color-light__background);
     background-position: center center;
     background-repeat: repeat;
     background-size: auto;
@@ -13,7 +13,7 @@
     position: relative;
 
     & &__content {
-        color: var(--QLD-color-light-text);
+        color: var(--QLD-color-light__text);
         position: relative;
         
         @include QLD-space(padding-top, 2unit);
@@ -33,7 +33,7 @@
         }
 
         h1 {
-            color: var(--QLD-color-light-heading);
+            color: var(--QLD-color-light__heading);
             // line-height: 40px;
             // font-weight: bold;
             // @include QLD-space(font-size, 2unit);
@@ -56,7 +56,7 @@
             @include QLD-space(font-size, 1.75unit);
             @include QLD-space(line-height, 2.25unit);
             // @include QLD-space(padding, 0.5unit 1unit);
-            // border-left: 4px solid var(--QLD-color-light-designAccent);
+            // border-left: 4px solid var(--QLD-color-light__design-accent);
             display: inline-block;
             margin: 0;
             border-left: 0px;
@@ -81,7 +81,7 @@
                 background-color: var(--QLD-color-dark-background);
                 color: var(--QLD-color-dark-heading);
                 // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-                box-shadow: 8px 0px 0 6px var(--QLD-color-dark-background), -8px 0px 0 6px var(--QLD-color-dark-background), -12px 0px 0 6px var(--QLD-color-light-designAccent), 0px 4px 16px rgba(0, 0, 0, .3);
+                box-shadow: 8px 0px 0 6px var(--QLD-color-dark-background), -8px 0px 0 6px var(--QLD-color-dark-background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
@@ -90,11 +90,11 @@
     
             &--light {
                 display: table;
-                background-color: var(--QLD-color-light-background__shade);
-                color: var(--QLD-color-light-text);
+                background-color: var(--QLD-color-light__background--shade);
+                color: var(--QLD-color-light__text);
                 font-weight: 300;
                 // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);  
-                box-shadow: 8px 0px 0 6px var(--QLD-color-light-background), -8px 0px 0 6px var(--QLD-color-light-background), -12px 0px 0 6px var(--QLD-color-light-designAccent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                box-shadow: 8px 0px 0 6px var(--QLD-color-light__background), -8px 0px 0 6px var(--QLD-color-light__background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
@@ -166,7 +166,7 @@
 
     //Base hero image 
     .qld__banner__hero {
-        background-color: var(--QLD-color-light-background__shade);
+        background-color: var(--QLD-color-light__background--shade);
         padding: 0;
 
         @include QLD-media(md) {
@@ -424,24 +424,24 @@
     }
 
     &--alt{
-        background-color: var(--QLD-color-light-alt-background);
+        background-color: var(--QLD-color-light__background--alt);
 
         .qld__banner__content {
-            color: var(--QLD-color-light-text);
+            color: var(--QLD-color-light__text);
 
             h1 {
-                color: var(--QLD-color-light-heading);
+                color: var(--QLD-color-light__heading);
             }
 
             .qld__banner__heading{
                 &--light{
-                    background-color: var(--QLD-color-light-background);
+                    background-color: var(--QLD-color-light__background);
                 }
             }
         }
 
         .qld__banner__hero {
-            background-color: var(--QLD-color-light-alt-background__shade);
+            background-color: var(--QLD-color-light__background--alt-shade);
     
             @include QLD-media(md) {
                 background-color: transparent;
@@ -467,8 +467,8 @@
                 }
         
                 &--light {
-                    background-color: var(--QLD-color-light-background);
-                    box-shadow: 8px 0px 0 6px var(--QLD-color-light-background), -8px 0px 0 6px var(--QLD-color-light-background), -12px 0px 0 6px var(--QLD-color-dark-designAccent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                    background-color: var(--QLD-color-light__background);
+                    box-shadow: 8px 0px 0 6px var(--QLD-color-light__background), -8px 0px 0 6px var(--QLD-color-light__background), -12px 0px 0 6px var(--QLD-color-dark-designAccent), 0px 4px 16px rgba(0, 0, 0, .3); 
                 }
             }
         }
@@ -497,7 +497,7 @@
                     background-color: var(--QLD-color-dark-background);
                 }
                 &--light{
-                    background-color: var(--QLD-color-light-background);
+                    background-color: var(--QLD-color-light__background);
                 }
             }
         }
@@ -552,7 +552,7 @@
 
     //     &:before {
     //         content: '';
-    //         background-color: var(--QLD-color-light-background);
+    //         background-color: var(--QLD-color-light__background);
     //         width: 100vw;
     //         height: 1.5rem;
     //         position: absolute;
@@ -578,7 +578,7 @@
     //         }
 
     //         .qld__text-input {
-    //             border-color: var(--QLD-color-light-button);
+    //             border-color: var(--QLD-color-light__action--primary);
 
     //             @include QLD-media(lg) {
     //                 @include QLD-space(height, 4.5unit);

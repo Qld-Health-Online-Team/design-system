@@ -38,9 +38,9 @@
         }
 
         &.copied {
-            background-color: var(--QLD-color-light-background__shade);
-            border-color: var(--QLD-color-light-background__shade);
-            color: var(--QLD-color-light-text);
+            background-color: var(--QLD-color-light__background--shade);
+            border-color: var(--QLD-color-light__background--shade);
+            color: var(--QLD-color-light__text);
 
             i {
                 color: $QLD-color-status__success;
@@ -123,7 +123,7 @@
         z-index: 1;
 
         &.qld__body--alt {
-            background-color: var(--QLD-color-light-alt-background);
+            background-color: var(--QLD-color-light__background--alt);
         }
 
         &.qld__body--dark {
@@ -150,7 +150,7 @@
             }
 
             &:focus {
-                outline: 2px solid var(--QLD-color-light-focus);
+                outline: 2px solid var(--QLD-color-light__focus);
                 outline-offset: 2px;
             }
         }
@@ -185,9 +185,9 @@
 
         &-colours {
             align-items: center;
-            background-color: var(--QLD-color-light-background__shade);
+            background-color: var(--QLD-color-light__background--shade);
             border-radius: 0 $QLD-border-radius-xs 0 0;
-            color: var(--QLD-color-light-text);
+            color: var(--QLD-color-light__text);
             width: 100%;
             @include QLD-space('padding', 1.0625unit 0.875unit);
 
@@ -218,7 +218,7 @@
                     @include QLD-space('margin', 0.1875unit 1unit 0.1875unit 0);
 
                     label {
-                        color: var(--QLD-color-light-text);
+                        color: var(--QLD-color-light__text);
                         font-weight: 400;
                         @include QLD-space('margin', 0);
                         @include QLD-space('padding-left', 2.5unit);
@@ -273,7 +273,7 @@
 
         &.with-preview {
             display: inline-grid;
-            background-color: var(--QLD-color-light-background);
+            background-color: var(--QLD-color-light__background);
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
             @include QLD-space('margin-top', 1.5unit);
@@ -329,7 +329,7 @@
 
         &:focus,
         &:hover {
-            background-color: var(--QLD-color-light-button__hover);
+            background-color: var(--QLD-color-light__action--primary-hover);
 
             + .qld__code-tooltip {
                 display: block;
@@ -337,14 +337,14 @@
         }
 
         &:focus {
-            @include QLD-space('border', solid var(--QLD-color-light-focus) 0.125unit);
+            @include QLD-space('border', solid var(--QLD-color-light__focus) 0.125unit);
         }
     }
 }
 
 .qld__code-tooltip {
     display: none;
-    background: var(--QLD-color-light-background);
+    background: var(--QLD-color-light__background);
     border-radius: $QLD-border-radius-xs;
     position: absolute;
     bottom: calc(100% + 5px);

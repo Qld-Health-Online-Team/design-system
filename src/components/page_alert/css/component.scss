@@ -11,7 +11,7 @@
 	@include QLD-space( border-left-width, 3unit );
 	border-radius: $QLD-border-radius-xs;
 	word-wrap: break-word;
-	background-color: var(--QLD-color-light-background);
+	background-color: var(--QLD-color-light__background);
 	max-width: 48rem;
 	
 	&::before{
@@ -31,12 +31,12 @@
 	}
 
 	& &--heading.qld__display-lg {
-		color: var(--QLD-color-light-heading);
+		color: var(--QLD-color-light__heading);
 		@include QLD-space(margin-bottom, 1unit);
 	}
 
 	& a{
-		color: var(--QLD-color-light-link);
+		color: var(--QLD-color-light__link);
 		@include QLD-underline('light');
 	}
 
@@ -79,17 +79,17 @@
 	// // dark and dark alt
 	.qld__body--dark &,
 	.qld__body--dark-alt &{
-		color: var(--QLD-color-light-text);
+		color: var(--QLD-color-light__text);
 		
 		h3{
-			color: var(--QLD-color-light-heading);
+			color: var(--QLD-color-light__heading);
 		}
 
 		& a{
-			color: var(--QLD-color-light-link);
+			color: var(--QLD-color-light__link);
 			@include QLD-underline('light');
 			&:hover{
-				color: var(--QLD-color-light-link);
+				color: var(--QLD-color-light__link);
 			}
 		}
 	}

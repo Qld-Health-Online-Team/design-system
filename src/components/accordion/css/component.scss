@@ -3,18 +3,18 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__accordion {
-	border: $QLD-border-width-thin solid var(--QLD-color-light-border);
+	border: $QLD-border-width-thin solid var(--QLD-color-light__border);
 	display: block;
 	padding: 0;
 
 	&__title{
-		background-color: var(--QLD-color-light-background__shade);
+		background-color: var(--QLD-color-light__background--shade);
 		@include QLD-underline('light');
 		@include QLD-fontgrid( md, heading );
 		@include QLD-space( padding, 1unit 3unit 1unit 1unit );
 		width: 100%;
 		display: block;
-		color: var(--QLD-color-light-link);
+		color: var(--QLD-color-light__link);
 		font-weight: normal;
 		position: relative;
 		border: none;
@@ -29,7 +29,7 @@
 
 		&:focus {
 			z-index: 100;
-			outline: 3px solid var(--QLD-color-light-focus);
+			outline: 3px solid var(--QLD-color-light__focus);
     		outline-offset: 2px;
 		}
 
@@ -39,7 +39,7 @@
 		}
 
 		.qld__icon{
-			color: var(--QLD-color-light-alt-button);
+			color: var(--QLD-color-light__action--secondary);
 			position: absolute;
 			@include QLD-space( right, 1unit );
 			z-index: 1;
@@ -54,7 +54,7 @@
 			@include QLD-space( right, 1unit );
 			@include QLD-space( width, 1.5unit );
 			@include QLD-space( height, 1.5unit );
-			// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light-alt-button));
+			// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light__action--secondary));
 			// background-repeat: no-repeat;
 			// background-position: center;
 			z-index: 1;
@@ -62,7 +62,7 @@
 			mask-image: QLD-svguri($QLD-icon-chevron-up);
 			mask-repeat: no-repeat;
 			mask-position: center;
-			background-color: var(--QLD-color-light-alt-button);
+			background-color: var(--QLD-color-light__action--secondary);
 		}
 
 		&.qld__accordion--closed::after {
@@ -86,9 +86,9 @@
 			}
 		}
 		& &-wrapper{
-			border-top: $QLD-border-width-thin solid var(--QLD-color-light-border);
-			color: var(--QLD-color-light-text);
-			background-color: var(--QLD-color-light-background);
+			border-top: $QLD-border-width-thin solid var(--QLD-color-light__border);
+			color: var(--QLD-color-light__text);
+			background-color: var(--QLD-color-light__background);
 			@include QLD-space( padding, 1unit);
 
 			ul{
@@ -110,7 +110,7 @@
 		&-btn{
 			@include QLD-underline('light');
 			background-color: transparent;
-			color: var(--QLD-color-light-link);
+			color: var(--QLD-color-light__link);
 			border: none;
 			cursor: pointer;
 			position: relative;
@@ -123,7 +123,7 @@
 				@include QLD-space( right, -.5unit );
 				@include QLD-space( width, .5unit );
 				@include QLD-space( height, 1unit );
-				// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light-alt-button));
+				// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light__action--secondary));
 				// background-repeat: no-repeat;
 				// background-position: center;
 				z-index: 101;
@@ -131,10 +131,10 @@
 				mask-image: QLD-svguri($QLD-icon-chevron-up);
 				mask-repeat: no-repeat;
 				mask-position: center;
-				background-color: var(--QLD-color-light-alt-button);
+				background-color: var(--QLD-color-light__action--secondary);
 			}
 			// .qld__icon{
-			// 	color: var(--QLD-color-light-alt-button);
+			// 	color: var(--QLD-color-light__action--secondary);
 			// 	vertical-align: middle;
 			// 	transition: transform 0.25s ease-in;
 			// 	@include QLD-space( margin-left, 0.5unit );
@@ -157,7 +157,7 @@
 	+ .qld__accordion {
 		@include QLD-space(
 			border-top,
-			solid var(--QLD-color-light-border) 0.0625unit
+			solid var(--QLD-color-light__border) 0.0625unit
 		);
 	}
 }
@@ -205,16 +205,16 @@
 
 	&--alt{
 		.qld__accordion{
-			border-color: var(--QLD-color-light-alt-border);
+			border-color: var(--QLD-color-light__border--alt);
 		}
 
 		.qld__accordion__title{
-			background-color: var(--QLD-color-light-alt-background__shade);
+			background-color: var(--QLD-color-light__background--alt-shade);
 		}
 
 		.qld__accordion__body-wrapper{
-			background-color: var(--QLD-color-light-alt-background);
-			border-color: var(--QLD-color-light-alt-border);
+			background-color: var(--QLD-color-light__background--alt);
+			border-color: var(--QLD-color-light__border--alt);
 		}
 	}
 

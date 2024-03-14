@@ -4,15 +4,15 @@
 
 .qld__callout {
     @include QLD-space(padding, 1.5unit 1unit 1.5unit 1.5unit);
-    background-color: var(--QLD-color-light-background__shade);
-    color: var(--QLD-color-light-text);
-    border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
+    background-color: var(--QLD-color-light__background--shade);
+    color: var(--QLD-color-light__text);
+    border-left: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
     word-wrap: break-word;
     @include QLD-space(max-width, $QLD-font-maxwidth);
 
     & &__heading{
         margin: 0;
-        color: var(--QLD-color-light-heading);
+        color: var(--QLD-color-light__heading);
 
         &.qld__callout__heading--sronly {
             @include QLD-sronly();
@@ -28,9 +28,9 @@
 	}
 
     a{
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         &:hover{
-            color: var(--QLD-color-light-text);
+            color: var(--QLD-color-light__text);
         }
     }
 
@@ -86,8 +86,8 @@
 
     &--alt,
     .qld__body--alt & {
-        border-left-color: var(--QLD-color-light-designAccent);
-	    background-color: var(--QLD-color-light-alt-background__shade);
+        border-left-color: var(--QLD-color-light__design-accent);
+	    background-color: var(--QLD-color-light__background--alt-shade);
 	}
 
     &--dark,

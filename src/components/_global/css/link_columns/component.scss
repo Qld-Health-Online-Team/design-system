@@ -21,7 +21,7 @@
 
     > li{
         @include QLD-space(padding,1unit .25unit 1unit .25unit );
-        box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light-border);
+        box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
         display: flex;
         justify-content: space-between;
         position: relative;
@@ -49,7 +49,7 @@
             mask-image: QLD-svguri($QLD-icon-arrow-right) ;
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: var(--QLD-color-light-alt-button);
+            background-color: var(--QLD-color-light__action--secondary);
             
             .ie8 &,
             .lt-ie8 & {
@@ -59,12 +59,12 @@
 
         &:hover{
             a{
-                color: var(--QLD-color-light-link);
+                color: var(--QLD-color-light__link);
             }
 
             &::after{
                 @include QLD-space(margin, 0 0 0 1unit);
-                background-color: var(--QLD-color-light-alt-button__hover);
+                background-color: var(--QLD-color-light__action--secondary-hover);
             }
         }
 
@@ -116,7 +116,7 @@
 
     .qld__body--alt &{
         > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-light-alt-border);
+            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-light__border--alt);
 
             &.qld__link-columns__all-link {
                 box-shadow:0 $QLD-border-width-thin 0 transparent;
