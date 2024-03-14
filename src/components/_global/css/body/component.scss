@@ -59,20 +59,27 @@ form {
             &:not(.qld__tab-section) {
                 padding-top: 0;
             }
-            
-            &.qld__body--alt{
+
+            &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt {
                 @include QLD-container-padding($QLD-container-padding-mobile);
                 @include QLD-media(lg) {
                     @include QLD-container-padding($QLD-container-padding-desktop);
                 }
             }
-            &.qld__body--dark{
-                @include QLD-container-padding($QLD-container-padding-mobile);
-                @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+        }
+        &.qld__body--light{
+            + .qld__body.qld__body--light,
+            + data + .qld__body--light,
+            + h1.sr-only + .qld__body--light,
+            + h1.sr-only + data + .qld__body--light {
+                &:not(.qld__tab-section) {
+                    padding-top: 0 !important;
                 }
             }
-            &.qld__body--dark-alt{
+            + .qld__body,
+            + data + .qld__body,
+            + h1.sr-only + .qld__body,
+            + h1.sr-only + data + .qld__body {
                 @include QLD-container-padding($QLD-container-padding-mobile);
                 @include QLD-media(lg) {
                     @include QLD-container-padding($QLD-container-padding-desktop);
@@ -180,7 +187,7 @@ form {
                 //     }
                 // }
 
-
+                &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
@@ -198,6 +205,7 @@ form {
             &:last-of-type{
                 @include QLD-space(padding-bottom, 0);
                 
+                &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
@@ -224,19 +232,22 @@ form {
                     padding-top: 0;
                 }
                 
-                &.qld__body--alt{
+                &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt{
                     @include QLD-container-padding($QLD-container-padding-mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-container-padding-desktop);
                     }
                 }
-                &.qld__body--dark{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
-                    @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+            }
+            &.qld__body--light{
+                + .qld__body.qld__body--light,
+                + data + .qld__body--light{
+                    &:not(.qld__tab-section) {
+                        padding-top: 0 !important;
                     }
                 }
-                &.qld__body--dark-alt{
+                + .qld__body,
+                + data + .qld__body{
                     @include QLD-container-padding($QLD-container-padding-mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-container-padding-desktop);
@@ -318,7 +329,7 @@ form {
     text-size-adjust: 100%;
     font-family: $QLD-font;
     color: var(--QLD-color-light__text);
-    background-color: var(--QLD-color-light__background);
+    background-color: $QLD-color-neutral--white;
     letter-spacing: .009rem;
 
     a {
@@ -732,6 +743,20 @@ form {
         + .qld__caption {
         @include QLD-space(margin-top, 1unit);
 
+        }
+    }
+
+    &.qld__body--light {
+        background: var(--QLD-color-light__background);
+
+        hr {
+            background-color: var(--QLD-color-light__border);
+        }
+        
+        code,
+        kbd,
+        samp {
+            background-color: var(--QLD-color-light__background--shade);
         }
     }
 

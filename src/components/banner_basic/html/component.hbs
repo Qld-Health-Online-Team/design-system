@@ -5,6 +5,7 @@
     class="
         qld__banner qld__banner__basic
         {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}qld__banner--has-hero{{/ifAny}}
+        {{#ifCond metadata.background_colour.value '==' 'light'}}qld__banner--light{{/ifCond}}
         {{#ifCond metadata.background_colour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__banner--dark{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}} 

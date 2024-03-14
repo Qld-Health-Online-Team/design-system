@@ -10,7 +10,7 @@
 	border:$QLD-border-width-thin solid var(--QLD-color-light__border--alt);
     position: relative;
     color: var(--QLD-color-light__text);
-    background: var(--QLD-color-light__background);
+    background: $QLD-color-neutral--white;
     overflow: hidden;
 
     & &__inner {
@@ -255,6 +255,18 @@
                 @include QLD-space(padding-top, 1.25unit);
             }
 
+        }
+    }
+
+    //Light theme
+    &.qld__card--light {
+        background-color: var(--QLD-color-light__background);
+        color: var(--QLD-color-light__text);
+
+        &.qld__card--icon{
+            .qld__card__icon{
+                background-color: var(--QLD-color-light__background--shade);
+            }
         }
     }
 
