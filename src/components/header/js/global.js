@@ -44,8 +44,6 @@
             }
         });
     }
-
-
     /**
      * Toggle the header search on mobile/tablet
      * 
