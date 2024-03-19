@@ -8,181 +8,197 @@
 
 .qld__banner_contained {
 
-    /* Some elements need to be set to position relative so that that components and backgrounds sit on the stack in the correct order */
-
-    .content {
-      position: relative;
-      /*Needed so content sits properly on the stack*/
-  }
-
-  // #content {
-  //     position: relative;
-  //     /*Needed so content sits properly on the stack*/
-  // }
-
-  main {
-      position: relative;
-  }
-
-  .qld__footer {
-      position: relative;
-      /*Needed so content sits properly on the stack*/
-  }
-
-/* --------------------------------------------------*/
-
-
-/* This set the max with for the banner and primary nav  */
-
-  .qld__main-nav {
-  
-    /*max size for the navigation component*/
-    max-width: 100rem; /* 1600px */
-    /*keeps nav in center */
-    margin: auto;
-  
-  }
-
-  .qld__banner {
-
-    /*max size for the banner component*/
-    max-width: 100rem; /* 1600px */
-    
-    /*keeps banner in center */
-    margin: auto;
-
-    /* Adds shadow to banner */
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-    
-  }
-
-  /* --------------------------------------------------*/
-
-  /* Z indext helps ensure the mega menu and the back to top button sit above the banner */
-
-  /*Needed so megamenu sits abvoe banner */
-  .qld__main-nav.qld__main-nav--mega .qld__main-nav__menu-sub {
-    z-index: 500; /*These should be variables */
-    
-  }
-
-  /* ensures back-to top button stays above content */
-  body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
-    z-index: 1000; /*These should be variables */
-    
-  }
-
-/* --------------------------------------------------*/
-
-/* Better alignment for hero image in contained style */
-
-  @media (min-width: 1312px) {
+  @media (min-width: 992px) {
+        
+      .qld__banner .qld__banner__content {
+          max-width: 46rem;
+      }
       
-    .qld__promo-panel.qld__body--full-image.qld__promo-panel--image-right
-      .qld__promo-panel__container {
-      padding-left: 0px;
-    }
+      /*sets the search in the banner */
+      .qld__banner.qld__banner--search .qld__banner__content {
+          max-width: 30%;
+      }
+  }
+    
+  @media (min-width: 1312px) {
 
-    .qld__banner.qld__banner--hero-right .qld__banner__image {
-      max-width: 45vw;
-      width: 45vw;
-    }
+      .qld__banner.qld__banner--hero-right .qld__banner__image {
+          max-width: 36vw;
+          width: 36vw;
+          left: 5vw;
+      }
+      
+      .qld__banner .qld__banner__content {
+          width: 100%;
+      }
+      
+      .content {
+          position: relative;
+          /*Needed so content sits properly on the stack*/
+      }
+      
+      #content {
+          position: relative;
+          /*Needed so content sits properly on the stack*/
+      }
+      
+      .qld__main-nav {
+          max-width: 1600px;
+          /*max size for the navigation component*/
+          margin: auto;
+          /*keeps nav in center*/
+      }
+      
+      .qld__banner {
+          max-width: 1600px;
+          /*max size for the banner component*/
+          margin: auto;
+          /*keeps banner in center*/
+          box-shadow: 0px 1px 2px rgb(17 17 17 / 30%);
+          /* Adds shadow to banner */
+      }
+      
+      .qld__banner__main {
+          align-content: flex-start;
+      }
+      
+      .qld__footer {
+          position: relative;
+        /* Needed so content sits properly on the stack*/
+      }
+      
+      .qld__main-nav.qld__main-nav--mega .qld__main-nav__menu-sub {
+          z-index: 2; /*These shoudl be variables
+          Needed so content sits properly on the stack*/
+      }
+      
+      //  Fixes alignment for hero image 
+      .qld__promo-panel.qld__body--full-image.qld__promo-panel--image-right
+          .qld__promo-panel__container {
+          padding-left: 0px;
+      }
+      
+      .qld__banner.qld__banner--hero-right .qld__banner__image {
+          max-width: 45vw;
+          width: 45vw;
+      }
   }
 
-/* --------------------------------------------------*/
-
-/* The curved banner only gets applied at 1600px */
+/* Applies banner design at 1600px */
 
   @media (min-width: 1600px) {
-
-  /*  This applies a background to the whole top of the header */
-
+      
+    .qld__banner.qld__banner--hero-right .qld__banner__image {
+      max-width: 672px;
+      left: 1.5rem;
+      right: 0;
+    }
+    
+    /* Applies the cured style for main nav */
+    .qld__main-nav {
+      border-radius: 32px 32px 0px 0px;
+      /* Curved edges for nav*/
+      box-shadow: 0px 1px 2px hsl(37deg 14% 67%);
+    }
+  
+     /* Applies the cured style for banner */
+    .qld__banner {
+      border-radius: 0px 0px 40px 40px;
+      /* Curved edges for banner*/
+      z-index: 2;
+    }
+    
+    .qld__body--breadcrumb {
+        padding-top: 32px;
+        max-width: 100rem;
+        margin: 0 auto;
+        border-radius: 0 0 48px 48px;
+        box-shadow: 0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15);
+        position: relative;
+        z-index: 2;
+    }
+  
+    /*  This applies a background to the whole top of the header */
+  
     .qld__header::before {
         width: 100%;
         content: " ";
-        position: absolute;
-        height: 100%;
-    
-        /* img or colour set by user */
-        background-color: #D7ECF2;
-        // background-image: url('/?a=190085');
-    
-        /* These settings should be able to be changed by user */
+        background-color: var(--QLD-color-contained-layout__background);
+        background-image: var(--QLD-image-contained-layout__background);
         background-size: contain;
         background-position: top left;
-        background-repeat: no-repeat;    
-        }
-
+        background-repeat: no-repeat;
+        position: absolute;
+        background-size: 60%;
+        height: 450px;
+    }
+    
     .qld__header__main {
         background: transparent;
         /* removes current header background */
         position: relative;
-      }
-
-    /* Better alignment for hero image in contained style (this may requite some more experimentation to achieve best result */
-    .qld__banner.qld__banner--hero-right .qld__banner__image {
-      max-width: 620px;
-      width: 45vw;
-    }
-
-    .qld__main-nav {
-      /* Curved edges for nav*/  
-      border-radius: 48px 48px 0px 0px; /* Should be variable */
-      /* Shadow for nav*/  
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-    }
-
-    .qld__banner {
-      /* Curved edges for banner*/
-      border-radius: 0px 0px 48px 48px; /* Should be variable */
-      /* Makes sure banner sits in the correct stack position */  
-      z-index: 200;
-    }
-
-    /* The following code adds more padding to the succeeding section and pulls the div below the banner to sit under it slightly creating the overlap */
-    /* The overlap is the trickiest part and needs to be checked on all page types and background colours this code is just set to work for standard white background */
-
-
-    /* Next div */
-    .qld__banner + div.qld__body {
-      margin-top: -64px;
-      padding-top: 128px;
-    }
-
-    /* Content pages (this needs to be updated tp work for all coloured backgrounds) */
-    .qld__banner + #content {
-      background-color: var(--QLD-color-light-background);
-      padding-top: 64px;
-      margin-top: -64px;
     }
     
-    /* Search pages */
-    .qld__banner + .qld__body.qld__search {
-      position: relative;
-      margin-top: -64px;
-      padding-top: 124px;
+    /* Adds height and pulls the div below the banner to sit under it slightly */
+  
+    main.landing #content section:first-of-type { 
+        padding-top: 8rem;
+        margin-top: -4rem;
     }
     
-    // Body breadcrumbs 
-    // Body breadcrumbs 
-    .qld__body--breadcrumb{
-      padding-bottom: 32px;
-      padding-top: 32px;
-      max-width: 100rem;
-      margin: 0 auto -64px;
-      border-radius: 0 0 48px 48px;
-      box-shadow: 0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15);
-      position: relative;
-      z-index: 200;
+    main.news_detail section.qld__news-content { 
+        padding-top: 8rem;
+        margin-top: -4rem; 
+        
     }
-
-    div.qld__body {
-      padding-top: 128px !important;
+    
+    main.content qld__banner+div.qld__body { 
+        padding-top: 8rem; 
+        margin-top: -4rem;
+        
     }
-
-    .qld__tab-section{
-      margin-top: 100px;
+    
+    main.site_search section.qld__search { 
+        padding-top: 8rem; 
+        margin-top: -4rem;
+        
     }
-
+    
+    main.resource_search section.qld__search { 
+        padding-top: 8rem; 
+        margin-top: -4rem;
+        
+    }
+    
+    main.resource_detail section.qld__news-content { 
+        padding-top: 8rem; 
+        margin-top: -4rem; 
+        
+    }
+    /*.qld__banner + div.qld__body, .qld__body--breadcrumb + div.qld__body, .qld__banner + .qld__body.qld__search{*/
+    /*    margin-top: -64px;*/
+    /*    padding-top: 128px;*/
+    /*}*/
+    
+  
+    /*.qld__banner + #content, .qld__body--breadcrumb + #content {*/
+    /*    background-color: var(--QLD-color-light-background);*/
+    /*    padding-top: 64px;*/
+    /*    margin-top: -64px;*/
+    /*}*/
+    
+    /*.qld__body.qld__search {*/
+        /*position: relative;*/
+    /*    margin-top: -64px;*/
+    /*    padding-top: 128px;*/
+    /*}*/
+    
+    
+    /*section.qld__card--wrapper:first-of-type {*/
+    /*    margin-top: -64px !important;*/
+    /*    padding-top: 128px !important;*/
+    /*}*/
+    
+  
   }
 }
