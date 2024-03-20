@@ -3,12 +3,12 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__accordion {
-	border: $QLD-border-width-thin solid var(--QLD-color-light__border);
+	border: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
 	display: block;
 	padding: 0;
 
 	&__title{
-		background-color: var(--QLD-color-light__background--shade);
+		background-color: $QLD-color-neutral--lightest;
 		@include QLD-underline('light');
 		@include QLD-fontgrid( md, heading );
 		@include QLD-space( padding, 1unit 3unit 1unit 1unit );
@@ -86,9 +86,9 @@
 			}
 		}
 		& &-wrapper{
-			border-top: $QLD-border-width-thin solid var(--QLD-color-light__border);
+			border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
 			color: var(--QLD-color-light__text);
-			background-color: var(--QLD-color-light__background);
+			background-color: $QLD-color-neutral--white;
 			@include QLD-space( padding, 1unit);
 
 			ul{
@@ -200,6 +200,21 @@
 				background-color: var(--QLD-color-dark__action--secondary);
 			}
 			
+		}
+	}
+
+	&--light{
+		.qld__accordion{
+			border-color: var(--QLD-color-light__border);
+		}
+
+		.qld__accordion__title{
+			background-color: var(--QLD-color-light__background--shade);
+		}
+
+		.qld__accordion__body-wrapper{
+			background-color: var(--QLD-color-light__background);
+			border-color: var(--QLD-color-light__border);
 		}
 	}
 

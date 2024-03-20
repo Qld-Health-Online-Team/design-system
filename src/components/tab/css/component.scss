@@ -30,7 +30,7 @@
         padding: 8px 20px 0px 20px;
         min-width: fit-content;
         border: none;
-        background: var(--QLD-color-light__background--shade);
+        background: $QLD-color-neutral--lightest;
         font-size: 1rem;
         color: var(--QLD-color-light__link);
         cursor: pointer;
@@ -90,7 +90,7 @@
 
         &.active {
             color: var(--QLD-color-light__heading);
-            background-color: var(--QLD-color-light__background);
+            background-color: $QLD-color-neutral--white;
             height: 48px;
             border-left: 1px solid var(--QLD-color-light__border--alt);
             border-right: 1px solid var(--QLD-color-light__border--alt);
@@ -198,6 +198,31 @@
         &__fixed {
             width: 100%;
             position: relative;
+        }
+
+        &.qld__tab-container--light {
+            .qld__tab-button {
+                background: var(--QLD-color-light__background--shade);
+
+                &:not(.active):hover {
+                    background: var(--QLD-color-light__action--primary-hover);
+                }
+                &.active {
+                    background-color: var(--QLD-color-light__background);
+                }
+            }
+
+            .qld__tab-nav__item-scroll {
+                &.tab-overflow-nav-button-left {
+                    display: none;
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
+                }
+
+                &.tab-overflow-nav-button-right {
+                    display: none;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
+                }
+            }
         }
 
         &.qld__tab-container--alt {
@@ -465,6 +490,7 @@
         padding-top: 64px;
     }
 
+    &.qld__body--light,
     &.qld__body--alt {
         .qld__tab-content {
             border-bottom: none;
@@ -472,10 +498,14 @@
             border-right: none;
         }
     }
-    
+
     &.qld__body--dark,
     &.qld__body--dark-alt {
         border-top: 1px solid var(--QLD-color-dark__border--alt);
+
+        .qld__tab-button {
+            background-color: var(--QLD-color-light-background__shade);
+        }
 
         .qld__tab-content {
             border-top: 1px solid var(--QLD-color-dark__border--alt);
@@ -511,6 +541,8 @@
     
 }
 
+.qld__body--light+.qld__tab-section,
+.qld__body--light+data+.qld__tab-section,
 .qld__body--alt+.qld__tab-section,
 .qld__body--alt+data+.qld__tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
