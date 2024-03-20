@@ -4,7 +4,7 @@
 
 .qld__callout {
     @include QLD-space(padding, 1.5unit 1unit 1.5unit 1.5unit);
-    background-color: var(--QLD-color-light__background--shade);
+    background-color: $QLD-color-neutral--lightest;
     color: var(--QLD-color-light__text);
     border-left: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
     word-wrap: break-word;
@@ -84,6 +84,11 @@
 
     }
 
+    &--light,
+    .qld__body--light & {
+        border-left-color: var(--QLD-color-light__design-accent);
+	    background-color: var(--QLD-color-light__background--shade);
+	}
     &--alt,
     .qld__body--alt & {
         border-left-color: var(--QLD-color-light__design-accent);

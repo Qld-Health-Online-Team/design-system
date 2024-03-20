@@ -122,6 +122,10 @@
         width: 100%;
         z-index: 1;
 
+        &.qld__body--light {
+            background-color: var(--QLD-color-light__background);
+        }
+
         &.qld__body--alt {
             background-color: var(--QLD-color-light__background--alt);
         }
@@ -273,7 +277,7 @@
 
         &.with-preview {
             display: inline-grid;
-            background-color: var(--QLD-color-light__background);
+            background-color: $QLD-color-neutral--white;
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
             @include QLD-space('margin-top', 1.5unit);
@@ -372,6 +376,7 @@ main .qld__body #content .qld__code .qld__code-preview-body.qld__body {
     @include QLD-space('margin', 0);
     @include QLD-space('padding-bottom', 1.5unit);
 
+    &.qld__body--light,
     &.qld__body--alt,
     &.qld__body--dark,
     &.qld__body--dark-alt {
