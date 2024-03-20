@@ -167,7 +167,7 @@
 		&__title {
 			
 			&:focus {
-				outline: 3px solid var(--QLD-color-dark-focus);
+				outline: 3px solid var(--QLD-color-dark__focus);
 				outline-offset: 2px
 			} 
 		}
@@ -193,11 +193,11 @@
 
 		.qld__body--dark &,
 		.qld__body--dark-alt &{
-			color: var(--QLD-color-dark-link);
+			color: var(--QLD-color-dark__link);
 			@include QLD-underline('dark');
 
 			&::after{
-				background-color: var(--QLD-color-dark-alt-button);
+				background-color: var(--QLD-color-dark__action--secondary);
 			}
 			
 		}
@@ -220,27 +220,27 @@
 
 	&--dark{
 		.qld__accordion{
-			border-color: var(--QLD-color-dark-border);
+			border-color: var(--QLD-color-dark__border);
 		}
 
 		.qld__accordion__title{
 			@include QLD-underline('dark');
-			background-color: var(--QLD-color-dark-background__shade);
-			color: var(--QLD-color-dark-link);
+			background-color: var(--QLD-color-dark__background--shade);
+			color: var(--QLD-color-dark__link);
 
 			&::after{
-				background-color: var(--QLD-color-dark-alt-button);
+				background-color: var(--QLD-color-dark__action--secondary);
 			}
 
 		}
 
 		.qld__accordion__body-wrapper{
-			background-color: var(--QLD-color-dark-background);
-			border-color: var(--QLD-color-dark-border);
-			color: var(--QLD-color-dark-text);
+			background-color: var(--QLD-color-dark__background);
+			border-color: var(--QLD-color-dark__border);
+			color: var(--QLD-color-dark__text);
 
 			a{
-				color: var(--QLD-color-dark-link);
+				color: var(--QLD-color-dark__link);
 				@include QLD-underline('dark');
 			}
 		}
@@ -248,26 +248,26 @@
 
 	&--dark-alt{
 		.qld__accordion{
-			border-color: var(--QLD-color-dark-alt-border);
+			border-color: var(--QLD-color-dark__border--alt);
 		}
 
 		.qld__accordion__title{
 			@include QLD-underline('dark');
-			background-color: var(--QLD-color-dark-alt-background__shade);
-			color: var(--QLD-color-dark-link);
+			background-color: var(--QLD-color-dark__background--alt-shade);
+			color: var(--QLD-color-dark__link);
 
 			&::after{
-				background-color: var(--QLD-color-dark-alt-button);
+				background-color: var(--QLD-color-dark__action--secondary);
 			}
 		}
 
 		.qld__accordion__body-wrapper{
-			background-color: var(--QLD-color-dark-alt-background);
-			border-color: var(--QLD-color-dark-alt-border);
-			color: var(--QLD-color-dark-text);
+			background-color: var(--QLD-color-dark__background--alt);
+			border-color: var(--QLD-color-dark__border--alt);
+			color: var(--QLD-color-dark__text);
 
 			a{
-				color: var(--QLD-color-dark-link);
+				color: var(--QLD-color-dark__link);
 				@include QLD-underline('dark');
 			}
 		}

@@ -131,18 +131,18 @@
     .qld__body--dark &,
     .qld__main-nav--dark &{
         > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark__border);
             a{
                 @include QLD-underline('dark','noUnderline');
             }
             &:hover{
                 &::after{
-                    background-color: var(--QLD-color-dark-alt-button__hover);
+                    background-color: var(--QLD-color-dark__action--secondary-hover);
                 }
             }
 
             &::after{
-                background-color: var(--QLD-color-dark-alt-button);
+                background-color: var(--QLD-color-dark__action--secondary);
 
                 
             }
@@ -160,7 +160,7 @@
     .qld__body--dark-alt &,
     .qld__main-nav--dark-alt &{
         > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark-alt-border);
+            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark__border--alt);
 
             a{
                 @include QLD-underline('dark','noUnderline');
@@ -168,12 +168,12 @@
 
             &:hover{
                 &::after{
-                    background-color: var(--QLD-color-dark-alt-button__hover);
+                    background-color: var(--QLD-color-dark__action--secondary-hover);
                 }
             }
 
             &::after{
-                background-color: var(--QLD-color-dark-alt-button);
+                background-color: var(--QLD-color-dark__action--secondary);
                 
             }
 

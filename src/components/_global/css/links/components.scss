@@ -47,15 +47,15 @@
 
         .qld__link,
         a.qld__link{
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
 
             i{
-                color: var(--QLD-color-dark-button__text);
+                color: var(--QLD-color-dark__link--on-action);
             }
         
             &:hover{
-                border-color: var(--QLD-color-dark-button__hover);
+                border-color: var(--QLD-color-dark__action--primary-hover);
             }
         
             &:focus {
@@ -64,10 +64,10 @@
         
             &:disabled,
             &[disabled]{
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
         
                 i{
-                    color: var(--QLD-color-dark-text__muted);
+                    color: var(--QLD-color-dark__text--lighter);
                 }
             }
         }

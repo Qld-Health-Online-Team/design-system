@@ -254,18 +254,18 @@ $QLD-side-nav-breakpoint: lg !default;
 // Dark colour variation
 .qld__side-nav.qld__side-nav--dark,
 .qld__body--dark .qld__side-nav {
-    background: var(--QLD-color-dark-background__shade);
+    background: var(--QLD-color-dark__background--shade);
     
     .qld__accordion__title {
-        color: var(--QLD-color-dark-heading);
+        color: var(--QLD-color-dark__heading);
         background-color: inherit;
     }
     
     a {
-        color: var(--QLD-color-dark-text);
+        color: var(--QLD-color-dark__text);
         @include QLD-underline('dark','noUnderline');
         &:hover {
-            background: var(--QLD-color-dark-alt-background__shade);
+            background: var(--QLD-color-dark__background--alt-shade);
         }
         
         @include QLD-focus("dark");
@@ -273,20 +273,20 @@ $QLD-side-nav-breakpoint: lg !default;
     
     .qld__side-nav__content {
         .active > span {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
         }
         
         ul ul ul a:before,
         ul ul ul .active > span:before {
             background-image: QLD-svguri(
                 '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-                    '<path fill="#{ var(--QLD-color-dark-border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
+                    '<path fill="#{ var(--QLD-color-dark__border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
                     "</svg>"
             );
         }
         
         & > ul > li {
-            // border-bottom: 1px solid var(--QLD-color-dark-border);
+            // border-bottom: 1px solid var(--QLD-color-dark__border);
             
             &:last-of-type{
                 border: none;
@@ -295,8 +295,8 @@ $QLD-side-nav-breakpoint: lg !default;
     }
     
     .qld__sidenav__title a {
-        border-color: var(--QLD-color-dark-designAccent);
-        color: var(--QLD-color-dark-text);
+        border-color: var(--QLD-color-dark__design-accent);
+        color: var(--QLD-color-dark__text);
         @include QLD-underline('light','noUnderline','default','noVisited');
     }
     
@@ -304,7 +304,7 @@ $QLD-side-nav-breakpoint: lg !default;
         background: transparent;
         
         a:hover {
-            background-color: var(--QLD-color-dark-background__shade);
+            background-color: var(--QLD-color-dark__background--shade);
         }
         
     }
@@ -312,7 +312,7 @@ $QLD-side-nav-breakpoint: lg !default;
     .qld__link-list {
         @include QLD-space(
             border-top,
-            solid 0.0625unit var(--QLD-color-dark-designAccent)
+            solid 0.0625unit var(--QLD-color-dark__design-accent)
         );
         padding: 0;
         margin: 0 !important;
@@ -331,18 +331,18 @@ $QLD-side-nav-breakpoint: lg !default;
 // Dark colour variation
 .qld__side-nav.qld__side-nav--alt-dark,
 .qld__body--dark-alt .qld__side-nav {
-    background: var(--QLD-color-dark-alt-background__shade);
+    background: var(--QLD-color-dark__background--alt-shade);
     
     .qld__accordion__title {
-        color: var(--QLD-color-dark-heading);
+        color: var(--QLD-color-dark__heading);
         background-color: inherit;
     }
     
     a {
-        color: var(--QLD-color-dark-text);
+        color: var(--QLD-color-dark__text);
         @include QLD-underline('dark','noUnderline');
         &:hover {
-            background: var(--QLD-color-dark-alt-background);
+            background: var(--QLD-color-dark__background--alt);
         }
         
         @include QLD-focus("dark");
@@ -350,40 +350,40 @@ $QLD-side-nav-breakpoint: lg !default;
     
     .qld__side-nav__content {
         .active > span {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
         }
         
         ul ul ul a:before,
         ul ul ul .active > span:before {
             background-image: QLD-svguri(
                 '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-                    '<path fill="#{ var(--QLD-color-dark-border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
+                    '<path fill="#{ var(--QLD-color-dark__border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
                     "</svg>"
             );
         }
         
         & > ul > li {
-            border-color: var(--QLD-color-dark-border);
+            border-color: var(--QLD-color-dark__border);
         }
     }
     
     .qld__sidenav__title a {
-        border-color: var(--QLD-color-dark-designAccent);
-        color: var(--QLD-color-dark-text)
+        border-color: var(--QLD-color-dark__design-accent);
+        color: var(--QLD-color-dark__text)
     }
     
     @include QLD-media($QLD-side-nav-breakpoint) {
         background: transparent;
         
         a:hover {
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            background-color: var(--QLD-color-dark__background--alt-shade);
         }
     }
     
     .qld__link-list {
         @include QLD-space(
             border-top,
-            solid 0.0625unit var(--QLD-color-dark-designAccent)
+            solid 0.0625unit var(--QLD-color-dark__design-accent)
         );
         padding: 0;
         margin: 0 !important;

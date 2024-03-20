@@ -241,79 +241,79 @@
 
         //Dark theme
         &.qld__main-nav--dark{
-            background-color: var(--QLD-color-dark-background__shade);
-            border-color: var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__background--shade);
+            border-color: var(--QLD-color-dark__border);
 
             .qld__left-nav__item-icon svg * {
-                fill: var(--QLD-color-dark-alt-button);
+                fill: var(--QLD-color-dark__action--secondary);
             }
 
             .qld__left-nav__content {
-                border-color: var(--QLD-color-dark-border);
+                border-color: var(--QLD-color-dark__border);
             }
 
             ul li {
-                border-color: var(--QLD-color-dark-border);
+                border-color: var(--QLD-color-dark__border);
 
                 a {
                     &:focus {
-                        box-shadow: inset 0px 0px 0px 3px var(--QLD-color-dark-focus);
+                        box-shadow: inset 0px 0px 0px 3px var(--QLD-color-dark__focus);
                         outline: none;
                     }
                 }
 
                 &.active {
                     .qld__left-nav__item-icon svg * {
-                        fill: var(--QLD-color-dark-heading);
+                        fill: var(--QLD-color-dark__heading);
                     }
 
                     .qld__left-nav__item-text {
-                        color: var(--QLD-color-dark-heading);
+                        color: var(--QLD-color-dark__heading);
                     }
                 }
 
                 &:not(.active) .qld__left-nav__item-link:after {
-                    background-color: var(--QLD-color-dark-designAccent);
+                    background-color: var(--QLD-color-dark__design-accent);
                 }
 
                 &:hover {
-                    background-color: var(--QLD-color-dark-alt-background);
+                    background-color: var(--QLD-color-dark__background--alt);
                 }
 
                 a.qld__left-nav__item-link:hover{
-                    background-color: var(--QLD-color-dark-alt-background);
+                    background-color: var(--QLD-color-dark__background--alt);
 
                     .qld__left-nav__item-icon svg * {
-                        fill: var(--QLD-color-dark-button__hover);
+                        fill: var(--QLD-color-dark__action--primary-hover);
                     }
 
                     &:after {
-                        background-color: var(--QLD-color-dark-button__hover);
+                        background-color: var(--QLD-color-dark__action--primary-hover);
                     }
                 }
 
                 .qld__left-nav__item-link {
-                    color: var(--QLD-color-dark-text);
+                    color: var(--QLD-color-dark__text);
                     
                     &.qld__left-nav__item-link--open {
-                        background-color: var(--QLD-color-dark-background);
-                        color: var(--QLD-color-dark-link);
+                        background-color: var(--QLD-color-dark__background);
+                        color: var(--QLD-color-dark__link);
 
                         &:hover {
-                            background-color: var(--QLD-color-dark-background);
+                            background-color: var(--QLD-color-dark__background);
                         }
 
                         .qld__left-nav__item-icon svg * {
-                            fill: var(--QLD-color-dark-link);
+                            fill: var(--QLD-color-dark__link);
                         }
                     }
                 }
 
                 ul {
-                    background-color: var(--QLD-color-dark-background);
+                    background-color: var(--QLD-color-dark__background);
 
                     li .qld__left-nav__item-link {
-                        color: var(--QLD-color-dark-link);
+                        color: var(--QLD-color-dark__link);
                     }
                 }
             }

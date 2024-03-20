@@ -380,17 +380,17 @@ form {
 	 * `mark` styling.
 	 */
     mark {
-        color: var(--QLD-color-dark-text);
-        background-color: var(--QLD-color-dark-background);
+        color: var(--QLD-color-dark__text);
+        background-color: var(--QLD-color-dark__background);
     }
 
     /**
 	 * Text selection styling
 	 */
     ::selection {
-        color: var(--QLD-color-dark-text);
+        color: var(--QLD-color-dark__text);
        
-        background-color: var(--QLD-color-dark-background);
+        background-color: var(--QLD-color-dark__background);
         opacity: .99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
     }
@@ -639,8 +639,8 @@ form {
     }
 
     code {
-        background-color: var(--QLD-color-dark-alt-background__shade);
-        color: var(--QLD-color-dark-text);
+        background-color: var(--QLD-color-dark__background--alt-shade);
+        color: var(--QLD-color-dark__text);
         display: block;
         font-family: $QLD-font-monospace;
         white-space: pre-wrap;
@@ -776,12 +776,12 @@ form {
     
     &.qld__body--dark,
     &.qld__footer--dark {
-        background: var(--QLD-color-dark-background);
-        color: var(--QLD-color-dark-text);
+        background: var(--QLD-color-dark__background);
+        color: var(--QLD-color-dark__text);
         
         ::selection {
-            color: var(--QLD-color-dark-background);
-            background-color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__background);
+            background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
         
@@ -789,15 +789,15 @@ form {
         img::selection,
         video::selection,
         iframe::selection {
-            background-color: var(--QLD-color-dark-link);
+            background-color: var(--QLD-color-dark__link);
         }
         
         a{
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
             
             &:hover {
-                color: var(--QLD-color-dark-text);
+                color: var(--QLD-color-dark__text);
             }
 
             @include QLD-focus("dark");
@@ -808,32 +808,32 @@ form {
         }
         
         mark {
-            background-color: var(--QLD-color-dark-link);
-            color: var(--QLD-color-dark-background);
+            background-color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-dark__background);
         }
         
         hr {
-            background-color: var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__border);
         }
         
         code,
         kbd,
         samp {
-            color: var(--QLD-color-dark-text);
-            background-color: var(--QLD-color-dark-background__shade);
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background--shade);
         }
 
         .qld__caption {
-            color: var(--QLD-color-dark-text__muted);
+            color: var(--QLD-color-dark__text--lighter);
         }
 
         blockquote,
         .qld__block-quote {
-            color: var(--QLD-color-dark-heading);
-            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark__design-accent);
 
             .qld__quote-source {
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
             }
             
         }
@@ -841,12 +841,12 @@ form {
     
     &.qld__body--dark-alt,
     &.qld__footer--dark-alt {
-        background: var(--QLD-color-dark-alt-background);
-        color: var(--QLD-color-dark-text);
+        background: var(--QLD-color-dark__background--alt);
+        color: var(--QLD-color-dark__text);
         
         ::selection {
-            color: var(--QLD-color-dark-background);
-            background-color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__background);
+            background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
         
@@ -854,15 +854,15 @@ form {
         img::selection,
         video::selection,
         iframe::selection {
-            background-color: var(--QLD-color-dark-link);
+            background-color: var(--QLD-color-dark__link);
         }
         
         a {
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
             
             &:hover {
-                color: var(--QLD-color-dark-link);
+                color: var(--QLD-color-dark__link);
             }
 
             @include QLD-focus("dark");
@@ -873,31 +873,31 @@ form {
         }
 
         mark {
-            background-color: var(--QLD-color-dark-link);
-            color: var(--QLD-color-dark-alt-background);
+            background-color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-dark__background--alt);
         }
 
         hr {
-            background-color: var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__border);
         }
 
         code,
         kbd,
         samp {
-            color: var(--QLD-color-dark-text);
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background--alt-shade);
         }
         .qld__caption {
-            color: var(--QLD-color-dark-text__muted);
+            color: var(--QLD-color-dark__text--lighter);
         }
 
         blockquote,
         .qld__block-quote {
-            color: var(--QLD-color-dark-heading);
-            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark__design-accent);
 
             .qld__quote-source {
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
             }
         }
     }

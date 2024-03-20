@@ -425,12 +425,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         .qld__body--dark &,
         .qld__body--dark-alt & {
-            border: 1px solid var(--QLD-color-dark-border);
+            border: 1px solid var(--QLD-color-dark__border);
 
             table {
                 thead {
                     text-align: left;
-                    background-color: var(--QLD-color-dark-background);
+                    background-color: var(--QLD-color-dark__background);
                 }
             }
         }
@@ -538,64 +538,64 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     .qld__body--dark-alt &{
 
         span.qld__caption {
-            color: var(--QLD-color-dark-text__muted);
+            color: var(--QLD-color-dark__text--lighter);
         }
 
         .dataTables_wrapper {
             .qld__data-table-item-numbers {
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
 
 
                 &-heading {
-                    color: var(--QLD-color-dark-heading);
+                    color: var(--QLD-color-dark__heading);
                 }
             }
 
         }
 
         .top {
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
         }
 
         input[type=text],
         input[type=search],
         .qld__text-input {
-            color: var(--QLD-color-dark-text);
-            border: 2px solid var(--QLD-color-dark-alt-border);
-            background-color: var(--QLD-color-dark-background);
+            color: var(--QLD-color-dark__text);
+            border: 2px solid var(--QLD-color-dark__border--alt);
+            background-color: var(--QLD-color-dark__background);
         }
 
         .dataTables_length>label>select {
-            border: 2px solid var(--QLD-color-dark-alt-border);
-            background-color: var(--QLD-color-dark-background);
+            border: 2px solid var(--QLD-color-dark__border--alt);
+            background-color: var(--QLD-color-dark__background);
             background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDownDark}");
         }
 
         .qld__data-table__header {
 
             color: var(--QLD-color-light-system-underline);
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
 
         }
 
         .qld__data-table__cell,
         td { //needs to stayl
-            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark__border);
             &.sorting_1 {
-                background-color: var(--QLD-color-dark-background__shade);
+                background-color: var(--QLD-color-dark__background--shade);
             }
         }
 
         .qld__data-table__header,
         th {
-            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-alt-border);
-            color: var(--QLD-color-dark-heading);
-            background-color: var(--QLD-color-dark-background);
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark__border--alt);
+            color: var(--QLD-color-dark__heading);
+            background-color: var(--QLD-color-dark__background);
 
             &.sorting_asc,
             &.sorting_desc { //needs to stayl
-                background-color: var(--QLD-color-dark-background__shade);
-                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+                background-color: var(--QLD-color-dark__background--shade);
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark__design-accent);
             }
             
             &.sorting_desc { //needs to stayl
@@ -614,14 +614,14 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
             &:hover,
             &:focus {
-                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-button__hover);
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark__action--primary-hover);
             }
 
             &:active {
-                box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+                box-shadow: inset 0 -2px 0 var(--QLD-color-dark__design-accent);
             }
 
-            color: var(--QLD-color-dark-hover-underline);
+            color: var(--QLD-color-dark__underline--hover);
 
         }
 
@@ -629,7 +629,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         thead {
             tr {
                 &:nth-child(2) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
 
@@ -637,54 +637,54 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         .qld__data-table__header,
         th {
-            color: var(--QLD-color-dark-heading);
-            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark-designAccent);
-            box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark__design-accent);
+            box-shadow: inset 0 -2px 0 var(--QLD-color-dark__design-accent);
 
             tr {
                 &:nth-child(2) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
         }
 
         .qld__data-table__cell,
         td {
-            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark__border);
         }
 
         caption,
         .qld__data-table__caption {
-            color: var(--QLD-color-dark-heading);
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-            background-color: var(--QLD-color-dark-background);
+            color: var(--QLD-color-dark__heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
+            background-color: var(--QLD-color-dark__background);
         }
 
         tfoot {
-            background-color: var(--QLD-color-dark-background);
-            box-shadow: 0 1px 0 var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__background);
+            box-shadow: 0 1px 0 var(--QLD-color-dark__border);
 
             th, tr th {
-                box-shadow: 0 -2px 0 var(--QLD-color-dark-alt-border);
+                box-shadow: 0 -2px 0 var(--QLD-color-dark__border--alt);
 
                 &.sorting_1 { //needs to stayl
-                    box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
-                    background-color: var(--QLD-color-dark-background__shade);
+                    box-shadow: 0 -2px 0 var(--QLD-color-dark__design-accent);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
         }
 
         .qld__data-table__cell-left-border {
-            border-left: 1px solid var(--QLD-color-dark-border);
+            border-left: 1px solid var(--QLD-color-dark__border);
         }
 
         .qld__data-table__cell-right-border {
-            border-right: 1px solid var(--QLD-color-dark-border);
+            border-right: 1px solid var(--QLD-color-dark__border);
         }
 
         .bottom {
             a {
-                color: var(--QLD-color-dark-text);
+                color: var(--QLD-color-dark__text);
             }
         }
 
@@ -698,7 +698,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         &.qld__data-table__col-8-left-border tr td:nth-child(8),
         &.qld__data-table__col-9-left-border tr td:nth-child(9),
         &.qld__data-table__col-10-left-border tr td:nth-child(10) {
-            border-left: 1px solid var(--QLD-color-dark-border);
+            border-left: 1px solid var(--QLD-color-dark__border);
         }
 
         &.qld__data-table__col-1-right-border tr td:nth-child(1),
@@ -706,7 +706,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         &.qld__data-table__col-3-right-border tr td:nth-child(3),
         .qld__data-table__header {
             color: var(--QLD-color-light-system-underline);
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
         }
 
         &.qld__data-table__col-1-right-border tr td:nth-child(1),
@@ -719,11 +719,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         &.qld__data-table__col-8-right-border tr td:nth-child(8),
         &.qld__data-table__col-9-right-border tr td:nth-child(9),
         &.qld__data-table__col-10-right-border tr td:nth-child(10) {
-            border-right: 1px solid var(--QLD-color-dark-border);
+            border-right: 1px solid var(--QLD-color-dark__border);
         }
 
         // &.qld__data-table--contained { 
-            border: 1px solid var(--QLD-color-dark-border);
+            border: 1px solid var(--QLD-color-dark__border);
         // }
 
         &.qld__table--striped {
@@ -731,7 +731,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             tbody {
                 .qld__table__row:nth-last-child(odd),
                 tr:nth-last-child(odd) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
 
                 .qld__table__row:nth-last-child(odd),
@@ -754,28 +754,28 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         .qld__data-table__cell,
         td {
             &.sorting_1 { //needs to stayl
-                background-color: var(--QLD-color-dark-alt-background__shade);
+                background-color: var(--QLD-color-dark__background--alt-shade);
             }
         }
 
         .qld__data-table__header,
         th {
-            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
-            color: var(--QLD-color-dark-heading);
-            background-color: var(--QLD-color-dark-alt-background);
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark__border);
+            color: var(--QLD-color-dark__heading);
+            background-color: var(--QLD-color-dark__background--alt);
 
             &.sorting_asc,
             &.sorting_desc { //needs to stayl
-                background-color: var(--QLD-color-dark-alt-background__shade);
+                background-color: var(--QLD-color-dark__background--alt-shade);
             }
 
         }
 
         .qld__data-table__header,
         th {
-            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
-            color: var(--QLD-color-dark-heading);
-            background-color: var(--QLD-color-dark-alt-background);
+            box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark__border);
+            color: var(--QLD-color-dark__heading);
+            background-color: var(--QLD-color-dark__background--alt);
 
            
             
@@ -783,21 +783,21 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
         caption,
         .qld__data-table__caption {
-            color: var(--QLD-color-dark-heading);
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-            background-color: var(--QLD-color-dark-alt-background);
+            color: var(--QLD-color-dark__heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
+            background-color: var(--QLD-color-dark__background--alt);
         }
 
         tfoot {
-            background-color: var(--QLD-color-dark-alt-background);
-            box-shadow: 0 1px 0 var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__background--alt);
+            box-shadow: 0 1px 0 var(--QLD-color-dark__border);
 
             th, tr th {
-                box-shadow: 0 -2px 0 var(--QLD-color-dark-border);
+                box-shadow: 0 -2px 0 var(--QLD-color-dark__border);
 
                 &.sorting_1 { //needs to stayl
-                    box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
-                    background-color: var(--QLD-color-dark-alt-background__shade);
+                    box-shadow: 0 -2px 0 var(--QLD-color-dark__design-accent);
+                    background-color: var(--QLD-color-dark__background--alt-shade);
                 }
 
             }
@@ -806,14 +806,14 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         input[type=text],
         input[type=search],
         .qld__text-input {
-            color: var(--QLD-color-dark-text);
-            border: 2px solid var(--QLD-color-dark-border);
-            background-color: var(--QLD-color-dark-alt-background);
+            color: var(--QLD-color-dark__text);
+            border: 2px solid var(--QLD-color-dark__border);
+            background-color: var(--QLD-color-dark__background--alt);
         }
 
         .dataTables_length>label>select {
-            border: 2px solid var(--QLD-color-dark-border);
-            background-color: var(--QLD-color-dark-alt-background);
+            border: 2px solid var(--QLD-color-dark__border);
+            background-color: var(--QLD-color-dark__background--alt);
             background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDownDark}");
         }
 

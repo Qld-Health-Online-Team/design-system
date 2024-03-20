@@ -85,19 +85,19 @@
 		a.qld__btn,
 		.sq-form-submit { 
 			@include QLD-underline('dark','noUnderline','buttonText','noVisited');
-			background-color: var(--QLD-color-dark-button);
-			color: var(--QLD-color-dark-button__text);
-			border-color: var(--QLD-color-dark-button);
+			background-color: var(--QLD-color-dark__action--primary);
+			color: var(--QLD-color-dark__link--on-action);
+			border-color: var(--QLD-color-dark__action--primary);
 	
 			i{
-				color: var(--QLD-color-dark-button__text);
+				color: var(--QLD-color-dark__link--on-action);
 				
 			}
 	
 			&:hover{
-				background-color: var(--QLD-color-dark-button__hover);
-				color: var(--QLD-color-dark-button__text);
-				border-color: var(--QLD-color-dark-button__hover);
+				background-color: var(--QLD-color-dark__action--primary-hover);
+				color: var(--QLD-color-dark__link--on-action);
+				border-color: var(--QLD-color-dark__action--primary-hover);
 
 				i{
 					text-decoration: none !important;
@@ -119,7 +119,7 @@
 			&:focus {
 				@include QLD-focus(dark);
 				i{
-					color: var(--QLD-color-dark-button__text);
+					color: var(--QLD-color-dark__link--on-action);
 				}
 			}
 	
@@ -127,12 +127,12 @@
 			&[disabled]{
 				cursor: not-allowed;
 				background-color:rgba(224, 224, 224, 0.1); // var(--QLD-color-light__background--alt-shade); with 10% opacity
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 				border-color: transparent;
 	
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 		}
@@ -217,20 +217,20 @@
 		.qld__btn.qld__btn--secondary,
 		a.qld__btn.qld__btn--secondary {
 			@include QLD-underline('dark','noUnderline','default','noVisited');
-			color: var(--QLD-color-dark-link);
+			color: var(--QLD-color-dark__link);
 			background-color: transparent;
-			border: 3px solid var(--QLD-color-dark-alt-button);
+			border: 3px solid var(--QLD-color-dark__action--secondary);
 	
 			i{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 	
 			&:hover{
-				border-color: var(--QLD-color-dark-alt-button__hover);
+				border-color: var(--QLD-color-dark__action--secondary-hover);
 				@include QLD-box-shadow(1);
 	
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 	
@@ -252,19 +252,19 @@
 				cursor: not-allowed;
 				background-color: transparent;
 				border-color: rgba(224, 224, 224, 0.1);
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 	
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 	
 			&:focus{
-				border-color: var(--QLD-color-dark-alt-button__hover);
+				border-color: var(--QLD-color-dark__action--secondary-hover);
 	
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 		}
@@ -350,35 +350,35 @@
 		a.qld__btn.qld__btn--tertiary {
 
 			@include QLD-underline('dark','noUnderline','default','noVisited');
-			color: var(--QLD-color-dark-link);
+			color: var(--QLD-color-dark__link);
 
 			i{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 
 			&:hover{
-				background-color: var(--QLD-color-dark-background__shade);
+				background-color: var(--QLD-color-dark__background--shade);
 				border-color: transparent;
 
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 
 			&:active {
-				color: var(--QLD-color-dark-heading);
+				color: var(--QLD-color-dark__heading);
 				text-decoration: none;
 				i{
-					color: var(--QLD-color-dark-heading);
+					color: var(--QLD-color-dark__heading);
 				}
 			}
 
 			&:focus {
-				background-color: var(--QLD-color-dark-background__shade);
+				background-color: var(--QLD-color-dark__background--shade);
 				@include QLD-box-shadow(1);
 
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 
@@ -387,11 +387,11 @@
 				cursor: not-allowed;
 				background-color: transparent;
 				border-color: transparent;
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 		}
@@ -457,14 +457,14 @@
 
 		.qld__btn.qld__btn--toggle,
 		a.qld__btn.qld__btn--toggle{
-			background-color: var(--QLD-color-dark-alt-background__shade);
-			color: var(--QLD-color-dark-link);
-			border-color: var(--QLD-color-dark-alt-background__shade);
+			background-color: var(--QLD-color-dark__background--alt-shade);
+			color: var(--QLD-color-dark__link);
+			border-color: var(--QLD-color-dark__background--alt-shade);
 			@include QLD-underline('dark','noUnderline');
 	
 			i,
 			svg{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 		}
 	}
@@ -531,7 +531,7 @@
 		a.qld__btn.qld__btn--search {
 			
 			.qld__btn__icon{
-				background-color: var(--QLD-color-dark-button__text);
+				background-color: var(--QLD-color-dark__link--on-action);
 			}
 		}
 	}
@@ -581,7 +581,7 @@ a.qld__btn.qld__btn--close {
 	rgba(11, 178, 255, 0.5) 83.33333333333335%,
 	rgba(152, 90, 255, 0.5) 83.33333333333335%
 	);
-	color: var(--QLD-color-dark-link);
+	color: var(--QLD-color-dark__link);
 }
 
 

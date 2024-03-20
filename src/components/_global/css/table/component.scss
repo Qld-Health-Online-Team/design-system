@@ -18,7 +18,7 @@
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
-        color: var(--QLD-color-dark-text__muted);
+        color: var(--QLD-color-dark__text--lighter);
     }
 }
 
@@ -195,41 +195,41 @@ table {
         thead {
             tr {
                 &:nth-child(2) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
         }
 
         .qld__table__header,
         th {
-            color: var(--QLD-color-dark-heading);
-            // box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
-            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark-designAccent);
-            box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            // box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark__border);
+            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark__design-accent);
+            box-shadow: inset 0 -2px 0 var(--QLD-color-dark__design-accent);
 
             tr {
                 &:nth-child(2) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
         }
 
         .qld__table__cell,
         td {
-            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark__border);
         }
 
         caption,
         .qld__table__caption {
-            color: var(--QLD-color-dark-heading);
-            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
-            background-color: var(--QLD-color-dark-background);
+            color: var(--QLD-color-dark__heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark__border);
+            background-color: var(--QLD-color-dark__background);
         }
 
         tfoot {
-            background-color: var(--QLD-color-dark-background);
-            -webkit-box-shadow: inset 0 2px 0 var(--QLD-color-dark-designAccent);
-            box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
+            background-color: var(--QLD-color-dark__background);
+            -webkit-box-shadow: inset 0 2px 0 var(--QLD-color-dark__design-accent);
+            box-shadow: 0 -2px 0 var(--QLD-color-dark__design-accent);
 
             td {
                 box-shadow: none;
@@ -241,11 +241,11 @@ table {
         }
 
         .qld__table__cell-left-border {
-            border-left: 1px solid var(--QLD-color-dark-border);
+            border-left: 1px solid var(--QLD-color-dark__border);
         }
 
         .qld__table__cell-right-border {
-            border-right: 1px solid var(--QLD-color-dark-border);
+            border-right: 1px solid var(--QLD-color-dark__border);
         }
 
         &.qld__table__col-1-left-border tr td:nth-child(1),
@@ -258,7 +258,7 @@ table {
         &.qld__table__col-8-left-border tr td:nth-child(8),
         &.qld__table__col-9-left-border tr td:nth-child(9),
         &.qld__table__col-10-left-border tr td:nth-child(10) {
-            border-left: 1px solid var(--QLD-color-dark-border);
+            border-left: 1px solid var(--QLD-color-dark__border);
         }
 
         &.qld__table__col-1-right-border tr td:nth-child(1),
@@ -271,7 +271,7 @@ table {
         &.qld__table__col-8-right-border tr td:nth-child(8),
         &.qld__table__col-9-right-border tr td:nth-child(9),
         &.qld__table__col-10-right-border tr td:nth-child(10) {
-            border-right: 1px solid var(--QLD-color-dark-border);
+            border-right: 1px solid var(--QLD-color-dark__border);
         }
     }
 
@@ -294,7 +294,7 @@ table {
 
                 .qld__table__row:nth-last-child(odd),
                 tr:nth-last-child(odd) {
-                    background-color: var(--QLD-color-dark-background__shade);
+                    background-color: var(--QLD-color-dark__background--shade);
                 }
             }
         }
@@ -319,7 +319,7 @@ table {
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
-        border: 1px solid var(--QLD-color-dark-border);
+        border: 1px solid var(--QLD-color-dark__border);
     }
 }
 
@@ -362,12 +362,12 @@ table {
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
-        border: 1px solid var(--QLD-color-dark-border);
+        border: 1px solid var(--QLD-color-dark__border);
 
         table {
             thead {
                 text-align: left;
-                background-color: var(--QLD-color-dark-background);
+                background-color: var(--QLD-color-dark__background);
             }
         }
     }
@@ -467,34 +467,34 @@ table {
 
 //     .qld__body--dark &{
 //         .qld__table__head{
-//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark-designAccent));
+//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark__design-accent));
 //         } 
 
 //         .qld__table__header,
 //         .qld__table__cell{
-//             border-bottom: 1px solid var(--QLD-color-dark-designAccent);
+//             border-bottom: 1px solid var(--QLD-color-dark__design-accent);
 //         }
 
 //         &.qld__table--striped .qld__table__body {
 //             .qld__table__row:nth-last-child( odd) {
-//                 background-color: var(--QLD-color-dark-background__shade);
+//                 background-color: var(--QLD-color-dark__background--shade);
 //             }
 //         }
 //     }
 
 //     .qld__body--dark-alt &{
 //         .qld__table__head{
-//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark-designAccent));
+//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark__design-accent));
 //         } 
 
 //         .qld__table__header,
 //         .qld__table__cell{
-//             border-bottom: 1px solid var(--QLD-color-dark-designAccent);
+//             border-bottom: 1px solid var(--QLD-color-dark__design-accent);
 //         }
 
 //         &.qld__table--striped .qld__table__body {
 //             .qld__table__row:nth-last-child( odd) {
-//                 background-color: var(--QLD-color-dark-alt-background__shade);
+//                 background-color: var(--QLD-color-dark__background--alt-shade);
 //             }
 //         }
 //     }

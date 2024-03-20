@@ -82,8 +82,8 @@ textarea{
 		}
 
 		&::selection {
-			background-color: var(--QLD-color-dark-background);
-			color: var(--QLD-color-dark-text);
+			background-color: var(--QLD-color-dark__background);
+			color: var(--QLD-color-dark__text);
 		}
 	}
 
@@ -93,12 +93,12 @@ textarea{
 	.qld__header__main--dark-alt &,
 	.qld__banner--dark &,
 	.qld__banner--dark-alt &{
-		color: var(--QLD-color-dark-text__muted);
-		border-color: var(--QLD-color-dark-alt-border);
-		background-color: var(--QLD-color-dark-background);
+		color: var(--QLD-color-dark__text--lighter);
+		border-color: var(--QLD-color-dark__border--alt);
+		background-color: var(--QLD-color-dark__background);
 
 		&::placeholder{
-			color: var(--QLD-color-dark-text__muted);
+			color: var(--QLD-color-dark__text--lighter);
 		}
 
 		&:focus{
@@ -150,9 +150,9 @@ textarea{
 
 		&:hover{
 			&:not(:focus) { 
-				color: var(--QLD-color-dark-text);
-				background-color: var(--QLD-color-dark-background__shade);
-				border-color: var(--QLD-color-dark-button__hover);
+				color: var(--QLD-color-dark__text);
+				background-color: var(--QLD-color-dark__background--shade);
+				border-color: var(--QLD-color-dark__action--primary-hover);
 			}
 		}
 
@@ -244,19 +244,19 @@ textarea{
 		.sq-form-question textarea,
 		.sq-form-question-email-address input,
 		.qld__text-input {
-			background-color: var(--QLD-color-dark-background__shade);
-			border-color: var(--QLD-color-dark-alt-border);
+			background-color: var(--QLD-color-dark__background--shade);
+			border-color: var(--QLD-color-dark__border--alt);
 			background-blend-mode: multiply;
-			color: var(--QLD-color-dark-text);
+			color: var(--QLD-color-dark__text);
 
 			&::placeholder {
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 			}
 
 			&:hover {
 				&:not(:focus) { 
-					background-color: var(--QLD-color-dark-background__shade);
-					border-color: var(--QLD-color-dark-button);
+					background-color: var(--QLD-color-dark__background--shade);
+					border-color: var(--QLD-color-dark__action--primary);
 				}
 			}
 
@@ -401,12 +401,12 @@ textarea{
 // 	.qld__body--dark & {
 
 // 		&.qld__input--error {
-// 			background-color: var(--QLD-color-dark-background__shade);
+// 			background-color: var(--QLD-color-dark__background--shade);
 // 			border-color: $QLD-color-status__error;
 // 		}
 
 // 		&.qld__input--valid {
-// 			background-color: var(--QLD-color-dark-background__shade);
+// 			background-color: var(--QLD-color-dark__background--shade);
 // 			border-color: $QLD-color-status__success;
 // 		}
 

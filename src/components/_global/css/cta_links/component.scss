@@ -66,21 +66,21 @@ a.qld__cta-link{
 	.qld__body--dark &,
 	.qld__body--dark-alt &,
 	.qld__main-nav--dark &{ 
-		color: var(--QLD-color-dark-link);
+		color: var(--QLD-color-dark__link);
 
 		@include QLD-focus(dark);
 
 		&:after{
-			background-color: var(--QLD-color-dark-alt-button);
+			background-color: var(--QLD-color-dark__action--secondary);
 		}
 
 		&:disabled,
 		&[disabled]{
 			cursor: not-allowed;
-			color: var(--QLD-color-dark-text__muted);
+			color: var(--QLD-color-dark__text--lighter);
 
 			&:after{
-				background-color: var(--QLD-color-dark-text__muted);
+				background-color: var(--QLD-color-dark__text--lighter);
 			}
 		}
 	}
@@ -97,7 +97,7 @@ a.qld__cta-link.qld__cta-link--view-all{
 	.qld__body--dark-alt &,
 	.qld__main-nav--dark &{
 		&:after{
-			background-color: var(--QLD-color-dark-alt-button);
+			background-color: var(--QLD-color-dark__action--secondary);
 	
 		}
 	}

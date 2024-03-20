@@ -100,7 +100,7 @@
             a {
                 &:active,
                 &:focus {
-                    color: var(--QLD-color-dark-link);
+                    color: var(--QLD-color-dark__link);
                     background-color: var(--QLD-color-light__action--secondary);
                     // border: $QLD-border-width-default solid var(--QLD-color-light__action--secondary);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
@@ -149,22 +149,22 @@
 
         li{
             &.active a{
-                background-color: var(--QLD-color-dark-button);
-                color: var(--QLD-color-dark-button__text);
+                background-color: var(--QLD-color-dark__action--primary);
+                color: var(--QLD-color-dark__link--on-action);
 
                 &:hover{
-                    background-color: var(--QLD-color-dark-button__hover);
-                    // border-color: var(--QLD-color-dark-button__hover);
-                    box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark-button__hover);
+                    background-color: var(--QLD-color-dark__action--primary-hover);
+                    // border-color: var(--QLD-color-dark__action--primary-hover);
+                    box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--primary-hover);
                 }
 
                 &:active,
                 &:focus {
                     @include QLD-focus( 'dark' );
-                    color: var(--QLD-color-dark-link);
-                    background-color: var(--QLD-color-dark-button__hover);
-                    // border-color: var(--QLD-color-dark-button__hover);
-                    box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark-button__hover);
+                    color: var(--QLD-color-dark__link);
+                    background-color: var(--QLD-color-dark__action--primary-hover);
+                    // border-color: var(--QLD-color-dark__action--primary-hover);
+                    box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--primary-hover);
                     
                 }
             }
@@ -174,7 +174,7 @@
             &.ellipsis{
                 a{
                     &:hover{
-                        color: var(--QLD-color-dark-link);
+                        color: var(--QLD-color-dark__link);
                         box-shadow: none;
                         span {
                             text-decoration: underline;
@@ -188,30 +188,30 @@
                     &:active,
                     &:focus {
                         color: var(--QLD-color-light__link);
-                        background-color: var(--QLD-color-dark-alt-button);
-                        // border-color: var(--QLD-color-dark-alt-button);
-                        box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark-alt-button);
+                        background-color: var(--QLD-color-dark__action--secondary);
+                        // border-color: var(--QLD-color-dark__action--secondary);
+                        box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--secondary);
                     }
                 }
             }
         }
 
         a{
-            background-color: var(--QLD-color-dark-background);
-            // border-color: var(--QLD-color-dark-border);
-            box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__background);
+            // border-color: var(--QLD-color-dark__border);
+            box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__border);
             text-decoration: none;
             &:hover{
-                color: var(--QLD-color-dark-link);
-                // border-color: var(--QLD-color-dark-alt-button);
-                box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark-alt-button);
+                color: var(--QLD-color-dark__link);
+                // border-color: var(--QLD-color-dark__action--secondary);
+                box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary);
                 outline: none;
                 text-decoration: none;
             }
         }
 
         span{
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
         }
     }
         

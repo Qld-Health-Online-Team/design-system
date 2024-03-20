@@ -78,10 +78,10 @@
     
             &--dark {
                 display: inline;
-                background-color: var(--QLD-color-dark-background);
-                color: var(--QLD-color-dark-heading);
+                background-color: var(--QLD-color-dark__background);
+                color: var(--QLD-color-dark__heading);
                 // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-                box-shadow: 8px 0px 0 6px var(--QLD-color-dark-background), -8px 0px 0 6px var(--QLD-color-dark-background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
+                box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background), -8px 0px 0 6px var(--QLD-color-dark__background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
@@ -476,31 +476,31 @@
     }
 
     &--dark{
-        background-color: var(--QLD-color-dark-background);
+        background-color: var(--QLD-color-dark__background);
 
         .qld__banner__content {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
 
             h1 {
-                color: var(--QLD-color-dark-heading);
+                color: var(--QLD-color-dark__heading);
             }
             .qld__banner__heading{
-                // border-left: 4px solid var(--QLD-color-dark-designAccent);
+                // border-left: 4px solid var(--QLD-color-dark__design-accent);
 
                 &--dark {
-                    background-color: var(--QLD-color-dark-background__shade);
-                    box-shadow: 8px 0px 0 6px var(--QLD-color-dark-background__shade), -8px 0px 0 6px var(--QLD-color-dark-background__shade), -12px 0px 0 6px var(--QLD-color-dark-designAccent), 0px 4px 16px rgba(0, 0, 0, .3);
+                    background-color: var(--QLD-color-dark__background--shade);
+                    box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 }
         
                 &--light {
                     background-color: var(--QLD-color-light__background);
-                    box-shadow: 8px 0px 0 6px var(--QLD-color-light__background), -8px 0px 0 6px var(--QLD-color-light__background), -12px 0px 0 6px var(--QLD-color-dark-designAccent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                    box-shadow: 8px 0px 0 6px var(--QLD-color-light__background), -8px 0px 0 6px var(--QLD-color-light__background), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
                 }
             }
         }
 
         .qld__banner__hero {
-            background-color: var(--QLD-color-dark-background__shade);
+            background-color: var(--QLD-color-dark__background--shade);
             
             @include QLD-media(md) {
                 background-color: transparent;
@@ -509,18 +509,18 @@
     }
 
     &--dark-alt{
-        background-color: var(--QLD-color-dark-alt-background);
+        background-color: var(--QLD-color-dark__background--alt);
 
         .qld__banner__content {
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
 
             h1 {
-                color: var(--QLD-color-dark-heading);
+                color: var(--QLD-color-dark__heading);
             }
             .qld__banner__heading{
 
                 &--dark {
-                    background-color: var(--QLD-color-dark-background);
+                    background-color: var(--QLD-color-dark__background);
                 }
                 &--light{
                     background-color: var(--QLD-color-light__background);
@@ -529,7 +529,7 @@
         }
 
         .qld__banner__hero {
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            background-color: var(--QLD-color-dark__background--alt-shade);
             
             @include QLD-media(md) {
                 background-color: transparent;

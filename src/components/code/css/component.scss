@@ -76,13 +76,13 @@
     }
 
     .qld__code-header {
-        background-color: var(--QLD-color-dark-alt-background__shade);
+        background-color: var(--QLD-color-dark__background--alt-shade);
         border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
         display: flex;
         width: 100%;
         justify-content: space-between;
         @include QLD-space('padding', .75unit 1unit);
-        @include QLD-space('border-bottom', solid var(--QLD-color-dark-alt-border) 0.0625unit);
+        @include QLD-space('border-bottom', solid var(--QLD-color-dark__border--alt) 0.0625unit);
 
         &-left {
             display: flex;
@@ -94,21 +94,21 @@
                 @include QLD-space('margin-right', 1.25unit);
 
                 i {
-                    color: var(--QLD-color-dark-alt-button);
+                    color: var(--QLD-color-dark__action--secondary);
                     @include QLD-space('font-size', 1.25unit);
                     @include QLD-space('margin-right', .5unit);
                 }
 
                 text-underline-offset: var(--QLD-underline__offset);
-                color: var(--QLD-color-dark-link);
-                -webkit-text-decoration-color: var(--QLD-color-dark-underline);
-                text-decoration-color: var(--QLD-color-dark-underline);
+                color: var(--QLD-color-dark__link);
+                -webkit-text-decoration-color: var(--QLD-color-dark__underline);
+                text-decoration-color: var(--QLD-color-dark__underline);
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
 
                 &:hover {
                     text-underline-offset: var(--QLD-underline__offset);
-                    -webkit-text-decoration-color: var(--QLD-color-dark-hover-underline);
-                    text-decoration-color: var(--QLD-color-dark-hover-underline);
+                    -webkit-text-decoration-color: var(--QLD-color-dark__underline--hover);
+                    text-decoration-color: var(--QLD-color-dark__underline--hover);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
@@ -127,23 +127,23 @@
         }
 
         &.qld__body--dark {
-            background-color: var(--QLD-color-dark-background);
+            background-color: var(--QLD-color-dark__background);
         }
         
         &.qld__body--dark-alt {
-            background-color: var(--QLD-color-dark-alt-background);
+            background-color: var(--QLD-color-dark__background--alt);
         }
 
         &-button {
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            background-color: var(--QLD-color-dark__background--alt-shade);
             border: 0;
             border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
             cursor: pointer;
             @include QLD-space('padding', .75unit 1unit);
 
             i {
-                color: var(--QLD-color-dark-alt-button);
+                color: var(--QLD-color-dark__action--secondary);
                 @include QLD-space('font-size', 1.25unit);
                 @include QLD-space('margin-left', .5unit);
                 transition: transform 0.25s ease-in;
@@ -228,10 +228,10 @@
         }
 
         &-tab {
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            background-color: var(--QLD-color-dark__background--alt-shade);
             border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
             bottom: 100%;
-            color: var(--QLD-color-dark-text);
+            color: var(--QLD-color-dark__text);
             font-weight: 600;
             display: inline-block;
             position: absolute;
