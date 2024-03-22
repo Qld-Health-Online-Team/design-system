@@ -94,6 +94,7 @@
       border-radius: 32px 32px 0px 0px;
       /* Curved edges for nav*/
       box-shadow: 0px 1px 2px hsl(37deg 14% 67%);
+      position: relative;
     }
   
      /* Applies the cured style for banner */
@@ -101,6 +102,7 @@
       border-radius: 0px 0px 40px 40px;
       /* Curved edges for banner*/
       z-index: 1;
+      position: relative;
     }
     
     .qld__body--breadcrumb {
@@ -114,17 +116,33 @@
     }
   
     /*  This applies a background to the whole top of the header */
-  
-    .qld__header::before {
+    .qld__header {
+        position: relative;
+        overflow: hidden;
+    }
+    // .qld__header::before {
+    //     width: 100%;
+    //     content: " ";
+    //     background-color: var(--QLD-color-contained-layout__background);
+    //     background-size: contain;
+    //     background-position: top left;
+    //     background-repeat: no-repeat;
+    //     position: absolute;
+    //     background-size: 60%;
+    //     height: 450px;
+    // }
+
+    .qld__header__contained-banner {
+        position: absolute;
         width: 100%;
         content: " ";
         background-color: var(--QLD-color-contained-layout__background);
         background-size: contain;
         background-position: top left;
         background-repeat: no-repeat;
-        position: absolute;
         background-size: 60%;
         height: 450px;
+        
     }
     
     .qld__header__main {
@@ -132,7 +150,6 @@
         /* removes current header background */
         position: relative;
     }
-    
     /* Adds height and pulls the div below the banner to sit under it slightly */
   
     main.landing #content section:first-of-type { 
