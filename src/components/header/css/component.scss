@@ -108,6 +108,20 @@
                 display: inline-block;
                 @include QLD-fontgrid(sm);
             }
+
+            &--mobile {
+                display: inline-block;
+                @include QLD-space(height, 1.75unit);
+                color: var(--QLD-color-light-link);
+
+                @include QLD-media(md) {
+                    @include QLD-space(height, 2.5unit);
+                }
+
+                @include QLD-media(lg) {
+                    display: none;
+                }
+            }
         }
 
         .qld__header__cta-wrapper{
@@ -237,6 +251,10 @@
                 color: var(--QLD-color-dark-link);
             }
 
+            .qld__header__pre-header-url--mobile {
+                color: var(--QLD-color-dark-link);
+            }
+
             a{
                 @include QLD-underline('dark','noUnderline','default','noVisited');
             }
@@ -280,6 +298,10 @@
             color: var(--QLD-color-dark-text);
 
             .qld__header__pre-header-url {
+                color: var(--QLD-color-dark-link);
+            }
+
+            .qld__header__pre-header-url--mobile {
                 color: var(--QLD-color-dark-link);
             }
 
