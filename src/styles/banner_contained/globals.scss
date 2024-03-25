@@ -120,17 +120,6 @@
         position: relative;
         overflow: hidden;
     }
-    // .qld__header::before {
-    //     width: 100%;
-    //     content: " ";
-    //     background-color: var(--QLD-color-contained-layout__background);
-    //     background-size: contain;
-    //     background-position: top left;
-    //     background-repeat: no-repeat;
-    //     position: absolute;
-    //     background-size: 60%;
-    //     height: 450px;
-    // }
 
     .qld__header__contained-banner {
         position: absolute;
@@ -141,7 +130,7 @@
         background-position: top left;
         background-repeat: no-repeat;
         background-size: 60%;
-        height: 450px;
+        height: 800px;
         
     }
 
@@ -153,6 +142,10 @@
         background: transparent;
         /* removes current header background */
         position: relative;
+
+        &.qld__header__main--dark, &.qld__header__main--dark-alt {
+            background: transparent;
+        }
     }
     /* Adds height and pulls the div below the banner to sit under it slightly */
   
