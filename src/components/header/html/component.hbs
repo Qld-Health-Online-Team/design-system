@@ -1,5 +1,6 @@
 {{#ifCond site.metadata.defaultBannerContainedBanner.value '==' 'qld__banner_contained'}}
-<div class="qld__header__contained-banner"></div>
+<div class="qld__header__contained-banner"  {{#ifCond site.metadata.qldImageContainedLayoutBackground.value}} style="background-image:url(./?a={{metadata.qldImageContainedLayoutBackground.value}})"{{/ifCond}}{{#ifCond site.metadata.qldImageContainedLayoutTexture.value}} style="background-image:url(./?a={{metadata.qldImageContainedLayoutTexture.value}})"{{/ifCond}}>
+</div>
 {{/ifCond}}
 <header class="qld__header" role="banner">
     <nav class="qld__skip-link" aria-label="skip links" tabindex="-1">
