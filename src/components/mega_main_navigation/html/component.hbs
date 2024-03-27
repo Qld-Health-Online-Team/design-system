@@ -14,7 +14,7 @@
                             aria-controls="main-nav"
                             class="qld__main-nav__toggle qld__main-nav__toggle--close"
                         >
-                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
                             <span class="qld__main-nav__toggle-text">Close</span>
                         </button>
                     </div>
@@ -23,10 +23,7 @@
                         <li class="qld__main-nav__item {{#if current.home}}active{{/if}}">
                             <div class="qld__main-nav__item-title">
                                 <a class="qld__main-nav__item-home qld__main-nav__item-link" {{#if current.home}}aria-current="page"{{/if}} href="./?a={{site.data.assetid}}">
-                                    <span class="qld__main-nav__item-icon">
-                                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
-                                    </span>
-                                    
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
                                     <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
                                 </a>
                             </div>
@@ -46,7 +43,7 @@
                                             {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                                                 {{#if this}}
                                                     <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{{../asset_short_name}}}">{{{../asset_short_name}}}</span>
-                                                    <svg class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__chevron-up"></use></svg>
+                                                    <svg class="qld__icon qld__icon--xs"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__chevron-up"></use></svg>
                                                     </button>
                                                 {{/if}}
                                         {{/arrayWith}}
@@ -61,7 +58,7 @@
                                                     <div class="qld__main-nav__sub-head">
                                                         <a class="qld__main-nav__sub-heading " href="./?a={{../this.asset_assetid}}">
                                                             <span class="qld__main-nav__sub-item-text qld__display-lg">{{{../this.asset_name}}}</span>
-                                                            <svg class="qld__icon qld__icon--lg"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
+                                                            <svg class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__arrow-right"></use></svg>
                                                         </a>
                                                         {{#ifCond @root.site.metadata.mainNavPageDescLevelOne.value '==' 'true'}}
                                                             {{#if ../this.asset_metadata_shortDescription}}
@@ -71,17 +68,12 @@
                                                     </div>
                                                     
                                                     <hr class="qld__horizontal-rule qld__horizontal-rule--lg">
-                                                    {{!-- <ul class="qld__link-list"> --}}
                                                         <ul class="qld__link-columns qld__link-columns--3-col qld__link-list">
                                                         {{#each this}}                                                   
                                                             {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                                                             <li class="{{#ifCond @root.site.metadata.mainNavPageDescLevelTwo.value '==' 'true'}}{{#if asset_metadata_shortDescription}}qld__main-nav__item--has-desc{{/if}}{{/ifCond}}">
-                                                                
-                                                                
-                                                                
                                                                 <a href="{{asset_url}}">
-                                                                    <span class="qld__main-nav__sub-item-text">{{{asset_short_name}}}</span>
-                                                                    
+                                                                    <span class="qld__main-nav__sub-item-text">{{{asset_short_name}}}</span> 
                                                                 </a>
                                                             {{/ifCond}}
                                                             {{#ifCond asset_assetid '==' @root.current.data.assetid}}
@@ -125,9 +117,7 @@
                                 <div class="qld__main-nav__item-title">
                                     <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaOne.value}}" >
                                         {{#if site.metadata.mainNavCtaOneIcon.value}}
-                                        <span class="qld__main-nav__item-icon">
-                                            <i class="{{site.metadata.mainNavCtaOneIcon.value}}"></i>
-                                        </span>
+                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaOneIcon.value}}"></i>
                                         {{/if}}
                                         <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaOneText.value}}}">{{{site.metadata.mainNavCtaOneText.value}}}</span>
                                     </a>
@@ -139,9 +129,7 @@
                                 <div class="qld__main-nav__item-title">
                                     <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaTwo.value}}" >
                                         {{#if site.metadata.mainNavCtaTwoIcon.value}}
-                                        <span class="qld__main-nav__item-icon">
-                                            <i class="{{site.metadata.mainNavCtaTwoIcon.value}}"></i>
-                                        </span>
+                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaTwoIcon.value}}"></i>
                                         {{/if}}
                                         <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaTwoText.value}}}">{{{site.metadata.mainNavCtaTwoText.value}}}</span>
                                     </a>

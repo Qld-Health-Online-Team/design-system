@@ -1,6 +1,6 @@
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// // Mega Main Navigation
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Mega Main Navigation
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
 .qld__main-nav.qld__main-nav--mega{
     position: relative;
 
@@ -50,14 +50,12 @@
             .qld__icon{
                 color: var(--QLD-color-light-alt-button);
                 transition: transform 0.25s ease-in;
-
-                &--md{
-                    height: $QLD-icon-size-sm;
-                    width: $QLD-icon-size-sm;
-                }
                 
                 @include QLD-media(lg) {
-                    @include QLD-space(margin, 0unit 0.75unit 0unit -0.25unit);
+                    margin: 0 8px 0 8px;
+                }
+                @include QLD-media(xl) {
+                    margin: 0 12px 0 8px;
                 }
             }
 
@@ -85,7 +83,7 @@
             &-text{
                 display: none;
                 @include QLD-media(lg) {
-                    @include QLD-space(padding, .625unit .5unit .625unit .5unit);
+                    @include QLD-space(padding, .625unit 0unit .625unit .5unit);
                     display: inline-flex;
                     flex-direction: column;
                     align-items: center;
@@ -104,7 +102,7 @@
                 }
 
                 @include QLD-media(xl) {
-                    @include QLD-space(padding, .625unit .75unit .625unit .75unit);
+                    @include QLD-space(padding, .625unit 0unit .625unit .75unit);
                 }
             }
         }
@@ -207,27 +205,12 @@
                     transition: margin 0.2s ease;
                 }
 
-                // &::after{
-                //     content:'';
-                //     @include QLD-space(width, 1.25unit);
-                //     @include QLD-space(height, 2unit);
-                //     @include QLD-space(margin, 0 0 0 .875unit);
-                //     flex: 0 0 auto;
-                //     transition: margin 0.2s ease;
-                //     color: var(--QLD-color-light-alt-button);
-                //     background-image: QLD-svg-with-fill($QLD-icon-arrow-right, var(--QLD-color-light-alt-button));
-                //     background-repeat: no-repeat;
-                //     background-position: center;
-                //     display: block;
-                // }
-
                 &:hover{
                     background-color: transparent;
 
                     .qld__icon{
                         @include QLD-space(margin, 0 -4px 0 1.25unit);
                         color: var(--QLD-color-light-alt-button__hover);
-                        // background-image: QLD-svg-with-fill($QLD-icon-arrow-right, var(--QLD-color-light-alt-button__hover));
                     }
                 }
 
@@ -252,7 +235,6 @@
             }
         }
 
-        // .qld__link-list{
         .qld__link-columns{
             @include QLD-media(lg, 'down') {
                 margin: 0;
@@ -264,43 +246,12 @@
                 display: none;
             }
             @include QLD-media(lg) {
-                // display: flex;
-                // flex-wrap: wrap;
-                // justify-content: space-between;
-                // column-gap: 2rem;
-                // column-count: 3;
                 max-height: 500px;
             }
 
             @include QLD-media(xl) {
                 @include QLD-space(margin-top, 2unit);
             }
-            // @include QLD-media(lg) {
-            //     //Alignment of mega nav drop down based off the amount of children
-            //     /* one item */
-            //     li:first-child:nth-last-child(1) {
-            //         width: 100%;
-            //     }
-    
-            //     /* two items */
-            //     li:first-child:nth-last-child(2),
-            //     li:first-child:nth-last-child(2) ~ li {
-            //         width: 48%;
-            //     }
-    
-            //     /* three items or more */
-            //     li:first-child:nth-last-child(n+3),
-            //     li:first-child:nth-last-child(n+3) ~ li {
-            //         width: 31%;
-            //     }
-    
-            //     // /* four items */
-            //     // li:first-child:nth-last-child(n+3),
-            //     // li:first-child:nth-last-child(n+3) ~ li {
-            //     //     width: 25%;
-            //     // }
-            // }
-
 
             li {
                 @include QLD-media(lg, 'down') {
@@ -373,7 +324,6 @@
                     }      
                     @include QLD-media(lg) {
                         padding: 0;
-                        // border-top: solid $QLD-border-width-thin  var(--QLD-color-light-border);
                         border-bottom: none;
                         font-weight: bold;
                     }
@@ -441,10 +391,6 @@
                         }
                     }
 
-                    
-                    a{
-                        // @include QLD-space(padding, 1unit 0);
-                    }
                     .qld__main-nav__sub-item-text{
                         color: var(--QLD-color-light-link);
                         border-bottom: solid $QLD-border-width-thin  var(--QLD-color-light-border);
@@ -498,6 +444,7 @@
                     @include QLD-underline('dark','noUnderline','default','noVisited');
                     color: var(--QLD-color-dark-link);
                     fill:var(--QLD-color-dark-link);
+
                     &.qld__accordion--open{
                         background-color: var(--QLD-color-dark-background);
                         border-color: var(--QLD-color-dark-background);
@@ -505,7 +452,6 @@
 
                     .qld__icon{
                         color: var(--QLD-color-dark-alt-button);
-                        @include QLD-space(margin, 0unit 0.75unit 0unit -0.3unit);
                     }
 
                     &:hover{

@@ -10,50 +10,88 @@
 
 .qld__global-alert {
     padding:5px 0 5px 0;
+
+    .container-fluid {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     
     &.qld__global-alert--critical {
         background-color: $QLD-color-error;
         color: $QLD-color-system-white;
         font-size:pxToEm(13);
-        
+        & + & {
+            border-top: 1px solid #8A1220;
+        }
         a {
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-white;
-            @include QLD-underline('light','underline','default','noVisited');
             text-decoration-color: $QLD-color-system-white;
+            span {
+                color: $QLD-color-system-white;
+                text-decoration-color: $QLD-color-system-white;
+                &:hover,
+                &:visited {
+                    color: $QLD-color-system-white;
+                    text-decoration-color: $QLD-color-system-white;
+                }
+            }
+
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-white;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon{
+                    color: $QLD-color-system-white;
+                }
             }
         }
-        svg{
+        
+        .qld__icon{
             color: $QLD-color-system-white;
         }
         
-        svg path {
-            fill: $QLD-color-system-white;
-        }
     }
     
     &.qld__global-alert--default {
         background-color: $QLD-color-warning;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
-        
+        & + & {
+            border-top: 1px solid #B38800;
+        }
         a {
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-grey-text;
-            @include QLD-underline('light','underline','default', 'noVisited');
             text-decoration-color: $QLD-color-system-grey-text;
+            span {
+                color: $QLD-color-system-grey-text;
+                text-decoration-color: $QLD-color-system-grey-text;
+                &:hover,
+                &:visited {
+                    color: $QLD-color-system-grey-text;
+                    text-decoration-color: $QLD-color-system-grey-text;
+                }
+            }
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-grey-text;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon{
+                    color: $QLD-color-system-grey-text;
+                }
             }
         }
-        svg{
+        .qld__icon{
             color: $QLD-color-system-grey-text;
-        }
-        
-        svg path {
-            fill: $QLD-color-system-grey-text;
         }
     }
     
@@ -61,19 +99,39 @@
         background-color: $QLD-color-general;
         color: $QLD-color-system-grey-text;
         font-size:pxToEm(14);
-        
+        & + & {
+            border-top: 1px solid #5c94c0;
+        }
         a {
-            @include QLD-underline('light','underline','default', 'noVisited');
+            text-decoration-line: solid;
+            text-decoration-thickness: var(--QLD-underline__thickness-thin);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-skip-ink: auto;
+
             color: $QLD-color-system-grey-text;
             text-decoration-color: $QLD-color-system-grey-text;
+            span {
+                color: $QLD-color-system-grey-text;
+                text-decoration-color: $QLD-color-system-grey-text;
+                &:hover,
+                &:visited {
+                    color: $QLD-color-system-grey-text;
+                    text-decoration-color: $QLD-color-system-grey-text;
+                }
+            }
+
             &:hover, 
             &:visited{
                 text-decoration-color: $QLD-color-system-grey-text;
+                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                .qld__icon {
+                    color: $QLD-color-system-grey-text;
+                }
             }
         }
         
-        svg path {
-            fill: $QLD-color-system-grey-text;
+        .qld__icon {
+            color: $QLD-color-system-grey-text;
         }
     }
 
@@ -126,6 +184,7 @@
             &:focus{
                 outline: 3px solid $QLD-color-dark-alt-background__shade;
 				outline-offset: 2px;
+                border-radius: 4px;
             }
         }
         

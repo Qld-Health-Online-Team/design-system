@@ -15,7 +15,8 @@
 /**
  * Basic styles for all headings
  */
-// .qld__header,
+.qld__header,
+.qld__header__main,
 .qld__body,
 .qld__footer,
 .qld__banner,
@@ -37,11 +38,13 @@
         font-weight: 600;
         margin: 0;
         color: var(--QLD-color-light-heading);
-        @include QLD-space(max-width, $QLD-font-maxwidth);
+        max-width: 80ch;
     }
 
     &.qld__body--dark,
-    &.qld__body--dark-alt {
+    &.qld__body--dark-alt,
+    &.qld__header__main--dark,
+    &.qld__header__main--dark-alt {
         h1,
         h2,
         h3,
@@ -99,55 +102,61 @@
         @include QLD-fontgrid(xs, heading);
     }
 
-    .qld__display-xxxl {
-        font-size: var(--QLD-font-size-mobile-xxxl);
+    .qld__display-xxxl{
+        font-size: $QLD-font-size-mobile-xxxl;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-xxxl);
+            font-size: $QLD-font-size-desktop-xxxl;
         }
     }
-
-    .qld__display-xxl {
-        font-size: var(--QLD-font-size-mobile-xxl);
+    
+    .qld__display-xxl{
+        font-size: $QLD-font-size-mobile-xxl;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-xxl);
+            font-size: $QLD-font-size-desktop-xxl;
         }
     }
-
+    
     .qld__display-xl{
-        font-size: var(--QLD-font-size-mobile-xl);
-
+        font-size: $QLD-font-size-mobile-xl;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-xl);
+            font-size: $QLD-font-size-desktop-xl;
         }
     }
-
+    
     .qld__display-lg{
-        font-size: var(--QLD-font-size-mobile-lg);
+        font-size: $QLD-font-size-mobile-lg;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-lg);
+            font-size: $QLD-font-size-desktop-lg;
         }
     }
-
+    
     .qld__display-md{
-        font-size: var(--QLD-font-size-mobile-md);
+        font-size: $QLD-font-size-mobile-md;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-md); 
+            font-size: $QLD-font-size-desktop-md; 
         }
     }
-
+    
     .qld__display-sm{
-        font-size: var(--QLD-font-size-mobile-sm);
+        font-size: $QLD-font-size-mobile-sm;
+    
         @include QLD-media(lg) {
-            font-size: var(--QLD-font-size-desktop-sm);
+            font-size: $QLD-font-size-desktop-sm;
         }
     }
-
+    
     .qld__display-xs{
-       font-size: var(--QLD-font-size-mobile-xs);
+       font-size: $QLD-font-size-mobile-xs;
+    
        @include QLD-media(lg) {
-        font-size: var(--QLD-font-size-desktop-xs);
+        font-size: $QLD-font-size-desktop-xs;
         }
-
+    
     }
 
     /**
