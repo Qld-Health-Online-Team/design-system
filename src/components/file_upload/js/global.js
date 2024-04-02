@@ -21,7 +21,7 @@
         fileTemplate.classList.add('qld__form-file');
 
         fileTemplate.innerHTML = `<div class="qld__form-file-loader">
-                            <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
+                            <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
                                 <span class="qld__loading_spinner-wheel"></span>
                             </div>
                         </div>
