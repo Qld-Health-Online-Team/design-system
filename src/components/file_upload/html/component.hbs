@@ -1,0 +1,151 @@
+{{#with component.data}}
+<div class="qld__form-group">
+    <label class="qld__label" for="ij-field__{{metadata.field_name.value}}">{{metadata.field_name.value}}</label>
+    <div class="qld__form-file-wrapper">
+        <div class="qld__form-file-dropzone">
+            <div class="qld__file-input-icon">
+                <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
+                <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
+                    <span class="qld__loading_spinner-wheel"></span>
+                    <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
+                </div>
+            </div>
+            <p class="qld__file-input-title"><span>Drag and drop files here or </span>select files to upload</p>
+            {{#ifAny metadata.file_types.value metadata.max_size.value metadata.max_selection.value}}
+            <div class="qld__file-input-constraints qld__caption">
+                {{#if metadata.file_types.value}}<span>You can upload {{replace metadata.file_types.value '\.' ' '}} files.</span>{{/if}}
+                {{#if metadata.max_size.value}}<span>Files can't be larger than {{metadata.max_size.value}} MB.</span>{{/if}}
+                {{#if metadata.max_selection.value}}
+                    <span>You can upload up to {{metadata.max_selection.value}} {{#ifCond metadata.max_selection.value '>' '1'}}files{{else}}file{{/ifCond}}.</span>
+                {{/if}}
+            </div>
+            {{/ifAny}}
+            <input id="ij-field__{{metadata.field_name.value}}"
+                class="qld__file-input visuallyhidden"
+                name="file|{{metadata.field_name.value}}{{#ifCond metadata.max_selection.value '>' '1'}}[]{{/ifCond}}" type="file"
+                accept="{{metadata.file_types.value}}"
+                data-file-types="{{metadata.file_types.value}}"
+                data-create-location="{{metadata.create_location.value}}"
+                data-files=''
+                data-max-size="{{metadata.max_size.value}}"
+                data-max-files="{{metadata.max_selection.value}}"
+                data-js-api="{{metadata.js_api.value}}"
+                {{#ifCond metadata.max_selection.value '>' '1'}}multiple{{/ifCond}}
+            >
+            <label class="qld__file-input-label qld__btn qld__btn--secondary" for="ij-field__{{metadata.field_name.value}}">Select files</label>
+        </div>
+        {{!-- File Preview Area --}}
+        <div id="ij-field__{{metadata.field_name.value}}-preview" class="qld__form-file-preview"></div>
+    </div>
+</div>
+{{/with}}
+
+<h2>File List - Examples</h2>
+<div class="qld__form-file-wrapper">
+    <div id="ij-field__test-preview" class="qld__form-file-preview">
+        <div class="qld__form-file qld__form-file--success">
+            <div class="qld__form-file-info-wrapper">
+                <div class="qld__form-file-loader">
+                    <!-- Loader or icon here -->
+                    <i class="fa-light fa-2x fa-file"></i>
+                </div>
+                <div class="qld__form-file-info">
+                    <p class="qld__display-xs">Long_File_Name_Long_File_Name_Long_File_Name_Long_File_Name_Long_File_Name_Long_File_Name_.png</p>
+                    <span class="qld__form-file-info-status">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"/></svg>
+                        Upload successful - 525KB
+                    </span>
+                </div>
+            </div>
+            <div class="qld__form-file-actions">
+                <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                    <i class="fa-light fa-trash"></i>
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <div class="qld__form-file qld__form-file--success">
+            <div class="qld__form-file-info-wrapper">
+                <div class="qld__form-file-loader">
+                    <!-- Loader or icon here -->
+                    <i class="fa-light fa-2x fa-file-word"></i>
+                </div>
+                <div class="qld__form-file-info">
+                    <p class="qld__display-xs">WORD_DOC.png</p>
+                    <span class="qld__form-file-info-status">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"/></svg>
+                        Upload successful - 525KB
+                    </span>
+                </div>
+            </div>
+            <div class="qld__form-file-actions">
+                <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                    <i class="fa-light fa-trash"></i>
+                    Remove
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="qld__form-file qld__form-file--success">
+            <div class="qld__form-file-info-wrapper">
+                <div class="qld__form-file-loader">
+                    <!-- Loader or icon here -->
+                    <i class="fa-light fa-2x fa-file-pdf"></i>
+                </div>
+                <div class="qld__form-file-info">
+                    <p class="qld__display-xs">PDF_FILE.png</p>
+                    <span class="qld__form-file-info-status">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"/></svg>
+                        Upload successful - 525KB
+                    </span>
+                </div>
+            </div>
+            <div class="qld__form-file-actions">
+                <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                    <i class="fa-light fa-trash"></i>
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <div class="qld__form-file qld__form-file--error">
+            <div class="qld__form-file-info-wrapper">
+                <div class="qld__form-file-loader">
+                    <!-- Loader or icon here -->
+                    <i class="fa-light fa-2x fa-file-exclamation"></i>
+                </div>
+                <div class="qld__form-file-info">
+                    <p class="qld__display-xs">FILE_NAME_ERROR.png</p>
+                    <span class="qld__form-file-info-status">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8" fill="#E22339"/><path d="M10 13C9.41667 13 9 13.5357 9 14C9 14.5 9.41667 15 10 15C10.5417 15 11 14.5 11 14C11 13.5357 10.5417 13 10 13ZM10 12C10.8044 12 11 11.3214 11 11V6C11 5.5 10.5 5 10 5C9.5 5 9 5.5 9 6V11C9 11.3214 9.1956 12 10 12Z" fill="white"/></svg>
+                        Error message
+                    </span>
+                </div>
+            </div>
+            <div class="qld__form-file-actions">
+                <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                    <i class="fa-light fa-trash"></i>
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <div class="qld__form-file">
+            <div class="qld__form-file-info-wrapper">
+                <div class="qld__form-file-loader">
+                    <!-- Loader or icon here -->
+                    <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
+                        <span class="qld__loading_spinner-wheel"></span>
+                    </div>
+                </div>
+                <div class="qld__form-file-info">
+                    <p class="qld__display-xs">FILE_NAME_LOADING.png</p>
+                    <span class="qld__form-file-info-status">Uploading...</span>
+                </div>
+            </div>
+            <div class="qld__form-file-actions"></div>
+        </div>
+    </div>
+</div>
