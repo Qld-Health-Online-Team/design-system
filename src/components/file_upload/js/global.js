@@ -486,13 +486,17 @@
                         return newFileInfo;
 
                     } else {
-                        throw new Error(newFileInfo);
+                        if(newFileInfo.errorDetails?.length > 0) {
+                            let err = {};
+                            err.error = newFileInfo.errorDetails[0];
+                            throw err.error;
+                        } 
                     }
                 } else {
-                    throw new Error(updatedFileAsset);
+                    throw updatedFileAsset.error;
                 }
             } else {
-                throw newFileAsset;
+                throw newFileAsset.error;
             }
 
         } catch(error) {
@@ -564,7 +568,11 @@
             if(!updatedFile.hasOwnProperty('error')) {
                 return updatedFile;
             } else {
-                throw new Error(updatedFile);
+                if(updatedFile.errorDetails?.length > 0) {
+                    let err = {};
+                    err.error = updatedFile.errorDetails[0];
+                    throw err;
+                } 
             }
 
         } catch(error) {
