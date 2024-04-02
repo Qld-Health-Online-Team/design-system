@@ -439,7 +439,7 @@
      */
     const jsApi = (() => {
         let options = new Array();
-        options["key"] = typeof site !== 'undefined' ? site.metadata.fileUploadJsApiKey?.value : ``;
+        options["key"] = "9416674173";
         let js_api = window.location.host === "0.0.0.0:8080" || window.location.host === "localhost:8080" ? null : new Squiz_Matrix_API(options);
         
         return js_api;
@@ -596,10 +596,6 @@
         }
     }
 
-    // Init file upload fields
-    window.addEventListener('DOMContentLoaded', function () {
-        // Add to global QLD module
-        QLD.fileUploads = fileUploads;
-    });
-    
+    QLD.fileUploads = fileUploads;
+
 }());
