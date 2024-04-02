@@ -152,8 +152,8 @@
 
         // If file size exceeds the maximum
         if(fileSize / (1024 * 1024) > maxFileSize) {
-            console.error(`The selected file must be smaller than ${maxFileSize}MB`);
-            return 'File type not allowed';
+            console.error(`Max file size ${maxFileSize} exceeded.`);
+            return `The selected file must be smaller than ${maxFileSize}MB`;
         }
 
         // If the max file limit has been reached
@@ -439,7 +439,7 @@
      */
     const jsApi = (() => {
         let options = new Array();
-        options["key"] = typeof site !== 'undefined' ? site.metadata.internalJobsJsApiKey?.value : ``;
+        options["key"] = typeof site !== 'undefined' ? site.metadata.fileUploadJsApiKey?.value : ``;
         let js_api = window.location.host === "0.0.0.0:8080" || window.location.host === "localhost:8080" ? null : new Squiz_Matrix_API(options);
         
         return js_api;
@@ -596,12 +596,10 @@
         }
     }
 
-    // Add to global QLD module
-    QLD.fileUploads = fileUploads;
-
     // Init file upload fields
     window.addEventListener('DOMContentLoaded', function () {
-        QLD.fileUploads.init();
+        // Add to global QLD module
+        QLD.fileUploads = fileUploads;
     });
     
 }());
