@@ -1,37 +1,41 @@
-<div class="qld__form-group">
-    <label class="qld__label" for="ij-field__"></label>
-    <div class="qld__form-file-wrapper">
-        <div class="qld__form-file-dropzone">
-            <div class="qld__file-input-icon">
-                <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
-                <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
-                    <span class="qld__loading_spinner-wheel"></span>
-                    <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
+<form class="qld__form--validate" action="/">
+    <div class="qld__form-group">
+        <label class="qld__label" for="ij-field__Resources">Resources</label>
+        <div class="qld__form-file-wrapper">
+            <div class="qld__form-file-dropzone">
+                <div class="qld__file-input-icon">
+                    <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
+                    <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
+                        <span class="qld__loading_spinner-wheel"></span>
+                        <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
+                    </div>
                 </div>
+                <p class="qld__file-input-title"><span>Drag and drop files here or </span>select files to upload</p>
+                <div class="qld__file-input-constraints qld__caption">
+                    <span>You can upload  pdf, doc, docx files.</span>
+                    <span>Files can't be larger than 10 MB.</span>
+                        <span>You can upload up to 3 files.</span>
+                </div>
+                <input id="ij-field__Resources"
+                    class="qld__file-input visuallyhidden"
+                    name="file|Resources[]" type="file"
+                    accept=".pdf,.doc,.docx"
+                    data-file-types=".pdf,.doc,.docx"
+                    data-create-location="123456"
+                    data-files=''
+                    data-max-size="10"
+                    data-max-files="3"
+                    data-js-api="false"
+                    multiple
+                    required
+                >
+                <label class="qld__file-input-label qld__btn qld__btn--secondary" for="ij-field__Resources">Select files</label>
             </div>
-            <p class="qld__file-input-title"><span>Drag and drop files here or </span>select files to upload</p>
-            <div class="qld__file-input-constraints qld__caption">
-                <span>You can upload  pdf, doc, docx files.</span>
-                <span>Files can't be larger than 10 MB.</span>
-                    <span>You can upload up to 3 files.</span>
-            </div>
-            <input id="ij-field__"
-                class="qld__file-input visuallyhidden"
-                name="file|[]" type="file"
-                accept=".pdf,.doc,.docx"
-                data-file-types=".pdf,.doc,.docx"
-                data-create-location="123456"
-                data-files=''
-                data-max-size="10"
-                data-max-files="3"
-                data-js-api="false"
-                multiple
-            >
-            <label class="qld__file-input-label qld__btn qld__btn--secondary" for="ij-field__">Select files</label>
+            <div id="ij-field__Resources-preview" class="qld__form-file-preview"></div>
         </div>
-        <div id="ij-field__-preview" class="qld__form-file-preview"></div>
     </div>
-</div>
+    <input type="submit" value="submit">
+</form>
 
 <h2>File List - Examples</h2>
 <div class="qld__form-file-wrapper">
