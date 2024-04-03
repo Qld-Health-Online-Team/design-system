@@ -58,8 +58,7 @@
                                     </div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-                                            <i class="fa-light fa-trash" aria-hidden="true"></i>
-                                            Remove
+                                            <i class="fa-light fa-trash" aria-hidden="true"></i>Remove
                                         </button>
                                     </div>`;
         
@@ -88,8 +87,7 @@
                                     </div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-                                            <i class="fa-light fa-trash" aria-hidden="true"></i>
-                                            Remove
+                                            <i class="fa-light fa-trash" aria-hidden="true"></i>Remove
                                         </button>
                                     </div>`;
         
@@ -437,11 +435,21 @@
             // Quick setTimeout to simulate a file upload
             setTimeout(() => {
                 let success = successTemplate(file);
-                
+                let text = success.querySelector(".qld__form-file-info-status");
+                let newText = success.querySelector(".qld__form-file-info-status").textContent.replace("successful", "complete");
+
                 // Use success template, but add different text & class since the file isn't actually uploaded until submission
+                for (var i = 0; i < text.childNodes.length; i++) {
+                    var node = text.childNodes[i];
+                    
+                    // If it's a text node
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("successful")) {
+                        node.textContent = newText;
+                    }
+                }
+            
                 success.classList.remove("qld__form-file--success");
                 success.classList.add("qld__form-file--complete");
-                success.querySelector(".qld__form-file-info-status").innerText.replace("success", "complete");
                 
                 fileInfo.replaceWith(success);
                 resolve();
