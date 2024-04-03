@@ -269,11 +269,10 @@
     
     }
 
-
     const deleteFile = async (input_field_settings, fileId, $fileInfo) => {
         const currentFiles = input_field_settings.files;
         const isError = $fileInfo.matches(".qld__form-file--error");
-        const jsApi = input_field_settings.js_api;
+        const usingJsApi = input_field_settings.js_api;
         const index = currentFiles.findIndex((obj)=>{
             if (typeof(obj) === 'string') {
                 return JSON.parse(obj).id === fileId;
@@ -287,7 +286,7 @@
             currentFiles.splice(index, 1);
             input_field_settings.files = currentFiles;
             // Update FileList if not using JS API
-            if(jsApi !== "true") {
+            if(usingJsApi !== "true") {
                 updateFileInputFileList(input_field_settings);         
             } else {
                 try {
@@ -297,11 +296,19 @@
                     console.log(error);
                 }
             }
+            
+            // Validate file input
+            $(input_field_settings.input_element).valid();
         }
         // Remove the file info box from preview list
         $fileInfo.remove();
     }
 
+    /**
+     * Send trashAsset request to Matrix
+     * 
+     * @memberof module:fileUploads
+     */
     const deleteAssetFromMatrix = async (fileId, $fileInfo) => {
         try {
             const name = $fileInfo.querySelector(".qld__form-file-info-name").innerText;
@@ -339,8 +346,14 @@
         });
     }
 
+    /**
+     * Handle any files the user has dropped/selected
+     * 
+     * @memberof module:fileUploads
+     */
     const handleFiles = async (files, input_field_settings) => {
         const $fileList = input_field_settings.file_list_element;
+        const usingJsApi = input_field_settings.js_api;
         const $dropZone = input_field_settings.dropzone_element;
         let promiseArray = [];
 
@@ -350,7 +363,6 @@
         // Loop over all of the passed in files, and handle them based on input_field_settings
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
-            const jsApi = input_field_settings.js_api;
             // Set an initial ID for the file object
             file.id = file.id !== undefined ? file.id : file.name;
             // Returns either an error message (string), or true (boolean)
@@ -363,29 +375,29 @@
                 fileInfo = loadingTemplate(file);
                 
                 // If we're using the JS API to create file assets
-                if(jsApi === "true") {
+                if(usingJsApi === "true") {
                     promiseArray.push(uploadFileJsApi(file, fileInfo, input_field_settings));
                 } else {
                     // Push file object into files array
                     input_field_settings.files.push(file);
                     promiseArray.push(simulateFileUpload(file, fileInfo));
-                    // Default functionality for a file type input is to reset the FileList with the newly selected file/s, 
-                    // this will override that for subsequent interactions with the file input.
-                    updateFileInputFileList(input_field_settings);
                 }
 
             } else {
-                // Update the file list if JS API isn't being used
-                if(jsApi !== "true") {
-                    updateFileInputFileList(input_field_settings);
-                }
-
                 fileInfo = errorTemplate(file, isValid);
             }
-            
             // Append the file info box to the file preview list
             $fileList.appendChild(fileInfo);
         }
+
+        if(usingJsApi !== "true"){
+            // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
+            // This will override that for subsequent interactions with the file input, or clicking the cancel button.
+            updateFileInputFileList(input_field_settings);
+        }
+
+        // Validate file input
+        $(input_field_settings.input_element).valid();
         
         try {
             let allPromisesResolved = await Promise.all(promiseArray);
@@ -393,8 +405,8 @@
             toggleDropzoneClass($dropZone, "updating");
 
         } catch(error) {
-            // Remove 'uploading' class, and add error class for dropzone element
-            toggleDropzoneClass($dropZone, "updating,error");
+            // Remove 'uploading' class
+            toggleDropzoneClass($dropZone, "updating");
             console.error(error);
         }
     }
@@ -413,7 +425,6 @@
 
         // Set the input files value to the new 'array' of File objects
         $inputField.files = dataTransfer.files;
-
     }
 
     /**
@@ -423,12 +434,18 @@
      */
     const simulateFileUpload = (file, fileInfo) => {
         return new Promise((resolve, reject) => {
-        // Quick 2s setTimeout to simulate a file upload
+            // Quick setTimeout to simulate a file upload
             setTimeout(() => {
                 let success = successTemplate(file);
+                
+                // Use success template, but add different text & class since the file isn't actually uploaded until submission
+                success.classList.remove("qld__form-file--success");
+                success.classList.add("qld__form-file--complete");
+                success.querySelector(".qld__form-file-info-status").innerText.replace("success", "complete");
+                
                 fileInfo.replaceWith(success);
                 resolve();
-            }, 2000);
+            }, 1500);
         });
     }
 
@@ -605,5 +622,9 @@
     }
 
     QLD.fileUploads = fileUploads;
+
+    window.addEventListener('DOMContentLoaded', function () {
+        QLD.fileUploads.init();
+    });
 
 }());

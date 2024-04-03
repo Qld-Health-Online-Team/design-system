@@ -1,43 +1,47 @@
 {{#with component.data}}
-<div class="qld__form-group">
-    <label class="qld__label" for="ij-field__{{metadata.field_name.value}}">{{metadata.field_name.value}}</label>
-    <div class="qld__form-file-wrapper">
-        <div class="qld__form-file-dropzone">
-            <div class="qld__file-input-icon">
-                <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
-                <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
-                    <span class="qld__loading_spinner-wheel"></span>
-                    <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
+<form class="qld__form--validate" action="/">
+    <div class="qld__form-group">
+        <label class="qld__label" for="ij-field__{{metadata.input_name.value}}">{{metadata.input_name.value}}</label>
+        <div class="qld__form-file-wrapper">
+            <div class="qld__form-file-dropzone">
+                <div class="qld__file-input-icon">
+                    <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
+                    <div class="qld__loading_spinner qld__loading_spinner--dark qld__loading_spinner--landscape" role="status">
+                        <span class="qld__loading_spinner-wheel"></span>
+                        <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
+                    </div>
                 </div>
+                <p class="qld__file-input-title"><span>Drag and drop files here or </span>select files to upload</p>
+                {{#ifAny metadata.file_types.value metadata.max_size.value metadata.max_selection.value}}
+                <div class="qld__file-input-constraints qld__caption">
+                    {{#if metadata.file_types.value}}<span>You can upload {{replace metadata.file_types.value '\.' ' '}} files.</span>{{/if}}
+                    {{#if metadata.max_size.value}}<span>Files can't be larger than {{metadata.max_size.value}} MB.</span>{{/if}}
+                    {{#if metadata.max_selection.value}}
+                        <span>You can upload up to {{metadata.max_selection.value}} {{#ifCond metadata.max_selection.value '>' '1'}}files{{else}}file{{/ifCond}}.</span>
+                    {{/if}}
+                </div>
+                {{/ifAny}}
+                <input id="ij-field__{{metadata.input_name.value}}"
+                    class="qld__file-input visuallyhidden"
+                    name="file|{{metadata.input_name.value}}{{#ifCond metadata.max_selection.value '>' '1'}}[]{{/ifCond}}" type="file"
+                    accept="{{metadata.file_types.value}}"
+                    data-file-types="{{metadata.file_types.value}}"
+                    data-create-location="{{metadata.create_location.value}}"
+                    data-files=''
+                    data-max-size="{{metadata.max_size.value}}"
+                    data-max-files="{{metadata.max_selection.value}}"
+                    data-js-api="{{metadata.js_api.value}}"
+                    {{#ifCond metadata.max_selection.value '>' '1'}}multiple{{/ifCond}}
+                    required
+                >
+                <label class="qld__file-input-label qld__btn qld__btn--secondary" for="ij-field__{{metadata.input_name.value}}">Select files</label>
             </div>
-            <p class="qld__file-input-title"><span>Drag and drop files here or </span>select files to upload</p>
-            {{#ifAny metadata.file_types.value metadata.max_size.value metadata.max_selection.value}}
-            <div class="qld__file-input-constraints qld__caption">
-                {{#if metadata.file_types.value}}<span>You can upload {{replace metadata.file_types.value '\.' ' '}} files.</span>{{/if}}
-                {{#if metadata.max_size.value}}<span>Files can't be larger than {{metadata.max_size.value}} MB.</span>{{/if}}
-                {{#if metadata.max_selection.value}}
-                    <span>You can upload up to {{metadata.max_selection.value}} {{#ifCond metadata.max_selection.value '>' '1'}}files{{else}}file{{/ifCond}}.</span>
-                {{/if}}
-            </div>
-            {{/ifAny}}
-            <input id="ij-field__{{metadata.field_name.value}}"
-                class="qld__file-input visuallyhidden"
-                name="file|{{metadata.field_name.value}}{{#ifCond metadata.max_selection.value '>' '1'}}[]{{/ifCond}}" type="file"
-                accept="{{metadata.file_types.value}}"
-                data-file-types="{{metadata.file_types.value}}"
-                data-create-location="{{metadata.create_location.value}}"
-                data-files=''
-                data-max-size="{{metadata.max_size.value}}"
-                data-max-files="{{metadata.max_selection.value}}"
-                data-js-api="{{metadata.js_api.value}}"
-                {{#ifCond metadata.max_selection.value '>' '1'}}multiple{{/ifCond}}
-            >
-            <label class="qld__file-input-label qld__btn qld__btn--secondary" for="ij-field__{{metadata.field_name.value}}">Select files</label>
+            {{!-- File Preview Area --}}
+            <div id="ij-field__{{metadata.input_name.value}}-preview" class="qld__form-file-preview"></div>
         </div>
-        {{!-- File Preview Area --}}
-        <div id="ij-field__{{metadata.field_name.value}}-preview" class="qld__form-file-preview"></div>
     </div>
-</div>
+    <input type="submit" value="submit">
+</form>
 {{/with}}
 
 <h2>File List - Examples</h2>
