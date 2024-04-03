@@ -294,10 +294,9 @@
                     console.log(error);
                 }
             }
-            
-            // Validate file input
-            $(input_field_settings.input_element).valid();
         }
+        // Validate file input
+        $(input_field_settings.input_element).valid();
         // Remove the file info box from preview list
         $fileInfo.remove();
     }
