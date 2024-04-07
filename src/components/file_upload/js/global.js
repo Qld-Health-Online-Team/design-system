@@ -221,7 +221,7 @@
 
         if(!$.validator.methods.jsApiFileRequired) {
             $.validator.addMethod("jsApiFileRequired", function(value, element) {
-                const files = $(element).data("files");
+                const files = element.dataset["files"];
                 if(files === "") {
                     return false
                 } else {
