@@ -409,7 +409,6 @@
             if(isValid === true) {
                 // If we're using the JS API to create file assets
                 if(usingJsApi === "true") {
-                    input_field_settings.input_element.value = "";
                     promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
                 } else {
                     // Push file object into files array
@@ -425,6 +424,9 @@
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
+        } else {
+            // Otherwise, reset the file input value
+            input_field_settings.input_element.value = "";
         }
         // Once all promises have resolved, remove the updating class, and validate the field
         try {
