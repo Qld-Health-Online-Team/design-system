@@ -206,24 +206,31 @@
 
             // Add event listeners 
             addListeners(fileUploads.inputs[$input.id]);
-            // Custom validation for JS API 
-            if(fileUploads.inputs[$input.id].js_api === "true") {
+            // Custom validation for JS API if the field is required
+            if(fileUploads.inputs[$input.id].js_api === "true" && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
                 addValidation(fileUploads.inputs[$input.id]);
             }
         };
     }
 
     const addValidation = (input_field_settings)=> {
-        const $input = $(input_field_settings.input_element);
+        const $input = input_field_settings.input_element;
+
+        // Remove required attribute
+        $input.removeAttribute("required");
 
         if(!$.validator.methods.jsApiFileRequired) {
             $.validator.addMethod("jsApiFileRequired", function(value, element) {
                 const files = $(element).data("files");
-                return files !== "" ? files.trim : true;
+                if(files === "") {
+                    return false
+                } else {
+                    return true
+                }
             }, "This field is required.");
         }
 
-        $input.rules("add", {
+        $($input).rules("add", {
             jsApiFileRequired: true
         });
     }
