@@ -115,6 +115,11 @@
     border: 2px dashed var(--QLD-color-light-alt-border);
     padding: pxToRem(24) 0;
     text-align: center;
+    
+    &.qld__input--error {
+        background-color: $QLD-color-error__light;
+        border-color: $QLD-color-error;
+    }
 
     &--dragged-over {
         background-color: var(--QLD-color-light-background__shade);
@@ -124,11 +129,6 @@
     &--disabled,
     &--updating {
         color: $QLD-color-light-text__muted;
-    }
-
-    &.qld__input--error {
-        background-color: $QLD-color-error__light;
-        border-color: $QLD-color-error;
     }
 
     @include QLD-media(lg) {
