@@ -206,7 +206,26 @@
 
             // Add event listeners 
             addListeners(fileUploads.inputs[$input.id]);
+            // Custom validation for JS API 
+            if(fileUploads.inputs[$input.id].js_api === "true") {
+                addValidation(fileUploads.inputs[$input.id]);
+            }
         };
+    }
+
+    const addValidation = (input_field_settings)=> {
+        const $input = $(input_field_settings.input_element);
+
+        if(!$.validator.methods.jsApiFileRequired) {
+            $.validator.addMethod("jsApiFileRequired", function(value, element) {
+                const files = $(element).data("files");
+                return files !== "" ? files.trim : true;
+            }, "This field is required.");
+        }
+
+        $input.rules("add", {
+            jsApiFileRequired: true
+        });
     }
 
     const addListeners = (input_field_settings) => {
@@ -267,6 +286,11 @@
     
     }
 
+    /**
+     * Remove file from file input (and Matrix if using the JS API )
+     * 
+     * @memberof module:fileUploads
+     */
     const deleteFile = async (input_field_settings, fileId, $fileInfo) => {
         const currentFiles = input_field_settings.files;
         const isError = $fileInfo.matches(".qld__form-file--error");
@@ -309,14 +333,14 @@
     const deleteAssetFromMatrix = async (fileId, $fileInfo) => {
         try {
             const name = $fileInfo.querySelector(".qld__form-file-info-name").innerText;
-            const file = {"name": name};
+            const file = {"name": name}; 
             const $loading = loadingTemplate(file);
 
-            // Change text from ''Uploading' to 'Deleting'
+            // Change text from ''Uploading' to 'Deleting' and replace current file info box
             $loading.querySelector(".qld__form-file-info-status").innerText = "Deleting...";
-
             $fileInfo.replaceWith($loading);
-
+            
+            // Send trashAsset request
             let trashedAsset = await jsApi.trashAsset({
                 "asset_ids": fileId
             });
@@ -334,6 +358,11 @@
         }
     }
 
+    /**
+     * Toggle a class for the file dropzone
+     * 
+     * @memberof module:fileUploads
+     */
     const toggleDropzoneClass = ($dropZone, status) => {
         const classNames = status.split(',');
         const $fileInput = $dropZone.querySelector("input[type=file]");
@@ -354,7 +383,7 @@
         const $dropZone = input_field_settings.dropzone_element;
         let promiseArray = [];
 
-        // Set 'uploading' class for dropzone element
+        // Set 'updating' class for dropzone element
         toggleDropzoneClass($dropZone, "updating");
 
         // Loop over all of the passed in files, and handle them based on input_field_settings
@@ -364,52 +393,52 @@
             file.id = file.id !== undefined ? file.id : file.name;
             // Returns either an error message (string), or true (boolean)
             let isValid = isFileValid(file, input_field_settings);
-            let fileInfo; 
+            // Set the fileInfo block to display the loading template
+            let $fileInfo = loadingTemplate(file); 
+            // Append the file info box to the file preview list
+            $fileList.appendChild($fileInfo);
             
             // If the file is valid
             if(isValid === true) {
-                // Set the fileInfo block to display the loading template
-                fileInfo = loadingTemplate(file);
-                
                 // If we're using the JS API to create file assets
                 if(usingJsApi === "true") {
-                    promiseArray.push(uploadFileJsApi(file, fileInfo, input_field_settings));
+                    input_field_settings.input_element.value = "";
+                    promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
                 } else {
                     // Push file object into files array
                     input_field_settings.files.push(file);
-                    promiseArray.push(simulateFileUpload(file, fileInfo));
+                    promiseArray.push(simulateFileUpload(file, $fileInfo));
                 }
-
             } else {
-                fileInfo = errorTemplate(file, isValid);
+                $fileInfo.replaceWith(errorTemplate(file, isValid));
             }
-            // Append the file info box to the file preview list
-            $fileList.appendChild(fileInfo);
         }
-
+        // Only update the FileList if the JS API isn't being used
         if(usingJsApi !== "true"){
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
         }
-
-        // Validate file input
-        $(input_field_settings.input_element).valid();
-        
+        // Once all promises have resolved, remove the updating class, and validate the field
         try {
-            let allPromisesResolved = await Promise.all(promiseArray);
-            // Remove 'uploading' class for dropzone element
-            toggleDropzoneClass($dropZone, "updating");
-
+            await Promise.all(promiseArray);
         } catch(error) {
-            // Remove 'uploading' class
-            toggleDropzoneClass($dropZone, "updating");
             console.error(error);
+        } finally {
+            // Remove 'updating' class from dropzone
+            toggleDropzoneClass($dropZone, "updating");
+            // Validate file input
+            $(input_field_settings.input_element).valid();
         }
     }
 
+    /**
+     * Update the FileList for the file input
+     * 
+     * @memberof module:fileUploads
+     */
     const updateFileInputFileList = (input_field_settings) => {
-        // We can't directly modify an existing FileList, as FileLists are read-only array-like structures (not an array)
+        // We can't directly modify an existing populated FileList, because FileLists are read-only array-like structures (not an actual array)
         // We need to create a DataTransfer instance, and add all of the current files to it - then set that as the new input.files value
         const files = input_field_settings.files;
         const $inputField = input_field_settings.input_element;
@@ -419,40 +448,37 @@
         files.forEach(function(file) {
             dataTransfer.items.add(file);
         });
-
         // Set the input files value to the new 'array' of File objects
         $inputField.files = dataTransfer.files;
     }
 
     /**
-     * Upload selected files to matrix
+     * Display the info box for selected/dropped files (when data-js-api is set to "false")
      * 
      * @memberof module:fileUploads
      */
-    const simulateFileUpload = (file, fileInfo) => {
+    const simulateFileUpload = (file, $fileInfo) => {
         return new Promise((resolve, reject) => {
             // Quick setTimeout to simulate a file upload
-            setTimeout(() => {
-                let success = successTemplate(file);
-                let text = success.querySelector(".qld__form-file-info-status");
-                let newText = success.querySelector(".qld__form-file-info-status").textContent.replace("successful", "complete");
+            let success = successTemplate(file);
+            let text = success.querySelector(".qld__form-file-info-status");
+            let newText = success.querySelector(".qld__form-file-info-status").textContent.replace("successful", "complete");
 
-                // Use success template, but add different text & class since the file isn't actually uploaded until submission
-                for (var i = 0; i < text.childNodes.length; i++) {
-                    var node = text.childNodes[i];
-                    
-                    // If it's a text node
-                    if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("successful")) {
-                        node.textContent = newText;
-                    }
-                }
-            
-                success.classList.remove("qld__form-file--success");
-                success.classList.add("qld__form-file--complete");
+            // Use successTemplate, but add different text since the file isn't actually uploaded until submission
+            for (var i = 0; i < text.childNodes.length; i++) {
+                var node = text.childNodes[i];
                 
-                fileInfo.replaceWith(success);
-                resolve();
-            }, 1500);
+                // If it's the text node that contains the word 'successful'
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("successful")) {
+                    node.textContent = newText;
+                }
+            }
+            // Remove --success class, and add --complete class
+            success.classList.remove("qld__form-file--success");
+            success.classList.add("qld__form-file--complete");
+            // Add success template
+            $fileInfo.replaceWith(success);
+            resolve();
         });
     }
 
@@ -470,7 +496,7 @@
     })();
 
     /**
-     * Upload selected files to matrix
+     * Upload selected file to matrix
      * 
      * @memberof module:fileUploads
      */
@@ -500,6 +526,7 @@
                     let newFileInfo = await jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
                     
                     if(!newFileInfo.hasOwnProperty('error')) {
+                        // We need to set the size property here, because jsApi.getGeneral doesn't return the size for some asset types
                         newFileInfo.size = file.size;
                         const $success = successTemplate(newFileInfo);
                         // Replace file info box with success template
@@ -538,11 +565,12 @@
     const createFileAsset = async function(file, input_field_settings) {
 
         // Asset id of create location
-        const createLocation = input_field_settings.input_element.dataset["createLocation"];
+        const createLocation = input_field_settings.create_location;
         const assetType = getAssetType(file.type);
         const fileName = file.name;
         
         try {
+            // Create new file asset
             const newFile = await jsApi.createFileAsset({
                 "parentID": createLocation,
                 "type_code": assetType.type,
@@ -621,11 +649,10 @@
             if(files.findIndex(file => file.id === newFileInfo.id) === -1) {
                 // Push stringified object containing file assetid and name into files array
                 files.push(JSON.stringify(fileObj));
-                input_field_settings.input_element.dataset["files"] = files;
             }
-        } else {
-            input_field_settings.input_element.dataset["files"] = files;
         }
+        // Set files data attribute 
+        input_field_settings.input_element.dataset["files"] = files;
     }
 
     QLD.fileUploads = fileUploads;
