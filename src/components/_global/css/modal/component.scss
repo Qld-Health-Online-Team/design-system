@@ -120,7 +120,11 @@
         
         ul li a {
             text-decoration: none;
-            background-color: rgb(93, 34, 106);
+            color: var(--QLD-color-light-button__text);
+            background-color: var(--QLD-color-light-button);
+            &:hover {
+                background-color: var(--QLD-color-light-button__hover);
+            }
         }
 
     }
@@ -152,7 +156,7 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background-color: transparent;
+            background-color: var(--QLD-color-light-button__hover);
             box-shadow: none;
             color: var(--QLD-color-light-text);
             border: 0;
@@ -165,7 +169,7 @@
                 font-size: 1.5rem;
             }
             &:hover{
-                background-color: var(--QLD-color-light-button__hover);
+                // background-color: var(--QLD-color-light-button__hover);
                 svg,
                 i {
                     color: var(--QLD-color-dark-text);
