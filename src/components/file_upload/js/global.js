@@ -617,7 +617,7 @@
         
         try {
             // Grab the locks for the asset
-            let locks = await jsApi.acquireLock({
+            let locks = await fileUploads.jsApi.acquireLock({
                 "asset_id": assetId,
                 "screen_name": "attributes",
                 "dependants_only": 0,
