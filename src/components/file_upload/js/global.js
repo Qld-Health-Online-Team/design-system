@@ -209,6 +209,9 @@
             // Custom validation for JS API if the field is required
             if(fileUploads.inputs[$input.id].js_api === "true" && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
                 addValidation(fileUploads.inputs[$input.id]);
+                if(!fileUploads.jsApi) {
+                    jsApi();
+                }
             }
         };
     }
@@ -348,7 +351,7 @@
             $fileInfo.replaceWith($loading);
             
             // Send trashAsset request
-            let trashedAsset = await jsApi.trashAsset({
+            let trashedAsset = await fileUploads.jsApi.trashAsset({
                 "asset_ids": fileId
             });
 
@@ -496,13 +499,13 @@
      * 
      * @memberof module:fileUploads
      */
-    const jsApi = (() => {
+    const jsApi = () => {
         let options = new Array();
         options["key"] = "9416674173";
-        let js_api = window.location.host === "0.0.0.0:8080" || window.location.host === "localhost:8080" ? null : new Squiz_Matrix_API(options);
+        let js_api = new Squiz_Matrix_API(options);
         
-        return js_api;
-    })();
+        fileUploads.jsApi = js_api;
+    };
 
     /**
      * Upload selected file to matrix
@@ -532,7 +535,7 @@
                 
                 if(!updatedFileAsset.hasOwnProperty('error')) {
                     // Get new file asset attributes
-                    let newFileInfo = await jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
+                    let newFileInfo = await fileUploads.jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
                     
                     if(!newFileInfo.hasOwnProperty('error')) {
                         // We need to set the size property here, because jsApi.getGeneral doesn't return the size for some asset types
@@ -580,7 +583,7 @@
         
         try {
             // Create new file asset
-            const newFile = await jsApi.createFileAsset({
+            const newFile = await fileUploads.jsApi.createFileAsset({
                 "parentID": createLocation,
                 "type_code": assetType.type,
                 "friendly_name": fileName,
@@ -621,7 +624,7 @@
                 "force_acquire": 1
             });            
             // Update File Asset with the file contents
-            let updatedFile = await jsApi.updateFileAssetContent({
+            let updatedFile = await fileUploads.jsApi.updateFileAssetContent({
                 "asset_id": assetId,
                 "content": fileContent
             });
