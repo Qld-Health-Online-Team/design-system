@@ -165,10 +165,13 @@
         }
     }
 
-    .qld__input--error & {
-        background-color: $QLD-color-error__shade;
-        color: $QLD-color-error;
+    &:not(.qld__form-file-dropzone--updating) & {
+        .qld__input--error & {
+            background-color: $QLD-color-error__shade;
+            color: $QLD-color-error;
+        }
     }
+    
 
     @include QLD-media(lg) {
         display: inline-flex;
