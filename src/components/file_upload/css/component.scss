@@ -215,12 +215,14 @@
         }
     }
     
-    &.qld__input--error:not(.qld__form-file-dropzone) {
-        background-color: $QLD-color-error__light;
-        border-color: $QLD-color-error;
+    &.qld__input--error {
+        &:not(.qld__form-file-dropzone--updating) {
+            background-color: $QLD-color-error__light;
+            border-color: $QLD-color-error;
 
-        p.qld__file-input-title {
-            color: $QLD-color-light-text__muted !important;
+            p.qld__file-input-title {
+                color: $QLD-color-light-text__muted !important;
+            }
         }
     }
 
