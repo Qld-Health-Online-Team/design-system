@@ -221,7 +221,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const addValidation = (input_field_settings)=> {
+    const addValidation = (input_field_settings) => {
         const $input = input_field_settings.input_element;
 
         // Remove required attribute so we can replace it with the following rule
@@ -238,7 +238,7 @@
                     }
                 } else {
                     // If the user hasn't interacted, require a non-empty value
-                    return $(element).data('files').trim() !== "";
+                    return value.trim() !== "";
                 }
                 return true;
             }, "This field is required");
@@ -453,9 +453,6 @@
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
-        } else {
-            // Otherwise, reset the file input value
-            input_field_settings.input_element.value = "";
         }
         // Once all promises have resolved, remove the updating class, and validate the field
         try {
