@@ -51,6 +51,24 @@
             margin: pxToRem(24) auto !important;
         }
     }
+
+    &--dark {
+        .qld__file-input-title {
+            color: $QLD-color-dark-heading;
+        }
+        .qld__form-file-info {
+            &:not(.qld__form-file--success) & {
+                p,
+                span {
+                    color: $QLD-color-dark-text !important;
+                }
+            }
+        }
+    }
+
+    .qld__file-input-label {
+        font-weight: 400;
+    }
 }
 
 .qld__file-wrapper {
@@ -79,6 +97,12 @@
     span {
         display: block;
     }
+    .qld__form-file-wrapper--dark & {
+        color: $QLD-color-dark-heading;
+    }
+    .qld__input--error & {
+        color: $QLD-color-light-text__muted;
+    }
 }
 
 .qld__form-file-info-wrapper {
@@ -106,8 +130,18 @@
         font-size: inherit;
     }
 
+    .qld__form-file-wrapper--dark & {
+        background-color: $QLD-color-dark-background__shade;
+        color: #FFE500;
+    }
+
     .qld__form-file-dropzone--dragged-over & {
         background-color: var(--QLD-color-light-background);
+
+        .qld__form-file-wrapper--dark & {
+            background-color: $QLD-color-dark-background;
+            color: #F3F1DC;
+        }
     }
 
     .qld__form-file-dropzone--disabled & {
@@ -148,39 +182,86 @@
     border-radius: var(--QLD-border-radius-xs);
     padding: pxToRem(24) 0;
     text-align: center;
+
+    &:not(.qld__input--error) {
+        .qld__form-file-wrapper--dark & {
+            background-color: $QLD-color-dark-background;
+            border-color: #09ACFE;
+
+            .qld__loading-spinner {
+                background-color: var(--QLD-color-dark-background);
+            }
+
+            .qld__loading_spinner-label {
+                color: $QLD-color-light-background;
+            }
+
+            .qld__file-input-label {
+                border-color: #FFE500;
+                color: var(--QLD-color-dark-heading);
+                
+                &:hover, 
+                &:focus,
+                &:active {
+                    background-color: transparent !important;
+                    border-color: #F3F1DC;
+                    text-decoration-color: $QLD-color-dark-heading;
+                }
+            }
+
+            p.qld__file-input-title {
+                color: $QLD-color-dark-heading;
+            }
+        }
+    }
     
     &.qld__input--error {
         background-color: $QLD-color-error__light;
         border-color: $QLD-color-error;
+
+        p.qld__file-input-title {
+            color: $QLD-color-light-text__muted !important;
+        }
     }
 
     &--dragged-over {
         background-color: var(--QLD-color-light-background__shade);
         border-color: var(--QLD-color-light-button__hover);
+        
+        .qld__form-file-wrapper--dark & {
+            background-color: $QLD-color-dark-background__shade !important;
+            border-color: #FFE500 !important;
+
+            p.qld__file-input-title,
+            .qld__file-input-constraints,
+            .qld__file-input-label {
+                color: $QLD-color-light-button__text !important;
+            }
+
+            .qld__file-input-label {
+                border-color: #FFE500 !important;
+            }
+        }
     }
 
     &--disabled,
     &--updating {
         color: $QLD-color-light-text__muted;
-        p.qld__file-input-title {
-            color: $QLD-color-light-text__muted;
+
+        .qld__file-input-label {
+            border-color: #E8E8E8 !important;
+            color: var(--QLD-color-light-text__muted) !important;
+            pointer-events: none;
+
+            .qld__form-file-wrapper--dark & { 
+                color: $QLD-color-system-white !important;
+                border-color: $QLD-color-light-alt-background__shade !important;
+            }
         }
     }
 
     @include QLD-media(lg) {
         padding: pxToRem(32) pxToRem(24);
-    }
-}
-
-.qld__file-input-label {
-    font-weight: 400;
-    margin-top: pxToRem(24);
-
-    .qld__form-file-dropzone--disabled &,
-    .qld__form-file-dropzone--updating & {
-        border-color: #E8E8E8 !important;
-        color: var(--QLD-color-light-text__muted) !important;
-        pointer-events: none;
     }
 }
 
@@ -196,11 +277,42 @@
     &--success {
         background-color: $QLD-color-success__light;
         border-color: $QLD-color-success;
+
+        .qld__form-file-wrapper--dark & {
+            i {
+                color: $QLD-color-success !important;
+            }
+        }
     }
 
     &--complete {
         background-color: $QLD-color-light-background__shade;
         border-color: $QLD-color-light-border;
+        
+        .qld__form-file-wrapper--dark & {
+            background-color: $QLD-color-dark-background__shade;
+            border-color: #2573C1;
+
+            p,span {
+                color: $QLD-color-system-white;
+            }
+
+            button.qld__form-file-delete-btn {
+                color: $QLD-color-dark-heading;
+                i {
+                    color: #FFE500;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color:transparent;
+                    text-decoration-color: $QLD-color-dark-text;
+                    i {
+                        color: #FFE500;
+                    }
+                }
+            }
+        }
     }
 
     &--error {
@@ -210,10 +322,22 @@
     
     &--updating {
         background-color: $QLD-color-light-background;
+       
+        .qld__form-file-wrapper--dark & {
+            background-color: $QLD-color-dark-background;
+            border-color: #2573C1;
+
+            p,span {
+                color: $QLD-color-system-white;
+            }
+        }
     }
 
-    @include QLD-media(lg) {
+    @include QLD-media(md) {
         flex-wrap: nowrap;
+    }
+
+    @include QLD-media(md) {
         padding: pxToRem(24);
     }
 }
@@ -241,7 +365,7 @@
     margin-left: auto;
     width: 100%;
 
-    @include QLD-media(lg) {
+    @include QLD-media(md) {
         width: auto;
     }
 
@@ -250,7 +374,7 @@
         min-width: pxToRem(100);
         margin-top: pxToRem(16);
 
-        @include QLD-media(lg) {
+        @include QLD-media(md) {
             margin-top: 0;
             padding: pxToRem(10) pxToRem(24);
         }
@@ -270,6 +394,12 @@
         margin-bottom: 0;
     }
 
+    .qld__form-file-wrapper--dark & {
+        i {
+            color: #FFE500;
+        }
+    }
+
     i {
         color: var(--QLD-color-light-alt-button);
         width: 100%;
@@ -278,86 +408,4 @@
             color: $QLD-color-error;
         }
     }
-}
-
-
-
-// REMOVE BEFORE PROD
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{qld__loading_spinner}}
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-.qld__loading_spinner {
-
-    & .qld__loading_spinner-label.qld__display-md {
-        padding: 0;
-        margin: 0;
-    }
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    &-wheel {
-        width: 2rem;
-        height: 2rem;
-
-        padding: 0;
-        margin: 1rem;
-
-        border: 0.1875rem solid var(--QLD-color-light-designAccent);
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        display: inline-block;
-        box-sizing: border-box;
-        animation: rotation 1s linear infinite;
-
-        @keyframes rotation {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    }
-
-    & &-label.qld__display-md {
-        margin: 0;
-        padding: 0;
-        margin-bottom: 1rem;
-    }
-
-
-    &--landscape {
-        flex-direction: row;
-        & .qld__loading_spinner-label.qld__display-md {
-            margin: 0;
-            margin-bottom: 0;
-        }
-
-    }
-     
-
-    &--icon_only {
-
-        & .qld__loading_spinner-label.qld__display-md {
-            display: none;
-        }
-        
-    }
-
-
-    &--dark{
-        .qld__loading_spinner-wheel { 
-            border-color: var(--QLD-color-dark-designAccent);
-            border-bottom-color: transparent;
-            border-radius: 50%;
-            display: inline-block;
-            box-sizing: border-box;
-            animation: rotation 1s linear infinite;
-        }
-    }
-	
 }
