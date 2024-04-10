@@ -238,7 +238,7 @@
                     }
                 } else {
                     // If the user hasn't interacted, require a non-empty value
-                    return value.trim() !== "";
+                    return $(element).data('files').trim() !== "";
                 }
                 return true;
             }, "This field is required");
@@ -248,7 +248,6 @@
             requiredFileInteraction: true
         });
     }
-
 
     /**
      * Add the event listeners for the file input and drag/drop zone
