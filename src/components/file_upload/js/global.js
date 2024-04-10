@@ -20,7 +20,7 @@
         
         fileTemplate.classList.add('qld__form-file');
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-loader">
+        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
                             <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
                                 <span class="qld__loading_spinner-wheel"></span>
                             </div>
@@ -28,7 +28,7 @@
                         <div class="qld__form-file-info">
                             <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
                             <span class="qld__form-file-info-status">Uploading...</span>
-                        </div>
+                        </div></div>
                         <div class="qld__form-file-actions"></div>`;
         
         return fileTemplate;
@@ -49,13 +49,13 @@
         
         fileTemplate.classList.add('qld__form-file', 'qld__form-file--success');
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-loader">
+        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
                                         <i class="fa-light fa-2x fa-file${fileType.fontAwesomeClass}" aria-hidden="true"></i>
                                     </div>
                                     <div class="qld__form-file-info">
                                         <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
                                         <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"></path></svg>Upload successful, ${fileSize}KB</span>
-                                    </div>
+                                    </div></div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
                                             <i class="fa-light fa-trash" aria-hidden="true"></i>Remove
@@ -78,13 +78,13 @@
         
         fileTemplate.classList.add('qld__form-file','qld__form-file--error');
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-loader">
+        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
                                         <i class="fa-light fa-2x fa-file-exclamation" aria-hidden="true"></i>
                                     </div>
                                     <div class="qld__form-file-info">
                                         <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
                                         <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8" fill="#E22339"></circle><path d="M10 13C9.41667 13 9 13.5357 9 14C9 14.5 9.41667 15 10 15C10.5417 15 11 14.5 11 14C11 13.5357 10.5417 13 10 13ZM10 12C10.8044 12 11 11.3214 11 11V6C11 5.5 10.5 5 10 5C9.5 5 9 5.5 9 6V11C9 11.3214 9.1956 12 10 12Z" fill="white"></path></svg>${error}</span>
-                                    </div>
+                                    </div></div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
                                             <i class="fa-light fa-trash" aria-hidden="true"></i>Remove
@@ -225,7 +225,7 @@
         if(!$.validator.methods.jsApiFileRequired) {
             $.validator.addMethod("jsApiFileRequired", function(value, element) {
                 const files = element.dataset["files"];
-                if(files === "") {
+                if(files === "" && element.dataset["interacted"] === "true") {
                     return false
                 } else {
                     return true
@@ -437,6 +437,7 @@
         } catch(error) {
             console.error(error);
         } finally {
+            input_field_settings.input_element.dataset["interacted"] = "true";
             // Remove 'updating' class from dropzone
             toggleDropzoneClass($dropZone, "updating");
             // Validate file input
