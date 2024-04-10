@@ -216,36 +216,53 @@
         };
     }
 
+    /**
+     * Add custom 'required' validation to any required JS API driven file input
+     * 
+     * @memberof module:fileUploads
+     */
     const addValidation = (input_field_settings)=> {
         const $input = input_field_settings.input_element;
 
-        // Remove required attribute
+        // Remove required attribute so we can replace it with the following rule
         $input.removeAttribute("required");
 
-        if(!$.validator.methods.jsApiFileRequired) {
-            $.validator.addMethod("jsApiFileRequired", function(value, element) {
-                const files = element.dataset["files"];
-                if(files === "" && element.dataset["interacted"] === "true") {
-                    return false
+        // Custom 'required' validation for input
+        if(!$.validator.methods.requiredFileInteraction) {
+            $.validator.addMethod("requiredFileInteraction", function(value, element) {
+                // Check if the user has interacted with the file input
+                if ($(element).data('interacted')) {
+                    // If data-files attribute is empty, invalidate the field
+                    if ($(element).data('files') === "") {
+                        return false;
+                    }
                 } else {
-                    return true
+                    // If the user hasn't interacted, require a non-empty value
+                    return value.trim() !== "";
                 }
-            }, "This field is required.");
+                return true;
+            }, "This field is required");
         }
 
         $($input).rules("add", {
-            jsApiFileRequired: true
+            requiredFileInteraction: true
         });
     }
 
+
+    /**
+     * Add the event listeners for the file input and drag/drop zone
+     * 
+     * @memberof module:fileUploads
+     */
     const addListeners = (input_field_settings) => {
-        const fileInput = input_field_settings.input_element;
-        const fileInputWrapper = fileInput.closest('.qld__form-file-wrapper');
-        const dropArea = fileInputWrapper.querySelector('.qld__form-file-dropzone');
+        const $fileInput = input_field_settings.input_element;
+        const $fileInputWrapper = fileInput.closest('.qld__form-file-wrapper');
+        const $dropArea = fileInputWrapper.querySelector('.qld__form-file-dropzone');
         const disabledClasses = ["qld__form-file-dropzone--disabled", "qld__form-file-dropzone--updating"];
 
         // File delete button handler
-        fileInputWrapper.addEventListener('click', (event) => {
+        $fileInputWrapper.addEventListener('click', (event) => {
             
             if (event.target.matches('.qld__form-file-delete-btn')) {
                 event.preventDefault();
@@ -258,40 +275,50 @@
         })
         
         // File input change handler
-        fileInput.addEventListener('change', (event) => {
+        $fileInput.addEventListener('change', (event) => {
             event.preventDefault();
 
-            if(!disabledClasses.some(className => dropArea.classList.contains(className))) {
+            // Set file input interacted flag (for validation)
+            $fileInput.dataset["interacted"] = true;
+            
+            // Don't allow interaction if any disabledClasses are present on dropzone
+            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
                 const files = event.target.files;
                 handleFiles(files, input_field_settings);
             }
         });
 
         // Dragover event listener for dropzone
-        dropArea.addEventListener('dragover', (event) => {
+        $dropArea.addEventListener('dragover', (event) => {
             event.preventDefault();
             
-            if(!disabledClasses.some(className => dropArea.classList.contains(className))) {
-                dropArea.classList.add('qld__form-file-dropzone--dragged-over');
+            // Don't allow interaction if any disabledClasses are present on dropzone
+            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
+                $dropArea.classList.add('qld__form-file-dropzone--dragged-over');
             }
         });
         
         // Dragleave event listener for dropzone
-        dropArea.addEventListener('dragleave', (event) => {
+        $dropArea.addEventListener('dragleave', (event) => {
             event.preventDefault();
-            dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
+
+            $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
     
         // Drop event listener for dropzone
-        dropArea.addEventListener('drop', (event) => {
+        $dropArea.addEventListener('drop', (event) => {
             event.preventDefault();
+
+            // Set file input interacted flag (for validation)
+            $fileInput.dataset["interacted"] = true;
             
-            if(!disabledClasses.some(className => dropArea.classList.contains(className))) {
+            // Don't allow interaction if any disabledClasses are present on dropzone
+            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
                 const files = event.dataTransfer.files;
                 handleFiles(files, input_field_settings);
             }
 
-            dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
+            $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
     
     }
@@ -403,18 +430,18 @@
             file.id = file.id !== undefined ? file.id : file.name;
             // Returns either an error message (string), or true (boolean)
             let isValid = isFileValid(file, input_field_settings);
-            // Set the fileInfo block to display the loading template
+            // Set the fileInfo block to the loading template HTML
             let $fileInfo = loadingTemplate(file); 
             // Append the file info box to the file preview list
             $fileList.appendChild($fileInfo);
             
-            // If the file is valid
+            // If the file passes the validation rules
             if(isValid === true) {
                 // If we're using the JS API to create file assets
                 if(usingJsApi === "true") {
                     promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
                 } else {
-                    // Push file object into files array
+                    // Push File object into files array
                     input_field_settings.files.push(file);
                     promiseArray.push(simulateFileUpload(file, $fileInfo));
                 }
@@ -437,7 +464,6 @@
         } catch(error) {
             console.error(error);
         } finally {
-            input_field_settings.input_element.dataset["interacted"] = "true";
             // Remove 'updating' class from dropzone
             toggleDropzoneClass($dropZone, "updating");
             // Validate file input
@@ -668,6 +694,7 @@
         input_field_settings.input_element.dataset["files"] = files;
     }
 
+    // Store fileUploads object globally
     QLD.fileUploads = fileUploads;
 
     window.addEventListener('DOMContentLoaded', function () {
