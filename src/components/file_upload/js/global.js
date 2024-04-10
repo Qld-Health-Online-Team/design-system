@@ -233,15 +233,12 @@
                 // Check if the user has interacted with the file input
                 if ($(element).data('interacted')) {
                     // If data-files attribute is empty, invalidate the field
-                    if ($(element).data('files') === "") {
-                        return false;
-                    }
+                    return element.dataset['files'] !== "";
                 } else {
                     // If the user hasn't interacted, require a non-empty value
                     return value.trim() !== "";
                 }
-                return true;
-            }, "This field is required");
+            }, "This field is required.");
         }
 
         $($input).rules("add", {
