@@ -104,11 +104,6 @@
                 console.log('select change');
                 $(this).valid();
             });
-            
-            // Validate file fields when file/s selected
-            $form.find('input[type=file]').on('change', function() {
-                $(this).valid();
-            });
         });
 
         $('[data-displayif-show]').each(function() {
