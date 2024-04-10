@@ -76,6 +76,7 @@ const copyWebPack = new CopyWebpackPlugin({
 module.exports = {
     entry: {
         main: ['./src/index.js'].concat(js_files),
+        banner_contained: ['./src/styles/banner_contained/globals.scss']
     },
     output: {
         path: path.resolve(__dirname, '../dist'), // Output folder
