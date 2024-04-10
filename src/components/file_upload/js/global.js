@@ -257,8 +257,8 @@
      */
     const addListeners = (input_field_settings) => {
         const $fileInput = input_field_settings.input_element;
-        const $fileInputWrapper = fileInput.closest('.qld__form-file-wrapper');
-        const $dropArea = fileInputWrapper.querySelector('.qld__form-file-dropzone');
+        const $fileInputWrapper = $fileInput.closest('.qld__form-file-wrapper');
+        const $dropArea = $fileInputWrapper.querySelector('.qld__form-file-dropzone');
         const disabledClasses = ["qld__form-file-dropzone--disabled", "qld__form-file-dropzone--updating"];
 
         // File delete button handler
