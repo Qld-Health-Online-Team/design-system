@@ -30,7 +30,12 @@
                         var errorID = '#' + error[0].id.replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" );
                         error.attr('tabindex','0');
                         if(errorPlacement.find(errorID).length === 0){
-                           error.prependTo(errorPlacement);
+                            if (element.closest(".qld__form-file-wrapper").length > 0) {
+                                console.log(element.closest(".qld__form-file-wrapper"))
+                                element.closest(".qld__form-file-wrapper").before(error);
+                            } else {
+                                error.prependTo(errorPlacement);
+                            }
                         }
                         error.focus();
                         
