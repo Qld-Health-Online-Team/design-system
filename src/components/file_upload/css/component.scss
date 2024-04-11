@@ -2,6 +2,12 @@
 // {{component_name}}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+.qld__form-group--file-upload {
+    .qld__input--error {
+        margin-top: 0.25rem;
+    }
+}
+
 .qld__form-file-wrapper {
     margin-top: pxToRem(8);
 
@@ -165,11 +171,13 @@
         }
     }
 
-    &:not(.qld__form-file-dropzone--updating) & {
-        .qld__input--error & {
-            background-color: $QLD-color-error__shade;
-            color: $QLD-color-error;
-        }
+    .qld__input--error & {
+        @at-root {
+            &:not(.qld__form-file-dropzone--updating) {
+                background-color: $QLD-color-error__shade;
+                color: $QLD-color-error;
+            }
+        }  
     }
     
 
@@ -218,14 +226,12 @@
         }
     }
     
-    &.qld__input--error {
-        &:not(.qld__form-file-dropzone--updating) {
-            background-color: $QLD-color-error__light;
-            border-color: $QLD-color-error;
+    &.qld__input--error:not(.qld__form-file-dropzone--updating) {
+        background-color: $QLD-color-error__light;
+        border-color: $QLD-color-error;
 
-            p.qld__file-input-title {
-                color: $QLD-color-light-text__muted !important;
-            }
+        p.qld__file-input-title {
+            color: $QLD-color-light-text__muted !important;
         }
     }
 
