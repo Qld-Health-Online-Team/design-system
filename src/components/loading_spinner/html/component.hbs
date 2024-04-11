@@ -1,0 +1,6 @@
+{{#with component.data}}
+    <div class="qld__loading_spinner{{#ifCond metadata.background_colour.value '==' 'dark'}} qld__loading_spinner--dark{{/ifCond}}{{#ifCond metadata.layout.value '==' 'landscape'}} qld__loading_spinner--landscape{{/ifCond}}{{#ifCond metadata.layout.value '==' 'icon_only'}} qld__loading_spinner--icon_only{{/ifCond}}" role="status">
+        <span class="qld__loading_spinner-wheel"></span>
+        <div class="qld__loading_spinner-label qld__display-md">{{metadata.label.value}}</div>
+    </div>
+{{/with}}
