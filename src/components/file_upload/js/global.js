@@ -569,7 +569,7 @@
                         return newFileInfo;
 
                     } else {
-                        if(newFileInfo.errorDetails?.length > 0) {
+                        if(newFileInfo.errorDetails.length > 0) {
                             let err = {};
                             err.error = newFileInfo.errorDetails[0];
                             throw err.error;
@@ -614,7 +614,7 @@
             if(!newFile.hasOwnProperty('error')) {
                 return newFile;
             } else {
-                if(newFile.errorDetails?.length > 0) {
+                if(newFile.errorDetails.length > 0) {
                     let err = {};
                     err.error = newFile.errorDetails[0].includes("web path already exists") ? "Filename already in use. Please rename file before trying again." : newFile.errorDetails[0];
                     throw err;
@@ -652,7 +652,7 @@
             if(!updatedFile.hasOwnProperty('error')) {
                 return updatedFile;
             } else {
-                if(updatedFile.errorDetails?.length > 0) {
+                if(updatedFile.errorDetails.length > 0) {
                     let err = {};
                     err.error = updatedFile.errorDetails[0];
                     throw err;
