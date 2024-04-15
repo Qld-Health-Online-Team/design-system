@@ -30,7 +30,11 @@
                         var errorID = '#' + error[0].id.replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" );
                         error.attr('tabindex','0');
                         if(errorPlacement.find(errorID).length === 0){
-                           error.prependTo(errorPlacement);
+                            if (element.closest(".qld__form-file-wrapper").length > 0) {
+                                element.closest(".qld__form-file-wrapper").before(error);
+                            } else {
+                                error.prependTo(errorPlacement);
+                            }
                         }
                         error.focus();
                         
@@ -60,7 +64,9 @@
                 highlight: function( element, errorClass, validClass ) {
                     if ( element.type === "radio" || element.type === "checkbox") {
                         this.findByName( element.name ).addClass( errorClass ).removeClass( validClass );
-                    } else {
+                    } else if ( element.type === "file" && element.classList.contains("qld__file-input") ) {
+                        $( element ).closest(".qld__form-file-dropzone").addClass( errorClass ).removeClass( validClass );
+                    }  else {
                         $( element ).addClass( errorClass ).removeClass( validClass );
                     }
                 },
@@ -71,6 +77,8 @@
                         if(this.findByName(element.name).is(":checked") || this.findByName(element.name).is(":selected")){
                             this.findByName( element.name ).removeClass( errorClass ).addClass( validClass );
                         }  
+                    } else if (element.type === "file" && element.classList.contains("qld__file-input")) {
+                        $( element ).closest(".qld__form-file-dropzone").removeClass( errorClass ).addClass( validClass );
                     } else {
                         if ($( element ).val().length > 0){
                             $( element ).removeClass( errorClass ).addClass( validClass );

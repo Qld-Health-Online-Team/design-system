@@ -49,10 +49,21 @@ $QLD-side-nav-breakpoint: lg !default;
         &:hover {
             color: var(--QLD-color-light__link);
             background-color: var(--QLD-color-light__background--alt);
+
+            &:visited {
+                color: var(--QLD-color-light__link);
+                background-color: var(--QLD-color-light__background--alt);
+                text-decoration: none;
+            }
         }
         
         @include QLD-focus();
     }
+
+    a:visited {
+        all: unset;
+    }
+
     
     // Link list
     .qld__link-list {
@@ -266,7 +277,17 @@ $QLD-side-nav-breakpoint: lg !default;
         @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark__background--alt-shade);
+
+            &:visited {
+                color: var(--QLD-color-dark__text);
+                text-decoration: none;
+            }
         }
+
+        &:visited {
+            all: unset;
+        }
+        
         
         @include QLD-focus("dark");
     }
@@ -343,6 +364,15 @@ $QLD-side-nav-breakpoint: lg !default;
         @include QLD-underline('dark','noUnderline');
         &:hover {
             background: var(--QLD-color-dark__background--alt);
+
+            &:visited {
+                color: var(--QLD-color-dark__text);
+                text-decoration: none;
+            }
+        }
+
+        &:visited {
+            all: unset;
         }
         
         @include QLD-focus("dark");
