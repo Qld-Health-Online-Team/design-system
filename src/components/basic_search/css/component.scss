@@ -25,7 +25,7 @@
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            border-bottom: 1px solid var(--QLD-color-light-alt-border);
+            border-bottom: 1px solid var(--QLD-color-light__border--alt);
             align-items: baseline;
         }
         
@@ -41,7 +41,7 @@
 
         &-summary-text{
             font-weight: bold;
-            color: var(--QLD-color-light-heading);
+            color: var(--QLD-color-light__heading);
         }
         &-summary-matching{
             font-weight: bold;
@@ -63,7 +63,7 @@
         
         &-text{
             font-weight: bold;
-            color: var(--QLD-color-light-heading);
+            color: var(--QLD-color-light__heading);
             @include QLD-space(padding-right, .75unit);
             white-space: nowrap;
         }
@@ -111,7 +111,7 @@
         margin: 0;
         @include QLD-space(padding-top, 1.5unit);
         @include QLD-space(padding-bottom, 1.5unit);
-        border-bottom: 2px solid var(--QLD-color-light-border);
+        border-bottom: 2px solid var(--QLD-color-light__border);
 
         &:last-child{
             border: none;
@@ -151,7 +151,7 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                color: var(--QLD-color-light-heading);
+                color: var(--QLD-color-light__heading);
                 @include QLD-space(margin-right, .75unit);
 
                 @include QLD-media(lg) {
@@ -170,7 +170,7 @@
                 width: 1rem;
                 height: 1rem;
                 @include QLD-space(margin-right, .5unit);
-                color: var(--QLD-color-light-alt-button);
+                color: var(--QLD-color-light__action--secondary);
 
                 @include QLD-media(lg) {
                     @include QLD-space(margin-right, 0unit);
@@ -205,7 +205,7 @@
             }
 
             .qld__enhanced-search__result-date{
-                color: var(--QLD-color-light-text__muted);
+                color: var(--QLD-color-light__text--lighter);
             }
         }
     }
@@ -216,7 +216,7 @@
 
 
     &__related{
-        background-color: var(--QLD-color-light-background)--shade;
+        background-color: var(--QLD-color-light__background)--shade;
         @include QLD-space(margin-top, 1.5unit);
         @include QLD-space(padding-top, 1.5unit);
         @include QLD-space(padding-bottom, 1.5unit);
@@ -224,7 +224,7 @@
         @include QLD-space(padding-right, 2unit);
         @include QLD-space(
             border-top,
-            solid 0.25unit var(--QLD-color-light-designAccent)
+            solid 0.25unit var(--QLD-color-light__design-accent)
         );
 
         &-title{
@@ -242,7 +242,7 @@
 
 
     &__tips{
-        background-color: var(--QLD-color-light-background)--shade;
+        background-color: var(--QLD-color-light__background)--shade;
         @include QLD-space(margin-top, 2unit);
         @include QLD-space(padding-top, 1.5unit);
         @include QLD-space(padding-bottom, 1.5unit);
@@ -250,7 +250,7 @@
         @include QLD-space(padding-right, 2unit);
         @include QLD-space(
             border-top,
-            solid 0.25unit var(--QLD-color-light-designAccent)
+            solid 0.25unit var(--QLD-color-light__design-accent)
         );
         &-text{
             font-weight: bold;

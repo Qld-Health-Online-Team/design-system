@@ -170,20 +170,6 @@ $QLD-border-radius-md: map-get( $QLD-space-map, 4 ) + px;
 $QLD-border-radius-lg: map-get( $QLD-space-map, 7 ) + px;
 $QLD-border-radius-xl: map-get( $QLD-space-map, 9 ) + px;
 $QLD-border-radius-xxl: map-get( $QLD-space-map, 12 ) + px;
- 
-/**
-* QLD underline-color values
-*/
-$QLD-color-light-system-underline: #FFFFFF !default;
-$QLD-color-light-underline: #3F7AB4 !default;
-$QLD-color-light-hover-underline: #09549F !default; 
-$QLD-color-light-visited-underline: #8B63B0 !default;
-$QLD-color-light-hover-visited-underline: #551A8B !default;
-$QLD-color-dark-system-underline: #03213F !default;
-$QLD-color-dark-underline: #B5CCE2 !default;
-$QLD-color-dark-hover-underline: #FFFFFF !default;
-$QLD-color-dark-visited-underline: #B5CCE2 !default;
-$QLD-color-dark-hover-visited-underline: #E1C2FF !default;
 
 /**
 * QLD underline-thickness values
@@ -270,96 +256,122 @@ $QLD-icon-search: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
 /**
   * QLD-color- system colours
   */
-$QLD-color-system-darkest:#0E1435;
-$QLD-color-system-grey-text: #414141;
-$QLD-color-system-grey-dark: #595959;
-$QLD-color-system-grey-medium: #78797E;
-$QLD-color-system-grey: #E0E0E0;
-$QLD-color-system-grey-light: #EBEBEB;
-$QLD-color-system-grey-extra-light: #E8EEF0;
-$QLD-color-system-white: #FFFFFF;
+$QLD-color-neutral--black:#131212;
+$QLD-color-neutral--darkest: #222020;
+$QLD-color-neutral--darker: #444444;
+$QLD-color-neutral--dark: #78797E;
+$QLD-color-neutral--light: #E0E0E0;
+$QLD-color-neutral--lighter: #EBEBEB;
+$QLD-color-neutral--lightest: #F5F5F5;
+$QLD-color-neutral--white: #FFFFFF;
+
+/**
+ QLD-color - color opacity
+*/
+
+$QLD-color-neutral--white__opacity-10: rgba(255, 255, 255, 0.10);
+$QLD-color-neutral--light__opacity-10: rgba(244, 244, 244, 0.10);
+$QLD-color-neutral--darkest__opacity-10: rgba(34, 32, 32, 0.10);
+$QLD-color-neutral--black__opacity-10: rgba(19, 18, 18, 0.10);
 
 /**
   * QLD-color- global styles
   */
-$QLD-color-error: #E22339 !default;
-$QLD-color-error__light: #FFF6F6 !default;
-$QLD-color-error__shade: #FDF0F0 !default;
+$QLD-color-status__error: #E22339 !default;
+$QLD-color-status__error--lightest: #FFF6F6 !default;
+$QLD-color-status__error--lighter: #FDF0F0 !default;
+$QLD-color-status__error--darker: #8A1220 !default;
 
-$QLD-color-success: #339D37 !default;
-$QLD-color-success__light: #F7FBF8 !default;
-$QLD-color-success__shade: #F2FAF4 !default;
+$QLD-color-status__success: #339D37 !default;
+$QLD-color-status__success--lightest: #F7FBF8 !default;
+$QLD-color-status__success--lighter: #F2FAF4 !default;
+$QLD-color-status__success--darker: #0A690D !default;
 
-$QLD-color-warning: #FFCC2C !default; 
-$QLD-color-warning__shade: #FFCC2C !default;
+$QLD-color-status__caution: #FFCC2C !default;
+$QLD-color-status__caution--lightest: #FFFAEA !default;
+$QLD-color-status__caution--lighter: #FFF2C9 !default;
+$QLD-color-status__caution--darker: #B38800 !default;
 
-$QLD-color-info: #0085B3 !default;
-$QLD-color-info__shade: #0085B3 !default;
-
-$QLD-color-general: #E5EEF5 !default;
+$QLD-color-status__info: #0085B3 !default;
+$QLD-color-status__info--lighter: #E5EEF5 !default;
+$QLD-color-status__info--lightest: #EFF4F9 !default;
+$QLD-color-status__info--darker: #006A8F !default;
 
  /**
   * QLD-color-light styles
   */
-$QLD-color-light-siteTitle: #022A50 !default;
-$QLD-color-light-designAccent:#73BE27 !default;
-$QLD-color-light-heading: #03213F !default;
-$QLD-color-light-text: #414141 !default;
-$QLD-color-light-text__muted:#636363 !default;
-$QLD-color-light-link: #09549F !default;
-$QLD-color-light-link__visited: #551A8B !default;
-$QLD-color-light-button__text: #FFFFFF !default;
-$QLD-color-light-button: #09549F !default;
-$QLD-color-light-button__hover:#003E7D !default;
-$QLD-color-light-focus: #0085B3 !default;
-$QLD-color-light-border: #EBEBEB !default;
-$QLD-color-light-background: #FFFFFF !default;
-$QLD-color-light-background__shade: #F5F5F5 !default;
-$QLD-color-light-hint: #6f777b !default;
+$QLD-color-light__site-title: #022A50 !default;
+$QLD-color-light__design-accent:#6BBE27 !default;
+$QLD-color-light__heading: #04284C !default;
+$QLD-color-light__text: #414141 !default;
+$QLD-color-light__text--lighter:#636363 !default;
+$QLD-color-light__link: #09549F !default;
+$QLD-color-light__link--visited: #551A8B !default;
+$QLD-color-light__link--on-action: #FFFFFF !default;
+$QLD-color-light__action--primary: #09549F !default;
+$QLD-color-light__action--primary-hover:#003E7D !default;
+$QLD-color-light__focus: #0085B3 !default;
+$QLD-color-light__border: #CCDDEE !default;
+$QLD-color-light__background: #EFF4F9 !default;
+$QLD-color-light__background--shade: #E5EEF5 !default;
+
 
 
  /**
   * QLD-color-light-alt styles
   */
-$QLD-color-light-alt-button: #008733 !default;
-$QLD-color-light-alt-button__hover: #005B23 !default;
-$QLD-color-light-alt-border: #7A7A7A !default; 
-$QLD-color-light-alt-background: #EBEBEB !default;
-$QLD-color-light-alt-background__shade: #E0E0E0 !default;
-$QLD-color-light-alt-hint: #61696B !default;
+$QLD-color-light__action--secondary: #008733 !default;
+$QLD-color-light__action--secondary-hover: #005B23 !default;
+$QLD-color-light__border--alt: #7A7A7A !default; 
+$QLD-color-light__background--alt: #E8E8E8 !default;
+$QLD-color-light__background--alt-shade: #E0E0E0 !default;
 
  /**
   * QLD-color-dark styles
   */
-$QLD-color-dark-siteTitle: #FFFFFF !default;
-$QLD-color-dark-designAccent:#6BBE27 !default;
-$QLD-color-dark-heading: #FFFFFF !default;
-$QLD-color-dark-text: #FFFFFF !default;
-$QLD-color-dark-text__muted:#DEEBF9 !default;
-$QLD-color-dark-link: #FFFFFF !default;
-$QLD-color-dark-link__visited: #A668F4 !default;
-$QLD-color-dark-button__text: #121940 !default;
-$QLD-color-dark-button: #9AC02C !default;
-$QLD-color-dark-button__hover:#ADD33F !default;
-$QLD-color-dark-focus: #01B0E5 !default;
-$QLD-color-dark-border: #1D9AC6 !default;
-$QLD-color-dark-background: #09549F !default;
-$QLD-color-dark-background__shade: #04498F !default;
+$QLD-color-dark__site-title: #FFFFFF !default;
+$QLD-color-dark__design-accent:#6BBE27 !default;
+$QLD-color-dark__heading: #FFFFFF !default;
+$QLD-color-dark__text: #FFFFFF !default;
+$QLD-color-dark__text--lighter:#DEEBF9 !default;
+$QLD-color-dark__link: #FFFFFF !default;
+$QLD-color-dark__link--visited: #E1BBEE !default;
+$QLD-color-dark__link--on-action: #121940 !default;
+$QLD-color-dark__action--primary: #78BA00 !default;
+$QLD-color-dark__action--primary-hover:#ADD33F !default;
+$QLD-color-dark__focus: #01B0E5 !default;
+$QLD-color-dark__border: #1D9AC6 !default;
+$QLD-color-dark__background: #09549F !default;
+$QLD-color-dark__background--shade: #04498F !default;
 
  /**
   * QLD-color-alt-dark styles
   */
-$QLD-color-dark-alt-button: #EFD700 !default;
-$QLD-color-dark-alt-button__hover: #FFE817 !default;
-$QLD-color-dark-alt-border: #11B2D4 !default;
-$QLD-color-dark-alt-background: #05325F !default;
-$QLD-color-dark-alt-background__shade: #052C53 !default;
+$QLD-color-dark__action--secondary: #FFE500 !default;
+$QLD-color-dark__action--secondary-hover: #FFEF60 !default;
+$QLD-color-dark__border--alt: #09ACFE !default;
+$QLD-color-dark__background--alt: #05325F !default;
+$QLD-color-dark__background--alt-shade: #052C53 !default;
 
 
  /**
   * QLD-border-radius styles
   */
 $QLD-border-radius: $QLD-unit + 0px !default;
+
+/**
+* QLD underline-color values
+*/
+$QLD-color-status__light-underline: rgba(255, 255, 255, 0.72) !default;
+$QLD-color-light__underline: #3F7AB4 !default;
+$QLD-color-light__underline--hover: #{$QLD-color-light__link} !default; 
+$QLD-color-light__underline--visited: #{$QLD-color-light__link--visited} !default;
+$QLD-color-light__underline--hover-visited: #{$QLD-color-light__link--visited} !default;
+$QLD-color-status__dark-underline: rgba(3, 33, 63, 0.72) !default;
+$QLD-color-dark__underline: #B5CCE2 !default;
+$QLD-color-dark__underline--hover: #{$QLD-color-dark__link} !default;
+$QLD-color-dark__underline--visited: #E1C2FF !default;
+$QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__link--visited} !default;
 
 
 /**
@@ -368,60 +380,57 @@ $QLD-border-radius: $QLD-unit + 0px !default;
 :root,
 ::after,
 ::before {
-  --QLD-color-light-siteTitle: #{$QLD-color-light-siteTitle};
-  --QLD-color-light-designAccent:#{$QLD-color-light-designAccent};
-  --QLD-color-light-heading: #{$QLD-color-light-heading};
-  --QLD-color-light-text: #{$QLD-color-light-text};
-  --QLD-color-light-text__muted:#{$QLD-color-light-text__muted};
-  --QLD-color-light-link: #{$QLD-color-light-link};
-  --QLD-color-light-link__visited: #{$QLD-color-light-link__visited};
-  --QLD-color-light-button__text: #{$QLD-color-light-button__text};
-  --QLD-color-light-button: #{$QLD-color-light-button};
-  --QLD-color-light-button__hover: #{$QLD-color-light-button__hover};
-  --QLD-color-light-focus: #{$QLD-color-light-focus};
-  --QLD-color-light-border: #{$QLD-color-light-border};
-  --QLD-color-light-background: #{$QLD-color-light-background};
-  --QLD-color-light-background__shade: #{$QLD-color-light-background__shade};
-  --QLD-color-light-hint: #{$QLD-color-light-hint};
-  --QLD-color-light-system-underline: #{$QLD-color-light-system-underline};
-  --QLD-color-light-underline: #{$QLD-color-light-underline};
-  --QLD-color-light-hover-underline: #{$QLD-color-light-hover-underline};
-  --QLD-color-light-visited-underline: #{$QLD-color-light-visited-underline};
-  --QLD-color-light-hover-visited-underline: #{$QLD-color-light-hover-visited-underline};
+  --QLD-color-light__site-title: #{$QLD-color-light__site-title};
+  --QLD-color-light__design-accent:#{$QLD-color-light__design-accent};
+  --QLD-color-light__heading: #{$QLD-color-light__heading};
+  --QLD-color-light__text: #{$QLD-color-light__text};
+  --QLD-color-light__text--lighter:#{$QLD-color-light__text--lighter};
+  --QLD-color-light__link: #{$QLD-color-light__link};
+  --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
+  --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
+  --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
+  --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
+  --QLD-color-light__focus: #{$QLD-color-light__focus};
+  --QLD-color-light__border: #{$QLD-color-light__border};
+  --QLD-color-light__background: #{$QLD-color-light__background};
+  --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
+  --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
+  --QLD-color-light__underline: #{$QLD-color-light__underline};
+  --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
+  --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
+  --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
+  --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
+  --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
+  --QLD-color-light__border--alt: #{$QLD-color-light__border--alt}; 
+  --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
+  --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
 
-  --QLD-color-light-alt-button: #{$QLD-color-light-alt-button};
-  --QLD-color-light-alt-button__hover: #{$QLD-color-light-alt-button__hover};
-  --QLD-color-light-alt-border: #{$QLD-color-light-alt-border}; 
-  --QLD-color-light-alt-background: #{$QLD-color-light-alt-background};
-  --QLD-color-light-alt-background__shade: #{$QLD-color-light-alt-background__shade};
-  --QLD-color-light-alt-hint: #{$QLD-color-light-alt-hint};
-
-  --QLD-color-dark-siteTitle: #{$QLD-color-dark-siteTitle};
-  --QLD-color-dark-designAccent:#{$QLD-color-dark-designAccent};
-  --QLD-color-dark-heading: #{$QLD-color-dark-heading};
-  --QLD-color-dark-text: #{$QLD-color-dark-text};
-  --QLD-color-dark-text__muted: #{$QLD-color-dark-text__muted};
-  --QLD-color-dark-link: #{$QLD-color-dark-link};
-  --QLD-color-dark-link__visited: #{$QLD-color-dark-link__visited};
-  --QLD-color-dark-button__text: #{$QLD-color-dark-button__text};
-  --QLD-color-dark-button: #{$QLD-color-dark-button};
-  --QLD-color-dark-button__hover: #{$QLD-color-dark-button__hover};
-  --QLD-color-dark-focus: #{$QLD-color-dark-focus};
-  --QLD-color-dark-border: #{$QLD-color-dark-border};
-  --QLD-color-dark-background: #{$QLD-color-dark-background};
-  --QLD-color-dark-background__shade: #{$QLD-color-dark-background__shade};
-  --QLD-color-dark-system-underline: #{$QLD-color-dark-system-underline};
-  --QLD-color-dark-underline: #{$QLD-color-dark-underline};
-  --QLD-color-dark-hover-underline: #{$QLD-color-dark-hover-underline};
-  --QLD-color-dark-visited-underline: #{$QLD-color-dark-visited-underline};
-  --QLD-color-dark-hover-visited-underline: #{$QLD-color-dark-hover-visited-underline};
+  --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
+  --QLD-color-dark__design-accent:#{$QLD-color-dark__design-accent};
+  --QLD-color-dark__heading: #{$QLD-color-dark__heading};
+  --QLD-color-dark__text: #{$QLD-color-dark__text};
+  --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
+  --QLD-color-dark__link: #{$QLD-color-dark__link};
+  --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
+  --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
+  --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
+  --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
+  --QLD-color-dark__focus: #{$QLD-color-dark__focus};
+  --QLD-color-dark__border: #{$QLD-color-dark__border};
+  --QLD-color-dark__background: #{$QLD-color-dark__background};
+  --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
+  --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
+  --QLD-color-dark__underline: #{$QLD-color-dark__underline};
+  --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
+  --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
+  --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
 
 
-  --QLD-color-dark-alt-button: #{$QLD-color-dark-alt-button};
-  --QLD-color-dark-alt-button__hover: #{$QLD-color-dark-alt-button__hover};
-  --QLD-color-dark-alt-border: #{$QLD-color-dark-alt-border};
-  --QLD-color-dark-alt-background: #{$QLD-color-dark-alt-background};
-  --QLD-color-dark-alt-background__shade: #{$QLD-color-dark-alt-background__shade};
+  --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
+  --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
+  --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
+  --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
+  --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
 
   --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
   --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};

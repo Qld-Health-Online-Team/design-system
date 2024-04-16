@@ -31,9 +31,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: $QLD-color-system-white;
+        background-color: $QLD-color-neutral--white;
         padding: 1.5rem;
-        border: $QLD-border-width-thin solid var(--QLD-color-light-border);
+        border: $QLD-border-width-thin solid var(--QLD-color-light__border);
         border-radius: $QLD-border-radius-sm;
         @include QLD-box-shadow(4);
         z-index: 101;
@@ -61,7 +61,7 @@
         .qld__modal__header-heading{
             font-weight: bold;
             margin-top: 0;
-            color: var(--QLD-color-light-heading);
+            color: var(--QLD-color-light__heading);
             word-break: break-all;
         }
 
@@ -85,16 +85,16 @@
         border-radius: 50%;
         height: 2rem;
         width: 2rem;
-        background-color: var(--QLD-color-light-background__shade);
-        border-color: var(--QLD-color-light-background__shade);
+        background-color: var(--QLD-color-light__background--shade);
+        border-color: var(--QLD-color-light__background--shade);
 
         &:hover{
-            background: var(--QLD-color-light-alt-background__shade);
-            border-color: var(--QLD-color-light-alt-background__shade);
+            background: var(--QLD-color-light__background--alt-shade);
+            border-color: var(--QLD-color-light__background--alt-shade);
         }
 
         i{
-            color: $QLD-color-system-darkest;
+            color: $QLD-color-neutral--black;
         }
     }
 
@@ -122,10 +122,10 @@
         
         ul li a {
             text-decoration: none;
-            color: var(--QLD-color-light-button__text);
-            background-color: var(--QLD-color-light-button);
+            color: var(--QLD-color-light__link--on-action);
+            background-color: var(--$QLD-color-light__action--primary);
             &:hover {
-                background-color: var(--QLD-color-light-button__hover);
+                background-color: var(--QLD-color-light__action--primary-hover);
             }
         }
 
@@ -140,7 +140,7 @@
         transform: translate(-50%, -100%);
         background-color: white;
         padding: 1.5rem;
-        border: 2px solid var(--QLD-color-light-border);
+        border: 2px solid var(--QLD-color-light__border);
         @include sq-border-radius(4px);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         z-index: 101;
@@ -158,23 +158,23 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background-color: var(--QLD-color-light-button__hover);
+            background-color: var(--QLD-color-light__action--primary-hover);
             box-shadow: none;
-            color: var(--QLD-color-light-text);
+            color: var(--QLD-color-light__text);
             border: 0;
             min-width: auto;
             line-height: 0;
 
             svg,
             i {
-                color: var(--QLD-color-light-text);
+                color: var(--QLD-color-light__text);
                 font-size: 1.5rem;
             }
             &:hover{
-                // background-color: var(--QLD-color-light-button__hover);
+                // background-color: var(--QLD-color-light__action--primary-hover);
                 svg,
                 i {
-                    color: var(--QLD-color-dark-text);
+                    color: var(--QLD-color-dark__text);
                 }
             }
         }

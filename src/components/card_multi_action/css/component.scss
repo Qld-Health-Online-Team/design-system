@@ -14,14 +14,14 @@
         .qld__card__icon{
             i,
             svg{
-                color: var(--QLD-color-light-alt-button);
+                color: var(--QLD-color-light__action--secondary);
             }
         }  
         &:hover{
             .qld__card__icon{
                 i,
                 svg{
-                    color: var(--QLD-color-light-alt-button__hover);
+                    color: var(--QLD-color-light__action--secondary-hover);
                 }
             }    
         }
@@ -35,7 +35,7 @@
     
         &::before {
             content: "";
-            background-color: var(--QLD-color-dark-background);
+            background-color: var(--QLD-color-dark__background);
             display: block;
             width: 100%;
             height: 100%;
@@ -93,14 +93,14 @@
     .qld__card__footer-link-icon{
         @include QLD-space(font-size, 1.25unit);
         @include QLD-space(margin-right, .5unit);
-        color: var(--QLD-color-light-alt-button);
+        color: var(--QLD-color-light__action--secondary);
         vertical-align: middle;
         width: 24px;
         text-decoration: none;
     }
 
     .qld__card__footer-link{
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         @include QLD-space(font-size, 1unit);
         font-weight: bold;
         display: flex;
@@ -115,26 +115,26 @@
         }
         &:visited{
             span {
-                color: var(--QLD-color-light-hover-visited-underline);
-                text-decoration-color: var(--QLD-color-light-visited-underline);
+                color: var(--QLD-color-light__underline--hover-visited);
+                text-decoration-color: var(--QLD-color-light__underline--visited);
             }
         }
         &:hover:visited {
             span{
-                color: var(--QLD-color-light-hover-visited-underline);
-                text-decoration-color: var(--QLD-color-light-hover-visited-underline);
+                color: var(--QLD-color-light__underline--hover-visited);
+                text-decoration-color: var(--QLD-color-light__underline--hover-visited);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
         &:hover{
-            color: var(--QLD-color-light-link);
+            color: var(--QLD-color-light__link);
             text-decoration: none;
             span{
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
             
             .qld__card__footer-link-icon{
-                color: var(--QLD-color-light-alt-button__hover);
+                color: var(--QLD-color-light__action--secondary-hover);
             }
         }
     }
@@ -147,46 +147,46 @@
             .qld__card__icon{
                 i,
                 svg{
-                    color: var(--QLD-color-dark-alt-button);
+                    color: var(--QLD-color-dark__action--secondary);
                 }
             }  
             &:hover{
                 .qld__card__icon{
                     i,
                     svg{
-                        color: var(--QLD-color-dark-alt-button__hover);
+                        color: var(--QLD-color-dark__action--secondary-hover);
                     }
                 }    
             }
         }
 
         .qld__card__footer-link-icon{
-            color: var(--QLD-color-dark-alt-button);
+            color: var(--QLD-color-dark__action--secondary);
         }
 
         .qld__card__footer-link{  
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             span {
                 @include QLD-underline('dark');
             }  
 
             &:visited{
                 span {
-                    color: var(--QLD-color-dark-hover-visited-underline);
-                    text-decoration-color: var(--QLD-color-dark-visited-underline);
+                    color: var(--QLD-color-dark__underline--hover-visited);
+                    text-decoration-color: var(--QLD-color-dark__underline--visited);
                 }
             }
             &:hover:visited {
                 span{
-                    color: var(--QLD-color-dark-hover-visited-underline);
-                    text-decoration-color: var(--QLD-color-dark-hover-visited-underline);
+                    color: var(--QLD-color-dark__underline--hover-visited);
+                    text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
             &:hover{
 
                 .qld__card__footer-link-icon{
-                    color: var(--QLD-color-dark-alt-button__hover);
+                    color: var(--QLD-color-dark__action--secondary-hover);
                 }
             }
         }
