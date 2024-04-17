@@ -51,10 +51,10 @@
     }
 
     .calendar-toggle {
-        background-color: $QLD-color-light-background;
-        border-radius: 0px 4px 4px 0px;
-        border-color: $QLD-color-light-alt-border;
-        color: $QLD-color-light-alt-button;
+        background-color: $QLD-color-neutral--white;
+        border-radius: 0px pxToRem(4) pxToRem(4) 0px;
+        border-color: $QLD-color-light__border--alt;
+        color: $QLD-color-light__border--alt;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -63,16 +63,16 @@
         width: pxToRem(56);
 
         &:hover {
-            background: $QLD-color-light-background__shade;
-            border-color: $QLD-color-light-button__hover;
+            background: $QLD-color-neutral__lightest;
+            border-color: $QLD-color-light__action--primary-hover;
 
             i {
-                color: $QLD-color-light-alt-button__hover;
+                color: $QLD-color-light__action--secondary-hover;
             }
         }
 
         &:focus {
-            outline: pxToRem(3) solid var(--QLD-color-light-focus);
+            outline: pxToRem(3) solid $QLD-color-light__focus;
             outline-offset: pxToRem(2);
         }
 
@@ -83,9 +83,9 @@
 }
 
 .flatpickr-calendar {
-    background-color: $QLD-color-light-background;
+    background-color: $QLD-color-neutral--white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-    border: 1px solid $QLD-color-light-border;
+    border: 1px solid $QLD-color-neutral--lighter;
     margin-top: pxToRem(8);
     padding-top: pxToRem(16);
     width: pxToRem(340);
@@ -101,20 +101,20 @@
         .flatpickr-next-month, 
         .flatpickr-prev-month {
             border-radius: pxToRem(4);
-            fill: #008635;
+            fill: $QLD-color-light__action--secondary;
             height: pxToRem(40);
             top: pxToRem(18);
             width: pxToRem(40);
 
             &:hover {
-                background-color: $QLD-color-light-background__shade;
+                background-color: $QLD-color-neutral__lightest;
                 svg {
-                    fill: $QLD-color-light-alt-button__hover;
+                    fill: $QLD-color-light__action--secondary-hover;
                 }
             }
 
             &:focus {
-                outline: 2px solid $QLD-color-light-focus;
+                outline: 2px solid $QLD-color-light__focus;
             }
         }
 
@@ -130,6 +130,10 @@
     .flatpickr-innerContainer {
         margin-top: pxToRem(8);
         padding: 0 pxToRem(16) pxToRem(16) pxToRem(16);
+
+        .flatpickr-weekdays {
+            height: auto;
+        }
     }
     
     .flatpickr-current-month {
@@ -142,7 +146,7 @@
         .flatpickr-monthDropdown-months {
             appearance: none;
             background: url('data:image/svg+xml,<svg width="13" height="6" viewBox="0 0 13 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.617443 0.160356C0.456644 0.320713 0.456644 0.587973 0.644242 0.74833L6.2186 5.87973C6.3794 6.04009 6.6206 6.04009 6.7814 5.87973L12.3558 0.74833C12.5434 0.587973 12.5434 0.320713 12.3826 0.160356C12.2218 -0.0267261 11.9538 -0.0267261 11.793 0.13363L6.4866 4.99777L1.20704 0.13363C1.12664 0.0534521 1.01944 0 0.91224 0C0.805041 0 0.697842 0.0534521 0.617443 0.160356Z" fill="%23008635"/></svg>') no-repeat right 14px center;
-            border: pxToRem(2) solid var(--QLD-color-light-alt-border);
+            border: pxToRem(2) solid $QLD-color-light__border--alt;
             border-radius: pxToRem(4);
             height: pxToRem(44);
             font-size: pxToRem(14);
@@ -152,12 +156,12 @@
             width: pxToRem(125);
 
             &:hover {
-                background-color: $QLD-color-light-background__shade;
-                border-color: $QLD-color-light-button__hover;
+                background-color: $QLD-color-neutral__lightest;
+                border-color: $QLD-color-light__action--primary-hover;
             }
 
             &:focus {
-                border-color: $QLD-color-light-focus;
+                border-color: $QLD-color-light__focus;
             }
         }
     }
@@ -169,7 +173,7 @@
 
     .flatpickr-weekday {
         align-items: center;
-        color: $QLD-color-light-heading;
+        color: $QLD-color-light__heading;
         display: inline-flex;
         justify-content: center;
         height: pxToRem(44);
@@ -177,7 +181,7 @@
 
     .numInputWrapper {
         height: pxToRem(44);
-        border: pxToRem(2) solid var(--QLD-color-light-alt-border);
+        border: pxToRem(2) solid $QLD-color-light__border--alt;
         border-radius: pxToRem(4);
         padding: 0 pxToRem(30) 0 pxToRem(12);
         min-width: pxToRem(80);
@@ -191,7 +195,7 @@
 
         span {
             border: 0;
-            background-color: $QLD-color-system-grey-extra-light;
+            background-color: $QLD-color-neutral--light;
             opacity: 1;
             right: pxToRem(12);
             width: pxToRem(12);
@@ -212,8 +216,8 @@
         }
 
         &:hover {
-            border-color: $QLD-color-light-button__hover;
-            background-color: $QLD-color-light-background__shade;
+            border-color: $QLD-color-light__action--primary-hover;
+            background-color: $QLD-color-neutral__lightest;
         }
     }
 
@@ -227,7 +231,7 @@
 
             span {
                 border-radius: pxToRem(4);
-                color: $QLD-color-light-link;
+                color: $QLD-color-light__link;
                 display: inline-flex;
                 align-items: center;
                 font-size: pxToRem(16);
@@ -236,26 +240,26 @@
                 width: pxToRem(44);
 
                 &.today {
-                    border-color: $QLD-color-light-alt-border;
+                    border-color: $QLD-color-light__border--alt;
                 }
 
                 &:hover {
-                    background-color: $QLD-color-light-background__shade;
+                    background-color: $QLD-color-neutral__lightest;
                     border: 0;
                     text-decoration: underline;
                 }
 
                 &:focus {
-                    outline: 2px solid var(--QLD-color-light-focus);
+                    outline: 2px solid $QLD-color-light__focus;
                 }
 
                 &.selected {
-                    color: $QLD-color-light-button__text;
-                    background-color: $QLD-color-light-button;
+                    color: $QLD-color-light__link__text;
+                    background-color: $QLD-color-light__link;
                     border: 0;
 
                     &:focus {
-                        outline: 2px solid var(--QLD-color-light-focus);
+                        outline: 2px solid $QLD-color-light__focus;
                         outline-offset: pxToRem(1);
                     }
                 }
