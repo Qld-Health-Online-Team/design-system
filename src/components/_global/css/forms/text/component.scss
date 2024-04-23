@@ -11,7 +11,7 @@ textarea{
 	@include QLD-space( padding, 0.75unit 1unit );
 	border-radius: $QLD-border-radius-xs;
 	border:$QLD-border-width-default solid var(--QLD-color-light__border--alt);
-	background-color: var(--QLD-color-light__background);
+	background-color: $QLD-color-neutral--white;
 	box-sizing: border-box;
 	appearance: none;
 	
@@ -63,7 +63,7 @@ textarea{
 
 	&:hover{
 		&:not(:focus):not(.qld__text-input--error) { 
-			background-color: var(--QLD-color-light__background--shade);
+			background-color: $QLD-color-neutral--lightest;
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
 	}
@@ -74,9 +74,9 @@ textarea{
 	}
 
 	&:focus{
-		background-color: var(--QLD-color-light__background);
+		background-color: $QLD-color-neutral--white;
 		border-radius: $QLD-border-radius-xs;
-		border:$QLD-border-width-default solid var(--QLD-color-light__border);
+		border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
 		&::placeholder {
 			color: var(--QLD-color-light__text--lighter);
 		}
