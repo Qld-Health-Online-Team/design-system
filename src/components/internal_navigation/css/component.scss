@@ -20,7 +20,7 @@ $QLD-side-nav-breakpoint: lg !default;
 .qld__side-nav {
     @include QLD-fontgrid(sm);
     font-family: $QLD-font;
-    background-color: var(--QLD-color-light__background--shade);
+    background-color: $QLD-color-neutral--lightest;
     border-radius: $QLD-border-radius;
     overflow: hidden;
     @include QLD-space(margin-bottom, 2.5unit);
@@ -48,11 +48,11 @@ $QLD-side-nav-breakpoint: lg !default;
         
         &:hover {
             color: var(--QLD-color-light__link);
-            background-color: var(--QLD-color-light__background--alt);
+            background-color: $QLD-color-neutral--lightest;
 
             &:visited {
                 color: var(--QLD-color-light__link);
-                background-color: var(--QLD-color-light__background--alt);
+                background-color: $QLD-color-neutral--lightest;
                 text-decoration: none;
             }
         }
@@ -150,7 +150,7 @@ $QLD-side-nav-breakpoint: lg !default;
         }
         
         a:hover {
-            background-color: var(--QLD-color-light__background--shade);
+            background-color: $QLD-color-neutral--lightest;
         }
         
         .qld__accordion__title {

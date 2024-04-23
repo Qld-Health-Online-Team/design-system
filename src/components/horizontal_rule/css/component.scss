@@ -3,11 +3,16 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 hr.qld__horizontal-rule {
-	background-color:var(--QLD-color-light__border);
+	background-color: $QLD-color-neutral--lighter;
 	border: none;
 
 	.qld__card .qld__card__footer &{
-		background-color:var(--QLD-color-light__border);
+		background-color: $QLD-color-neutral--lighter;
+	}
+
+	.qld__body--light &,
+	.qld__card--light .qld__card__footer &{
+		background-color: var(--QLD-color-light__border);
 	}
 
 	.qld__body--alt &,
