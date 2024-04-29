@@ -47,7 +47,7 @@
 
             i {
                 margin-right: 8px;
-                color: var(--QLD-color-dark__design-accent);
+                color: var(--QLD-color-dark__action--secondary);
             }
         }
 
@@ -106,7 +106,7 @@
             }
 
             &::after {
-                background-color: var(--QLD-color-dark__design-accent);
+                background-color: var(--QLD-color-light__focus);
             }
 
             &:focus::after{
@@ -146,7 +146,7 @@
         i {
             min-height: 32px;
             min-width: 32px;
-            background-color: var(--QLD-color-light__background);
+            background-color: $QLD-color-neutral--white;
             align-self: center;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             cursor: pointer;
@@ -183,14 +183,14 @@
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
     
         }
     
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
         }
     }
 
@@ -215,12 +215,12 @@
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
-                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
                 }
 
                 &.tab-overflow-nav-button-right {
                     display: none;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
                 }
             }
         }
@@ -453,9 +453,6 @@
     }
 }
     
-    
-    
-
 
 *:not(.row) + .qld__tab-container {
     margin-top: 32px;
@@ -464,7 +461,7 @@
 .qld__tab-section {
     border-top: 1px solid var(--QLD-color-light__border--alt);
     margin-top: 48px;
-    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
+    box-shadow: 0 -49px 0 0 $QLD-color-neutral--white;
 
     .qld__tab-button[tabindex="0"]:focus{
         outline: none;
@@ -504,7 +501,7 @@
         border-top: 1px solid var(--QLD-color-dark__border--alt);
 
         .qld__tab-button {
-            background-color: var(--QLD-color-light__background--shade);
+            background-color: var(--QLD-color-dark__background--shade);
         }
 
         .qld__tab-content {
@@ -516,20 +513,91 @@
     }
 }
 
+.qld__banner.qld__banner--light+#content > section:first-child,
+.qld__banner.qld__banner--light+#content > data:first-child + section {
+
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
+    }  
+    
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-light__background--shade);
+            color: var(--QLD--color-light__link);
+
+                span i {
+                    color: var(--QLD-color-light__action--secondary);
+                }
+
+            &:hover {
+                background: var(--QLD-color-light__action--primary-hover);
+                color: var(--QLD-color-light__link--on-action);
+                text-decoration-color: var(--QLD--color-light__link--on-action);
+
+                span i {
+                    color: var(--QLD-color-light__link--on-action)
+                }
+            }
+        }
+    }    
+}
+
 .qld__banner.qld__banner--alt+#content > section:first-child,
 .qld__banner.qld__banner--alt+#content > data:first-child + section {
 
-        &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
+    }
+
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-light__background--alt-shade);
+            color: var(--QLD--color-light__link);
+
+                span i {
+                    color: var(--QLD-color-light__action--secondary);
+                }
+
+            &:hover {
+                background: var(--QLD-color-light__action--primary-hover);
+                color: var(--QLD-color-light__link--on-action);
+                text-decoration-color: var(--QLD--color-light__link--on-action);
+
+                span i {
+                    color: var(--QLD-color-light__link--on-action)
+                }
+            }
         }
-    
+    }    
 }
+
 .qld__banner.qld__banner--dark+#content > section:first-child,
 .qld__banner.qld__banner--dark+#content > data:first-child + section {
 
-        &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
+    }
+
+    .qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+
+            span i {
+                color: var(--QLD-color-dark__action--secondary);
+            }
         }
+
+        &:hover {
+            background: var(--QLD-color-dark__action--primary-hover);
+            color: var(--QLD-color-dark__link--on-action);
+            text-decoration-color: var(--QLD--color-dark__link--on-action);
+
+            span i {
+                color: var(--QLD-color-dark__link--on-action)
+            }
+        }
+    }
     
 }
 .qld__banner.qld__banner--dark-alt+#content > section:first-child,
@@ -538,11 +606,34 @@
         &.qld__tab-section{
             box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background--alt);
         }
-    
+
+    .qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+
+            span i {
+                color: var(--QLD-color-dark__action--secondary);
+            }
+        }
+
+        &:hover {
+            background: var(--QLD-color-dark__action--primary-hover);
+            color: var(--QLD-color-dark__link--on-action);
+            text-decoration-color: var(--QLD--color-dark__link--on-action);
+
+            span i {
+                color: var(--QLD-color-dark__link--on-action)
+            }
+        }
+     } 
 }
 
 .qld__body--light+.qld__tab-section,
-.qld__body--light+data+.qld__tab-section,
+.qld__body--light+data+.qld__tab-section{
+    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
+}
+
 .qld__body--alt+.qld__tab-section,
 .qld__body--alt+data+.qld__tab-section {
     box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
@@ -609,10 +700,39 @@
                     }
                 }
 
-                &--alt {
+                &--light {
                     .qld__tab-button {
                         &:not(.active) {
                             background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
+
+                            span i {
+                                color: var(--QLD-color-light__action--secondary);
+                            }
+
+                            &:hover {
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
+
+                                span i {
+                                    color: var(--QLD-color-dark__heading);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-light__heading);
+                            }
+                        }
+                    }
+                }
+
+                &--alt {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light__background--alt-shade);
                             color: var(--QLD-color-light__link);
 
                             span i {
