@@ -123,7 +123,7 @@
 }
 
 .qld__file-input-icon {
-    background-color: var(--QLD-color-light__background--shade);
+    background-color: $QLD-color-neutral--lightest;
     border-radius: pxToRem(32);
     color: var(--QLD-color-dark__action--secondary);
     display: none;
@@ -142,7 +142,7 @@
     }
 
     .qld__form-file-dropzone--dragged-over & {
-        background-color: var(--QLD-color-light__background);
+        background-color: $QLD-color-neutral--white;
 
         .qld__form-file-wrapper--dark & {
             background-color: $QLD-color-dark__background;
@@ -199,7 +199,7 @@
             }
 
             .qld__loading_spinner-label {
-                color: $QLD-color-light__background;
+                color: var(--QLD-color-dark__heading);
             }
 
             .qld__file-input-label {
@@ -231,7 +231,7 @@
     }
 
     &--dragged-over {
-        background-color: var(--QLD-color-light__background--shade);
+        background-color: $QLD-color-neutral--lightest;
         border-color: var(--QLD-color-light__action--primary-hover);
         
         .qld__form-file-wrapper--dark & {
@@ -273,7 +273,7 @@
 
 .qld__form-file {
     align-items: center;
-    border: 2px solid var($QLD-color-light__background--shade);
+    border: 2px solid $QLD-color-neutral--lightest;
     border-radius: var(--QLD-border-radius-xs);
     display: flex;
     flex-wrap: wrap;
@@ -292,7 +292,7 @@
     }
 
     &--complete {
-        background-color: $QLD-color-light__background--shade;
+        background-color: $QLD-color-neutral--lightest;
         border-color: $QLD-color-light__border;
         
         .qld__form-file-wrapper--dark & {
@@ -327,7 +327,7 @@
     }
     
     &--updating {
-        background-color: $QLD-color-light__background;
+        background-color: $QLD-color-neutral--white;
        
         .qld__form-file-wrapper--dark & {
             background-color: $QLD-color-dark__background;

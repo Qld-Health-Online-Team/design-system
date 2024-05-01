@@ -21,7 +21,7 @@
 
     > li{
         @include QLD-space(padding,1unit .25unit 1unit .25unit );
-        box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
+        box-shadow: 0 $QLD-border-width-thin 0 $QLD-color-neutral--lighter;
         display: flex;
         justify-content: space-between;
         position: relative;
@@ -113,6 +113,19 @@
         }
     }
     
+    .qld__body--light &{
+        > li{
+            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
+
+            &.qld__link-columns__all-link {
+                box-shadow:0 $QLD-border-width-thin 0 transparent;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
 
     .qld__body--alt &{
         > li{

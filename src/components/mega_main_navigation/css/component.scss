@@ -10,7 +10,7 @@
             position: relative;
             @include QLD-space(min-height, 1.75unit);
             @include QLD-space(min-width, 1.75unit);
-            background-color: var(--QLD-color-light__background);
+            background-color: $QLD-color-neutral--white;
             @include QLD-space(margin, 0 .625unit);
             align-self: center;
             @include QLD-box-shadow(1);
@@ -73,7 +73,7 @@
                     @include QLD-space(margin-bottom, -0.5unit);
 
                     &:hover{
-                        background-color: var(--QLD-color-light__background--shade);
+                        background-color: $QLD-color-neutral--lightest;
                         border-color: var(--QLD-color-light__action--primary-hover);
                     }
                 }
@@ -119,13 +119,13 @@
             }
             
             &--open{
-                background-color: var(--QLD-color-light__background);
+                background-color: $QLD-color-neutral--white;
                 color: var(--QLD-color-light__link);
                 font-weight: bold;
                 @include QLD-space(border-top-right-radius, 1unit);
 
                 &:hover{
-                    background-color: var(--QLD-color-light__background);
+                    background-color: $QLD-color-neutral--white;
                     color: var(--QLD-color-light__link);
                 }
             }
@@ -302,7 +302,7 @@
                     
                     &:hover{
                         border-color: var(--QLD-color-light__action--primary);
-                        background-color: var(--QLD-color-light__background);
+                        background-color: $QLD-color-neutral--white;
                                              
 
                         .qld__main-nav__sub-item-text .qld__icon{
@@ -318,7 +318,7 @@
                     width: 100%;
                     @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
                     @include QLD-fontgrid(xs);             
-                    border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light__border);
+                    border-bottom:solid $QLD-border-width-thin $QLD-color-neutral--lighter;
                     @include QLD-media(md) {
                         @include QLD-fontgrid(sm);
                     }      
@@ -343,7 +343,7 @@
 
                 &:hover{
                     border-color: var(--QLD-color-light__action--primary);
-                    background-color: var(--QLD-color-light__background);
+                    background-color: $QLD-color-neutral--white;
 
                     @include QLD-media(lg) {
                         background-color: transparent;
@@ -422,7 +422,7 @@
                 &:hover{
                     color: var(--QLD-color-light__link);
                     border-color: var(--QLD-color-light__action--primary);
-                    background-color: var(--QLD-color-light__background);
+                    background-color: $QLD-color-neutral--white;
                 }
             }
         }
