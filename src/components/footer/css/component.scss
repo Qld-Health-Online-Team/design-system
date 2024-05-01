@@ -6,7 +6,7 @@
     @include QLD-fontgrid(xs);
     @include QLD-space(padding-bottom, 2.5unit);
     border-top: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
-    background-color: var(--QLD-color-light__background--shade);
+    background-color:$QLD-color-neutral--lightest;
     color: var(--QLD-color-light__text);
 
     @include QLD-media(lg) {
@@ -180,7 +180,7 @@
 
     &__social,
     &__navigation {
-        border-top: $QLD-border-width-thin solid var(--QLD-color-light__border);
+        border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
         @include QLD-media(lg) {
             border-top: none;
             
@@ -266,7 +266,7 @@
             align-items:flex-start;
             @include QLD-space(padding-top, 0unit);
             height: 100%;
-                border-right: $QLD-border-width-default solid var(--QLD-color-light__border);
+                border-right: $QLD-border-width-default solid $QLD-color-neutral--lighter;
             
         
         }
@@ -321,7 +321,7 @@
             height: 100%;
             @include QLD-space(padding-top, 0unit);
             @include QLD-space(padding-right, 2unit);
-            border-right: $QLD-border-width-default solid var(--QLD-color-light__border);
+            border-right: $QLD-border-width-default solid $QLD-color-neutral--lighter;
         }
         .qld__footer__heading {
             @include QLD-media(xl) {

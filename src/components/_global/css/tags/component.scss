@@ -9,7 +9,7 @@
 	@include QLD-space ( font-size, .875unit);
 	@include QLD-space ( line-height, 1.5unit);
 	color: var(--QLD-color-light__text--lighter);
-	border: 1px solid var(--QLD-color-light__border);
+	border: 1px solid $QLD-color-neutral--lighter;
 	border-radius: $QLD-border-radius-md;
 	@include QLD-space(margin, 0);
 	@include QLD-focus();
@@ -19,7 +19,13 @@
 
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light__text--lighter);
+		border-color: $QLD-color-neutral--lighter;
+	}
+
+	.qld__body--light &,
+	.qld__card .qld__card__footer &{
 		border-color: var(--QLD-color-light__border);
+		color: var(--QLD-color-light__text--lighter);
 	}
 
 	.qld__body--alt &,
@@ -122,8 +128,15 @@ a.qld__tag,
 .qld__tag.qld__tag--info,
 .qld__card__footer .qld__tag.qld__tag--info{
 	color: var(--QLD-color-light__text--lighter);
-	border-color: var(--QLD-color-light__background--shade);
-	background-color: var(--QLD-color-light__background--shade);
+	border-color: $QLD-color-neutral--lightest;
+	background-color: $QLD-color-neutral--lightest;
+
+	.qld__body--light &,
+	.qld__card--light .qld__card__footer &{
+		color: var(--QLD-color-light__text--lighter);
+		border-color: var(--QLD-color-light__background--shade);
+		background-color: var(--QLD-color-light__background--shade);
+	}
 
 	.qld__body--alt &,
 	.qld__card--alt .qld__card__footer &{
@@ -150,7 +163,7 @@ a.qld__tag,
 .qld__tag.qld__tag--filter,
 .qld__card__footer .qld__tag.qld__tag--filter{
 	color: var(--QLD-color-light__text);
-	border-color: var(--QLD-color-light__border);
+	border-color: $QLD-color-neutral--lighter;
 	background-color: transparent;
 	@include QLD-fontgrid( sm );
 	@include QLD-space ( font-size, 1unit);
@@ -162,7 +175,7 @@ a.qld__tag,
 	&:hover {
 		color: var(--QLD-color-light__text);
 		background-color: transparent;
-		border-color: var(--QLD-color-light__border);
+		border-color: $QLD-color-neutral--lighter;
 		text-decoration: none;
 	}
 
@@ -191,6 +204,18 @@ a.qld__tag,
 			// background-image: QLD-svg-with-fill($QLD-icon-close-hover, var(--QLD-color-light__action--secondary));
 			mask-image: QLD-svguri($QLD-icon-close-hover);
 			background-color: var(--QLD-color-light__action--secondary-hover);
+		}
+	}
+
+	.qld__body--light &,
+	.qld__card--light .qld__card__footer &{
+		color: var(--QLD-color-light__text);
+		border-color: var(--QLD-color-light__border);
+
+		&:hover {
+			color: var(--QLD-color-light__text);
+			background-color: transparent;
+			border-color: var(--QLD-color-light__border);
 		}
 	}
 
