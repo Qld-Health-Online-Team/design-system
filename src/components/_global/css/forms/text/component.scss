@@ -103,7 +103,7 @@ textarea{
 
 		&:focus{
 			background-color: $QLD-color-neutral--white;
-			border-color: var(--QLD-color-light__border);
+			border-color: $QLD-color-neutral--lighter;
 			&::placeholder {
 				color: var(--QLD-color-light__text--lighter);
 			}
@@ -190,13 +190,13 @@ textarea{
 
 		&[aria-expanded="true"],
 		&:hover[aria-expanded="true"]{
-			background-color: var(--QLD-color-light__border);
+			background-color: $QLD-color-neutral--lightest;
 			border-color: transparent;
 		}
 
 		&:focus {
 			background-color: $QLD-color-neutral--white;
-			border:$QLD-border-width-default solid var(--QLD-color-light__border);
+			border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
 			border-bottom-left-radius: 4px;
 			border-bottom-right-radius: 4px;
 			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
@@ -263,7 +263,7 @@ textarea{
 			&:focus {
 				background-color: $QLD-color-neutral--white;
 				color: var(--QLD-color-light__text);
-				border-color: var(--QLD-color-light__border);
+				border-color: $QLD-color-neutral--lighter;
 				&::placeholder {
 					color: var(--QLD-color-light__text--lighter);
 				}
