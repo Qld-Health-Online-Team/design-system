@@ -201,7 +201,8 @@
                 "max_files" : $input.dataset["maxFiles"],
                 "file_list_element" : $file_list,
                 "dropzone_element" : $dropzone_element,
-                "js_api" : $input.dataset["jsApi"]
+                "js_api" : $input.dataset["jsApi"],
+                "displayFiles": displayExistingFiles
             }
 
             // Add event listeners 
@@ -229,7 +230,7 @@
 
         // Custom 'required' validation for input
         if(!$.validator.methods.requiredFileInteraction) {
-            $.validator.addMethod("requiredFileInteraction", function(value, element) {
+            $.validator.addMethod("requiredFileInteraction", (value, element) => {
                 // Check if the user has interacted with the file input
                 if ($(element).data('interacted')) {
                     // If data-files attribute is empty, invalidate the field
@@ -398,7 +399,6 @@
      */
     const toggleDropzoneClass = ($dropZone, status) => {
         const classNames = status.split(',');
-        const $fileInput = $dropZone.querySelector("input[type=file]");
 
         classNames.forEach(className => {       
             $dropZone.classList.toggle(`qld__form-file-dropzone--${className}`);
@@ -477,7 +477,7 @@
         let dataTransfer = new DataTransfer();
 
         // Loop over each File object and add to the DataTransfer instance
-        files.forEach(function(file) {
+        files.forEach((file) => {
             dataTransfer.items.add(file);
         });
         // Set the input files value to the new 'array' of File objects
@@ -594,7 +594,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const createFileAsset = async function(file, input_field_settings) {
+    const createFileAsset = async (file, input_field_settings) => {
 
         // Asset id of create location
         const createLocation = input_field_settings.create_location;
@@ -663,6 +663,55 @@
             return error;
         }
     }
+    
+    // Display file info for existing 
+    const displayExistingFiles = async function() {
+        const files = this.files.length ? JSON.parse(this.files) : [];
+        const $fileInfoArea = this.file_list_element;
+        const displayed = this.files_displayed;
+
+        // Only attempt to retrieve files from Matrix if JS api is available, and this function hasn't already been called
+        if(files.length > 0 && displayed !== true) {
+            // Set' displayed' flag to prevent multiple calls
+            this.files_displayed = true;
+            // Loop through current file assets and retrieve their data
+            if(fileUploads.jsApi !== null ) {
+                for (let file of files) {
+                    try {
+                        // Get general details for each
+                        // ex. { "id" : 321, "web_path" : 'https://google.com' }
+                        let currentFile = await jsApi.getGeneral({
+                            "asset_id": JSON.parse(file).id,
+                            "get_attributes": 1
+                        });
+                        
+                        if(currentFile.error === undefined) {
+                            displayFile(currentFile, $fileInfoArea);
+                        } else {
+                            throw new Error("displayExistingFiles: Could not retrieve asset attributes.")
+                        }
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }    
+            } else {
+                if(files.length > 0) {
+                    for (let file of files) {
+                        // Pass stored file details
+                        displayFile(file, $fileInfoArea);
+                    }
+                }
+            }
+        } else {
+            console.log(`All exisiting files already displaying for #${this.id}`);
+        }
+    }
+
+    // Display file info card
+    const displayFile = (file, $fileInfoArea) => {
+        console.log('file', file);
+        console.log('fileInfoArea', $fileInfoArea);
+    }
 
     /**
      * Set the files data attribute for a JS API driven file input
@@ -690,7 +739,7 @@
     // Store fileUploads object globally
     QLD.fileUploads = fileUploads;
 
-    window.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('DOMContentLoaded', () => {
         QLD.fileUploads.init();
     });
 
