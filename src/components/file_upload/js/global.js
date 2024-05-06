@@ -40,21 +40,24 @@
      * @memberof module:fileUploads
      */
      const successTemplate = (file) => {
-
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
-        const fileSize = Math.ceil(file.size / 1000);
+        let fileSize = null;
         const fileId = file.id != undefined ? file.id : fileName;
-        let fileType = getAssetType(file.type);
+        let fileType = file.type != undefined ? getAssetType(file.type) : '';
+
+        if (file && file.size) {
+            fileSize = Math.ceil(file.size / 1000);
+        }
         
         fileTemplate.classList.add('qld__form-file', 'qld__form-file--success');
 
         fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-                                        <i class="fa-light fa-2x fa-file${fileType.fontAwesomeClass}" aria-hidden="true"></i>
+                                        <i class="fa-light fa-2x fa-file${fileType !== '' ? fileType.fontAwesomeClass : ''}" aria-hidden="true"></i>
                                     </div>
                                     <div class="qld__form-file-info">
                                         <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-                                        <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"></path></svg>Upload successful, ${fileSize}KB</span>
+                                        <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"></path></svg>Upload successful${fileSize !== null ? `, ${fileSize}KB` : '' }</span>
                                     </div></div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
@@ -666,16 +669,17 @@
     
     // Display file info for existing 
     const displayExistingFiles = async function() {
-        const files = this.files.length ? JSON.parse(this.files) : [];
+        const files = this.files.length ? this.files : [];
         const $fileInfoArea = this.file_list_element;
         const displayed = this.files_displayed;
+        const usingJsApi = this.js_api;
 
         // Only attempt to retrieve files from Matrix if JS api is available, and this function hasn't already been called
         if(files.length > 0 && displayed !== true) {
             // Set' displayed' flag to prevent multiple calls
             this.files_displayed = true;
             // Loop through current file assets and retrieve their data
-            if(fileUploads.jsApi !== null ) {
+            if(fileUploads.jsApi !== null && usingJsApi !== "false") {
                 for (let file of files) {
                     try {
                         // Get general details for each
@@ -709,8 +713,10 @@
 
     // Display file info card
     const displayFile = (file, $fileInfoArea) => {
-        console.log('file', file);
-        console.log('fileInfoArea', $fileInfoArea);
+        const parsedFile = JSON.parse(file);
+        const $fileInfoBox = successTemplate(parsedFile);
+
+        $fileInfoArea.appendChild($fileInfoBox);
     }
 
     /**
@@ -719,7 +725,7 @@
      * @memberof module:fileUploads
      */
     const setFilesDataAttribute = (input_field_settings, newFileInfo = null) => {
-        let files = input_field_settings.files;  
+        let files = input_field_settings.files;
         
         if(newFileInfo) {
             const fileObj = {
@@ -733,7 +739,7 @@
             }
         }
         // Set files data attribute 
-        input_field_settings.input_element.dataset["files"] = files;
+        input_field_settings.input_element.dataset["files"] = JSON.stringify(files);
     }
 
     // Store fileUploads object globally
