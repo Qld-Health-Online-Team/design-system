@@ -684,7 +684,7 @@
                     try {
                         // Get general details for each
                         // ex. { "id" : 321, "web_path" : 'https://google.com' }
-                        let currentFile = await jsApi.getGeneral({
+                        let currentFile = await fileUploads.jsApi.getGeneral({
                             "asset_id": JSON.parse(file).id,
                             "get_attributes": 1
                         });
