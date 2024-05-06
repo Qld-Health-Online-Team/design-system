@@ -45,14 +45,14 @@
 
                 &:not(:disabled) {
                     &:hover{
-                        background-color: var(--QLD-color-light__background--shade);
+                        background-color: $QLD-color-neutral--lightest;
                         color: var(--QLD-color-light__text--lighter);
                     }
                 }
 
                 &.active, &:active, &:focus {
                     color: var(--QLD-color-light__text--lighter);
-                    background-color: var(--QLD-color-light__background--shade);
+                    background-color: $QLD-color-neutral--lightest;
                 }
             }
         }
@@ -86,7 +86,7 @@
                 @include sq-border-radius(8px);
                 width: pxToRem(64);
                 height: pxToRem(64);
-                background-color: var(--QLD-color-light__background--shade);
+                background-color: $QLD-color-neutral--lightest;
             }
 
             &.active {
@@ -135,7 +135,7 @@
                 }
 
                 &:nth-child(2n) {
-                    background-color: var(--QLD-color-light__background--shade);
+                    background-color: $QLD-color-neutral--lightest;
                 }
             }
         }

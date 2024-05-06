@@ -11,7 +11,7 @@ textarea{
 	@include QLD-space( padding, 0.75unit 1unit );
 	border-radius: $QLD-border-radius-xs;
 	border:$QLD-border-width-default solid var(--QLD-color-light__border--alt);
-	background-color: var(--QLD-color-light__background);
+	background-color: $QLD-color-neutral--white;
 	box-sizing: border-box;
 	appearance: none;
 	
@@ -63,20 +63,20 @@ textarea{
 
 	&:hover{
 		&:not(:focus):not(.qld__text-input--error) { 
-			background-color: var(--QLD-color-light__background--shade);
+			background-color: $QLD-color-neutral--lightest;
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
 	}
 	
 	&[aria-expanded="true"],
 	&:hover[aria-expanded="true"]{
-		background-color: var(--QLD-color-light__background);
+		background-color: $QLD-color-neutral--white;
 	}
 
 	&:focus{
-		background-color: var(--QLD-color-light__background);
+		background-color: $QLD-color-neutral--white;
 		border-radius: $QLD-border-radius-xs;
-		border:$QLD-border-width-default solid var(--QLD-color-light__border);
+		border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
 		&::placeholder {
 			color: var(--QLD-color-light__text--lighter);
 		}
@@ -102,8 +102,8 @@ textarea{
 		}
 
 		&:focus{
-			background-color: var(--QLD-color-light__background);
-			border-color: var(--QLD-color-light__border);
+			background-color: $QLD-color-neutral--white;
+			border-color: $QLD-color-neutral--lighter;
 			&::placeholder {
 				color: var(--QLD-color-light__text--lighter);
 			}
@@ -159,7 +159,7 @@ textarea{
 		&[aria-expanded="true"],
 		&:hover[aria-expanded="true"]{
 			color: var(--QLD-color-light__text);
-			background-color: var(--QLD-color-light__background);
+			background-color: $QLD-color-neutral--white;
 		}
 	}
 }
@@ -174,7 +174,7 @@ textarea{
 	.sq-form-question textarea,
 	.sq-form-question-email-address input,
 	.qld__text-input {
-		background-color: var(--QLD-color-light__background--alt);
+		background-color: $QLD-color-neutral--lightest;
 		border-width: 0 0 2px 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
@@ -182,7 +182,7 @@ textarea{
 
 		&:hover {
 			&:not(:focus) { 
-				background-color: var(--QLD-color-light__background--alt-shade);
+				background-color: $QLD-color-neutral--lightest;
 				border-color: var(--QLD-color-light__action--primary-hover);
 				cursor: pointer;
 			}
@@ -190,13 +190,13 @@ textarea{
 
 		&[aria-expanded="true"],
 		&:hover[aria-expanded="true"]{
-			background-color: var(--QLD-color-light__border);
+			background-color: $QLD-color-neutral--lightest;
 			border-color: transparent;
 		}
 
 		&:focus {
-			background-color: var(--QLD-color-light__background);
-			border:$QLD-border-width-default solid var(--QLD-color-light__border);
+			background-color: $QLD-color-neutral--white;
+			border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
 			border-bottom-left-radius: 4px;
 			border-bottom-right-radius: 4px;
 			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
@@ -213,7 +213,7 @@ textarea{
 			}
 		
 			&:focus {
-				background-color: var(--QLD-color-light__background--shade);
+				background-color: $QLD-color-neutral--white;
 				border-color: transparent;
 			}
 		}
@@ -261,9 +261,9 @@ textarea{
 			}
 
 			&:focus {
-				background-color: var(--QLD-color-light__background);
+				background-color: $QLD-color-neutral--white;
 				color: var(--QLD-color-light__text);
-				border-color: var(--QLD-color-light__border);
+				border-color: $QLD-color-neutral--lighter;
 				&::placeholder {
 					color: var(--QLD-color-light__text--lighter);
 				}
@@ -272,7 +272,7 @@ textarea{
 			&[aria-expanded="true"],
 			&:hover[aria-expanded="true"]{
 				color: var(--QLD-color-light__text);
-				background-color: var(--QLD-color-light__background);
+				background-color: $QLD-color-neutral--white;
 			}
 
 			&.qld__text-input--dark.qld__input--error,
@@ -324,7 +324,7 @@ textarea{
 			&.qld__input--valid,
 			&--valid {
 				&:focus {
-					background-color: var(--QLD-color-light__background);
+					background-color: $QLD-color-neutral--white;
 				}
 			}
 		}

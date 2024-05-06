@@ -17,7 +17,7 @@ select{
 	// background-color: var(--QLD-color-light__action--secondary);
 
 
-	background-color: transparent;
+	background-color: $QLD-color-neutral--white;
 	appearance: none;
 	background-repeat: no-repeat;
 	background-position: right 11px center;
@@ -40,7 +40,7 @@ select{
 
 	&:hover{
 		&:not(:focus) {
-			background-color: var(--QLD-color-light__background--shade);
+			background-color: $QLD-color-neutral--lightest;
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
 	}
@@ -148,7 +148,7 @@ select{
 		}
 
 		&:focus {
-			background-color: var(--QLD-color-light__background);
+			background-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__text);
 			border-color: var(--QLD-color-light__border);
 			&::placeholder {
@@ -157,6 +157,17 @@ select{
 		}
 	}
 }
+
+.qld__body--light {
+	.sq-form-question-select select,
+	.sq-form-question-datetime select,
+	.qld__select,
+	select {
+		background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#{ $QLD-color-light__action--secondary }" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>')
+	
+	}
+}
+
 
 .qld__form-style-filled {
 	.qld__body--dark,
@@ -180,9 +191,9 @@ select{
 			}
 			
 			&:focus {
-				background-color: var(--QLD-color-light__background);
+				background-color: $QLD-color-neutral--white;
 				color: var(--QLD-color-light__text);
-				border-color: var(--QLD-color-light__border);
+				border-color: $QLD-color-neutral--lighter;
 				&::placeholder {
 					color: var(--QLD-color-light__text--lighter);
 				}
@@ -196,16 +207,16 @@ select{
 	.sq-form-question-select select,
 	.sq-form-question-datetime select,
 	.qld__select {
-		background-color: var(--QLD-color-light__background--shade);
+		background-color: $QLD-color-neutral--lightest;
 		border-width: 0 0 2px 0;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 		@include QLD-space( padding, 0.875unit 1.125unit 0.75unit 1.125unit);
 
 		&:focus{
-			background-color: var(--QLD-color-light__background);
+			background-color: $QLD-color-neutral--white;
 			border-radius: $QLD-border-radius-xs;
-			border:$QLD-border-width-default solid var(--QLD-color-light__border);
+			border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
 			border-bottom-left-radius: 4px;
 			border-bottom-right-radius: 4px;
 			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
@@ -303,7 +314,7 @@ select{
 
 // Matrix error styling
 .sq-form-question-select.sq-form-question-error select{
-	background-color: var(--QLD-color-light__background--shade);
+	background-color: $QLD-color-neutral--lightest;
 	border-color: $QLD-color-status__error;
 }
 

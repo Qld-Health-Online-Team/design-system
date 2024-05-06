@@ -10,7 +10,7 @@ require('jquery-validation');
 require("slick-carousel");
 require( 'datatables.net' );
 require('prismjs');
-require('flatpickr');
+// require('flatpickr');
 
 import Bloodhound from 'corejs-typeahead/dist/bloodhound.js';
 window.Bloodhound = Bloodhound;

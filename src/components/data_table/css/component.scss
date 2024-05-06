@@ -165,7 +165,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         font-size: 20px;
         line-height: 32px;
         color: var(--QLD-color-status__dark-underline);
-        box-shadow: inset 0 -1px 0 var(--QLD-color-light__border);
+        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
 
         .qld__caption{
             font-style: normal;
@@ -191,7 +191,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         tr {
 
             &:nth-child(2) {
-                background-color: var(--QLD-color-light__background--shade);
+                background-color: $QLD-color-neutral--lightest;
             }
 
             th {
@@ -264,7 +264,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     
                 &.sorting_asc,
                 &.sorting_desc { //needs to stayl
-                    background-color: var(--QLD-color-light__background--shade);
+                    background-color: $QLD-color-neutral--lightest;
                     box-shadow: inset 0 -2px 0 var(--QLD-color-light__design-accent);
                     text-decoration: underline;
                 }
@@ -297,7 +297,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     td {
         @include QLD-standard-space(padding, 3);
         padding: 12px 12px 12px 12px;
-        box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-light__border);
+        box-shadow: inset 0 0 -$QLD-border-width-thin 0 $QLD-color-neutral--lighter;
 
         &.qld__data-table__cell--numeric {
             text-align: right;
@@ -309,7 +309,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
 
         &.sorting_1 { //needs to stayl
-            background-color: var(--QLD-color-light__background--shade);
+            background-color: $QLD-color-neutral--lightest;
         }
     }
 
@@ -319,8 +319,8 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     tfoot {
-        background-color: var(--QLD-color-light__background);
-        box-shadow: 0 1px 0 var(--QLD-color-light__border);
+        background-color: $QLD-color-neutral--white;
+        box-shadow: 0 1px 0 $QLD-color-neutral--lighter;
 
         &.qld__data-table-footer, tr { //needs to stayl
             th {
@@ -328,7 +328,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
                 &.sorting_1 {
                     box-shadow: 0 -2px 0 var(--QLD-color-light__design-accent);
-                    background-color: var(--QLD-color-light__background--shade);
+                    background-color: $QLD-color-neutral--lightest;
                 }
 
             }
@@ -336,11 +336,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .qld__data-table__cell-left-border {
-        border-left: 1px solid var(--QLD-color-light__border);
+        border-left: 1px solid $QLD-color-neutral--lighter;
     }
 
     .qld__data-table__cell-right-border {
-        border-right: 1px solid var(--QLD-color-light__border);
+        border-right: 1px solid $QLD-color-neutral--lighter;
     }
 
     &.qld__data-table__col-1-left-border tr td:nth-child(1), //needs to go after merging with tables
@@ -353,7 +353,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-8-left-border tr td:nth-child(8),
     &.qld__data-table__col-9-left-border tr td:nth-child(9),
     &.qld__data-table__col-10-left-border tr td:nth-child(10) {
-        border-left: 1px solid var(--QLD-color-light__border);
+        border-left: 1px solid $QLD-color-neutral--lighter;
     }
 
     &.qld__data-table__col-1-right-border tr td:nth-child(1), //needs to go after merging with tables
@@ -361,7 +361,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-3-right-border tr td:nth-child(3),
     .qld__data-table__header {
         color: var(--QLD-color-status__dark-underline);
-        box-shadow: inset 0 -1px 0 var(--QLD-color-light__border);
+        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
         .qld__display-md {
             font-size: 1rem;
         }
@@ -374,7 +374,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-8-right-border tr td:nth-child(8),
     &.qld__data-table__col-9-right-border tr td:nth-child(9),
     &.qld__data-table__col-10-right-border tr td:nth-child(10) {
-        border-right: 1px solid var(--QLD-color-light__border);
+        border-right: 1px solid $QLD-color-neutral--lighter;
     }
 
         border-radius: $QLD-border-radius-sm;
@@ -387,7 +387,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
 
     &.qld__data-table--scroll { //needs to go after tables come in place or if Kenny asks for non scroll
-        border: 1px solid var(--QLD-color-light__border);
+        border: 1px solid $QLD-color-neutral--lighter;
         border-radius: $QLD-border-radius-sm;
         max-height: 640px;
         /* Max height for mobile devices based on average available screen space on mobile devices */
@@ -413,7 +413,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             thead {
                 inset-block-start: 0;
                 /* "top" */
-                background-color: var(--QLD-color-light__background);
+                background-color: $QLD-color-neutral--white;
             }
 
             tfoot {
@@ -439,7 +439,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     & {
         width: 100%;
         overflow: auto;
-        border: 1px solid var(--QLD-color-light__border);
+        border: 1px solid $QLD-color-neutral--lighter;
         border-radius: $QLD-border-radius-sm;
         overflow-x: hidden;
 
@@ -450,7 +450,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     .qld__text-input { //needs to stay
         color: var(--QLD-color-light__text);
         border: 2px solid var(--QLD-color-light__border--alt);
-        background-color: var(--QLD-color-light__background);
+        background-color: $QLD-color-neutral--white;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-appearance: none;
@@ -472,12 +472,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .top { //needs to stay
-        box-shadow: inset 0 -1px 0 var(--QLD-color-light__border);
+        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
     }
 
     .dataTables_length>label>select { //needs to stay
         border: 2px solid var(--QLD-color-light__border--alt);
-        background-color: var(--QLD-color-light__background);
+        background-color: $QLD-color-neutral--white;
         background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDown}");
         background-color: transparent;
         padding: 0.75rem 2rem 0.75rem 1rem;
@@ -518,7 +518,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         tbody {
             .qld__table__row:nth-last-child(odd),
             tr:nth-last-child(odd) {
-                background-color: var(--QLD-color-light__background--shade);
+                background-color: $QLD-color-neutral--lightest;
             }
             
         }
