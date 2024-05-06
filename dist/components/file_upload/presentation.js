@@ -23,7 +23,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"file_types") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n                    data-create-location=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"create_location") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                    data-files=''\n                    data-max-size=\""
+    + "\"\n                    data-files='[&quot;{\\&quot;id\\&quot;:\\&quot;888888\\&quot;, \\&quot;name\\&quot;:\\&quot;File 1\\&quot;}&quot;,&quot;{\\&quot;id\\&quot;:\\&quot;999999\\&quot;, \\&quot;name\\&quot;:\\&quot;File 2\\&quot;}&quot;]'\n                    data-max-size=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"max_size") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n                    data-max-files=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"max_selection") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
