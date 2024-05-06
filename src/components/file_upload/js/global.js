@@ -713,7 +713,7 @@
 
     // Display file info card
     const displayFile = (file, $fileInfoArea) => {
-        const parsedFile = JSON.parse(file);
+        const parsedFile = typeof file === 'string' ? JSON.parse(file) : file;
         const $fileInfoBox = successTemplate(parsedFile);
 
         $fileInfoArea.appendChild($fileInfoBox);
