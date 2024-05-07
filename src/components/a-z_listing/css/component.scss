@@ -37,22 +37,22 @@
                 @include QLD-space(height, 32px);
                 line-height: 1.82;
                 text-align: center;
-                color: var(--QLD-color-light-link);
-                border: 1px solid var(--QLD-color-light-alt-border);
+                color: var(--QLD-color-light__link);
+                border: 1px solid var(--QLD-color-light__border--alt);
                 @include sq-border-radius(3px);
                 text-transform: uppercase;
                 text-decoration: none;
 
                 &:not(:disabled) {
                     &:hover{
-                        background-color: var(--QLD-color-light-background__shade);
-                        color: var(--QLD-color-light-text__muted);
+                        background-color: $QLD-color-neutral--lightest;
+                        color: var(--QLD-color-light__text--lighter);
                     }
                 }
 
                 &.active, &:active, &:focus {
-                    color: var(--QLD-color-light-text__muted);
-                    background-color: var(--QLD-color-light-background__shade);
+                    color: var(--QLD-color-light__text--lighter);
+                    background-color: $QLD-color-neutral--lightest;
                 }
             }
         }
@@ -81,24 +81,24 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                border: 1px solid var(--QLD-color-light-border);
+                border: 1px solid var(--QLD-color-light__border);
                 text-align: center;
                 @include sq-border-radius(8px);
                 width: pxToRem(64);
                 height: pxToRem(64);
-                background-color: var(--QLD-color-light-background__shade);
+                background-color: $QLD-color-neutral--lightest;
             }
 
             &.active {
                 span {
-                    color: var(--QLD-color-dark-text);
-                    background-color: var(--QLD-color-dark-background);
+                    color: var(--QLD-color-dark__text);
+                    background-color: var(--QLD-color-dark__background);
                 }
             }
         }
 
         .qld__a-z_listing__list__item__services {
-            border: 1px solid var(--QLD-color-light-border);
+            border: 1px solid var(--QLD-color-light__border);
             border-radius: pxToRem(12);
             list-style: none;
             overflow-y: hidden;
@@ -116,7 +116,7 @@
 
             .qld__a-z_listing__list__item__services__item {
                 
-                border-bottom: 1px solid var(--QLD-color-light-border);
+                border-bottom: 1px solid var(--QLD-color-light__border);
 
                 .qld__a-z_listing__list__item__services__item__link {
                     display: inline-block;
@@ -125,7 +125,7 @@
 
                     &:hover {
                         svg {
-                            color: var(--QLD-color-light-alt-button__hover);
+                            color: var(--QLD-color-light__action--secondary-hover);
                         }
                     }
                 }
@@ -135,7 +135,7 @@
                 }
 
                 &:nth-child(2n) {
-                    background-color: var(--QLD-color-light-background__shade);
+                    background-color: $QLD-color-neutral--lightest;
                 }
             }
         }
