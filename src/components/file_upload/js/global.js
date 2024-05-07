@@ -204,18 +204,19 @@
                 "max_files" : $input.dataset["maxFiles"],
                 "file_list_element" : $file_list,
                 "dropzone_element" : $dropzone_element,
-                "js_api" : $input.dataset["jsApi"],
+                "js_api_key" : $input.dataset["jsApiKey"],
                 "displayFiles": displayExistingFiles
             }
 
             // Add event listeners 
             addListeners(fileUploads.inputs[$input.id]);
             // Custom validation for JS API if the field is required
-            if(fileUploads.inputs[$input.id].js_api === "true" && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
+            if(fileUploads.inputs[$input.id].js_api_key !== undefined && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
                 addValidation(fileUploads.inputs[$input.id]);
-                if(!fileUploads.jsApi) {
-                    jsApi();
-                }
+            }
+            // Set the instance of js api to the input settings object
+            if(fileUploads.inputs[$input.id].js_api_key !== undefined && fileUploads.inputs[$input.id].create_location !== undefined) {
+                fileUploads.inputs[$input.id].jsApi = jsApi(fileUploads.inputs[$input.id].js_api_key);
             }
         };
     }
@@ -331,7 +332,7 @@
     const deleteFile = async (input_field_settings, fileId, $fileInfo) => {
         const currentFiles = input_field_settings.files;
         const isError = $fileInfo.matches(".qld__form-file--error");
-        const usingJsApi = input_field_settings.js_api;
+        const usingJsApi = input_field_settings.jsApi !== undefined;
         const index = currentFiles.findIndex((obj)=>{
             if (typeof(obj) === 'string') {
                 return JSON.parse(obj).id === fileId;
@@ -345,11 +346,11 @@
             currentFiles.splice(index, 1);
             input_field_settings.files = currentFiles;
             // Update FileList if not using JS API
-            if(usingJsApi !== "true") {
+            if(!usingJsApi) {
                 updateFileInputFileList(input_field_settings);         
             } else {
                 try {
-                    await deleteAssetFromMatrix(fileId, $fileInfo)
+                    await deleteAssetFromMatrix(fileId, $fileInfo, input_field_settings)
                     setFilesDataAttribute(input_field_settings);
                 } catch(error) {
                     console.log(error);
@@ -367,18 +368,19 @@
      * 
      * @memberof module:fileUploads
      */
-    const deleteAssetFromMatrix = async (fileId, $fileInfo) => {
+    const deleteAssetFromMatrix = async (fileId, $fileInfo, input_field_settings) => {
         try {
             const name = $fileInfo.querySelector(".qld__form-file-info-name").innerText;
             const file = {"name": name}; 
             const $loading = loadingTemplate(file);
+            const jsApi = input_field_settings.jsApi;
 
             // Change text from ''Uploading' to 'Deleting' and replace current file info box
             $loading.querySelector(".qld__form-file-info-status").innerText = "Deleting...";
             $fileInfo.replaceWith($loading);
             
             // Send trashAsset request
-            let trashedAsset = await fileUploads.jsApi.trashAsset({
+            let trashedAsset = await jsApi.trashAsset({
                 "asset_ids": fileId
             });
 
@@ -415,7 +417,7 @@
      */
     const handleFiles = async (files, input_field_settings) => {
         const $fileList = input_field_settings.file_list_element;
-        const usingJsApi = input_field_settings.js_api;
+        const usingJsApi = input_field_settings.jsApi !== undefined;
         const $dropZone = input_field_settings.dropzone_element;
         let promiseArray = [];
 
@@ -437,7 +439,7 @@
             // If the file passes the validation rules
             if(isValid === true) {
                 // If we're using the JS API to create file assets
-                if(usingJsApi === "true") {
+                if(usingJsApi) {
                     promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
                 } else {
                     // Push File object into files array
@@ -449,7 +451,7 @@
             }
         }
         // Only update the FileList if the JS API isn't being used
-        if(usingJsApi !== "true"){
+        if(!usingJsApi){
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
@@ -522,12 +524,12 @@
      * 
      * @memberof module:fileUploads
      */
-    const jsApi = () => {
+    const jsApi = (key) => {
         let options = new Array();
-        options["key"] = "9416674173";
+        options["key"] = key;
         let js_api = new Squiz_Matrix_API(options);
         
-        fileUploads.jsApi = js_api;
+        return js_api;
     };
 
     /**
@@ -538,6 +540,7 @@
      const uploadFileJsApi = async (file, $fileInfo, input_field_settings) => {
        
         const reader = new FileReader();
+        const jsApi = input_field_settings.jsApi;
         let fileContent;
 
         // Base64 file data 
@@ -558,7 +561,7 @@
                 
                 if(!updatedFileAsset.hasOwnProperty('error')) {
                     // Get new file asset attributes
-                    let newFileInfo = await fileUploads.jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
+                    let newFileInfo = await jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
                     
                     if(!newFileInfo.hasOwnProperty('error')) {
                         // We need to set the size property here, because jsApi.getGeneral doesn't return the size for some asset types
@@ -603,10 +606,11 @@
         const createLocation = input_field_settings.create_location;
         const assetType = getAssetType(file.type);
         const fileName = file.name;
+        const jsApi = input_field_settings.jsApi;
         
         try {
             // Create new file asset
-            const newFile = await fileUploads.jsApi.createFileAsset({
+            const newFile = await jsApi.createFileAsset({
                 "parentID": createLocation,
                 "type_code": assetType.type,
                 "friendly_name": fileName,
@@ -634,20 +638,21 @@
      * 
      * @memberof module:fileUploads
      */
-    const updateFileContents = async (asset, fileContent) => {
+    const updateFileContents = async (asset, fileContent, input_field_settings) => {
         // Asset ID from JS API response
         const assetId = Object.keys(asset)[0];
+        const jsApi = input_field_settings.jsApi;
         
         try {
             // Grab the locks for the asset
-            let locks = await fileUploads.jsApi.acquireLock({
+            let locks = await jsApi.acquireLock({
                 "asset_id": assetId,
                 "screen_name": "attributes",
                 "dependants_only": 0,
                 "force_acquire": 1
             });            
             // Update File Asset with the file contents
-            let updatedFile = await fileUploads.jsApi.updateFileAssetContent({
+            let updatedFile = await jsApi.updateFileAssetContent({
                 "asset_id": assetId,
                 "content": fileContent
             });
@@ -672,19 +677,20 @@
         const files = this.files.length ? this.files : [];
         const $fileInfoArea = this.file_list_element;
         const displayed = this.files_displayed;
-        const usingJsApi = this.js_api;
+        const usingJsApi = this.js_api_key !== undefined;
+        const jsApi = this.jsApi;
 
         // Only attempt to retrieve files from Matrix if JS api is available, and this function hasn't already been called
         if(files.length > 0 && displayed !== true) {
             // Set' displayed' flag to prevent multiple calls
             this.files_displayed = true;
             // Loop through current file assets and retrieve their data
-            if(fileUploads.jsApi !== null && usingJsApi !== "false") {
+            if(fileUploads.jsApi !== null && usingJsApi) {
                 for (let file of files) {
                     try {
                         // Get general details for each
                         // ex. { "id" : 321, "web_path" : 'https://google.com' }
-                        let currentFile = await fileUploads.jsApi.getGeneral({
+                        let currentFile = await jsApi.getGeneral({
                             "asset_id": JSON.parse(file).id,
                             "get_attributes": 1
                         });
