@@ -41,12 +41,12 @@
 
             a {
                 @include QLD-underline('light','underline','default','noVisited');
-                color: var(--QLD-color-light-link);
+                color: var(--QLD-color-light__link);
             }
 
             // .qld__icon{
             //     @include QLD-space(margin, 0 0.5unit);
-            //     color: var(--QLD-color-light-alt-button);
+            //     color: var(--QLD-color-light__action--secondary);
             //     @include QLD-space(height, 1unit);
             // }
             
@@ -56,14 +56,14 @@
                 @include QLD-space(width, 0.5unit);
                 @include QLD-space(height, 1unit);
                 @include QLD-space(margin, 0 0.5unit);
-                // background-image: QLD-svg-with-fill($QLD-icon-chevron-right, var(--QLD-color-light-alt-button));
+                // background-image: QLD-svg-with-fill($QLD-icon-chevron-right, var(--QLD-color-light__action--secondary));
                 // background-size: contain;
                 // background-repeat: no-repeat;
                 vertical-align: middle;
                 mask-image: QLD-svguri($QLD-icon-chevron-right);
                 mask-repeat: no-repeat;
                 mask-position: center;
-                background-color: var(--QLD-color-light-alt-button);
+                background-color: var(--QLD-color-light__action--secondary);
             }
             
             &:last-child:after {
@@ -95,12 +95,12 @@
     .qld__body--dark-alt &,
     .qld__banner--dark &,
     .qld__banner--dark-alt &{
-        color: var(--QLD-color-dark-text__muted);
+        color: var(--QLD-color-dark__text--lighter);
         
         > .qld__link-list {
             > li:not(:last-child){
                 &::after{
-                    background-color: var(--QLD-color-dark-alt-button);
+                    background-color: var(--QLD-color-dark__action--secondary);
                 }
             }
 
@@ -108,7 +108,7 @@
                 a {
                     // @include QLD-underline('dark');
                     @include QLD-underline('dark','underline','default','noVisited');
-                    color: var(--QLD-color-dark-text);
+                    color: var(--QLD-color-dark__text);
                 }
             }
         }
@@ -124,15 +124,15 @@
     }
 
     &.qld__breadcrumbs--alt {
-        background-color: var(--QLD-color-light-alt-background);
+        background-color: var(--QLD-color-light__background--alt);
     }
 
     &.qld__breadcrumbs--dark {
-        background-color: var(--QLD-color-dark-background);
+        background-color: var(--QLD-color-dark__background);
     }
 
     &.qld__breadcrumbs--alt-dark {
-        background-color: var(--QLD-color-dark-alt-background);
+        background-color: var(--QLD-color-dark__background--alt);
     }
 
 }
@@ -189,14 +189,14 @@
 .qld__banner__breadcrumbs--desktop,
 .qld__breadcrumbs__list--mobile {
     li .qld__icon{
-     color: var(--QLD-color-light-alt-button);
+     color: var(--QLD-color-light__action--secondary);
     }
     
     li::before {
         @include QLD-space(width, 0.5unit);
         @include QLD-space(height, 1unit);
         @include QLD-space(margin, 0 0.25unit 0 0);
-        // background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-light-alt-button));
+        // background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-light__action--secondary));
         // background-size: 100%;
         // background-repeat: no-repeat;
         // background-size: contain;
@@ -207,7 +207,7 @@
         mask-image: QLD-svguri($QLD-icon-chevron-left);
 		mask-repeat: no-repeat;
 		mask-position: center;
-		background-color: var(--QLD-color-light-alt-button);
+		background-color: var(--QLD-color-light__action--secondary);
     }
 
     &.qld__breadcrumbs--dark,
@@ -218,11 +218,11 @@
     .qld__body--dark-alt &  {
 
         li::before{
-            background-color: var(--QLD-color-dark-alt-button);
+            background-color: var(--QLD-color-dark__action--secondary);
            }
 
         // li::before {
-        //     background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-dark-alt-button));
+        //     background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-dark__action--secondary));
         // }
     }
 }

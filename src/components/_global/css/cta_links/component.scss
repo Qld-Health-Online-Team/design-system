@@ -6,14 +6,14 @@
 a.qld__cta-link{
 	@include QLD-fontgrid( md );
 	font-weight: bold;
-	color: var(--QLD-color-light-link);
+	color: var(--QLD-color-light__link);
 	white-space: nowrap;
 	z-index: 1;
 
 	.qld__icon{
 		@include QLD-space( margin, 0 0.5unit 0 0.5unit );
 		transition: margin 0.2s ease;
-		color: var(--QLD-color-light-alt-button);
+		color: var(--QLD-color-light__action--secondary);
 		vertical-align: text-bottom;
 	}
 
@@ -28,7 +28,7 @@ a.qld__cta-link{
 		mask-image: QLD-svguri($QLD-icon-arrow-right);
 		mask-repeat: no-repeat;
 		mask-position: center;
-		background-color: var(--QLD-color-light-alt-button);
+		background-color: var(--QLD-color-light__action--secondary);
 		
 		.ie8 &,
 		.lt-ie8 & {
@@ -40,7 +40,7 @@ a.qld__cta-link{
 	&:focus{
 
 		&:after{
-			background-color: var(--QLD-color-light-alt-button__hover);
+			background-color: var(--QLD-color-light__action--secondary-hover);
 			@include QLD-space(margin, 0 0 0 1unit);
 		}
 
@@ -56,31 +56,31 @@ a.qld__cta-link{
 	&:disabled,
 	&[disabled]{
 		cursor: not-allowed;
-		color: var(--QLD-color-light-text__muted);
+		color: var(--QLD-color-light__text--lighter);
 
 		&::after{
-			background-color: var(--QLD-color-light-text__muted);
+			background-color: var(--QLD-color-light__text--lighter);
 		}
 	}
 
 	.qld__body--dark &,
 	.qld__body--dark-alt &,
 	.qld__main-nav--dark &{ 
-		color: var(--QLD-color-dark-link);
+		color: var(--QLD-color-dark__link);
 
 		@include QLD-focus(dark);
 
 		&:after{
-			background-color: var(--QLD-color-dark-alt-button);
+			background-color: var(--QLD-color-dark__action--secondary);
 		}
 
 		&:disabled,
 		&[disabled]{
 			cursor: not-allowed;
-			color: var(--QLD-color-dark-text__muted);
+			color: var(--QLD-color-dark__text--lighter);
 
 			&:after{
-				background-color: var(--QLD-color-dark-text__muted);
+				background-color: var(--QLD-color-dark__text--lighter);
 			}
 		}
 	}
@@ -90,14 +90,14 @@ a.qld__cta-link{
 a.qld__cta-link.qld__cta-link--view-all{
 	&:after{
 		mask-image: QLD-svguri($QLD-icon-arrow-view-all);
-		background-color: var(--QLD-color-light-alt-button);
+		background-color: var(--QLD-color-light__action--secondary);
 
 	}
 	.qld__body--dark &,
 	.qld__body--dark-alt &,
 	.qld__main-nav--dark &{
 		&:after{
-			background-color: var(--QLD-color-dark-alt-button);
+			background-color: var(--QLD-color-dark__action--secondary);
 	
 		}
 	}

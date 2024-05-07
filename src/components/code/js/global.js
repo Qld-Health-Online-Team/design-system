@@ -83,13 +83,13 @@
             colorButtons.forEach(function(colorButton){
                 colorButton.addEventListener('change', function () {
                     const body = colorButton.closest('.qld__code').querySelector('.qld__code-preview-body')
-                    body.classList.remove('qld__body--alt','qld__body--dark','qld__body--dark-alt')
+                    body.classList.remove('qld__body--light','qld__body--alt','qld__body--dark','qld__body--dark-alt')
                     if (this.value){
                         body.classList.add(this.value)
                     }
                     const toggle = colorButton.closest('.qld__code').querySelector('.qld__code-toggle')
                     if (typeof(toggle)!=='undefined'){
-                        toggle.classList.remove('qld__body--alt','qld__body--dark','qld__body--dark-alt')
+                        toggle.classList.remove('qld__body--light','qld__body--alt','qld__body--dark','qld__body--dark-alt')
                         if (this.value){
                             toggle.classList.add(this.value)
                         }

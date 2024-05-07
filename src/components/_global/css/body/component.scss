@@ -59,20 +59,27 @@ form {
             &:not(.qld__tab-section) {
                 padding-top: 0;
             }
-            
-            &.qld__body--alt{
+
+            &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt {
                 @include QLD-container-padding($QLD-container-padding-mobile);
                 @include QLD-media(lg) {
                     @include QLD-container-padding($QLD-container-padding-desktop);
                 }
             }
-            &.qld__body--dark{
-                @include QLD-container-padding($QLD-container-padding-mobile);
-                @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+        }
+        &.qld__body--light{
+            + .qld__body.qld__body--light,
+            + data + .qld__body--light,
+            + h1.sr-only + .qld__body--light,
+            + h1.sr-only + data + .qld__body--light {
+                &:not(.qld__tab-section) {
+                    padding-top: 0 !important;
                 }
             }
-            &.qld__body--dark-alt{
+            + .qld__body,
+            + data + .qld__body,
+            + h1.sr-only + .qld__body,
+            + h1.sr-only + data + .qld__body {
                 @include QLD-container-padding($QLD-container-padding-mobile);
                 @include QLD-media(lg) {
                     @include QLD-container-padding($QLD-container-padding-desktop);
@@ -180,7 +187,7 @@ form {
                 //     }
                 // }
 
-
+                &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
@@ -198,6 +205,7 @@ form {
             &:last-of-type{
                 @include QLD-space(padding-bottom, 0);
                 
+                &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
@@ -224,19 +232,22 @@ form {
                     padding-top: 0;
                 }
                 
-                &.qld__body--alt{
+                &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt{
                     @include QLD-container-padding($QLD-container-padding-mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-container-padding-desktop);
                     }
                 }
-                &.qld__body--dark{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
-                    @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+            }
+            &.qld__body--light{
+                + .qld__body.qld__body--light,
+                + data + .qld__body--light{
+                    &:not(.qld__tab-section) {
+                        padding-top: 0 !important;
                     }
                 }
-                &.qld__body--dark-alt{
+                + .qld__body,
+                + data + .qld__body{
                     @include QLD-container-padding($QLD-container-padding-mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-container-padding-desktop);
@@ -317,12 +328,12 @@ form {
     margin: 0;
     text-size-adjust: 100%;
     font-family: $QLD-font;
-    color: var(--QLD-color-light-text);
-    background-color: var(--QLD-color-light-background);
+    color: var(--QLD-color-light__text);
+    background-color: $QLD-color-neutral--white;
     letter-spacing: .009rem;
 
     a {
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         @include QLD-underline('light');
         @include QLD-space(max-width, $QLD-font-maxwidth);
         @include QLD-focus();
@@ -369,17 +380,17 @@ form {
 	 * `mark` styling.
 	 */
     mark {
-        color: var(--QLD-color-dark-text);
-        background-color: var(--QLD-color-dark-background);
+        color: var(--QLD-color-dark__text);
+        background-color: var(--QLD-color-dark__background);
     }
 
     /**
 	 * Text selection styling
 	 */
     ::selection {
-        color: var(--QLD-color-dark-text);
+        color: var(--QLD-color-dark__text);
        
-        background-color: var(--QLD-color-dark-background);
+        background-color: var(--QLD-color-dark__background);
         opacity: .99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
     }
@@ -388,7 +399,7 @@ form {
     img::selection,
     video::selection,
     iframe::selection {
-        background-color: var(--QLD-color-light-link);
+        background-color: var(--QLD-color-light__link);
         opacity: .75;
     }
 
@@ -623,13 +634,13 @@ form {
         font-family: $QLD-font-monospace;
         display: inline-block;
         border-radius: $QLD-border-radius-xs;
-        background-color: var(--QLD-color-light-background__shade);
-        color: var(--QLD-color-light-text);
+        background-color: $QLD-color-neutral--lightest;
+        color: var(--QLD-color-light__text);
     }
 
     code {
-        background-color: var(--QLD-color-dark-alt-background__shade);
-        color: var(--QLD-color-dark-text);
+        background-color: var(--QLD-color-dark__background--alt-shade);
+        color: var(--QLD-color-dark__text);
         display: block;
         font-family: $QLD-font-monospace;
         white-space: pre-wrap;
@@ -685,20 +696,20 @@ form {
 
     .qld__block-quote{
         padding-left: 1.375rem;
-        border-left: $QLD-border-width-thick solid var(--QLD-color-light-designAccent);
+        border-left: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
         margin: 0;
     }
 
     blockquote,
     .qld__block-quote {
         @include QLD-fontgrid(md, small);
-        color: var(--QLD-color-light-heading);
+        color: var(--QLD-color-light__heading);
         font-weight: 600;
         
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
-            color: var(--QLD-color-light-text__muted);
+            color: var(--QLD-color-light__text--lighter);
             margin-top: .625rem;
         }
 
@@ -716,7 +727,7 @@ form {
         @include QLD-space(height, 0.063unit);
         overflow: visible;
         border: none;
-        background-color: var(--QLD-color-light-border);
+        background-color: $QLD-color-neutral--lighter;
         @include QLD-space(margin-top, 1.25unit);
         @include QLD-space(margin-bottom, 1.188unit);
         width: 100%;
@@ -726,7 +737,7 @@ form {
     .qld__caption {
         @include QLD-fontgrid(xs);
         font-weight: 400;
-        color: var(--QLD-color-light-text__muted);
+        color: var(--QLD-color-light__text--lighter);
     }
     *:not([type="hidden"]) {
         + .qld__caption {
@@ -735,28 +746,42 @@ form {
         }
     }
 
-    &.qld__body--alt {
-        background: var(--QLD-color-light-alt-background);
+    &.qld__body--light {
+        background: var(--QLD-color-light__background);
 
         hr {
-            background-color: var(--QLD-color-light-alt-border);
+            background-color: var(--QLD-color-light__border);
         }
         
         code,
         kbd,
         samp {
-            background-color: var(--QLD-color-light-alt-background__shade);
+            background-color: var(--QLD-color-light__background--shade);
+        }
+    }
+
+    &.qld__body--alt {
+        background: var(--QLD-color-light__background--alt);
+
+        hr {
+            background-color: var(--QLD-color-light__border--alt);
+        }
+        
+        code,
+        kbd,
+        samp {
+            background-color: var(--QLD-color-light__background--alt-shade);
         }
     }
     
     &.qld__body--dark,
     &.qld__footer--dark {
-        background: var(--QLD-color-dark-background);
-        color: var(--QLD-color-dark-text);
+        background: var(--QLD-color-dark__background);
+        color: var(--QLD-color-dark__text);
         
         ::selection {
-            color: var(--QLD-color-dark-background);
-            background-color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__background);
+            background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
         
@@ -764,15 +789,15 @@ form {
         img::selection,
         video::selection,
         iframe::selection {
-            background-color: var(--QLD-color-dark-link);
+            background-color: var(--QLD-color-dark__link);
         }
         
         a{
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
             
             &:hover {
-                color: var(--QLD-color-dark-text);
+                color: var(--QLD-color-dark__text);
             }
 
             @include QLD-focus("dark");
@@ -783,32 +808,32 @@ form {
         }
         
         mark {
-            background-color: var(--QLD-color-dark-link);
-            color: var(--QLD-color-dark-background);
+            background-color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-dark__background);
         }
         
         hr {
-            background-color: var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__border);
         }
         
         code,
         kbd,
         samp {
-            color: var(--QLD-color-dark-text);
-            background-color: var(--QLD-color-dark-background__shade);
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background--shade);
         }
 
         .qld__caption {
-            color: var(--QLD-color-dark-text__muted);
+            color: var(--QLD-color-dark__text--lighter);
         }
 
         blockquote,
         .qld__block-quote {
-            color: var(--QLD-color-dark-heading);
-            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark__design-accent);
 
             .qld__quote-source {
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
             }
             
         }
@@ -816,12 +841,12 @@ form {
     
     &.qld__body--dark-alt,
     &.qld__footer--dark-alt {
-        background: var(--QLD-color-dark-alt-background);
-        color: var(--QLD-color-dark-text);
+        background: var(--QLD-color-dark__background--alt);
+        color: var(--QLD-color-dark__text);
         
         ::selection {
-            color: var(--QLD-color-dark-background);
-            background-color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__background);
+            background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
         
@@ -829,15 +854,15 @@ form {
         img::selection,
         video::selection,
         iframe::selection {
-            background-color: var(--QLD-color-dark-link);
+            background-color: var(--QLD-color-dark__link);
         }
         
         a {
-            color: var(--QLD-color-dark-link);
+            color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
             
             &:hover {
-                color: var(--QLD-color-dark-link);
+                color: var(--QLD-color-dark__link);
             }
 
             @include QLD-focus("dark");
@@ -848,31 +873,31 @@ form {
         }
 
         mark {
-            background-color: var(--QLD-color-dark-link);
-            color: var(--QLD-color-dark-alt-background);
+            background-color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-dark__background--alt);
         }
 
         hr {
-            background-color: var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark__border);
         }
 
         code,
         kbd,
         samp {
-            color: var(--QLD-color-dark-text);
-            background-color: var(--QLD-color-dark-alt-background__shade);
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background--alt-shade);
         }
         .qld__caption {
-            color: var(--QLD-color-dark-text__muted);
+            color: var(--QLD-color-dark__text--lighter);
         }
 
         blockquote,
         .qld__block-quote {
-            color: var(--QLD-color-dark-heading);
-            border-left: $QLD-border-width-thick solid var(--QLD-color-dark-designAccent);
+            color: var(--QLD-color-dark__heading);
+            border-left: $QLD-border-width-thick solid var(--QLD-color-dark__design-accent);
 
             .qld__quote-source {
-                color: var(--QLD-color-dark-text__muted);
+                color: var(--QLD-color-dark__text--lighter);
             }
         }
     }

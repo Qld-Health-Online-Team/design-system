@@ -7,7 +7,7 @@
 
     // If any element inside the card receives focus, add a focus ring around the wrapper card div
     &:focus-within {
-        outline: 3px solid var(--QLD-color-light-focus);
+        outline: 3px solid var(--QLD-color-light__focus);
         outline-offset: 2px;
     }
         
@@ -29,7 +29,7 @@
         &:hover{
             .qld__responsive-media-img--bg::before{
                 content: '';
-                background-color: var(--QLD-color-dark-background);
+                background-color: var(--QLD-color-dark__background);
                 opacity: .1;
                 position: absolute;
                 left: 0;
@@ -46,14 +46,14 @@
         .qld__card__icon{
             i,
             svg{
-                color: var(--QLD-color-light-alt-button);
+                color: var(--QLD-color-light__action--secondary);
             }
         }  
         &:hover{
             .qld__card__icon{
                 i,
                 svg{
-                    color: var(--QLD-color-light-alt-button__hover);
+                    color: var(--QLD-color-light__action--secondary-hover);
                 }
             }    
         }
@@ -66,14 +66,14 @@
             .qld__card__icon{
                 i,
                 svg{
-                    color: var(--QLD-color-dark-alt-button);
+                    color: var(--QLD-color-dark__action--secondary);
                 }
             } 
             &:hover{
                 .qld__card__icon{
                     i,
                     svg{
-                        color: var(--QLD-color-dark-alt-button__hover);
+                        color: var(--QLD-color-dark__action--secondary-hover);
                     }
                 }    
             }
@@ -92,18 +92,18 @@
             @include QLD-space(height, 1.5unit);
             flex: 0 0 auto;
             transition: margin 0.2s ease;
-            color: var(--QLD-color-light-alt-button);
+            color: var(--QLD-color-light__action--secondary);
             display: inline-block;
             mask-image: QLD-svguri($QLD-icon-arrow-right);
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: var(--QLD-color-light-alt-button);
+            background-color: var(--QLD-color-light__action--secondary);
             @include QLD-space(margin, auto 0 auto 1unit);
         }
 
         &:hover{
             .qld__card__arrow{
-                background-color: var(--QLD-color-light-alt-button__hover);
+                background-color: var(--QLD-color-light__action--secondary-hover);
                 @include QLD-space(margin-right, -.25unit);
                 @include QLD-space(margin-left, .25unit);
             }
@@ -113,11 +113,11 @@
     &.qld__card--dark,
     &.qld__card--dark-alt{
         .qld__card__arrow{
-            background-color: var(--QLD-color-dark-alt-button);
+            background-color: var(--QLD-color-dark__action--secondary);
         }
         &:hover{
             .qld__card__arrow{
-                background-color: var(--QLD-color-dark-alt-button__hover);
+                background-color: var(--QLD-color-dark__action--secondary-hover);
             }
         }
     }

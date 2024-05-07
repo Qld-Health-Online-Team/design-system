@@ -5,6 +5,7 @@
     id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}banner-advanced-{{assetid}}{{/if}}" 
     class="
         qld__banner qld__banner__advanced
+        {{#ifCond metadata.background_colour.value '==' 'light'}}qld__banner--light{{/ifCond}}
         {{#ifCond metadata.background_colour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__banner--dark{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}} 
@@ -164,6 +165,7 @@
                             {{#eachUpTo ../component.children 3}}
                             <li class="col-xs-12">
                                 <div class="qld__card qld__card__action qld__card--arrow {{../component.data.metadata.background.value}}
+                                {{#ifCond ../metadata.cta_link_list_card_background.value '==' 'light'}}qld__card--light{{/ifCond}}
                                 {{#ifCond ../metadata.cta_link_list_card_background.value '==' 'alternate'}}qld__card--alt{{/ifCond}} 
                                 {{#ifCond ../metadata.cta_link_list_card_background.value '==' 'dark'}}qld__card--dark{{/ifCond}} 
                                 {{#ifCond ../metadata.cta_link_list_card_background.value '==' 'dark-alternate'}}qld__card--dark-alt{{/ifCond}}" >
