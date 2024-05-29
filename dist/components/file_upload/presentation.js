@@ -23,14 +23,10 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"file_types") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n                    data-create-location=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"create_location") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                    data-files='[&quot;{\\&quot;id\\&quot;:\\&quot;888888\\&quot;, \\&quot;name\\&quot;:\\&quot;File 1\\&quot;}&quot;,&quot;{\\&quot;id\\&quot;:\\&quot;999999\\&quot;, \\&quot;name\\&quot;:\\&quot;File 2\\&quot;}&quot;]'\n                    data-max-size=\""
+    + "\"\n                    data-files=''\n                    data-max-size=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"max_size") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n                    data-max-files=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"max_selection") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                    data-js-api-key=\""
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"js_api_key") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                    data-js-api=\""
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"js_api") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n                    "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"max_selection") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),">","1",{"name":"ifCond","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":35,"column":20},"end":{"line":35,"column":87}}})) != null ? stack1 : "")
     + "\n                    required\n                >\n                <label class=\"qld__file-input-label qld__btn qld__btn--secondary\" for=\"ij-field__"
