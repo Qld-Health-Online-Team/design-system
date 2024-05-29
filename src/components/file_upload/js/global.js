@@ -238,7 +238,7 @@
                 // Check if the user has interacted with the file input
                 if ($(element).data('interacted')) {
                     // If data-files attribute is empty, invalidate the field
-                    return element.dataset['files'] !== "";
+                    return element.dataset['files'] !== "[]" && element.dataset['files'] !== "";
                 } else {
                     // If the user hasn't interacted, require a non-empty value
                     return value.trim() !== "";
