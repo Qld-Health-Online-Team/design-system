@@ -30,9 +30,9 @@
         padding: 8px 20px 0px 20px;
         min-width: fit-content;
         border: none;
-        background: var(--QLD-color-light-background__shade);
+        background: $QLD-color-neutral--lightest;
         font-size: 1rem;
-        color: var(--QLD-color-light-link);
+        color: var(--QLD-color-light__link);
         cursor: pointer;
         border-radius: 4px 4px 0px 0px;
         display: flex;
@@ -47,7 +47,7 @@
 
             i {
                 margin-right: 8px;
-                color: var(--QLD-color-dark-designAccent);
+                color: var(--QLD-color-light__action--secondary);
             }
         }
 
@@ -62,16 +62,16 @@
         }
 
         &:not(.active):hover {
-            background: var(--QLD-color-light-button__hover);
-            color: var(--QLD-color-light-button__text);
+            background: var(--QLD-color-light__action--primary-hover);
+            color: var(--QLD-color-light__link--on-action);
             text-decoration: underline;
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            text-decoration-color: var(--QLD-color-light-button__text);
+            text-decoration-color: var(--QLD-color-light__link--on-action);
             outline: none;
 
             span i {
-                color: var(--QLD-color-light-button__text);
+                color: var(--QLD-color-light__link--on-action);
                 text-decoration: none;
                 display: inline-block;
             }
@@ -79,38 +79,38 @@
 
         &[tabindex="0"]:focus {
             outline: none;
-            border-color: var(--QLD-color-light-focus);
+            border-color: var(--QLD-color-light__focus);
         }
 
         &[tabindex="-1"]:focus,
         &:focus-visible {
-            outline: 3px solid var(--QLD-color-light-focus);
+            outline: 3px solid var(--QLD-color-light__focus);
             outline-offset: -3px;
         }
 
         &.active {
-            color: var(--QLD-color-light-heading);
-            background-color: var(--QLD-color-light-background);
+            color: var(--QLD-color-light__heading);
+            background-color: $QLD-color-neutral--white;
             height: 48px;
-            border-left: 1px solid var(--QLD-color-light-alt-border);
-            border-right: 1px solid var(--QLD-color-light-alt-border);
-            border-top: 1px solid var(--QLD-color-light-alt-border);
+            border-left: 1px solid var(--QLD-color-light__border--alt);
+            border-right: 1px solid var(--QLD-color-light__border--alt);
+            border-top: 1px solid var(--QLD-color-light__border--alt);
             font-weight: 600;
             z-index: 1;
             text-decoration: none;
 
             span {
                 i {
-                    color: var(--QLD-color-light-heading);
+                    color: var(--QLD-color-light__heading);
                 }
             }
 
             &::after {
-                background-color: var(--QLD-color-dark-designAccent);
+                background-color: var(--QLD-color-light__focus);
             }
 
             &:focus::after{
-                background-color: var(--QLD-color-light-focus);
+                background-color: var(--QLD-color-light__focus);
                 transition: background-color 0.2s ease-in-out;
             }
         }
@@ -118,7 +118,7 @@
 
     &-content {
         padding: 24px;
-        border: 1px solid var(--QLD-color-light-alt-border);
+        border: 1px solid var(--QLD-color-light__border--alt);
         margin-top: -1px;
         display: none;
         position: relative;
@@ -130,14 +130,14 @@
         }
 
         &.focused{
-            border-color: var(--QLD-color-light-focus);
+            border-color: var(--QLD-color-light__focus);
         }
 
     }
 
     &-nav__item-scroll {
         position: absolute;
-        color: var(--QLD-color-light-alt-button);
+        color: var(--QLD-color-light__action--secondary);
         z-index: 2;
         height: 47px;
         width: 48px;
@@ -146,7 +146,7 @@
         i {
             min-height: 32px;
             min-width: 32px;
-            background-color: var(--QLD-color-light-background);
+            background-color: $QLD-color-neutral--white;
             align-self: center;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             cursor: pointer;
@@ -166,7 +166,7 @@
 
         &:hover {
             position: absolute;
-            color: var(--QLD-color-light-alt-button__hover);
+            color: var(--QLD-color-light__action--secondary-hover);
             z-index: 2;
             height: 47px;
             width: 48px;
@@ -175,7 +175,7 @@
 
         &:focus {
             i {
-                outline: 3px solid var(--QLD-color-light-focus);
+                outline: 3px solid var(--QLD-color-light__focus);
                 outline-offset: 2px;
             }
         }
@@ -183,14 +183,14 @@
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
     
         }
     
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light-background));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
         }
     }
 
@@ -200,80 +200,105 @@
             position: relative;
         }
 
-        &.qld__tab-container--alt {
+        &.qld__tab-container--light {
             .qld__tab-button {
-                background: var(--QLD-color-light-alt-background__shade);
+                background: var(--QLD-color-light__background--shade);
 
                 &:not(.active):hover {
-                    background: var(--QLD-color-light-button__hover);
+                    background: var(--QLD-color-light__action--primary-hover);
                 }
                 &.active {
-                    background-color: var(--QLD-color-light-alt-background);
+                    background-color: var(--QLD-color-light__background);
                 }
             }
 
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
-                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light-alt-background));
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
                 }
 
                 &.tab-overflow-nav-button-right {
                     display: none;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light-alt-background));
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background));
+                }
+            }
+        }
+
+        &.qld__tab-container--alt {
+            .qld__tab-button {
+                background: var(--QLD-color-light__background--alt-shade);
+
+                &:not(.active):hover {
+                    background: var(--QLD-color-light__action--primary-hover);
+                }
+                &.active {
+                    background-color: var(--QLD-color-light__background--alt);
+                }
+            }
+
+            .qld__tab-nav__item-scroll {
+                &.tab-overflow-nav-button-left {
+                    display: none;
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
+                }
+
+                &.tab-overflow-nav-button-right {
+                    display: none;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-light__background--alt));
                 }
             }
         }
 
         &.qld__tab-container--dark {
             .qld__tab-button {
-                color: var(--QLD-color-dark-link);
-                background: var(--QLD-color-dark-background__shade);
+                color: var(--QLD-color-dark__link);
+                background: var(--QLD-color-dark__background--shade);
 
                 span i {
-                    color: var(--QLD-color-dark-alt-button);
+                    color: var(--QLD-color-dark__action--secondary);
                 }
 
                 &.active {
-                    background-color: var(--QLD-color-dark-background);
-                    color: var(--QLD-color-dark-heading);
+                    background-color: var(--QLD-color-dark__background);
+                    color: var(--QLD-color-dark__heading);
                     height: 48px;
-                    border-left: 1px solid var(--QLD-color-dark-alt-border);
-                    border-right: 1px solid var(--QLD-color-dark-alt-border);
-                    border-top: 1px solid var(--QLD-color-dark-alt-border);
+                    border-left: 1px solid var(--QLD-color-dark__border--alt);
+                    border-right: 1px solid var(--QLD-color-dark__border--alt);
+                    border-top: 1px solid var(--QLD-color-dark__border--alt);
                     font-weight: 600;
                     z-index: 1;
                     text-decoration: none;
                     outline: none;
 
                     &::after {
-                        background-color: var(--QLD-color-dark-designAccent);
+                        background-color: var(--QLD-color-dark__design-accent);
                     }
 
                     span i {
-                        color: var(--QLD-color-dark-heading);
+                        color: var(--QLD-color-dark__heading);
                         text-decoration: none;
                         display: inline-block;
                     }
                 }
 
                 &:not(.active):hover {
-                    color: var(--QLD-color-dark-button__text);
-                    background: var(--QLD-color-dark-button__hover);
+                    color: var(--QLD-color-dark__link--on-action);
+                    background: var(--QLD-color-dark__action--primary-hover);
                     text-decoration: underline;
                     text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: var(--QLD-color-dark-button__text);
+                    text-decoration-color: var(--QLD-color-dark__link--on-action);
 
                     span i {
-                        color: var(--QLD-color-dark-button__text);
+                        color: var(--QLD-color-dark__link--on-action);
                         text-decoration: none;
                         display: inline-block;
                     }
                 }
 
                 &:focus {
-                    outline: 3px solid var(--QLD-color-dark-focus);
+                    outline: 3px solid var(--QLD-color-dark__focus);
                     outline-offset: -3px;
                 }
 
@@ -283,7 +308,7 @@
 
                 &[tabindex="-1"]:focus,
                 &:focus-visible {
-                    outline: 3px solid var(--QLD-color-dark-focus);
+                    outline: 3px solid var(--QLD-color-dark__focus);
                     outline-offset: -3px;
                 }
             }
@@ -291,82 +316,82 @@
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
-                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-dark-background));
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-dark__background));
                 }
 
                 &.tab-overflow-nav-button-right {
                     display: none;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-dark-background));
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-dark__background));
                 }
             }
 
             .qld__tab-content {
-                border: 1px solid var(--QLD-color-dark-alt-border);
+                border: 1px solid var(--QLD-color-dark__border--alt);
 
                 &.focused {
-                    border-color: var(--QLD-color-dark-focus);
+                    border-color: var(--QLD-color-dark__focus);
                 }
             }
         }
 
         &.qld__tab-container--dark-alt {
             .qld__tab-button {
-                color: var(--QLD-color-dark-link);
-                background: var(--QLD-color-dark-alt-background__shade);
+                color: var(--QLD-color-dark__link);
+                background: var(--QLD-color-dark__background--alt-shade);
 
                 span i {
-                    color: var(--QLD-color-dark-alt-button);
+                    color: var(--QLD-color-dark__action--secondary);
                 }
 
                 &.active {
-                    background-color: var(--QLD-color-dark-alt-background);
-                    color: var(--QLD-color-dark-heading);
+                    background-color: var(--QLD-color-dark__background--alt);
+                    color: var(--QLD-color-dark__heading);
                     height: 48px;
-                    border-left: 1px solid var(--QLD-color-dark-alt-border);
-                    border-right: 1px solid var(--QLD-color-dark-alt-border);
-                    border-top: 1px solid var(--QLD-color-dark-alt-border);
+                    border-left: 1px solid var(--QLD-color-dark__border--alt);
+                    border-right: 1px solid var(--QLD-color-dark__border--alt);
+                    border-top: 1px solid var(--QLD-color-dark__border--alt);
                     font-weight: 600;
                     z-index: 1;
                     text-decoration: none;
                     outline: none;
                     
                     &::after {
-                        background-color: var(--QLD-color-dark-designAccent);
+                        background-color: var(--QLD-color-dark__design-accent);
                     }
 
                     span i {
-                        color: var(--QLD-color-dark-heading);
+                        color: var(--QLD-color-dark__heading);
                         text-decoration: none;
                         display: inline-block;
                     }
                 }
 
                 &:not(.active) {
-                    // background: var(--QLD-color-light-alt-background__shade);
-                    // color: var(--QLD-color-light-link);
+                    // background: var(--QLD-color-light__background--alt-shade);
+                    // color: var(--QLD-color-light__link);
                 }
 
                 &:not(.active):hover {
-                    color: var(--QLD-color-dark-button__text);
-                    background: var(--QLD-color-dark-button__hover);
+                    color: var(--QLD-color-dark__link--on-action);
+                    background: var(--QLD-color-dark__action--primary-hover);
                     text-decoration: underline;
                     text-underline-offset: var(--QLD-underline__offset);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    text-decoration-color: var(--QLD-color-dark-button__text);
+                    text-decoration-color: var(--QLD-color-dark__link--on-action);
 
                     span i {
-                        color: var(--QLD-color-dark-button__text);
+                        color: var(--QLD-color-dark__link--on-action);
                         text-decoration: none;
                         display: inline-block;
                     }
                 }
 
                 &:focus {
-                    outline: 3px solid var(--QLD-color-dark-focus);
+                    outline: 3px solid var(--QLD-color-dark__focus);
                     outline-offset: -3px;
 
                     &:after {
-                        background-color: var(--QLD-color-dark-focus);
+                        background-color: var(--QLD-color-dark__focus);
                     }
                 }
 
@@ -376,7 +401,7 @@
 
                 &[tabindex="-1"]:focus,
                 &:focus-visible {
-                    outline: 3px solid var(--QLD-color-dark-focus);
+                    outline: 3px solid var(--QLD-color-dark__focus);
                     outline-offset: -3px;
                 }
             }
@@ -384,20 +409,20 @@
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
-                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-dark-alt-background));
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-dark__background--alt));
                 }
 
                 &.tab-overflow-nav-button-right {
                     display: none;
-                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-dark-alt-background));
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-dark__background--alt));
                 }
             }
 
             .qld__tab-content {
-                border: 1px solid var(--QLD-color-dark-alt-border);
+                border: 1px solid var(--QLD-color-dark__border--alt);
 
                 &.focused {
-                    border-color: var(--QLD-color-dark-focus);
+                    border-color: var(--QLD-color-dark__focus);
                 }
             }
         }
@@ -428,22 +453,19 @@
     }
 }
     
-    
-    
-
 
 *:not(.row) + .qld__tab-container {
     margin-top: 32px;
 }
 
 .qld__tab-section {
-    border-top: 1px solid var(--QLD-color-light-alt-border);
+    border-top: 1px solid var(--QLD-color-light__border--alt);
     margin-top: 48px;
-    box-shadow: 0 -49px 0 0 var(--QLD-color-light-background);
+    box-shadow: 0 -49px 0 0 $QLD-color-neutral--white;
 
     .qld__tab-button[tabindex="0"]:focus{
         outline: none;
-        border-color:var(--QLD-color-light-alt-border);
+        border-color:var(--QLD-color-light__border--alt);
     }
 
     .qld__tab-container {
@@ -465,6 +487,7 @@
         padding-top: 64px;
     }
 
+    &.qld__body--light,
     &.qld__body--alt {
         .qld__tab-content {
             border-bottom: none;
@@ -472,13 +495,17 @@
             border-right: none;
         }
     }
-    
+
     &.qld__body--dark,
     &.qld__body--dark-alt {
-        border-top: 1px solid var(--QLD-color-dark-alt-border);
+        border-top: 1px solid var(--QLD-color-dark__border--alt);
+
+        .qld__tab-button {
+            background-color: var(--QLD-color-dark__background--shade);
+        }
 
         .qld__tab-content {
-            border-top: 1px solid var(--QLD-color-dark-alt-border);
+            border-top: 1px solid var(--QLD-color-dark__border--alt);
             border-bottom: none;
             border-left: none;
             border-right: none;
@@ -486,39 +513,135 @@
     }
 }
 
+.qld__banner.qld__banner--light+#content > section:first-child,
+.qld__banner.qld__banner--light+#content > data:first-child + section {
+
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
+    }  
+    
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-light__background--shade);
+            color: var(--QLD--color-light__link);
+
+                span i {
+                    color: var(--QLD-color-light__action--secondary);
+                }
+
+            &:hover {
+                background: var(--QLD-color-light__action--primary-hover);
+                color: var(--QLD-color-light__link--on-action);
+                text-decoration-color: var(--QLD--color-light__link--on-action);
+
+                span i {
+                    color: var(--QLD-color-light__link--on-action)
+                }
+            }
+        }
+    }    
+}
+
 .qld__banner.qld__banner--alt+#content > section:first-child,
 .qld__banner.qld__banner--alt+#content > data:first-child + section {
 
-        &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
+    }
+
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-light__background--alt-shade);
+            color: var(--QLD--color-light__link);
+
+                span i {
+                    color: var(--QLD-color-light__action--secondary);
+                }
+
+            &:hover {
+                background: var(--QLD-color-light__action--primary-hover);
+                color: var(--QLD-color-light__link--on-action);
+                text-decoration-color: var(--QLD--color-light__link--on-action);
+
+                span i {
+                    color: var(--QLD-color-light__link--on-action)
+                }
+            }
         }
-    
+    }    
 }
+
 .qld__banner.qld__banner--dark+#content > section:first-child,
 .qld__banner.qld__banner--dark+#content > data:first-child + section {
 
-        &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-dark-background);
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
+    }
+
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+
+            span i {
+                color: var(--QLD-color-dark__action--secondary);
+            }
         }
+
+        &:hover {
+            background: var(--QLD-color-dark__action--primary-hover);
+            color: var(--QLD-color-dark__link--on-action);
+            text-decoration-color: var(--QLD--color-dark__link--on-action);
+
+            span i {
+                color: var(--QLD-color-dark__link--on-action)
+            }
+        }
+    }
     
 }
 .qld__banner.qld__banner--dark-alt+#content > section:first-child,
 .qld__banner.qld__banner--dark-alt+#content > data:first-child + section {
 
-        &.qld__tab-section{
-            box-shadow: 0 -49px 0 0 var(--QLD-color-dark-alt-background);
+    &.qld__tab-section{
+        box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background--alt);
+    }
+
+    &.qld__tab-button {
+        &:not(.active) {
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+
+            span i {
+                color: var(--QLD-color-dark__action--secondary);
+            }
         }
-    
+
+        &:hover {
+            background: var(--QLD-color-dark__action--primary-hover);
+            color: var(--QLD-color-dark__link--on-action);
+            text-decoration-color: var(--QLD--color-dark__link--on-action);
+
+            span i {
+                color: var(--QLD-color-dark__link--on-action)
+            }
+        }
+     } 
+}
+
+.qld__body--light+.qld__tab-section,
+.qld__body--light+data+.qld__tab-section{
+    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
 }
 
 .qld__body--alt+.qld__tab-section,
 .qld__body--alt+data+.qld__tab-section {
-    box-shadow: 0 -49px 0 0 var(--QLD-color-light-alt-background);
+    box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
 }
 
 .qld__body--dark+.qld__tab-section,
 .qld__body--dark+data+.qld__tab-section {
-    box-shadow: 0 -49px 0 0 var(--QLD-color-dark-background);
+    box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
 
     .qld__tab-container__fixed .qld__tabs {
         @include QLD-media(lg) {
@@ -529,7 +652,7 @@
 
 .qld__body--dark-alt+.qld__tab-section,
 .qld__body--dark-alt+data+.qld__tab-section {
-    box-shadow: 0 -49px 0 0 var(--QLD-color-dark-alt-background);
+    box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background--alt);
 
     .qld__tab-container__fixed .qld__tabs {
         @include QLD-media(lg) {
@@ -552,27 +675,56 @@
 
                 .qld__tab-button {
                     span i {
-                        color: var(--QLD-color-dark-alt-button);
+                        color: var(--QLD-color-dark__action--secondary);
                     }
 
                     &:not(.active) {
-                        color: var(--QLD-color-dark-link);
-                        background: var(--QLD-color-dark-background__shade);
+                        color: var(--QLD-color-dark__link);
+                        background: var(--QLD-color-dark__background--shade);
 
                         &:hover {
-                            color: var(--QLD-color-dark-button__text);
-                            background: var(--QLD-color-dark-button__hover);
-                            text-decoration-color: var(--QLD-color-dark-button__text);
+                            color: var(--QLD-color-dark__link--on-action);
+                            background: var(--QLD-color-dark__action--primary-hover);
+                            text-decoration-color: var(--QLD-color-dark__link--on-action);
 
                             span i {
-                                color: var(--QLD-color-dark-button__text);
+                                color: var(--QLD-color-dark__link--on-action);
                             }
                         }
                     }
 
                     &.active {
                         span i {
-                            color: var(--QLD-color-light-heading);
+                            color: var(--QLD-color-light__heading);
+                        }
+                    }
+                }
+
+                &--light {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
+
+                            span i {
+                                color: var(--QLD-color-light__action--secondary);
+                            }
+
+                            &:hover {
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
+
+                                span i {
+                                    color: var(--QLD-color-dark__heading);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-light__heading);
+                            }
                         }
                     }
                 }
@@ -580,27 +732,27 @@
                 &--alt {
                     .qld__tab-button {
                         &:not(.active) {
-                            background: var(--QLD-color-light-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background: var(--QLD-color-light__background--alt-shade);
+                            color: var(--QLD-color-light__link);
 
                             span i {
-                                color: var(--QLD-color-light-alt-button);
+                                color: var(--QLD-color-light__action--secondary);
                             }
 
                             &:hover {
-                                background: var(--QLD-color-light-button__hover);
-                                color: var(--QLD-color-light-button__text);
-                                text-decoration-color: var(--QLD-color-light-button__text);
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
 
                                 span i {
-                                    color: var(--QLD-color-dark-heading);
+                                    color: var(--QLD-color-dark__heading);
                                 }
                             }
                         }
 
                         &.active {
                             span i {
-                                color: var(--QLD-color-light-heading);
+                                color: var(--QLD-color-light__heading);
                             }
                         }
                     }
@@ -609,8 +761,8 @@
                 &--dark {
                     .qld__tab-button {
                         &:not(.active) {
-                            background: var(--QLD-color-light-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
                         }
                     }
                 }
@@ -619,27 +771,27 @@
                 &--dark-alt {
                     .qld__tab-button {
                         span i {
-                            color: var(--QLD-color-light-alt-button);
+                            color: var(--QLD-color-light__action--secondary);
                         }
 
                         &:not(.active) {
-                            background-color: var(--QLD-color-light-alt-background__shade);
-                            color: var(--QLD-color-light-link);
+                            background-color: var(--QLD-color-light__background--alt-shade);
+                            color: var(--QLD-color-light__link);
                         }
         
                         &:not(.active):hover {
-                            background: var(--QLD-color-light-button__hover);
-                            color: var(--QLD-color-light-button__text);
-                            text-decoration-color: var(--QLD-color-light-button__text);
+                            background: var(--QLD-color-light__action--primary-hover);
+                            color: var(--QLD-color-light__link--on-action);
+                            text-decoration-color: var(--QLD-color-light__link--on-action);
 
                             span i {
-                                color: var(--QLD-color-dark-heading);
+                                color: var(--QLD-color-dark__heading);
                             }
                         }
 
                         &.active {
                             span i {
-                                color: var(--QLD-color-dark-heading);
+                                color: var(--QLD-color-dark__heading);
                             }
                         }
                     }

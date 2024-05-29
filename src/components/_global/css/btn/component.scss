@@ -18,35 +18,35 @@
 		cursor: pointer;
 		display: inline-block;
 		@include QLD-space( padding, .625unit 1.5unit );
-		background-color: var(--QLD-color-light-button);
-		color: var(--QLD-color-light-button__text);
+		background-color: var(--QLD-color-light__action--primary);
+		color: var(--QLD-color-light__link--on-action);
 		
 		border-radius: $QLD-border-radius-xs;
-		border: $QLD-border-width-medium solid var(--QLD-color-light-button);
+		border: $QLD-border-width-medium solid var(--QLD-color-light__action--primary);
 		text-align: center;
 		@include QLD-space(min-width, 8.75unit);
 	
 		i{
-			color: var(--QLD-color-light-button__text);
+			color: var(--QLD-color-light__link--on-action);
 		}
 	
 	
 		&:hover{
-			background-color: var(--QLD-color-light-button__hover);
-			color: var(--QLD-color-light-button__text);
-			border-color: var(--QLD-color-light-button__hover);
+			background-color: var(--QLD-color-light__action--primary-hover);
+			color: var(--QLD-color-light__link--on-action);
+			border-color: var(--QLD-color-light__action--primary-hover);
 			@include QLD-box-shadow(1);
 		}
 	
 		&:active {
-			background-color: var(--QLD-color-light-background__shade);
-			border-color: var(--QLD-color-light-background__shade);
-			color: var(--QLD-color-light-heading);
+			background-color: $QLD-color-neutral--lightest;
+			border-color: $QLD-color-neutral--lightest;
+			color: var(--QLD-color-light__heading);
 			@include QLD-box-shadow(1);
 			text-decoration: none;
 	
 			i{
-				color: var(--QLD-color-light-heading);
+				color: var(--QLD-color-light__heading);
 			}
 		}
 	
@@ -58,14 +58,14 @@
 		&:disabled,
 		&[disabled]{
 			cursor: not-allowed;
-			background-color: var(--QLD-color-light-alt-background__shade);
-			color: var(--QLD-color-light-text__muted);
+			background-color: var(--QLD-color-light__background--alt-shade);
+			color: var(--QLD-color-light__text--lighter);
 			box-shadow: none;
 			border-color: transparent;
 			font-weight: 400;
 	
 			i{
-				color: var(--QLD-color-light-text__muted);
+				color: var(--QLD-color-light__text--lighter);
 			}
 		}
 	}
@@ -85,19 +85,19 @@
 		a.qld__btn,
 		.sq-form-submit { 
 			@include QLD-underline('dark','noUnderline','buttonText','noVisited');
-			background-color: var(--QLD-color-dark-button);
-			color: var(--QLD-color-dark-button__text);
-			border-color: var(--QLD-color-dark-button);
+			background-color: var(--QLD-color-dark__action--primary);
+			color: var(--QLD-color-dark__link--on-action);
+			border-color: var(--QLD-color-dark__action--primary);
 	
 			i{
-				color: var(--QLD-color-dark-button__text);
+				color: var(--QLD-color-dark__link--on-action);
 				
 			}
 	
 			&:hover{
-				background-color: var(--QLD-color-dark-button__hover);
-				color: var(--QLD-color-dark-button__text);
-				border-color: var(--QLD-color-dark-button__hover);
+				background-color: var(--QLD-color-dark__action--primary-hover);
+				color: var(--QLD-color-dark__link--on-action);
+				border-color: var(--QLD-color-dark__action--primary-hover);
 
 				i{
 					text-decoration: none !important;
@@ -105,13 +105,13 @@
 			}
 		
 			&:active {
-				background-color: var(--QLD-color-light-background__shade);
-				color: var(--QLD-color-light-heading);
-				border-color: var(--QLD-color-light-background__shade);
+				background-color: $QLD-color-neutral--lightest;
+				color: var(--QLD-color-light__heading);
+				border-color: $QLD-color-neutral--lightest;
 				text-decoration: none;
 	
 				i{
-					color: var(--QLD-color-light-heading);
+					color: var(--QLD-color-light__heading);
 				}
 				
 			}
@@ -119,20 +119,20 @@
 			&:focus {
 				@include QLD-focus(dark);
 				i{
-					color: var(--QLD-color-dark-button__text);
+					color: var(--QLD-color-dark__link--on-action);
 				}
 			}
 	
 			&:disabled,
 			&[disabled]{
 				cursor: not-allowed;
-				background-color:rgba(224, 224, 224, 0.1); // var(--QLD-color-light-alt-background__shade); with 10% opacity
-				color: var(--QLD-color-dark-text__muted);
+				background-color:rgba(224, 224, 224, 0.1); // var(--QLD-color-light__background--alt-shade); with 10% opacity
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 				border-color: transparent;
 	
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 		}
@@ -152,33 +152,33 @@
 	.qld__btn.qld__btn--secondary,
 	a.qld__btn.qld__btn--secondary {
 		@include QLD-underline('light','noUnderline','default','noVisited');
-		color: var(--QLD-color-light-link);
+		color: var(--QLD-color-light__link);
 		background-color: transparent;
-		border: 3px solid var(--QLD-color-light-alt-button);
+		border: 3px solid var(--QLD-color-light__action--secondary);
 	
 		i{
-			color: var(--QLD-color-light-alt-button);
+			color: var(--QLD-color-light__action--secondary);
 		}
 	
 	
 		&:hover{
-			border-color: var(--QLD-color-light-alt-button__hover);
+			border-color: var(--QLD-color-light__action--secondary-hover);
 			@include QLD-box-shadow(1);
 	
 			i{
-				color: var(--QLD-color-light-alt-button__hover);
+				color: var(--QLD-color-light__action--secondary-hover);
 			}
 		}
 	
 		&:active {
-			background-color: var(--QLD-color-light-background__shade);
-			border-color: var(--QLD-color-light-background__shade);
-			color: var(--QLD-color-light-heading);
+			background-color: $QLD-color-neutral--lightest;
+			border-color: $QLD-color-neutral--lightest;
+			color: var(--QLD-color-light__heading);
 			font-weight: bold;
 			box-shadow: none;
 			text-decoration: none;
 			i{
-				color: var(-QLD-color-light-heading);
+				color: var(-QLD-color-light__heading);
 			}
 		}
 	
@@ -186,20 +186,20 @@
 			@include QLD-box-shadow(1);
 	
 			i{
-				color: var(--QLD-color-light-alt-button__hover);
+				color: var(--QLD-color-light__action--secondary-hover);
 			}
 		}
 		
 		&:disabled,
 		&[disabled]{
 			cursor: not-allowed;
-			background-color: var(--QLD-color-light-alt-background__shade);
-			border-color: var(--QLD-color-light-alt-background__shade);
-			color: var(--QLD-color-light-text__muted);
+			background-color: var(--QLD-color-light__background--alt-shade);
+			border-color: var(--QLD-color-light__background--alt-shade);
+			color: var(--QLD-color-light__text--lighter);
 			box-shadow: none;
 	
 			i{
-				color: var(--QLD-color-light-text__muted);
+				color: var(--QLD-color-light__text--lighter);
 			}
 		}
 	}
@@ -217,33 +217,33 @@
 		.qld__btn.qld__btn--secondary,
 		a.qld__btn.qld__btn--secondary {
 			@include QLD-underline('dark','noUnderline','default','noVisited');
-			color: var(--QLD-color-dark-link);
+			color: var(--QLD-color-dark__link);
 			background-color: transparent;
-			border: 3px solid var(--QLD-color-dark-alt-button);
+			border: 3px solid var(--QLD-color-dark__action--secondary);
 	
 			i{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 	
 			&:hover{
-				border-color: var(--QLD-color-dark-alt-button__hover);
+				border-color: var(--QLD-color-dark__action--secondary-hover);
 				@include QLD-box-shadow(1);
 	
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 	
 			&:active {
-				background-color: var(--QLD-color-light-background__shade);
-				border-color: var(--QLD-color-light-background__shade);
-				color: var(--QLD-color-light-heading);
+				background-color: $QLD-color-neutral--lightest;
+				border-color: $QLD-color-neutral--lightest;
+				color: var(--QLD-color-light__heading);
 				font-weight: bold;
 				box-shadow: none;
 				text-decoration: none;
 	
 				i{
-					color: var(--QLD-color-light-heading);
+					color: var(--QLD-color-light__heading);
 				}
 			}
 	
@@ -252,19 +252,19 @@
 				cursor: not-allowed;
 				background-color: transparent;
 				border-color: rgba(224, 224, 224, 0.1);
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 	
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 	
 			&:focus{
-				border-color: var(--QLD-color-dark-alt-button__hover);
+				border-color: var(--QLD-color-dark__action--secondary-hover);
 	
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 		}
@@ -285,41 +285,41 @@
 	a.qld__btn.qld__btn--tertiary {
 		@include QLD-underline('light','noUnderline','default','noVisited');
 		background-color: transparent;
-		color: var(--QLD-color-light-link);
+		color: var(--QLD-color-light__link);
 		border-color: transparent;
 		box-shadow: none;
 
 		i{
-			color: var(--QLD-color-light-alt-button);
+			color: var(--QLD-color-light__action--secondary);
 		}
 
 		&:hover{
-			background-color: var(--QLD-color-light-background__shade);
+			background-color: $QLD-color-neutral--lightest;
 
 			i{
-				color: var(--QLD-color-light-alt-button);
+				color: var(--QLD-color-light__action--secondary);
 			}
 		}
 
 		&:active {
 			background-color: transparent;
 			border-color: transparent;
-			color: var(--QLD-color-light-heading);
+			color: var(--QLD-color-light__heading);
 			font-weight: bold;
 			box-shadow: none;
 			text-decoration: none;
 
 			i{
-				color: var(--QLD-color-light-heading);
+				color: var(--QLD-color-light__heading);
 			}
 		}
 
 		&:focus {
-			background-color: var(--QLD-color-light-background__shade);
+			background-color: $QLD-color-neutral--lightest;
 			@include QLD-box-shadow(1);
 
 			i{
-				color: var(--QLD-color-light-alt-button);
+				color: var(--QLD-color-light__action--secondary);
 			}
 		}
 
@@ -328,11 +328,11 @@
 			cursor: not-allowed;
 			background-color: transparent;
 			border-color: transparent;
-			color: var(--QLD-color-light-text__muted);
+			color: var(--QLD-color-light__text--lighter);
 			box-shadow: none;
 
 			i{
-				color: var(--QLD-color-light-text__muted);
+				color: var(--QLD-color-light__text--lighter);
 			}
 		}
 	}
@@ -350,35 +350,35 @@
 		a.qld__btn.qld__btn--tertiary {
 
 			@include QLD-underline('dark','noUnderline','default','noVisited');
-			color: var(--QLD-color-dark-link);
+			color: var(--QLD-color-dark__link);
 
 			i{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 
 			&:hover{
-				background-color: var(--QLD-color-dark-background__shade);
+				background-color: $QLD-color-neutral--lightest;
 				border-color: transparent;
 
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 
 			&:active {
-				color: var(--QLD-color-dark-heading);
+				color: var(--QLD-color-dark__heading);
 				text-decoration: none;
 				i{
-					color: var(--QLD-color-dark-heading);
+					color: var(--QLD-color-dark__heading);
 				}
 			}
 
 			&:focus {
-				background-color: var(--QLD-color-dark-background__shade);
+				background-color: $QLD-color-neutral--lightest;
 				@include QLD-box-shadow(1);
 
 				i{
-					color: var(--QLD-color-dark-alt-button__hover);
+					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 
@@ -387,11 +387,11 @@
 				cursor: not-allowed;
 				background-color: transparent;
 				border-color: transparent;
-				color: var(--QLD-color-dark-text__muted);
+				color: var(--QLD-color-dark__text--lighter);
 				box-shadow: none;
 
 				i{
-					color: var(--QLD-color-dark-text__muted);
+					color: var(--QLD-color-dark__text--lighter);
 				}
 			}
 		}
@@ -432,13 +432,13 @@
 
 	.qld__btn.qld__btn--toggle,
 	a.qld__btn.qld__btn--toggle {
-		background-color: var(--QLD-color-light-background__shade);
-		color: var(--QLD-color-light-link);
-		border-color: var(--QLD-color-light-background__shade);
+		background-color: $QLD-color-neutral--lightest;
+		color: var(--QLD-color-light__link);
+		border-color: $QLD-color-neutral--lightest;
 		@include QLD-underline('light','noUnderline');
 		i,
 		svg{
-			color: var(--QLD-color-light-alt-button);
+			color: var(--QLD-color-light__action--secondary);
 			@include QLD-space( margin-left, .75unit );
 			@include QLD-space( font-size, 1.25unit);
 		}
@@ -457,14 +457,14 @@
 
 		.qld__btn.qld__btn--toggle,
 		a.qld__btn.qld__btn--toggle{
-			background-color: var(--QLD-color-dark-alt-background__shade);
-			color: var(--QLD-color-dark-link);
-			border-color: var(--QLD-color-dark-alt-background__shade);
+			background-color: var(--QLD-color-dark__background--alt-shade);
+			color: var(--QLD-color-dark__link);
+			border-color: var(--QLD-color-dark__background--alt-shade);
 			@include QLD-underline('dark','noUnderline');
 	
 			i,
 			svg{
-				color: var(--QLD-color-dark-alt-button);
+				color: var(--QLD-color-dark__action--secondary);
 			}
 		}
 	}
@@ -493,7 +493,7 @@
 			mask-image: QLD-svguri($QLD-icon-search);
 			mask-repeat: no-repeat;
 			mask-position: center;
-			background-color: var(--QLD-color-light-button__text);
+			background-color: var(--QLD-color-light__link--on-action);
 
 			@include QLD-media(lg) {
 				display: none;
@@ -531,7 +531,7 @@
 		a.qld__btn.qld__btn--search {
 			
 			.qld__btn__icon{
-				background-color: var(--QLD-color-dark-button__text);
+				background-color: var(--QLD-color-dark__link--on-action);
 			}
 		}
 	}
@@ -546,17 +546,17 @@ a.qld__btn.qld__btn--close {
 	height: 2rem;
 	width: 2rem;
 	min-width: auto;
-	background-color: var(--QLD-color-light-background__shade);
-	border-color: var(--QLD-color-light-background__shade);
+	background-color: $QLD-color-neutral--lightest;
+	border-color: $QLD-color-neutral--lightest;
 	position: relative;
 	&:hover{
-		background-color: var(--QLD-color-light-alt-background__shade);
-		border-color: var(--QLD-color-light-alt-background__shade);
+		background-color: var(--QLD-color-light__background--alt-shade);
+		border-color: var(--QLD-color-light__background--alt-shade);
 	}
 
 	i,
 	svg{
-		color: $QLD-color-system-darkest;
+		color: $QLD-color-neutral--black;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -581,7 +581,7 @@ a.qld__btn.qld__btn--close {
 	rgba(11, 178, 255, 0.5) 83.33333333333335%,
 	rgba(152, 90, 255, 0.5) 83.33333333333335%
 	);
-	color: var(--QLD-color-dark-link);
+	color: var(--QLD-color-dark__link);
 }
 
 

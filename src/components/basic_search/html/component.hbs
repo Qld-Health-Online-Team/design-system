@@ -1,5 +1,6 @@
 <!--@@ Banner @@-->
 <section class="qld__banner qld__banner--search
+        {{#ifCond site.metadata.defaultBannerColour.value '==' 'light'}}qld__banner--light{{/ifCond}} 
         {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}} 
         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__banner--dark{{/ifCond}} 
         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}} 
@@ -13,7 +14,9 @@
     <!--@@ Breadcrumbs - Mobile @@-->
     {{#ifCond current.data.metadata.displayBreadcrumbs.value  '==' 'true'}}
     <nav class="qld__breadcrumbs
-    {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}qld__breadcrumbs--alt{{/ifCond}}
+        {{#ifCond site.metadata.defaultBannerColour.value '==' 'light'}}qld__breadcrumbs--light{{/ifCond}}
+        
+        {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}qld__breadcrumbs--alt{{/ifCond}}
 
         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}}
 

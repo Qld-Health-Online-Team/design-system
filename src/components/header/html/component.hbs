@@ -1,3 +1,8 @@
+{{#ifCond site.metadata.defaultBannerContainedBanner.value '==' 'qld__banner_contained'}}
+<div class="qld__header__contained-banner"  {{#if site.metadata.imageContainedLayoutBackground.value}} style="background-image:url(./?a={{site.metadata.imageContainedLayoutBackground.value}}); background-position:{{site.metadata.containedBannerImageTexturePosition.value}}; background-size:{{site.metadata.containedBannerImageTextureSize.value}}; background-repeat:{{site.metadata.containedBannerImageTextureRepeat.value}}; "{{/if}}
+{{#if site.metadata.imageContainedLayoutTexture.value}} style="background-image:url(./?a={{site.metadata.imageContainedLayoutTexture.value}}); background-position:{{site.metadata.containedBannerImageTexturePosition.value}}; background-size:{{site.metadata.containedBannerImageTextureSize.value}}; background-repeat:{{site.metadata.containedBannerImageTextureRepeat.value}};"{{/if}}>
+</div>
+{{/ifCond}}
 <header class="qld__header" role="banner">
     <nav class="qld__skip-link" aria-label="skip links" tabindex="-1">
         <a class="qld__skip-link__link" href="#content">Skip to main content</a>
@@ -13,7 +18,10 @@
                     alt="Queensland Government"
                     src="./?a={{site.metadata.sitePreHeaderLogo.value}}"
                 />
+                {{else}}
+                     <span class="qld__header__pre-header-url--mobile">{{site.metadata.sitePreHeaderText.value}}</span>
                 {{/if}}
+                
             </a>
 
             <div class="qld__header__cta-wrapper">
@@ -246,11 +254,22 @@
 
                     {{#if site.metadata.siteLogoSecondary.value}}
                         <div class="qld__header__site-name">
+                            <picture>
+                                {{#if site.metadata.siteLogoSecondaryMobile.value}}
+                                    <source media="(max-width: 991px)" 
+                                    srcset="./?a={{site.metadata.siteLogoSecondaryMobile.value}}" />
+                                {{else}}
+                                    <source media="(max-width: 991px)" 
+                                        srcset="./?a={{site.metadata.siteLogoSecondary.value}}" />
+                                {{/if}}
+                                <source media="(max-width: 3000px)" 
+                                srcset="./?a={{site.metadata.siteLogoSecondary.value}}" />
                             <img
                                 class="qld__header__secondary-image"
                                 alt="{{site.metadata.siteTitle.value}}"
-                                src="./?a={{site.metadata.siteLogoSecondary.value}}"
+                                src= "./?a={{site.metadata.siteLogoSecondary.value}}"
                             />
+                            </picture>
                         </div>
                         {{else}}
                         <div class="qld__header__site-name">
