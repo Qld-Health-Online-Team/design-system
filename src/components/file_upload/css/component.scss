@@ -103,8 +103,8 @@
     span {
         display: block;
     }
-    .qld__form-file-wrapper--dark & {
-        color: var(--QLD-color-dark__heading);
+    .qld__body--dark & {
+        color: $QLD-color-dark__heading;
     }
     .qld__input--error & {
         color: var(--QLD-color-light__text--lighter);
@@ -136,15 +136,15 @@
         font-size: inherit;
     }
 
-    .qld__form-file-wrapper--dark & {
-        background-color: var(--QLD-color-dark__background--shade);
-        color: var(--QLD-color-dark__action--secondary);
+    .qld__body--dark & {
+        background-color: $QLD-color-dark__background--shade;
+        color: $QLD-color-dark__action--secondary;
     }
 
     .qld__form-file-dropzone--dragged-over & {
         background-color: $QLD-color-neutral--white;
 
-        .qld__form-file-wrapper--dark & {
+        .qld__body--dark & {
             background-color: $QLD-color-dark__background;
             color: $QLD-color-dark__link;
         }
@@ -190,9 +190,9 @@
     text-align: center;
 
     &:not(.qld__input--error) {
-        .qld__form-file-wrapper--dark & {
-            background-color: var(--QLD-color-dark__background);
-            border-color: var(--QLD-color-dark__border--alt);
+        .qld__body--dark & {
+            background-color: $QLD-color-dark__background;
+            border-color: $QLD-color-dark__border--alt;
 
             .qld__loading-spinner {
                 background-color: var(--QLD-color-dark__background);
@@ -234,9 +234,9 @@
         background-color: $QLD-color-neutral--lightest;
         border-color: var(--QLD-color-light__action--primary-hover);
         
-        .qld__form-file-wrapper--dark & {
-            background-color: var(--QLD-color-dark__background--shade) !important;
-            border-color: var(--QLD-color-dark__action--secondary) !important;
+        .qld__body--dark & {
+            background-color: $QLD-color-dark__background--shade !important;
+            border-color: $QLD-color-dark__action--secondary !important;
 
             p.qld__file-input-title,
             .qld__file-input-constraints,
@@ -259,7 +259,7 @@
             color: var(--QLD-color-light__text--lighter) !important;
             pointer-events: none;
 
-            .qld__form-file-wrapper--dark & { 
+            .qld__body--dark & { 
                 color: $QLD-color-neutral--white !important;
                 border-color: var(--QLD-color-light__background--alt-shade) !important;
             }
@@ -284,7 +284,7 @@
         background-color: $QLD-color-status__success--lightest;
         border-color: $QLD-color-status__success;
 
-        .qld__form-file-wrapper--dark & {
+        .qld__body--dark & {
             i {
                 color: $QLD-color-status__success !important;
             }
@@ -295,9 +295,9 @@
         background-color: $QLD-color-neutral--lightest;
         border-color: $QLD-color-neutral--lighter;
         
-        .qld__form-file-wrapper--dark & {
-            background-color: var(--QLD-color-dark__background--shade);
-            border-color: var(--QLD-color-dark__border);
+        .qld__body--dark & {
+            background-color: $QLD-color-dark__background--shade;
+            border-color: $QLD-color-dark__border;
 
             p,span {
                 color: $QLD-color-neutral--white;
@@ -329,9 +329,9 @@
     &--updating {
         background-color: $QLD-color-neutral--white;
        
-        .qld__form-file-wrapper--dark & {
-            background-color: var(--QLD-color-dark__background);
-            border-color: var(--QLD-color-dark__border);
+        .qld__body--dark & {
+            background-color: $QLD-color-dark__background;
+            border-color: $QLD-color-dark__border;
 
             p,span {
                 color: $QLD-color-neutral--white;
@@ -400,7 +400,7 @@
         margin-bottom: 0;
     }
 
-    .qld__form-file-wrapper--dark & {
+    .qld__body--dark & {
         i {
             color: var(--QLD-color-dark__action--secondary);
         }
