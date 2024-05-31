@@ -41,6 +41,10 @@
         font-size: pxToRem(20);
         line-height: pxToRem(24);
         margin: 0 auto pxToRem(24) !important;
+
+        .qld__body--dark & {
+            color: $QLD-color-neutral--white;
+        }
     
         &::first-letter {
             text-transform: capitalize;
@@ -84,8 +88,13 @@
     .qld__body--dark & {
         color: $QLD-color-dark__heading;
     }
-    .qld__input--error & {
-        color: $QLD-color-light__text--lighter;
+    span {
+        .qld__input--error & {
+            color: $QLD-color-light__text--lighter;
+        }
+        .qld__form-file-dropzone--updating & {
+            color: $QLD-color-neutral--white;
+        }
     }
 }
 
@@ -205,6 +214,18 @@
 
         p.qld__file-input-title {
             color: $QLD-color-light__text--lighter !important;
+        }
+
+        .qld__file-input-label {
+            border-color: var(--QLD-color-light__action--secondary);
+            color: $QLD-color-light__action--primary;
+
+            &:hover,
+            &:active,
+            &:focus {
+                border-color: $QLD-color-light__action--secondary-hover;
+                text-decoration-color: $QLD-color-light__action--primary;
+            }
         }
     }
 
