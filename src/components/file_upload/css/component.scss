@@ -58,7 +58,7 @@
         }
     }
 
-    &--dark {
+    .qld__body--dark & {
         .qld__file-input-title {
             color: var(--QLD-color-dark__heading);
         }
@@ -74,28 +74,6 @@
 
     .qld__file-input-label {
         font-weight: 400;
-    }
-}
-
-.qld__file-wrapper {
-    border: pxToRem(1) solid var(--QLD-color-light__background--alt-shade);
-    margin: pxToRem(10) 0;
-    border-radius: pxToRem(3);
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    a {
-        width: 100%;
-    }
-
-    button {
-        margin: pxToRem(10) 0;
-    }
-
-    img {
-        width: pxToRem(22);
     }
 }
 
@@ -280,13 +258,42 @@
     margin: pxToRem(16) 0 0;
     padding: pxToRem(16);
 
+    .qld__form-file-delete-btn {
+        i {
+            color: $QLD-color-light__action--secondary;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: transparent !important;
+            text-decoration-color: $QLD-color-light__link !important;
+        }
+    }
+
     &--success {
         background-color: $QLD-color-status__success--lightest;
         border-color: $QLD-color-status__success;
 
         .qld__body--dark & {
-            i {
-                color: $QLD-color-status__success !important;
+            .qld__form-file-loader {
+                i {
+                    color: $QLD-color-light__action--secondary !important;
+                }
+            }
+            .qld__form-file-info-name {
+                color: $QLD-color-light__heading !important;
+            }
+            .qld__form-file-delete-btn {
+                color: $QLD-color-light__action--primary !important;
+                i {
+                    color: $QLD-color-status__success !important;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: transparent !important;
+                    text-decoration-color: $QLD-color-light__link !important;
+                }
             }
         }
     }
@@ -311,8 +318,8 @@
                 &:hover,
                 &:focus,
                 &:active {
-                    background-color:transparent;
-                    text-decoration-color: var(--QLD-color-dark__text);
+                    background-color: transparent !important;
+                    text-decoration-color: $QLD-color-dark__text !important;
                     i {
                         color: var(--QLD-color-dark__action--secondary);
                     }
@@ -324,6 +331,18 @@
     &--error {
         background-color: $QLD-color-status__error--lightest;
         border-color: $QLD-color-status__error;
+
+        .qld__body--dark & {
+            .qld__form-file-info-name {
+                color: $QLD-color-light__heading;
+            }
+            .qld__form-file-delete-btn {
+                color: $QLD-color-light__link !important;
+                i {
+                    color: $QLD-color-light__action--secondary !important;
+                }
+            }
+        }
     }
     
     &--updating {
