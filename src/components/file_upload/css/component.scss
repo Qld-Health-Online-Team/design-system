@@ -279,21 +279,31 @@
     margin: pxToRem(16) 0 0;
     padding: pxToRem(16);
 
+    .qld__body--dark & {
+        background-color: $QLD-color-dark__background--shade;
+        border-color: $QLD-color-dark__border;
+    }
+
     .qld__form-file-delete-btn {
         i {
             color: $QLD-color-light__action--secondary;
         }
+
         &:hover,
         &:focus,
         &:active {
             background-color: transparent !important;
             text-decoration-color: $QLD-color-light__link !important;
+
+            .qld__body--dark & { 
+                text-decoration-color: $QLD-color-neutral--white !important;
+            }
         }
     }
 
     &--success {
-        background-color: $QLD-color-status__success--lightest;
-        border-color: $QLD-color-status__success;
+        background-color: $QLD-color-status__success--lightest !important;
+        border-color: $QLD-color-status__success !important;
 
         .qld__body--dark & {
             .qld__form-file-loader {
@@ -350,8 +360,8 @@
     }
 
     &--error {
-        background-color: $QLD-color-status__error--lightest;
-        border-color: $QLD-color-status__error;
+        background-color: $QLD-color-status__error--lightest !important;
+        border-color: $QLD-color-status__error !important;
 
         .qld__body--dark & {
             .qld__form-file-info-name {
@@ -359,8 +369,17 @@
             }
             .qld__form-file-delete-btn {
                 color: $QLD-color-light__link !important;
+                text-decoration-color: $QLD-color-light__action--primary !important;
+
                 i {
                     color: $QLD-color-light__action--secondary !important;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $QLD-color-light__link !important;
+                    text-decoration-color: $QLD-color-light__action--primary !important;
                 }
             }
         }
@@ -395,6 +414,14 @@
     font-weight:400;
     font-size: pxToRem(14);
     line-height: pxToRem(20);
+
+    .qld__body--dark & {
+        color: $QLD-color-neutral--white;
+    }
+
+    .qld__form-file--success & {
+        color: $QLD-color-light__text--lighter;
+    }
 
     .qld__form-file--error & {
         color: $QLD-color-status__error;
