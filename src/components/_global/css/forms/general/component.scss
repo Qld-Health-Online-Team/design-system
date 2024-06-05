@@ -85,6 +85,15 @@ label{
     }
 }
 
+.qld__input--valid {
+    color: var(--QLD-color-light__text); 
+}
+
+
+.qld__input--error {
+    color: $QLD-color-status__error;
+}
+
 .qld__hint-text,
 .sq-form-question-note {
     font-family: $QLD-font;
@@ -144,7 +153,7 @@ label{
     }
 
     .sq-form-question-answer {
-        @include QLD-space(margin-top, 1.5unit);
+        @include QLD-space(margin-top, 0.5unit);
         ul{
             padding: 0;
             list-style: none;
@@ -299,7 +308,7 @@ form {
 
 
 
-p.qld__input--error,
+p.qld__input--error, span.qld__input--error
 p.sq-form-error {
     font-family: $QLD-font;
     font-weight: bold;
@@ -333,11 +342,13 @@ p.sq-form-error {
         display: none;
     }
     
-    .qld__body--dark & {
-        background-color: $QLD-color-status__error;
-        color: white;
+}
+
+.qld__body--dark {
+    p.qld__input--error, span.qld__input--error,
+    p.sq-form-error {
+        color: $QLD-color-status__error--lightest;
         @include QLD-space(padding, 0.5unit 0.75unit);
     }
 }
-
 
