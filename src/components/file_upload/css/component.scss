@@ -37,7 +37,7 @@
         margin: 0 auto pxToRem(24);
 
         .qld__body--dark & {
-            color: $QLD-color-neutral--white;
+            color: var(--QLD-color-dark__heading);
         }
     
         &::first-letter {
@@ -58,13 +58,13 @@
 
     .qld__body--dark & {
         .qld__file-input-title {
-            color: $QLD-color-dark__heading;
+            color: var(--QLD-color-dark__heading);
         }
         .qld__form-file-info {
             &:not(.qld__form-file--success) & {
                 p,
                 span {
-                    color: $QLD-color-dark__text;
+                    color: var(--QLD-color-dark__text);
                 }
             }
         }
@@ -82,8 +82,8 @@
     
         &:not(.qld__input--error) {
             .qld__body--dark & {
-                background-color: $QLD-color-dark__background;
-                border-color: $QLD-color-dark__border--alt;
+                background-color: var(--QLD-color-dark__background);
+                border-color: var(--QLD-color-dark__border)--alt;
     
                 .qld__loading-spinner {
                     background-color: var(--QLD-color-dark__background);
@@ -94,7 +94,7 @@
                 }
     
                 .qld__file-input-label {
-                    border-color: $QLD-color-dark__action--secondary;
+                    border-color: var(--QLD-color-dark__action--secondary);
                     color: var(--QLD-color-dark__heading);
                     
                     &:hover, 
@@ -102,12 +102,12 @@
                     &:active {
                         background-color: transparent;
                         border-color: $QLD-color-neutral--lightest;
-                        text-decoration-color: $QLD-color-dark__heading;
+                        text-decoration-color: var(--QLD-color-dark__heading);
                     }
                 }
     
                 p.qld__file-input-title {
-                    color: $QLD-color-dark__heading;
+                    color: var(--QLD-color-dark__heading);
                 }
             }
         }
@@ -117,18 +117,18 @@
             border-color: $QLD-color-status__error;
     
             p.qld__file-input-title {
-                color: $QLD-color-light__text--lighter;
+                color: var(--QLD-color-light__text--lighter);
             }
     
             .qld__file-input-label {
                 border-color: var(--QLD-color-light__action--secondary);
-                color: $QLD-color-light__action--primary;
+                color: var(--QLD-color-light__action--primary);
     
                 &:hover,
                 &:active,
                 &:focus {
-                    border-color: $QLD-color-light__action--secondary-hover;
-                    text-decoration-color: $QLD-color-light__action--primary;
+                    border-color: var(--QLD-color-light__action--secondary-hover);
+                    text-decoration-color: var(--QLD-color-light__action--primary);
                 }
             }
 
@@ -143,42 +143,42 @@
             border-color: var(--QLD-color-light__action--primary-hover);
             
             .qld__body--dark & {
-                background-color: $QLD-color-dark__background--shade;
-                border-color: $QLD-color-dark__action--secondary;
+                background-color: var(--QLD-color-dark__background--shade);
+                border-color: var(--QLD-color-dark__action--secondary);
     
                 p.qld__file-input-title,
                 .qld__file-input-constraints span,
                 .qld__file-input-label {
-                    color: $QLD-color-dark__link;
+                    color: var(--QLD-color-dark__link);
                 }
                 label.qld__file-input-label {
-                    border-color: $QLD-color-dark__action--secondary;
+                    border-color: var(--QLD-color-dark__action--secondary);
                     &:hover,
                     &:active,
                     &:focus {
-                        border-color: $QLD-color-dark__action--secondary;
-                        text-decoration-color: $QLD-color-neutral--white;
+                        border-color: var(--QLD-color-dark__action--secondary);
+                        text-decoration-color: var(--QLD-color-dark__heading);
                     }
                 }
                 .qld__file-input-icon {
-                    background-color: $QLD-color-dark__background;
-                    color: $QLD-color-dark__link;
+                    background-color: var(--QLD-color-dark__background);
+                    color: var(--QLD-color-dark__link);
                 }
             }
         }
     
         &--disabled:not(.qld__input--error),
         &--updating:not(.qld__input--error) {
-            color: $QLD-color-light__text--lighter;
+            color: var(--QLD-color-light__text--lighter);
     
             .qld__file-input-label {
-                border-color: $QLD-color-light__background--alt;
-                color: $QLD-color-light__text--lighter;
+                border-color: var(--QLD-color-light__background--alt);
+                color: var(--QLD-color-light__text--lighter);
                 pointer-events: none;
     
                 .qld__body--dark & { 
-                    color: $QLD-color-neutral--white;
-                    border-color: $QLD-color-light__background--alt-shade;
+                    color: var(--QLD-color-dark__heading);
+                    border-color: var(--QLD-color-light__background--alt-shade);
                 }
             }
         }
@@ -199,16 +199,16 @@
             padding: pxToRem(16);
         
             .qld__body--dark & {
-                background-color: $QLD-color-dark__background--shade;
-                border-color: $QLD-color-dark__border;
+                background-color: var(--QLD-color-dark__background--shade);
+                border-color: var(--QLD-color-dark__border);
             }
         
             .qld__form-file-delete-btn {
                 i {
-                    color: $QLD-color-light__action--secondary;
+                    color: var(--QLD-color-light__action--secondary);
 
                     .qld__body--dark & {
-                        color: $QLD-color-dark__action--secondary;
+                        color: var(--QLD-color-dark__action--secondary);
                     }
                 }
         
@@ -216,10 +216,10 @@
                 &:focus,
                 &:active {
                     background-color: transparent;
-                    text-decoration-color: $QLD-color-light__link;
+                    text-decoration-color: var(--QLD-color-light__link);
         
                     .qld__body--dark & { 
-                        text-decoration-color: $QLD-color-neutral--white;
+                        text-decoration-color: var(--QLD-color-dark__heading);
                     }
                 }
             }
@@ -229,25 +229,25 @@
                 border-color: $QLD-color-neutral--lighter;
                 
                 .qld__body--dark & {
-                    background-color: $QLD-color-dark__background--shade;
-                    border-color: $QLD-color-dark__border;
+                    background-color: var(--QLD-color-dark__background--shade);
+                    border-color: var(--QLD-color-dark__border);
         
                     p,span {
-                        color: $QLD-color-neutral--white;
+                        color: var(--QLD-color-dark__heading);
                     }
         
                     button.qld__form-file-delete-btn {
-                        color: $QLD-color-dark__heading;
+                        color: var(--QLD-color-dark__heading);
                         i {
-                            color: $QLD-color-dark__action--secondary;
+                            color: var(--QLD-color-dark__action--secondary);
                         }
                         &:hover,
                         &:focus,
                         &:active {
                             background-color: transparent;
-                            text-decoration-color: $QLD-color-dark__text;
+                            text-decoration-color: var(--QLD-color-dark__text);
                             i {
-                                color: $QLD-color-dark__action--secondary;
+                                color: var(--QLD-color-dark__action--secondary);
                             }
                         }
                     }
@@ -263,35 +263,35 @@
                     border-color: $QLD-color-status__error;
 
                     .qld__form-file-info-name {
-                        color: $QLD-color-light__heading;
+                        color: var(--QLD-color-light__heading);
                     }
                     .qld__form-file-delete-btn {
-                        color: $QLD-color-light__link;
-                        text-decoration-color: $QLD-color-light__action--primary;
+                        color: var(--QLD-color-light__link);
+                        text-decoration-color: var(--QLD-color-light__action--primary);
         
                         i {
-                            color: $QLD-color-light__action--secondary;
+                            color: var(--QLD-color-light__action--secondary);
                         }
         
                         &:hover,
                         &:focus,
                         &:active {
-                            color: $QLD-color-light__link;
-                            text-decoration-color: $QLD-color-light__action--primary;
+                            color: var(--QLD-color-light__link);
+                            text-decoration-color: var(--QLD-color-light__action--primary);
                         }
                     }
                 }
             }
             
             &--updating {
-                background-color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-dark__heading);
             
                 .qld__body--dark & {
-                    background-color: $QLD-color-dark__background;
-                    border-color: $QLD-color-dark__border;
+                    background-color: var(--QLD-color-dark__background);
+                    border-color: var(--QLD-color-dark__border);
         
                     p,span {
-                        color: $QLD-color-neutral--white;
+                        color: var(--QLD-color-dark__heading);
                     }
                 }
             }
@@ -306,14 +306,14 @@
 
                     .qld__form-file-loader {
                         i {
-                            color: $QLD-color-light__action--secondary;
+                            color: var(--QLD-color-light__action--secondary);
                         }
                     }
                     .qld__form-file-info-name {
-                        color: $QLD-color-light__heading;
+                        color: var(--QLD-color-light__heading);
                     }
                     .qld__form-file-delete-btn {
-                        color: $QLD-color-light__action--primary;
+                        color: var(--QLD-color-light__action--primary);
                         i {
                             color: $QLD-color-status__success;
                         }
@@ -321,7 +321,7 @@
                         &:focus,
                         &:active {
                             background-color: transparent;
-                            text-decoration-color: $QLD-color-light__link;
+                            text-decoration-color: var(--QLD-color-light__link);
                         }
                     }
                 }
@@ -343,11 +343,11 @@
         display: block;
     }
     .qld__body--dark & {
-        color: $QLD-color-dark__heading;
+        color: var(--QLD-color-dark__heading);
     }
     span {
         .qld__input--error & {
-            color: $QLD-color-light__text--lighter;
+            color: var(--QLD-color-light__text--lighter);
         }
         .qld__form-file-dropzone--updating & {
             color: inherit;
@@ -381,16 +381,16 @@
     }
 
     .qld__body--dark & {
-        background-color: $QLD-color-dark__background--shade;
-        color: $QLD-color-dark__action--secondary;
+        background-color: var(--QLD-color-dark__background--shade);
+        color: var(--QLD-color-dark__action--secondary);
     }
 
     .qld__form-file-dropzone--dragged-over & {
-        background-color: $QLD-color-neutral--white;
+        background-color: var(--QLD-color-dark__heading);
 
         .qld__body--dark & {
-            background-color: $QLD-color-dark__background;
-            color: $QLD-color-dark__link;
+            background-color: var(--QLD-color-dark__background);
+            color: var(--QLD-color-dark__link);
         }
     }
 
@@ -424,18 +424,18 @@
 
 .qld__form-file-info-status {
     align-content: center;
-    color: $QLD-color-light__text--lighter;
+    color: var(--QLD-color-light__text--lighter);
     display: flex;
     font-weight:400;
     font-size: pxToRem(14);
     line-height: pxToRem(20);
 
     .qld__body--dark & {
-        color: $QLD-color-neutral--white;
+        color: var(--QLD-color-dark__heading);
     }
 
     .qld__form-file--success & {
-        color: $QLD-color-light__text--lighter;
+        color: var(--QLD-color-light__text--lighter);
     }
 
     .qld__form-file--error & {
@@ -484,7 +484,7 @@
 
     .qld__body--dark & {
         i {
-            color: $QLD-color-dark__action--secondary;
+            color: var(--QLD-color-dark__action--secondary);
         }
     }
 
