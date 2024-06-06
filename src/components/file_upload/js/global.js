@@ -13,7 +13,7 @@
      * 
      * @memberof module:fileUploads
      */
-     const loadingTemplate = (file) => {
+     const loadingTemplate = function(file) {
 
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
@@ -39,7 +39,7 @@
      * 
      * @memberof module:fileUploads
      */
-     const successTemplate = (file) => {
+     const successTemplate = function(file) {
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
         let fileSize = null;
@@ -73,7 +73,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const errorTemplate = (file, error) => {
+    const errorTemplate = function(file, error) {
 
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
@@ -102,7 +102,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const getAssetType = (type) => {
+    const getAssetType = function(type) {
         let assetType = {"type":'file', "fontAwesomeClass": ''};
         let typeLowerCase = type.toLowerCase();
 
@@ -127,7 +127,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const isFileValid = (file, input_field_settings) => {
+    const isFileValid = function(file, input_field_settings) {
         const currentFiles = input_field_settings.files;
         const totalFiles = currentFiles.length;
         const maxFiles = input_field_settings.max_files;
@@ -140,38 +140,38 @@
         const illegalFileNameCharacters = /[<>:"/\\|?*\x00-\x1F]/;
         
         // If a file of the same name has already been uploaded to the field
-        if(currentFiles.some(item => file.id == item.id)) {
+        if (currentFiles.some(function(item) {return file.id == item.id})) {
             console.error('Duplicate file name');
-            return `Filename: '${fileName}' already in use. Please rename file before trying again.`;
+            return "Filename: '" + fileName + "' already in use. Please rename file before trying again.";
         }
-        
+
         // If the file type is not accepted
-        if(!fileTypes.some(type => file.type.match(type))) {
+        if (!fileTypes.some(function(type) {return file.type.match(type)})) {
             console.error('Incorrect file type');
-            return `The selected file must be a ${fileTypes.join(',')}`;
+            return "The selected file must be a " + fileTypes.join(',');
         }
 
         // If file size exceeds the maximum
-        if(fileSize / (1024 * 1024) > maxFileSize) {
-            console.error(`Max file size ${maxFileSize} exceeded.`);
-            return `The selected file must be smaller than ${maxFileSize}MB`;
+        if (fileSize / (1024 * 1024) > maxFileSize) {
+            console.error('Max file size ' + maxFileSize + ' exceeded.');
+            return "The selected file must be smaller than " + maxFileSize + "MB";
         }
 
         // If the max file limit has been reached
-        if(totalFiles >= maxFiles) {
+        if (totalFiles >= maxFiles) {
             console.error('Max number of files reached');
-            return `You can only select up to ${maxFiles} files at the same time`;
+            return "You can only select up to " + maxFiles + " files at the same time";
         }
 
         // If the max file limit has been reached
-        if(!fileSize > 0 ) {
+        if (!(fileSize > 0)) {
             console.error('The selected file is empty');
             return 'The selected file is empty';
         }
-       
+
         // If the file name contains illegal characters
-        if(illegalFileNameCharacters.test(fileName)) {
-            console.error(`Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’`);
+        if (illegalFileNameCharacters.test(fileName)) {
+            console.error("Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’");
             return 'The selected file is empty';
         }
 
@@ -183,7 +183,7 @@
      * 
      * @memberof module:fileUploads
      */
-     fileUploads.init = () => {
+     fileUploads.init = function() {
         // Store all file input fields in inputs property
         let $file_inputs = QLD.utils.listToArray(document.querySelectorAll('input[type=file].qld__file-input'));
 
@@ -226,7 +226,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const addValidation = (input_field_settings) => {
+    const addValidation = function(input_field_settings) {
         const $input = input_field_settings.input_element;
 
         // Remove required attribute so we can replace it with the following rule
@@ -234,7 +234,7 @@
 
         // Custom 'required' validation for input
         if(!$.validator.methods.requiredFileInteraction) {
-            $.validator.addMethod("requiredFileInteraction", (value, element) => {
+            $.validator.addMethod("requiredFileInteraction", function(value, element) {
                 // Check if the user has interacted with the file input
                 if ($(element).data('interacted')) {
                     // If data-files attribute is empty, invalidate the field
@@ -256,14 +256,14 @@
      * 
      * @memberof module:fileUploads
      */
-    const addListeners = (input_field_settings) => {
+    const addListeners = function(input_field_settings) {
         const $fileInput = input_field_settings.input_element;
         const $fileInputWrapper = $fileInput.closest('.qld__form-file-wrapper');
         const $dropArea = $fileInputWrapper.querySelector('.qld__form-file-dropzone');
         const disabledClasses = ["qld__form-file-dropzone--disabled", "qld__form-file-dropzone--updating"];
 
         // File delete button handler
-        $fileInputWrapper.addEventListener('click', (event) => {
+        $fileInputWrapper.addEventListener('click', function(event) {
             
             if (event.target.matches('.qld__form-file-delete-btn')) {
                 event.preventDefault();
@@ -276,51 +276,52 @@
         })
         
         // File input change handler
-        $fileInput.addEventListener('change', (event) => {
+        $fileInput.addEventListener('change', function(event) {
             event.preventDefault();
-
+        
             // Set file input interacted flag (for validation)
             $fileInput.dataset["interacted"] = true;
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
-                const files = event.target.files;
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
+                var files = event.target.files;
                 handleFiles(files, input_field_settings);
             }
         });
-
+        
         // Dragover event listener for dropzone
-        $dropArea.addEventListener('dragover', (event) => {
+        $dropArea.addEventListener('dragover', function(event) {
             event.preventDefault();
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
                 $dropArea.classList.add('qld__form-file-dropzone--dragged-over');
             }
         });
         
         // Dragleave event listener for dropzone
-        $dropArea.addEventListener('dragleave', (event) => {
+        $dropArea.addEventListener('dragleave', function(event) {
             event.preventDefault();
-
+        
             $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
-    
+        
         // Drop event listener for dropzone
-        $dropArea.addEventListener('drop', (event) => {
+        $dropArea.addEventListener('drop', function(event) {
             event.preventDefault();
-
+        
             // Set file input interacted flag (for validation)
             $fileInput.dataset["interacted"] = true;
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
-                const files = event.dataTransfer.files;
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
+                var files = event.dataTransfer.files;
                 handleFiles(files, input_field_settings);
             }
-
+        
             $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
+        
     
     }
 
@@ -329,11 +330,11 @@
      * 
      * @memberof module:fileUploads
      */
-    const deleteFile = async (input_field_settings, fileId, $fileInfo) => {
+    const deleteFile = async function(input_field_settings, fileId, $fileInfo) {
         const currentFiles = input_field_settings.files;
         const isError = $fileInfo.matches(".qld__form-file--error");
         const usingJsApi = input_field_settings.jsApi !== undefined;
-        const index = currentFiles.findIndex((obj)=>{
+        const index = currentFiles.findIndex(function(obj) {
             if (typeof(obj) === 'string') {
                 return JSON.parse(obj).id === fileId;
             } else {
@@ -368,7 +369,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const deleteAssetFromMatrix = async (fileId, $fileInfo, input_field_settings) => {
+    const deleteAssetFromMatrix = async function(fileId, $fileInfo, input_field_settings) {
         try {
             const name = $fileInfo.querySelector(".qld__form-file-info-name").innerText;
             const file = {"name": name}; 
@@ -402,10 +403,10 @@
      * 
      * @memberof module:fileUploads
      */
-    const toggleDropzoneClass = ($dropZone, status) => {
+    const toggleDropzoneClass = function($dropZone, status) {
         const classNames = status.split(',');
 
-        classNames.forEach(className => {       
+        classNames.forEach(function(className) {       
             $dropZone.classList.toggle(`qld__form-file-dropzone--${className}`);
         });
     }
@@ -415,7 +416,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const handleFiles = async (files, input_field_settings) => {
+    const handleFiles = async function(files, input_field_settings) {
         const $fileList = input_field_settings.file_list_element;
         const usingJsApi = input_field_settings.jsApi !== undefined;
         const $dropZone = input_field_settings.dropzone_element;
@@ -474,7 +475,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const updateFileInputFileList = (input_field_settings) => {
+    const updateFileInputFileList = function(input_field_settings) {
         // We can't directly modify an existing populated FileList, because FileLists are read-only array-like structures (not an actual array)
         // We need to create a DataTransfer instance, and add all of the current files to it - then set that as the new input.files value
         const files = input_field_settings.files;
@@ -482,7 +483,7 @@
         let dataTransfer = new DataTransfer();
 
         // Loop over each File object and add to the DataTransfer instance
-        files.forEach((file) => {
+        files.forEach(function(file) {
             dataTransfer.items.add(file);
         });
         // Set the input files value to the new 'array' of File objects
@@ -494,8 +495,8 @@
      * 
      * @memberof module:fileUploads
      */
-    const simulateFileUpload = (file, $fileInfo) => {
-        return new Promise((resolve, reject) => {
+    const simulateFileUpload = function(file, $fileInfo) {
+        return new Promise(function(resolve, reject) {
             // Quick setTimeout to simulate a file upload
             let success = successTemplate(file);
             let text = success.querySelector(".qld__form-file-info-status");
@@ -524,7 +525,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const jsApi = (key) => {
+    const jsApi = function(key) {
         let options = new Array();
         options["key"] = key;
         let js_api = new Squiz_Matrix_API(options);
@@ -537,7 +538,7 @@
      * 
      * @memberof module:fileUploads
      */
-     const uploadFileJsApi = async (file, $fileInfo, input_field_settings) => {
+     const uploadFileJsApi = async function(file, $fileInfo, input_field_settings) {
        
         const reader = new FileReader();
         const jsApi = input_field_settings.jsApi;
@@ -546,7 +547,7 @@
         // Base64 file data 
         reader.readAsDataURL(file);
         // File reader 
-        reader.onload = () => {
+        reader.onload = function() {
             // Strip the file type declaration from the start of the string
             fileContent = reader.result.split(',')[1];
         };
@@ -600,7 +601,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const createFileAsset = async (file, input_field_settings) => {
+    const createFileAsset = async function(file, input_field_settings) {
 
         // Asset id of create location
         const createLocation = input_field_settings.create_location;
@@ -638,7 +639,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const updateFileContents = async (asset, fileContent, input_field_settings) => {
+    const updateFileContents = async function(asset, fileContent, input_field_settings) {
         // Asset ID from JS API response
         const assetId = Object.keys(asset)[0];
         const jsApi = input_field_settings.jsApi;
@@ -718,7 +719,7 @@
     }
 
     // Display file info card
-    const displayFile = (file, $fileInfoArea) => {
+    const displayFile = function(file, $fileInfoArea) {
         const parsedFile = typeof file === 'string' ? JSON.parse(file) : file;
         const $fileInfoBox = successTemplate(parsedFile);
 
@@ -730,7 +731,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const setFilesDataAttribute = (input_field_settings, newFileInfo = null) => {
+    const setFilesDataAttribute = function(input_field_settings, newFileInfo = null) {
         let files = input_field_settings.files;
         
         if(newFileInfo) {
@@ -739,7 +740,7 @@
                 "name": newFileInfo.name
             };
     
-            if(files.findIndex(file => file.id === newFileInfo.id) === -1) {
+            if (files.findIndex(function(file) {return file.id === newFileInfo.id}) === -1) {
                 // Push stringified object containing file assetid and name into files array
                 files.push(JSON.stringify(fileObj));
             }
@@ -751,7 +752,7 @@
     // Store fileUploads object globally
     QLD.fileUploads = fileUploads;
 
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('DOMContentLoaded', function() {
         QLD.fileUploads.init();
     });
 
