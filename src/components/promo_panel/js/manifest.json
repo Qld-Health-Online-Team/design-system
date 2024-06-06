@@ -1,40 +1,219 @@
 {
-	"component": {
-		"name": "promo_panel",
-		"description": "",
-		"version": "1.0",
-		"status": "In Development",
-		"data": {
-			"assetid": "promo_panel-123",
-			"metadata": {
-				"field1": {
-					"type": "metadata_field_text",
-					"description": "A text field",
-					"friendly_name": "Field 1",
-					"value": "Example text",
-					"required": false,
-					"editable": true
-				},
-				"root_node": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Parent asset (populates 'children' and 'childrenThumbnails')",
-					"value": "123",
-					"required": false,
-					"editable": true
-				},
-				"asset_select": {
-					"type": "metadata_field_related_asset",
-					"description": "",
-					"friendly_name": "Assets to link to (populates 'assets')",
-					"value": "1; 2; 3",
-					"required": false,
-					"editable": true
-				}
-			}
-		},
-		"children": [],
-		"childrenThumbnails": [],
-		"assets": []
-	}
+    "component": {
+        "name": "Promo Panel",
+        "description": "The promo panel component is a component that will allow content editors to quickly create promo panels.",
+        "version": "1.0",
+        "status": "Released",
+        "data": {
+            "metadata": {
+                "body_background": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Background colour",
+                    "value": "qld__body--dark-alt",
+                    "options": {
+                        "": "White",
+                        "qld__body--light": "Light",
+                        "qld__body--alt": "Alternate",
+                        "qld__body--dark": "Dark",
+                        "qld__body--dark-alt": "Alternate Dark"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "type": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Variant",
+                    "value": "",
+                    "options": {
+                        "": "Large image",
+                        "qld__body--large-text": "Large text",
+                        "qld__body--contained": "Contained",
+                        "qld__body--full-image": "Full image"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "promo_image": {
+                    "type": "metadata_field_related_asset",
+                    "description": "",
+                    "friendly_name": "Image",
+                    "value": "https://www.health.qld.gov.au/__data/assets/image/0033/1168368/varieties/800-lg.png",
+                    "required": false,
+                    "editable": true
+                },
+                "image_alignment": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Image alignment",
+                    "value": "qld__promo-panel--image-right",
+                    "options": {
+                        "qld__promo-panel--image-left": "Left",
+                        "qld__promo-panel--image-right": "Right"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "icon": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Icon",
+                    "value": "fa fa-wifi",
+                    "required": false,
+                    "editable": true
+                },
+                "title": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Title",
+                    "value": "Title goes here and has a maximum of 64 character limit",
+                    "required": false,
+                    "editable": true
+                },
+                "abstract": {
+                    "type": "metadata_field_wysiwyg",
+                    "description": "",
+                    "friendly_name": "Abstract",
+                    "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "required": false,
+                    "editable": true
+                },
+                "body": {
+                    "type": "metadata_field_wysiwyg",
+                    "description": "",
+                    "friendly_name": "Body",
+                    "value": "Lorem ipsum dolor sit amet, <a href='https://google.com'> consectetur adipiscing </a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "required": false,
+                    "editable": true
+                },
+                "link_type": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Link Type",
+                    "value": "button",
+                    "options": {
+                        "cta": "CTA",
+                        "button": "Button"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "cta_link_title": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "CTA Title",
+                    "value": "Find out more",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "cta"
+                            }
+                        ]
+                    }
+                },
+                "cta_link": {
+                    "type": "metadata_field_related_asset",
+                    "description": "",
+                    "friendly_name": "CTA Link",
+                    "value": "https://health.qld.gov.au",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "cta"
+                            }
+                        ]
+                    }
+                },
+                "primary_link_title": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Primary Button Title",
+                    "value": "label",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "button"
+                            }
+                        ]
+                    }
+                },
+                "primary_link": {
+                    "type": "metadata_field_related_asset",
+                    "description": "",
+                    "friendly_name": "Primary Button Link",
+                    "value": "https://health.qld.gov.au",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "button"
+                            }
+                        ]
+                    }
+                },
+                "secondary_link_title": {
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Secondary Button Title",
+                    "value": "label",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "button"
+                            }
+                        ]
+                    }
+                },
+                "secondary_link": {
+                    "type": "metadata_field_related_asset",
+                    "description": "",
+                    "friendly_name": "Secondary Button Link",
+                    "value": "https://health.qld.gov.au",
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "link_type",
+                                "operator": "equals",
+                                "value": "button"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
 }
