@@ -1,25 +1,3 @@
-:root {
-    --Qld__border-radius--xs: 0.25rem;
-    --Qld__border-radius--sm: 0.75rem;
-    --Qld__border-radius--md: 1rem;
-    --Qld__border-radius--lg: 2rem;
-    --Qld__border-radius--xl: 3rem;
-    --Qld__border-radius--xxl: 4rem;
-}
-
-@media (min-width: 699px) {
-    .qld__grid .qld__promo-panel__container.row{
-        margin-left: -2rem;
-        margin-right: -2rem;
-    }
-}
-
-@media (min-width: 991px) {
-    .qld__grid .qld__promo-panel__container.row{
-        margin-left: -3rem;
-        margin-right: -3rem;
-    }
-}
 .qld__promo-panel.qld__body {
     padding: 0 !important;
 }
@@ -35,6 +13,9 @@
         @include QLD-space(margin-top, 20px);
     }
 
+    h2.qld__display-xl {
+        margin-top: 2rem;
+    }
 
     &__container {
         display: flex;
@@ -54,7 +35,12 @@
         }
 
         .qld__promo-panel__container-inner {
-            margin-bottom:64px;
+            margin-bottom: 0;
+
+            @include QLD-media(md) {
+                margin-bottom: 64px;
+            }
+
             @include QLD-media(lg) {
                 padding-left: 48px;
                 padding-right: 48px;
@@ -139,7 +125,7 @@
             width: auto;
 
             .qld__promo-panel--image-left & {
-                border-radius:0px 0px var(--Qld__border-radius--xl) 0px;
+                border-radius:0px 0px var(--QLD-border-radius-xl) 0px;
                 right: 0;
             }
 
@@ -154,7 +140,7 @@
             width: auto;
 
             .qld__promo-panel--image-left & {
-                border-radius: var(--Qld__border-radius--xl) 0px var(--Qld__border-radius--xl) var(--Qld__border-radius--xl);
+                border-radius: var(--QLD-border-radius-xl) 0px var(--QLD-border-radius-xl) var(--QLD-border-radius-xl);
                 -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
                 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
                 right: 0;
@@ -162,7 +148,7 @@
             }
 
             .qld__promo-panel--image-right & {
-                border-radius: 0 var(--Qld__border-radius--xl)  var(--Qld__border-radius--xl)  var(--Qld__border-radius--xl) ;
+                border-radius: 0 var(--QLD-border-radius-xl)  var(--QLD-border-radius-xl)  var(--QLD-border-radius-xl) ;
             }
         }
     }
@@ -178,7 +164,12 @@
         z-index: 0;
         margin-top:auto;
         margin-bottom:auto;
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
+        clip-path: inset(2px -10px -10px -10px);
+        @include QLD-media(md) {
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+            clip-path: none;
+        }
         & > a {
             color: inherit;
         }
@@ -329,7 +320,7 @@
             }
 
             .qld__promo-panel--image-right & {
-                border-radius: var(--Qld__border-radius--xl) 0px 0px var(--Qld__border-radius--xl);
+                border-radius: var(--QLD-border-radius-xl) 0px 0px var(--QLD-border-radius-xl);
                 padding-right: pxToRem(64);
                 padding-left: clamp(48px, 17.5%, calc(100% - 656px)); 
 
@@ -340,7 +331,7 @@
             }
 
             .qld__promo-panel--image-left & {
-                border-radius: 0px var(--Qld__border-radius--xl) var(--Qld__border-radius--xl) 0px;
+                border-radius: 0px var(--QLD-border-radius-xl) var(--QLD-border-radius-xl) 0px;
                 padding-right: 9rem;
                 padding-left: 4rem;
 
@@ -361,8 +352,28 @@
         background-color: $QLD-color-neutral--lightest;        
     }
 
-    .qld__promo-panel__container-icon {
-        margin-top:2rem !important;   
+    & {
+        .qld__promo-panel__container-image {
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                white 50%
+            );
+        }
+        @include QLD-media(md) {
+            .qld__promo-panel__container-image {
+                background: transparent;
+            }
+        }
+
+        .qld__promo-panel__container-inner {
+            background: white;
+            clip-path: none;
+        }
+
+        // .qld__promo-panel__container-icon {
+        //     background: var(--QLD-color-light__background--shade);
+        // }
     }
 
     &.qld__body--light {
@@ -381,6 +392,7 @@
 
         .qld__promo-panel__container-inner {
             background: var(--QLD-color-light__background);
+            clip-path: none;
         }
 
         .qld__promo-panel__container-icon {
@@ -428,6 +440,7 @@
         .qld__promo-panel__container-inner {
             background: var(--QLD-color-dark__background);
             color: var(--QLD-color-dark__text);
+            clip-path: none;
 
             h1,
             h2,
@@ -478,6 +491,7 @@
         .qld__promo-panel__container-inner {
             background: var(--QLD-color-dark__background--alt);
             color: var(--QLD-color-dark__text);
+            clip-path: none;
 
             h1,
             h2,
@@ -541,15 +555,21 @@
 }
 
 section.qld__body.qld__promo-panel {
-    background-color: transparent;
+    
+    background-color: var(--QLD-color-light-background);
+    
+    @include QLD-media(sm) {
+        background-color: transparent;
+    }
 }
 
 .qld__promo-panel.qld__body--large-text {
     &.qld__promo-panel--image-left {
         .qld__promo-panel__container-inner {
             margin-bottom: 0;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
             @include QLD-media(md) {
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
                 border-radius: 0 0 0 44px;
             }
 
@@ -582,11 +602,11 @@ section.qld__body.qld__promo-panel {
             }
 
             @include QLD-media(lg) {
-                border-radius:0px 0px var(--Qld__border-radius--xl) 0px; 
+                border-radius:0px 0px var(--QLD-border-radius-xl) 0px; 
             }
 
             @include QLD-media(xl) {
-                border-radius: var(--Qld__border-radius--xl) 0px var(--Qld__border-radius--xl) var(--Qld__border-radius--xl);
+                border-radius: var(--QLD-border-radius-xl) 0px var(--QLD-border-radius-xl) var(--QLD-border-radius-xl);
             }
         }
 
@@ -602,7 +622,7 @@ section.qld__body.qld__promo-panel {
                 border-radius: 0 0 0 0;
             }
             @include QLD-media(xl) {
-                border-radius: 0px var(--Qld__border-radius--xl) var(--Qld__border-radius--xl) 0px;
+                border-radius: 0px var(--QLD-border-radius-xl) var(--QLD-border-radius-xl) 0px;
             }
         }
     }
@@ -623,6 +643,15 @@ section.qld__body.qld__promo-panel {
 .qld__promo-panel.qld__body--contained {
     .qld__promo-panel__image {
         border-radius: 16px;
+
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @include QLD-media(md) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         @include QLD-media(xl) {
             max-width: 656px;
             margin-left: auto;
@@ -671,7 +700,6 @@ section.qld__body.qld__promo-panel {
         }
     }
     
-
     &.qld__body--light {
         .qld__promo-panel__container {
             background: var(--QLD-color-light__background);
@@ -697,29 +725,30 @@ section.qld__body.qld__promo-panel {
     .qld__promo-panel__container {
         border-radius: 0;
         padding-top: 64px;
-        padding-bottom: 64px;
-
+        padding-bottom: 0;
+        background: white;
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
 
         @include QLD-media(md) {
             padding: 32px;
+            padding-bottom: 64px;
         }
 
         @include QLD-media(lg) {
-            border-radius: var(--Qld__border-radius--xl);
+            border-radius: var(--QLD-border-radius-xl);
             padding-left: 48px;
             padding-right: 48px;
         }
 
         @include QLD-media(xl) {
-            border-radius: var(--Qld__border-radius--xl);
+            border-radius: var(--QLD-border-radius-xl);
             padding-left: 48px;
             padding-right: 48px;
             padding-top: 64px;
             padding-bottom: 64px;
 
             &.qld__promo-panel--image-right {
-                border-radius: var(--Qld__border-radius--xl);
+                border-radius: var(--QLD-border-radius-xl);
                 padding-right: 64px;
             }
         }
@@ -771,8 +800,9 @@ section.qld__body.qld__promo-panel {
     .qld__promo-panel__container-inner {
         border-radius: 20px;
         margin-bottom: 0;
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
         @include QLD-media(lg) {
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             padding-left: 32px;
             padding-right: 32px;
         }
@@ -810,7 +840,7 @@ section.qld__body.qld__promo-panel {
             padding-right: 48px;
         }
         @include QLD-media(xl) {
-            border-radius: var(--Qld__border-radius--xl) ;
+            border-radius: var(--QLD-border-radius-xl) ;
             padding-left: 64px;
             padding-right: 64px;
             &.qld__promo-panel--image-right {
@@ -855,6 +885,24 @@ section.qld__body.qld__promo-panel {
 
 .qld__body--alt  + data +  section.qld__promo-panel,
 .qld__body--alt  +  section.qld__promo-panel{
+    background: linear-gradient(to bottom, var(--QLD-color-light-alt-background) 25px, var(--QLD-color-light-alt-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+    @include QLD-media(md) {
+        background: var(--QLD-color-light-alt-background);
+    }
+}
+.qld__body--dark  + data +  section.qld__promo-panel,
+.qld__body--dark  + section.qld__promo-panel{
+    background: linear-gradient(to bottom, var(--QLD-color-dark-background) 25px, var(--QLD-color-dark-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+    @include QLD-media(md) {
+        background: var(--QLD-color-dark-background);
+    }
+}
+.qld__body--dark-alt  + data +  section.qld__promo-panel,
+.qld__body--dark-alt  +  section.qld__promo-panel{
+    background: linear-gradient(to bottom, var(--QLD-color-dark-alt-background) 25px, var(--QLD-color-dark-alt-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+    @include QLD-media(md) {
+        background: var(--QLD-color-dark-alt-background);
+    }
     background: var(--QLD-color-light__background--alt);
 }
 .qld__body--dark  + data +  section.qld__promo-panel,
