@@ -13,7 +13,7 @@
      * 
      * @memberof module:fileUploads
      */
-     const loadingTemplate = (file) => {
+     const loadingTemplate = function(file) {
 
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
@@ -39,22 +39,25 @@
      * 
      * @memberof module:fileUploads
      */
-     const successTemplate = (file) => {
-
+     const successTemplate = function(file) {
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
-        const fileSize = Math.ceil(file.size / 1000);
+        let fileSize = null;
         const fileId = file.id != undefined ? file.id : fileName;
-        let fileType = getAssetType(file.type);
+        let fileType = file.type != undefined ? getAssetType(file.type) : '';
+
+        if (file && file.size) {
+            fileSize = Math.ceil(file.size / 1000);
+        }
         
         fileTemplate.classList.add('qld__form-file', 'qld__form-file--success');
 
         fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-                                        <i class="fa-light fa-2x fa-file${fileType.fontAwesomeClass}" aria-hidden="true"></i>
+                                        <i class="fa-light fa-2x fa-file${fileType !== '' ? fileType.fontAwesomeClass : ''}" aria-hidden="true"></i>
                                     </div>
                                     <div class="qld__form-file-info">
                                         <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-                                        <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"></path></svg>Upload successful, ${fileSize}KB</span>
+                                        <span class="qld__form-file-info-status"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" fill="#339D37"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M8.82788 11.064L6.85666 9.26039L5.73438 10.4866L8.87877 13.3638L14.2677 7.97482L13.0929 6.80005L8.82788 11.064Z" fill="white"></path></svg>Upload successful${fileSize !== null ? `, ${fileSize}KB` : '' }</span>
                                     </div></div>
                                     <div class="qld__form-file-actions">
                                         <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
@@ -70,7 +73,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const errorTemplate = (file, error) => {
+    const errorTemplate = function(file, error) {
 
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
@@ -99,7 +102,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const getAssetType = (type) => {
+    const getAssetType = function(type) {
         let assetType = {"type":'file', "fontAwesomeClass": ''};
         let typeLowerCase = type.toLowerCase();
 
@@ -124,7 +127,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const isFileValid = (file, input_field_settings) => {
+    const isFileValid = function(file, input_field_settings) {
         const currentFiles = input_field_settings.files;
         const totalFiles = currentFiles.length;
         const maxFiles = input_field_settings.max_files;
@@ -137,38 +140,38 @@
         const illegalFileNameCharacters = /[<>:"/\\|?*\x00-\x1F]/;
         
         // If a file of the same name has already been uploaded to the field
-        if(currentFiles.some(item => file.id == item.id)) {
+        if (currentFiles.some(function(item) {return file.id == item.id})) {
             console.error('Duplicate file name');
-            return `Filename: '${fileName}' already in use. Please rename file before trying again.`;
+            return "Filename: '" + fileName + "' already in use. Please rename file before trying again.";
         }
-        
+
         // If the file type is not accepted
-        if(!fileTypes.some(type => file.type.match(type))) {
+        if (!fileTypes.some(function(type) {return file.type.match(type)})) {
             console.error('Incorrect file type');
-            return `The selected file must be a ${fileTypes.join(',')}`;
+            return "The selected file must be a " + fileTypes.join(',');
         }
 
         // If file size exceeds the maximum
-        if(fileSize / (1024 * 1024) > maxFileSize) {
-            console.error(`Max file size ${maxFileSize} exceeded.`);
-            return `The selected file must be smaller than ${maxFileSize}MB`;
+        if (fileSize / (1024 * 1024) > maxFileSize) {
+            console.error('Max file size ' + maxFileSize + ' exceeded.');
+            return "The selected file must be smaller than " + maxFileSize + "MB";
         }
 
         // If the max file limit has been reached
-        if(totalFiles >= maxFiles) {
+        if (totalFiles >= maxFiles) {
             console.error('Max number of files reached');
-            return `You can only select up to ${maxFiles} files at the same time`;
+            return "You can only select up to " + maxFiles + " files at the same time";
         }
 
         // If the max file limit has been reached
-        if(!fileSize > 0 ) {
+        if (!(fileSize > 0)) {
             console.error('The selected file is empty');
             return 'The selected file is empty';
         }
-       
+
         // If the file name contains illegal characters
-        if(illegalFileNameCharacters.test(fileName)) {
-            console.error(`Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’`);
+        if (illegalFileNameCharacters.test(fileName)) {
+            console.error("Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’");
             return 'The selected file is empty';
         }
 
@@ -180,7 +183,7 @@
      * 
      * @memberof module:fileUploads
      */
-     fileUploads.init = () => {
+     fileUploads.init = function() {
         // Store all file input fields in inputs property
         let $file_inputs = QLD.utils.listToArray(document.querySelectorAll('input[type=file].qld__file-input'));
 
@@ -201,17 +204,19 @@
                 "max_files" : $input.dataset["maxFiles"],
                 "file_list_element" : $file_list,
                 "dropzone_element" : $dropzone_element,
-                "js_api" : $input.dataset["jsApi"]
+                "js_api_key" : $input.dataset["jsApiKey"],
+                "displayFiles": displayExistingFiles
             }
 
             // Add event listeners 
             addListeners(fileUploads.inputs[$input.id]);
             // Custom validation for JS API if the field is required
-            if(fileUploads.inputs[$input.id].js_api === "true" && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
+            if(fileUploads.inputs[$input.id].js_api_key !== undefined && fileUploads.inputs[$input.id].input_element.hasAttribute("required")) {
                 addValidation(fileUploads.inputs[$input.id]);
-                if(!fileUploads.jsApi) {
-                    jsApi();
-                }
+            }
+            // Set the instance of js api to the input settings object
+            if(fileUploads.inputs[$input.id].js_api_key !== undefined && fileUploads.inputs[$input.id].create_location !== undefined) {
+                fileUploads.inputs[$input.id].jsApi = jsApi(fileUploads.inputs[$input.id].js_api_key);
             }
         };
     }
@@ -221,7 +226,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const addValidation = (input_field_settings) => {
+    const addValidation = function(input_field_settings) {
         const $input = input_field_settings.input_element;
 
         // Remove required attribute so we can replace it with the following rule
@@ -233,7 +238,7 @@
                 // Check if the user has interacted with the file input
                 if ($(element).data('interacted')) {
                     // If data-files attribute is empty, invalidate the field
-                    return element.dataset['files'] !== "";
+                    return element.dataset['files'] !== "[]" && element.dataset['files'] !== "";
                 } else {
                     // If the user hasn't interacted, require a non-empty value
                     return value.trim() !== "";
@@ -251,14 +256,14 @@
      * 
      * @memberof module:fileUploads
      */
-    const addListeners = (input_field_settings) => {
+    const addListeners = function(input_field_settings) {
         const $fileInput = input_field_settings.input_element;
         const $fileInputWrapper = $fileInput.closest('.qld__form-file-wrapper');
         const $dropArea = $fileInputWrapper.querySelector('.qld__form-file-dropzone');
         const disabledClasses = ["qld__form-file-dropzone--disabled", "qld__form-file-dropzone--updating"];
 
         // File delete button handler
-        $fileInputWrapper.addEventListener('click', (event) => {
+        $fileInputWrapper.addEventListener('click', function(event) {
             
             if (event.target.matches('.qld__form-file-delete-btn')) {
                 event.preventDefault();
@@ -271,51 +276,52 @@
         })
         
         // File input change handler
-        $fileInput.addEventListener('change', (event) => {
+        $fileInput.addEventListener('change', function(event) {
             event.preventDefault();
-
+        
             // Set file input interacted flag (for validation)
             $fileInput.dataset["interacted"] = true;
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
-                const files = event.target.files;
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
+                var files = event.target.files;
                 handleFiles(files, input_field_settings);
             }
         });
-
+        
         // Dragover event listener for dropzone
-        $dropArea.addEventListener('dragover', (event) => {
+        $dropArea.addEventListener('dragover', function(event) {
             event.preventDefault();
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
                 $dropArea.classList.add('qld__form-file-dropzone--dragged-over');
             }
         });
         
         // Dragleave event listener for dropzone
-        $dropArea.addEventListener('dragleave', (event) => {
+        $dropArea.addEventListener('dragleave', function(event) {
             event.preventDefault();
-
+        
             $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
-    
+        
         // Drop event listener for dropzone
-        $dropArea.addEventListener('drop', (event) => {
+        $dropArea.addEventListener('drop', function(event) {
             event.preventDefault();
-
+        
             // Set file input interacted flag (for validation)
             $fileInput.dataset["interacted"] = true;
-            
+        
             // Don't allow interaction if any disabledClasses are present on dropzone
-            if(!disabledClasses.some(className => $dropArea.classList.contains(className))) {
-                const files = event.dataTransfer.files;
+            if (!disabledClasses.some(function(className) {return $dropArea.classList.contains(className)})) {
+                var files = event.dataTransfer.files;
                 handleFiles(files, input_field_settings);
             }
-
+        
             $dropArea.classList.remove('qld__form-file-dropzone--dragged-over');
         });
+        
     
     }
 
@@ -324,11 +330,11 @@
      * 
      * @memberof module:fileUploads
      */
-    const deleteFile = async (input_field_settings, fileId, $fileInfo) => {
+    const deleteFile = async function(input_field_settings, fileId, $fileInfo) {
         const currentFiles = input_field_settings.files;
         const isError = $fileInfo.matches(".qld__form-file--error");
-        const usingJsApi = input_field_settings.js_api;
-        const index = currentFiles.findIndex((obj)=>{
+        const usingJsApi = input_field_settings.jsApi !== undefined;
+        const index = currentFiles.findIndex(function(obj) {
             if (typeof(obj) === 'string') {
                 return JSON.parse(obj).id === fileId;
             } else {
@@ -341,11 +347,11 @@
             currentFiles.splice(index, 1);
             input_field_settings.files = currentFiles;
             // Update FileList if not using JS API
-            if(usingJsApi !== "true") {
+            if(!usingJsApi) {
                 updateFileInputFileList(input_field_settings);         
             } else {
                 try {
-                    await deleteAssetFromMatrix(fileId, $fileInfo)
+                    await deleteAssetFromMatrix(fileId, $fileInfo, input_field_settings)
                     setFilesDataAttribute(input_field_settings);
                 } catch(error) {
                     console.log(error);
@@ -363,18 +369,19 @@
      * 
      * @memberof module:fileUploads
      */
-    const deleteAssetFromMatrix = async (fileId, $fileInfo) => {
+    const deleteAssetFromMatrix = async function(fileId, $fileInfo, input_field_settings) {
         try {
             const name = $fileInfo.querySelector(".qld__form-file-info-name").innerText;
             const file = {"name": name}; 
             const $loading = loadingTemplate(file);
+            const jsApi = input_field_settings.jsApi;
 
             // Change text from ''Uploading' to 'Deleting' and replace current file info box
             $loading.querySelector(".qld__form-file-info-status").innerText = "Deleting...";
             $fileInfo.replaceWith($loading);
             
             // Send trashAsset request
-            let trashedAsset = await fileUploads.jsApi.trashAsset({
+            let trashedAsset = await jsApi.trashAsset({
                 "asset_ids": fileId
             });
 
@@ -396,11 +403,10 @@
      * 
      * @memberof module:fileUploads
      */
-    const toggleDropzoneClass = ($dropZone, status) => {
+    const toggleDropzoneClass = function($dropZone, status) {
         const classNames = status.split(',');
-        const $fileInput = $dropZone.querySelector("input[type=file]");
 
-        classNames.forEach(className => {       
+        classNames.forEach(function(className) {       
             $dropZone.classList.toggle(`qld__form-file-dropzone--${className}`);
         });
     }
@@ -410,9 +416,9 @@
      * 
      * @memberof module:fileUploads
      */
-    const handleFiles = async (files, input_field_settings) => {
+    const handleFiles = async function(files, input_field_settings) {
         const $fileList = input_field_settings.file_list_element;
-        const usingJsApi = input_field_settings.js_api;
+        const usingJsApi = input_field_settings.jsApi !== undefined;
         const $dropZone = input_field_settings.dropzone_element;
         let promiseArray = [];
 
@@ -434,7 +440,7 @@
             // If the file passes the validation rules
             if(isValid === true) {
                 // If we're using the JS API to create file assets
-                if(usingJsApi === "true") {
+                if(usingJsApi) {
                     promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
                 } else {
                     // Push File object into files array
@@ -446,7 +452,7 @@
             }
         }
         // Only update the FileList if the JS API isn't being used
-        if(usingJsApi !== "true"){
+        if(!usingJsApi){
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
@@ -469,7 +475,7 @@
      * 
      * @memberof module:fileUploads
      */
-    const updateFileInputFileList = (input_field_settings) => {
+    const updateFileInputFileList = function(input_field_settings) {
         // We can't directly modify an existing populated FileList, because FileLists are read-only array-like structures (not an actual array)
         // We need to create a DataTransfer instance, and add all of the current files to it - then set that as the new input.files value
         const files = input_field_settings.files;
@@ -489,8 +495,8 @@
      * 
      * @memberof module:fileUploads
      */
-    const simulateFileUpload = (file, $fileInfo) => {
-        return new Promise((resolve, reject) => {
+    const simulateFileUpload = function(file, $fileInfo) {
+        return new Promise(function(resolve, reject) {
             // Quick setTimeout to simulate a file upload
             let success = successTemplate(file);
             let text = success.querySelector(".qld__form-file-info-status");
@@ -519,12 +525,12 @@
      * 
      * @memberof module:fileUploads
      */
-    const jsApi = () => {
+    const jsApi = function(key) {
         let options = new Array();
-        options["key"] = "9416674173";
+        options["key"] = key;
         let js_api = new Squiz_Matrix_API(options);
         
-        fileUploads.jsApi = js_api;
+        return js_api;
     };
 
     /**
@@ -532,15 +538,16 @@
      * 
      * @memberof module:fileUploads
      */
-     const uploadFileJsApi = async (file, $fileInfo, input_field_settings) => {
+     const uploadFileJsApi = async function(file, $fileInfo, input_field_settings) {
        
         const reader = new FileReader();
+        const jsApi = input_field_settings.jsApi;
         let fileContent;
 
         // Base64 file data 
         reader.readAsDataURL(file);
         // File reader 
-        reader.onload = () => {
+        reader.onload = function() {
             // Strip the file type declaration from the start of the string
             fileContent = reader.result.split(',')[1];
         };
@@ -555,7 +562,7 @@
                 
                 if(!updatedFileAsset.hasOwnProperty('error')) {
                     // Get new file asset attributes
-                    let newFileInfo = await fileUploads.jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
+                    let newFileInfo = await jsApi.getGeneral({"asset_id": updatedFileAsset.assetid,"get_attributes": 1});
                     
                     if(!newFileInfo.hasOwnProperty('error')) {
                         // We need to set the size property here, because jsApi.getGeneral doesn't return the size for some asset types
@@ -600,10 +607,11 @@
         const createLocation = input_field_settings.create_location;
         const assetType = getAssetType(file.type);
         const fileName = file.name;
+        const jsApi = input_field_settings.jsApi;
         
         try {
             // Create new file asset
-            const newFile = await fileUploads.jsApi.createFileAsset({
+            const newFile = await jsApi.createFileAsset({
                 "parentID": createLocation,
                 "type_code": assetType.type,
                 "friendly_name": fileName,
@@ -631,20 +639,21 @@
      * 
      * @memberof module:fileUploads
      */
-    const updateFileContents = async (asset, fileContent) => {
+    const updateFileContents = async function(asset, fileContent, input_field_settings) {
         // Asset ID from JS API response
         const assetId = Object.keys(asset)[0];
+        const jsApi = input_field_settings.jsApi;
         
         try {
             // Grab the locks for the asset
-            let locks = await fileUploads.jsApi.acquireLock({
+            let locks = await jsApi.acquireLock({
                 "asset_id": assetId,
                 "screen_name": "attributes",
                 "dependants_only": 0,
                 "force_acquire": 1
             });            
             // Update File Asset with the file contents
-            let updatedFile = await fileUploads.jsApi.updateFileAssetContent({
+            let updatedFile = await jsApi.updateFileAssetContent({
                 "asset_id": assetId,
                 "content": fileContent
             });
@@ -663,14 +672,67 @@
             return error;
         }
     }
+    
+    // Display file info for existing 
+    const displayExistingFiles = async function() {
+        const files = this.files.length ? this.files : [];
+        const $fileInfoArea = this.file_list_element;
+        const displayed = this.files_displayed;
+        const usingJsApi = this.js_api_key !== undefined;
+        const jsApi = this.jsApi;
+
+        // Only attempt to retrieve files from Matrix if JS api is available, and this function hasn't already been called
+        if(files.length > 0 && displayed !== true) {
+            // Set' displayed' flag to prevent multiple calls
+            this.files_displayed = true;
+            // Loop through current file assets and retrieve their data
+            if(fileUploads.jsApi !== null && usingJsApi) {
+                for (let file of files) {
+                    try {
+                        // Get general details for each
+                        // ex. { "id" : 321, "web_path" : 'https://google.com' }
+                        let currentFile = await jsApi.getGeneral({
+                            "asset_id": JSON.parse(file).id,
+                            "get_attributes": 1
+                        });
+                        
+                        if(currentFile.error === undefined) {
+                            displayFile(currentFile, $fileInfoArea);
+                        } else {
+                            throw new Error("displayExistingFiles: Could not retrieve asset attributes.")
+                        }
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }    
+            } else {
+                if(files.length > 0) {
+                    for (let file of files) {
+                        // Pass stored file details
+                        displayFile(file, $fileInfoArea);
+                    }
+                }
+            }
+        } else {
+            console.log(`All exisiting files already displaying for #${this.id}`);
+        }
+    }
+
+    // Display file info card
+    const displayFile = function(file, $fileInfoArea) {
+        const parsedFile = typeof file === 'string' ? JSON.parse(file) : file;
+        const $fileInfoBox = successTemplate(parsedFile);
+
+        $fileInfoArea.appendChild($fileInfoBox);
+    }
 
     /**
      * Set the files data attribute for a JS API driven file input
      * 
      * @memberof module:fileUploads
      */
-    const setFilesDataAttribute = (input_field_settings, newFileInfo = null) => {
-        let files = input_field_settings.files;  
+    const setFilesDataAttribute = function(input_field_settings, newFileInfo = null) {
+        let files = input_field_settings.files;
         
         if(newFileInfo) {
             const fileObj = {
@@ -678,19 +740,19 @@
                 "name": newFileInfo.name
             };
     
-            if(files.findIndex(file => file.id === newFileInfo.id) === -1) {
+            if (files.findIndex(function(file) {return file.id === newFileInfo.id}) === -1) {
                 // Push stringified object containing file assetid and name into files array
                 files.push(JSON.stringify(fileObj));
             }
         }
         // Set files data attribute 
-        input_field_settings.input_element.dataset["files"] = files;
+        input_field_settings.input_element.dataset["files"] = JSON.stringify(files);
     }
 
     // Store fileUploads object globally
     QLD.fileUploads = fileUploads;
 
-    window.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('DOMContentLoaded', function() {
         QLD.fileUploads.init();
     });
 

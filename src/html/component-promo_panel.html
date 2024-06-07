@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+    <head>
+        <title>Queensland Design System</title>
+        
+        ${require('../components/_global/html/head.html')}
+    </head>
+
+    <body class="qld__grid">
+        <!--noindex-->
+        ${require('../components/header/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!--endnoindex-->
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!-- MAIN BODY -->
+        <main class="main" role="main">
+            <section class="qld__body qld__body--breadcrumb">
+                <div class="container-fluid">
+                    ${require('../components/breadcrumbs/html/component.hbs')({
+                        "site":require('/src/data/site.json'),
+                        "current":require('/src/data/current.json'),
+                    })}
+                </div>
+            </section>
+            <!--CONTENT-->
+            <div class="qld__body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 col-lg-3">
+                            <!-- INTERNAL NAVIGATION -->
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                                "site":require('/src/data/site.json'),
+                                "current":require('/src/data/current.json')
+                            })}
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-9" id="content">
+                            
+                            ${require('../components/_global/html/component.hbs')({
+                                "manifest":require('../components/promo_panel/js/manifest.json'),
+                                "component":require('!url-loader!../components/promo_panel/html/component.hbs'),
+                                "component_output":require('../components/promo_panel/html/component.hbs')({
+                                    "component":require('../components/promo_panel/js/manifest.json').component,
+                                    "site":require('/src/data/site.json'),
+                                    "current":require('/src/data/current.json'),
+                                    "content":"Lorem Ipsum"
+                                })
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </main>
+        <!-- END MAIN BODY -->
+
+        <!-- WIDGETS -->
+        ${require('../components/widgets/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })}
+        
+        <!-- FOOTER-->
+        ${require('../components/footer/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+
+        <div class="footer-scripts" id="footer_js" style="display: none !important;">
+            ${require('../components/_global/html/scripts.html')}
+        </div>
+    </body>
+</html>
