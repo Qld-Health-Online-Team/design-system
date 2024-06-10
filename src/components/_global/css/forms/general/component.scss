@@ -135,16 +135,16 @@ label{
         padding-left: 15px;
     }
 
-    //Add space above form consecutive
-	+.qld__form-group,
-	+.sq-form-question {
-        * + & {
-            @include QLD-space(margin-top, 1.5unit);
+    * + & {
+        @include QLD-space(margin-top, 1.5unit);
 
-            @include QLD-media(lg) {
-                @include QLD-space(margin-top, 2unit);
-            }
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, 2unit);
         }
+    }
+
+    .qld__horizontal-rule + & {
+        @include QLD-space(margin-top, 0unit);
     }
 
     .sq-form-question-answer,
@@ -228,9 +228,6 @@ form {
         border: none;
         @include QLD-space(padding-left, 0unit);
     }
-    + .qld__form-group {
-        @include QLD-space("margin-top", 1unit);
-    }
 }
 
 
@@ -241,9 +238,15 @@ form {
     }
 }
 
-// .qld__input--error {
-//     color: $QLD-color-status__error;
-// }
+.qld__input--error {
+    color: $QLD-color-status__error;
+
+    .qld__body--dark &,
+	.qld__body--dark-alt & {
+        color: $QLD-color-status__error--lightest;
+    }
+
+}
 
 .qld__body {
     .sq-form-required-field, abbr[title="required"]  {
@@ -258,7 +261,9 @@ form {
 
 
 .qld__control-group {
-    @include QLD-space(margin-top, 1.5unit);
+    *:not(hr) + & {
+        @include QLD-space(margin-top, 1.5unit);
+    }
 }
 
 .qld__control-input {
