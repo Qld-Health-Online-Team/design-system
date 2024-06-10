@@ -30,7 +30,8 @@
                     data-files=''
                     data-max-size="{{metadata.max_size.value}}"
                     data-max-files="{{metadata.max_selection.value}}"
-                    data-js-api="{{metadata.js_api.value}}"
+                    {{!-- data-js-api-key="{{metadata.js_api_key.value}}"
+                    data-js-api="{{metadata.js_api.value}}" --}}
                     {{#ifCond metadata.max_selection.value '>' '1'}}multiple{{/ifCond}}
                     required
                 >
