@@ -59,7 +59,7 @@ input[type='checkbox'],
 	}
 
 	// hover
-	&:hover {
+	&:hover:not([disabled]) {
 		+ label:before {
 			background-color: $QLD-color-neutral--lightest;
 		}
@@ -69,13 +69,12 @@ input[type='checkbox'],
 	&:checked {
 		+ label:after {
 			@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light__text)  );
-			@include QLD-space(background-size, 1.85unit);
-			background-position: -2px -2px;
+			background-size: 30px;
 		}
 	}
 
 	// Focus
-	&:focus + label:before {
+	&:focus + label:before, &.qld__input--valid:focus + label:before, &.qld__input--error:focus + label:before {
 		box-shadow: none;
 		@include QLD-outline();
 		outline-offset: 2px;
@@ -138,8 +137,9 @@ input[type='checkbox'],
 		}
 
 		// Focus
-		&:focus + label:before {
-			@include QLD-focus(dark);
+		&:focus + label:before, &.qld__input--valid:focus + label:before, &.qld__input--error:focus + label:before {
+			@include QLD-outline('dark');
+			box-shadow: none;
 		}
 
 		// disabled
@@ -188,8 +188,8 @@ input[type='radio'],
 
 		&:before,
 		&:after {
-			@include QLD-space(width, 1.85unit);
-			@include QLD-space(height, 1.85unit);
+			width: 30px;
+			height: 30px;
 			visibility: visible;
 			content: ' ';
 			display: block;
@@ -242,9 +242,9 @@ input[type='radio'],
 	}
 
 	// Focus
-	&:focus + label:before {
-		box-shadow: none;
+	&:focus + label:before, &.qld__input--error:focus + label:before, &.qld__input--valid:focus + label:before {
 		@include QLD-outline();
+		box-shadow: none;
 		outline-offset: 2px;
 	}
 
@@ -304,11 +304,11 @@ input[type='radio'],
 		}
 
 		// Focus
-		&:focus{
-			+ label:before {
-				@include QLD-focus(dark);
-			}
+		&:focus + label:before {
+			@include QLD-outline('dark');
+			box-shadow: none;
 		}
+		
 
 		// disabled
 		&:disabled {
@@ -316,6 +316,7 @@ input[type='radio'],
 
 			&:checked + label:after {
 				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__text--lighter) );
+				
 			}
 
 			+ label:before {
