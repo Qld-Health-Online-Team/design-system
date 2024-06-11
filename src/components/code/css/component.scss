@@ -273,6 +273,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        
         @include QLD-space('max-width', 65unit);
 
         &.with-preview {
@@ -296,6 +297,14 @@
             position: relative;
             transition: max-height 0.5s ease-in-out;
             @include QLD-space('padding', 1.25unit 1unit);
+            
+        }
+
+        &:not(.show_less) {
+            code {
+                overflow-x: auto;
+                white-space: pre;
+            }
         }
 
         &.show_less {

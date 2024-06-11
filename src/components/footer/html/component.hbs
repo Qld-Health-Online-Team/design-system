@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-xs-12 col-lg-3 qld__footer__column">
                 <div class="container-fluid">
-                    <div class="row ">
+                    <div class="row qld__footer-contact">
                         <div class="col-xs-12 col-sm-8 col-lg-12">
                             {{#if footerCTAHeading}}
                             <h4 class="qld__footer__heading">{{footerCTAHeading.value}}</h4> 
@@ -162,13 +162,14 @@
                     {{#with (jsonParse footerMetaMetadata.value)}}
                         {{#if footerCopyrightLink}}
                             {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
+                            <a class="qld__footer__clickable__link qld__footer__copyright-link" href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
                             {{else}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
+                            <a class="qld__footer__clickable__link qld__footer__copyright-link" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
                             {{/ifCond}}
                         {{/if}}
                         
                     {{/with}}
+                    
                 </div>
             </div> 
         </div>

@@ -119,9 +119,10 @@
                         font-weight: bold;
                     }
 
-                    > .qld__left-nav__item-link {
+                    > .qld__left-nav__item-link ~ .qld__accordion--closed {
                         background-color: $QLD-color-neutral--white;
                         color: var(--QLD-color-light__link);
+                        color: green;
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
@@ -178,6 +179,7 @@
                     &.qld__left-nav__item-link--open {
                         background-color: $QLD-color-neutral--white;
                         color: var(--QLD-color-light__link);
+                        color: green;
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
