@@ -38,7 +38,7 @@
 			@include QLD-box-shadow(1);
 		}
 	
-		&:active {
+		&:focus:active {
 			background-color: $QLD-color-neutral--lightest;
 			border-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__heading);
@@ -51,6 +51,8 @@
 		}
 	
 		&:focus {
+			background-color: var(--QLD-color-light__action--primary-hover);
+			border-color: var(--QLD-color-light__action--primary-hover);
 			@include QLD-box-shadow(1);
 			@include QLD-focus();
 		}
@@ -104,7 +106,18 @@
 				}
 			}
 		
-			&:active {
+	
+
+			&:focus {
+				background-color: var(--QLD-color-dark__action--primary-hover);
+				border-color: var(--QLD-color-dark__action--primary-hover);
+				@include QLD-focus(dark);
+				i{
+					color: var(--QLD-color-dark__link--on-action);
+				}
+			}
+
+			&:focus:active {
 				background-color: $QLD-color-neutral--lightest;
 				color: var(--QLD-color-light__heading);
 				border-color: $QLD-color-neutral--lightest;
@@ -115,13 +128,18 @@
 				}
 				
 			}
+
+			// &:active:focus {
+			// 	background-color: $QLD-color-neutral--lightest;
+			// 	color: var(--QLD-color-light__heading);
+			// 	border-color: $QLD-color-neutral--lightest;
+			// 	text-decoration: none;
+	
+			// 	i{
+			// 		color: var(--QLD-color-light__heading);
+			// 	}
+			// }
 		
-			&:focus {
-				@include QLD-focus(dark);
-				i{
-					color: var(--QLD-color-dark__link--on-action);
-				}
-			}
 	
 			&:disabled,
 			&[disabled]{
@@ -170,11 +188,10 @@
 			}
 		}
 	
-		&:active {
+		&:focus:active {
 			background-color: $QLD-color-neutral--lightest;
 			border-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__heading);
-			font-weight: bold;
 			box-shadow: none;
 			text-decoration: none;
 			i{
@@ -183,6 +200,7 @@
 		}
 	
 		&:focus {
+			border-color: var(--QLD-color-light__action--secondary-hover);
 			@include QLD-box-shadow(1);
 	
 			i{
@@ -234,11 +252,11 @@
 				}
 			}
 	
-			&:active {
+			&:focus:active {
 				background-color: $QLD-color-neutral--lightest;
 				border-color: $QLD-color-neutral--lightest;
 				color: var(--QLD-color-light__heading);
-				font-weight: bold;
+				
 				box-shadow: none;
 				text-decoration: none;
 	
@@ -262,7 +280,7 @@
 	
 			&:focus{
 				border-color: var(--QLD-color-dark__action--secondary-hover);
-	
+				@include QLD-focus(dark);
 				i{
 					color: var(--QLD-color-dark__action--secondary-hover);
 				}
@@ -294,19 +312,17 @@
 		}
 
 		&:hover{
-			background-color: $QLD-color-neutral--lightest;
+			background-color: $QLD-color-neutral--black__opacity-10;
 
 			i{
 				color: var(--QLD-color-light__action--secondary);
 			}
 		}
 
-		&:active {
-			background-color: transparent;
+		&:focus:active {
+			background-color: $QLD-color-neutral--lightest;
 			border-color: transparent;
 			color: var(--QLD-color-light__heading);
-			font-weight: bold;
-			box-shadow: none;
 			text-decoration: none;
 
 			i{
@@ -315,8 +331,7 @@
 		}
 
 		&:focus {
-			background-color: $QLD-color-neutral--lightest;
-			@include QLD-box-shadow(1);
+			background-color: $QLD-color-neutral--black__opacity-10;
 
 			i{
 				color: var(--QLD-color-light__action--secondary);
@@ -329,7 +344,6 @@
 			background-color: transparent;
 			border-color: transparent;
 			color: var(--QLD-color-light__text--lighter);
-			box-shadow: none;
 
 			i{
 				color: var(--QLD-color-light__text--lighter);
@@ -351,31 +365,33 @@
 
 			@include QLD-underline('dark','noUnderline','default','noVisited');
 			color: var(--QLD-color-dark__link);
+			background-color: transparent;
+			border-color: transparent;
+			box-shadow: none;
 
 			i{
 				color: var(--QLD-color-dark__action--secondary);
 			}
 
 			&:hover{
-				background-color: $QLD-color-neutral--lightest;
-				border-color: transparent;
+				background-color: $QLD-color-neutral--black__opacity-10;
 
 				i{
 					color: var(--QLD-color-dark__action--secondary-hover);
 				}
 			}
 
-			&:active {
-				color: var(--QLD-color-dark__heading);
+			&:focus:active {
+				color: var(--QLD-color-light__heading);
+				background-color: $QLD-color-neutral--lightest;
 				text-decoration: none;
 				i{
-					color: var(--QLD-color-dark__heading);
+					color: var(--QLD-color-light__heading);
 				}
 			}
 
 			&:focus {
-				background-color: $QLD-color-neutral--lightest;
-				@include QLD-box-shadow(1);
+				background-color: $QLD-color-neutral--black__opacity-10;
 
 				i{
 					color: var(--QLD-color-dark__action--secondary-hover);
@@ -388,7 +404,6 @@
 				background-color: transparent;
 				border-color: transparent;
 				color: var(--QLD-color-dark__text--lighter);
-				box-shadow: none;
 
 				i{
 					color: var(--QLD-color-dark__text--lighter);
@@ -432,15 +447,21 @@
 
 	.qld__btn.qld__btn--toggle,
 	a.qld__btn.qld__btn--toggle {
-		background-color: $QLD-color-neutral--lightest;
+		background-color: $QLD-color-neutral--black__opacity-10;
 		color: var(--QLD-color-light__link);
-		border-color: $QLD-color-neutral--lightest;
-		@include QLD-underline('light','noUnderline');
+		border-color: transparent;
+		box-shadow: none;
+		@include QLD-underline('light','noUnderline','default','noVisited');
+
 		i,
 		svg{
 			color: var(--QLD-color-light__action--secondary);
 			@include QLD-space( margin-left, .75unit );
 			@include QLD-space( font-size, 1.25unit);
+		}
+
+		&:focus:active {
+			text-decoration: none;
 		}
 	
 		&[aria-expanded="true"] {
@@ -451,20 +472,30 @@
 	}
 
 
+	&.qld__body--dark,
 	&.qld__body--dark-alt,
+	&.qld__banner--dark,
 	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
 	&.qld__footer--dark-alt{
 
 		.qld__btn.qld__btn--toggle,
 		a.qld__btn.qld__btn--toggle{
-			background-color: var(--QLD-color-dark__background--alt-shade);
+			background-color: $QLD-color-neutral--black__opacity-10;
 			color: var(--QLD-color-dark__link);
-			border-color: var(--QLD-color-dark__background--alt-shade);
-			@include QLD-underline('dark','noUnderline');
+			border-color: transparent;
+			box-shadow: none;
+			@include QLD-underline('dark','noUnderline','default','noVisited');
 	
 			i,
 			svg{
 				color: var(--QLD-color-dark__action--secondary);
+			}
+
+			&:focus:active {
+				text-decoration: none;
 			}
 		}
 	}

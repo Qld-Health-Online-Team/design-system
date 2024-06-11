@@ -4,15 +4,14 @@
 
 .qld__left-nav {
     display: none;
+    @include QLD-underline('light','noUnderline','default','noVisited');
     nav {
         ul {
             padding-bottom: 0px;
             li {
                 a {
                     text-decoration: none;
-                    &:hover {
-                        @include QLD-underline();
-                    }
+                    
                     &:focus {
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-light__focus);
                         outline: none;
@@ -132,11 +131,11 @@
                     }
                 }
 
-                &:hover {
+                &:hover:not(.active) {
                     background-color: var(--QLD-color-light__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover{
+                a.qld__left-nav__item-link:hover:not(.active) {
                     background-color: var(--QLD-color-light__background--alt);
 
                     .qld__left-nav__item-icon svg * {
@@ -166,7 +165,7 @@
                         color: var(--QLD-color-light__link);
                         @include QLD-space(border-top-right-radius, 1unit);
 
-                        &:hover {
+                        &:hover:not(.active) {
                             background-color: $QLD-color-neutral--white;
                         }
 
@@ -243,6 +242,7 @@
         &.qld__main-nav--dark{
             background-color: var(--QLD-color-dark__background--shade);
             border-color: var(--QLD-color-dark__border);
+            @include QLD-underline('dark','noUnderline','default','noVisited');
 
             .qld__left-nav__item-icon svg * {
                 fill: var(--QLD-color-dark__action--secondary);
@@ -276,11 +276,11 @@
                     background-color: var(--QLD-color-dark__design-accent);
                 }
 
-                &:hover {
+                &:hover:not(.active) {
                     background-color: var(--QLD-color-dark__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover{
+                a.qld__left-nav__item-link:hover:not(.active){
                     background-color: var(--QLD-color-dark__background--alt);
 
                     .qld__left-nav__item-icon svg * {
@@ -299,7 +299,7 @@
                         background-color: var(--QLD-color-dark__background);
                         color: var(--QLD-color-dark__link);
 
-                        &:hover {
+                        &:hover:not(.active) {
                             background-color: var(--QLD-color-dark__background);
                         }
 
