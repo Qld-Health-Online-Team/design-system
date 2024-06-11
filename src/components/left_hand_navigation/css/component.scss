@@ -4,14 +4,15 @@
 
 .qld__left-nav {
     display: none;
-    @include QLD-underline('light','noUnderline','default','noVisited');
     nav {
         ul {
             padding-bottom: 0px;
             li {
                 a {
                     text-decoration: none;
-                    
+                    &:hover {
+                        @include QLD-underline('light','noUnderline','default','noVisited');
+                    }
                     &:focus {
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-light__focus);
                         outline: none;
@@ -117,6 +118,20 @@
                         color: var(--QLD-color-light__heading);
                         font-weight: bold;
                     }
+
+                    > .qld__left-nav__item-link {
+                        background-color: $QLD-color-neutral--white;
+                        color: var(--QLD-color-light__link);
+                        @include QLD-space(border-top-right-radius, 1unit);
+
+                        &:hover {
+                            background-color: $QLD-color-neutral--white;
+                        }
+
+                        .qld__left-nav__item-icon svg * {
+                            fill: var(--QLD-color-light__link);
+                        }
+                    }
                 }
 
                 &:not(.active) {
@@ -131,11 +146,11 @@
                     }
                 }
 
-                &:hover:not(.active) {
+                &:hover {
                     background-color: var(--QLD-color-light__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover:not(.active) {
+                a.qld__left-nav__item-link:hover{
                     background-color: var(--QLD-color-light__background--alt);
 
                     .qld__left-nav__item-icon svg * {
@@ -165,7 +180,7 @@
                         color: var(--QLD-color-light__link);
                         @include QLD-space(border-top-right-radius, 1unit);
 
-                        &:hover:not(.active) {
+                        &:hover {
                             background-color: $QLD-color-neutral--white;
                         }
 
@@ -242,7 +257,6 @@
         &.qld__main-nav--dark{
             background-color: var(--QLD-color-dark__background--shade);
             border-color: var(--QLD-color-dark__border);
-            @include QLD-underline('dark','noUnderline','default','noVisited');
 
             .qld__left-nav__item-icon svg * {
                 fill: var(--QLD-color-dark__action--secondary);
@@ -260,6 +274,10 @@
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-dark__focus);
                         outline: none;
                     }
+
+                    &:hover {
+                        @include QLD-underline('dark','noUnderline','default','noVisited');
+                    }
                 }
 
                 &.active {
@@ -276,11 +294,11 @@
                     background-color: var(--QLD-color-dark__design-accent);
                 }
 
-                &:hover:not(.active) {
+                &:hover {
                     background-color: var(--QLD-color-dark__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover:not(.active){
+                a.qld__left-nav__item-link:hover{
                     background-color: var(--QLD-color-dark__background--alt);
 
                     .qld__left-nav__item-icon svg * {
@@ -299,7 +317,7 @@
                         background-color: var(--QLD-color-dark__background);
                         color: var(--QLD-color-dark__link);
 
-                        &:hover:not(.active) {
+                        &:hover {
                             background-color: var(--QLD-color-dark__background);
                         }
 
