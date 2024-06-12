@@ -338,12 +338,14 @@
         cursor: pointer;
         display: inline-block;
         text-align: left;
+        background-color: $QLD-color-neutral--lightest;
+        color: var(--QLD-color-light__text);
         @include QLD-space('padding', .125unit .5unit);
 
         &:focus,
         &:hover {
             background-color: var(--QLD-color-light__action--primary-hover);
-
+            color: var(--QLD-color-light__link--on-action);
             + .qld__code-tooltip {
                 display: block;
             }

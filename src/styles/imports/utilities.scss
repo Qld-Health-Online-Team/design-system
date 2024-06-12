@@ -111,6 +111,30 @@ img.pull-right {
     margin-right: -50vw;
 }
 
+*.qld__max-width,
+.qld__max-width,
+h1.qld__max-width,
+h2.qld__max-width,
+h3.qld__max-width,
+h4.qld__max-width,
+h5.qld__max-width,
+h6.qld__max-width,
+p.qld__max-width,
+ul.qld__max-width,
+ol.qld__max-width,
+li.qld__max-width,
+figure.qld__max-width,
+span.qld__max-width,
+div.qld__max-width,
+a.qld__max-width {
+    .qld__grid &,
+    .qld__body &,
+    .qld__footer &,
+    [class^="qld__display"] & {
+        max-width: 100%;
+    }
+}
+
 .mt-0 {
     @include QLD-space ( margin-top, 0 );
 }

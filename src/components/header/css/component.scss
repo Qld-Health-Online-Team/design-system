@@ -486,13 +486,13 @@
             }
 
             .qld__header__search {
-                @include QLD-media(md) {
+                // @include QLD-media(md) {
                     background-color: var(--QLD-color-dark__background);
 
                     .qld__display-lg{
                         color: var(--QLD-color-dark__heading);
                     }
-                }
+                // }
             }
         }
 
@@ -568,27 +568,6 @@
         }
 
         .qld__search-form{
-            @include QLD-media(md, down) {
-                @include QLD-focus();
-
-                .qld__text-input{
-                    border-color: transparent;
-                    background-color: transparent;
-                    color: var(--QLD-color-light__text);
-                    @include QLD-focus();
-                }
-
-                .qld__btn{
-                    border-color: transparent;
-                    background-color: transparent;
-                    box-shadow: none;
-                    @include QLD-focus();
-
-                    .qld__btn__icon{
-                        background-color: var(--QLD-color-light__text);
-                    }
-                }
-            }
 
             .qld__search-form__label{
                 @include QLD-media(md) {

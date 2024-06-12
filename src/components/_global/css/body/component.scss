@@ -360,7 +360,7 @@ form {
         }
     }
 
-    p + p {
+    p + p, ul + p, p + ul {
         @include QLD-space(margin-top, 1unit);
     }
 
@@ -506,13 +506,14 @@ form {
             @include QLD-space(line-height, 1.75unit);
         }
     }
-    
+
     dl:not([class]) {
         > dd {
             @include QLD-space(margin-top, 0.5unit);
             @include QLD-space(padding-left, 0.5unit);
             margin-left: 0;
             border-left: solid 1px;
+            max-width: $QLD-font-maxwidth;
         }
         
         > dt {

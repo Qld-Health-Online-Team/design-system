@@ -516,6 +516,12 @@
 			@include QLD-space( padding, .75unit 1.5unit);
 		}
 
+		&:active:focus {
+			.qld__btn__icon{ 
+				background-color: var(--QLD-color-light__heading);
+			}
+		}
+
 		.qld__btn__icon{
 			display: block;
 			@include QLD-space( width, 1.25unit );
@@ -525,6 +531,8 @@
 			mask-repeat: no-repeat;
 			mask-position: center;
 			background-color: var(--QLD-color-light__link--on-action);
+
+			
 
 			@include QLD-media(lg) {
 				display: none;
