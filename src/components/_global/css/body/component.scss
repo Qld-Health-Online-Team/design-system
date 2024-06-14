@@ -338,9 +338,9 @@ form {
         @include QLD-space(max-width, $QLD-font-maxwidth);
         @include QLD-focus();
     }
-    ol:not(*),
-    ul:not(*){
-        @include QLD-space(max-width, $QLD-font-maxwidth);
+    ol:not([class]),
+    ul:not([class]) {
+        @include QLD-space(max-width, 75ch);
     }
 
     p {
@@ -405,6 +405,8 @@ form {
 
     ul:not([class]),
     ol:not([class]),
+    ol.qld__aligned-list, 
+    ul.qld__aligned-list,
     dl:not([class]),
     pre {
         margin: 0; //reset defaults
@@ -421,16 +423,21 @@ form {
     }
 
     * + ol:not([class]),
-    * + ul:not([class]) {
+    * + ul:not([class]),
+    * + ol.qld__aligned-list, 
+    * + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1.5unit);
     }
 
     p + ol:not([class]),
-    p + ul:not([class]) {
+    p + ul:not([class]),
+    p + ol.qld__aligned-list, 
+    p + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1unit);
     }
 
-    ul:not([class]) {
+    ul:not([class]),
+    ul.qld__aligned-list {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
@@ -472,7 +479,8 @@ form {
         }
     }
 
-    ol:not([class]) {
+    ol:not([class]),
+    ol.qld__aligned-list {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
@@ -501,11 +509,61 @@ form {
     }
     
     ol:not([class]),
-    ul:not([class]) {
+    ul:not([class]),
+    ol.qld__aligned-list, 
+    ul.qld__aligned-list {
         li {
             @include QLD-space(line-height, 1.75unit);
         }
     }
+
+    ol.qld__aligned-list, 
+    ul.qld__aligned-list {
+        @include QLD-space(padding-left, 1.5unit); 
+    }
+
+    ol.qld__numbered-list {
+        counter-reset: li;
+        list-style-type: none;
+        padding-left: 0px;
+        padding-inline-start: 0;
+        * + & {
+            @include QLD-space(margin-top, 1.5unit);
+        }
+
+        li + li {
+            @include QLD-space(margin-top, 0.75unit);
+        }
+
+        li {
+            position: relative;
+            @include QLD-space(padding-left, 2.5unit);
+            @include QLD-space(max-width, 75ch);
+            font-size: 1.094rem;
+            line-height: 1.75rem;
+            letter-spacing: 0.02rem;
+            padding-top: 0.4rem;
+        }
+
+        li:before {
+            display: inline-flex;
+            justify-content: center;
+            content: counter(li);
+            counter-increment: li;
+            @include QLD-space(height, 1.75unit);
+            @include QLD-space(width, 1.75unit);
+            border: 1px solid $QLD-color-neutral--lighter;
+            border-radius: 50%;
+            background-color: $QLD-color-neutral--lightest;
+            color: var(--QLD-color-light__heading);
+            align-items: center;
+            position: absolute;
+            left: 0;
+            font-size: 1em;
+            font-variant-numeric: proportional-nums;
+        }
+    }
+
 
     dl:not([class]) {
         > dd {
@@ -759,6 +817,14 @@ form {
         samp {
             background-color: var(--QLD-color-light__background--shade);
         }
+
+        ol.qld__numbered-list {
+            li:before {
+                border: 1px solid var(--QLD-color-light__border);
+                background-color: var(--QLD-color-light__background--shade);
+                color: var(--QLD-color-light__heading);
+            }
+        }
     }
 
     &.qld__body--alt {
@@ -772,6 +838,14 @@ form {
         kbd,
         samp {
             background-color: var(--QLD-color-light__background--alt-shade);
+        }
+
+        ol.qld__numbered-list {
+            li:before {
+                border: 1px solid var(--QLD-color-light__border--alt);
+                background-color: var(--QLD-color-light__background--alt-shade);
+                color: var(--QLD-color-light__heading);
+            }
         }
     }
     
@@ -836,6 +910,14 @@ form {
             }
             
         }
+
+        ol.qld__numbered-list {
+            li:before {
+                border: 1px solid var(--QLD-color-dark__border);
+                background-color: var(--QLD-color-dark__background--shade);
+                color: var(--QLD-color-dark__heading);
+            }
+        }
     }
     
     &.qld__body--dark-alt,
@@ -895,6 +977,14 @@ form {
             color: var(--QLD-color-dark__heading);
             .qld__quote-source {
                 color: var(--QLD-color-dark__text--lighter);
+            }
+        }
+
+        ol.qld__numbered-list {
+            li:before {
+                border: 1px solid var(--QLD-color-dark__border--alt);
+                background-color: var(--QLD-color-dark__background--alt-shade);
+                color: var(--QLD-color-dark__heading);
             }
         }
     }

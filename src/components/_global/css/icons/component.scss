@@ -3,31 +3,63 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 svg.qld__icon{
-    height: $QLD-icon-size__xs;
-    width: $QLD-icon-size__xs;
-    vertical-align: middle;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
     align-self: center;
 
+    &--xs{
+        font-size: $QLD-icon-size__xs;
+    }
+
     &--sm{
-        height: $QLD-icon-size__sm;
-        width: $QLD-icon-size__sm;
+        font-size: $QLD-icon-size__sm;
     }
+
     &--md{
-        height: $QLD-icon-size__md;
-        width: $QLD-icon-size__md;
+        font-size: $QLD-icon-size__md;
     }
+
     &--lg{
-        height: $QLD-icon-size__lg;
-        width: $QLD-icon-size__lg;
+        font-size: $QLD-icon-size__lg;
     }
 
     &--xl{
-        height: $QLD-font-size__feature;
-        width: $QLD-font-size__feature;
+        font-size: $QLD-icon-size__xl;
+    }
+
+    &--xxl{
+        font-size: $QLD-icon-size__xxl;
     }
 
     &--feature-lg{
-        font-size: $QLD-font-size__feature-lg;
+        font-size: $QLD-icon-size__feature;
+        border-radius: 50%;
+        background-color: $QLD-color-neutral--lightest;
+
+        .qld__body--dark & {
+            background-color: var(--QLD-color-dark__background--shade);
+        }
+
+        .qld__body--alt & {
+            background-color: var(--QLD-color-light__background--alt-shade);
+        }
+
+        .qld__body--light & {
+            background-color: var(--QLD-color-light__background--shade);
+        }
+
+        .qld__body--dark-alt & {
+            background-color: var(--QLD-color-dark__background--alt-shade);
+        }
+    }
+
+    &--lead {
+        @include QLD-space(margin-right, 0.5unit);
+    }
+
+    &--trail {
+        @include QLD-space(margin-left, 0.5unit);
     }
 }
 
@@ -51,6 +83,14 @@ i.qld__icon{
     &--feature-lg{
         font-size: $QLD-font-size__feature-lg;
     }
+
+    &--lead {
+        @include QLD-space(margin-right, 0.5unit);
+    }
+
+    &--trail {
+        @include QLD-space(margin-left, 0.5unit);
+    }
 }
 
 .qld__header__pre-header,
@@ -60,15 +100,24 @@ i.qld__icon{
 .qld__banner{
 
     .qld__icon{
+        color: var(--QLD-color-light__heading);
+        fill: var(--QLD-color-light__heading);
+    }
+
+    a .qld__icon{
         color: var(--QLD-color-light__action--secondary);
+        fill: var(--QLD-color-light__action--secondary);
     }
 
     a:hover{
         .qld__icon{
             color: var(--QLD-color-light__action--secondary-hover);
+            fill: var(--QLD-color-light__action--secondary-hover);
         }
     }
 
+    &.qld__header__pre-header--dark-alt,
+    &.qld__header__pre-header--dark,
     &.qld__body--dark,
 	&.qld__body--dark-alt,
 	&.qld__banner--dark,
@@ -79,12 +128,19 @@ i.qld__icon{
 	&.qld__footer--dark-alt{
 
         .qld__icon{
+            color: var(--QLD-color-dark__heading);
+            fill: var(--QLD-color-dark__heading);
+        }
+
+        a .qld__icon{
             color: var(--QLD-color-dark__action--secondary);
+            fill: var(--QLD-color-dark__action--secondary);
         }
 
         a:hover{
             .qld__icon{
                 color: var(--QLD-color-dark__action--secondary-hover);
+                fill: var(--QLD-color-dark__action--secondary-hover);
             }
         }
     }    

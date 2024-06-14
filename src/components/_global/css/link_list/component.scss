@@ -34,4 +34,17 @@
 	* + .qld__link-list {
 		@include QLD-space(margin-top, 2unit);
 	}
+
+	h1 + .qld__link-list, 
+	h2 + .qld__link-list, 
+	h3 + .qld__link-list,
+	h4 + .qld__link-list,
+	h5 + .qld__link-list,
+	h6 + .qld__link-list,
+	p + .qld__link-list,
+	[class^="qld__display"] + .qld__link-list {
+		@include QLD-space(margin-top, 1.5unit);
+	}
+
+
 }
