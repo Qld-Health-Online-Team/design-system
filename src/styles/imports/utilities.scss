@@ -207,24 +207,24 @@ a.qld__max-width {
     @include QLD-space ( margin-bottom, 3unit );
 }
 
-
+//@mixin QLD-fontgrid  replace line hight with this + use the variable (map)
 .qld__body {
-    .QLD__default-xs,
-    .QLD__default-sm,
-    .QLD__default-md,
-    .QLD__default-lg,
-    .QLD__default-xl,
-    .QLD__default-xxl,
-    .QLD__default-xxxl {
+    .qld__default-xs,
+    .qld__default-sm,
+    .qld__default-md,
+    .qld__default-lg,
+    .qld__default-xl,
+    .qld__default-xxl,
+    .qld__default-xxxl {
       font-weight: 400;
     }
   
     .qld__no-space {
-      line-height: 1 !important;
+      line-height: 1;
     }
   
     .qld__default-xs {
-      font-size: var(--QLD-default-mobile-xs) !important;
+      font-size: var(--QLD-default-mobile-xs);
       line-height: 20px;
   
       &.qld__heading-space {
@@ -233,7 +233,7 @@ a.qld__max-width {
     }
   
     .qld__default-sm {
-      font-size: var(--QLD-default-mobile-sm) !important;
+      font-size: var(--QLD-default-mobile-sm);
       line-height: 24px;
   
       &.qld__heading-space {
@@ -242,7 +242,7 @@ a.qld__max-width {
     }
   
     .qld__default-md {
-      font-size: var(--QLD-default-mobile-md) !important;
+      font-size: var(--QLD-default-mobile-md);
       line-height: 32px;
   
       &.qld__heading-space {
@@ -251,7 +251,7 @@ a.qld__max-width {
     }
   
     .qld__default-lg {
-      font-size: var(--QLD-default-mobile-lg) !important;
+      font-size: var(--QLD-default-mobile-lg);
       line-height: 36px;
   
       &.qld__heading-space {
@@ -260,7 +260,7 @@ a.qld__max-width {
     }
   
     .qld__default-xl {
-      font-size: var(--QLD-default-mobile-xl) !important;
+      font-size: var(--QLD-default-mobile-xl);
       line-height: 36px;
   
       &.qld__heading-space {
@@ -269,7 +269,7 @@ a.qld__max-width {
     }
   
     .qld__default-xxl {
-      font-size: var(--QLD-default-mobile-xxl) !important;
+      font-size: var(--QLD-default-mobile-xxl);
       line-height: 48px;
   
       &.qld__heading-space {
@@ -278,7 +278,7 @@ a.qld__max-width {
     }
   
     .qld__default-xxxl {
-      font-size: var(--QLD-default-mobile-xxxl) !important;
+      font-size: var(--QLD-default-mobile-xxxl);
       line-height: 60px;
   
       &.qld__heading-space {
@@ -288,37 +288,37 @@ a.qld__max-width {
   
     @include QLD-media(lg)  {
       .qld__default-xs {
-        font-size: var(--QLD-default-desktop-xs) !important;
+        font-size: var(--QLD-default-desktop-xs);
         line-height: 20px;
       }
   
       .qld__default-sm {
-        font-size: var(--QLD-default-desktop-sm) !important;
+        font-size: var(--QLD-default-desktop-sm);
         line-height: 24px;
       }
   
       .qld__default-md {
-        font-size: var(--QLD-default-desktop-md) !important;
+        font-size: var(--QLD-default-desktop-md);
         line-height: 32px;
       }
   
       .qld__default-lg {
-        font-size: var(--QLD-default-desktop-lg) !important;
+        font-size: var(--QLD-default-desktop-lg);
         line-height: 36px;
       }
   
       .qld__default-xl {
-        font-size: var(--QLD-default-desktop-xl) !important;
+        font-size: var(--QLD-default-desktop-xl);
         line-height: 48px;
       }
   
       .qld__default-xxl {
-        font-size: var(--QLD-default-desktop-xxl) !important;
+        font-size: var(--QLD-default-desktop-xxl);
         line-height: 60px;
       }
   
       .qld__default-xxxl {
-        font-size: var(--QLD-default-desktop-xxxl) !important;
+        font-size: var(--QLD-default-desktop-xxxl);
         line-height: 72px;
       }
   
@@ -350,15 +350,5 @@ a.qld__max-width {
         line-height: var(--QLD-heading-space-xxxl);
       }
     }
-  }
-  
-  .qld__text-link {
-    font-size: 1rem;
-  }
-  
-  .qld__caption {
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--QLD-color-light__text--lighter);
-  }
-  
+
+}

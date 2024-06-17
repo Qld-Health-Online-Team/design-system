@@ -172,7 +172,15 @@
 
     *:not([type="hidden"]){
         + .qld__display-xxxl{
-            @include QLD-space(margin-top, 2.25unit);
+            @include QLD-space(margin-top, 2.5unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 4unit);
+            }
+        }
+
+        + .qld__display-xxl {
+            @include QLD-space(margin-top, 2.5unit);
 
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 3.5unit);
@@ -184,7 +192,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 4unit);
+                @include QLD-space(margin-top, 3unit);
             }
         }
 
@@ -193,7 +201,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 3unit);
+                @include QLD-space(margin-top, 2.5unit);
             }
         }
 
@@ -202,7 +210,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 2.5unit);
+                @include QLD-space(margin-top, 2.25unit);
             }
         }
 
