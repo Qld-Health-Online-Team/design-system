@@ -339,7 +339,9 @@ form {
         @include QLD-focus();
     }
     ol:not([class]),
-    ul:not([class]) {
+    ul:not([class]),
+    .qld__margin-t-li--sm,
+    .qld__margin-t-li--lg {
         @include QLD-space(max-width, 75ch);
     }
 
@@ -408,6 +410,8 @@ form {
     ol.qld__aligned-list, 
     ul.qld__aligned-list,
     dl:not([class]),
+    .qld__margin-t-li--sm,
+    .qld__margin-t-li--lg,
     pre {
         margin: 0; //reset defaults
     }
@@ -437,12 +441,16 @@ form {
     }
 
     ul:not([class]),
-    ul.qld__aligned-list {
+    ul.qld__aligned-list,
+    .qld__margin-t-li--sm,
+    .qld__margin-t-li--lg {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
             
-            > ul:not([class]) {
+            > ul:not([class]),
+            .qld__margin-t-li--sm,
+            .qld__margin-t-li--lg {
                 list-style-type: none;
                 @include QLD-space(padding-inline-start, 1unit);
                 > li {
@@ -450,7 +458,9 @@ form {
                     @include QLD-space(margin-top, 0.5unit);
                     position: relative;
 
-                    > ul:not([class]) {
+                    > ul:not([class]),
+                    .qld__margin-t-li--sm,
+                    .qld__margin-t-li--lg {
                         @include QLD-space(padding-inline-start, 1unit);
                         > li {
                             @include QLD-space(margin-top, 0.5unit);
@@ -511,7 +521,9 @@ form {
     ol:not([class]),
     ul:not([class]),
     ol.qld__aligned-list, 
-    ul.qld__aligned-list {
+    ul.qld__aligned-list,
+    .qld__margin-t-li--sm,
+    .qld__margin-t-li--lg {
         li {
             @include QLD-space(line-height, 1.75unit);
         }
