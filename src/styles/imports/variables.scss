@@ -125,31 +125,93 @@ $QLD-lineheight-map: (
 ) !default;
 
 
- /**
-* QLD vertical container padding
+
+
+/* Gutters - Space between cols in the grid  */
+$QLD-grid__gutter--media-sm: 4;
+$QLD-grid__gutter--media-md: 6;
+$QLD-grid__gutter--media-lg: 7;
+$QLD-grid__gutter--media-xl: 7;
+
+/** 
+Gutter - space between columns in the grid for vertical navigation
 */
-$QLD-container-padding-mobile: 9;
-$QLD-container-padding-desktop: 12;
+$QLD-grid__gutter--media-portal-lg: 6;
+$QLD-grid__gutter--media-portal-xl: 7;
 
-/**
-* QLD grid gutter padding
-*/
-$QLD-grid-gutter-sm:4;
-$QLD-grid-gutter-md:7;
-$QLD-grid-gutter-lg:7;
+/* Outer page margins (defined by padding on the container-fluid class)  */
+$QLD-grid__inner-padding--media-xs: 4;
+$QLD-grid__inner-padding--media-sm: 4;
+$QLD-grid__inner-padding--media-md: 7;
+$QLD-grid__inner-padding--media-lg: 7;
+$QLD-grid__inner-padding--media-xl: 7;
 
-/**
-* QLD grid inner nested body conntainer-fluid padding
-*/
-$QLD-grid-inner-container-mobile: 4;
-$QLD-grid-inner-container-desktop: 7;
+/* Outer page margins (defined by padding on the container-fluid class) for vertical navigation   */
+$QLD-grid__inner-padding--media-portal-lg: 10;
+$QLD-grid__inner-padding--media-portal-xl: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992));
 
 
-/**
-* QLD-maxwidth for line lengths (the ‘measure’)
-*/
+/* Max-width of content area   */
+$QLD-grid__maxwidth: 86rem;
 
-$QLD-grid-maxwidth: 86rem;
+
+/*** Padding values for sections - ony veritcal spacing value that does not use margin top*/
+$QLD-padding__section--mobile: 9;
+$QLD-padding__section--desktop: 12;
+
+
+/* Spacing between <section> containers */
+$QLD-margin__section--desktop: 12;
+$QLD-margin__section--mobile: 9;
+
+
+/* Spacing beteen content containers, ie div within a <section> */
+$QLD-margin__content-block--desktop: 10;
+$QLD-margin__content-block--mobile: 7;
+
+/* Spacing beteen components,like cards, buttons */
+$QLD-margin__content-block--desktop: 7;
+$QLD-margin__content-block--mobile: 6;
+
+
+/* Heading, text and paragraph spacing   */
+
+/* Space above an H1 */
+$QLD-margin__h1--desktop: 11;
+$QLD-margin__h1--mobile: 7;
+
+/* Space above an H2 */
+$QLD-margin__h2--desktop:10;
+$QLD-margin__h2--mobile: 7;
+
+/* Space above an H3 */
+$QLD-margin__h3--desktop: 8;
+$QLD-margin__h3--mobile: 7;
+
+/* Space above an H4-h6 */
+$QLD-margin__h4-h6--desktop: 7;
+$QLD-margin__h4-h6--mobile: 5;
+
+/* Space between different and text elements (ul,li,p,a,dl) example (h1 + p) */
+$QLD-margin__text-element--desktop: 6;
+$QLD-margin__text-element--mobile: 5;
+
+/* Spacing between two paragraphs (p + p)  */
+$QLD-margin__p--desktop: 4;
+$QLD-margin__p-mobile: 4;
+
+/* Close spacing between list items */
+$QLD-margin__li-close--desktop: 2;
+$QLD-margin__li-close--mobile: 2; 
+
+/* Wide spacing between list items */
+$QLD-margin__li-wide--desktop: 3;
+$QLD-margin__li-wide--mobile: 3;
+
+/* Space above/between lables, form hint messages and form error messages */
+$QLD-margin__lables--desktop: 2;
+$QLD-margin__lables--mobile: 2;
+
 
 /**
 * QLD border-width values

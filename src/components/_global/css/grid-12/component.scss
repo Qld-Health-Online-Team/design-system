@@ -33,15 +33,15 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         position: relative;
         // padding-left:  ceil( ( $QLD-grid-12-gutter-width / 2 ) );
         // padding-right: floor( ( $QLD-grid-12-gutter-width / 2 ) );
-        @include QLD-container-padding($QLD-grid-gutter-sm, horizontal);
+        @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
         flex: 0 0 auto;
 
         @include QLD-media(md) {
-            @include QLD-container-padding($QLD-grid-gutter-sm, horizontal);
+            @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
         }
         
         @include QLD-media(lg) {
-            // @include QLD-container-padding($QLD-grid-gutter-lg, horizontal);
+            // @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
         }
 	}
 }
@@ -125,18 +125,18 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
 
 // Slight grid changes for container fluid
 .qld__grid .container-fluid {
-    @include QLD-space(max-width, $QLD-grid-maxwidth);
+    @include QLD-space(max-width, $QLD-grid__maxwidth);
     margin-left: auto;
     margin-right: auto;
-    @include QLD-container-padding($QLD-grid-gutter-sm, horizontal);
+    @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
 
     @include QLD-media(md) {
-        @include QLD-container-padding($QLD-grid-gutter-sm, horizontal); 
+        @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal); 
 
     }
 
     @include QLD-media(lg) {
-        @include QLD-container-padding($QLD-grid-gutter-sm, horizontal);
+        @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
     }
 
 }
@@ -153,10 +153,10 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
     .qld__footer > .container-fluid{
 
         @include QLD-media(md) {
-            @include QLD-container-padding($QLD-grid-gutter-md, horizontal); 
+            @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal); 
         }
         @include QLD-media(lg) {
-            @include QLD-container-padding($QLD-grid-gutter-lg, horizontal); 
+            @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal); 
         }
         
 
@@ -206,14 +206,14 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         flex-direction: row;
         clear: both;
         @include QLD-clearfix;
-        @include QLD-container-margin($QLD-grid-gutter-sm, neg, horizontal );
+        @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal );
 
         @include QLD-media(md) {
-            @include QLD-container-margin($QLD-grid-gutter-sm, neg, horizontal);
+            @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal);
         }
         
         @include QLD-media(lg) {
-            // @include QLD-container-margin($QLD-grid-gutter-md, neg, horizontal);
+            // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
         }
 
         
@@ -274,31 +274,31 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         
         #content{
             @include QLD-media(md) {
-                @include QLD-container-padding($QLD-grid-gutter-sm, horizontal);
+                @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
             }
         }
     }
     main > {
         // div > section > .container-fluid > .row,
         // section > .container-fluid > .row{
-        //     // @include QLD-container-margin($QLD-grid-gutter-md, neg, horizontal);
+        //     // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
         //     @include QLD-media(md) {
-        //         @include QLD-container-margin($QLD-grid-gutter-md, neg, horizontal);
+        //         @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
         //     }
         //     @include QLD-media(lg) {
-        //         @include QLD-container-margin($QLD-grid-gutter-lg, neg, horizontal);
+        //         @include QLD-container-margin($QLD-grid__gutter--media-lg, neg, horizontal);
         //     }
         // }
         .qld__body > .container-fluid {
             > .row{
                 @include QLD-media(lg) {
-                    // @include QLD-container-margin($QLD-grid-gutter-md, neg, horizontal);
+                    // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
                 }
             }
             > .row> div[class^="col-"],
             > .row> div[class^="col-"]#content{
                 @include QLD-media(lg) {
-                    // @include QLD-container-padding($QLD-grid-gutter-md, horizontal ) ;
+                    // @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal ) ;
                     // section { //QHWT-585
                     //     max-width: 54rem;
                     //     margin-left: -0.75rem;

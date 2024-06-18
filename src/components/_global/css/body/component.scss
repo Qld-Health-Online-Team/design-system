@@ -38,7 +38,7 @@ main,
 #content,
 form {
      .qld__body {
-        @include QLD-container-padding($QLD-container-padding-mobile);
+        @include QLD-container-padding($QLD-padding__section--mobile);
 
         + .pb-0 {
             @include QLD-space(padding-bottom, 0); 
@@ -61,9 +61,9 @@ form {
             }
 
             &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt {
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+                    @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
@@ -80,9 +80,9 @@ form {
             + data + .qld__body,
             + h1.sr-only + .qld__body,
             + h1.sr-only + data + .qld__body {
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+                    @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
@@ -99,9 +99,9 @@ form {
             + data + .qld__body,
             + h1.sr-only + .qld__body,
             + h1.sr-only + data + .qld__body {
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+                    @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
@@ -118,9 +118,9 @@ form {
             + data + .qld__body,
             + h1.sr-only + .qld__body,
             + h1.sr-only + data + .qld__body {
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+                    @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
@@ -137,14 +137,14 @@ form {
             + data + .qld__body,
             + h1.sr-only + .qld__body,
             + h1.sr-only + data + .qld__body {
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-container-padding-desktop);
+                    @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
         @include QLD-media(lg) {
-            @include QLD-container-padding($QLD-container-padding-desktop);
+            @include QLD-container-padding($QLD-padding__section--desktop);
         }
                 
         
@@ -154,8 +154,8 @@ form {
         
         //Align the body when within a two col layout/ content page
         #content[class^="col-"] > .qld__body {
-            @include QLD-container-margin($QLD-grid-gutter-sm, neg, horizontal );
-            @include QLD-container-padding($QLD-container-padding-mobile);
+            @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal );
+            @include QLD-container-padding($QLD-padding__section--mobile);
 
             &.qld__tab-section {
                 @include QLD-media(lg) {
@@ -164,8 +164,8 @@ form {
             }
 
             @include QLD-media(md) {
-                @include QLD-container-margin($QLD-grid-gutter-md, neg, horizontal );
-                @include QLD-container-padding($QLD-grid-gutter-sm, horizontal );
+                @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal );
+                @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal );
                 
             }
 
@@ -175,7 +175,7 @@ form {
                 @include QLD-space(padding-left, 0unit);
                 @include QLD-space(padding-right, 0unit);
                 // @include QLD-container-margin($QLD-grid-gutter-xs, neg, horizontal );
-                @include QLD-container-padding($QLD-container-padding-mobile);
+                @include QLD-container-padding($QLD-padding__section--mobile);
             }
 
             &:first-of-type{
@@ -192,11 +192,11 @@ form {
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
                     @include QLD-space(padding-top, 2.5unit);
-                    // @include QLD-container-padding($QLD-container-padding-mobile, !important);
+                    // @include QLD-container-padding($QLD-padding__section--mobile, !important);
 
                     @include QLD-media(lg) {
                         @include QLD-space(padding-top, 4unit);
-                        // @include QLD-container-padding($QLD-container-padding-desktop, !important);
+                        // @include QLD-container-padding($QLD-padding__section--desktop, !important);
                     }
                 }
             }
@@ -209,19 +209,19 @@ form {
                 &.qld__body--alt,
                 &.qld__body--dark,
                 &.qld__body--dark-alt{
-                    @include QLD-container-padding($QLD-container-padding-mobile, !important);
+                    @include QLD-container-padding($QLD-padding__section--mobile, !important);
 
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop !important);
+                        @include QLD-container-padding($QLD-padding__section--desktop !important);
                     }
                 }
                 
             }
 
             .container-fluid {
-                @include QLD-container-padding($QLD-grid-inner-container-mobile, horizontal );
+                @include QLD-container-padding($QLD-grid__inner-padding--media-xs, horizontal );
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-grid-inner-container-desktop, horizontal );
+                    @include QLD-container-padding($QLD-grid__inner-padding--media-lg, horizontal );
                 }
             }
 
@@ -233,9 +233,9 @@ form {
                 }
                 
                 &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
@@ -248,9 +248,9 @@ form {
                 }
                 + .qld__body,
                 + data + .qld__body{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
@@ -263,9 +263,9 @@ form {
                 }
                 + .qld__body,
                 + data + .qld__body{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
@@ -278,9 +278,9 @@ form {
                 }
                 + .qld__body,
                 + data + .qld__body{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
@@ -293,9 +293,9 @@ form {
                 }
                 + .qld__body,
                 + data + .qld__body{
-                    @include QLD-container-padding($QLD-container-padding-mobile);
+                    @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
-                        @include QLD-container-padding($QLD-container-padding-desktop);
+                        @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
