@@ -13,6 +13,7 @@
 
 	.qld__btn,
 	a.qld__btn,
+	a.qld__btn:visited,
 	.sq-form-submit { 
 		@include QLD-underline('light','noUnderline','buttonText','noVisited');
 		cursor: pointer;
@@ -85,6 +86,7 @@
  
 		.qld__btn,
 		a.qld__btn,
+		a.qld__btn:visited,
 		.sq-form-submit { 
 			@include QLD-underline('dark','noUnderline','buttonText','noVisited');
 			background-color: var(--QLD-color-dark__action--primary);
@@ -168,7 +170,8 @@
 .qld__footer{
 
 	.qld__btn.qld__btn--secondary,
-	a.qld__btn.qld__btn--secondary {
+	a.qld__btn.qld__btn--secondary,
+	a.qld__btn.qld__btn--secondary:visited {
 		@include QLD-underline('light','noUnderline','default','noVisited');
 		color: var(--QLD-color-light__link);
 		background-color: transparent;
@@ -233,7 +236,8 @@
 	&.qld__footer--dark-alt{
 
 		.qld__btn.qld__btn--secondary,
-		a.qld__btn.qld__btn--secondary {
+		a.qld__btn.qld__btn--secondary,
+		a.qld__btn.qld__btn--secondary:visited {
 			@include QLD-underline('dark','noUnderline','default','noVisited');
 			color: var(--QLD-color-dark__link);
 			background-color: transparent;
@@ -300,7 +304,8 @@
 .qld__footer{
 
 	.qld__btn.qld__btn--tertiary,
-	a.qld__btn.qld__btn--tertiary {
+	a.qld__btn.qld__btn--tertiary,
+	a.qld__btn.qld__btn--tertiary:visited {
 		@include QLD-underline('light','noUnderline','default','noVisited');
 		background-color: transparent;
 		color: var(--QLD-color-light__link);
@@ -361,7 +366,8 @@
 	&.qld__footer--dark-alt{
 
 		.qld__btn.qld__btn--tertiary,
-		a.qld__btn.qld__btn--tertiary {
+		a.qld__btn.qld__btn--tertiary,
+		a.qld__btn.qld__btn--tertiary:visited {
 
 			@include QLD-underline('dark','noUnderline','default','noVisited');
 			color: var(--QLD-color-dark__link);
@@ -423,13 +429,15 @@
 .qld__header__main,
 .qld__footer{
 	.qld__btn.qld__btn--icon-trail,
-	a.qld__btn.qld__btn--icon-trail {
+	a.qld__btn.qld__btn--icon-trail,
+	a.qld__btn.qld__btn--icon-trail:visited {
 		i{
 			@include QLD-space( margin-left, .75unit );
 		}
 	}
 	.qld__btn.qld__btn--icon-lead,
-	a.qld__btn.qld__btn--icon-lead {
+	a.qld__btn.qld__btn--icon-lead,
+	a.qld__btn.qld__btn--icon-lead:visited {
 		i{
 			@include QLD-space( margin-right, .75unit );
 		}
@@ -446,7 +454,8 @@
 .qld__footer{
 
 	.qld__btn.qld__btn--toggle,
-	a.qld__btn.qld__btn--toggle {
+	a.qld__btn.qld__btn--toggle,
+	a.qld__btn.qld__btn--toggle:visited {
 		background-color: $QLD-color-neutral--black__opacity-10;
 		color: var(--QLD-color-light__link);
 		border-color: transparent;
@@ -482,7 +491,8 @@
 	&.qld__footer--dark-alt{
 
 		.qld__btn.qld__btn--toggle,
-		a.qld__btn.qld__btn--toggle{
+		a.qld__btn.qld__btn--toggle,
+		a.qld__btn.qld__btn--toggle:visited{
 			background-color: $QLD-color-neutral--black__opacity-10;
 			color: var(--QLD-color-dark__link);
 			border-color: transparent;
@@ -506,7 +516,8 @@
 	* SEARCH
 	*/
 	.qld__btn.qld__btn--search,
-	a.qld__btn.qld__btn--search {
+	a.qld__btn.qld__btn--search,
+	a.qld__btn.qld__btn--search:visited {
 		position: relative;
 		min-width: 0;
 		@include QLD-space( padding, .875unit .875unit .875unit .875unit);
@@ -567,7 +578,8 @@
 	&.qld__footer--dark,
 	&.qld__footer--dark-alt{
 		.qld__btn.qld__btn--search,
-		a.qld__btn.qld__btn--search {
+		a.qld__btn.qld__btn--search,
+		a.qld__btn.qld__btn--search:visited {
 			
 			.qld__btn__icon{
 				background-color: var(--QLD-color-dark__link--on-action);
@@ -579,7 +591,8 @@
 * Close Button
 */
 .qld__btn.qld__btn--close,
-a.qld__btn.qld__btn--close {
+a.qld__btn.qld__btn--close,
+a.qld__btn.qld__btn--close:visited {
 	border-radius: 50%;
 	padding: 0;
 	height: 2rem;
@@ -605,7 +618,8 @@ a.qld__btn.qld__btn--close {
 
 
 .qld__body .qld__btn.qld__btn--pride,
-.qld__body a.qld__btn.qld__btn--pride {
+.qld__body a.qld__btn.qld__btn--pride,
+.qld__body a.qld__btn.qld__btn--pride:visited {
 	background: linear-gradient(
 	to bottom,
 	rgba(255, 62, 24, 0.5) 16.66666666666667%,
@@ -659,6 +673,7 @@ a.qld__btn,
 // Print styles
 @media print {
 	.qld__btn,
+	.qld__btn:visited,
 	.sq-form-submit {
 		background-color: #fff !important;
 		border: 2px solid #000 !important;
