@@ -125,31 +125,93 @@ $QLD-lineheight-map: (
 ) !default;
 
 
- /**
-* QLD vertical container padding
+
+
+/* Gutters - Space between cols in the grid  */
+$QLD-grid__gutter--media-sm: 4;
+$QLD-grid__gutter--media-md: 6;
+$QLD-grid__gutter--media-lg: 7;
+$QLD-grid__gutter--media-xl: 7;
+
+/** 
+Gutter - space between columns in the grid for vertical navigation
 */
-$QLD-container-padding-mobile: 9;
-$QLD-container-padding-desktop: 12;
+$QLD-grid__gutter--media-portal-lg: 6;
+$QLD-grid__gutter--media-portal-xl: 7;
 
-/**
-* QLD grid gutter padding
-*/
-$QLD-grid-gutter-sm:4;
-$QLD-grid-gutter-md:7;
-$QLD-grid-gutter-lg:7;
+/* Outer page margins (defined by padding on the container-fluid class)  */
+$QLD-grid__inner-padding--media-xs: 4;
+$QLD-grid__inner-padding--media-sm: 4;
+$QLD-grid__inner-padding--media-md: 7;
+$QLD-grid__inner-padding--media-lg: 7;
+$QLD-grid__inner-padding--media-xl: 7;
 
-/**
-* QLD grid inner nested body conntainer-fluid padding
-*/
-$QLD-grid-inner-container-mobile: 4;
-$QLD-grid-inner-container-desktop: 7;
+/* Outer page margins (defined by padding on the container-fluid class) for vertical navigation   */
+$QLD-grid__inner-padding--media-portal-lg: 10;
+$QLD-grid__inner-padding--media-portal-xl: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992));
 
 
-/**
-* QLD-maxwidth for line lengths (the ‘measure’)
-*/
+/* Max-width of content area   */
+$QLD-grid__maxwidth: 86rem;
 
-$QLD-grid-maxwidth: 86rem;
+
+/*** Padding values for sections - ony veritcal spacing value that does not use margin top*/
+$QLD-padding__section--mobile: 9;
+$QLD-padding__section--desktop: 12;
+
+
+/* Spacing between <section> containers */
+$QLD-margin__section--desktop: 12;
+$QLD-margin__section--mobile: 9;
+
+
+/* Spacing beteen content containers, ie div within a <section> */
+$QLD-margin__content-block--desktop: 10;
+$QLD-margin__content-block--mobile: 7;
+
+/* Spacing beteen components,like cards, buttons */
+$QLD-margin__component--desktop: 7;
+$QLD-margin__component--mobile: 6;
+
+
+/* Heading, text and paragraph spacing   */
+
+/* Space above an H1 */
+$QLD-margin__h1--desktop: 11;
+$QLD-margin__h1--mobile: 7;
+
+/* Space above an H2 */
+$QLD-margin__h2--desktop:10;
+$QLD-margin__h2--mobile: 7;
+
+/* Space above an H3 */
+$QLD-margin__h3--desktop: 8;
+$QLD-margin__h3--mobile: 7;
+
+/* Space above an H4-h6 */
+$QLD-margin__h4-h6--desktop: 7;
+$QLD-margin__h4-h6--mobile: 5;
+
+/* Space between different and text elements (ul,li,p,a,dl) example (h1 + p) */
+$QLD-margin__text-element--desktop: 6;
+$QLD-margin__text-element--mobile: 5;
+
+/* Spacing between two paragraphs (p + p)  */
+$QLD-margin__p--desktop: 4;
+$QLD-margin__p--mobile: 4;
+
+/* Close spacing between list items */
+$QLD-margin__li-close--desktop: 2;
+$QLD-margin__li-close--mobile: 2; 
+
+/* Wide spacing between list items */
+$QLD-margin__li-wide--desktop: 3;
+$QLD-margin__li-wide--mobile: 3;
+
+/* Space above/between lables, form hint messages and form error messages */
+$QLD-margin__lables--desktop: 2;
+$QLD-margin__lables--mobile: 2;
+
 
 /**
 * QLD border-width values
@@ -226,6 +288,9 @@ $QLD-icon-size__xs: 1rem;
 $QLD-icon-size__sm: 1.25rem;
 $QLD-icon-size__md: 1.5rem;
 $QLD-icon-size__lg: 2rem;
+$QLD-icon-size__xl: 3rem;
+$QLD-icon-size__xxl: 4rem;
+$QLD-icon-size__feature: 8rem;
 $QLD-font-size__feature: 4rem;
 $QLD-font-size__feature-lg: 8rem;
 
@@ -375,6 +440,38 @@ $QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__link--visited} !de
 
 
 /**
+* QLD Line height variables 
+*/
+
+$QLD-default-mobile-xs: 14px;
+$QLD-default-mobile-sm: 16px;
+$QLD-default-mobile-md: 20px;
+$QLD-default-mobile-lg: 24px;
+$QLD-default-mobile-xl: 28px;
+$QLD-default-mobile-xxl: 32px;
+$QLD-default-mobile-xxxl: 40px;
+
+$QLD-default-desktop-xs: 14px;
+$QLD-default-desktop-sm: 16px;
+$QLD-default-desktop-md: 20px;
+$QLD-default-desktop-lg: 24px;
+$QLD-default-desktop-xl: 32px;
+$QLD-default-desktop-xxl: 40px;
+$QLD-default-desktop-xxxl: 48px;
+
+$QLD-heading-space-xs: 16px;
+$QLD-heading-space-sm: 20px;
+$QLD-heading-space-md: 24px;
+$QLD-heading-space-lg: 32px;
+$QLD-heading-space-xl: 40px;
+$QLD-heading-space-xxl: 52px;
+$QLD-heading-space-xxxl: 60px;
+
+
+$QLD-color-contained-layout__background: #EFF4F9;
+
+
+/**
 * QLD custom properties (CSS variables) - defaults
 */
 :root,
@@ -448,4 +545,30 @@ $QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__link--visited} !de
   --QLD-border-width-medium: #{$QLD-border-width-medium};
   --QLD-border-width-thick: #{$QLD-border-width-thick};
   --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
+
+  
+  --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
+  --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
+  --QLD-default-mobile-md: #{$QLD-default-mobile-md};
+  --QLD-default-mobile-lg: #{$QLD-default-mobile-lg};
+  --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
+  --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
+  --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
+
+  --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
+  --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
+  --QLD-default-desktop-md: #{$QLD-default-desktop-md};
+  --QLD-default-desktop-lg: #{$QLD-default-desktop-lg};
+  --QLD-default-desktop-xl: #{$QLD-default-desktop-xl};
+  --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
+  --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
+
+  --QLD-heading-space-xs: #{$QLD-heading-space-xs};
+  --QLD-heading-space-sm: #{$QLD-heading-space-sm};
+  --QLD-heading-space-md: #{$QLD-heading-space-md};
+  --QLD-heading-space-lg: #{$QLD-heading-space-lg};
+  --QLD-heading-space-xl: #{$QLD-heading-space-xl};
+  --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
+  --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
+  --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
 }

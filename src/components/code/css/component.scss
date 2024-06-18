@@ -179,11 +179,11 @@
         position: relative;
 
         &-body {
-            @include QLD-container-padding($QLD-grid-gutter-md, horizontal);
+            @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal);
             margin: 0;
 
             @include QLD-media(md) {
-                @include QLD-container-padding($QLD-grid-gutter-lg, horizontal); 
+                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal); 
             }
         }
 
@@ -273,6 +273,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        
         @include QLD-space('max-width', 65unit);
 
         &.with-preview {
@@ -296,6 +297,14 @@
             position: relative;
             transition: max-height 0.5s ease-in-out;
             @include QLD-space('padding', 1.25unit 1unit);
+            
+        }
+
+        &:not(.show_less) {
+            code {
+                overflow-x: auto;
+                white-space: pre;
+            }
         }
 
         &.show_less {
@@ -329,12 +338,14 @@
         cursor: pointer;
         display: inline-block;
         text-align: left;
+        background-color: $QLD-color-neutral--lightest;
+        color: var(--QLD-color-light__text);
         @include QLD-space('padding', .125unit .5unit);
 
         &:focus,
         &:hover {
             background-color: var(--QLD-color-light__action--primary-hover);
-
+            color: var(--QLD-color-light__link--on-action);
             + .qld__code-tooltip {
                 display: block;
             }

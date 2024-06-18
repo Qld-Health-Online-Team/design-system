@@ -56,10 +56,11 @@
 
     .qld__btn{
         float: right;
-        @include QLD-space(margin-top, 1.5unit);
+        margin-top: 0;
 
         @include QLD-media(lg) {
             float: none;
+            @include QLD-space(margin-top, 2unit);
         }
     }
 
@@ -80,6 +81,10 @@
         @include QLD-media(lg) {
             @include QLD-space(padding-bottom, 0unit);
         }
+    }
+
+    .row.qld__footer-contact {
+        @include QLD-space(row-gap, 1.5unit);
     }
 
     & &__row {
@@ -394,7 +399,8 @@
         .qld__footer__cta__icon{
             color: var(--QLD-color-dark__action--secondary);
             text-align: middle;
-            line-height: 1.4;
+            line-height: 1;
+            height: 0.875rem;
         }
 
         a.qld__footer__clickable__link{
@@ -403,6 +409,12 @@
                 outline: 3px solid var(--QLD-color-dark__focus);
 				outline-offset: 2px;
             }
+        }
+
+        a.qld__footer__copyright-link {
+            display: block;
+            font-weight: 900;
+            @include QLD-space(margin-top, 1.5unit);
         }
 
         .qld__footer__logo {

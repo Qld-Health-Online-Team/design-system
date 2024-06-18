@@ -90,6 +90,34 @@ img.pull-right {
     text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.qld__text-bold {
+  font-weight: 700;
+}
+
+.qld__text-normal {
+  font-weight: 400;
+}
+
+.qld__text-italic {
+  font-style: italic;
+}
+
+.qld__full-width {
+  width: 100%;
+}
+
+.qld__full-height {
+  height: 100%;
+}
+
 .order-first {
     order: -1;
 }
@@ -111,75 +139,440 @@ img.pull-right {
     margin-right: -50vw;
 }
 
-.mt-0 {
-    @include QLD-space ( margin-top, 0 );
+*.qld__max-width,
+.qld__max-width,
+h1.qld__max-width,
+h2.qld__max-width,
+h3.qld__max-width,
+h4.qld__max-width,
+h5.qld__max-width,
+h6.qld__max-width,
+p.qld__max-width,
+ul.qld__max-width,
+ol.qld__max-width,
+li.qld__max-width,
+figure.qld__max-width,
+span.qld__max-width,
+div.qld__max-width,
+a.qld__max-width {
+    .qld__grid &,
+    .qld__body &,
+    .qld__footer &,
+    [class^="qld__display"] & {
+        max-width: 100%;
+    }
 }
 
-.mt-1 {
-    @include QLD-space ( margin-top, 1unit );
+/** @mixin QLD-fontgrid  replace line hight with this + use the variable (map) */
+.qld__body {
+    .qld__default-xs,
+    .qld__default-sm,
+    .qld__default-md,
+    .qld__default-lg,
+    .qld__default-xl,
+    .qld__default-xxl,
+    .qld__default-xxxl {
+      font-weight: 400;
+    }
+  
+    .qld__no-space {
+      line-height: 1;
+    }
+  
+    .qld__default-xs {
+      font-size: var(--QLD-default-mobile-xs);
+      line-height: 20px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-xs);
+      }
+    }
+  
+    .qld__default-sm {
+      font-size: var(--QLD-default-mobile-sm);
+      line-height: 24px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-sm);
+      }
+    }
+  
+    .qld__default-md {
+      font-size: var(--QLD-default-mobile-md);
+      line-height: 32px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-md);
+      }
+    }
+  
+    .qld__default-lg {
+      font-size: var(--QLD-default-mobile-lg);
+      line-height: 36px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-lg);
+      }
+    }
+  
+    .qld__default-xl {
+      font-size: var(--QLD-default-mobile-xl);
+      line-height: 36px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-xl);
+      }
+    }
+  
+    .qld__default-xxl {
+      font-size: var(--QLD-default-mobile-xxl);
+      line-height: 48px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-xxl);
+      }
+    }
+  
+    .qld__default-xxxl {
+      font-size: var(--QLD-default-mobile-xxxl);
+      line-height: 60px;
+  
+      &.qld__heading-space {
+        line-height: var(--QLD-heading-space-xxxl);
+      }
+    }
+  
+    @include QLD-media(lg)  {
+      .qld__default-xs {
+        font-size: var(--QLD-default-desktop-xs);
+        line-height: 20px;
+      }
+  
+      .qld__default-sm {
+        font-size: var(--QLD-default-desktop-sm);
+        line-height: 24px;
+      }
+  
+      .qld__default-md {
+        font-size: var(--QLD-default-desktop-md);
+        line-height: 32px;
+      }
+  
+      .qld__default-lg {
+        font-size: var(--QLD-default-desktop-lg);
+        line-height: 36px;
+      }
+  
+      .qld__default-xl {
+        font-size: var(--QLD-default-desktop-xl);
+        line-height: 48px;
+      }
+  
+      .qld__default-xxl {
+        font-size: var(--QLD-default-desktop-xxl);
+        line-height: 60px;
+      }
+  
+      .qld__default-xxxl {
+        font-size: var(--QLD-default-desktop-xxxl);
+        line-height: 72px;
+      }
+  
+      .qld__default-xs.qld__heading-space {
+        line-height: var(--QLD-heading-space-xs);
+      }
+  
+      .qld__default-sm.qld__heading-space {
+        line-height: var(--QLD-heading-space-sm);
+      }
+  
+      .qld__default-md.qld__heading-space {
+        line-height: var(--QLD-heading-space-md);
+      }
+  
+      .qld__default-lg.qld__heading-space {
+        line-height: var(--QLD-heading-space-lg);
+      }
+  
+      .qld__default-xl.qld__heading-space {
+        line-height: var(--QLD-heading-space-xl);
+      }
+  
+      .qld__default-xxl.qld__heading-space {
+        line-height: var(--QLD-heading-space-xxl);
+      }
+  
+      .qld__default-xxxl.qld__heading-space {
+        line-height: var(--QLD-heading-space-xxxl);
+      }
+    }
 }
 
-.mt-2 {
-    @include QLD-space ( margin-top, 2unit );
+/**
+  Border radius utility
+*/
+
+.qld__border-radius--xs {
+  border-radius: $QLD-border-radius-xs;
 }
 
-.mt-3 {
-    @include QLD-space ( margin-top, 3unit );
+.qld__border-radius--sm {
+  border-radius: $QLD-border-radius-sm;
 }
 
-.mb-0 {
-    @include QLD-space ( margin-bottom, 0 );
+.qld__border-radius--md {
+  border-radius: $QLD-border-radius-md;
 }
 
-.mb-1 {
-    @include QLD-space ( margin-bottom, 1unit );
+.qld__border-radius--lg {
+
+  border-radius: $QLD-border-radius-md;
+
+  @include QLD-media(lg) {
+    border-radius: $QLD-border-radius-lg;
+  }
+
 }
 
-.mb-2 {
-    @include QLD-space ( margin-bottom, 2unit );
+.qld__border-radius--lg {
+
+  border-radius: $QLD-border-radius-lg;
+
+  @include QLD-media(lg) {
+    border-radius: $QLD-border-radius-xl;
+  }
+
 }
 
-.mb-3 {
-    @include QLD-space ( margin-bottom, 3unit );
+/** 
+  Spacing utility classes
+*/
+.qld__margin-t-section {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__section--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__section--desktop ) + px !important;
+  }
+
 }
 
-.mx-0 {
-    @include QLD-space ( margin-left, 0 ); 
-    @include QLD-space ( margin-right, 0 );
+.qld__margin-t-content-block {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__content-block--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__content-block--desktop ) + px !important;
+  }
+
 }
 
-.mx-1 {
-    @include QLD-space ( margin-left, 1unit ); 
-    @include QLD-space ( margin-right, 1unit );
+.qld__margin-t-component {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__component--mobile) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__component--desktop ) + px !important;
+  }
+
 }
 
-.mx-2 {
-    @include QLD-space ( margin-left, 2unit ); 
-    @include QLD-space ( margin-right, 2unit );
+.qld__margin-t-text-element {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
+  }
+
 }
 
-.mx-3 {
-    @include QLD-space ( margin-left, 3unit ); 
-    @include QLD-space ( margin-right, 3unit );
+.qld__margin-t-p {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__p--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__p--desktop ) + px !important;
+  }
+
 }
 
-.my-0 {
-    @include QLD-space ( margin-top, 0 ); 
-    @include QLD-space ( margin-bottom, 0 );
+.qld__margin-t-li--sm {
+  
+  margin: 0;
+  padding: 0;
+
+  li, ol, ul {
+
+    margin-top: map-get( $QLD-space-map, $QLD-margin__li-close--mobile ) + px !important;
+
+    @include QLD-media(lg) {
+      margin-top: map-get( $QLD-space-map, $QLD-margin__li-close--desktop ) + px !important;
+    }
+
+  }
+
 }
 
-.my-1 {
-    @include QLD-space ( margin-top, 1unit ); 
-    @include QLD-space ( margin-bottom, 1unit );
+.qld__margin-t-li--lg {
+
+  margin: 0;
+  padding: 0;
+  
+  li, ol, ul {
+
+    margin-top: map-get( $QLD-space-map, $QLD-margin__li-wide--mobile ) + px !important;
+
+    @include QLD-media(lg) {
+      margin-top: map-get( $QLD-space-map, $QLD-margin__li-wide--desktop ) + px !important;
+    }
+
+  }
+
 }
 
-.my-2 {
-    @include QLD-space ( margin-top, 2unit ); 
-    @include QLD-space ( margin-bottom, 2unit );
+.qld__margin-t-label {
+  
+  margin-top: map-get( $QLD-space-map, $QLD-margin__lables--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, $QLD-margin__lables--desktop ) + px !important;
+  }
+
 }
 
-.my-3 {
-    @include QLD-space ( margin-top, 3unit ); 
-    @include QLD-space ( margin-bottom, 3unit );
+
+.qld__margin-t-none {
+  
+  margin-top: map-get( $QLD-space-map, 0 ) + px !important;
+
+  @include QLD-media(lg) {
+    margin-top: map-get( $QLD-space-map, 0 ) + px !important;
+  }
+
 }
 
+.qld__padding-t-none {
+  
+  padding-top: map-get( $QLD-space-map, 0 ) + px !important;
+
+  @include QLD-media(lg) {
+    padding-top: map-get( $QLD-space-map, 0 ) + px !important;
+  }
+
+}
+
+/** 
+  Spacing flex utility row classes
+*/
+.qld__row-gap-content-block {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__content-block--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__content-block--desktop ) + px !important;
+  }
+
+}
+
+.qld__row-gap-component {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__component--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__component--desktop ) + px !important;
+  }
+
+}
+
+.qld__row-gap-text-element {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
+  }
+
+}
+
+.qld__row-gap-p {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__p--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__p--desktop ) + px !important;
+  }
+
+}
+
+.qld__row-gap-li--sm {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__li-close--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__li-close--desktop ) + px !important;
+  }
+
+}
+
+.qld__row-gap-li--lg {
+  row-gap: map-get( $QLD-space-map, $QLD-margin__li-wide--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    row-gap: map-get( $QLD-space-map, $QLD-margin__li-wide--desktop ) + px !important;
+  }
+
+}
+
+/** 
+  Spacing flex utility column classes
+*/
+
+.qld__col-gap-content-block {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__content-block--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__content-block--desktop ) + px !important;
+  }
+
+}
+
+.qld__col-gap-component {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__component--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__component--desktop ) + px !important;
+  }
+
+}
+
+.qld__col-gap-text-element {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
+  }
+
+}
+
+.qld__col-gap-p {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__p--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__p--desktop ) + px !important;
+  }
+
+}
+
+.qld__col-gap-li--sm {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__li-close--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__li-close--desktop ) + px !important;
+  }
+
+}
+
+.qld__col-gap-li--lg {
+  column-gap: map-get( $QLD-space-map, $QLD-margin__li-wide--mobile ) + px !important;
+
+  @include QLD-media(lg) {
+    column-gap: map-get( $QLD-space-map, $QLD-margin__li-wide--desktop ) + px !important;
+  }
+
+}
