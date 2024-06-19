@@ -15,13 +15,14 @@
 	a.qld__btn,
 	a.qld__btn:visited,
 	.sq-form-submit { 
-		@include QLD-underline('light','noUnderline','buttonText','noVisited');
+		// @include QLD-underline('light','noUnderline','buttonText','noVisited');
 		cursor: pointer;
 		display: inline-block;
 		@include QLD-space( padding, .625unit 1.5unit );
 		background-color: var(--QLD-color-light__action--primary);
 		color: var(--QLD-color-light__link--on-action);
-		
+		text-decoration: none;
+
 		border-radius: $QLD-border-radius-xs;
 		border: $QLD-border-width-medium solid var(--QLD-color-light__action--primary);
 		text-align: center;
@@ -37,6 +38,11 @@
 			color: var(--QLD-color-light__link--on-action);
 			border-color: var(--QLD-color-light__action--primary-hover);
 			@include QLD-box-shadow(1);
+			text-decoration: underline;
+			text-decoration-color: var(--QLD-color-light__link--on-action);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
 		}
 	
 		&:focus:active {
@@ -88,7 +94,7 @@
 		a.qld__btn,
 		a.qld__btn:visited,
 		.sq-form-submit { 
-			@include QLD-underline('dark','noUnderline','buttonText','noVisited');
+			text-decoration: none;
 			background-color: var(--QLD-color-dark__action--primary);
 			color: var(--QLD-color-dark__link--on-action);
 			border-color: var(--QLD-color-dark__action--primary);
@@ -102,6 +108,10 @@
 				background-color: var(--QLD-color-dark__action--primary-hover);
 				color: var(--QLD-color-dark__link--on-action);
 				border-color: var(--QLD-color-dark__action--primary-hover);
+				text-decoration: underline;
+				text-decoration-color: var(--QLD-color-dark__link--on-action);
+				text-underline-offset: var(--QLD-underline__offset);
+				text-decoration-thickness: var(--QLD-underline__thickness-thick);
 
 				i{
 					text-decoration: none !important;
@@ -471,6 +481,7 @@
 
 		&:focus:active {
 			text-decoration: none;
+			color: var(--QLD-color-light__heading);
 		}
 	
 		&[aria-expanded="true"] {
@@ -506,6 +517,7 @@
 
 			&:focus:active {
 				text-decoration: none;
+				color: var(--QLD-color-light__heading);
 			}
 		}
 	}
