@@ -59,6 +59,7 @@ select{
 	.qld__input--success + &,
 	.qld__input--error + & {
 		@include QLD-space(margin-top, 0.5unit);
+		display: block;
 	}
 
 		
@@ -91,7 +92,7 @@ select{
 	}
 
 	&:focus{
-		border-color: var(--QLD-color-light__border);
+		border-color: $QLD-color-neutral--lighter;
 	}
 
 	.qld__body--dark &,
@@ -156,7 +157,7 @@ select{
 		&:focus {
 			background-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__text);
-			border-color: var(--QLD-color-light__border);
+			border-color: $QLD-color-neutral--lighter;
 			&::placeholder {
 				color: var(--QLD-color-light__text--lighter);
 			}

@@ -14,7 +14,7 @@ textarea{
 	background-color: $QLD-color-neutral--white;
 	box-sizing: border-box;
 	appearance: none;
-	max-width: 12.8125rem;
+	max-width: 46rem;
 
 	@include QLD-focus();
 
@@ -54,6 +54,7 @@ textarea{
 	.qld__input--success + &,
 	.qld__input--error + & {
 		@include QLD-space(margin-top, 0.5unit);
+		display: block;
 	}
 
 	&.qld__text-input--error {
@@ -162,6 +163,10 @@ textarea{
 				background-color: $QLD-color-neutral--white;
 				border-color: $QLD-color-neutral--lighter;
 			}
+
+			&::placeholder {
+				color: var(--QLD-color-light__text--lighter);
+			}
 		}
 
 		&.qld__text-input--error {
@@ -213,7 +218,7 @@ textarea{
 			&:not(:focus) { 
 				background-color: $QLD-color-neutral--lightest;
 				border-color: var(--QLD-color-light__action--primary-hover);
-				cursor: pointer;
+				cursor: text;
 			}
 		}
 
