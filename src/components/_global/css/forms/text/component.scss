@@ -14,7 +14,7 @@ textarea{
 	background-color: $QLD-color-neutral--white;
 	box-sizing: border-box;
 	appearance: none;
-	
+	max-width: 46rem;
 
 	@include QLD-focus();
 
@@ -22,12 +22,28 @@ textarea{
 		color: var(--QLD-color-light__text--lighter);
 	}
 
-	&.qld__input--valid {
-		&:not(:focus) { 
+	// &.qld__input--valid {
+	// 	&:not(:focus) { 
+	// 		border-color: $QLD-color-status__success;
+	// 		background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
+	// 	}
+
+	// }
+
+	&.qld__text-input--valid {
+		color: var(--QLD-color-light__text);
+		border-color: $QLD-color-status__success;
+		background-color: $QLD-color-status__success--lightest;
+		&:hover:not(:focus) {
+			background-color: $QLD-color-status__success--lighter;
 			border-color: $QLD-color-status__success;
-			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
+			color: var(--QLD-color-light__text);
 		}
 
+		&:focus {
+			background-color: $QLD-color-neutral--white;
+			border-color: $QLD-color-neutral--lighter;
+		}
 	}
 
 	&.qld__input--error {
@@ -38,6 +54,7 @@ textarea{
 	.qld__input--success + &,
 	.qld__input--error + & {
 		@include QLD-space(margin-top, 0.5unit);
+		display: block;
 	}
 
 	&.qld__text-input--error {
@@ -62,7 +79,7 @@ textarea{
 	}
 
 	&:hover{
-		&:not(:focus):not(.qld__text-input--error) { 
+		&:not(:focus):not(.qld__text-input--error):not(.qld__text-input--valid) { 
 			background-color: $QLD-color-neutral--lightest;
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
@@ -107,6 +124,11 @@ textarea{
 			&::placeholder {
 				color: var(--QLD-color-light__text--lighter);
 			}
+
+			&::selection {
+				background-color: var(--QLD-color-dark__background);
+				color: var(--QLD-color-dark__text);
+			}
 		}
 
 		@include QLD-focus(dark);
@@ -120,8 +142,6 @@ textarea{
 
 		&.qld__input--valid {
 			color: var(--QLD-color-light__text);
-			border-color: $QLD-color-status__success;
-			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 		}
 	
 		&.qld__input--error {
@@ -130,8 +150,22 @@ textarea{
 		}
 
 		&.qld__text-input--valid {
+			color: var(--QLD-color-light__text);
+			border-color: $QLD-color-status__success;
+			background-color: $QLD-color-status__success--lightest;
 			&:hover:not(:focus) {
+				background-color: $QLD-color-status__success--lighter;
+				border-color: $QLD-color-status__success;
 				color: var(--QLD-color-light__text);
+			}
+
+			&:focus {
+				background-color: $QLD-color-neutral--white;
+				border-color: $QLD-color-neutral--lighter;
+			}
+
+			&::placeholder {
+				color: var(--QLD-color-light__text--lighter);
 			}
 		}
 
@@ -149,9 +183,9 @@ textarea{
 		}
 
 		&:hover{
-			&:not(:focus) { 
+			&:not(:focus):not(.qld__text-input--error):not(.qld__text-input--valid) { 
 				color: var(--QLD-color-dark__text);
-				background-color: var(--QLD-color-dark__background--shade);
+				background-color: $QLD-color-neutral--black__opacity-10;
 				border-color: var(--QLD-color-dark__action--primary-hover);
 			}
 		}
@@ -184,7 +218,7 @@ textarea{
 			&:not(:focus) { 
 				background-color: $QLD-color-neutral--lightest;
 				border-color: var(--QLD-color-light__action--primary-hover);
-				cursor: pointer;
+				cursor: text;
 			}
 		}
 
@@ -338,6 +372,8 @@ textarea{
 	&.qld__text-input--block {
 		display: block;
 		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
 	}
 
 	&.qld__text-input--number {

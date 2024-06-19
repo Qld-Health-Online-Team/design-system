@@ -59,6 +59,7 @@ select{
 	.qld__input--success + &,
 	.qld__input--error + & {
 		@include QLD-space(margin-top, 0.5unit);
+		display: block;
 	}
 
 		
@@ -91,15 +92,20 @@ select{
 	}
 
 	&:focus{
-		border-color: var(--QLD-color-light__border);
+		border-color: $QLD-color-neutral--lighter;
 	}
 
 	.qld__body--dark &,
 	.qld__body--dark-alt & {
 		color: var(--QLD-color-dark__text--lighter);
 		border-color: var(--QLD-color-dark__border--alt);
+		background-color: var(--QLD-color-dark__background);
 		
 		&:not(:focus):not(.qld__text-input--valid):not(.qld__text-input--error) { 
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
+		}
+
+		&:focus {
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
 		}
 
@@ -107,7 +113,7 @@ select{
 			border-color: $QLD-color-status__success;
 			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 			color: var(--QLD-color-light__text);
-
+			background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
 			&:hover {
 				&:not(:focus) { 
 					background-color: $QLD-color-status__success--lighter;
@@ -119,6 +125,7 @@ select{
 				color: var(--QLD-color-light__text--lighter);
 			}
 		}
+		
 	
 		&.qld__input--error {
 			border-color: $QLD-color-status__error;
@@ -142,7 +149,7 @@ select{
 
 		&:hover{
 			&:not(:focus) {
-				background-color: var(--QLD-color-dark__background--shade);
+				background-color: $QLD-color-neutral--black__opacity-10;
 				border-color: var(--QLD-color-dark__action--primary-hover);
 			}
 		}
@@ -150,7 +157,7 @@ select{
 		&:focus {
 			background-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__text);
-			border-color: var(--QLD-color-light__border);
+			border-color: $QLD-color-neutral--lighter;
 			&::placeholder {
 				color: var(--QLD-color-light__text--lighter);
 			}
@@ -194,13 +201,31 @@ select{
 				background-color: $QLD-color-neutral--white;
 				color: var(--QLD-color-light__text);
 				border-color: $QLD-color-neutral--lighter;
+				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
+			
 				&::placeholder {
 					color: var(--QLD-color-light__text--lighter);
 				}
 			}
 
 			&.qld__text-input--valid {
+				border-color: $QLD-color-status__success;
+				background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
 				color: var(--QLD-color-light__text);
+				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
+
+				&:hover {
+					&:not(:focus) { 
+						background-color: $QLD-color-status__success--lighter;
+						border-color: $QLD-color-status__success;
+					}
+				}
+
+				&:focus {
+					background-color: $QLD-color-neutral--white;
+					color: var(--QLD-color-light__text);
+					border-color: $QLD-color-neutral--lighter;
+				}
 			}
 		}
 	}

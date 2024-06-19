@@ -1,0 +1,97 @@
+
+.qld__body,
+.qld__banner,
+.qld__footer {
+
+    figure.qld__right-aligned-img {
+        height: auto;
+        max-width: 100%;
+        border-radius: var(--QLD-border-radius-sm);
+        float: none;
+        @include QLD-space(margin-left, 0unit);
+        @include QLD-space(margin-bottom, 1.5unit);
+        overflow: clip;
+    
+        @include QLD-media(md)  {
+            height: auto;
+            max-width: 40%;
+            float: right;
+            @include QLD-space(margin-left, 1.5unit);
+        }
+    
+        img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+    }
+    
+    img + figcaption {
+        display: block;
+        background-color: $QLD-color-neutral--lightest;
+        @include QLD-space(padding, 0.5unit);
+        @include QLD-space(margin-top, -0.5unit);
+        font-size: var(--QLD-default-mobile-xs); //Find out the better practice/ @mixin QLD-fontgrid use this before pushin up
+        @include QLD-space(margin-left, 0unit);
+        font-weight: 400;
+        color: var(--QLD-color-light__text--lighter);
+    }
+
+
+    @include QLD-media(md) {
+
+        img + figcaption {
+            
+            font-size: var(--QLD-default-desktop-xs); 
+           
+        }
+
+    }
+    
+    .qld__responsive-media-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+	&.qld__body--light,
+	&.qld__banner--light,
+	&.qld__footer--light {
+
+        img + figcaption {
+            background-color: var(--QLD-color-light__background--shade);
+        }
+        
+    }
+
+	&.qld__body--alt,
+	&.qld__banner--alt,
+	&.qld__footer--alt {
+
+        img + figcaption {
+            background-color: var(--QLD-color-light__background--alt-shade);
+        }
+        
+    }
+
+	&.qld__body--dark,
+	&.qld__banner--dark,
+	&.qld__footer--dark {
+
+        img + figcaption {
+            background-color: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__text--lighter);
+        }
+        
+    }
+
+	&.qld__body--dark-alt,
+	&.qld__banner--dark-alt,
+	&.qld__footer--dark-alt {
+
+        img + figcaption {
+            background-color: var(--QLD-color-dark__background--alt-shade);
+            color: var(--QLD-color-dark__text--lighter);
+        }
+        
+    }
+
+}

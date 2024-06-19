@@ -19,8 +19,9 @@
 .qld__header__main,
 .qld__body,
 .qld__footer,
+.qld__card,
 .qld__banner,
-.qld__main-nav{
+.qld__main-nav {
     h1,
     h2,
     h3,
@@ -38,11 +39,16 @@
         font-weight: 600;
         margin: 0;
         color: var(--QLD-color-light__heading);
-        max-width: 80ch;
     }
 
     &.qld__body--dark,
     &.qld__body--dark-alt,
+    &.qld__footer--dark,
+    &.qld__footer--dark-alt,
+    &.qld__banner--dark,
+    &.qld__banner--dark-alt,
+    &.qld__card--dark,
+    &.qld__card--dark-alt,
     &.qld__header__main--dark,
     &.qld__header__main--dark-alt {
         h1,
@@ -165,7 +171,15 @@
 
     *:not([type="hidden"]){
         + .qld__display-xxxl{
-            @include QLD-space(margin-top, 2.25unit);
+            @include QLD-space(margin-top, 2.5unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 4unit);
+            }
+        }
+
+        + .qld__display-xxl {
+            @include QLD-space(margin-top, 2.5unit);
 
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 3.5unit);
@@ -177,7 +191,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 4unit);
+                @include QLD-space(margin-top, 3unit);
             }
         }
 
@@ -186,7 +200,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 3unit);
+                @include QLD-space(margin-top, 2.5unit);
             }
         }
 
@@ -195,7 +209,7 @@
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
-                @include QLD-space(margin-top, 2.5unit);
+                @include QLD-space(margin-top, 2.25unit);
             }
         }
 

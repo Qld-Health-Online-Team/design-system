@@ -39,6 +39,7 @@
                 text-align: center;
                 color: var(--QLD-color-light__link);
                 border: 1px solid var(--QLD-color-light__border--alt);
+                @include QLD-space(padding, 1px);
                 @include sq-border-radius(3px);
                 text-transform: uppercase;
                 text-decoration: none;
@@ -47,12 +48,17 @@
                     &:hover{
                         background-color: $QLD-color-neutral--lightest;
                         color: var(--QLD-color-light__text--lighter);
+                        border: 2px solid var(--QLD-color-light__action--secondary-hover);
+                        @include QLD-space(padding, 0);
                     }
                 }
 
                 &.active, &:active, &:focus {
-                    color: var(--QLD-color-light__text--lighter);
-                    background-color: $QLD-color-neutral--lightest;
+                    color: var(--QLD-color-light__link--on-action);
+                    background-color: var(--QLD-color-light__link);
+                    border: none;
+                    @include QLD-space(padding, 2px);
+                    
                 }
             }
         }
@@ -81,7 +87,7 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                border: 1px solid var(--QLD-color-light__border);
+                border: 1px solid $QLD-color-neutral--lighter;
                 text-align: center;
                 @include sq-border-radius(8px);
                 width: pxToRem(64);
@@ -98,7 +104,7 @@
         }
 
         .qld__a-z_listing__list__item__services {
-            border: 1px solid var(--QLD-color-light__border);
+            border: 1px solid $QLD-color-neutral--lighter;
             border-radius: pxToRem(12);
             list-style: none;
             overflow-y: hidden;
@@ -116,7 +122,7 @@
 
             .qld__a-z_listing__list__item__services__item {
                 
-                border-bottom: 1px solid var(--QLD-color-light__border);
+                border-bottom: 1px solid $QLD-color-neutral--lighter;
 
                 .qld__a-z_listing__list__item__services__item__link {
                     display: inline-block;

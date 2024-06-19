@@ -11,7 +11,7 @@
                 a {
                     text-decoration: none;
                     &:hover {
-                        @include QLD-underline();
+                        @include QLD-underline('light','noUnderline','default','noVisited');
                     }
                     &:focus {
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-light__focus);
@@ -40,15 +40,12 @@
             // padding-top: 0;
         }
         
-        #content > .qld__body > .container-fluid{
-            // max-width: 100%;
-            // @include QLD-space(margin-left, 0unit); 
-                @include QLD-space(padding-left, 2unit) ; 
-                @include QLD-space(padding-left, 2unit) ;
-            
-            >.row{
-                // @include QLD-space(margin, 0 -3unit) ;
-            }
+        > .qld__banner > .container-fluid,
+        > .qld__body > .container-fluid,
+        #content > .qld__body > .container-fluid {
+
+                padding-left: calc(48px + (100vw - 992px) *(72 - 48) / (1312 - 992));
+                @include QLD-space(padding-right, 3unit) ;
             
         }
         // > .qld__body > .container-fluid > row{
@@ -118,6 +115,21 @@
                         color: var(--QLD-color-light__heading);
                         font-weight: bold;
                     }
+
+                    > .qld__left-nav__item-link ~ .qld__accordion--closed {
+                        background-color: $QLD-color-neutral--white;
+                        color: var(--QLD-color-light__link);
+                        // color of the arrowed option
+                        @include QLD-space(border-top-right-radius, 1unit);
+
+                        &:hover {
+                            background-color: $QLD-color-neutral--white;
+                        }
+
+                        .qld__left-nav__item-icon svg * {
+                            fill: var(--QLD-color-light__link);
+                        }
+                    }
                 }
 
                 &:not(.active) {
@@ -138,6 +150,7 @@
 
                 a.qld__left-nav__item-link:hover{
                     background-color: var(--QLD-color-light__background--alt);
+                    color: var(--QLD-color-light__link);
 
                     .qld__left-nav__item-icon svg * {
                         fill: var(--QLD-color-light__action--primary-hover);
@@ -164,6 +177,7 @@
                     &.qld__left-nav__item-link--open {
                         background-color: $QLD-color-neutral--white;
                         color: var(--QLD-color-light__link);
+                        // arrowed optoin second
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
@@ -260,6 +274,10 @@
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-dark__focus);
                         outline: none;
                     }
+
+                    &:hover {
+                        @include QLD-underline('dark','noUnderline','default','noVisited');
+                    }
                 }
 
                 &.active {
@@ -321,6 +339,8 @@
     }
 }
 
+
+
 @include QLD-media(xl) {
     .qld__body--left-nav {
         > .qld__banner > .container-fluid,
@@ -328,7 +348,18 @@
         #content > .qld__body > .container-fluid{
 
             @include QLD-space(margin-left, 0unit); 
-                @include QLD-space(padding-left, 8unit) ; 
+            padding-left: calc(72px + (100vw - 1312px) *(128 - 72) / (1600 - 1312));
         }
     }
+}
+
+@include QLD-media(xxl) {
+    .qld__body--left-nav {
+        > .qld__banner > .container-fluid,
+        > .qld__body > .container-fluid,
+        #content > .qld__body > .container-fluid{
+            @include QLD-space(padding-left, 8unit); 
+        }
+    }
+    
 }
