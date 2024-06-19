@@ -153,14 +153,6 @@
         }
     }
 
-    li {
-        a {
-            .qld__main-nav__sub-item-text {
-                max-width: 90%;
-            }
-        }
-    }
-
     .qld__main-nav__menu-sub{
         background-color: $QLD-color-neutral--white;
         z-index: 10;
@@ -256,6 +248,7 @@
             li {
                 @include QLD-media(lg, 'down') {
                     padding: 0;
+                    box-shadow: none;
                 }
                 @include QLD-space(margin, 0);
 
@@ -316,7 +309,7 @@
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
-                    @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
+                    @include QLD-space(padding, 0.875unit 1.5unit 0.9375unit 1.5unit);
                     @include QLD-fontgrid(xs);             
                     border-bottom:solid $QLD-border-width-thin $QLD-color-neutral--lighter;
                     @include QLD-media(md) {
@@ -400,10 +393,12 @@
             }
         }
 
-        .qld__main-nav__sub-footer{
-            .qld__cta-link{
+        .qld__main-nav__sub-footer {
+            
+            text-align: right;
+
+            .qld__cta-link {
                 display: flex;
-                width: 100%;
                 @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
                 @include QLD-space(font-size, .875unit);
                 @include QLD-space(line-height, 1.5unit);
