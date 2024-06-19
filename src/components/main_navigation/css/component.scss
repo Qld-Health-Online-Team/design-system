@@ -189,7 +189,10 @@ $QLD-header-md: 72px;
             border-left: solid $QLD-border-width-thick var(--QLD-color-light__design-accent);
             display: flex;
             align-items: center;
-            color: var(--QLD-color-light__text);
+            &:visited {
+
+                color: var(--QLD-color-light__text);
+            }
 
             @include QLD-media(md) {
                 @include QLD-space(padding, 1.25unit 1unit 1.25unit 0.75unit);
@@ -216,6 +219,7 @@ $QLD-header-md: 72px;
                     border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light__action--primary-hover);
                     border-left: none;
                     @include QLD-space(margin-bottom, -0.5unit);
+                    
                 }
                 
                 .qld__icon{

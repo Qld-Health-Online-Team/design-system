@@ -232,9 +232,11 @@ form {
 
 
 .qld__hint-text,
-.qld__input--error {
+.qld__input--error,
+.qld__input--success {
     * + & {
         @include QLD-space(margin-top, 0.5unit);
+        display: block;
     }
 }
 
@@ -330,6 +332,7 @@ p.sq-form-error {
     +input,
     +textarea {
         @include QLD-space(margin-top, 0.5unit);
+        display: block;
     }
 
     &--inline {
