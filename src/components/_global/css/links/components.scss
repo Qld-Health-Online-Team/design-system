@@ -3,17 +3,13 @@
 .qld__body,
 .qld__footer,
 .qld__banner,
-.qld__main-nav{
+.qld__main-nav {
     
     .qld__link,
-    a.qld__link{
+    a.qld__link,
+    a {
         color: var(--QLD-color-light__link);
         @include QLD-underline('light');
-        max-width: $QLD-font-maxwidth;
-
-        i{
-			color: var(--QLD-color-light__link--on-action);
-		}
 	
 		&:hover{
 			border-color: var(--QLD-color-light__action--primary-hover);
@@ -42,17 +38,16 @@
 	&.qld__header__main--dark-alt,
 	&.qld__footer--dark,
 	&.qld__footer--dark-alt,
+    &.qld__header__pre-header--dark,
+    &.qld__header__pre-header--dark-alt,
 	.qld__code-header,
 	.qld__code.singleline{
 
         .qld__link,
-        a.qld__link{
+        a.qld__link,
+        a {
             color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
-
-            i{
-                color: var(--QLD-color-dark__link--on-action);
-            }
         
             &:hover{
                 border-color: var(--QLD-color-dark__action--primary-hover);

@@ -30,7 +30,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
-    // @include QLD-underline('dark','noUnderline','buttonText','noVisited');
     @include QLD-space(margin-top, 0.5unit);
     background-color: $QLD-color-neutral--lightest;
     border-color: $QLD-color-neutral--lightest;
@@ -53,6 +52,7 @@ body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
     &:active {
         background-color: var(--QLD-color-light__background--alt-shade);
         border-color:  var(--QLD-color-light__background--alt-shade);
+        color: var(--QLD-color-light__link);
         text-decoration-color: var(--QLD-color-light__link);
         &::after{
             content: '↑';
