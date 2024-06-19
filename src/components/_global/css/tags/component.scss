@@ -63,7 +63,7 @@ a.qld__tag,
 	border-color: var(--QLD-color-light__link);
 	text-decoration: none;
 	text-underline-offset: auto;
-	text-decoration-color :var(--QLD-color-dark__link);
+	text-decoration-color :var(--QLD-color-light__link);
 	// @include QLD-underline('light','noUnderline','');
 	.qld__card .qld__card__footer &{ 
 		color: var(--QLD-color-light__link);
@@ -71,21 +71,29 @@ a.qld__tag,
 
 		&:hover {
 			background-color: var(--QLD-color-light__action--primary-hover);
-			color: var(--QLD-color-dark__link); 
+			color: var(--QLD-color-light__link--on-action);
 			border-color: var(--QLD-color-light__action--primary-hover);
 			
 		}
 	}
-	&.qld__tag--large{
-		// @include QLD-underline('light','noUnderline','buttonText');
+
+	&:visited {
+		color: var(--QLD-color-light__link);
+		text-decoration-color :var(--QLD-color-light__link--on-action);
 	}
+
+	&:hover:visited {
+		// color: var(--QLD-color-light__link);
+		text-decoration-color :var(--QLD-color-light__link--on-action);
+	}
+
 
 	&:hover {
 		background-color: var(--QLD-color-light__action--primary-hover);
-		color: var(--QLD-color-dark__link); 
+		color: var(--QLD-color-light__link--on-action);
 		border-color: var(--QLD-color-light__action--primary-hover);
 		text-decoration: underline;
-		text-decoration-color :var(--QLD-color-dark__link);
+		text-decoration-color :var(--QLD-color-light__link--on-action);
 	}
 
 	.qld__body--alt &,
@@ -95,9 +103,18 @@ a.qld__tag,
 
 		&:hover {
 			background-color: var(--QLD-color-light__action--primary-hover);
-			color: var(--QLD-color-dark__link); 
+			color: var(--QLD-color-light__link--on-action); 
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
+
+		&:visited {
+			color: var(--QLD-color-light__link);
+		}
+	
+		&:hover:visited {
+			color: var(--QLD-color-light__link--on-action); 
+		}
+		
 	}
 
 	.qld__body--dark &,
@@ -107,7 +124,7 @@ a.qld__tag,
 		border-color: var(--QLD-color-dark__link);
 		color: var(--QLD-color-dark__link);
 		text-underline-offset: auto;
-		text-decoration-color :var(--QLD-color-light__link);
+		text-decoration-color: var(--QLD-color-dark__link);
 		text-decoration: none;
 		// @include QLD-underline('dark','noUnderline','buttonText');
 
@@ -117,6 +134,16 @@ a.qld__tag,
 			border-color: var(--QLD-color-dark__action--primary-hover);
 			text-decoration: underline;
 			text-decoration-color :var(--QLD-color-light__link);
+		}
+
+		&:visited {
+			color: var(--QLD-color-dark__link);
+			text-decoration-color: var(--QLD-color-dark__link);			
+		}
+	
+		&:hover:visited {
+			color: var(--QLD-color-dark__link--on-action);
+			text-decoration-color: var(--QLD-color-dark__link--on-action);
 		}
 
 		&.qld__tag--large{
