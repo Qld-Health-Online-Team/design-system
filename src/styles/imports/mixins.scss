@@ -719,7 +719,7 @@
 
                 &:visited {
                     // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-light__underline--hover-visited);
+                    color: var(--QLD-color-light__link--visited);
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                 }
         
@@ -728,7 +728,7 @@
                     text-decoration-color: var(--QLD-color-light__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
-            }@else{
+            }@else if $visitedState == "noVisited" {
                 &:visited {
                     // @include QLD-webkit-text-underline();
                     color: var(--QLD-color-light__link);
@@ -769,7 +769,8 @@
                 }
                 
             }
-            
+
+                       
             @if $visitedState == "hasVisited"{
 
                 &:visited {
@@ -777,7 +778,7 @@
                     
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                     @if $buttonTextColor == "buttonText"{
-                        color: var(--QLD-color-light__underline--hover-visited);
+                        color: var(--QLD-color-light__link--on-action);
                         
                     }@else{
                         text-decoration-color: var(--QLD-color-light__underline--hover);
@@ -797,7 +798,38 @@
                         text-decoration-color: var(--QLD-color-light__underline--visited);
                     }
                 }
+            } @else if $visitedState == "noVisited" {
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light__link);
+                    text-decoration-color: var(--QLD-color-light__underline);
+                }
+
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light__link);
+                    text-decoration-color: var(--QLD-color-light__link);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+
+                
             }
+
+            @if $buttonTextColor == "buttonText"{
+                    color: var(--QLD-color-light__link--on-action);
+                    &:visited {
+                        // @include QLD-webkit-text-underline();
+                        color: var(--QLD-color-light__link--on-action);
+                        text-decoration-color: var(--QLD-color-light__underline);
+                    }
+    
+                    &:hover:visited {
+                        // @include QLD-webkit-text-underline();
+                        color: var(--QLD-color-light__link--on-action);
+                        text-decoration-color: var(--QLD-color-light__link);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
+                }
 
             &:disabled,
             &[disabled]{
@@ -828,17 +860,17 @@
             @if $visitedState == "hasVisited"{
                 &:visited {
                     // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__underline--hover-visited);
+                    color: var(--QLD-color-dark__link--visited);
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
                 }
 
                 &:hover:visited {
                     // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__underline--hover-visited);
+                    color: var(--QLD-color-dark__link--visited);
                     text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
-            }@else{
+            }@else if $visitedState == "noVisited" {
                 &:visited {
                     // @include QLD-webkit-text-underline();
                     color: var(--QLD-color-dark__link);
@@ -889,9 +921,9 @@
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
 
                     @if $buttonTextColor == "buttonText"{
-                        color: var(---QLD-color-dark__underline--hover-visited);
+                        color: var(--QLD-color-dark__link--on-action);
                     }@else{
-                        color: var(-QLD-color-dark__underline--hover-visited);
+                        color: var(--QLD-color-dark__link--visited);
                         text-decoration-color: var(--QLD-color-dark__underline--hover);
                     }
                 }
@@ -905,9 +937,22 @@
                         color: var(--QLD-color-dark__link--on-action);
                         text-decoration-color: var(--QLD-color-dark__link--on-action);
                     }@else{
-                        color: var(--QLD-color-dark__underline--hover-visited);
+                        color: var(--QLD-color-dark__link--visited);
                         text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
                     }
+                }
+            } @else if $visitedState == "noVisited" {
+                &:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark__link);
+                    text-decoration-color: var(--QLD-color-dark__underline);
+                }
+
+                &:hover:visited {
+                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-dark__link);
+                    text-decoration-color: var(--QLD-color-dark__link);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
 
