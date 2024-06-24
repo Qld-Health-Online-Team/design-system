@@ -85,6 +85,7 @@ $QLD-header-md: 72px;
             margin: 0; 
             a{
                 @include QLD-underline('light','noUnderline','default','noVisited');
+                color: var(--QLD-color-light__text);
                 &:hover{                   
                     .qld__icon{
                         color: var(--QLD-color-light__action--secondary-hover);
@@ -107,7 +108,7 @@ $QLD-header-md: 72px;
             &.active .qld__main-nav__item-link {
                 
                 font-weight: bold;
-                color: var(--QLD-color-light__text);
+                color: var(--QLD-color-light__heading);
                 border-left-color: transparent;
 
                 @include QLD-media(lg) {
@@ -119,6 +120,22 @@ $QLD-header-md: 72px;
                 &:hover {
                     border-color: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link);
+                }
+
+                &--open{
+                    color: var(--QLD-color-light__heading);
+                }
+
+                &.qld__main-nav__item-link--open {
+                    &:visited {
+                        color: var(--QLD-color-light__heading);  
+                    }
+                }
+            }
+
+            .qld__main-nav__item-link.qld__main-nav__item-link--open {
+                &:visited {
+                    color: var(--QLD-color-light__link);  
                 }
             }
         }
@@ -336,7 +353,11 @@ $QLD-header-md: 72px;
                         color: var(--QLD-color-dark__action--secondary);
                     }
                 } 
+
+                
             }
+
+           
         }
 
         &.qld__main-nav__menu--dark-alt{
@@ -626,6 +647,7 @@ $QLD-header-md: 72px;
             .qld__main-nav__item{
                 a{
                     @include QLD-underline('dark','noUnderline','default','noVisited');
+                    color: var(--QLD-color-dark__text);
                 }
             }
 
@@ -645,12 +667,23 @@ $QLD-header-md: 72px;
             }
 
             .qld__main-nav__item.active .qld__main-nav__item-link{
-                color: var(--QLD-color-dark__link);
+                color: var(--QLD-color-dark__heading);
 
                 @include QLD-media(lg) {
                     border-color: var(--QLD-color-dark__background);
                 }
             }
+
+            .qld__main-nav__item.active .qld__main-nav__item-link--open{
+                color: var(--QLD-color-dark__heading);
+            }
+
+            .qld__main-nav__item-link.qld__main-nav__item-link--open {
+                &:visited {
+                    color: var(--QLD-color-dark__link);  
+                }
+            }
+            
             .qld__icon{
                 color: var(--QLD-color-dark__action--secondary);
             }
