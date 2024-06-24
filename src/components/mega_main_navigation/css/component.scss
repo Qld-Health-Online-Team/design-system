@@ -10,7 +10,7 @@
 
         }
 
-        &-toggle{
+        &-toggle{ 
             position: relative;
             @include QLD-space(min-height, 1.75unit);
             @include QLD-space(min-width, 1.75unit);
@@ -75,6 +75,7 @@
                     background-color: $QLD-color-neutral--white;
                     border-bottom: $QLD-border-width-extra-thick solid $QLD-color-neutral--white;
                     @include QLD-space(margin-bottom, -0.5unit);
+                    text-decoration: none;
 
                     &:hover{
                         background-color: $QLD-color-neutral--lightest;
@@ -128,7 +129,7 @@
             &--open{
                 background-color: $QLD-color-neutral--white;
                 color: var(--QLD-color-light__link);
-                font-weight: bold;
+                
                 @include QLD-space(border-top-right-radius, 1unit);
 
                 &:hover{
@@ -369,11 +370,16 @@
                 }
 
                 &.active{
-                    .qld__main-nav__sub-item-text{
+                    a {
+                        color: var(--QLD-color-light__heading);
                         width: 100%;
                         display: block;
                         font-weight: bold;
                         border-left: solid 4px transparent;
+
+                        @include QLD-media(lg) {
+                            border-left: none;
+                        }
                     }
                 }
 
@@ -454,6 +460,7 @@
                     &.qld__accordion--open{
                         background-color: var(--QLD-color-dark__background);
                         border-color: var(--QLD-color-dark__background);
+                        text-decoration: none;
                     }
 
                     .qld__icon{
@@ -509,7 +516,17 @@
                             &:hover{
                                 background-color: var(--QLD-color-dark__background);
                             }
+
+                            
                         }
+
+                        &.active {
+                            a {
+                                color: var(--QLD-color-dark__heading);
+        
+                            }
+                        }
+
                         .qld__main-nav__sub-item-text{
                             color: var(--QLD-color-dark__link);
                         }
