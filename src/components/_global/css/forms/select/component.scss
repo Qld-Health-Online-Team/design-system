@@ -53,13 +53,14 @@ select{
 
 		&:hover{
 			background-color: transparent !important;
+			border-color: var(--QLD-color-light__border--alt);
 		}
 	}
 
 	.qld__input--success + &,
 	.qld__input--error + & {
 		@include QLD-space(margin-top, 0.5unit);
-		display: block;
+		display: flex;
 	}
 
 		
@@ -154,6 +155,13 @@ select{
 			}
 		}
 
+		&:disabled,
+		&[disabled]{
+			&:hover{
+				border-color: var(--QLD-color-dark__border--alt);
+			}
+		}
+
 		&:focus {
 			background-color: $QLD-color-neutral--lightest;
 			color: var(--QLD-color-light__text);
@@ -177,8 +185,8 @@ select{
 
 
 .qld__form-style-filled {
-	.qld__body--dark,
-	.qld__body--alt-dark {
+	.qld__body--dark &,
+	.qld__body--alt-dark & {
 		.sq-form-question-select select,
 		.sq-form-question-datetime select,
 		.qld__select {
@@ -227,6 +235,31 @@ select{
 					border-color: $QLD-color-neutral--lighter;
 				}
 			}
+
+			&.qld__text-input--error  {
+				border-color: $QLD-color-status__error;
+				background-color: $QLD-color-status__error--lightest; //$QLD-color-status__error with .05 opacity
+				color: var(--QLD-color-light__text);
+				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
+
+				&:hover {
+					&:not(:focus) { 
+						background-color: $QLD-color-status__error--lighter;
+						border-color: $QLD-color-status__error;
+					}
+				}
+
+				&:focus {
+					background-color: $QLD-color-neutral--white;
+					color: var(--QLD-color-light__text);
+					border-color: $QLD-color-neutral--lighter;
+				}
+
+				&::placeholder {
+					color: var(--QLD-color-light__text);
+				}
+			}
+
 		}
 	}
 	.sq-form-question-select select,

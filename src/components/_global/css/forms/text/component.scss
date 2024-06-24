@@ -70,19 +70,27 @@ textarea{
 		}
 	}
 
-	// disabled styling
-	&[disabled],
-	&:disabled {
-		cursor: not-allowed;
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-		opacity: 0.5;
-	}
+
 
 	&:hover{
 		&:not(:focus):not(.qld__text-input--error):not(.qld__text-input--valid) { 
 			background-color: $QLD-color-neutral--lightest;
 			border-color: var(--QLD-color-light__action--primary-hover);
 		}
+	}
+
+		// disabled styling
+	&[disabled],
+	&:disabled {
+		cursor: not-allowed;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+		opacity: 0.5;
+		&:hover,
+		&:hover:not(.qld__text-input--error):not(.qld__text-input--valid) {
+			background-color: transparent;
+			border-color: var(--QLD-color-light__border--alt);
+		}
+		
 	}
 	
 	&[aria-expanded="true"],
@@ -190,6 +198,19 @@ textarea{
 			}
 		}
 
+		&[disabled],
+		&:disabled {
+			cursor: not-allowed;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			opacity: 0.5;
+			&:hover,
+			&:hover:not(.qld__text-input--error):not(.qld__text-input--valid) {
+				background-color: transparent;
+				border-color: var(--QLD-color-dark__border--alt);
+			}
+			
+		}
+
 		&[aria-expanded="true"],
 		&:hover[aria-expanded="true"]{
 			color: var(--QLD-color-light__text);
@@ -264,6 +285,18 @@ textarea{
 					background-color: $QLD-color-status__success--lighter;
 					border-color: $QLD-color-status__success;
 				}
+			}
+		}
+
+		&[disabled],
+		&:disabled {
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			opacity: 0.5;
+			&:hover,
+			&:hover:not(.qld__text-input--error):not(.qld__text-input--valid) {
+				cursor: not-allowed;
+				background-color: $QLD-color-neutral--lightest;
+				border-color: var(--QLD-color-light__border--alt);
 			}
 		}
 	}
@@ -359,6 +392,18 @@ textarea{
 			&--valid {
 				&:focus {
 					background-color: $QLD-color-neutral--white;
+				}
+			}
+
+			&[disabled],
+			&:disabled {
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+				opacity: 0.5;
+				&:hover,
+				&:hover:not(.qld__text-input--error):not(.qld__text-input--valid) {
+					cursor: not-allowed;
+					background-color: var(--QLD-color-dark__background--shade);
+					border-color: var(--QLD-color-dark__border--alt);
 				}
 			}
 		}
