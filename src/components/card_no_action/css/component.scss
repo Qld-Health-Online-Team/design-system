@@ -112,10 +112,14 @@
         }
     }
 
-    a.qld__card--clickable__link{
+    a.qld__card--clickable__link {
         color: var(--QLD-color-light__link);
         @include QLD-underline('light');
         // @include QLD-underline('light','noUnderline','buttonText','noVisited');
+
+        &:visited, &:hover:visited {
+            color: var(--QLD-color-light__link--visited);
+        }
 
         //make hit area entire card
         
@@ -368,17 +372,32 @@
 }
 
 
-.qld__body--dark, .qld__body--dark-alt {
+.qld__body--dark, .qld__banner--dark, .qld__banner--dark-alt, .qld__body--dark-alt {
     .qld__card{
         a.qld__card--clickable__link {
-            color: var(--QLD-color-light__link);
             @include QLD-underline('light');
+            color: var(--QLD-color-light__link);
+            &:visited, &:hover:visited {
+                color: var(--QLD-color-light__link--visited);
+            }
+    
+            &:focus {
+                outline: none;
+            }
         }
 
         &.qld__card--dark, &.qld__card--dark-alt{
             a.qld__card--clickable__link{
-                color: var(--QLD-color-dark__link);
                 @include QLD-underline('dark');
+                color: var(--QLD-color-dark__link);
+
+                &:visited, &:hover:visited {
+                    color: var(--QLD-color-dark__link--visited);
+                }
+        
+                &:focus {
+                    outline: none;
+                }
     
             }
         }
