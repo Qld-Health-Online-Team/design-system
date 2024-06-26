@@ -381,6 +381,15 @@
                             border-left: none;
                         }
                     }
+
+                    span {
+                        color: var(--QLD-color-light__heading);
+                        border-left: solid 4px transparent;
+
+                        @include QLD-media(lg) {
+                            border-left: none;
+                        }
+                    }
                 }
 
                 &:not(.active) {
@@ -524,6 +533,10 @@
                             a {
                                 color: var(--QLD-color-dark__heading);
         
+                            }
+                            
+                            span {
+                                color: var(--QLD-color-dark__heading);
                             }
                         }
 
