@@ -480,12 +480,21 @@
         }
     }
 
-    &__footer{
+    &__footer {
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
+        flex-direction: row-reverse;
         @include QLD-space(padding-left, 1unit);
         @include QLD-space(padding-right, 1unit);
         @include QLD-space(margin-top, 2unit);
+
+        .qld__slick-controls {
+            order: 1;
+        }
+        
+        a {
+            order: 0;
+        }
 
         &.centered {
             justify-content: center;
@@ -671,11 +680,3 @@
         }
     }
 }
-
-.qld__body, .qld__banner {
-    .qld__card-list__footer {
-        justify-content: space-between;
-        align-items: centre;
-    }
-}
-
