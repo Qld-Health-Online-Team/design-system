@@ -277,11 +277,13 @@
                             <p class="qld__search__result-summary">
                                 {{#ifCond collection 'contains' '__facilities'}}
                                     {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
-                                {{else ifCond collection 'contains' '__service-locations'}}
-                                    {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
                                 {{else}}
-                                    {{#if metaData.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
-                                    {{{charMax summary '160'}}}
+                                    {{#ifCond collection 'contains' '__service-locations'}}
+                                        {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
+                                    {{else}}
+                                        {{#if metaData.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
+                                        {{{charMax summary '160'}}}
+                                    {{/ifCond}}
                                 {{/ifCond}}
                             </p>                           
                         </li>
