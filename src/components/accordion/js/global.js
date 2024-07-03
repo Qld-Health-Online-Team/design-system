@@ -197,6 +197,19 @@
                             if (typeof callbacks.afterOpen === "function") {
                                 callbacks.afterOpen();
                             }
+
+                            if(target.classList.contains('qld__overflow_menu')) {
+                                
+                                var overFlowLinks = [];
+                                overFlowLinks = target.querySelectorAll('a.qld__overflow_menu_list-item-link');
+
+                                if(overFlowLinks[0]) {
+                                    // element.blur();
+                                    overFlowLinks[0].focus({ focusVisible: true });
+                                    console.log('this is the one ', overFlowLinks[0]);
+                                }
+                                
+                            }
                         }
 
                         toggleClasses(target, state);
@@ -432,6 +445,13 @@
         accordionAllButtton.forEach(function (button) {
             button.addEventListener('click', function () {
                 accordion.ToggleAll(button)
+            });
+        });
+
+        var overflowMenuButtons = document.querySelectorAll('.qld__overflow_menu__btn');
+        overflowMenuButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                accordion.Toggle(button)
             });
         });
     }
