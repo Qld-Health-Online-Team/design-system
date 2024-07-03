@@ -204,9 +204,9 @@
                                 overFlowLinks = target.querySelectorAll('a.qld__overflow_menu_list-item-link');
 
                                 if(overFlowLinks[0]) {
-                                    // element.blur();
-                                    overFlowLinks[0].focus({ focusVisible: true });
-                                    console.log('this is the one ', overFlowLinks[0]);
+                                    setTimeout(function() {
+                                        overFlowLinks[0].focus();
+                                    }, 10);
                                 }
                                 
                             }
