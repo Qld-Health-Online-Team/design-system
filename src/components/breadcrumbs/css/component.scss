@@ -33,6 +33,12 @@
         @include QLD-media(lg) {
             @include QLD-fontgrid(sm);
         }
+
+        white-space: nowrap;
+        overflow: hidden;
+        .qld__overflow_menu_wrapper {
+            display: inline;
+        }
         
         > li {
             margin: 0; //Intentionally flush with the container, as breadcrumbs are designed to sit on a full viewport width bg.
