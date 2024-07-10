@@ -11,7 +11,7 @@
     function getTheElements() {
 
         const banners = document.querySelectorAll('.qld__banner--breadcrumbs')
-        let banner = null;
+        let banner = banners[0];
         let i = 0;
         
         console.log('these are the banners ', banners)
