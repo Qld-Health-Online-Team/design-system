@@ -14,6 +14,7 @@
         let banner = null;
         let i = 0;
         
+        console.log('these are the banners ', banners)
         if (!banners) return null;
 
         while ((banners[i].style.display === 'none') && (i < banners[i].length)) {
