@@ -108,6 +108,8 @@
             const { bannerBreadCrumb, breadCrumbsUl } = getTheElements();
             let bannerBreadCrumbWidth = bannerBreadCrumb.offsetWidth;
 
+            console.log('breadCrumbsUl ', breadCrumbsUl)
+            console.log('bannerBreadCrumb ', bannerBreadCrumb)
             console.log('breadCrumbsUl.offsetWidth > bannerBreadCrumbWidth ', breadCrumbsUl.offsetWidth, '>', bannerBreadCrumbWidth);
 
             if(breadCrumbsUl.offsetWidth > bannerBreadCrumbWidth) {
