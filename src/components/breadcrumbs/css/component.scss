@@ -4,6 +4,9 @@
 
 .qld__breadcrumbs {
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
     
     * + & {
         @include QLD-space(margin-top, 1unit);
@@ -34,8 +37,8 @@
             @include QLD-fontgrid(sm);
         }
 
-        white-space: nowrap;
-        overflow: hidden;
+        
+
         .qld__overflow_menu_wrapper {
             display: inline;
         }
