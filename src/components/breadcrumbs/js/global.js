@@ -83,7 +83,7 @@
 
     function insertOverFlowButton(overFlowWrapper, element) {
 
-        const newElement = document.createElement('li');
+        const newElement = document.createElement('div');
         newElement.className = 'qld__overflow_menu_list-item';
 
         const link = element.querySelector('a');
@@ -130,33 +130,35 @@
                     }
 
                 }
+            
+
+                // if (breadCrumbsUl.offsetWidth + 10 > bannerBreadCrumbWidth) {
+
+                const charactersNeedToGo = Math.ceil((breadCrumbsUl.offsetWidth - bannerBreadCrumbWidth + 160) / 10)
+
+                let lastElementText = '';
+                let originalCurrentPageText = breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML;
 
 
-                if (breadCrumbsUl.offsetWidth > bannerBreadCrumbWidth) {
-                    
-                    const charactersNeedToGo = Math.ceil((breadCrumbsUl.offsetWidth - bannerBreadCrumbWidth + 180) / 10)
-
-                    let lastElementText = '';
-                    let originalCurrentPageText = breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML;
-
-
-                    if(breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML.length > charactersNeedToGo) {
-                        lastElementText = breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML.slice(0, -charactersNeedToGo);
-                        lastElementText += '...';
-
-                    } else {
-                        lastElementText = '...';
-                    }
-
-                    console.log('lastElementText ', charactersNeedToGo, lastElementText)
-
-                    breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML = lastElementText;
-
-
+                if(breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML.length > charactersNeedToGo) {
+                    lastElementText = breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML.slice(0, -charactersNeedToGo);
+                    lastElementText += '...';
+                } else {
+                    lastElementText = '...';
                 }
 
+                console.log('lastElementText ', charactersNeedToGo, lastElementText)
+                   
+                breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML = lastElementText;
+
+                // }
+
+
+                breadCrumbsUlLis[1].innerHTML = '';
+                breadCrumbsUlLis[1].className = "qld__overflow_menu--breadcrumbs"
                 breadCrumbsUlLis[1].appendChild(overflowMenu);
                 breadCrumbsUlLis[1].style.display = 'inline-block';
+                
             }
         }
     };
@@ -165,6 +167,7 @@
 
     window.addEventListener("DOMContentLoaded", function () {
         QLD.breadcrumb.init();
+        QLD.accordion.init();
     });
 
 })();

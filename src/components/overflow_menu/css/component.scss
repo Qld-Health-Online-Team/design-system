@@ -2,9 +2,8 @@
 // {{component_name}}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper, 
 .qld__overflow_menu_wrapper {
-
     button.qld__btn.qld__btn--toggle {
         display: inline-flex;
         align-items: center;
@@ -25,7 +24,6 @@
 
         &:hover, &.qld__accordion--open {
             background-color: $QLD-color-neutral--black__opacity-10;
-            
             svg {
                 color: var(--QLD-color-light__action--secondary);
             }
@@ -45,7 +43,7 @@
         margin-top: 4px;
         box-shadow: $QLD-box-shaddow-level-two;
         overflow: hidden;
-
+        z-index: 9999;
         &.qld__accordion--open {
             display: block;
             border-bottom: $QLD-border-width-thick solid $QLD-color-light__design-accent;
@@ -199,5 +197,4 @@
         }
 
     }
-
 }
