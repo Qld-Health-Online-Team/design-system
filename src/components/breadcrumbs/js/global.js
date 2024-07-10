@@ -21,7 +21,7 @@
             banner = banners[i];
             i++;
         }
-
+        console.log('these are the banners ', banner)
         if(banner) {
             const bannerBreadCrumb = banner.querySelector('nav.qld__breadcrumbs');
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
