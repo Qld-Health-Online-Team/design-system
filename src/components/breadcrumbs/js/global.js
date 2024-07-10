@@ -14,14 +14,14 @@
         let banner = banners[0];
         let i = 0;
         
-        console.log('these are the banners ', banners)
+        // console.log('these are the banners ', banners)
         if (!banners) return null;
 
         while ((banners[i].style.display === 'none') && (i < banners[i].length)) {
             banner = banners[i];
             i++;
         }
-        console.log('these are the banners ', banner)
+        console.log('This is the selected banner ', banner)
         if(banner) {
             const bannerBreadCrumb = banner.querySelector('nav.qld__breadcrumbs');
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
