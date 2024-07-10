@@ -10,13 +10,15 @@
 
     function getTheElements() {
 
+        const banners = document.querySelectorAll('.qld__banner--breadcrumbs')
+        let banner = null;
+        let i = 0;
         
-        const banner = document.querySelector('.qld__banner--breadcrumbs') || document.querySelector('.qld__body--breadcrumb')
-        let attempts = 0;
-        
-        while ((banner.style.display === 'none') && attempts < 3) {
-            banner = document.querySelector('.qld__banner--breadcrumbs') || document.querySelector('.qld__body--breadcrumb');
-            attempts++;
+        if (!banners) return null;
+
+        while ((banners[i].style.display === 'none') && (i < banners[i].length)) {
+            banner = banners[i];
+            i++;
         }
 
         if(banner) {
