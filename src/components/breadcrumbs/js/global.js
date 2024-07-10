@@ -9,7 +9,15 @@
 
 
     function getTheElements() {
+
+        
         const banner = document.querySelector('.qld__banner--breadcrumbs') || document.querySelector('.qld__body--breadcrumb')
+        let attempts = 0;
+        
+        while ((banner.style.display === 'none') && attempts < 3) {
+            banner = document.querySelector('.qld__banner--breadcrumbs') || document.querySelector('.qld__body--breadcrumb');
+            attempts++;
+        }
 
         if(banner) {
             const bannerBreadCrumb = banner.querySelector('nav.qld__breadcrumbs');
