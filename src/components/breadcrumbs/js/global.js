@@ -23,8 +23,16 @@
         }
         console.log('This is the selected banner ', banner)
         if(banner) {
-            const bannerBreadCrumb = banner.querySelector('nav.qld__breadcrumbs');
+            const bannerBreadCrumbsAll = banner.querySelectorAll('nav.qld__breadcrumbs');
+            const bannerBreadCrumbArray = [...bannerBreadCrumbsAll];
+            const bannerBreadCrumb = bannerBreadCrumbArray.find( breadcrumb => {
+                return breadcrumb.offsetWidth > 0;
+            })
+            
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
+
+            console.log('bannerBreadCrumb', bannerBreadCrumb)
+            console.log('breadCrumbsUl ', breadCrumbsUl)
 
             return {
                 bannerBreadCrumb,
@@ -98,7 +106,7 @@
         newElement.className = 'qld__overflow_menu_list-item';
 
         const link = element.querySelector('a');
-        link.classList.add('qld__overflow_menu_list-item-link')
+        link.classList.add('qld__overflow_menu_list-item-link');
         link.setAttribute('tabindex', '0');
 
         newElement.appendChild(link);
@@ -161,8 +169,6 @@
                 } else {
                     lastElementText = '...';
                 }
-
-                console.log('lastElementText ', charactersNeedToGo, lastElementText)
                    
                 breadCrumbsUlLis[breadCrumbsUlLis.length - 1].innerHTML = lastElementText;
 
