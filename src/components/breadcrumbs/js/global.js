@@ -6,6 +6,7 @@
     */
 
     var breadcrumb = {};
+    breadcrumb.initial = null;
 
 
     function getTheElements() {
@@ -31,13 +32,22 @@
             
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
 
-            console.log('bannerBreadCrumb', bannerBreadCrumb)
-            console.log('breadCrumbsUl ', breadCrumbsUl)
-
-            return {
-                bannerBreadCrumb,
-                breadCrumbsUl
+            if(!breadcrumb.initial) {
+                
+                breadcrumb.initial.bannerBreadCrumb = bannerBreadCrumb;
+                breadcrumb.initial.breadCrumbsUl = breadCrumbsUl;
+                
+                return {
+                    bannerBreadCrumb,
+                    breadCrumbsUl
+                }
+            } else {
+                return {
+                    bannerBreadCrumb: breadcrumb.initial.bannerBreadCrumb,
+                    breadCrumbsUl: breadcrumb.initial.breadCrumbsUl
+                }
             }
+            
         }
 
         return null;
