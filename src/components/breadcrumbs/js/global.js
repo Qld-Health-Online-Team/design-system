@@ -191,4 +191,9 @@
         QLD.accordion.init();
     });
 
+    window.addEventListener("resize", function () {
+        QLD.breadcrumb.init();
+        QLD.accordion.init();
+    });
+
 })();
