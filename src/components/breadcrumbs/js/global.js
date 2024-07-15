@@ -6,7 +6,6 @@
     */
 
     var breadcrumb = {};
-    breadcrumb.initial = "";
 
 
     function getTheElements() {
@@ -32,25 +31,10 @@
             
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
 
-            if(breadcrumb.initial != "") {
-                
-                return {
-                    bannerBreadCrumb: breadcrumb.initial.bannerBreadCrumb,
-                    breadCrumbsUl: breadcrumb.initial.breadCrumbsUl
-                }
-                
-            } else {
-
-                breadcrumb.initial.bannerBreadCrumb = bannerBreadCrumb;
-                breadcrumb.initial.breadCrumbsUl = breadCrumbsUl;
-                
-                return {
-                    bannerBreadCrumb,
-                    breadCrumbsUl
-                }
-                
+            return {
+                bannerBreadCrumb,
+                breadCrumbsUl
             }
-            
         }
 
         return null;
@@ -200,11 +184,6 @@
     QLD.breadcrumb = breadcrumb;
 
     window.addEventListener("DOMContentLoaded", function () {
-        QLD.breadcrumb.init();
-        QLD.accordion.init();
-    });
-
-    window.addEventListener("resize", function () {
         QLD.breadcrumb.init();
         QLD.accordion.init();
     });
