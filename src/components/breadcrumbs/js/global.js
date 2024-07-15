@@ -32,8 +32,15 @@
             
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
 
-            if(!breadcrumb.initial) {
+            if(breadcrumb.initial) {
                 
+                return {
+                    bannerBreadCrumb: breadcrumb.initial.bannerBreadCrumb,
+                    breadCrumbsUl: breadcrumb.initial.breadCrumbsUl
+                }
+                
+            } else {
+
                 breadcrumb.initial.bannerBreadCrumb = bannerBreadCrumb;
                 breadcrumb.initial.breadCrumbsUl = breadCrumbsUl;
                 
@@ -41,11 +48,7 @@
                     bannerBreadCrumb,
                     breadCrumbsUl
                 }
-            } else {
-                return {
-                    bannerBreadCrumb: breadcrumb.initial.bannerBreadCrumb,
-                    breadCrumbsUl: breadcrumb.initial.breadCrumbsUl
-                }
+                
             }
             
         }
