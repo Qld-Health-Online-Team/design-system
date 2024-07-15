@@ -6,7 +6,7 @@
     */
 
     var breadcrumb = {};
-    breadcrumb.initial = null;
+    breadcrumb.initial = "";
 
 
     function getTheElements() {
@@ -21,7 +21,7 @@
             
             const breadCrumbsUl = bannerBreadCrumb.querySelector('ul.qld__link-list');
 
-            if(breadcrumb.initial) {
+            if(breadcrumb.initial != "") {
                 
                 return {
                     bannerBreadCrumb: breadcrumb.initial.bannerBreadCrumb,
