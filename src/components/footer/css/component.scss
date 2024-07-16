@@ -348,6 +348,12 @@
             }
         }
     }
+
+    * + .qld__footer__logo {
+        img {
+            @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px);
+        }
+    }
     
     &.qld__footer--dark,
     &.qld__footer--dark-alt{
