@@ -351,8 +351,16 @@
 
     * + .qld__footer__logo {
         img {
-            @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px);
+            @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px);
         }
+    }
+
+    @include QLD-media(md) {
+        * + .qld__footer__logo {
+            img {
+                @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px);
+            }
+        }   
     }
     
     &.qld__footer--dark,
@@ -421,6 +429,10 @@
             display: block;
             font-weight: 900;
             @include QLD-space(margin-top, 1.5unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 1.25unit);
+            }
         }
 
         .qld__footer__logo {
