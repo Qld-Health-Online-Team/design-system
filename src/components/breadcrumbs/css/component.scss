@@ -10,12 +10,18 @@
     }
     
     @include QLD-media(sm) {
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
     }
     & &__list--desktop{
         display: none;
         @include QLD-media(md) {
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
         }
     }
     & &__list--mobile{
@@ -34,8 +40,13 @@
             @include QLD-fontgrid(sm);
         }
 
-        white-space: nowrap;
-        overflow: hidden;
+        
+
+        .qld__overflow_menu--breadcrumbs {
+            display: flex;
+            align-items: center;
+            padding: none;
+        }
         .qld__overflow_menu_wrapper {
             display: inline;
         }
