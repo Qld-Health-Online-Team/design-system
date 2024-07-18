@@ -4,21 +4,24 @@
 
 .qld__breadcrumbs {
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow:clip;
     
     * + & {
         @include QLD-space(margin-top, 1unit);
     }
     
     @include QLD-media(sm) {
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
     }
     & &__list--desktop{
         display: none;
         @include QLD-media(md) {
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
         }
     }
     & &__list--mobile{
@@ -39,6 +42,11 @@
 
         
 
+        .qld__overflow_menu--breadcrumbs {
+            display: flex;
+            align-items: center;
+            padding: none;
+        }
         .qld__overflow_menu_wrapper {
             display: inline;
         }
