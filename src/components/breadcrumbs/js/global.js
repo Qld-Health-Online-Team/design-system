@@ -15,7 +15,7 @@
 
         // if (document) {
             const bannerBreadCrumbsAll = document.querySelectorAll(
-                "nav.qld__breadcrumbs"
+                "nav.qld__banner__breadcrumbs--desktop"
             );
             const bannerBreadCrumbArray = [...bannerBreadCrumbsAll];
             const bannerBreadCrumb = bannerBreadCrumbArray.find(
