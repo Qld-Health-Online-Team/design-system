@@ -137,8 +137,8 @@
             const { breadCrumbsUl } = getTheElements();
 
             const breadCrumbsUlLis = breadCrumbsUl.querySelectorAll("li");
-            if (breadCrumbsUl.offsetHeight > breadCrumbsUlLis[0].offsetHeight && breadCrumbsUlLis.length > 2 && breadCrumbsUlLis[0].offsetHeight > 0) {
-                
+            // if (breadCrumbsUl.offsetHeight > breadCrumbsUlLis[0].offsetHeight && breadCrumbsUlLis.length > 2 && breadCrumbsUlLis[0].offsetHeight > 0) {
+            if (breadCrumbsUlLis.length > 2 && breadCrumbsUlLis[0].offsetHeight > 0) {
                 const overflowMenu = createOverFlow();
                 let breadcrumbLisLength = breadCrumbsUlLis.length;
                 let i = 1;
@@ -146,7 +146,6 @@
                 breadCrumbsUlLis[1].style.display = "none";
                 appendOverflow(breadCrumbsUlLis, overflowMenu);
                 i = 2
-
                 if(breadCrumbsUlLis.length > 5) {
 
                     while(i < breadCrumbsUlLis.length - 1) {
