@@ -83,9 +83,19 @@
                 background-color: var(--QLD-color-light__action--secondary);
             }
             
-            &:last-child:after {
-                display: none;
+            &:last-child {
+                display: flex;
+                flex-grow: 1;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:after {
+                    display: none;
+                }
             }
+
+
             
             .ie8 &,
             .lt-ie8 & {
