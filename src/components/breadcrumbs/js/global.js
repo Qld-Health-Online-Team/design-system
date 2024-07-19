@@ -9,12 +9,12 @@
     var originalBreadCrumbUl = null;
 
     function getTheElements(resized = false) {
-        const banner =
-            document.querySelector(".qld__banner--breadcrumbs") ||
-            document.querySelector(".qld__body--breadcrumb");
+        // const banner =
+        //     document.querySelector(".qld__banner--breadcrumbs") ||
+        //     document.querySelector(".qld__body--breadcrumb");
 
-        if (banner) {
-            const bannerBreadCrumbsAll = banner.querySelectorAll(
+        // if (document) {
+            const bannerBreadCrumbsAll = document.querySelectorAll(
                 "nav.qld__breadcrumbs"
             );
             const bannerBreadCrumbArray = [...bannerBreadCrumbsAll];
@@ -38,9 +38,9 @@
                 bannerBreadCrumb,
                 breadCrumbsUl,
             };
-        }
+        // }
 
-        return null;
+        // return null;
     }
 
     function createOverFlow() {
@@ -137,8 +137,7 @@
             const { breadCrumbsUl } = getTheElements();
 
             const breadCrumbsUlLis = breadCrumbsUl.querySelectorAll("li");
-
-            if (breadCrumbsUl.offsetHeight > breadCrumbsUlLis[0].offsetHeight && breadCrumbsUlLis.length > 2) {
+            if (breadCrumbsUl.offsetHeight > breadCrumbsUlLis[0].offsetHeight && breadCrumbsUlLis.length > 2 && breadCrumbsUlLis[0].offsetHeight > 0) {
                 
                 const overflowMenu = createOverFlow();
                 let breadcrumbLisLength = breadCrumbsUlLis.length;
@@ -148,16 +147,25 @@
                 appendOverflow(breadCrumbsUlLis, overflowMenu);
                 i = 2
 
-                while ( (breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
+                if(breadCrumbsUlLis.length > 5) {
+
+                    while(i < breadCrumbsUlLis.length - 1) {
+                        insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
+                        breadCrumbsUlLis[i].style.display = "none";
+                        i++;
+                    }
+
+                } else {
+                    while ( (breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
                     (i < breadcrumbLisLength - 1)
-                ) {
+                    ) {
 
-                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
-                    breadCrumbsUlLis[i].style.display = "none";
+                        insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
+                        breadCrumbsUlLis[i].style.display = "none";
 
-                    i++;
+                        i++;
+                    }
                 }
-
             }
         }
     };
