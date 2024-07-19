@@ -142,11 +142,14 @@
                 const overflowMenu = createOverFlow();
                 let breadcrumbLisLength = breadCrumbsUlLis.length;
                 let i = 1;
-                insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
-                breadCrumbsUlLis[1].style.display = "none";
-                appendOverflow(breadCrumbsUlLis, overflowMenu);
-                i = 2
+                
+                
                 if(breadCrumbsUlLis.length > 5) {
+
+                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
+                    breadCrumbsUlLis[1].style.display = "none";
+                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    i = 2;
 
                     while(i < breadCrumbsUlLis.length - 1) {
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
@@ -154,7 +157,13 @@
                         i++;
                     }
 
-                } else {
+                } else if((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9))) {
+
+                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
+                    breadCrumbsUlLis[1].style.display = "none";
+                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    i = 2;
+
                     while ( (breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
                     (i < breadcrumbLisLength - 1)
                     ) {
