@@ -151,7 +151,7 @@
                     appendOverflow(breadCrumbsUlLis, overflowMenu);
                     i = 2;
 
-                    while(i < breadCrumbsUlLis.length - 1) {
+                    while(i < breadCrumbsUlLis.length - 2) {
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
                         breadCrumbsUlLis[i].style.display = "none";
                         i++;
