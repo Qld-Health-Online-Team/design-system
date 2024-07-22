@@ -17,7 +17,14 @@
             const bannerBreadCrumbsAll = document.querySelectorAll(
                 "nav.qld__banner__breadcrumbs--desktop"
             );
-            const bannerBreadCrumbArray = [...bannerBreadCrumbsAll];
+
+            const bodyBreadCrumbsAll = document.querySelectorAll(
+                'section.qld__body--breadcrumb nav.qld__breadcrumbs'
+            );
+
+            console.log('we got this ', bodyBreadCrumbsAll)
+
+            const bannerBreadCrumbArray = [...bannerBreadCrumbsAll, ...bodyBreadCrumbsAll];
             const bannerBreadCrumb = bannerBreadCrumbArray.find(
                 (breadcrumb) => {
                     return breadcrumb.offsetWidth > 0;
@@ -164,8 +171,8 @@
                     appendOverflow(breadCrumbsUlLis, overflowMenu);
                     i = 2;
 
-                    while ( (breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
-                    (i < breadcrumbLisLength - 1)
+                    while ((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
+                    (i < breadcrumbLisLength - 2)
                     ) {
 
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
