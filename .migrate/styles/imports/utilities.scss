@@ -1,0 +1,185 @@
+// Screen Hidden Content
+.visuallyhidden {
+    @extend %screen-hide;
+}
+
+// When screen hidden content is focused restore it to view
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    @extend %screen-show;
+}
+
+// Bootstrap friendly class
+.sr-only {
+    @extend .visuallyhidden;
+}
+
+// Clear fix class for containers of floated elements
+.clearfix {
+    @extend %clearfix;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide visually and from screenreaders, but maintain layout
+.invisible {
+    visibility: hidden;
+}
+
+// Float classes
+.pull-left {
+    float: left;
+}
+img.pull-left {
+    margin-right: 1em;
+}
+
+.pull-right {
+    float: right;
+}
+img.pull-right {
+    margin-left: 1em;
+}
+
+// 16:9 Ratio container for embedded video
+// This container is suitable for something like youtube videos
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; // Video area
+    padding-top: 30px; // 30px controls container
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hide_content {
+    display: none;
+}
+
+.text-error {
+    color: $QLD-color-error;
+}
+
+.text-success {
+    color: $QLD-color-success;
+}
+
+.text-warning {
+    color: $QLD-color-warning;
+}
+
+.text-info {
+    color: $QLD-color-info;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.order-first {
+    order: -1;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.capitalised:first-letter {
+    text-transform: uppercase; 
+}
+
+.breakout {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.mt-0 {
+    @include QLD-space ( margin-top, 0 );
+}
+
+.mt-1 {
+    @include QLD-space ( margin-top, 1unit );
+}
+
+.mt-2 {
+    @include QLD-space ( margin-top, 2unit );
+}
+
+.mt-3 {
+    @include QLD-space ( margin-top, 3unit );
+}
+
+.mb-0 {
+    @include QLD-space ( margin-bottom, 0 );
+}
+
+.mb-1 {
+    @include QLD-space ( margin-bottom, 1unit );
+}
+
+.mb-2 {
+    @include QLD-space ( margin-bottom, 2unit );
+}
+
+.mb-3 {
+    @include QLD-space ( margin-bottom, 3unit );
+}
+
+.mx-0 {
+    @include QLD-space ( margin-left, 0 ); 
+    @include QLD-space ( margin-right, 0 );
+}
+
+.mx-1 {
+    @include QLD-space ( margin-left, 1unit ); 
+    @include QLD-space ( margin-right, 1unit );
+}
+
+.mx-2 {
+    @include QLD-space ( margin-left, 2unit ); 
+    @include QLD-space ( margin-right, 2unit );
+}
+
+.mx-3 {
+    @include QLD-space ( margin-left, 3unit ); 
+    @include QLD-space ( margin-right, 3unit );
+}
+
+.my-0 {
+    @include QLD-space ( margin-top, 0 ); 
+    @include QLD-space ( margin-bottom, 0 );
+}
+
+.my-1 {
+    @include QLD-space ( margin-top, 1unit ); 
+    @include QLD-space ( margin-bottom, 1unit );
+}
+
+.my-2 {
+    @include QLD-space ( margin-top, 2unit ); 
+    @include QLD-space ( margin-bottom, 2unit );
+}
+
+.my-3 {
+    @include QLD-space ( margin-top, 3unit ); 
+    @include QLD-space ( margin-bottom, 3unit );
+}
+

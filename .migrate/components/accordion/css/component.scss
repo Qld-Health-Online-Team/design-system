@@ -1,0 +1,330 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Accordion
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__accordion {
+	border: $QLD-border-width-thin solid var(--QLD-color-light-border);
+	display: block;
+	padding: 0;
+
+	&__title{
+		background-color: var(--QLD-color-light-background__shade);
+		@include QLD-underline('light');
+		@include QLD-fontgrid( md, heading );
+		@include QLD-space( padding, 1unit 3unit 1unit 1unit );
+		width: 100%;
+		display: block;
+		color: var(--QLD-color-light-link);
+		font-weight: normal;
+		position: relative;
+		border: none;
+
+		// button resets
+		box-sizing: border-box;
+		margin: 0;
+		cursor: pointer;
+		text-align: left;
+		font-family: inherit;
+		@include QLD-focus();
+
+		&:focus {
+			z-index: 100;
+			outline: 3px solid var(--QLD-color-light-focus);
+    		outline-offset: 2px;
+		}
+
+		// remove the default details arrow icon
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		.qld__icon{
+			color: var(--QLD-color-light-alt-button);
+			position: absolute;
+			@include QLD-space( right, 1unit );
+			z-index: 1;
+			transition: transform 0.25s ease-in;
+		}
+
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: 50%;
+			@include QLD-space( margin-top, -10px ); // Pull it up 10px
+			@include QLD-space( right, 1unit );
+			@include QLD-space( width, 1.5unit );
+			@include QLD-space( height, 1.5unit );
+			// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light-alt-button));
+			// background-repeat: no-repeat;
+			// background-position: center;
+			z-index: 1;
+			transition: transform 0.25s ease-in;
+			mask-image: QLD-svguri($QLD-icon-chevron-up);
+			mask-repeat: no-repeat;
+			mask-position: center;
+			background-color: var(--QLD-color-light-alt-button);
+		}
+
+		&.qld__accordion--closed::after {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&__body{
+		overflow: hidden;
+
+		// only listen to the state classes if js is enabled
+		.js & {
+			&.qld__accordion--open {
+				display: block;
+				height: auto;
+			}
+
+			&.qld__accordion--closed {
+				display: none;
+				height: 0;
+			}
+		}
+		& &-wrapper{
+			border-top: $QLD-border-width-thin solid var(--QLD-color-light-border);
+			color: var(--QLD-color-light-text);
+			background-color: var(--QLD-color-light-background);
+			@include QLD-space( padding, 1unit);
+
+			ul{
+				list-style: disc;
+				@include QLD-space(margin-left, 1.25unit);
+			}			
+		}
+	}
+
+	&__toggle{
+		font-weight: bold;
+		display: flex;
+		flex-direction: row;
+		justify-content: end;
+		@include QLD-space(padding, .5unit 0);
+		@include QLD-space(font-size, 0.75unit);
+		
+
+		&-btn{
+			@include QLD-underline('light');
+			background-color: transparent;
+			color: var(--QLD-color-light-link);
+			border: none;
+			cursor: pointer;
+			position: relative;
+			@include QLD-space( margin-right, 0.5unit );
+			&::after{
+				content: ' ';
+				position: absolute;
+				top: 50%;
+				@include QLD-space( margin-top, -0.5unit ); // Pull it up half of it's height
+				@include QLD-space( right, -.5unit );
+				@include QLD-space( width, .5unit );
+				@include QLD-space( height, 1unit );
+				// background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light-alt-button));
+				// background-repeat: no-repeat;
+				// background-position: center;
+				z-index: 101;
+				transition: transform 0.25s ease-in;
+				mask-image: QLD-svguri($QLD-icon-chevron-up);
+				mask-repeat: no-repeat;
+				mask-position: center;
+				background-color: var(--QLD-color-light-alt-button);
+			}
+			// .qld__icon{
+			// 	color: var(--QLD-color-light-alt-button);
+			// 	vertical-align: middle;
+			// 	transition: transform 0.25s ease-in;
+			// 	@include QLD-space( margin-left, 0.5unit );
+			// }
+			
+			&--closed {
+				&::after{
+					transform: rotate(-180deg);
+				}
+				
+			}
+		}
+	}
+
+	// Add spacing if there is an element before it
+	* + & {
+		@include QLD-space( margin-top, 1unit );
+	}
+
+	+ .qld__accordion {
+		@include QLD-space(
+			border-top,
+			solid var(--QLD-color-light-border) 0.0625unit
+		);
+	}
+}
+
+.qld__body--dark, .qld__body--dark-alt  {
+	.qld__accordion {
+		&__title {
+			
+			&:focus {
+				outline: 3px solid var(--QLD-color-dark-focus);
+				outline-offset: 2px
+			} 
+		}
+	}
+}
+
+.qld__accordion-group {
+	list-style: none;
+	padding: 0;
+	@include QLD-space(max-width, 47unit);
+
+	&:last-child{
+		@include QLD-space(margin-bottom, 0unit);
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.qld__accordion__toggle-btn{
+
+		.qld__body--dark &,
+		.qld__body--dark-alt &{
+			color: var(--QLD-color-dark-link);
+			@include QLD-underline('dark');
+
+			&::after{
+				background-color: var(--QLD-color-dark-alt-button);
+			}
+			
+		}
+	}
+
+	&--alt{
+		.qld__accordion{
+			border-color: var(--QLD-color-light-alt-border);
+		}
+
+		.qld__accordion__title{
+			background-color: var(--QLD-color-light-alt-background__shade);
+		}
+
+		.qld__accordion__body-wrapper{
+			background-color: var(--QLD-color-light-alt-background);
+			border-color: var(--QLD-color-light-alt-border);
+		}
+	}
+
+	&--dark{
+		.qld__accordion{
+			border-color: var(--QLD-color-dark-border);
+		}
+
+		.qld__accordion__title{
+			@include QLD-underline('dark');
+			background-color: var(--QLD-color-dark-background__shade);
+			color: var(--QLD-color-dark-link);
+
+			&::after{
+				background-color: var(--QLD-color-dark-alt-button);
+			}
+
+		}
+
+		.qld__accordion__body-wrapper{
+			background-color: var(--QLD-color-dark-background);
+			border-color: var(--QLD-color-dark-border);
+			color: var(--QLD-color-dark-text);
+
+			a{
+				color: var(--QLD-color-dark-link);
+				@include QLD-underline('dark');
+			}
+		}
+	}
+
+	&--dark-alt{
+		.qld__accordion{
+			border-color: var(--QLD-color-dark-alt-border);
+		}
+
+		.qld__accordion__title{
+			@include QLD-underline('dark');
+			background-color: var(--QLD-color-dark-alt-background__shade);
+			color: var(--QLD-color-dark-link);
+
+			&::after{
+				background-color: var(--QLD-color-dark-alt-button);
+			}
+		}
+
+		.qld__accordion__body-wrapper{
+			background-color: var(--QLD-color-dark-alt-background);
+			border-color: var(--QLD-color-dark-alt-border);
+			color: var(--QLD-color-dark-text);
+
+			a{
+				color: var(--QLD-color-dark-link);
+				@include QLD-underline('dark');
+			}
+		}
+	}
+}
+
+.qld__accordion + .qld__accordion {
+	margin-top: 0;
+	border-top: 0;
+}
+
+
+li + li .qld__accordion {
+	border-top: none;
+}
+
+.main {
+    * {
+        + .qld__accordion,
+        + .qld__accordion-group {
+            @include QLD-space(margin-top, 1.5unit);
+			@include QLD-space(margin-bottom, 1.5unit);
+
+			@include QLD-media(lg) {
+				@include QLD-space(margin-top, 2unit);
+			}
+			
+			&:last-child{
+				@include QLD-space(margin-bottom, 0unit);
+			}
+        }
+    }
+}
+
+
+@media print {
+	.qld__accordion {
+		border-color: #000 !important;
+		color: #000 !important;
+	}
+
+	.qld__accordion__title {
+		background: #fff !important;
+		color: #000 !important;
+		border: 1px !important;
+
+		&:after {
+			display: none;
+		}
+	}
+
+	.qld__accordion__body-wrapper {
+		border-color: #000 !important;
+	}
+
+	.qld__accordion__body {
+		height: auto !important;
+		display: block !important;
+	}
+}

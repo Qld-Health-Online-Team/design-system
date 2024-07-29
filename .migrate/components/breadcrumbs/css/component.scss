@@ -1,0 +1,235 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Breadcrumbs
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__breadcrumbs {
+    width: 100%;
+    
+    * + & {
+        @include QLD-space(margin-top, 1unit);
+    }
+    
+    @include QLD-media(sm) {
+        display: inline-block;
+    }
+    & &__list--desktop{
+        display: none;
+        @include QLD-media(md) {
+            display: inline-block;
+        }
+    }
+    & &__list--mobile{
+        @include QLD-media(md) {
+            display: none;
+        }
+    }
+    
+    > .qld__link-list {
+        margin: 0;
+        padding: 0;
+        @include QLD-fontgrid(xs, nospace);
+        vertical-align: text-bottom;
+
+        @include QLD-media(lg) {
+            @include QLD-fontgrid(sm);
+        }
+        
+        > li {
+            margin: 0; //Intentionally flush with the container, as breadcrumbs are designed to sit on a full viewport width bg.
+            display: none;
+            @include QLD-space(padding, 0.25unit 0);
+
+            a {
+                @include QLD-underline('light','underline','default','noVisited');
+                color: var(--QLD-color-light-link);
+            }
+
+            // .qld__icon{
+            //     @include QLD-space(margin, 0 0.5unit);
+            //     color: var(--QLD-color-light-alt-button);
+            //     @include QLD-space(height, 1unit);
+            // }
+            
+            &:after {
+                content: " ";
+                display: inline-block;
+                @include QLD-space(width, 0.5unit);
+                @include QLD-space(height, 1unit);
+                @include QLD-space(margin, 0 0.5unit);
+                // background-image: QLD-svg-with-fill($QLD-icon-chevron-right, var(--QLD-color-light-alt-button));
+                // background-size: contain;
+                // background-repeat: no-repeat;
+                vertical-align: middle;
+                mask-image: QLD-svguri($QLD-icon-chevron-right);
+                mask-repeat: no-repeat;
+                mask-position: center;
+                background-color: var(--QLD-color-light-alt-button);
+            }
+            
+            &:last-child:after {
+                display: none;
+            }
+            
+            .ie8 &,
+            .lt-ie8 & {
+                &:after {
+                    content: " > ";
+                    display: inline-block;
+                }
+            }
+
+            // Only show last two items on mobile
+            &:nth-last-child(-n + 2) {
+                display: inline-block;
+            }
+
+            @include QLD-media(lg) {
+                display: inline-block;
+            }
+        }
+    }
+
+    &.qld__breadcrumbs--dark,
+    &.qld__breadcrumbs--alt-dark,
+    .qld__body--dark &,
+    .qld__body--dark-alt &,
+    .qld__banner--dark &,
+    .qld__banner--dark-alt &{
+        color: var(--QLD-color-dark-text__muted);
+        
+        > .qld__link-list {
+            > li:not(:last-child){
+                &::after{
+                    background-color: var(--QLD-color-dark-alt-button);
+                }
+            }
+
+            > li {
+                a {
+                    // @include QLD-underline('dark');
+                    @include QLD-underline('dark','underline','default','noVisited');
+                    color: var(--QLD-color-dark-text);
+                }
+            }
+        }
+    }
+}
+
+.qld__banner__breadcrumbs--mobile {
+    @include QLD-space(padding, 1unit 1unit);
+    margin: 0;
+
+    @include QLD-media(md) {
+        display: none;
+    }
+
+    &.qld__breadcrumbs--alt {
+        background-color: var(--QLD-color-light-alt-background);
+    }
+
+    &.qld__breadcrumbs--dark {
+        background-color: var(--QLD-color-dark-background);
+    }
+
+    &.qld__breadcrumbs--alt-dark {
+        background-color: var(--QLD-color-dark-alt-background);
+    }
+
+}
+
+
+.qld__banner__breadcrumbs--desktop {
+    display: none;
+
+    @include QLD-media(md) {
+        @include QLD-space(margin, 0 0 1rem);
+        display: inline-block;
+
+        > .qld__link-list > li {
+            
+            // Hide current page
+            &:last-child {
+                display: none;
+            }
+
+            &:after {
+                content: none;
+            }
+        }   
+    }
+
+    @include QLD-media(lg) {
+        @include QLD-space(margin, 0 0 1.5rem);
+
+        > .qld__link-list > li {
+            display: inline-block;
+
+            &:last-child {
+                display: inline-block;
+            }
+
+            &:before {
+                content: none;
+            }
+
+            &:after {
+                content: " ";
+            }
+        }
+    }
+
+    ~ *:last-child {
+        @include QLD-media(md) {
+            @include QLD-space(margin-bottom, auto);
+        }
+    }
+}
+
+.qld__banner__breadcrumbs--mobile,
+.qld__banner__breadcrumbs--desktop,
+.qld__breadcrumbs__list--mobile {
+    li .qld__icon{
+     color: var(--QLD-color-light-alt-button);
+    }
+    
+    li::before {
+        @include QLD-space(width, 0.5unit);
+        @include QLD-space(height, 1unit);
+        @include QLD-space(margin, 0 0.25unit 0 0);
+        // background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-light-alt-button));
+        // background-size: 100%;
+        // background-repeat: no-repeat;
+        // background-size: contain;
+        content: " ";
+        display: inline-block;
+        vertical-align: middle;
+        background-position: center;
+        mask-image: QLD-svguri($QLD-icon-chevron-left);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		background-color: var(--QLD-color-light-alt-button);
+    }
+
+    &.qld__breadcrumbs--dark,
+    .qld__breadcrumbs--alt-dark,
+    .qld__banner--dark &,
+    .qld__banner--dark-alt &,
+    .qld__body--dark &,
+    .qld__body--dark-alt &  {
+
+        li::before{
+            background-color: var(--QLD-color-dark-alt-button);
+           }
+
+        // li::before {
+        //     background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-dark-alt-button));
+        // }
+    }
+}
+
+@media print {
+    .qld__breadcrumbs > .qld__link-list > li:after {
+        content: ">" !important;
+        background-image: none !important;
+    }
+}

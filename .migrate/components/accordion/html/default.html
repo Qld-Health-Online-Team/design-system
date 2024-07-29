@@ -1,0 +1,92 @@
+<div id="accordion--single1" class="component" data-component-id="accordion" data-asset-id="123"></div>
+<div id="accordion--single2" class="component" data-component-id="accordion" data-asset-id="123"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (e) {
+
+        var accordion1 = document.getElementById('accordion--single1');
+        var accordion2 = document.getElementById('accordion--single2');
+
+        if (accordion1) {
+            accordion1.outerHTML = accordionTemplate({
+                "containerId": "1",
+                "data": {
+                    "heading": {
+                        "value": "Single accordion",
+                        "fieldid": "450",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": true,
+                        "use_default": true
+                    },
+                    "intro": {
+                        "value": "<p>Some intro text<\/p>",
+                        "fieldid": "451",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_1": {
+                        "value": "Accordion title",
+                        "fieldid": "452",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_1": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "453",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    }
+                }
+            });
+        }
+
+        if (accordion2) {
+            accordion2.outerHTML = accordionTemplate({
+                "containerId": "2",
+                "data": {
+                    "heading": {
+                        "value": "Another single accordion",
+                        "fieldid": "450",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": true,
+                        "use_default": true
+                    },
+                    "intro": {
+                        "value": "",
+                        "fieldid": "451",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "title_1": {
+                        "value": "Accordion title",
+                        "fieldid": "452",
+                        "type": "metadata_field_text",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    },
+                    "content_1": {
+                        "value": "<p>Type something<\/p>",
+                        "fieldid": "453",
+                        "type": "metadata_field_wysiwyg",
+                        "is_contextable": true,
+                        "default_value": false,
+                        "use_default": true
+                    }
+                }
+            });
+        }
+
+    });
+
+</script>

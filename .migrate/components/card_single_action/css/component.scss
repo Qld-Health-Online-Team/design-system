@@ -1,0 +1,124 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Card single action
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__card.qld__card__action {
+    @include QLD-box-shadow(2);
+
+    // If any element inside the card receives focus, add a focus ring around the wrapper card div
+    &:focus-within {
+        outline: 3px solid var(--QLD-color-light-focus);
+        outline-offset: 2px;
+    }
+        
+    &:hover{
+        box-shadow: none;
+    }
+
+    @include QLD-media(lg) {
+        box-shadow: none;
+
+        &:hover{
+            @include QLD-box-shadow(4);
+        }
+    }
+    
+    //Card image 
+    &.qld__card--image{
+
+        &:hover{
+            .qld__responsive-media-img--bg::before{
+                content: '';
+                background-color: var(--QLD-color-dark-background);
+                opacity: .1;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                border-radius: 0px 0px 6.0882800608828%/10.81081081081081% 0px;
+            }
+        } 
+    }
+
+    //Card Icon
+    &.qld__card--icon {
+        .qld__card__icon{
+            i,
+            svg{
+                color: var(--QLD-color-light-alt-button);
+            }
+        }  
+        &:hover{
+            .qld__card__icon{
+                i,
+                svg{
+                    color: var(--QLD-color-light-alt-button__hover);
+                }
+            }    
+        }
+    }
+
+    &.qld__card--dark,
+    &.qld__card--dark-alt{
+
+        &.qld__card--icon {
+            .qld__card__icon{
+                i,
+                svg{
+                    color: var(--QLD-color-dark-alt-button);
+                }
+            } 
+            &:hover{
+                .qld__card__icon{
+                    i,
+                    svg{
+                        color: var(--QLD-color-dark-alt-button__hover);
+                    }
+                }    
+            }
+        }
+    }
+ 
+}
+
+.qld__card.qld__card--arrow {
+    .qld__card__content{
+        display: flex;
+        justify-content: space-between;
+
+        .qld__card__arrow{
+            @include QLD-space(width, 1.375unit);
+            @include QLD-space(height, 1.5unit);
+            flex: 0 0 auto;
+            transition: margin 0.2s ease;
+            color: var(--QLD-color-light-alt-button);
+            display: inline-block;
+            mask-image: QLD-svguri($QLD-icon-arrow-right);
+            mask-repeat: no-repeat;
+            mask-position: center;
+            background-color: var(--QLD-color-light-alt-button);
+            @include QLD-space(margin, auto 0 auto 1unit);
+        }
+
+        &:hover{
+            .qld__card__arrow{
+                background-color: var(--QLD-color-light-alt-button__hover);
+                @include QLD-space(margin-right, -.25unit);
+                @include QLD-space(margin-left, .25unit);
+            }
+        }
+    }
+
+    &.qld__card--dark,
+    &.qld__card--dark-alt{
+        .qld__card__arrow{
+            background-color: var(--QLD-color-dark-alt-button);
+        }
+        &:hover{
+            .qld__card__arrow{
+                background-color: var(--QLD-color-dark-alt-button__hover);
+            }
+        }
+    }
+}

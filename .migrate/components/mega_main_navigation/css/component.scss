@@ -1,0 +1,553 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Mega Main Navigation
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+.qld__main-nav.qld__main-nav--mega{
+    position: relative;
+
+    .qld__main-nav__item{
+
+        &-toggle{
+            position: relative;
+            @include QLD-space(min-height, 1.75unit);
+            @include QLD-space(min-width, 1.75unit);
+            background-color: var(--QLD-color-light-background);
+            @include QLD-space(margin, 0 .625unit);
+            align-self: center;
+            @include QLD-box-shadow(1);
+            border: none;
+            cursor: pointer;
+            @include QLD-space(border-radius, 50%);
+            @include QLD-focus();
+        
+            padding: 0;
+            color: var(--QLD-color-light-text);
+
+            @include QLD-media(md) {
+                @include QLD-space(min-height, 2unit);
+                @include QLD-space(min-width, 2unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-underline('light','noUnderline','default','noVisited');
+                @include QLD-space(margin, 0);
+                @include QLD-space(border-radius, 0);
+                box-shadow: none;
+                line-height: 32px;
+                background-color: transparent;
+                display: flex;
+            }
+
+            &:hover{
+                @include QLD-box-shadow(3);
+                color: var(--QLD-color-light-link);
+                @include QLD-media(lg) {
+                    box-shadow: none;
+                    background-color: var(--QLD-color-light-alt-background);
+                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light-button__hover);
+                    @include QLD-space(margin-bottom, -.5unit);
+                }
+            }
+            .qld__icon{
+                color: var(--QLD-color-light-alt-button);
+                transition: transform 0.25s ease-in;
+                
+                @include QLD-media(lg) {
+                    margin: 0 8px 0 8px;
+                }
+                @include QLD-media(xl) {
+                    margin: 0 12px 0 8px;
+                }
+            }
+
+
+            &.qld__accordion--closed .qld__icon {
+                transform: rotate(-180deg);
+            }
+
+            &.qld__accordion--open{
+
+                @include QLD-media(lg) {
+                    z-index: 2;
+                    background-color: var(--QLD-color-light-background);
+                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light-background);
+                    @include QLD-space(margin-bottom, -0.5unit);
+
+                    &:hover{
+                        background-color: var(--QLD-color-light-background__shade);
+                        border-color: var(--QLD-color-light-button__hover);
+                    }
+                }
+
+            }
+            
+            &-text{
+                display: none;
+                @include QLD-media(lg) {
+                    @include QLD-space(padding, .625unit 0unit .625unit .5unit);
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &::before{
+                        content: attr(data-name) / "";
+                        height: 0;
+                        visibility: hidden;
+                        overflow: hidden;
+                        user-select: none;
+                        pointer-events: none;
+                        font-weight: bold;
+                    }
+                    
+                }
+
+                @include QLD-media(xl) {
+                    @include QLD-space(padding, .625unit 0unit .625unit .75unit);
+                }
+            }
+        }
+
+        &-link{
+            @include QLD-media(lg) {
+                display: block;
+                @include QLD-space(padding, .625unit .5unit .625unit .5unit);
+                @include QLD-underline('light','noUnderline','default','noVisited');
+            }
+
+            @include QLD-media(xl) {
+                @include QLD-space(padding, .625unit .75unit .625unit .75unit);
+            }
+            
+            &--open{
+                background-color: var(--QLD-color-light-background);
+                color: var(--QLD-color-light-link);
+                font-weight: bold;
+                @include QLD-space(border-top-right-radius, 1unit);
+
+                &:hover{
+                    background-color: var(--QLD-color-light-background);
+                    color: var(--QLD-color-light-link);
+                }
+            }
+
+            &.qld__main-nav__item-home{
+
+                @include QLD-media(lg) {                 
+
+                    .qld__main-nav__item-icon{
+                        @include QLD-space(margin, 0);
+                        line-height: 1;
+                    }
+
+                    .qld__main-nav__item-text{
+                        display: none;
+                    }
+                }
+            }
+
+            &--desktop-hide{
+                @include QLD-media(lg) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    li {
+        a {
+            .qld__main-nav__sub-item-text {
+                max-width: 90%;
+            }
+        }
+    }
+
+    .qld__main-nav__menu-sub{
+        background-color: var(--QLD-color-light-background);
+        z-index: 10;
+
+        @include QLD-media(lg) {
+            position: absolute;
+            left: -16px;
+            right: -16px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 2px 2px rgba(0, 0, 0 ,0.05);
+            border-radius: 12px;
+            @include QLD-space(margin-top, 0.5unit);
+            @include QLD-box-shadow(2);
+            @include QLD-space(border-bottom-left-radius, 0.75unit);
+            @include QLD-space(border-bottom-right-radius, 0.75unit);
+        }
+
+        .qld__main-nav__menu-sub-inner{
+            @include QLD-media(lg) {
+                @include QLD-space(padding, 2unit 3unit);
+            }
+            @include QLD-media(xl) {
+                @include QLD-space(padding, 3unit 4unit);
+            }
+        }
+
+        a.qld__main-nav__sub-heading{
+            display: none;
+
+            width: 85%;
+
+            @include QLD-media(lg) {
+                display: inline-flex;
+                align-items: center;
+                border-bottom: none;
+                color: var(--QLD-color-light-link);
+                margin: 0;
+                @include QLD-space(padding, 0);
+
+                .qld__icon{
+                    color: var(--QLD-color-light-alt-button);
+                    @include QLD-space(margin, 0 0 0 .875unit);
+                    transition: margin 0.2s ease;
+                }
+
+                &:hover{
+                    background-color: transparent;
+
+                    .qld__icon{
+                        @include QLD-space(margin, 0 -4px 0 1.25unit);
+                        color: var(--QLD-color-light-alt-button__hover);
+                    }
+                }
+
+                .qld__main-nav__sub-item-text{
+                    color: var(--QLD-color-light-link);
+                }
+            }
+        }
+
+        .qld__main-nav__item-desc{
+            display: none;
+
+            @include QLD-media(lg) {
+                display: block;
+            }
+        }
+
+        .qld__horizontal-rule{
+            display: none;
+            @include QLD-media(lg) {
+                display: block;
+            }
+        }
+
+        .qld__link-columns{
+            @include QLD-media(lg, 'down') {
+                margin: 0;
+            }
+
+            background-color: var(--QLD-color-light-background);
+            &::before,
+            &::after{
+                display: none;
+            }
+            @include QLD-media(lg) {
+                max-height: 500px;
+            }
+
+            @include QLD-media(xl) {
+                @include QLD-space(margin-top, 2unit);
+            }
+
+            li {
+                @include QLD-media(lg, 'down') {
+                    padding: 0;
+                }
+                @include QLD-space(margin, 0);
+
+                &::after{
+                    display: none;
+                }
+
+                @include QLD-media(lg) {
+                    display: inline-block;
+                    width: 100%; 
+                    float: none;
+
+                    &::after{
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        @include QLD-space(top, 1unit);
+                    }
+                }
+
+                &:hover{
+                    background-color: var(--QLD-color-light-alt-background);
+                    @include QLD-media(lg) {
+                        background-color: transparent;
+                    }
+                }
+
+                a{
+                    @include QLD-underline('light','noUnderline','default','noVisited');
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: relative;
+                    margin: 0;
+                    background-color: transparent;
+                    color: var(--QLD-color-light-link);
+                    border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
+                    width: 100%;
+
+                    @include QLD-media(lg) {
+                        color: var(--QLD-color-light-link);
+                        border: none;
+                        @include QLD-space(padding, 0);
+                    }
+                    
+                    &:hover{
+                        border-color: var(--QLD-color-light-button);
+                        background-color: var(--QLD-color-light-background);
+                                             
+
+                        .qld__main-nav__sub-item-text .qld__icon{
+                            @include QLD-space(margin, 0 -4px 0 1unit);
+                            color: var(--QLD-color-light-alt-button__hover);
+                        }
+                    }
+                }
+
+                .qld__main-nav__sub-item-text{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
+                    @include QLD-fontgrid(xs);             
+                    border-bottom:solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                    @include QLD-media(md) {
+                        @include QLD-fontgrid(sm);
+                    }      
+                    @include QLD-media(lg) {
+                        padding: 0;
+                        border-bottom: none;
+                        font-weight: bold;
+                    }
+
+                    .qld__icon{
+                        display: none;
+                        color: var(--QLD-color-light-alt-button);
+                        @include QLD-space(margin, 0 0 0 1unit);
+                        flex: 0 0 auto;
+                        transition: margin 0.2s ease;
+
+                        @include QLD-media(lg) {
+                            display: block;
+                        }
+                    }
+                }
+
+                &:hover{
+                    border-color: var(--QLD-color-light-button);
+                    background-color: var(--QLD-color-light-background);
+
+                    @include QLD-media(lg) {
+                        background-color: transparent;
+                    }
+
+                    .qld__main-nav__sub-item-text .qld__icon{
+                        @include QLD-space(margin, 0 -4px 0 1unit);
+                        color: var(--QLD-color-light-alt-button__hover);
+                    }
+                }
+
+                &:nth-child(-n+3){
+                    .qld__main-nav__sub-item-text {
+                        border-top: none;
+                    }
+                    
+                }
+                
+                .qld__main-nav__item-desc{
+                    color: var(--QLD-color-light-text__muted);
+                    @include QLD-fontgrid(xs);
+                    font-weight: normal;
+                }
+
+                &.active{
+                    .qld__main-nav__sub-item-text{
+                        width: 100%;
+                        display: block;
+                        font-weight: bold;
+                        border-left: solid 4px transparent;
+                    }
+                }
+
+                &:not(.active) {
+                    font-weight: normal;
+                }
+
+                &.qld__main-nav__item--has-desc{
+                    box-shadow: none;
+                    padding: 0;
+                    .qld__main-nav__sub-item-text{
+
+                        @include QLD-media(lg) {
+                            @include QLD-space(padding, 1unit 0);
+                        }
+                    }
+
+                    .qld__main-nav__sub-item-text{
+                        color: var(--QLD-color-light-link);
+                        border-bottom: solid $QLD-border-width-thin  var(--QLD-color-light-border);
+                    }
+                }
+                 
+            }
+        }
+
+        .qld__main-nav__sub-footer{
+            .qld__cta-link{
+                display: flex;
+                width: 100%;
+                @include QLD-space(padding, 0.875unit 1unit 0.9375unit 1.5unit);
+                @include QLD-space(font-size, .875unit);
+                @include QLD-space(line-height, 1.5unit);
+                border-left: solid $QLD-border-width-thick var(--QLD-color-light-alt-background);
+
+                @include QLD-media(lg) {
+                    color: var(--QLD-color-light-link);
+                    border: none;
+                    justify-content: end;
+                    display: inline-flex;
+                    @include QLD-space(padding, 0);
+                    @include QLD-space(font-size, 1.25unit);
+                    @include QLD-space(line-height, 1.5unit);
+                }
+
+                &:hover{
+                    color: var(--QLD-color-light-link);
+                    border-color: var(--QLD-color-light-button);
+                    background-color: var(--QLD-color-light-background);
+                }
+            }
+        }
+    }
+
+    &.qld__main-nav--dark  {
+        .qld__main-nav__menu{
+            .qld__main-nav__item-title{
+
+            }
+            .qld__main-nav__item-link--open{
+                background-color: var(--QLD-color-dark-background);
+                &:hover{
+                    color: var(--QLD-color-dark-link);
+                }
+            }
+            @include QLD-media(lg) {
+                .qld__main-nav__item-toggle{
+                    @include QLD-underline('dark','noUnderline','default','noVisited');
+                    color: var(--QLD-color-dark-link);
+                    fill:var(--QLD-color-dark-link);
+
+                    &.qld__accordion--open{
+                        background-color: var(--QLD-color-dark-background);
+                        border-color: var(--QLD-color-dark-background);
+                    }
+
+                    .qld__icon{
+                        color: var(--QLD-color-dark-alt-button);
+                    }
+
+                    &:hover{
+                        border-bottom-color: var(--QLD-color-dark-alt-button__hover);
+                        background-color: var(--QLD-color-dark-background__shade);
+                    }
+                }
+                .qld__main-nav__item-link {
+                    @include QLD-underline('dark','noUnderline','default','noVisited');
+                }
+            }
+
+            .qld__main-nav__menu-sub{
+                background-color: var(--QLD-color-dark-background);
+
+                a.qld__main-nav__sub-heading{
+                    .qld__main-nav__sub-item-text{
+                        color: var(--QLD-color-dark-link);
+                    }
+
+                    .qld__icon{
+                        color: var(--QLD-color-dark-alt-button);
+                    }
+                }
+
+                .qld__main-nav__item-desc{
+                    color: var(--QLD-color-dark-text);
+
+                }
+
+                .qld__link-columns{
+                    background-color: var(--QLD-color-dark-background);
+
+                    li{
+                        a{
+                            @include QLD-underline('dark','noUnderline','default','noVisited');
+                            color: var(--QLD-color-dark-link);
+                            border-color: var(--QLD-color-dark-background__shade);
+
+                            .qld__main-nav__sub-item-text{
+                                border-color: var(--QLD-color-dark-border);
+                                color: var(--QLD-color-dark-link);
+
+                                .qld__icon{
+                                    color: var(--QLD-color-dark-alt-button);
+                                }
+                            }
+
+                            &:hover{
+                                background-color: var(--QLD-color-dark-background);
+                            }
+                        }
+                        .qld__main-nav__sub-item-text{
+                            color: var(--QLD-color-dark-link);
+                        }
+                    }
+                }
+                .qld__main-nav__sub-footer{
+                    border-bottom: solid $QLD-border-width-default var(--QLD-color-dark-background);
+                    .qld__cta-link{
+                        background-color: var(--QLD-color-dark-background);
+                        border-color: var(--QLD-color-dark-background__shade);
+                        color: var(--QLD-color-dark-link);
+
+                        &:hover{
+                            background-color: var(--QLD-color-dark-background);
+                        }
+                     
+                    }
+                }
+           }
+        }
+    }
+
+    .qld__main-nav__menu-inner {
+
+        div.qld__mega-nav_mobile-filler-120 {
+            display: block;
+            height: 0;
+            padding-bottom: 120px;
+    
+            @include QLD-media(lg) {
+                display: none;
+            }
+        }
+    
+        div.qld__mega-nav_mobile-filler-60 {
+            display: block;
+            height: 0;
+            padding-bottom: 60px;
+    
+            @include QLD-media(lg) {
+                display: none;
+            }
+        }
+    
+    }
+}
+

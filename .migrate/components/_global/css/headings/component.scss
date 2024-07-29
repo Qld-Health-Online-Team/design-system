@@ -1,0 +1,222 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// headings module
+// Class styles for display headings.
+//
+// Content:
+// - Basic styles for all headings
+// - Default spacing
+// - Unique styles for individual headings
+// - Typographic spacing for .qld__body only
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// HEADINGS/DISPLAY STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+ * Basic styles for all headings
+ */
+.qld__header,
+.qld__header__main,
+.qld__body,
+.qld__footer,
+.qld__banner,
+.qld__main-nav{
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .qld__display-xxxl,
+    .qld__display-xxl,
+    .qld__display-xl,
+    .qld__display-lg,
+    .qld__display-md,
+    .qld__display-sm,
+    .qld__display-xs{
+        font-family: $QLD-font;
+        font-weight: 600;
+        margin: 0;
+        color: var(--QLD-color-light-heading);
+        max-width: 80ch;
+    }
+
+    &.qld__body--dark,
+    &.qld__body--dark-alt,
+    &.qld__header__main--dark,
+    &.qld__header__main--dark-alt {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .qld__display-xxxl,
+        .qld__display-xxl,
+        .qld__display-xl,
+        .qld__display-lg,
+        .qld__display-md,
+        .qld__display-sm,
+        .qld__display-xs{
+           color: var(--QLD-color-dark-heading);
+        }
+    }
+
+    /**
+    * Typographic spacing for QLD-body only
+    * Larger space for larger headings has been added to improve legibility in large blocks of text.
+    * This provides area's of eye-rest and uses spacing to create visual sections
+    * Also ref. https://github.com/govau/design-system-components/issues/282
+    */
+
+    h1{
+        @include QLD-fontgrid(xl, heading);
+
+        @include QLD-media(lg) {
+            @include QLD-fontgrid(xxl, heading);
+        }
+    }
+
+    h2{
+        @include QLD-space(font-size, 1.75unit); 
+        @include QLD-space(line-height, 2.25unit);
+
+        @include QLD-media(lg) {
+            @include QLD-fontgrid(xl, heading);
+        }
+    }
+
+    h3{
+        @include QLD-fontgrid(lg, heading);
+    }
+
+    h4{
+        @include QLD-fontgrid(md, heading);
+    }
+
+    h5{
+        @include QLD-fontgrid(sm, heading);
+    }
+
+    h6{
+        @include QLD-fontgrid(xs, heading);
+    }
+
+    .qld__display-xxxl{
+        font-size: $QLD-font-size-mobile-xxxl;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-xxxl;
+        }
+    }
+    
+    .qld__display-xxl{
+        font-size: $QLD-font-size-mobile-xxl;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-xxl;
+        }
+    }
+    
+    .qld__display-xl{
+        font-size: $QLD-font-size-mobile-xl;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-xl;
+        }
+    }
+    
+    .qld__display-lg{
+        font-size: $QLD-font-size-mobile-lg;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-lg;
+        }
+    }
+    
+    .qld__display-md{
+        font-size: $QLD-font-size-mobile-md;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-md; 
+        }
+    }
+    
+    .qld__display-sm{
+        font-size: $QLD-font-size-mobile-sm;
+    
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-sm;
+        }
+    }
+    
+    .qld__display-xs{
+       font-size: $QLD-font-size-mobile-xs;
+    
+       @include QLD-media(lg) {
+        font-size: $QLD-font-size-desktop-xs;
+        }
+    
+    }
+
+    /**
+    * Default margin-top
+    */
+
+    *:not([type="hidden"]){
+        + .qld__display-xxxl{
+            @include QLD-space(margin-top, 2.25unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 3.5unit);
+            }
+        }
+
+        + h1,
+        + .qld__display-xl{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 4unit);
+            }
+        }
+
+        + .qld__display-lg,
+        + h2{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 3unit);
+            }
+        }
+
+        + .qld__display-md,
+        + h3{
+            @include QLD-space(margin-top, 2unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 2.5unit);
+            }
+        }
+
+        + .qld__display-sm,
+        + h4{
+            @include QLD-space(margin-top, 1.25unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 2unit);
+            }
+        }
+
+        + .qld__display-xs,
+        + h5,
+        + h6{
+            @include QLD-space(margin-top, 1.25unit);
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin-top, 1.5unit);
+            }
+        }
+    }
+}
+

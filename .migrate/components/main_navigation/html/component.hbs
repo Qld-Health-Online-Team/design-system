@@ -1,0 +1,88 @@
+<!-- MAIN NAVIGATION -->
+<nav class="qld__main-nav {{site.metadata.mainNavStyle.value}}" id="#mainmenu" aria-label="main">
+    <div class="container-fluid">
+        <div class="qld__main-nav__content {{#ifCond site.metadata.hideMenuDesktop.value '==' 'yes'}}qld__main-nav__no-desktop{{/ifCond}}" id="main-nav">
+            <div class="qld__main-nav__menu
+            {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark'}}qld__main-nav__menu--dark{{/ifCond}}
+            {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark-alt'}}qld__main-nav__menu--dark-alt{{/ifCond}}
+            ">
+                <div class="qld__main-nav__menu-inner">
+                    <div class="qld__main-nav__focus-trap-top"></div>
+                    <div class="qld__main-nav__header">
+                        <h6 class="qld__main-nav__menu-heading">Menu</h6>
+                        <button aria-controls="main-nav" class="qld__main-nav__toggle qld__main-nav__toggle--close">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
+                            <span class="qld__main-nav__toggle-text">Close</span>
+                        </button>
+                    </div>
+                    <ul class="qld__link-list qld__link-list--flex">
+                        {{#if site.metadata.mainNavHomeIconShow.value}}
+                        <li class="{{#if current.home}}active{{/if}} qld__main-nav__item">
+                            <div class="qld__main-nav__item-title">
+                                <a class="qld__main-nav__item-link" {{#if current.home}}aria-current="page"{{/if}} href="./?a={{site.data.assetid}}">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
+                                    <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
+                                </a>
+                            </div>
+                        </li>
+                        {{/if}}
+                        {{#each site.children}}
+                        <li class="qld__main-nav__item {{#ifCond asset_assetid '==' ../current.data.assetid}}active{{/ifCond}}{{#ifCond asset_assetid '==' ../current.top.asset_assetid}}active{{/ifCond}}">
+                            <div class="qld__main-nav__item-title">
+                                <a class="qld__main-nav__item-link" {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}" >
+                                    <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">{{{asset_short_name}}}</span>
+                                </a>
+                            </div>
+                        </li>
+                        {{/each}}
+                        
+                    </ul>
+                    {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
+                        {{#ifCond site.metadata.mainNavCtaOne.value '&&' site.metadata.mainNavCtaTwo.value}}
+                            <div class="qld__mega-nav_mobile-filler-120"></div>
+                        {{else}}
+                            <div class="qld__mega-nav_mobile-filler-60"></div>
+                        {{/ifCond}}
+                    {{/ifCond}}
+                    {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
+                    <div class="qld__main-nav__cta-wrapper">
+                        <ul class="qld__link-list qld__link-list--flex">
+                        {{#if site.metadata.mainNavCtaOne.value}}
+                            <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}active{{/ifCond}}">
+                                <div class="qld__main-nav__item-title">
+                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaOne.value}}" >
+                                        {{#if site.metadata.mainNavCtaOneIcon.value}}
+                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaOneIcon.value}}"></i>
+                                        {{/if}}
+                                        <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaOneText.value}}}">{{{site.metadata.mainNavCtaOneText.value}}}</span>
+                                    </a>
+                                </div>
+                            </li>
+                            {{/if}}
+                            {{#if site.metadata.mainNavCtaTwo.value}}
+                            <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}active{{/ifCond}}">
+                                <div class="qld__main-nav__item-title">
+                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaTwo.value}}" >
+                                        {{#if site.metadata.mainNavCtaTwoIcon.value}}
+                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaTwoIcon.value}}"></i>
+                                        {{/if}}
+                                        <span class="qld__main-nav__item-text" data-name="{{{site.metadata.mainNavCtaTwoText.value}}}">{{{site.metadata.mainNavCtaTwoText.value}}}</span>
+                                    </a>
+                                </div>
+                            </li>
+                        {{/if}}
+                        </ul>
+                    </div>
+                    {{/ifCond}}
+                    
+                    <div class="qld__main-nav__focus-trap-bottom"></div>
+                </div>
+            </div>
+            <div
+                class="qld__main-nav__overlay"
+                aria-controls="main-nav"
+            ></div>
+        </div>
+    </div>
+</nav>
+<!-- MAIN NAVIGATION END -->

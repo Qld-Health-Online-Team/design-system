@@ -1,0 +1,108 @@
+<h1>{{manifest.component.name}}</h1>
+<!--@@ Component Version @@-->
+<div class="qld__version">
+    <h5 class="qld__version__heading">Version {{manifest.component.version}}</h5>
+        <div class="qld__version__status {{manifest.component.status}}">
+            <i class="far 
+            {{#ifCond mani-fest.component.status '==' 'In Development'}}
+            fa-code
+            {{/ifCond}}
+            {{#ifCond manifest.component.status '==' 'Pending Release'}}
+            fa-clock
+            {{/ifCond}}
+            {{#ifCond manifest.component.status '==' 'Released'}}
+            fa-check-circle
+            {{/ifCond}}
+            {{#ifCond manifest.component.status '==' 'Depricated'}}
+            fa-level-down-alt
+            {{/ifCond}}
+            {{#ifCond manifest.component.status '==' 'Removed'}}
+            fa-times
+            {{/ifCond}}
+            "></i>
+            <small>Status</small>
+            {{manifest.component.status}}
+        </div>
+</div>
+                
+<!--@@ Component Description @@-->
+<div class="qld__abstract">
+    <p>{{manifest.component.description}}</p>
+</div>
+
+<div class="qld__example">
+    <div role="tablist" aria-label="Component output">
+        <button role="tab" aria-selected="true" aria-controls="cp-tab--body" id="cp-heading--body" class="qld__example__title qld__tab qld__tab--selected">Output</button>
+        <button role="tab" aria-selected="false" aria-controls="cp-tab--html" id="cp-heading--html" class="qld__example__title qld__tab">HTML</button>
+    </div>
+    
+
+    <div role="tabpanel" id="cp-tab--body" aria-labelledby="cp-heading--body" class="qld__example__inline component_output qld__tab_panel" >
+        {{{component_output}}}
+    </div>
+
+    <div role="tabpanel" id="cp-tab--html" aria-labelledby="cp-heading--html" class="qld__example__inline qld__tab_panel" hidden="hidden">
+        <pre class="qld__example__html"><code class="component_output">{{component_output}}</code></pre>
+    </div>
+</div>
+
+
+<div class="qld__model_editor">
+    <script>
+        const componentModel = {{{jsonStringify manifest}}};
+        const component = '{{{component}}}';
+        const renderCallback = '{{{callback}}}';
+        const previewDelay = '{{{debounce}}}' ? Number('{{{debounce}}}') : 50;
+    </script>
+
+
+
+    {{#ifCond manifest.component.type '==' 'design'}}
+
+    {{else}}
+    <h3>Component Attributes</h3>
+    <div class="qld__fieldset">
+        <table class="qld__table qld__table--striped qld__table__attributes">
+            <thead class="qld__table__head">
+            <tr>
+                <th class="qld__table__header">Name</th>
+                <th class="qld__table__header">Friendly Name</th>
+                <th class="qld__table__header">Default</th>
+            </tr>
+            </thead>
+            <tbody class="qld__table__body">
+            {{#each manifest.component.data.metadata}}
+            <tr class="qld__table__row">
+                <td class="qld__table__cell">{{@key}}</td>
+                <td class="qld__table__cell">{{friendly_name}}</td>
+                <td class="qld__table__cell">
+                {{#ifCond type '==' 'metadata_field_text'}}
+                    <input type="text" name="{{@key}}" value="{{value}}" class="qld__model_field format-{{format}}">
+                {{/ifCond}}
+                {{#ifCond type '==' 'metadata_field_date'}}
+                    <input type="datetime-local" name="{{@key}}" value="{{value}}" class="qld__model_field">
+                {{/ifCond}}
+                {{#ifCond type '==' 'metadata_field_wysiwyg'}}
+                    <textarea name="{{@key}}" class="qld__model_field">{{value}}</textarea>
+                {{/ifCond}}
+                {{#ifCond type '==' 'metadata_field_textarea'}}
+                    <textarea name="{{@key}}" class="qld__model_field">{{value}}</textarea>
+                {{/ifCond}}
+                {{#ifCond type '==' 'metadata_field_related_asset'}}
+                    <input type="text" name="{{@key}}" value="{{value}}" class="qld__model_field">
+                {{/ifCond}}
+                {{#ifCond type '==' 'metadata_field_select'}}
+                    <select name="{{@key}}" class="qld__model_field">
+                        {{#each options}}
+                            <option value="{{@key}}" {{#ifCond @key '==' ../value}}selected{{/ifCond}}>{{this}}</option>
+                        {{/each}}
+                    </select>
+                {{/ifCond}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>      
+    </div>
+    {{/ifCond}}
+</div>
+

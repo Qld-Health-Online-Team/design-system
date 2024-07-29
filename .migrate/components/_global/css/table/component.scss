@@ -1,0 +1,502 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// table module
+// Used to display tabular data
+//
+// Content:
+// - sass-versioning
+// - globals
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+.qld__caption {
+    font-style: normal;
+    color: var(--QLD-color-light-text__muted);
+    font-size: 14px;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    font-weight: 400;
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        color: var(--QLD-color-dark-text__muted);
+    }
+}
+
+.qld__table,
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+    .qld__table__caption,
+    caption {
+        @include QLD-fontgrid(md, heading);
+        line-height: 1.6;
+        font-weight: bold;
+        text-align: left;
+        display: table-caption;
+        @include QLD-space(padding, 0.75unit);
+        color: var(--QLD-color-light-heading);
+        box-shadow: inset 0 -1px 0 var(--QLD-color-light-border);
+        background-color: var(--QLD-color-light-background);
+
+        .qld__caption {
+            display: block;
+        }
+    }
+
+    .qld__table__head,
+    thead {
+        text-align: left;
+        display: table-header-group;
+
+        tr {
+            &:nth-child(2) {
+                background-color: var(--QLD-color-light-background__shade);
+            }
+        }
+    }
+
+    .qld__table__header,
+    th {
+        // @include QLD-standard-space(padding, 5 4 5 4);
+        padding: 1.25rem 0.75rem 1.25rem 0.75rem;
+        box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light-designAccent);
+        color: var(--QLD-color-light-heading);
+        font-weight: bold;
+        @include QLD-fontgrid(sm, heading);
+        line-height: 1.5;
+        &.qld__table__cell--numeric {
+            text-align: right;
+            font-variant: tabular-nums;
+        }
+
+        &.qld__table__cell--middle {
+            text-align: center;
+        }
+
+        &.qld__table__header--width-10 {
+            width: 10%;
+        }
+
+        &.qld__table__header--width-15 {
+            width: 15%;
+        }
+
+        &.qld__table__header--width-20 {
+            width: 20%;
+        }
+
+        &.qld__table__header--width-25 {
+            width: 25%;
+        }
+
+        &.qld__table__header--width-33 {
+            width: 33%;
+        }
+
+        &.qld__table__header--width-40 {
+            width: 40%;
+        }
+
+        &.qld__table__header--width-50 {
+            width: 50%;
+        }
+
+        &.qld__table__header--width-75 {
+            width: 75%;
+        }
+    }
+
+    @for $i from 1 through 10 {
+        &.qld__table__col-#{$i}-num {
+            tr {
+
+                td:nth-child(#{$i}),
+                th:nth-child(#{$i}):not([colspan]) {
+                    text-align: right;
+                    font-variant: tabular-nums;
+                }
+            }
+        }
+    }
+
+    .qld__table__cell,
+    td {
+        @include QLD-standard-space(padding, 3);
+        box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-light-border);
+
+        &.qld__table__cell--numeric {
+            text-align: right;
+            font-variant: tabular-nums;
+        }
+
+        &.qld__table__cell--middle {
+            text-align: center;
+        }
+    }
+
+    .qld__table__row,
+    tr {
+        display: table-row;
+    }
+
+    tfoot {
+        box-shadow: 0 -2px 0 var(--QLD-color-light-designAccent);
+        background-color: var(--QLD-color-light-background);
+
+        td {
+            box-shadow: none;
+            font-weight: 600;
+            &:first-of-type {
+                border-radius: 0 0 $QLD-border-radius-sm 0;
+            }
+        }
+    }
+
+    .qld__table__cell-left-border {
+        border-left: 1px solid var(--QLD-color-light-border);
+    }
+
+    .qld__table__cell-right-border {
+        border-right: 1px solid var(--QLD-color-light-border);
+    }
+
+    &.qld__table__col-1-left-border tr td:nth-child(1),
+    &.qld__table__col-2-left-border tr td:nth-child(2),
+    &.qld__table__col-3-left-border tr td:nth-child(3),
+    &.qld__table__col-4-left-border tr td:nth-child(4),
+    &.qld__table__col-5-left-border tr td:nth-child(5),
+    &.qld__table__col-6-left-border tr td:nth-child(6),
+    &.qld__table__col-7-left-border tr td:nth-child(7),
+    &.qld__table__col-8-left-border tr td:nth-child(8),
+    &.qld__table__col-9-left-border tr td:nth-child(9),
+    &.qld__table__col-10-left-border tr td:nth-child(10) {
+        border-left: 1px solid var(--QLD-color-light-border);
+    }
+
+    &.qld__table__col-1-right-border tr td:nth-child(1),
+    &.qld__table__col-2-right-border tr td:nth-child(2),
+    &.qld__table__col-3-right-border tr td:nth-child(3),
+    &.qld__table__col-4-right-border tr td:nth-child(4),
+    &.qld__table__col-5-right-border tr td:nth-child(5),
+    &.qld__table__col-6-right-border tr td:nth-child(6),
+    &.qld__table__col-7-right-border tr td:nth-child(7),
+    &.qld__table__col-8-right-border tr td:nth-child(8),
+    &.qld__table__col-9-right-border tr td:nth-child(9),
+    &.qld__table__col-10-right-border tr td:nth-child(10) {
+        border-right: 1px solid var(--QLD-color-light-border);
+    }
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+
+        .qld__table__head,
+        thead {
+            tr {
+                &:nth-child(2) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+
+        .qld__table__header,
+        th {
+            color: var(--QLD-color-dark-heading);
+            // box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-dark-border);
+            -webkit-box-shadow: inset 0 -2px 0 var(---QLD-color-dark-designAccent);
+            box-shadow: inset 0 -2px 0 var(--QLD-color-dark-designAccent);
+
+            tr {
+                &:nth-child(2) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+
+        .qld__table__cell,
+        td {
+            box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-dark-border);
+        }
+
+        caption,
+        .qld__table__caption {
+            color: var(--QLD-color-dark-heading);
+            box-shadow: inset 0 -1px 0 var(--QLD-color-dark-border);
+            background-color: var(--QLD-color-dark-background);
+        }
+
+        tfoot {
+            background-color: var(--QLD-color-dark-background);
+            -webkit-box-shadow: inset 0 2px 0 var(--QLD-color-dark-designAccent);
+            box-shadow: 0 -2px 0 var(--QLD-color-dark-designAccent);
+
+            td {
+                box-shadow: none;
+
+                &:first-of-type {
+                    border-radius: 0 0 $QLD-border-radius-sm 0;
+                }
+            }
+        }
+
+        .qld__table__cell-left-border {
+            border-left: 1px solid var(--QLD-color-dark-border);
+        }
+
+        .qld__table__cell-right-border {
+            border-right: 1px solid var(--QLD-color-dark-border);
+        }
+
+        &.qld__table__col-1-left-border tr td:nth-child(1),
+        &.qld__table__col-2-left-border tr td:nth-child(2),
+        &.qld__table__col-3-left-border tr td:nth-child(3),
+        &.qld__table__col-4-left-border tr td:nth-child(4),
+        &.qld__table__col-5-left-border tr td:nth-child(5),
+        &.qld__table__col-6-left-border tr td:nth-child(6),
+        &.qld__table__col-7-left-border tr td:nth-child(7),
+        &.qld__table__col-8-left-border tr td:nth-child(8),
+        &.qld__table__col-9-left-border tr td:nth-child(9),
+        &.qld__table__col-10-left-border tr td:nth-child(10) {
+            border-left: 1px solid var(--QLD-color-dark-border);
+        }
+
+        &.qld__table__col-1-right-border tr td:nth-child(1),
+        &.qld__table__col-2-right-border tr td:nth-child(2),
+        &.qld__table__col-3-right-border tr td:nth-child(3),
+        &.qld__table__col-4-right-border tr td:nth-child(4),
+        &.qld__table__col-5-right-border tr td:nth-child(5),
+        &.qld__table__col-6-right-border tr td:nth-child(6),
+        &.qld__table__col-7-right-border tr td:nth-child(7),
+        &.qld__table__col-8-right-border tr td:nth-child(8),
+        &.qld__table__col-9-right-border tr td:nth-child(9),
+        &.qld__table__col-10-right-border tr td:nth-child(10) {
+            border-right: 1px solid var(--QLD-color-dark-border);
+        }
+    }
+
+    &.qld__table--striped {
+
+        .qld__table__body,
+        tbody {
+
+            .qld__table__row:nth-last-child(odd),
+            tr:nth-last-child(odd) {
+                background-color: var(--QLD-color-light-background__shade);
+            }
+        }
+
+        .qld__body--dark &,
+        .qld__body--dark-alt & {
+
+            .qld__table__body,
+            tbody {
+
+                .qld__table__row:nth-last-child(odd),
+                tr:nth-last-child(odd) {
+                    background-color: var(--QLD-color-dark-background__shade);
+                }
+            }
+        }
+    }
+}
+
+.qld__table, .qld__table--scroll, .qld__table--contained {
+    &:not(:first-child) {
+      @include QLD-space( margin-top, 1.5unit);
+    }
+}
+
+.qld__table--contained,
+.qld__table--scroll {
+    border-radius: $QLD-border-radius-sm;
+}
+
+.qld__table--contained {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid var(--QLD-color-light-border);
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        border: 1px solid var(--QLD-color-dark-border);
+    }
+}
+
+.qld__table--scroll {
+    border: 1px solid var(--QLD-color-light-border);
+    border-radius: $QLD-border-radius-sm;
+    max-height: 640px;
+    /* Max height for mobile devices based on average available screen space on mobile devices */
+    overflow-y: auto;
+
+    table {
+        caption {
+            position: sticky;
+            top: 0;
+            min-height: 78px;
+            /* 78px height so it can cater for additional information detailing table order under the caption text */
+
+            &+thead {
+                top: 78px;
+            }
+        }
+
+        thead,
+        tfoot {
+            position: sticky;
+        }
+
+        thead {
+            inset-block-start: 0;
+            /* "top" */
+            background-color: var(--QLD-color-light-background);
+        }
+
+        tfoot {
+            inset-block-end: 0;
+            /* "bottom" */
+        }
+    }
+
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        border: 1px solid var(--QLD-color-dark-border);
+
+        table {
+            thead {
+                text-align: left;
+                background-color: var(--QLD-color-dark-background);
+            }
+        }
+    }
+}
+
+.qld__table__wrapper { //applies to the container above the table.
+    overflow-x: auto;
+}
+
+@media print {
+    .qld__table--scroll {
+        max-height: none;
+    }    
+}
+
+// .qld__table {
+//     @include QLD-fontgrid( sm, 'default');
+//     font-family: $QLD-font;
+//     width: 100%;
+//     border-collapse: collapse;
+//     border-spacing: 0;
+
+//     .qld__table__head {
+//         display: table-header-group;
+//         @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-light-designAccent));
+
+//         .qld__table__header {
+//             text-align: left;
+//             @include QLD-space( padding, 0.75unit);
+
+//             // header widths
+//             &.qld__table__header--width-10 {
+//                 width: 10%;
+//             }
+
+//             &.qld__table__header--width-20 {
+//                 width: 20%;
+//             }
+
+//             &.qld__table__header--width-25 {
+//                 width: 25%;
+//             }
+
+//             &.qld__table__header--width-33 {
+//                 width: 33%;
+//             }
+
+//             &.qld__table__header--width-50 {
+//                 width: 50%;
+//             }
+
+//             &.qld__table__header--width-75 {
+//                 width: 75%;
+//             }
+
+//             &.qld__table__header--numeric {
+//                 text-align: right;
+//             }
+
+//             &:focus {
+//                 outline: 3px solid var(--QLD-color-light-focus);
+//             }
+//         }
+//     }
+
+
+//     .qld__table__cell {
+//         @include QLD-space( padding, 0.75unit);
+//         text-align: left;
+//         border-bottom: 1px solid var(--QLD-color-light-designAccent);
+
+//         &:focus {
+//             outline: 3px solid var(--QLD-color-light-focus);
+//         }
+
+//         //numeric cells should be aligned right and have monospaced digits
+//         &.qld__table__cell--numeric {
+//             text-align: right;
+//             font-variant: tabular-nums;
+//         }
+//     }
+
+//     &.qld__table--striped .qld__table__body {
+//         .qld__table__row:nth-last-child( odd) {
+//             background-color: var(--QLD-color-light-background__shade);
+//         }
+//     }
+
+//     //Alternate themes
+//     .qld__body--alt &{
+//         &.qld__table--striped .qld__table__body {
+//             .qld__table__row:nth-last-child( odd) {
+//                 background-color: var(--QLD-color-light-alt-background__shade);
+//             }
+//         }
+//     }
+
+//     .qld__body--dark &{
+//         .qld__table__head{
+//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark-designAccent));
+//         } 
+
+//         .qld__table__header,
+//         .qld__table__cell{
+//             border-bottom: 1px solid var(--QLD-color-dark-designAccent);
+//         }
+
+//         &.qld__table--striped .qld__table__body {
+//             .qld__table__row:nth-last-child( odd) {
+//                 background-color: var(--QLD-color-dark-background__shade);
+//             }
+//         }
+//     }
+
+//     .qld__body--dark-alt &{
+//         .qld__table__head{
+//             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark-designAccent));
+//         } 
+
+//         .qld__table__header,
+//         .qld__table__cell{
+//             border-bottom: 1px solid var(--QLD-color-dark-designAccent);
+//         }
+
+//         &.qld__table--striped .qld__table__body {
+//             .qld__table__row:nth-last-child( odd) {
+//                 background-color: var(--QLD-color-dark-alt-background__shade);
+//             }
+//         }
+//     }
+// }
+

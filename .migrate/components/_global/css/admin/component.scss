@@ -1,0 +1,146 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// admin module
+// Class styles for global admin styles.
+//
+// Content:
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// CONTAINER STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__admin {
+    .qld__admin_side-nav {
+        @include QLD-space(padding-top, 2unit);
+        background: var(--QLD-color-dark-alt-background__shade);
+        a {
+            color:var(--QLD-color-dark-text);
+        }
+    }
+
+    .qld__admin_action_header {
+        @include QLD-media(md) {
+            display:flex;
+            justify-content:space-between;
+            align-items: center;
+
+            .qld__btn {
+                display:block;
+            }
+        }
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+        padding-right: 30px;
+        background-size: 10px;
+        background-position: right 10px center;
+    }
+    
+    .qld__table .qld__table__cell.qld__admin_row-actions, table .qld__table__cell.qld__admin_row-actions {
+        text-align: right;
+        .qld__btn {
+            margin: 3px 0;
+            font-size:0.8em;
+            height: 26px;
+            width: 26px;
+            padding: 0;
+            margin-left: auto;
+            position: relative;
+            min-width: initial;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .qld__btn--error {
+            background-color:$QLD-color-error;
+            border-color:$QLD-color-error;
+            color:var(--QLD-color-dark-text);
+        }
+    }
+}
+
+.qld__grid .row.qld__admin_row {
+    margin-left:0;
+    margin-right:0;
+}
+
+.qld__service_finder_admin_form {
+    textarea {
+        min-width:50%;
+        display: block !important;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .flatpickr {
+        display: flex;
+        position: relative;
+
+        .date-list {
+            position: static;
+            opacity: 1;
+            min-height: 3rem;
+            height: auto;
+            width: 9.5rem;
+
+            span {
+                display: flex;
+                align-items: center;
+                line-height: 1.5rem;
+            }
+
+            .remove-date {
+                background-color: transparent;
+                border: 0;
+                padding: 0;
+                margin-left: pxToRem(16);
+                cursor: pointer;
+
+                &:hover, &:focus {
+                    opacity: 0.5;
+                }
+                
+                svg {
+                    height: pxToRem(13);
+                    width: pxToRem(13);
+                }
+            }
+        }
+
+        &.multiple {
+            input[type=text] {
+                position: absolute;
+                opacity: 0;
+                height: 0;
+            }
+        }
+
+        .date-button {
+            background: transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 pxToRem(12);
+            max-height: pxToRem(48);
+            margin-left: pxToRem(7);
+
+            &:hover,&:focus {
+                background: #dee0e2;
+            }
+
+            svg {
+                height: 1.125rem;
+                width: 1.125rem;
+            }
+        }
+    }
+}
