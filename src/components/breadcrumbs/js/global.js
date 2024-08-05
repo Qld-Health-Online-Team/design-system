@@ -157,7 +157,16 @@
                 let breadcrumbLisLength = breadCrumbsUlLis.length;
                 let i = 1;
                 
+
+                let totalLisOffsetWidth = 0;
                 
+                for (let i = 0; i < breadCrumbsUlLis.length; i++) {
+                    totalLisOffsetWidth += breadCrumbsUlLis[i].offsetWidth;
+                }
+
+                console.log('here is the breadcrumbs breadCrumbsUl.offsetWidth ', breadCrumbsUl.offsetWidth);
+                console.log('here is the breadcrumbs totalLisOffsetWidth ', totalLisOffsetWidth);
+
                 if(breadCrumbsUlLis.length > 5) {
 
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
@@ -179,6 +188,22 @@
                     i = 2;
 
                     while ((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
+                    (i < breadcrumbLisLength - 2)
+                    ) {
+
+                        insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
+                        breadCrumbsUlLis[i].style.display = "none";
+
+                        i++;
+                    }
+                } else if(breadCrumbsUl.offsetWidth < totalLisOffsetWidth) {
+
+                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
+                    breadCrumbsUlLis[1].style.display = "none";
+                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    i = 2;
+
+                    while ((breadCrumbsUl.offsetWidth < totalLisOffsetWidth) &&
                     (i < breadcrumbLisLength - 2)
                     ) {
 
