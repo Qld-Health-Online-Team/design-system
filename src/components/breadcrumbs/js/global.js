@@ -22,14 +22,21 @@
                 'section.qld__body--breadcrumb nav.qld__breadcrumbs'
             );
 
-            console.log('we got this ', bodyBreadCrumbsAll)
-
             const bannerBreadCrumbArray = [...bannerBreadCrumbsAll, ...bodyBreadCrumbsAll];
             const bannerBreadCrumb = bannerBreadCrumbArray.find(
                 (breadcrumb) => {
                     return breadcrumb.offsetWidth > 0;
                 }
             );
+
+            const containerFluid = bannerBreadCrumb.closest('.container-fluid');
+
+            const containerFluidStyle = window.getComputedStyle(containerFluid);
+            
+            const paddings = parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/\D/g, '')) + parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/\D/g, ''));
+            bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+
+            // console.log('here is the containerFluid.offsetWidth ', paddings , ' here is the containerFluid.offsetWidth ', bannerBreadCrumb)
             
             if(!originalBreadCrumbUl) {
                 originalBreadCrumbUl = bannerBreadCrumb.querySelector("ul.qld__link-list").cloneNode(true);
