@@ -19,43 +19,360 @@
             "site":require('/src/data/site.json')
         })}
         <!-- MAIN BODY -->
-        <main class="main" role="main">
+        <main class="main landing" role="main">
+    
+        
+    
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
-                        "site":require('/src/data/site.json'),
-                        "current":require('/src/data/current.json'),
-                    })}
+    <div class="container-fluid">
+        <!-- --> 
+
+<nav class="qld__breadcrumbs" aria-label="breadcrumb">
+<ul class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
+        <li>
+                    <a href="https://qhonline.com.au/test">Home</a>
+        </li>
+        <li>
+                    <a href="https://qhonline.com.au/test/content-page">Content Page</a>
+        </li>
+        <li aria-current="page">
+                Promo examples
+        </li>
+</ul>
+<ul class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
+        <li>
+        <a href="https://qhonline.com.au/test/content-page">
+                Content Page
+        </a>    
+    </li>
+</ul>
+</nav>
+
+
+
+<div id="content_container_72136">
+
+</div>
+
+
+    </div>
+</section>
+
+<div id="content">
+
+     <!-- No banner -->
+<h1 class="sr-only">Promo examples</h1>
+    
+<!-- Page Contents Render -->
+
+<data class="fb-component-track" value="208249.body" data-name="body" data-date_created="2023-12-12 09:10:41" data-date_updated="2024-07-22 11:07:51" data-date_published="2024-05-15 10:21:08"></data>
+
+<section class="qld__body  qld__body--full-width" id="body-208249">
+<div class="container-fluid">
+    
+<div id="component_208249">
+<p><strong>Contained banner White background not working</strong></p><p>On Contained banners the white background does not apply correctly</p><p><strong>Contained banner padding on&nbsp;&nbsp;mobile too large and image not as per figma:</strong></p><!--<p><a href="https://www.figma.com/file/HYzQfRGAQ516LDH6QAEoKU/Banners-and-panels?type=design&amp;node-id=1108%3A274717&amp;mode=design&amp;t=7Vdv8e3FK23Rknw6-1">https://www.figma.com/file/HYzQfRGAQ516LDH6QAEoKU/Banners-and-panels?type=design&amp;node-id=1108%3A274717&amp;mode=design&amp;t=7Vdv8e3FK23Rknw6-1</a> <br /><br /><br /><strong>Current</strong> <br /><br />.qld__promo-panel.qld__body--contained--><!--  .qld__promo-panel__container{<br />padding-top:64px;<br />padding-bottom:64px;&nbsp;<br />}<br /><br /><strong>Should be:</strong><br /><br /> .qld__promo-panel.qld__body--contained .qld__promo-panel__container{<br />padding-top:40px;<br />padding-bottom:0px;&nbsp;<br />}<br /><br />Image container:&nbsp;--><!--  <code><br /> .qld__promo-panel.qld__body--contained .qld__promo-panel__container-image {<br /> padding-left: 16px;<br /> padding-right: 16px;<br />}--><!--  </code>--><!--</p>-->
+</div>
+
+</div>
+</section>
+
+
+<data class="fb-component-track" value="208251.promo_panel" data-name="promo_panel" data-date_created="2023-12-12 09:10:56" data-date_updated="2024-05-15 10:21:08" data-date_published="2024-05-15 10:21:08"></data>
+
+
+    <section class="qld__body qld__body--contained qld__promo-panel  qld__promo-panel--image-right" id="promo-panel-208251">
+        <div class="container-fluid">
+            <div class="qld__promo-panel__container row">
+                <div class="qld__promo-panel__container-image">
+                    <div class="qld__promo-panel__image" style="background-image: url(https://qhonline.com.au/__data/assets/image/0032/176756/Hero-placeholder-Crop.jpg)"></div>
                 </div>
-            </section>
-            <!--CONTENT-->
-            <div class="qld__body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-4 col-lg-3">
-                            <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                                "site":require('/src/data/site.json'),
-                                "current":require('/src/data/current.json')
-                            })}
+                <div class="qld__promo-panel__container-content">
+                    <div class="qld__promo-panel__container-inner">
+                        <div class="qld__promo-panel__container-icon">
+                            <i class="qld__promo-panel__icon fa-light fa-phone" aria-hidden="true"></i>
                         </div>
-                        <div class="col-xs-12 col-md-8 col-lg-9" id="content">
+                        <h2 class="qld__display-xl">Title</h2>
+                        <div class="qld__abstract">
+                            <p>Abstract text</p>
+                        </div>
+
+                            <p>Body text</p>
+                            <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
                             
-                            ${require('../components/_global/html/component.hbs')({
-                                "manifest":require('../components/promo_panel/js/manifest.json'),
-                                "component":require('!url-loader!../components/promo_panel/html/component.hbs'),
-                                "component_output":require('../components/promo_panel/html/component.hbs')({
-                                    "component":require('../components/promo_panel/js/manifest.json').component,
-                                    "site":require('/src/data/site.json'),
-                                    "current":require('/src/data/current.json'),
-                                    "content":"Lorem Ipsum"
-                                })
-                            })}
+                                    <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--primary" data-type="class" href="./?a=">Find out more</a>
+                                    </li>
+                                    
+
+                                <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--secondary" data-type="class" href="./?a=">Find out more</a>
+                                </li>
+                                    
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<data class="fb-component-track" value="208253.body" data-name="body" data-date_created="2023-12-12 09:11:11" data-date_updated="2024-05-15 10:21:08" data-date_published="2024-05-15 10:21:08"></data>
+
+<section class="qld__body qld__body--dark qld__body--full-width" id="body-208253">
+<div class="container-fluid">
+    
+<div id="component_208253">
+<p><strong>Icon margins are too large:</strong><br><br>Margin-top for promo panel icon should be 0px</p><p>Margin&nbsp;&nbsp;between H2 and&nbsp;&nbsp;Icon should be 32px on desktop and 24px on mobile.</p>
+</div>
+
+</div>
+</section>
+
+
+<data class="fb-component-track" value="208255.promo_panel" data-name="promo_panel" data-date_created="2023-12-12 09:11:27" data-date_updated="2024-05-15 10:21:09" data-date_published="2024-05-15 10:21:09"></data>
+
+
+    <section class="qld__body  qld__promo-panel  qld__promo-panel--image-right" id="promo-panel-208255">
+        <div class="container-fluid">
+            <div class="qld__promo-panel__container row">
+                <div class="qld__promo-panel__container-image">
+                    <div class="qld__promo-panel__image" style="background-image: url(https://qhonline.com.au/__data/assets/image/0032/176756/Hero-placeholder-Crop.jpg)"></div>
+                </div>
+                <div class="qld__promo-panel__container-content">
+                    <div class="qld__promo-panel__container-inner">
+                        <div class="qld__promo-panel__container-icon">
+                            <i class="qld__promo-panel__icon fa-light fa-phone" aria-hidden="true"></i>
+                        </div>
+                        <h2 class="qld__display-xl">Title</h2>
+                        <div class="qld__abstract">
+                            <p>Abstract text</p>
+                        </div>
+
+                            <p>Body text</p>
+                            <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
+                            
+                                    <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--primary" data-type="class" href="./?a=">Find out more</a>
+                                    </li>
+                                    
+
+                                <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--secondary" data-type="class" href="./?a=">Find out more</a>
+                                </li>
+                                    
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<data class="fb-component-track" value="208257.body" data-name="body" data-date_created="2023-12-12 09:11:42" data-date_updated="2024-05-15 10:21:09" data-date_published="2024-05-15 10:21:09"></data>
+
+<section class="qld__body qld__body--dark-alt qld__body--full-width" id="body-208257">
+<div class="container-fluid">
+    
+<div id="component_208257">
+<p><strong>There is an issue with the margin thats creating horizontal scroll between 1312-1600.&nbsp;</strong><br><br>You can see this live on CHQ.<br><br><img src="https://qhonline.com.au/__data/assets/image/0023/208292/Screenshot-2023-12-12-at-8.49.23-am.png" alt="" width="361" height="482"></p>
+</div>
+
+</div>
+</section>
+
+
+<data class="fb-component-track" value="208259.promo_panel" data-name="promo_panel" data-date_created="2023-12-12 09:12:02" data-date_updated="2024-05-15 10:21:09" data-date_published="2024-05-15 10:21:09"></data>
+
+
+    <section class="qld__body qld__body--large-text qld__promo-panel  qld__promo-panel--image-right" id="promo-panel-208259">
+        <div class="container-fluid">
+            <div class="qld__promo-panel__container row">
+                <div class="qld__promo-panel__container-image">
+                    <div class="qld__promo-panel__image" style="background-image: url(https://qhonline.com.au/__data/assets/image/0032/176756/Hero-placeholder-Crop.jpg)"></div>
+                </div>
+                <div class="qld__promo-panel__container-content">
+                    <div class="qld__promo-panel__container-inner">
+                        <h2 class="qld__display-xl">Title</h2>
+                        <div class="qld__abstract">
+                            <p>Abstract text</p>
+                        </div>
+
+                            <p>Body text</p>
+                            <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
+                            
+                                    <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--primary" data-type="class" href="./?a=">Find out more</a>
+                                    </li>
+                                    
+
+                                <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--secondary" data-type="class" href="./?a=">Find out more</a>
+                                </li>
+                                    
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<data class="fb-component-track" value="208261.body" data-name="body" data-date_created="2023-12-12 09:12:40" data-date_updated="2024-05-15 10:21:09" data-date_published="2024-05-15 10:21:09"></data>
+
+<section class="qld__body  qld__body--full-width" id="body-208261">
+<div class="container-fluid">
+    
+<div id="component_208261">
+<p><strong>Content and image ares are not aligned to grid properly for contained and full image</strong>.</p><p><img src="https://qhonline.com.au/__data/assets/image/0024/208284/Screenshot-2023-12-12-at-9.34.18-am.png" alt="" width="610" height="878"></p><p><img src="https://qhonline.com.au/__data/assets/image/0025/208285/Screenshot-2023-12-12-at-9.34.27-am.png" alt="" width="609" height="532"></p><p>This can often be fixed with the following css in the example below:</p><p>Live example: https://www.careers.health.qld.gov.au/</p>
+</div>
+
+</div>
+</section>
+
+
+<data class="fb-component-track" value="208288.code" data-name="code" data-date_created="2023-12-12 09:37:22" data-date_updated="2024-05-15 10:21:10" data-date_published="2024-05-15 10:21:09"></data>
+
+
+<section class="qld__body">
+    <div class="container-fluid">
+
+    <div class="qld__code multiline  ">
+        <div class="qld__code-header">
+            <div class="qld__code-header-left">
+            </div>
+            <div class="qld__code-header-right">
+                <button class="qld__btn qld__code-copy--button" type="button">
+                    <div class="clean">
+                        <i class="fa-light fa-copy" aria-hidden="true"></i><span class="qld__code-copy--button-text">Copy</span>
+                    </div>
+                    <div class="dirty">
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i><span class="qld__code-copy--button-text">Copied</span>
+                    </div>
+                    <div class="qld__code-tooltip">
+                        <span class="clean">Copy</span>
+                        <span class="dirty">Copied</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <code class="qld__code-body">@media (min-width: 1312px) and (max-width: 1599px)
+.qld__promo-panel.qld__body--contained.qld__promo-panel--image-right .qld__promo-panel__container {
+padding-left: 7vw;
+padding-right: 7vw;
+padding-left: calc(152px - (1600px - 100vw) * 0.4167);
+padding-right: calc(152px - (1600px - 100vw) * 0.4167);
+}</code>
+    </div>
+    </div>
+</section>
+
+
+<data class="fb-component-track" value="208263.promo_panel" data-name="promo_panel" data-date_created="2023-12-12 09:13:03" data-date_updated="2024-05-15 10:21:10" data-date_published="2024-05-15 10:21:10"></data>
+
+
+    <section class="qld__body qld__body--full-image qld__promo-panel  qld__promo-panel--image-right" id="promo-panel-208263">
+        <div class="container-fluid">
+            <div class="qld__promo-panel__container row" style="background-image: url(https://qhonline.com.au/__data/assets/image/0032/176756/Hero-placeholder-Crop.jpg); background-repeat: no-repeat; background-size: cover;">
+                <div class="qld__promo-panel__container-image">
+                    <div class="qld__promo-panel__image" style="background: transparent"></div>
+                </div>
+                <div class="qld__promo-panel__container-content">
+                    <div class="qld__promo-panel__container-inner">
+                        <h2 class="qld__display-xl">Title</h2>
+                        <div class="qld__abstract">
+                            <p>Abstact text</p>
+                        </div>
+
+                            <p>body text</p>
+                            <ul class="qld__promo-panel__container-btn qld__banner__content--cta qld__link-list">
+                            
+                                    <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--primary" data-type="class" href="./?a=">Find out more</a>
+                                    </li>
+                                    
+
+                                <li>
+                                    <a class="qld__promo-panel__btn qld__btn qld__btn--secondary" data-type="class" href="./?a=">Find out more</a>
+                                </li>
+                                    
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<data class="fb-component-track" value="208267.body" data-name="body" data-date_created="2023-12-12 09:29:41" data-date_updated="2024-05-15 10:21:10" data-date_published="2024-05-15 10:21:10"></data>
+
+<section class="qld__body  qld__body--full-width" id="body-208267">
+<div class="container-fluid">
+    
+<div id="component_208267">
+<p><strong>Text should be aligned centred vertically when there is minimal content .</strong></p><p>Apply to qld__promo-panel__container-inner</p><p><br><div class="qld__code--inline"><code tabindex="0">display: flex;
+justify-content: center;
+flex-direction: column;</code><span class="qld__code-tooltip">Copy</span></div></p>
+</div>
+
+</div>
+</section>
+
+
+<data class="fb-component-track" value="208275.promo_panel" data-name="promo_panel" data-date_created="2023-12-12 09:30:06" data-date_updated="2024-05-15 10:21:10" data-date_published="2024-05-15 10:21:10"></data>
+
+
+    <section class="qld__body qld__body--contained qld__promo-panel qld__body--dark-alt qld__promo-panel--image-left" id="promo-panel-208275">
+        <div class="container-fluid">
+            <div class="qld__promo-panel__container row">
+                <div class="qld__promo-panel__container-image">
+                    <div class="qld__promo-panel__image" style="background-image: url(https://qhonline.com.au/__data/assets/image/0032/176756/Hero-placeholder-Crop.jpg)"></div>
+                </div>
+                <div class="qld__promo-panel__container-content">
+                    <div class="qld__promo-panel__container-inner">
+                        <h2 class="qld__display-xl">Title</h2>
+                        <div class="qld__abstract">
+                            <p>Minimal content promo panel</p>
                         </div>
                     </div>
                 </div>
-            </div>  
-        </main>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Last updated date -->
+<!-- --> 
+
+    <section class="qld__body">
+        <div class="container-fluid">
+            <p><strong style="padding-right: 12px;">Last updated:</strong>&nbsp;July 2024</p>
+        </div>
+    </section>
+
+
+
+
+
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+     
+    
+     
+</main>
         <!-- END MAIN BODY -->
 
         <!-- WIDGETS -->
