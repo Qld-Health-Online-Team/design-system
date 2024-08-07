@@ -694,11 +694,10 @@
  * @return {string}                 - Returns the underline color and style of the link.
  */ 
  @mixin QLD-underline($colorScheme: 'light', $defaultUnderline: 'underline', $buttonTextColor: 'default', $visitedState: 'hasVisited') {
-
+    //Whoevern inheriting this work, please get rid of this mixin approach as soon as possible. :-)
     //the colorScheme refers to the color of the body that contains the element. So, colorShcheme of the element itself is managed within this mixin.
     @if $colorScheme =="light" {
 
-        //Has underline showing by default
         @if $defaultUnderline == "underline"{
 
             @include QLD-webkit-text-underline();
@@ -710,7 +709,6 @@
     
             &:hover,
             &:focus {
-                // @include QLD-webkit-text-underline();
                 text-decoration-color: var(--QLD-color-light__underline--hover);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick); 
             }
@@ -718,25 +716,22 @@
             @if $visitedState == "hasVisited"{
 
                 &:visited {
-                    // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-light__underline--hover-visited);
+                    color: var(--QLD-color-light__link--visited);
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                 }
         
                 &:hover:visited {
-                    // @include QLD-webkit-text-underline();
+                    color: var(--QLD-color-light__link--visited);
                     text-decoration-color: var(--QLD-color-light__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }@else{
                 &:visited {
-                    // @include QLD-webkit-text-underline();
                     color: var(--QLD-color-light__link);
                     text-decoration-color: var(--QLD-color-light__underline);
                 }
 
                 &:hover:visited {
-                    // @include QLD-webkit-text-underline();
                     color: var(--QLD-color-light__link);
                     text-decoration-color: var(--QLD-color-light__link);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -777,7 +772,7 @@
                     
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                     @if $buttonTextColor == "buttonText"{
-                        color: var(--QLD-color-light__underline--hover-visited);
+                        color: var(--QLD-color-light__link--visited);
                         
                     }@else{
                         text-decoration-color: var(--QLD-color-light__underline--hover);
@@ -793,7 +788,7 @@
                         color: var(--QLD-color-light__link--on-action);
                         text-decoration-color: var(--QLD-color-light__link--on-action);
                     }@else{
-                        color: var(--QLD-color-light__underline--hover-visited);
+                        color: var(--QLD-color-light__link--visited);
                         text-decoration-color: var(--QLD-color-light__underline--visited);
                     }
                 }
@@ -820,21 +815,18 @@
 
             &:hover,
             &:focus {
-                // @include QLD-webkit-text-underline();
                 text-decoration-color: var(--QLD-color-dark__underline--hover);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
 
             @if $visitedState == "hasVisited"{
                 &:visited {
-                    // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__underline--hover-visited);
+                    color: var(--QLD-color-dark__link--visited);
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
                 }
 
                 &:hover:visited {
-                    // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__underline--hover-visited);
+                    color: var(--QLD-color-dark__link--visited);
                     text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
@@ -889,9 +881,9 @@
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
 
                     @if $buttonTextColor == "buttonText"{
-                        color: var(---QLD-color-dark__underline--hover-visited);
+                        color: var(--QLD-color-dark__link--visited);
                     }@else{
-                        color: var(-QLD-color-dark__underline--hover-visited);
+                        color: var(--QLD-color-dark__link--visited);
                         text-decoration-color: var(--QLD-color-dark__underline--hover);
                     }
                 }
