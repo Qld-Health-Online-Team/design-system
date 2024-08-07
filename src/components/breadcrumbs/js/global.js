@@ -228,7 +228,7 @@
     window.addEventListener('resize' , function() {
         getTheElements(true);
         QLD.breadcrumb.init();
-        // QLD.accordion.init();
+        QLD.accordion.init('overflow');
     });
 
 })();
