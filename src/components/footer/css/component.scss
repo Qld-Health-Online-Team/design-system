@@ -348,6 +348,20 @@
             }
         }
     }
+
+    * + .qld__footer__logo {
+        img {
+            @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px);
+        }
+    }
+
+    @include QLD-media(md) {
+        * + .qld__footer__logo {
+            img {
+                @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px);
+            }
+        }   
+    }
     
     &.qld__footer--dark,
     &.qld__footer--dark-alt{
@@ -414,7 +428,11 @@
         a.qld__footer__copyright-link {
             display: block;
             font-weight: 900;
-            @include QLD-space(margin-top, 1.5unit);
+            @include QLD-space(margin-top, 1.25unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 1.5unit);
+            }
         }
 
         .qld__footer__logo {

@@ -135,23 +135,51 @@
             
             <div class="col-xs-12 qld__footer__column">
                 <div class="">
-                    {{#with (jsonParse footerMetaMetadata.value)}}
-                    {{#if footerLogo}}
-                    <a class="qld__footer__logo" href="https://www.qld.gov.au/">
-                        <img
-                            class="qld__footer__logo-image"
-                            alt="Queensland Government"
-                            src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
-                        />
-                    </a>
+                    
+                    {{#if footerAcknowledgementsHeading.value}}
+                    <h3 class="qld__footer__heading">
+                        {{footerAcknowledgementsHeading.value}}
+                    </h3>
                     {{/if}}
-                    {{/with}}
 
                     {{#if footerAcknowledgements.value}}
                     <p class="qld__footer__acknowledgements">
                         {{footerAcknowledgements.value}}
                     </p>
                     {{/if}}
+
+                    {{#with (jsonParse footerMetaMetadata.value)}}
+                    {{#if footerLogo}}
+                    {{#if footerCopyrightLink}}
+                            {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
+                            <a class="qld__footer__logo" href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}">
+                                <img
+                                    class="qld__footer__logo-image"
+                                    alt="Queensland Government"
+                                    src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                                />
+                            </a>
+                            {{else}}
+                            <a class="qld__footer__logo" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}">
+                                <img
+                                    class="qld__footer__logo-image"
+                                    alt="Queensland Government"
+                                    src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                                />
+                            </a>
+                            {{/ifCond}}
+                    {{else}}
+                        <a class="qld__footer__logo"  href="https://www.qld.gov.au/">
+                            <img
+                                class="qld__footer__logo-image"
+                                alt="Queensland Government"
+                                src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                            />
+                        </a>
+                    {{/if}}
+                        
+                    {{/if}}
+                    {{/with}}
 
                     {{#if footerCopyrightMessage.value}}
                     <p class="qld__footer__copyrightMessage">
