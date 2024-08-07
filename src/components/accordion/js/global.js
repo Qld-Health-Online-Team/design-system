@@ -432,7 +432,7 @@
      * 
      * @memberof module:accordion
      */
-    accordion.init = function() {
+    accordion.init = function(forWhat) {
 
         var accordionButtons = document.querySelectorAll('.qld__accordion__title');
         accordionButtons.forEach(function (button) {
@@ -448,12 +448,15 @@
             });
         });
 
-        var overflowMenuButtons = document.querySelectorAll('.qld__overflow_menu__btn');
-        overflowMenuButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                accordion.Toggle(button)
+        if(forWhat == 'overflow') {
+            var overflowMenuButtons = document.querySelectorAll('.qld__overflow_menu__btn');
+            overflowMenuButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.Toggle(button)
+                });
             });
-        });
+        }
+        
     }
 
     // Make accordion public
