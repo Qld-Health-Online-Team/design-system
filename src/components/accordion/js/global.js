@@ -432,31 +432,31 @@
      * 
      * @memberof module:accordion
      */
-    accordion.init = function(forWhat) {
+    accordion.init = function(element) {
 
-        var accordionButtons = document.querySelectorAll('.qld__accordion__title');
-        accordionButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                accordion.Toggle(button)
-            });
-        });
-
-        var accordionAllButtton = document.querySelectorAll('.qld__accordion__toggle-btn');
-        accordionAllButtton.forEach(function (button) {
-            button.addEventListener('click', function () {
-                accordion.ToggleAll(button)
-            });
-        });
-
-        if(forWhat == 'overflow') {
+        if(element == 'overflow') {
             var overflowMenuButtons = document.querySelectorAll('.qld__overflow_menu__btn');
             overflowMenuButtons.forEach(function (button) {
                 button.addEventListener('click', function () {
                     accordion.Toggle(button)
                 });
             });
+        } else {
+            var accordionButtons = document.querySelectorAll('.qld__accordion__title');
+            accordionButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.Toggle(button)
+                });
+            });
+    
+            var accordionAllButtton = document.querySelectorAll('.qld__accordion__toggle-btn');
+            accordionAllButtton.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.ToggleAll(button)
+                });
+            });
         }
-        
+
     }
 
     // Make accordion public
