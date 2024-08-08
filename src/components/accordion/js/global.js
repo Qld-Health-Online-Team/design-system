@@ -230,7 +230,7 @@
 
                         if (state === "open" || state === "opening") {
                             //if it is a mega nav add an event listener to close it when document is clicked
-                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                            if (this.element.classList.contains("qld__main-nav__menu-sub") || this.element.classList.contains("qld__overflow_menu")) {
                                 document.addEventListener(
                                     "click",
                                     toggleNavOnDocumentClick,
@@ -238,7 +238,7 @@
                                 )
                             }
                         } else {
-                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                            if (this.element.classList.contains("qld__main-nav__menu-sub") || this.element.classList.contains("qld__overflow_menu")) {
                                 document.removeEventListener(
                                     "click",
                                     toggleNavOnDocumentClick,
