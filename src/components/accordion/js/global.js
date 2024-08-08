@@ -197,6 +197,19 @@
                             if (typeof callbacks.afterOpen === "function") {
                                 callbacks.afterOpen();
                             }
+
+                            if(target.classList.contains('qld__overflow_menu')) {
+                                
+                                var overFlowLinks = [];
+                                overFlowLinks = target.querySelectorAll('a.qld__overflow_menu_list-item-link');
+
+                                if(overFlowLinks[0]) {
+                                    setTimeout(function() {
+                                        overFlowLinks[0].focus();
+                                    }, 10);
+                                }
+                                
+                            }
                         }
 
                         toggleClasses(target, state);
@@ -217,7 +230,7 @@
 
                         if (state === "open" || state === "opening") {
                             //if it is a mega nav add an event listener to close it when document is clicked
-                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                            if (this.element.classList.contains("qld__main-nav__menu-sub") || this.element.classList.contains("qld__overflow_menu")) {
                                 document.addEventListener(
                                     "click",
                                     toggleNavOnDocumentClick,
@@ -225,7 +238,7 @@
                                 )
                             }
                         } else {
-                            if (this.element.classList.contains("qld__main-nav__menu-sub")) {
+                            if (this.element.classList.contains("qld__main-nav__menu-sub") || this.element.classList.contains("qld__overflow_menu")) {
                                 document.removeEventListener(
                                     "click",
                                     toggleNavOnDocumentClick,
@@ -419,21 +432,31 @@
      * 
      * @memberof module:accordion
      */
-    accordion.init = function() {
+    accordion.init = function(element) {
 
-        var accordionButtons = document.querySelectorAll('.qld__accordion__title');
-        accordionButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                accordion.Toggle(button)
+        if(element == 'overflow') {
+            var overflowMenuButtons = document.querySelectorAll('.qld__overflow_menu__btn');
+            overflowMenuButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.Toggle(button)
+                });
             });
-        });
+        } else {
+            var accordionButtons = document.querySelectorAll('.qld__accordion__title');
+            accordionButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.Toggle(button)
+                });
+            });
+    
+            var accordionAllButtton = document.querySelectorAll('.qld__accordion__toggle-btn');
+            accordionAllButtton.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    accordion.ToggleAll(button)
+                });
+            });
+        }
 
-        var accordionAllButtton = document.querySelectorAll('.qld__accordion__toggle-btn');
-        accordionAllButtton.forEach(function (button) {
-            button.addEventListener('click', function () {
-                accordion.ToggleAll(button)
-            });
-        });
     }
 
     // Make accordion public
