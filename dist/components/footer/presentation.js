@@ -371,20 +371,22 @@
 
   return "                            <a class=\"qld__footer__logo\" href=\""
     + alias3((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogoLink") : depth0),"redirect_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":155,"column":75},"end":{"line":155,"column":123}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":155,"column":63},"end":{"line":155,"column":125}}}))
-    + "\">\r\n                                <img\r\n                                    class=\"qld__footer__logo-image\"\r\n                                    alt=\"Queensland Government\"\r\n                                    src=\""
+    + "\" rel=\"external\">\r\n                                <img\r\n                                    class=\"qld__footer__logo-image\"\r\n                                    alt=\"Queensland Government\"\r\n                                    src=\""
     + alias3((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogo") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":159,"column":53},"end":{"line":159,"column":94}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":159,"column":41},"end":{"line":159,"column":96}}}))
     + "\"\r\n                                />\r\n                            </a>\r\n";
 },"57":function(container,depth0,helpers,partials,data) {
-    var alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
         return undefined
     };
 
-  return "                            <span class=\"qld__footer__logo\">\r\n                                <img\r\n                                    class=\"qld__footer__logo-image\"\r\n                                    alt=\"Queensland Government\"\r\n                                    src=\""
-    + container.escapeExpression((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogo") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":167,"column":53},"end":{"line":167,"column":94}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":167,"column":41},"end":{"line":167,"column":96}}}))
-    + "\"\r\n                                />\r\n                            </span>\r\n";
+  return "                            <a class=\"qld__footer__logo\" href=\""
+    + alias3((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogoLink") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":163,"column":75},"end":{"line":163,"column":120}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":163,"column":63},"end":{"line":163,"column":122}}}))
+    + "\" rel=\"external\">\r\n                                <img\r\n                                    class=\"qld__footer__logo-image\"\r\n                                    alt=\"Queensland Government\"\r\n                                    src=\""
+    + alias3((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||alias2).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogo") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":167,"column":53},"end":{"line":167,"column":94}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":167,"column":41},"end":{"line":167,"column":96}}}))
+    + "\"\r\n                                />\r\n                            </a>\r\n";
 },"59":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -393,9 +395,9 @@
         return undefined
     };
 
-  return "                        <a class=\"qld__footer__logo\"  href=\"https://www.qld.gov.au/\">\r\n                            <img\r\n                                class=\"qld__footer__logo-image\"\r\n                                alt=\"Queensland Government\"\r\n                                src=\""
+  return "                        <span class=\"qld__footer__logo\">\r\n                            <img\r\n                                class=\"qld__footer__logo-image\"\r\n                                alt=\"Queensland Government\"\r\n                                src=\""
     + container.escapeExpression((lookupProperty(helpers,"urldecode")||(depth0 && lookupProperty(depth0,"urldecode"))||container.hooks.helperMissing).call(alias1,lookupProperty(helpers,"lookup").call(alias1,(depth0 != null ? lookupProperty(depth0,"footerLogo") : depth0),"asset_url^urlencode",{"name":"lookup","hash":{},"data":data,"loc":{"start":{"line":176,"column":49},"end":{"line":176,"column":90}}}),{"name":"urldecode","hash":{},"data":data,"loc":{"start":{"line":176,"column":37},"end":{"line":176,"column":92}}}))
-    + "\"\r\n                            />\r\n                        </a>\r\n";
+    + "\"\r\n                            />\r\n                        </span>\r\n";
 },"61":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
