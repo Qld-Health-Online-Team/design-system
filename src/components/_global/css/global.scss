@@ -38,3 +38,34 @@ body {
         z-index: 3;
     }
 }
+
+
+/*
+Written to address squiz forms' error state issues - qwht-
+*/
+div.sq-form-question-tickbox-list.sq-form-question-error {
+    fieldset {
+        label::before {
+                box-shadow: 0 0 0 3px #e22339;
+        }
+    }
+}
+
+div.sq-form-question-option-list.sq-form-question-error {
+    fieldset {
+        label::before {
+            box-shadow: 0 0 0 3px #e22339;
+        }
+    }
+}
+
+div.sq-form-question-error {
+    input[type=text]:not(:focus),
+    input[type=email]:not(:focus),
+    input[type=date]:not(:focus),
+    textarea:not(:focus),
+    select:not(:focus) {
+        border-color: #e22339;
+        background-color: #fff6f6;
+    }
+}
