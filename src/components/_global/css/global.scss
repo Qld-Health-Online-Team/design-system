@@ -41,12 +41,13 @@ body {
 
 
 /*
-Written to address squiz forms' error state issues - qwht-
+Written to address squiz forms' error state issues
 */
+
 div.sq-form-question-tickbox-list.sq-form-question-error {
     fieldset {
         label::before {
-                box-shadow: 0 0 0 3px #e22339;
+                box-shadow: 0 0 0 3px $QLD-color-status__error;
         }
     }
 }
@@ -54,7 +55,7 @@ div.sq-form-question-tickbox-list.sq-form-question-error {
 div.sq-form-question-option-list.sq-form-question-error {
     fieldset {
         label::before {
-            box-shadow: 0 0 0 3px #e22339;
+            box-shadow: 0 0 0 3px $QLD-color-status__error;
         }
     }
 }
@@ -65,7 +66,17 @@ div.sq-form-question-error {
     input[type=date]:not(:focus),
     textarea:not(:focus),
     select:not(:focus) {
-        border-color: #e22339;
-        background-color: #fff6f6;
+        border-color: $QLD-color-status__error;
+        background-color: $QLD-color-status__error--lightest;
     }
+}
+
+.qld__body--dark, .qld__body--dark-alt {
+    .sq-form-error {
+        color: $QLD-color-status__error--lightest;
+    }
+}
+
+.sq-form-error {
+    color: $QLD-color-status__error;
 }
