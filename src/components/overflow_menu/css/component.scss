@@ -1,0 +1,206 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// {{component_name}}
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__banner:has(.qld__overflow_menu_wrapper) {
+    overflow: visible;
+}
+
+.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper, 
+.qld__overflow_menu_wrapper {
+
+    button.qld__btn.qld__btn--toggle {
+        display: inline-flex;
+        align-items: center;
+        background-color: transparent;
+        border: transparent;
+        justify-content: center;
+        text-decoration: none;
+        padding: 4px;
+        min-width: 0;
+        width: 32px;
+        height: 32px;
+
+        svg {
+            margin: 0;
+            padding: 0;
+            color: var(--QLD-color-light__link);
+        }
+
+        &:hover, &.qld__accordion--open {
+            background-color: $QLD-color-neutral--black__opacity-10;
+            svg {
+                color: var(--QLD-color-light__action--secondary);
+            }
+        }
+
+        &:focus, &:hover:focus {
+            background-color: $QLD-color-neutral--black__opacity-10;
+            box-shadow: none;
+        }
+    }
+
+    .qld__overflow_menu {
+        display: block;
+        position: absolute;
+        width: calc(100vw - 4rem);
+        @include QLD-space(max-width, 22.5unit);
+        margin-top: 4px;
+        box-shadow: $QLD-box-shaddow-level-two;
+        overflow: hidden;
+        z-index: 9999;
+        &.qld__accordion--open {
+            display: block;
+            border-bottom: $QLD-border-width-thick solid $QLD-color-light__design-accent;
+            border-radius: $QLD-border-radius-xs;
+            height: auto;
+        }
+
+        &.qld__accordion--closed {
+            display: none;
+            height: 0;
+        }
+
+        &_list {
+
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            &-item {
+                height: 48px;
+
+                &-link {
+                    color: var(--QLD-color-light__text);
+                    background-color: $QLD-color-neutral--lightest;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 16px;
+
+                    &:visited {
+                        color: var(--QLD-color-light__text);
+                    }
+
+                    &:hover,
+                    &:hover:visited {
+                        color: var(--QLD-color-light__link);
+                        text-decoration-line: underline;
+                        text-decoration-color: var(--QLD-color-light__link);
+                        background-color: $QLD-color-neutral--lighter;
+                    }
+
+                    &:focus {
+                        outline: 3px solid var(--QLD-color-light__focus);
+                        outline-offset: -3px !important;
+                    }
+
+                    &:active {
+                        color: var(--QLD-color-light__text);
+                        background-color: $QLD-color-neutral--white;
+                        text-decoration: none;
+                    }
+
+                    display: block;
+                    width: 100%;
+                    padding-right: 16px;
+                    padding-left: 16px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                }
+            }
+        }
+    }
+
+    .qld__banner--dark &,
+    .qld__banner--dark--alt &,
+    .qld__body--dark &,
+    .qld__body--dark-alt &,
+    .qld__breadcrumbs--dark & {
+
+        button.qld__btn.qld__btn--toggle {
+                
+            background-color: transparent;
+            
+            svg {
+                color: var(--QLD-color-dark__link);
+            }
+    
+            &:hover, &.qld__accordion--open {
+                background-color: $QLD-color-neutral--black__opacity-10;
+                
+                svg {
+                    color: var(--QLD-color-dark__action--secondary);
+                }
+            }
+    
+            &:focus, &:hover:focus {
+                background-color: $QLD-color-neutral--black__opacity-10;
+                // box-shadow: none;
+            }
+            
+        }
+
+        .qld__overflow_menu {
+
+            &.qld__accordion--open {}
+
+            &.qld__accordion--closed {}
+
+            &_list {
+
+                &-item {
+
+                    &-link {
+
+
+                        &:visited {}
+
+                        &:hover,
+                        &:hover:visited {}
+
+                        &:focus {
+                            outline: 3px solid var(--QLD-color-light__focus);
+                        }
+
+                        &:active {}
+
+
+                    }
+
+                    &-link {
+                        color: var(--QLD-color-light__text);
+                        background-color: $QLD-color-neutral--lightest;
+                        text-decoration: none;
+    
+                        &:visited {
+                            color: var(--QLD-color-light__text);
+                        }
+    
+                        &:hover,
+                        &:hover:visited {
+                            color: var(--QLD-color-light__link);
+                            text-decoration-line: underline;
+                            text-decoration-color: var(--QLD-color-light__link);
+                            background-color: $QLD-color-neutral--lighter;
+                        }
+    
+                        &:focus {
+                            outline: 3px solid var(--QLD-color-light__focus);
+                            outline-offset: -3px !important;
+                        }
+    
+                        &:active {
+                            color: var(--QLD-color-light__text);
+                            background-color: $QLD-color-neutral--white;
+                            text-decoration: none;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+}
