@@ -63,7 +63,7 @@
             margin: 0; //Intentionally flush with the container, as breadcrumbs are designed to sit on a full viewport width bg.
             display: none;
             @include QLD-space(padding, 0.25unit 0);
-
+            flex-shrink: 0;
             a {
                 @include QLD-underline('light','underline','default','noVisited');
                 color: var(--QLD-color-light__link);
@@ -94,7 +94,7 @@
             &:last-child {
                 display: flex;
                 flex-grow: 1;
-                overflow: hidden;
+                // overflow: hidden;
                 white-space: wrap;
                 text-overflow: ellipsis;
                 flex: 1 1 auto; 
@@ -187,11 +187,10 @@
     @include QLD-media(md) {
         @include QLD-space(margin, 0 0 1rem);
         display: inline-block;
-
         > .qld__link-list > li {
 
             flex: 0 0 auto;
-            
+            flex-shrink: 0;
             // Hide current page
             &:last-child {
                 display: none;
@@ -208,7 +207,7 @@
 
         > .qld__link-list > li {
             display: inline-block;
-
+            flex-shrink: 0;
             &:last-child {
                 display: inline-block;
             }
