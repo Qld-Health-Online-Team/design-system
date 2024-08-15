@@ -204,14 +204,16 @@
 
                         i++;
                     }
-                } else if(breadCrumbsUl.offsetWidth < totalLisOffsetWidth) {
+                } else if(parseFloat(breadCrumbsUl.style.maxWidth.replace(/\D/g, '')) < totalLisOffsetWidth) {
+
+                    
 
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
                     i = 2;
 
-                    while ((breadCrumbsUl.offsetWidth < totalLisOffsetWidth) &&
+                    while ((parseFloat(breadCrumbsUl.style.maxWidth.replace(/\D/g, ''))< totalLisOffsetWidth) &&
                     (i < breadcrumbLisLength - 2)
                     ) {
 
