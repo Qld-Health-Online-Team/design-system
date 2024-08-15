@@ -36,6 +36,7 @@
                 
                 const paddings = parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/\D/g, '')) + parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/\D/g, ''));
                 bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                
     
                 // console.log('here is the containerFluid.offsetWidth ', paddings , ' here is the containerFluid.offsetWidth ', bannerBreadCrumb)
                 
@@ -48,7 +49,8 @@
                 }
     
                 const breadCrumbsUl = bannerBreadCrumb.querySelector("ul.qld__link-list");
-    
+                breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+
                 return {
                     bannerBreadCrumb,
                     breadCrumbsUl,
@@ -142,12 +144,17 @@
 
         return overFlowWrapper;
     }
+
+    function truncateLastLi(breadCrumbsUlLis) {
+        breadCrumbsUlLis[breadCrumbsUlLis.length - 1].style.overflow = "hidden";
+    }
     
-    function appendOverflow( breadCrumbsUlLis, overflowMenu) {
+    function appendOverflow( breadCrumbsUlLis, overflowMenu, breadcrumbUL) {
         breadCrumbsUlLis[1].innerHTML = "";
         breadCrumbsUlLis[1].className = "qld__overflow_menu--breadcrumbs";
         breadCrumbsUlLis[1].appendChild(overflowMenu);
         breadCrumbsUlLis[1].style.display = "flex";
+        truncateLastLi(breadCrumbsUlLis, breadcrumbUL);
     }
 
     breadcrumb.init = function () {
@@ -172,7 +179,7 @@
 
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
-                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
                     i = 2;
 
                     while(i < breadCrumbsUlLis.length - 2) {
@@ -185,7 +192,7 @@
 
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
-                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
                     i = 2;
 
                     while ((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
@@ -201,7 +208,7 @@
 
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
-                    appendOverflow(breadCrumbsUlLis, overflowMenu);
+                    appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
                     i = 2;
 
                     while ((breadCrumbsUl.offsetWidth < totalLisOffsetWidth) &&
