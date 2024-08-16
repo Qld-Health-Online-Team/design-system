@@ -206,8 +206,6 @@
                     }
                 } else if(parseFloat(breadCrumbsUl.style.maxWidth.replace(/\D/g, '')) < totalLisOffsetWidth) {
 
-                    
-
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
