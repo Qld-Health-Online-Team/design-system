@@ -1,0 +1,47 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Version styles
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__version {
+    @include QLD-space(margin, 2unit 0);
+    @include QLD-media(lg) {
+        @include QLD-space(margin, 0 0 2unit 2unit);
+        float: right;
+        width: 33%;
+
+        .qld__body h1 + & {
+            @include QLD-space(margin-top, -1.5unit);
+        }
+    }
+    &__status {
+        position: relative;
+        @include QLD-space(margin-top, 1.1875unit);
+        @include QLD-space(padding, 0.625unit 0.75unit 0.625unit 2.875unit);
+        @include QLD-space(
+            border-top,
+            solid var(--QLD-color-light__border) 0.0625unit
+        );
+        .svg-inline--fa {
+            position: absolute;
+            @include QLD-space(left, 0.5625unit);
+            @include QLD-space(top, 50%);
+            transform: scale(0.75) translateY(-50%);
+            transform-origin: top;
+            &.fa-check-circle {
+                color: var(--QLD-color-light__design-accent);
+            }
+        }
+        small {
+            display: block;
+            @include QLD-space(margin-bottom, -0.125unit);
+        }
+    }
+    &__links {
+        @include QLD-space(
+            border-top,
+            solid var(--QLD-color-light__border) 0.0625unit
+        );
+        margin-top: 0 !important;
+        padding: 0.875rem 0 0 !important;
+    }
+}

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+        <html class="no-js lt-ie8 lt-ie9" lang="en">
+    <![endif]-->
+<!--[if IE 8]>
+        <html class="no-js lt-ie9 ie8" lang="en">
+    <![endif]-->
+<!--[if IE 9]>
+        <html class="no-js ie9" lang="en">
+    <![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <title>Queensland Design System</title>
+
+        ${require('../components/_global/html/head.html')}
+        <script>
+            var globals = {"site":{"data":{"assetid":"136","type_code":"site","version":"0.0.8","name":"Design System","short_name":"Design System","status":"2","force_secure":"0","languages":"en","charset":"utf-8","created":"2020-12-09 13:11:12","created_userid":"54","updated":"2021-01-20 15:08:30","updated_userid":"312","published":"Never","published_userid":"","status_changed":"2020-12-09 13:11:12","status_changed_userid":"54","thumbnail":"","attributes":{"name":{"attrid":"685","type":"text","value":"Design System","is_contextable":true,"use_default":true},"not_found_page_cache_globally":{"attrid":"686","type":"boolean","value":false,"is_contextable":false,"use_default":true},"available_conditions":{"attrid":"687","type":"serialise","value":[],"is_contextable":false,"use_default":true}},"metadata":{"displayInPageNav":{"value":"","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteTitle":{"value":"Queensland Health Design System","fieldid":"166","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"siteLogo":{"value":"169","fieldid":"127","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteFavicon":{"value":"106","fieldid":"128","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteAppleTouch":{"value":"106","fieldid":"129","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderLogo":{"value":"170","fieldid":"171","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderText":{"value":"digital.qld.gov.au","fieldid":"167","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderURL":{"value":"http://www.digital.qld.gov.au","fieldid":"168","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"showHomeIcon":{"value":"true","fieldid":"481","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteRepository":{"value":"164","fieldid":"213","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerLinks":{"value":"[\"186\",\"194\",\"198\",\"458\",\"676\"]","fieldid":"715","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCopyrightMessage":{"value":"© The State of Queensland 2020","fieldid":"722","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"footerCopyrightLink":{"value":"206","fieldid":"723","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCTAHeading":{"value":"Help us improve","fieldid":"724","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALead":{"value":"We are always looking for ways to improve our website.","fieldid":"725","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALink":{"value":"186","fieldid":"726","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true}}},"metadata":{"displayInPageNav":{"value":"","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteTitle":{"value":"Queensland Health Design System","fieldid":"166","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"siteLogo":{"value":"169","fieldid":"127","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteFavicon":{"value":"106","fieldid":"128","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"siteAppleTouch":{"value":"106","fieldid":"129","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderLogo":{"value":"170","fieldid":"171","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderText":{"value":"digital.qld.gov.au","fieldid":"167","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"sitePreHeaderURL":{"value":"http://www.digital.qld.gov.au","fieldid":"168","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"showHomeIcon":{"value":"true","fieldid":"481","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"siteRepository":{"value":"164","fieldid":"213","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerLinks":{"value":"[\"186\",\"194\",\"198\",\"458\",\"676\"]","fieldid":"715","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCopyrightMessage":{"value":"© The State of Queensland 2020","fieldid":"722","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"footerCopyrightLink":{"value":"206","fieldid":"723","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true},"footerCTAHeading":{"value":"Help us improve","fieldid":"724","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALead":{"value":"We are always looking for ways to improve our website.","fieldid":"725","type":"metadata_field_text","is_contextable":true,"default_value":false,"use_default":true},"footerCTALink":{"value":"186","fieldid":"726","type":"metadata_field_related_asset","is_contextable":true,"default_value":false,"use_default":true}},"children":[{"asset_name":"Get started","asset_assetid":"186"},{"asset_name":"Brand guidelines","asset_assetid":"190"},{"asset_name":"Content guidelines","asset_assetid":"194"},{"asset_name":"Components","asset_assetid":"198"},{"asset_name":"Examples","asset_assetid":"202"},{"asset_name":"Support","asset_assetid":"206"}]},"current":{"data":{"assetid":"676","type_code":"page_standard","version":"0.0.16","name":"Links","short_name":"Links","status":"2","force_secure":"0","languages":"en","charset":"utf-8","created":"2021-01-11 11:48:22","created_userid":"312","updated":"2021-01-20 15:08:29","updated_userid":"312","published":"Never","published_userid":"","status_changed":"2021-01-11 11:48:22","status_changed_userid":"312","thumbnail":"","attributes":{"name":{"attrid":"631","type":"text","value":"Links","is_contextable":true,"use_default":true},"short_name":{"attrid":"632","type":"text","value":"Links","is_contextable":true,"use_default":true},"available_conditions":{"attrid":"633","type":"serialise","value":[],"is_contextable":false,"use_default":true},"conditions":{"attrid":"634","type":"serialise","value":[],"is_contextable":true,"use_default":true}},"metadata":{"description":{"value":"","fieldid":"132","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"pageType":{"value":"landing","fieldid":"680","type":"metadata_field_select","is_contextable":true,"default_value":false,"use_default":true},"displayBreadcrumbs":{"value":"true","fieldid":"681","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"displayBanner":{"value":"true","fieldid":"682","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"displayInPageNav":{"value":"true","fieldid":"808","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_heading":{"value":"On this page","fieldid":"809","type":"metadata_field_text","is_contextable":true,"default_value":true,"use_default":true},"inPageNav_headingType":{"value":"h2","fieldid":"810","type":"metadata_field_select","is_contextable":true,"default_value":true,"use_default":true}}},"home":0,"children":[{"asset_assetid":"458","asset_url":"https://qhscb.squiz.cloud/components/accordion","asset_name":"Accordion","children":[]},{"asset_assetid":"325","asset_url":"https://qhscb.squiz.cloud/components/callout","asset_name":"Callout","children":[]},{"asset_assetid":"659","asset_url":"https://qhscb.squiz.cloud/components/card-listing","asset_name":"Card Listing","children":[]},{"asset_assetid":"676","asset_url":"https://qhscb.squiz.cloud/components/links","asset_name":"Links","children":[]},{"asset_assetid":"683","asset_url":"https://qhscb.squiz.cloud/components/search-box","asset_name":"Search Box","children":[]},{"asset_assetid":"785","asset_url":"https://qhscb.squiz.cloud/components/page-alert","asset_name":"Page Alert","children":[]}],"lineage":[{"asset_assetid":"136","asset_name":"Design System","asset_url":"https://qhscb.squiz.cloud"},{"asset_assetid":"198","asset_name":"Components","asset_url":"https://qhscb.squiz.cloud/components"},{"asset_assetid":"676","asset_name":"Links","asset_url":"https://qhscb.squiz.cloud/components/links"}],"top":{"asset_assetid":"198","asset_name":"Components","asset_url":"https://qhscb.squiz.cloud/components"}}};
+        </script>
+    </head>
+
+    <body class="qld__grid">
+        <!--noindex-->
+        ${require('../components/header/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!--endnoindex-->
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        
+
+        <!-- MAIN BODY -->
+        <main class="main landing" role="main">
+            
+            <div id="content">
+        
+                <!-- Page Contents Render -->
+                
+                        
+                                
+            
+            
+            
+            
+            
+            
+            <data class="fb-component-track" value="138071.tab" data-name="tab" data-date_created="2023-03-03 17:23:02" data-date_updated="2023-08-08 16:08:26" data-date_published="2023-08-08 16:08:26"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body qld__body--light qld__body--full-width" id="body-164150">
+                <div class="container-fluid">
+                    
+            <div id="component_164150">
+            <h2>Heading (H2)</h2><p>Lorem ipsum dolor sit amet consectetur. Viverra eu pulvinar a eu mauris ac at ultricies est. Tincidunt ultrices commodo vestibulum non netus. Mauris maecenas lacus hendrerit urna ultricies auctor. Sed tristique nascetur sapien condimentum adipiscing augue quisque eu. Facilisi ligula quam faucibus feugiat. Sapien at at eget malesuada senectus donec pellentesque pellentesque odio.</p>
+            </div>
+            
+                </div>
+            </section>
+            <section class="qld__body qld__body--full-width qld__tab-section" id="tag-138071">
+                <div class="container-fluid">
+            
+                    
+                    <div class="qld__tab-container qld__tab-container__fixed" id="tab-138071">
+                        <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1" style="display: none;"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1" style="display: none;"><i class="fa-solid fa-chevron-right"></i></button>
+                        <header class="qld__tabs" role="tablist">
+                                        <button class="qld__tab-button active" data-tab="tab0-137406" aria-selected="true" aria-controls="tab0-137406-content" tabindex="0" id="tab0-button"><span><i class="fa-light fa-circle-info"></i>Overview</span></button>
+                                        <button class="qld__tab-button " data-tab="tab1-137414" aria-selected="false" aria-controls="tab1-137414-content" tabindex="-1" id="tab1-button"><span><i class="fa-light fa-pen-ruler"></i>Design</span></button>
+                                        <button class="qld__tab-button " data-tab="tab2-137422" aria-selected="false" aria-controls="tab2-137422-content" tabindex="-1" id="tab2-button"><span><i class="fa-light fa-code"></i>Implementation</span></button>
+                                        <button class="qld__tab-button " data-tab="tab3-138073" aria-selected="false" aria-controls="tab3-138073-content" tabindex="-1" id="tab3-button"><span><i class="fa-light fa-universal-access"></i>Accessibility</span></button>
+                        </header>
+                                    <div data-tab="tab0-137406" class="qld__tab-content active" role="tabpanel" aria-labelledby="tab0-137406-button" id="tab0-137406-content" tabindex="0" aria-hidden="false">
+            <data class="fb-component-track" value="158109.in_page_navigation" data-name="in_page_navigation" data-date_created="2023-07-07 11:41:30" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body">
+                <div class="container-fluid">
+            
+                <nav class="qld__inpage-nav-links" aria-label="In page navigation" data-headingtype="h2">
+                    <h2 class="qld__inpage-nav-links__heading">
+                        On this page
+                    </h2>
+                    <ul class="qld__link-list"><li><a href="#section__overview">Overview</a></li><li><a href="#section__single-action-accordion">Single action accordion</a></li><li><a href="#section__accordion-group">Accordion group</a></li><li><a href="#section__usage-guidelines">Usage guidelines</a></li><li><a href="#section__research-and-rationale">Research and rationale</a></li><li><a href="#section__classes">Classes</a></li><li><a href="#section__accessible-accordion-requirements">Accessible accordion requirements</a></li><li><a href="#section__related-components">Related components</a></li><li><a href="#section__references">References</a></li></ul>
+                </nav>
+            
+            </div>
+            </section>
+            
+            
+            <data class="fb-component-track" value="119267.body" data-name="body" data-date_created="2022-12-02 15:30:27" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-119267">
+                <div class="container-fluid">
+                    
+            <div id="overview_119267">
+            <h2 id="section__overview" tabindex="-1">Overview</h2><p class="qld__abstract">Accordions expand and collapse sections of content.</p><p>There are 2 types of accordions available in the Design System, single action accordions and accordion groups.</p><h2 id="section__single-action-accordion" tabindex="-1">Single action accordion</h2><p>A singular method of expanding and collapsing a piece of content with a title. These are best used for transcripts of videos, or for references at the footer of an article.</p>
+            </div>
+            
+                </div>
+            </section>
+            
+            <data class="fb-component-track" value="137145.code" data-name="code" data-date_created="2023-02-24 13:08:23" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            
+                <section class="qld__body">
+                    <div class="container-fluid">
+            
+                    <div class="qld__code multiline show_less with-preview">
+                        <div class="qld__code-preview">
+                            <span class="qld__code-preview-tab">Example</span>
+                            <div class="qld__code-preview-body qld__body" style="border-radius: 0 12px 0 0;">
+                                <!--
+              Light:  <div class="qld__accordion-group">
+              Dark:   <div class="qld__accordion-group qld__accordion-group--dark">
+            -->
+            
+            <section class="qld__body">
+                <div class="container-fluid">
+                    <div class="qld__accordion-group" id="Signle-action--example-1">
+                        <div class="qld__accordion">
+                            <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="Light-Example_1" aria-expanded="false">
+                                Accordion heading 1
+                            </button>
+            
+                            <div class="qld__accordion__body qld__accordion--closed" id="Light-Example_1">
+                                <div class="qld__accordion__body-wrapper">
+                                    Here <a href="#url">is</a> some accordion content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="qld__body qld__body--dark">
+                <div class="container-fluid">
+                    <div class="qld__accordion-group qld__accordion-group--dark" id="Signle-action--example-2">
+                        <div class="qld__accordion">
+                            <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="Dark-Example_1" aria-expanded="false">
+                                Accordion heading 1
+                            </button>
+            
+                            <div class="qld__accordion__body qld__accordion--closed" id="Dark-Example_1">
+                                <div class="qld__accordion__body-wrapper">
+                                    Here <a href="#url">is</a> some accordion content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                            </div>
+                        </div>
+                        <div class="qld__code-toggle">
+                            <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
+                        </div>
+                        <div class="qld__code-header">
+                            <div class="qld__code-header-left">
+                                    <a href="https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?node-id=23167%3A395554&amp;t=jyGWG7bzBaAX7IIY-1" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                            </div>
+                            <div class="qld__code-header-right">
+                                <button class="qld__btn qld__code-copy--button" type="button">
+                                    <div class="clean">
+                                        <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                                    </div>
+                                    <div class="dirty">
+                                        <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                                    </div>
+                                    <div class="qld__code-tooltip">
+                                        <span class="clean">Copy</span>
+                                        <span class="dirty">Copied</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <code class="qld__code-body" style="height: 120px;"><span class="token comment">&lt;!--
+              Light:  &lt;div class="qld__accordion-group"&gt;
+              Dark:   &lt;div class="qld__accordion-group qld__accordion-group--dark"&gt;
+            --&gt;</span>
+            
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-group<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Signle-action--example-1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span> 
+                            <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Light-Example_1<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                Accordion heading 1
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Light-Example_1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+            
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__body qld__body--dark<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-group qld__accordion-group--dark<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Signle-action--example-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span> 
+                            <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Dark-Example_1<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                Accordion heading 1
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Dark-Example_1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code>
+                    </div>
+                    </div>
+                </section>
+            
+            <data class="fb-component-track" value="137143.body" data-name="body" data-date_created="2023-02-24 13:05:26" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-137143">
+                <div class="container-fluid">
+                    
+            <div id="accordion_group_137143">
+            <h2 id="section__accordion-group" data-renderer-start-pos="2572" tabindex="-1">Accordion group</h2><p data-renderer-start-pos="2589"> A group of accordions that expand and collapse on click. Only the accordion that's clicked changes.</p><p><a class="qld__text-link qld__text-link--icon-trail" href="https://www.design-system.health.qld.gov.au/components/accordions/accordion" target="_blank">Preview in new window<i class="fa-light fa-arrow-up-right-from-square"></i></a></p>
+            </div>
+            
+                </div>
+            </section>
+            
+            <data class="fb-component-track" value="134917.code" data-name="code" data-date_created="2023-02-02 17:16:49" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            
+                <section class="qld__body">
+                    <div class="container-fluid">
+            
+                    <div class="qld__code multiline show_less with-preview">
+                        <div class="qld__code-preview">
+                            <span class="qld__code-preview-tab">Example</span>
+                            <div class="qld__code-preview-body qld__body" style="border-radius: 0 12px 0 0;">
+                                <!--
+              Light:  <div class="qld__accordion-group">
+              Dark:   <div class="qld__accordion-group qld__accordion-group--dark">
+            -->
+            
+            <section class="qld__body">
+                <div class="container-fluid">
+                    <div class="qld__accordion-group" id="accordion-group--example-1">
+                        <div class="qld__accordion__toggle">
+                            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed">Open all</button>
+                        </div>
+                        <ul class="qld__accordion-list">
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="LightExample_1" aria-expanded="false">
+                                        Accordion heading 1
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="LightExample_1">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="LightExample_2" aria-expanded="false">
+                                        Accordion heading 2
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="LightExample_2">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="LightExample_3" aria-expanded="false">
+                                        Accordion heading 3
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="LightExample_3">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="qld__body qld__body--dark">
+                <div class="container-fluid">
+                    <div class="qld__accordion-group qld__accordion-group--dark" id="accordion-group--example-2">
+                        <div class="qld__accordion__toggle">
+                            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed">Open all</button>
+                        </div>
+                        <ul class="qld__accordion-list">
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="DarkExample_1" aria-expanded="false">
+                                        Accordion heading 1
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="DarkExample_1">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="DarkExample_2" aria-expanded="false">
+                                        Accordion heading 2
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="DarkExample_2">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="qld__accordion">
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="DarkExample_3" aria-expanded="false">
+                                        Accordion heading 3
+                                    </button>
+            
+                                    <div class="qld__accordion__body qld__accordion--closed" id="DarkExample_3">
+                                        <div class="qld__accordion__body-wrapper">
+                                            Here <a href="#url">is</a> some accordion content
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+                            </div>
+                        </div>
+                        <div class="qld__code-toggle">
+                            <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
+                        </div>
+                        <div class="qld__code-header">
+                            <div class="qld__code-header-left">
+                                    <a href="https://www.figma.com/file/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?node-id=23167%3A395554&amp;t=jyGWG7bzBaAX7IIY-1" class="qld__code-header-link" target="_blank"><i class="fa-regular fa-arrow-up-right-from-square"></i> Figma</a>
+                            </div>
+                            <div class="qld__code-header-right">
+                                <button class="qld__btn qld__code-copy--button" type="button">
+                                    <div class="clean">
+                                        <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                                    </div>
+                                    <div class="dirty">
+                                        <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                                    </div>
+                                    <div class="qld__code-tooltip">
+                                        <span class="clean">Copy</span>
+                                        <span class="dirty">Copied</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <code class="qld__code-body" style="height: 120px;"><span class="token comment">&lt;!--
+              Light:  &lt;div class="qld__accordion-group"&gt;
+              Dark:   &lt;div class="qld__accordion-group qld__accordion-group--dark"&gt;
+            --&gt;</span>
+            
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__body<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-group<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>accordion-group--example-1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__toggle<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__toggle-btn qld__accordion__toggle-btn--closed<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Open all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-list<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_1<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 1
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_2<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 2
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_3<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 3
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LightExample_3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span>
+            
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__body qld__body--dark<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-fluid<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-group qld__accordion-group--dark<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>accordion-group--example-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__toggle<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__toggle-btn qld__accordion__toggle-btn--closed<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Open all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion-list<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_1<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 1
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_2<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 2
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__title js-qld__accordion qld__accordion--closed<span class="token punctuation">"</span></span>
+                                        <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_3<span class="token punctuation">"</span></span> <span class="token attr-name">aria-expanded</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        Accordion heading 3
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+            
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body qld__accordion--closed<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DarkExample_3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>qld__accordion__body-wrapper<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                            Here <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#url<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>is<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span> some accordion content
+                                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">&gt;</span></span></code>
+                    </div>
+                    </div>
+                </section>
+            
+            <data class="fb-component-track" value="119362.multi_column" data-name="multi_column" data-date_created="2022-12-05 14:54:19" data-date_updated="2023-08-08 16:12:13" data-date_published="2023-08-08 16:12:13"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body qld__body--full-width " id="multi-column-119362">
+            
+                <div class="container-fluid">
+            
+                    <div class="row">
+            
+                        <div class="col-xs-12 col-lg-12">
+            
+                            <h2 id="section__usage-guidelines" tabindex="-1">Usage guidelines</h2>
+            
+                        </div>
+            
+                    </div>
+            
+                        <div class="row row--heading-paragraph-columns">
+            
+                            <div class="col-xs-12 col-xs-12 col-lg-6">
+                                <h3><svg class="qld__icon qld__icon--lead qld__icon--lg" aria-hidden="true" focusable="false"><title> Success status icon </title><desc> Indicates a success state </desc><use href="https://qhscb.squiz.cloud/qgds/_media/icons/QGDS-icons.svg#icon-Status-Success"></use></svg> When to use it</h3><p>We recommend accordions be used sparingly for primary content on a page. While they can be appropriate for organising small, specific sections of content, accordions aren’t a suitable replacement for well formatted plain text. If a user needs all, or most of the information on the page it should be visible, not hidden inside an accordion.</p><p>Before using an accordion, consider whether the benefits outweigh the negative usability impacts.</p><ul><li><strong>Hiding content makes it harder for a user to scan a webpage</strong>. If your content is hidden inside an accordion, it can be difficult for a user to scan the whole page for content relevant to them. Web browsers' ‘Find on page…' search functions don’t detect content hidden by accordions, making it harder for users to locate text.</li><li><strong>Accordions increase cognitive load</strong>. Forcing a user to click on each accordion to get the full text fragments their user experience, causing them to switch focus between accordions to get to the information. It’s also possible with hidden content, that a user might not see important information.</li></ul><p><strong>Accordions can be suitable&nbsp;</strong>when users need only a few key pieces of content on a single page. By hiding unimportant content within an accordion, users can efficiently focus on the few topics that matter (Loranger 2014).</p><h3>Open all and close all button</h3><p>If you have 3 or more accordion buttons in a stack, you can add the expand and close all button as an option.</p>
+                            </div>
+            
+                            <div class="col-xs-12 col-xs-12 col-lg-6">
+                                <h3><svg class="qld__icon qld__icon--lead qld__icon--lg" aria-hidden="true" focusable="false"><title> Status Cancel Icon </title><desc> Cancel icon </desc><use href="https://qhscb.squiz.cloud/qgds/_media/icons/QGDS-icons.svg#icon-Status-Cancel"></use></svg> When not to use it</h3><ul><li>If the amount of content it would need to contain will make the page slow to load</li><li>To split up a series of questions into sections, use separate pages instead</li><li>With very short content, use lists or paragraphs</li><li>With very long content, use tabs or separate pages</li><li>With any other UI elements within the header</li><li>For important information which if hidden could be missed</li><li>Just to shorten a page</li></ul><p><strong>Accordions should be avoided</strong> when your audience needs most or all of the content on the page to answer their questions (Loranger 2014).</p>
+                            </div>
+            
+            
+            
+                        </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                </div>
+            
+            </section>
+            </div>
+                                    <div data-tab="tab1-137414" class="qld__tab-content " role="tabpanel" aria-labelledby="tab1-137414-button" id="tab1-137414-content" tabindex="0">
+            <data class="fb-component-track" value="137283.body" data-name="body" data-date_created="2023-02-25 13:57:58" data-date_updated="2023-08-08 16:05:32" data-date_published="2023-08-08 16:05:32"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-137283">
+                <div class="container-fluid">
+                    
+            <div id="design_rational_and_research_137283">
+            <h2 id="section__research-and-rationale" tabindex="-1">Research and rationale</h2><p>Our accordion design and guidelines are based on the best practice and research outlined by the&nbsp;<a href="https://gold.designsystemau.org/components/accordion/">DTA </a>(Digital Transformation Agency, 2018, Accordions section). The only modifications to this design was to include the addition of open all and close all functionality.</p><h3>Single action accordions</h3><p>Accordion elements on some websites collapse any open panels when another one is opened. This behaviour can seem unpredictable for some users, which is why our accordion components don’t behave in that way.</p><p>We want to make sure that users have full control over what content remains visible to minimise any confusion when content suddenly ‘disappears’ from view.</p><h3>Iconography</h3><p>We use an up and down chevron icon to represent our collapsible element, rather than a plus or minus, or arrows alternative.</p><p>Plus, and minus icons can better describe different functionality. For example, adding a dependent child to a form. The arrows are more closely aligned to navigation.</p>
+            </div>
+            
+                </div>
+            </section>
+            </div>
+                                    <div data-tab="tab2-137422" class="qld__tab-content " role="tabpanel" aria-labelledby="tab2-137422-button" id="tab2-137422-content" tabindex="0">
+            <data class="fb-component-track" value="137239.body" data-name="body" data-date_created="2023-02-24 14:39:17" data-date_updated="2023-08-08 16:11:00" data-date_published="2023-08-08 16:11:00"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-137239">
+                <div class="container-fluid">
+                    
+            <div id="css_classes_137239">
+            <h2 id="section__classes" tabindex="-1">Classes</h2><div class="qld__table--contained"><table id="table24240" class="qld__table qld__table__col-1-right-border"><thead><tr><th scope="col" id="table24240r1c1">Name</th><th scope="col" id="table24240r1c2">Description</th></tr></thead><tbody><tr><td headers="table24240r1c1"><div class="qld__code--inline"><code tabindex="0">qld__accordion--closed</code><span class="qld__code-tooltip">Copy</span></div></td><td headers="table24240r1c2">Closed state.</td></tr><tr><td headers="table24240r1c1"><div class="qld__code--inline"><code tabindex="0">qld__accordion--open</code><span class="qld__code-tooltip">Copy</span></div></td><td headers="table24240r1c2">Open state.</td></tr><tr><td headers="table24240r1c1"><div class="qld__code--inline"><code tabindex="0">qld__accordion--alt</code><span class="qld__code-tooltip">Copy</span></div></td><td headers="table24240r1c2">Variation for alt backgrounds.</td></tr><tr><td headers="table24240r1c1"><div class="qld__code--inline"><code tabindex="0">qld__accordion--dark</code><span class="qld__code-tooltip">Copy</span></div></td><td headers="table24240r1c2">Variation for dark backgrounds.</td></tr><tr><td headers="table24240r1c1"><div class="qld__code--inline"><code tabindex="0">qld__accordion--dark-alt</code><span class="qld__code-tooltip">Copy</span></div></td><td headers="table24240r1c2">Variation for dark-alt backgrounds.</td></tr></tbody></table></div>
+            </div>
+            
+                </div>
+            </section>
+            </div>
+                                    <div data-tab="tab3-138073" class="qld__tab-content " role="tabpanel" aria-labelledby="tab3-138073-button" id="tab3-138073-content" tabindex="0">
+            <data class="fb-component-track" value="158092.body" data-name="body" data-date_created="2023-07-07 11:09:16" data-date_updated="2023-08-08 16:06:18" data-date_published="2023-08-08 16:06:18"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-158092">
+                <div class="container-fluid">
+                    
+            <div id="component_158092">
+            <h2 class="qld__abstract" id="section__accessible-accordion-requirements" tabindex="-1">Accessible accordion requirements</h2><p data-pm-slice="1 1 []" class="qld__abstract">Keep these considerations in mind if you're modifying the Design System or creating a custom component.</p><h3>WCAG guidelines&nbsp;&nbsp;2.1</h3><h4 style="border: 0px solid rgb(217, 217, 227)">1.3.1 Info and Relationships</h4><p style="border: 0px solid rgb(217, 217, 227)">Ensure that the information, structure, and relationships conveyed through the accordion's presentation can be programmatically determined or are available in text. For example, the relationship between the accordion header and the content it controls should be clear to assistive technologies.</p><h4 style="border: 0px solid rgb(217, 217, 227)">1.4.3 Contrast (Minimum)</h4><p style="border: 0px solid rgb(217, 217, 227)">Ensure that text labels and icons in the accordion component have a sufficient colour contrast ratio against their background (at least 4.5:1 for normal text and 3:1 for large text).</p><h4 style="border: 0px solid rgb(217, 217, 227)">2.1.1 Keyboard Accessible</h4><p style="border: 0px solid rgb(217, 217, 227)">Ensure that the accordion header buttons are focusable and can be expanded or collapsed using the keyboard, typically by pressing Enter or Space. Add keyboard support to allow users to use the arrow keys to navigate through the accordion headers.</p><h4 style="border: 0px solid rgb(217, 217, 227)">2.4.3 Focus Order</h4><p style="border: 0px solid rgb(217, 217, 227)">Ensure that the accordion elements receive focus in an order that preserves meaning and operability. Typically, this means that focus moves to the contents of a section when it is expanded, and moves to the next header when a section is collapsed. When an accordion header is in focus, it must have a visible focus outline. This ensures that keyboard-only users can perceive which element within the accordion has the keyboard focus.</p><h4 style="border: 0px solid rgb(217, 217, 227)">2.4.6 Headings and Labels</h4><p style="border: 0px solid rgb(217, 217, 227)">Headers should describe the topic or purpose and should be unique where possible, allowing users, particularly screen reader users, to navigate effectively.</p><h4 style="border: 0px solid rgb(217, 217, 227)">3.2.2 On Input</h4><p style="border: 0px solid rgb(217, 217, 227)">Changes of context, such as expanding a panel, should be initiated only by user request and not automatically by a change in an input element or setting.</p><h4 style="border: 0px solid rgb(217, 217, 227)">4.1.2 Name, Role, Value</h4><p>For accordion headers that are interactive, use ARIA attributes to provide an accessible name, ensure the correct role is conveyed, and ensure that the component can be operated by assistive technologies. Additionally, use ARIA to indicate the expanded or collapsed state of the accordion.</p>
+            </div>
+            
+                </div>
+            </section>
+            </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            
+            
+            
+            
+            <data class="fb-component-track" value="137286.horizontal_rule" data-name="horizontal_rule" data-date_created="2023-02-25 14:23:05" data-date_updated="2023-08-08 16:08:26" data-date_published="2023-08-08 16:08:26"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body" id="horizontal-rule-137286">
+            <hr class="qld__horizontal-rule  " style="height:1px;margin-top:0px;margin-bottom:0px;
+            ">
+            </section>
+            
+            
+            
+            
+            
+            
+            <data class="fb-component-track" value="137288.body" data-name="body" data-date_created="2023-02-25 14:23:26" data-date_updated="2023-08-08 16:08:26" data-date_published="2023-08-08 16:08:26"></data>
+            
+            <!-- test comment -->
+            
+            <section class="qld__body  qld__body--full-width" id="body-137288">
+                <div class="container-fluid">
+                    
+            <div id="component_137288">
+            <h2 id="section__related-components" tabindex="-1">Related components</h2><p><a href="https://www.design-system.health.qld.gov.au/components/tabs">Tabs</a></p><h2 id="section__references" tabindex="-1">References</h2><p>Digital Transformation Agency (2018) <a href="https://designsystem.gov.au/">Accoridon</a>,&nbsp;<em data-renderer-mark="true">Gold Design System (Formerly DTA)</em>, accessed 10 April 2023.</p><p data-renderer-start-pos="5793">Laubheimer P and Budiu R. (2020). <a href="https://www.nngroup.com/articles/accordion-icons">Accordion Icons: Definition, Best Practices, and Examples</a>. Nielsen Norman Group, accessed 10 April 2023.</p><p data-pm-slice="1 1 []">W3C (2018) <a href="https://www.w3.org/TR/WCAG21"><u>Web Content Accessibility Guidelines (WCAG) 2.1</u></a>, World Wide Web Consortium, accessed 10 April 2023.</p><p data-renderer-start-pos="5793">Loranger H (2014). <a href="https://www.nngroup.com/articles/accordions-complex-content/">Accordion Icons: Definition, Best Practices, and Examples</a>. Nielsen Norman Group, accessed 10 April 2023.</p>
+            </div>
+            
+                </div>
+            </section>
+            
+            
+            
+            
+            
+            <style>
+            
+            #content .qld__code-preview-body.qld__body{
+                padding:0px;
+               
+            }
+            
+            #content .qld__body .qld__code .qld__code-toggle{
+                 background: var(--QLD-color-dark__background);
+            }
+            
+            .qld__accordion-group{
+             margin-left:auto;
+             margin-right:auto;
+            }
+            </style>
+            
+            
+                            
+                <!-- Last updated date -->
+                <!-- --> 
+            
+                    <section class="qld__body">
+                        <div class="container-fluid">
+                            <p><strong style="padding-right: 12px;">Last updated:</strong>&nbsp;August 2023</p>
+                        </div>
+                    </section>
+            
+            
+            
+            <!--</div>-->
+                </div>
+        <!--CONTENT-->
+        <!-- {require('../components/banner_advanced/html/component.hbs')({
+            "component":require('../components/banner_advanced/js/manifest.json').component,
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })} -->
+        <!-- {require('../components/banner_intermediate/html/component.hbs')({
+            "component":require('../components/banner_intermediate/js/manifest.json').component,
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })} -->
+        <!-- {require('../components/banner_basic/html/component.hbs')({
+            "component":require('../components/banner_basic/js/manifest.json').component,
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })} -->
+        <!-- {require('../components/banner/html/component.hbs')({
+            "component":require('../components/banner/js/manifest.json').component,
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })} -->
+        <!-- {require('../components/banner_home/html/component.hbs')({
+            "component":require('../components/banner_home/js/manifest.json').component
+        })}
+        {require('../components/banner_two_heading/html/component.hbs')({
+            "component":require('../components/banner_two_heading/js/manifest.json').component
+        })} -->
+        
+        <!-- {require('../components/body/html/component.hbs')({
+            "component":require('../components/body/js/manifest.json').component,
+            "content":"Lorem Ipsum"
+        })} -->
+        <!-- {require('../components/promo_panel/html/component.hbs')({
+            "component":require('../components/promo_panel/js/manifest.json').component,
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })} -->
+        
+
+
+        </main>
+        <!-- END MAIN BODY -->
+
+        <!-- WIDGETS -->
+        ${require('../components/widgets/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json'),
+        })}
+        
+        <!-- FOOTER-->
+        ${require('../components/footer/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+        })}
+
+        <div class="footer-scripts" id="footer_js" style="display: none !important;">
+            ${require('../components/_global/html/scripts.html')}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+        <html class="no-js lt-ie8 lt-ie9" lang="en">
+    <![endif]-->
+<!--[if IE 8]>
+        <html class="no-js lt-ie9 ie8" lang="en">
+    <![endif]-->
+<!--[if IE 9]>
+        <html class="no-js ie9" lang="en">
+    <![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <title>Queensland Design System</title>
+        
+        ${require('../components/_global/html/head.html')}
+    </head>
+
+    <body class="qld__grid">
+        <!--noindex-->
+        ${require('../components/header/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!--endnoindex-->
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!-- MAIN BODY -->
+        <main class="main" role="main">
+            
+            ${require('../components/banner_basic/html/component.hbs')({
+                "site":require('/src/data/site.json'),
+                "current":require('/src/data/current.json')
+            })}
+            <!--CONTENT-->
+            <div class="qld__body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-4 col-xl-3">
+                            <!-- INTERNAL NAVIGATION -->
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                                "site":require('/src/data/site.json'),
+                                "current":require('/src/data/current.json')
+                            })}
+                        </div>
+                        <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
+                            
+                            ${require('../components/_global/html/component.hbs')({
+                                "manifest":require('../components/banner_basic/js/manifest.json'),
+                                "component":require('!url-loader!../components/banner_basic/html/component.hbs'),
+                                "component_output":require('../components/banner_basic/html/component.hbs')({
+                                    "component":require('../components/banner_basic/js/manifest.json').component,
+                                    "site":require('/src/data/site.json'),
+                                    "current":require('/src/data/current.json'),
+                                    "content":"Lorem Ipsum"
+                                })
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </main>
+        <!-- END MAIN BODY -->
+
+        <!-- WIDGETS -->
+        ${require('../components/widgets/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })}
+        
+        <!-- FOOTER-->
+        ${require('../components/footer/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+
+        <div class="footer-scripts" id="footer_js" style="display: none !important;">
+            ${require('../components/_global/html/scripts.html')}
+        </div>
+    </body>
+</html>

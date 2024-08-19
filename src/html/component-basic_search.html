@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+        <html class="no-js lt-ie8 lt-ie9" lang="en">
+    <![endif]-->
+<!--[if IE 8]>
+        <html class="no-js lt-ie9 ie8" lang="en">
+    <![endif]-->
+<!--[if IE 9]>
+        <html class="no-js ie9" lang="en">
+    <![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <title>Queensland Design System</title>
+        
+        ${require('../components/_global/html/head.html')}
+    </head>
+
+    <body class="qld__grid">
+        <!--noindex-->
+        ${require('../components/header/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!--endnoindex-->
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+        <!-- MAIN BODY -->
+        <main class="main" role="main">
+            <!--CONTENT-->
+            ${require('../components/basic_search/html/component.hbs')({
+                "component":require('../components/basic_search/js/manifest.json').component,
+                "resultsPage":require('../components/basic_search/js/manifest.json').component.resultsPage,
+                "site":require('/src/data/site.json'),
+                "current":require('/src/data/current.json'),
+            })}
+            <!--END CONTENT--> 
+        </main>
+        <!-- END MAIN BODY -->
+
+        <!-- WIDGETS -->
+        ${require('../components/widgets/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json')
+        })}
+        
+        <!-- FOOTER-->
+        ${require('../components/footer/html/component.hbs')({
+            "site":require('/src/data/site.json')
+        })}
+
+        <div class="footer-scripts" id="footer_js" style="display: none !important;">
+            ${require('../components/_global/html/scripts.html')}
+        </div>
+    </body>
+</html>

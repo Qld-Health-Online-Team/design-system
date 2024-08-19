@@ -1,0 +1,54 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Example styles
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__body {
+    .qld__example {
+        @include QLD-space(margin-top, 2unit);    
+        
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, 0.1875unit);
+        }
+        
+        &__title {
+            background-color: var(--QLD-color-light__background--shade);
+            display: inline-block;
+            @include QLD-space(
+                border,
+                solid var(--QLD-color-light__border) 0.0625unit
+            );
+            @include QLD-space(padding, 0.375unit 0.5unit);
+            font-weight: normal;
+        }
+        
+        &__iframe,
+        &__inline {
+            display: block;
+            width: 100%;
+            @include QLD-space(
+                border,
+                solid 0.0625unit var(--QLD-color-light__border--alt)
+            );
+        }
+        
+        &__inline {
+            @include QLD-space(padding, 1unit);
+
+            .qld__body{
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+        
+        &__html {
+            @include QLD-space(padding, 1unit 0);
+        }
+    }
+   
+    * + .qld__example {
+        @include QLD-space(margin-top, 2unit);
+        @include QLD-space(margin-bottom, 2unit);
+
+    }
+}
+

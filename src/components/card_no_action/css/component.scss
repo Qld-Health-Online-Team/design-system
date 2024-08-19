@@ -1,0 +1,701 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// card_no_action
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: $QLD-border-radius-sm;
+	border:$QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+    position: relative;
+    color: var(--QLD-color-light__text);
+    background: $QLD-color-neutral--white;
+    overflow: hidden;
+
+    & &__inner {
+        @include QLD-space(padding, 1unit);
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        justify-content: space-between;
+
+        @include QLD-media(md) {
+            @include QLD-space(padding, 1.25unit);
+        }
+        @include QLD-media(lg) {
+            @include QLD-space(padding, 1.5unit);
+        }
+    }
+
+    & &__content{
+        word-break: break-word;
+    }
+
+    & &__inner &__title {
+        color: var(--QLD-color-light__heading);
+        @include QLD-space(font-size, 1.25unit);
+        line-height: 1.4;
+        @include QLD-space(margin, 0unit); 
+    }
+
+    & &__inner &__description{
+        @include QLD-fontgrid(xs);
+        @include QLD-space(margin-top, .75unit);
+
+        @include QLD-media(md) {
+            @include QLD-fontgrid(sm);
+        }
+    }
+
+    .qld__responsive-media-img {
+        flex: 0 0 auto;
+        order: -1;
+        margin-top: 0;
+        border-bottom: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+        max-height: 162px;
+
+        @include QLD-media(sm) {
+            max-height: 230px;
+        }
+    }
+
+    .qld__responsive-media-img--bg {
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        // outline: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+        padding-bottom: 56.25%;
+        width: 100%;
+        border-top-left-radius: $QLD-border-radius-sm;
+        border-top-right-radius: $QLD-border-radius-sm;
+        border-bottom-right-radius: 6.0882800608828% 10.81081081081081%;
+        border-bottom-left-radius: 0px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: -1px;
+            left: -1px;
+            border: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+            border-top-left-radius: $QLD-border-radius-sm;
+            border-top-right-radius: $QLD-border-radius-sm;
+            border-bottom-right-radius: 6.0882800608828% 10.81081081081081%;
+            border-bottom-left-radius: 0px;
+        }
+    }
+
+    .qld__card__image-tag{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        // opacity: .8;
+        color: var(--QLD-color-light__link--on-action);
+        display: flex;
+        gap: 1px;
+        border-top-right-radius: $QLD-border-radius-xs;
+        overflow: hidden;
+
+        &--title,
+        &--length{
+            background-color: var(--QLD-color-light__action--primary);
+            @include QLD-space(padding, .625unit);
+
+            i{
+                @include QLD-space(font-size, 1.25unit);
+                @include QLD-space(margin-right, .375unit);
+                vertical-align: text-top;
+
+            }
+        }
+    }
+
+    a.qld__card--clickable__link {
+        color: var(--QLD-color-light__link);
+        @include QLD-underline('light');
+        // @include QLD-underline('light','noUnderline','buttonText','noVisited');
+
+        &:visited, &:hover:visited {
+            color: var(--QLD-color-light__link--visited);
+        }
+
+        //make hit area entire card
+        
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        // don't focus on anchor inside the tag
+        &:focus {
+            outline: none;
+        }
+
+        .lt-ie9 &:focus {
+            outline: 3px solid var(--QLD-color-light__focus);
+            outline-offset: 2px;
+        }
+    }
+
+    & &__footer {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        position: relative;
+        @include QLD-fontgrid(xs);
+        justify-content: end;
+
+        @include QLD-media(md) {
+            @include QLD-fontgrid(sm);
+        }
+
+        .qld__card__footer-link-icon {
+            @include QLD-space(margin-right, 0.5unit);
+        }
+
+    }
+
+    &.qld__card--icon {
+        .qld__card__inner {
+            text-align: center;
+
+            @include QLD-media(md) {
+                @include QLD-space(padding-top, 1unit);
+            }
+            @include QLD-media(lg) {
+                @include QLD-space(padding-top, 1.25unit);
+            }
+
+            .qld__card__title{
+                @include QLD-space(font-size, 1.25unit);
+                line-height: 1.4;
+            }
+        }
+        .qld__card__icon {
+            display: flex;
+            border-radius: 50%;
+            @include QLD-space(font-size, 2.5unit);
+            @include QLD-space(width, 6unit);
+            @include QLD-space(height, 6unit);
+            background-color: $QLD-color-neutral--lightest;
+            justify-content: center;
+            align-self: center;
+            color: var(--QLD-color-light__heading);
+            @include QLD-space(margin, 1unit 1unit 0 1unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin, 1.25unit 1.25unit 0 1.25unit); 
+                @include QLD-space(width, 6unit);
+                @include QLD-space(height, 6unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin, 1.5unit 1.5unit 0 1.5unit);
+                @include QLD-space(width, 8unit);
+                @include QLD-space(height, 8unit);
+            }
+    
+            svg, i {
+                @include QLD-space(font-size, 2.813unit);
+                @include QLD-space(line-height, 6unit);
+                display: flex; 
+                align-self: center;
+                @include QLD-space(margin-bottom, -.25unit);
+    
+                @include QLD-media(lg) {
+                    @include QLD-space(font-size, 3.75unit);
+                    @include QLD-space(line-height, 8unit);
+                }
+            }
+        }
+    }
+
+    &.qld__card--icon-left {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .qld__card__inner {
+            text-align: left;
+            flex: 1 0 0%;
+            justify-content: center;
+            
+            @include QLD-media(md) {
+                @include QLD-space(padding-top, 1.25unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-space(padding-bottom, 1.25unit);
+            }
+        }
+
+        .qld__card__icon {
+            @include QLD-space(margin, 1unit 0 1unit 1unit);
+            @include QLD-space(width, 4unit);
+            @include QLD-space(height, 4unit);
+            @include QLD-media(md) {
+                @include QLD-space(margin, 1.25unit 0 1.25unit 1.25unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-space(margin, 1.25unit 0 1.25unit 1.5unit);
+            }
+
+            svg, i {
+                @include QLD-space(font-size, 2.25unit);
+                @include QLD-space(line-height, 4unit);
+            }
+        }
+    }
+
+    &.qld__card--image {
+        .qld__card__inner{
+            @include QLD-space(padding-top, .75unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(padding-top, 1unit);
+            }
+            @include QLD-media(lg) {
+                @include QLD-space(padding-top, 1.25unit);
+            }
+
+        }
+    }
+
+    //Light theme
+    &.qld__card--light {
+        background-color: var(--QLD-color-light__background);
+        color: var(--QLD-color-light__text);
+
+        &.qld__card--icon{
+            .qld__card__icon{
+                background-color: var(--QLD-color-light__background--shade);
+            }
+        }
+    }
+
+    //Alternate theme
+    &.qld__card--alt {
+        background-color: var(--QLD-color-light__background--alt);
+        color: var(--QLD-color-light__text);
+
+        &.qld__card--icon{
+            .qld__card__icon{
+                background-color: var(--QLD-color-light__background--alt-shade);
+            }
+        }
+    }
+
+    //Dark theme
+    &.qld__card--dark{
+        background-color: var(--QLD-color-dark__background);
+        color: var(--QLD-color-dark__text);
+
+        .qld__responsive-media-img--bg {
+            // outline: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
+            &::before {
+                border: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
+            }
+        }
+
+        .qld__card__title {
+            color: var(--QLD-color-dark__heading);
+        }
+
+        .qld__card__icon{
+            background-color: var(--QLD-color-dark__background--shade);
+
+            i,
+            svg{
+                color:  var(--QLD-color-dark__heading);
+            }
+        }
+
+        .qld__card__image-tag{
+            color: var(--QLD-color-dark__link--on-action);
+
+            &--title,
+            &--length{
+                background-color: var(--QLD-color-dark__action--primary);
+            }
+        }   
+    }
+
+    //Dark Alt theme
+    &.qld__card--dark-alt {
+        background-color: var(--QLD-color-dark__background--alt);
+        color: var(--QLD-color-dark__text);
+
+        .qld__responsive-media-img--bg {
+            // outline: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
+            &::before {
+                border: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
+            }
+        }
+
+        .qld__card__title {
+            color: var(--QLD-color-dark__heading);
+        }
+
+        .qld__card__icon{
+            background-color: var(--QLD-color-dark__background--alt-shade);
+
+            i,
+            svg{
+                color: var(--QLD-color-dark__heading);
+            }
+        }
+
+        .qld__card__image-tag{
+            color: var(--QLD-color-dark__link--on-action);
+
+            &--title,
+            &--length{
+                background-color: var(--QLD-color-dark__action--primary);
+            }
+        }         
+    }
+
+    .qld__body--dark &,
+    .qld__body--dark-alt &,
+    .qld__banner--dark &,
+    .qld__banner--dark-alt &{
+        border-color: var(--QLD-color-dark__border--alt);
+    }
+
+}
+
+
+.qld__body--dark, .qld__banner--dark, .qld__banner--dark-alt, .qld__body--dark-alt {
+    .qld__card{
+        a.qld__card--clickable__link {
+            @include QLD-underline('light');
+            color: var(--QLD-color-light__link);
+            &:visited, &:hover:visited {
+                color: var(--QLD-color-light__link--visited);
+            }
+    
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &.qld__card--dark, &.qld__card--dark-alt{
+            a.qld__card--clickable__link{
+                @include QLD-underline('dark');
+                color: var(--QLD-color-dark__link);
+
+                &:visited, &:hover:visited {
+                    color: var(--QLD-color-dark__link--visited);
+                }
+        
+                &:focus {
+                    outline: none;
+                }
+    
+            }
+        }
+    }
+} 
+
+.qld__body, .qld__body--alt {
+    .qld__card{
+        a.qld__card--clickable__link {
+            color: var(--QLD-color-light__link);
+            @include QLD-underline('light');
+        }
+
+        &.qld__card--dark, &.qld__card--dark-alt{
+            a.qld__card--clickable__link{
+                color: var(--QLD-color-dark__link);
+                @include QLD-underline('dark');
+    
+            }
+        }
+    }
+} 
+
+// Card listing match height
+.qld__body .qld__card-list,
+.qld__banner .qld__card-list {
+    @include QLD-clearfix();
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    @include QLD-media(md) {
+        margin: 0 .25rem;
+    }
+    @include QLD-media(lg) {
+        margin: 0;
+    }
+
+    // Odd issue with safari
+    // https://stackoverflow.com/questions/34250282/flexbox-safari-bug-flex-wrap
+    &:before {
+        display: none;
+    }
+
+    > li {
+        list-style: none;
+        @include QLD-space(padding-left, 1unit);
+        @include QLD-space(padding-right, 1unit);
+        @include QLD-space(margin-top, 1.5unit);
+        @include QLD-media(md) {
+            @include QLD-space(padding-left, .75unit);
+            @include QLD-space(padding-right, .75unit);
+        }
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, 2unit);
+            @include QLD-space(padding-left, 1unit);
+            @include QLD-space(padding-right, 1unit);
+        }
+    }
+
+    .col-xs-12:nth-of-type(1) {
+        @include QLD-space(margin-top, 0unit);
+    }
+    @include QLD-media(md) {
+        .col-md-6:nth-of-type(-n + 2) {
+            @include QLD-space(margin-top, 0unit);
+        } 
+    }
+    @include QLD-media(lg) {
+        .col-lg-4:nth-of-type(-n + 3) {
+            @include QLD-space(margin-top, 0unit);
+        } 
+        .col-lg-3:nth-of-type(-n + 4){
+            @include QLD-space(margin-top, 0unit);
+        }
+        .col-lg-6:nth-of-type(-n + 2){
+            @include QLD-space(margin-top, 0unit);
+        }
+    }
+
+    &.qld__card-list--matchheight {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            display: flex;
+        }
+    }
+    .row > & {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &.row {
+        li {
+            @include QLD-space(padding-left, 0);
+            @include QLD-space(padding-right, 0);
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        @include QLD-space(padding-left, 1unit);
+        @include QLD-space(padding-right, 1unit);
+        @include QLD-space(margin-top, 2unit);
+
+        .qld__slick-controls {
+            order: 1;
+        }
+        
+        a {
+            order: 0;
+        }
+
+        &.centered {
+            justify-content: center;
+        }
+    }
+
+
+
+}
+
+// .qld__card--wrapper{
+    .qld__card-intro{
+        @include QLD-space(padding-bottom, 1.5unit);
+    }
+// }
+
+
+//Card list background image and pattern
+.qld__card--wrapper{
+    &.qld__card--wrapper-bg-image{
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    &.qld__card--wrapper-bg-pattern{
+        background-repeat: repeat;
+        background-position: left top;
+
+    }
+}
+
+// Checks if two card components are adjacent and same background to reduce padding
+.qld__body.qld__card--wrapper{
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper{ 
+        @include QLD-space(margin-top, -1unit );
+
+        .qld__card-intro{
+            @include QLD-space(padding-bottom, 1.5unit );
+
+            &.qld__card-intro--no-top-p {
+                padding-top: 0; 
+            }
+        }
+        @include QLD-media(md) {
+            @include QLD-space(margin-top, -.5unit );
+        }
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, -2unit );
+        }
+
+        &.qld__body--light,
+        &.qld__body--alt,
+        &.qld__body--dark,
+        &.qld__body--dark-alt,
+        &.qld__card--wrapper-bg-pattern,
+        &.qld__card--wrapper-bg-image{
+            @include QLD-space(margin-top, 0unit);
+        }
+        
+    }
+    + .qld__body:not(.qld__card--wrapper){
+        @include QLD-space(padding-top, 2.5unit !important);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-top, 4unit !important);
+        }
+    }
+    &.qld__body--alt{
+        + .qld__body.qld__card--wrapper,
+        + data + .qld__body.qld__card--wrapper{
+            @include QLD-space(margin-top, 0unit );
+        
+            &.qld__body--alt{
+                @include QLD-space(margin-top, -1unit );
+                @include QLD-media(md) {
+                    @include QLD-space(margin-top, -.5unit );
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -2unit );
+                }
+                &.qld__card--wrapper-bg-pattern,
+                &.qld__card--wrapper-bg-image{
+                    @include QLD-space(margin-top, 0unit);
+                }
+            }
+        }
+    }
+    &.qld__body--dark{
+        + .qld__body.qld__card--wrapper,
+        + data + .qld__body.qld__card--wrapper{
+            @include QLD-space(margin-top, 0unit );
+        
+            &.qld__body--dark{
+                @include QLD-space(margin-top, -1unit );
+                @include QLD-media(md) {
+                    @include QLD-space(margin-top, -.5unit );
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -2unit );
+                }
+                &.qld__card--wrapper-bg-pattern,
+                &.qld__card--wrapper-bg-image{
+                    @include QLD-space(margin-top, 0unit);
+                }
+            }
+        }
+    }
+    &.qld__body--dark-alt{
+        + .qld__body.qld__card--wrapper,
+        + data + .qld__body.qld__card--wrapper{
+            @include QLD-space(margin-top, 0unit );
+        
+            &.qld__body--dark-alt{
+                @include QLD-space(margin-top, -1unit );
+                @include QLD-media(md) {
+                    @include QLD-space(margin-top, -.5unit );
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, -2unit );
+                }
+                &.qld__card--wrapper-bg-pattern,
+                &.qld__card--wrapper-bg-image{
+                    @include QLD-space(margin-top, 0unit);
+                }
+            }
+        }
+    }
+    &.qld__card--wrapper-bg-pattern,
+    &.qld__card--wrapper-bg-image{
+        @include QLD-space(padding-top, 2.5unit !important);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-top, 4unit !important);
+        }
+    }
+
+}
+.qld__body.qld__card--wrapper.qld__card--wrapper-bg-pattern,
+.qld__body.qld__card--wrapper.qld__card--wrapper-bg-image{
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper,
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper{ 
+        @include QLD-space(padding-top, 2.5unit !important);
+        @include QLD-media(lg) {
+                    @include QLD-space(padding-top, 4unit !important);
+                }
+    }
+    
+}
+.qld__body--alt.qld__card--wrapper{
+    + .qld__body--alt.qld__card--wrapper,
+    + data + .qld__body--alt.qld__card--wrapper{
+        @include QLD-space(margin-top, -1unit);
+        @include QLD-media(lg) {
+            @include QLD-space(margin-top, -2unit);
+        }
+        &.qld__body,
+        &.qld__body--dark,
+        &.qld__body--dark-alt{
+            @include QLD-space(margin-top, 0unit);
+        }
+    }
+}
+
+//Slick slider
+.qld__card--slider{
+
+    .qld__card-list__footer{
+        justify-content: space-between;
+        align-items: centre;
+        @include QLD-space(margin-top, 1.5unit);
+
+        .qld__slick-controls{
+            @include QLD-media(lg) {
+                flex: 1;
+                @include QLD-space(margin-right, -6.875unit);
+            }
+        }
+
+        .qld__cta-link{
+            display: flex;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,515 @@
+//-----------------------------------------------------------------------------
+// Footer
+//-----------------------------------------------------------------------------
+
+.qld__footer {
+    @include QLD-fontgrid(xs);
+    @include QLD-space(padding-bottom, 2.5unit);
+    border-top: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
+    background-color:$QLD-color-neutral--lightest;
+    color: var(--QLD-color-light__text);
+
+    @include QLD-media(lg) {
+        @include QLD-space(padding-top, 2unit);
+        @include QLD-space(padding-bottom, 4unit);
+    }
+
+    p {
+        @include QLD-space(margin-top, 1unit);
+        @include QLD-space(margin-top, 0unit);
+        margin-bottom: 0;
+
+        &.qld__footer__copyrightMessage {
+            @include QLD-space(margin-top, 1unit);
+            font-size: 0.875rem;
+        }
+
+        &.qld__footer__cta-content {
+            @include QLD-space(margin-top, 1unit);
+        }
+
+        &.qld__footer__acknowledgements {
+            @include QLD-space(margin-top, 1unit);
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &.qld__footer__cta-content, &.qld__footer__acknowledgements {
+            font-size: 0.875rem;
+        }
+    }
+
+    a {
+        color: var(--QLD-color-light__link);
+    }
+    a:hover {
+        &:visited {
+            text-decoration: none;
+        }
+    }
+    a:visited {
+        color: var(--QLD-color-light__link);
+        text-decoration: none;
+        
+    }
+
+    .qld__btn{
+        float: right;
+        margin-top: 0;
+
+        @include QLD-media(lg) {
+            float: none;
+            // @include QLD-space(margin-top, 2unit);
+        }
+    }
+
+    & &__heading { // double & & to increase specificity because of clash
+        color: var(--QLD-color-light__heading);
+        @include QLD-fontgrid(sm, heading);
+        font-weight: 700;
+
+        @include QLD-media(md) {
+            @include QLD-fontgrid(md, heading);
+        }
+        @include QLD-media(xl) {
+            margin-bottom: 0;
+        }
+    }
+    &__title{
+        @include QLD-space(padding-bottom, 1.5unit);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-bottom, 0unit);
+        }
+    }
+
+    .row.qld__footer-contact {
+        @include QLD-space(row-gap, 1.5unit);
+    }
+
+    & &__row {
+        border-bottom: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+        .qld__footer__column:last-of-type{
+            border-top: none;
+            @include QLD-space(margin-top, 0unit);
+        }
+        @include QLD-media(lg) {
+            border-bottom: none;
+        }
+    }
+    & > .container-fluid > .row{
+        @include QLD-media(md) {
+            @include QLD-space(margin-left, -1unit);
+            @include QLD-space(margin-right, -1unit);
+            > .qld__footer__column{
+                @include QLD-space(padding-left, 1unit);
+                @include QLD-space(padding-right, 1unit);
+                
+                &:last-of-type{
+                    @include QLD-media(lg) {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+        @include QLD-media(lg) {
+            @include QLD-space(margin-left, -1unit);
+            @include QLD-space(margin-right, -1unit);
+            @include QLD-space(padding-left, 0unit);
+            @include QLD-space(padding-right, 0unit);
+            > .qld__footer__column{
+                @include QLD-space(padding-left, 1unit);
+                @include QLD-space(padding-right, 1unit);
+            }
+        }
+    }
+
+    & &__column {
+        @include QLD-space(padding-top, 1.5unit);
+        @include QLD-media(lg) {
+            @include QLD-space(padding-top, 2unit);
+        }
+        &:last-of-type{
+            border-top: 1px solid var(--QLD-color-light__border--alt);
+            @include QLD-space(margin-top, 1.5unit);
+            @include QLD-media(lg) {
+                border-top: none;
+                @include QLD-space(margin-top, 0unit);
+            }
+        }
+        > *,
+        > p,
+        > h1,
+        > h2,
+        > h3,
+        > h4 {
+            // prevent IE11 overflow issue with child content having a max-width above the flex item width
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &__cta {
+        @include QLD-space(padding-top, 1.5unit);
+        border-top: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+        @include QLD-media(md) {
+            @include QLD-space(padding-top, 2unit);
+        }
+        @include QLD-media(xl) {
+            width: 264px;
+            flex-basis: 264px;
+            border-top: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 0;
+        }
+        .qld__footer__heading {
+            margin-top: 0;
+        }
+        &__icon {
+            @include QLD-space(height, 1unit);
+            @include QLD-space(width, 1unit);
+            @include QLD-space(margin-right, 0.5unit);
+            margin-top: -3px;
+            display: inline-block;
+            vertical-align: middle;
+            color: var(--QLD-color-light__action--secondary);
+        }
+    }
+
+    /**
+    * Footer `nav` navigation styling.
+    */
+
+    &__social,
+    &__navigation {
+        border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+        @include QLD-media(lg) {
+            border-top: none;
+            
+        }
+        ul.qld__link-list {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            line-height: 1.4;
+
+            > li {
+                margin-left: 0;
+                margin-right: 0;
+                @include QLD-space( margin-top, .5unit );
+                @include QLD-space( margin-bottom, 0unit );
+                width: 50%;
+                flex-basis: 50%;
+
+                @include QLD-media(md) {
+                    width: 33%;
+                    flex-basis: 33%;
+                }
+                @include QLD-media(lg) {
+                    width: auto;
+                    flex-basis: 100%;
+                    @include QLD-space( margin-top, .75unit);
+                }
+
+                a {
+                    display: inline-block;
+                    font-size: 0.875rem;
+                    line-height: 1.4;
+                    font-weight: 400;
+
+                    &:hover{
+                        svg{
+                            color: var(--QLD-color-light__action--secondary-hover);
+                        }
+                    }
+
+                    // svg{
+                    //     color: var(--QLD-color-light__action--secondary);
+                    // }
+                    
+                    &:has(svg) {
+                        text-decoration: none;
+                        span {
+                            @include QLD-underline();
+                        }
+                    }
+                }
+            }
+        }
+
+        svg,
+        img {
+            vertical-align: text-bottom;
+            @include QLD-space( margin-right, 0.5unit );
+            @include QLD-media(md) {
+                @include QLD-space(margin-left, .5unit);
+            }
+            @include QLD-media(lg) {
+                @include QLD-space(margin-left, 0unit);
+            }
+        }
+    }
+
+    &__social {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include QLD-space(padding-top, 1.5unit);
+
+        @include QLD-media(md) {
+            @include QLD-space(padding-top, 1.5unit);
+        }
+
+        @include QLD-media(lg) {
+            flex-direction: column;
+            align-items:flex-start;
+            @include QLD-space(padding-top, 0unit);
+            height: 100%;
+                border-right: $QLD-border-width-default solid $QLD-color-neutral--lighter;
+            
+        
+        }
+        &__label {
+            @include QLD-media(lg, 'down') { 
+                @include QLD-sronly();
+            }
+        }
+        .qld__footer__heading {
+            @include QLD-media(xl, 'down') {
+                margin-bottom: 0;
+                @include QLD-space(margin-right, 0.75unit);
+            }
+        }
+        ul.qld__link-list {
+            @include QLD-media(xl, 'down') {
+                padding: 0;
+                > li {
+                    width: auto;
+                    flex-basis: auto;
+                }
+            }
+            @include QLD-media(lg) {
+                @include QLD-space( margin-top, .375unit );
+            }
+            @include QLD-media(xl) {
+                padding: 0;
+            }
+            > li {
+                
+                @include QLD-media(xl, 'down') {
+                    padding: 0;
+                    > li {
+                        width: auto;
+                        flex-basis: auto; 
+                    }
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space( margin-top, .625unit );
+                    @include QLD-space( margin-bottom, .625unit );
+                }
+            }
+        }
+    }
+
+    &__navigation {
+        @include QLD-space(padding-top, 1.5unit);
+        @include QLD-media(md) {
+            @include QLD-space(padding-top, 2unit);
+        }
+        @include QLD-media(lg) {
+            height: 100%;
+            @include QLD-space(padding-top, 0unit);
+            @include QLD-space(padding-right, 2unit);
+            border-right: $QLD-border-width-default solid $QLD-color-neutral--lighter;
+        }
+        .qld__footer__heading {
+            @include QLD-media(xl) {
+                @include QLD-space(margin-bottom, 1unit);
+            }
+        }
+    }
+
+    &__logo {
+        &:focus{
+            outline: 3px solid var(--QLD-color-light__focus);
+            outline-offset: 2px;
+        }
+        img.qld__footer__logo-image {
+            @include QLD-space( max-height, 3unit );
+            @include QLD-space( min-height, 2.5unit );
+            @include QLD-media(md) {
+                @include QLD-space( height, 2.5unit );
+            }
+        }
+    }
+
+    * + .qld__footer__logo {
+        img {
+            @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px);
+        }
+    }
+
+    @include QLD-media(md) {
+        * + .qld__footer__logo {
+            img {
+                @include QLD-space(margin-top, map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px);
+            }
+        }   
+    }
+    
+    &.qld__footer--dark,
+    &.qld__footer--dark-alt{
+        border-color: var(--QLD-color-dark__design-accent);
+        background-color: var(--QLD-color-dark__background);
+        color: var(--QLD-color-dark__text);
+
+        a {
+            color: var(--QLD-color-dark__link);
+        }
+        a:hover {
+            &:visited {
+                all: unset;
+            }
+        }
+        a:visited {
+            all: unset;
+        }
+
+        .qld__footer__heading{
+            color: var(--QLD-color-dark__heading);
+        }
+
+        .qld__footer__row{
+            border-color: var(--QLD-color-dark__border--alt);
+            @include QLD-media(lg) {
+                border-bottom: none;
+            }
+            .qld__footer__column:last-of-type{
+                border-top: none;
+                
+            }
+        }
+
+        .qld__footer__column{
+            &:last-of-type{
+                border-color: var(--QLD-color-dark__border--alt);
+                @include QLD-media(lg) {
+                    border-top: none;
+                }
+            }
+            .qld__footer__column{
+                &:last-of-type{
+                    border-top: none;
+                }
+            }
+        }
+        
+        .qld__footer__cta__icon{
+            color: var(--QLD-color-dark__action--secondary);
+            text-align: middle;
+            line-height: 1;
+            height: 0.875rem;
+        }
+
+        a.qld__footer__clickable__link{
+            color: var(--QLD-color-dark__link);
+            &:focus{
+                outline: 3px solid var(--QLD-color-dark__focus);
+				outline-offset: 2px;
+            }
+        }
+
+        a.qld__footer__copyright-link {
+            display: block;
+            font-weight: 900;
+            @include QLD-space(margin-top, 1.25unit);
+
+            @include QLD-media(md) {
+                @include QLD-space(margin-top, 1.5unit);
+            }
+        }
+
+        .qld__footer__logo {
+            &:focus{
+                outline: 3px solid var(--QLD-color-dark__focus);
+                outline-offset: 2px;
+            }
+        }
+
+        .qld__footer__social,
+        .qld__footer__navigation{
+            border-color: var(--QLD-color-dark__border);
+
+            ul.qld__link-list{
+                > li{
+                    a{
+                        &:hover{
+                            svg{
+                                color: var(--QLD-color-dark__action--secondary-hover);
+                            }
+                        }
+                        
+                        // svg{
+                        //     color: var(--QLD-color-dark__action--secondary);
+                        // }
+                        
+                        &:has(svg) {
+                            text-decoration: none;
+                            span {
+                                @include QLD-underline('dark');
+                            }
+                        }
+                    } 
+                } 
+            } 
+        } 
+    }
+   
+    &.qld__footer--dark-alt{
+        background-color: var(--QLD-color-dark__background--alt);
+    }
+
+    // Vertical Nav Option
+
+    .vertical-nav & {
+        p {
+            max-width: initial;
+        }
+
+        @include QLD-media(lg) {
+            .qld__footer__column.col-lg-3 {
+                max-width: pxToRem(340);
+            }
+
+            .qld__footer__column.col-lg-2 {
+                max-width: pxToRem(230);
+            }
+        }
+
+        > .container-fluid {
+            max-width: initial;
+
+            @include QLD-media(md) {
+                @include QLD-space(padding, 0 2unit);
+            }
+
+            @include QLD-media(lg) {
+                @include QLD-space(padding, 0 3unit);
+            }
+        }
+    }
+
+    // Print styles
+    @media print {
+        display: none !important;
+        color: #000 !important;
+        background: #fff !important;
+        border-color: #000 !important;
+    }
+}

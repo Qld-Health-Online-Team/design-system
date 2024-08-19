@@ -1,0 +1,707 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Buttons
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/**
+* Primary
+*/
+.qld__body,
+.qld__banner,
+.qld__header__main,
+.qld__footer,
+.qld__widgets{
+
+	.qld__btn,
+	a.qld__btn,
+	a.qld__btn:visited,
+	.sq-form-submit { 
+		// @include QLD-underline('light','noUnderline','buttonText','noVisited');
+		cursor: pointer;
+		display: inline-block;
+		@include QLD-space( padding, .625unit 1.5unit );
+		background-color: var(--QLD-color-light__action--primary);
+		color: var(--QLD-color-light__link--on-action);
+		text-decoration: none;
+
+		border-radius: $QLD-border-radius-xs;
+		border: $QLD-border-width-medium solid var(--QLD-color-light__action--primary);
+		text-align: center;
+		@include QLD-space(min-width, 8.75unit);
+	
+		i{
+			color: var(--QLD-color-light__link--on-action);
+		}
+	
+	
+		&:hover{
+			background-color: var(--QLD-color-light__action--primary-hover);
+			color: var(--QLD-color-light__link--on-action);
+			border-color: var(--QLD-color-light__action--primary-hover);
+			@include QLD-box-shadow(1);
+			text-decoration: underline;
+			text-decoration-color: var(--QLD-color-light__link--on-action);
+            text-underline-offset: var(--QLD-underline__offset);
+            text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+		}
+	
+		&:focus:active {
+			background-color: $QLD-color-neutral--lightest;
+			border-color: $QLD-color-neutral--lightest;
+			color: var(--QLD-color-light__heading);
+			@include QLD-box-shadow(1);
+			text-decoration: none;
+	
+			i{
+				color: var(--QLD-color-light__heading);
+			}
+		}
+	
+		&:focus {
+			background-color: var(--QLD-color-light__action--primary-hover);
+			border-color: var(--QLD-color-light__action--primary-hover);
+			@include QLD-box-shadow(1);
+			@include QLD-focus();
+		}
+	
+		&:disabled,
+		&[disabled]{
+			cursor: not-allowed;
+			background-color: var(--QLD-color-light__background--alt-shade);
+			color: var(--QLD-color-light__text--lighter);
+			box-shadow: none;
+			border-color: transparent;
+			font-weight: 400;
+			text-decoration: none;
+	
+			i{
+				color: var(--QLD-color-light__text--lighter);
+			}
+		}
+	}
+
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt,
+	.qld__code-header,
+	.qld__code.singleline {
+ 
+		.qld__btn,
+		a.qld__btn,
+		a.qld__btn:visited,
+		.sq-form-submit { 
+			text-decoration: none;
+			background-color: var(--QLD-color-dark__action--primary);
+			color: var(--QLD-color-dark__link--on-action);
+			border-color: var(--QLD-color-dark__action--primary);
+	
+			i{
+				color: var(--QLD-color-dark__link--on-action);
+				
+			}
+	
+			&:hover{
+				background-color: var(--QLD-color-dark__action--primary-hover);
+				color: var(--QLD-color-dark__link--on-action);
+				border-color: var(--QLD-color-dark__action--primary-hover);
+				text-decoration: underline;
+				text-decoration-color: var(--QLD-color-dark__link--on-action);
+				text-underline-offset: var(--QLD-underline__offset);
+				text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+				i{
+					text-decoration: none !important;
+				}
+			}
+		
+	
+
+			&:focus {
+				background-color: var(--QLD-color-dark__action--primary-hover);
+				border-color: var(--QLD-color-dark__action--primary-hover);
+				@include QLD-focus(dark);
+				i{
+					color: var(--QLD-color-dark__link--on-action);
+				}
+			}
+
+			&:focus:active {
+				background-color: $QLD-color-neutral--lightest;
+				color: var(--QLD-color-light__heading);
+				border-color: $QLD-color-neutral--lightest;
+				text-decoration: none;
+	
+				i{
+					color: var(--QLD-color-light__heading);
+				}
+				
+			}
+
+			// &:active:focus {
+			// 	background-color: $QLD-color-neutral--lightest;
+			// 	color: var(--QLD-color-light__heading);
+			// 	border-color: $QLD-color-neutral--lightest;
+			// 	text-decoration: none;
+	
+			// 	i{
+			// 		color: var(--QLD-color-light__heading);
+			// 	}
+			// }
+		
+	
+			&:disabled,
+			&[disabled]{
+				cursor: not-allowed;
+				background-color:rgba(224, 224, 224, 0.1); // var(--QLD-color-light__background--alt-shade); with 10% opacity
+				color: var(--QLD-color-dark__text--lighter);
+				box-shadow: none;
+				border-color: transparent;
+				text-decoration: none;
+	
+				i{
+					color: var(--QLD-color-dark__text--lighter);
+				}
+			}
+		}
+	}
+	
+}
+
+
+/**
+* SECONDARY
+*/
+.qld__body,
+.qld__banner,
+.qld__header__main,
+.qld__footer{
+
+	.qld__btn.qld__btn--secondary,
+	a.qld__btn.qld__btn--secondary,
+	a.qld__btn.qld__btn--secondary:visited {
+		@include QLD-underline('light','noUnderline','default','noVisited');
+		color: var(--QLD-color-light__link);
+		background-color: transparent;
+		border: 3px solid var(--QLD-color-light__action--secondary);
+	
+		i{
+			color: var(--QLD-color-light__action--secondary);
+		}
+	
+	
+		&:hover{
+			border-color: var(--QLD-color-light__action--secondary-hover);
+			@include QLD-box-shadow(1);
+	
+			i{
+				color: var(--QLD-color-light__action--secondary-hover);
+			}
+		}
+	
+		&:focus:active {
+			background-color: $QLD-color-neutral--lightest;
+			border-color: $QLD-color-neutral--lightest;
+			color: var(--QLD-color-light__heading);
+			box-shadow: none;
+			text-decoration: none;
+			i{
+				color: var(-QLD-color-light__heading);
+			}
+		}
+	
+		&:focus {
+			border-color: var(--QLD-color-light__action--secondary-hover);
+			@include QLD-box-shadow(1);
+	
+			i{
+				color: var(--QLD-color-light__action--secondary-hover);
+			}
+		}
+		
+		&:disabled,
+		&[disabled]{
+			cursor: not-allowed;
+			background-color: var(--QLD-color-light__background--alt-shade);
+			border-color: var(--QLD-color-light__background--alt-shade);
+			color: var(--QLD-color-light__text--lighter);
+			box-shadow: none;
+	
+			i{
+				color: var(--QLD-color-light__text--lighter);
+			}
+		}
+	}
+
+	//Dark and Alt dark styles
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+
+		.qld__btn.qld__btn--secondary,
+		a.qld__btn.qld__btn--secondary,
+		a.qld__btn.qld__btn--secondary:visited {
+			@include QLD-underline('dark','noUnderline','default','noVisited');
+			color: var(--QLD-color-dark__link);
+			background-color: transparent;
+			border: 3px solid var(--QLD-color-dark__action--secondary);
+	
+			i{
+				color: var(--QLD-color-dark__action--secondary);
+			}
+	
+			&:hover{
+				border-color: var(--QLD-color-dark__action--secondary-hover);
+				@include QLD-box-shadow(1);
+	
+				i{
+					color: var(--QLD-color-dark__action--secondary-hover);
+				}
+			}
+	
+			&:focus:active {
+				background-color: $QLD-color-neutral--lightest;
+				border-color: $QLD-color-neutral--lightest;
+				color: var(--QLD-color-light__heading);
+				
+				box-shadow: none;
+				text-decoration: none;
+	
+				i{
+					color: var(--QLD-color-light__heading);
+				}
+			}
+	
+			&:disabled,
+			&[disabled]{
+				cursor: not-allowed;
+				background-color: transparent;
+				border-color: rgba(224, 224, 224, 0.1);
+				color: var(--QLD-color-dark__text--lighter);
+				box-shadow: none;
+	
+				i{
+					color: var(--QLD-color-dark__text--lighter);
+				}
+			}
+	
+			&:focus{
+				border-color: var(--QLD-color-dark__action--secondary-hover);
+				@include QLD-focus(dark);
+				i{
+					color: var(--QLD-color-dark__action--secondary-hover);
+				}
+			}
+		}
+	}
+}
+
+
+
+/**
+* TERTIARY
+*/
+.qld__body,
+.qld__banner,
+.qld__header__main,
+.qld__footer{
+
+	.qld__btn.qld__btn--tertiary,
+	a.qld__btn.qld__btn--tertiary,
+	a.qld__btn.qld__btn--tertiary:visited {
+		@include QLD-underline('light','noUnderline','default','noVisited');
+		background-color: transparent;
+		color: var(--QLD-color-light__link);
+		border-color: transparent;
+		box-shadow: none;
+
+		i{
+			color: var(--QLD-color-light__action--secondary);
+		}
+
+		&:hover{
+			background-color: $QLD-color-neutral--black__opacity-10;
+
+			i{
+				color: var(--QLD-color-light__action--secondary);
+			}
+		}
+
+		&:focus:active {
+			background-color: $QLD-color-neutral--lightest;
+			border-color: transparent;
+			color: var(--QLD-color-light__heading);
+			text-decoration: none;
+
+			i{
+				color: var(--QLD-color-light__heading);
+			}
+		}
+
+		&:focus {
+			background-color: $QLD-color-neutral--black__opacity-10;
+
+			i{
+				color: var(--QLD-color-light__action--secondary);
+			}
+		}
+
+		&:disabled,
+		&[disabled]{
+			cursor: not-allowed;
+			background-color: transparent;
+			border-color: transparent;
+			color: var(--QLD-color-light__text--lighter);
+
+			i{
+				color: var(--QLD-color-light__text--lighter);
+			}
+		}
+	}
+
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+
+		.qld__btn.qld__btn--tertiary,
+		a.qld__btn.qld__btn--tertiary,
+		a.qld__btn.qld__btn--tertiary:visited {
+
+			@include QLD-underline('dark','noUnderline','default','noVisited');
+			color: var(--QLD-color-dark__link);
+			background-color: transparent;
+			border-color: transparent;
+			box-shadow: none;
+
+			i{
+				color: var(--QLD-color-dark__action--secondary);
+			}
+
+			&:hover{
+				background-color: $QLD-color-neutral--black__opacity-10;
+
+				i{
+					color: var(--QLD-color-dark__action--secondary-hover);
+				}
+			}
+
+			&:focus:active {
+				color: var(--QLD-color-light__heading);
+				background-color: $QLD-color-neutral--lightest;
+				text-decoration: none;
+				i{
+					color: var(--QLD-color-light__heading);
+				}
+			}
+
+			&:focus {
+				background-color: $QLD-color-neutral--black__opacity-10;
+
+				i{
+					color: var(--QLD-color-dark__action--secondary-hover);
+				}
+			}
+
+			&:disabled,
+			&[disabled]{
+				cursor: not-allowed;
+				background-color: transparent;
+				border-color: transparent;
+				color: var(--QLD-color-dark__text--lighter);
+
+				i{
+					color: var(--QLD-color-dark__text--lighter);
+				}
+			}
+		}
+	}
+}
+
+
+
+/**
+* ICONS
+*/
+.qld__body,
+.qld__banner,
+.qld__header__main,
+.qld__footer{
+	.qld__btn.qld__btn--icon-trail,
+	a.qld__btn.qld__btn--icon-trail,
+	a.qld__btn.qld__btn--icon-trail:visited {
+		i{
+			@include QLD-space( margin-left, .75unit );
+		}
+	}
+	.qld__btn.qld__btn--icon-lead,
+	a.qld__btn.qld__btn--icon-lead,
+	a.qld__btn.qld__btn--icon-lead:visited {
+		i{
+			@include QLD-space( margin-right, .75unit );
+		}
+	}
+}
+
+
+/**
+* Show / hide
+*/
+.qld__body,
+.qld__banner,
+.qld__header__main,
+.qld__footer{
+
+	.qld__btn.qld__btn--toggle,
+	a.qld__btn.qld__btn--toggle,
+	a.qld__btn.qld__btn--toggle:visited {
+		background-color: $QLD-color-neutral--black__opacity-10;
+		color: var(--QLD-color-light__link);
+		border-color: transparent;
+		box-shadow: none;
+		@include QLD-underline('light','noUnderline','default','noVisited');
+
+		i,
+		svg{
+			color: var(--QLD-color-light__action--secondary);
+			@include QLD-space( margin-left, .75unit );
+			@include QLD-space( font-size, 1.25unit);
+		}
+
+		&:focus:active {
+			text-decoration: none;
+			color: var(--QLD-color-light__heading);
+		}
+	
+		&[aria-expanded="true"] {
+			i, svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+
+		.qld__btn.qld__btn--toggle,
+		a.qld__btn.qld__btn--toggle,
+		a.qld__btn.qld__btn--toggle:visited{
+			background-color: $QLD-color-neutral--black__opacity-10;
+			color: var(--QLD-color-dark__link);
+			border-color: transparent;
+			box-shadow: none;
+			@include QLD-underline('dark','noUnderline','default','noVisited');
+	
+			i,
+			svg{
+				color: var(--QLD-color-dark__action--secondary);
+			}
+
+			&:focus:active {
+				text-decoration: none;
+				color: var(--QLD-color-light__heading);
+			}
+		}
+	}
+
+
+
+	/**
+	* SEARCH
+	*/
+	.qld__btn.qld__btn--search,
+	a.qld__btn.qld__btn--search,
+	a.qld__btn.qld__btn--search:visited {
+		position: relative;
+		min-width: 0;
+		@include QLD-space( padding, .875unit .875unit .875unit .875unit);
+		border-width: $QLD-border-width-default;
+
+		@include QLD-media(lg) {
+			@include QLD-space( padding, .75unit 1.5unit);
+		}
+
+		&:active:focus {
+			.qld__btn__icon{ 
+				background-color: var(--QLD-color-light__heading);
+			}
+		}
+
+		.qld__btn__icon{
+			display: block;
+			@include QLD-space( width, 1.25unit );
+			@include QLD-space( height, 1.25unit );
+			transition: transform 0.25s ease-in;
+			mask-image: QLD-svguri($QLD-icon-search);
+			mask-repeat: no-repeat;
+			mask-position: center;
+			background-color: var(--QLD-color-light__link--on-action);
+
+			
+
+			@include QLD-media(lg) {
+				display: none;
+			}
+		}
+
+		i{
+			@include QLD-media(lg) {
+				display: none;
+			}
+		}
+
+		.qld__btn__text{
+			@include QLD-sronly();
+
+			@include QLD-media(lg) {
+				position: relative;
+				width: auto;
+				height: auto;
+				white-space: nowrap;
+			}
+
+		}
+	}
+
+	&.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt{
+		.qld__btn.qld__btn--search,
+		a.qld__btn.qld__btn--search,
+		a.qld__btn.qld__btn--search:visited {
+			
+			.qld__btn__icon{
+				background-color: var(--QLD-color-dark__link--on-action);
+			}
+		}
+	}
+}
+/**
+* Close Button
+*/
+.qld__btn.qld__btn--close,
+a.qld__btn.qld__btn--close,
+a.qld__btn.qld__btn--close:visited {
+	border-radius: 50%;
+	padding: 0;
+	height: 2rem;
+	width: 2rem;
+	min-width: auto;
+	background-color: $QLD-color-neutral--lightest;
+	border-color: $QLD-color-neutral--lightest;
+	position: relative;
+	&:hover{
+		background-color: var(--QLD-color-light__background--alt-shade);
+		border-color: var(--QLD-color-light__background--alt-shade);
+	}
+
+	i,
+	svg{
+		color: $QLD-color-neutral--black;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+
+.qld__body .qld__btn.qld__btn--pride,
+.qld__body a.qld__btn.qld__btn--pride,
+.qld__body a.qld__btn.qld__btn--pride:visited {
+	background: linear-gradient(
+	to bottom,
+	rgba(255, 62, 24, 0.5) 16.66666666666667%,
+	rgba(252, 154, 0, 0.5) 16.66666666666667%,
+	rgba(252, 154, 0, 0.52) 33.33333333333333%,
+	rgba(255, 216, 0, 0.5) 33.33333333333333%,
+	rgba(255, 216, 0, 0.5) 33.33333333333333%,
+	rgba(255, 216, 0, 0.5) 50.00000000000001%,
+	rgba(57, 234, 124, 0.5) 50.00000000000001%,
+	rgba(57, 234, 124, 0.5) 66.66666666666668%,
+	rgba(11, 178, 255, 0.5) 66.66666666666668%,
+	rgba(11, 178, 255, 0.5) 83.33333333333335%,
+	rgba(152, 90, 255, 0.5) 83.33333333333335%
+	);
+	color: var(--QLD-color-dark__link);
+}
+
+
+a.qld__btn + a.qld__btn{
+	@include QLD-space(margin-top, 1unit);
+	
+
+}
+a.qld__btn,
+.sq-form-submit {
+	&:disabled,
+	&[disabled] {
+		pointer-events: none;
+	}
+}
+
+// The call to actions on the home page
+.btn-cta-group {
+	@include QLD-space(margin-top, 1unit);
+	
+	.qld__btn {
+		@include QLD-space(margin-top, 1unit);
+	}
+}
+
+.articles-cta {
+	@include QLD-space("margin-top", 0.25unit);
+	text-align: right;
+	
+	@include QLD-media(md) {
+		@include QLD-space("margin-top", 1unit);
+	}
+}
+
+
+// Print styles
+@media print {
+	.qld__btn,
+	.qld__btn:visited,
+	.sq-form-submit {
+		background-color: #fff !important;
+		border: 2px solid #000 !important;
+		color: #000 !important;
+		text-decoration: none;
+
+		&[disabled] {
+			background-color: #ccc !important;
+			border: 2px solid #ccc !important;
+		}
+
+		&:disabled {
+			background-color: #ccc !important;
+			border: 2px solid #ccc !important;
+		}
+	}
+}

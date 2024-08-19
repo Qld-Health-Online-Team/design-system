@@ -1,0 +1,885 @@
+ 
+    
+          /*   Dear Mind Promo
+----------------------------------------------------------------------------------------------------------
+
+This creates a dear mind promo panel design
+
+---------------------------------------------------------------------------------------------------------- */
+    
+    
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+    
+@media only screen and (min-width: 699px){
+
+.health-plan__promo-background-img{
+padding-top: 2rem;
+padding-bottom: 2rem;
+}
+
+}
+
+
+
+@media only screen and (min-width: 699px){
+.qhealth__promo_panel__image {
+position: absolute;
+-ms-flex-preferred-size: 50%;
+flex-basis: 50%;
+margin-right: 1rem;
+margin-left: 1rem;
+min-height: auto;
+width: 100%;
+border-radius: 12px!important;
+}
+
+.health-plan__promo-content {
+padding: 2rem !important;
+border-radius: 2rem;
+}
+
+#DearMind-promo {
+            background-image: url(https://qhscb.squiz.cloud/QGDS-dearmind/_media/home/Home-Promo.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right;
+         
+     }
+
+}
+
+ @media only screen and (min-width: 1600px){
+.health-plan__promo-background-img{
+    z-index:200;
+    border-radius: 40px;
+}
+
+.health-plan__promo-background-img{
+max-width:1600px;
+margin:auto;
+position:relative;
+padding-top:3rem;
+padding-bottom:3rem;
+margin-top:3rem;
+}
+
+
+}
+
+#DearMind-promo{
+   position: relative;
+            z-index: 200;    
+}
+
+
+#DearMind-promo::before{
+ content: none;
+ background-image: none;
+ margin-top: 0px;
+ height:0px;
+}
+
+
+@media (min-width: 992px){
+.qld__banner.qld__banner--hero-right .qld__banner__image {
+max-width: 45vw;
+width: 45vw;
+left: 0;
+}
+}
+
+
+  /*   CTA Colour fix
+----------------------------------------------------------------------------------------------------------
+
+Change the text colour to use link text
+
+---------------------------------------------------------------------------------------------------------- */
+
+.one::before {
+    font: var(--fa-font-light);
+    content: "\e0ee";
+}
+
+.qld__image--multi-col{
+    width: 100%;
+    max-width: 500px !important;
+}
+
+
+.qld__content-card section.qld__body.qld__body--alt{
+border: 1px solid #EBEBEB;
+border-radius: 8px;
+margin-left: 0px !important;
+margin-right: 0px !important;
+padding-top:32px !important;
+width:fit-content;
+margin-bottom:40px;
+box-shadow: 0px 1px 2px hsl(37deg 14% 67%);
+background-color: #F0F5FA;
+}
+
+
+
+ /*   Card Text Colour fix
+----------------------------------------------------------------------------------------------------------
+
+Change the text colour not to use the muted colour scheme
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+.dear-mind__icon::before {
+display: inline;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+margin-right: 0.75rem;
+font-size: 1.1em !IMPORTANT;
+vertical-align: middle;
+line-height: 1.25em !important;
+color: #0c4e73;
+float: left;
+width: 1.25em;
+text-align: center;
+}
+
+
+.one::before {
+font: var(--fa-font-light);
+content: "\e0ee";
+}
+
+.two::before {
+font: var(--fa-font-light);
+content: "\e0ef";
+}
+
+.three::before {
+font: var(--fa-font-light);
+content: "\e0f0";
+}
+
+.four::before {
+font: var(--fa-font-light);
+content: "\e0f1";
+}
+
+.five::before {
+font: var(--fa-font-light);
+content: "\e0f2";
+}
+
+.six::before {
+font: var(--fa-font-light);
+content: "\e0f3";
+}
+
+.seven::before {
+font: var(--fa-font-light);
+content: "\e0f4";
+}
+
+.eight::before {
+font: var(--fa-font-light);
+content: "\e0f5";
+}
+
+
+
+
+ /*   Card Text Colour fix
+----------------------------------------------------------------------------------------------------------
+
+Change the text colour not to use the muted colour scheme
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+
+.qld__banner.qld__banner--dark-alt h1 {
+font-family: 'Shadows Into Light Two', cursive;
+color: #F7DC6F !Important;
+font-weight:400;
+letter-spacing:0.05em;
+word-spacing: -0.1em;
+}
+
+
+
+
+ /*   Card Text Colour fix
+----------------------------------------------------------------------------------------------------------
+
+Change the text colour not to use the muted colour scheme
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+.qld__card{
+color:#444444;
+}
+
+
+
+
+/*   List item improvement
+----------------------------------------------------------------------------------------------------------
+
+Consistent text size and better alignment for list items
+
+---------------------------------------------------------------------------------------------------------- */
+
+.qld__link-list>li{
+margin-bottom:0px;    
+}
+
+.qld__inpage-nav-links .qld__link-list > li {
+display: block;
+margin: 4px;
+margin: 0.25rem;
+margin-top: 4px !important;
+}
+
+
+.qld__body * + ul:not([class]) {
+padding-left: 20px;
+margin-top: 1.25rem;
+}
+
+.qld__body ul:not([class]) > li > ul:not([class]) > li,
+.qld__body ul:not([class]) > li > ol:not([class]) > li,
+.qld__body ol:not([class]) > li > ul:not([class]) > li,
+.qld__body ol:not([class]) > li > ol:not([class]) > li,
+.qld__footer ul:not([class]) > li > ul:not([class]) > li,
+.qld__footer ul:not([class]) > li > ol:not([class]) > li,
+.qld__footer ol:not([class]) > li > ul:not([class]) > li,
+.qld__footer ol:not([class]) > li > ol:not([class]) > li {
+margin-top: 0.5rem;
+list-style-type: circle;
+}
+
+ul li::marker {
+color:var(--QLD-color-dark__background);
+font-size: 1.25em;
+}
+
+.qld__body ul:not([class]) > li,
+.qld__body ol:not([class]) > li,
+.qld__footer ul:not([class]) > li,
+.qld__footer ol:not([class]) > li ul li:not(:first-child) {
+margin-top: 0.5rem;
+}
+
+
+.qld__body ul li:not([class^="col-"]) {
+max-width: 46rem;
+font-size: 1.094rem;
+line-height: 1.75rem;
+letter-spacing: 0.02rem;
+}
+
+.qld__card__footer-inner .qld__link-list li{
+margin-top:1rem;
+}
+
+
+ol.numbered-list {
+counter-reset: li;
+list-style-type: none;
+padding-left: 0px;
+margin-top: 1.5rem;
+}
+
+
+ol.numbered-list li + li {
+margin-top: 0.75rem;
+}
+
+ol.numbered-list li {
+position: relative;
+padding-left: 48px;
+max-width: 46rem;
+font-size: 1.094rem;
+line-height: 1.75rem;
+letter-spacing: 0.02rem;
+padding-top: 0.4rem;
+}
+
+ol.numbered-list li:before {
+content: counter(li);
+counter-increment: li;
+height: 32px;
+width: 32px;
+border: 1px solid var(--QLD-color-light__border--alt);
+border-radius: 50%;
+color: #46024c;
+text-align: center;
+position: absolute;
+left: 0;
+top: 0.25rem;
+font-size: 1em;
+line-height: 30px;
+font-variant-numeric: proportional-nums;
+}
+
+
+
+
+/*   Text improvements
+----------------------------------------------------------------------------------------------------------
+
+The code below increases the text size so that it more accessible 
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+.qld__body p,
+.qld__footer p {
+max-width: 46rem;
+}
+
+.qld__body h1, h1,
+.qld__body h2, h2,
+.qld__body h3, h3, 
+.qld__body h4, h4,
+.qld__body h5, h5 {
+max-width: 46rem;
+}
+
+
+
+body {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 992px){
+.qld__body h2, .qld__footer h2, .qld__main-nav h2 {
+font-size: 32px;
+font-size: 2rem;
+line-height: 1.25;
+}
+}
+
+
+
+
+
+    /*   Curved banner design
+----------------------------------------------------------------------------------------------------------
+
+The code below applies the curved banner design at sizes above 1600px 
+
+---------------------------------------------------------------------------------------------------------- */
+
+#content section .container-fluid .row {
+position: relative;
+z-index: 1;
+}
+
+#promo-panel-120481{
+  Background-color:#ffffff;
+}
+
+
+
+.qld__banner.qhealth__banner__basic .qld__banner__content{
+width:100%;
+}
+
+
+.content {
+position: relative;
+/*Needed so content sits properly on the stack*/
+}
+
+#content {
+position: relative;
+/*Needed so content sits properly on the stack*/
+}
+
+.qld__main-nav {
+max-width: 1600px;
+/*max size for the navigation component*/
+margin: auto;
+/*keeps nav in center */
+}
+
+.qld__banner {
+max-width: 1600px;
+/*max size for the banner component*/
+margin: auto;
+/*keeps banner in center */
+box-shadow: 0px 1px 2px hsl(37deg 14% 67%);
+/* Adds shadow to banner */
+z-index: 200;
+
+}
+
+
+.qld__banner__main {
+align-content: flex-start;
+}
+
+.qld__footer {
+position: relative;
+/*Needed so content sits properly on the stack*/
+}
+
+
+.qld__main-nav.qld__main-nav--mega .qld__main-nav__menu-sub{
+z-index: 500;
+/*Needed so content sits properly on the stack*/
+}
+
+body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
+z-index: 1000;
+/*ensures back-to top button stays above content */
+}
+
+
+.qld__banner__content {
+    height:100%;/* Centres text for banner content on desktop */
+}
+
+
+.qld__footer{
+position:relative;
+}
+
+
+    /*   Curved banner design media queries
+----------------------------------------------------------------------------------------------------------
+
+The code below applies the curved banner design at sizes above 1600px 
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+
+.qld__banner__basic .qld__banner .qld__banner--breadcrumbs .qld__banner__content{
+min-height:50px;
+}
+.qld__banner__basic.qld__banner::after{
+display:none;
+content:none;
+}
+
+
+/* Applies banner design at 1600px */
+
+@media (min-width: 1600px) {
+
+
+.qld__main-nav {
+    border-radius: 32px 32px 0px 0px;
+    /* Curved edges for nav*/
+    box-shadow: 0px 1px 2px hsl(37deg 14% 67%);
+
+}
+
+.qld__banner {
+    border-radius: 0px 0px 40px 40px;
+    /* Curved edges for banner*/
+}
+
+
+.qld__banner.qld__banner--hero-right .qld__banner__image{
+    max-width:665px;
+}
+
+
+/* Adds height and pulls the div below the banner to sit under it slightly */
+
+.qld__banner + div.qld__body {
+    margin-top: -64px;
+    padding-top: 128px;
+}
+
+.qld__banner + #content {
+    background-color: #f9f9ff;
+    padding-top: 64px;
+    margin-top: -64px;
+}
+
+
+.qld__banner + .qld__body.qld__search{
+position: relative;
+margin-top: -64px;
+padding-top: 124px;
+}
+
+
+
+/*  This applies a background to the whole top of the header */
+
+.qld__header::before {
+    width: 100%;
+    content: " ";
+    background-color: #F5FBFF;
+    /* img or colour set by user */
+    background-image: url(./?a=97886);
+     background-position: bottom;
+     background-repeat: no-repeat;
+    background-size: 150%;
+    position: absolute;
+     height: 500px;
+    
+}
+
+.qld__header__main {
+    background: transparent;
+    /* removes current header background */
+    position: relative;
+}
+
+}
+
+/* Fix image alignment  */
+@media (min-width: 1312px){
+
+
+.qld__banner__hero{
+width:41.66667% !important;
+    
+}
+
+.qld__banner.qld__banner--hero-right .qld__banner__hero{
+left: 58.5%;
+}
+
+}
+
+
+
+/* Banner height adjustment  */
+
+@media (min-width: 992px){
+
+.qld__banner__content{
+padding: 4rem 1rem 4rem 0; /* Centres text for banner content on desktop */ 
+}
+
+.qld__banner__advanced .qld__banner__content {
+    min-height:340px;
+}
+
+}
+
+/* Banner height adjustment  */
+@media (min-width: 699px){
+
+
+.qld__banner__advanced .qld__banner__content {
+min-height:200px;
+}
+
+
+}
+
+
+/*   Adds overlay to banners
+----------------------------------------------------------------------------------------------------------
+
+Code below creates wavy dividers between alt and light content sections
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+.qld__banner .qld__banner__image--background {
+padding: 0px;
+padding: 0rem;
+height: 17.5rem;
+height: 280px;
+}
+
+
+.qld__banner__image::after{
+width: 100%;
+content: " ";
+position: absolute;
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1600 452' style='enable-background:new 0 0 1600 452%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23212659%3B%7D%3C/style%3E%3Cpath class='st0' d='M3.3 452h128.4h1471.7l0-246.4c-50.1 58.1-124.6 55.8-186.4 67.2c-20.5 0-38.9 14.5-50.9 29c-15.8 19.2-72 100.3-82 104.1c-10 3.8 9.2-62.5 9.2-77.1c0-15-16-11.8-35.4 0c-31.8 19.2-132.2 87-282.1 66.5c-77.3-12.9-106.6-7.5-177.4 26.8c-20.8 10.1-42.4 29.9-83.2 29.9H3.3z'/%3E%3C/svg%3E");
+background-position: bottom right;
+background-repeat: no-repeat;
+background-size: 180% auto;
+bottom: 0px;
+height: 250px;
+}
+
+
+@media (min-width: 699px){
+
+
+.qld__banner::after{
+width: 80%;
+content: " ";
+position: absolute;
+background-image: url(./?a=97885);
+background-position: bottom;
+background-repeat: no-repeat;
+background-size: cover;
+bottom: -5px;
+height: 500px;
+right: 0;
+}
+
+
+
+.qld__banner__image::after{
+background-image: url(./?a=97888);
+background-position: right bottom;
+background-repeat: no-repeat;
+background-size: 38% auto;
+height: 100%;
+width: 100%;
+}
+
+
+}
+
+
+.qld__banner + #content::before{
+width: 100%;
+content: " ";
+position: absolute;
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23FFFFFF%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23FAF9FF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8-9.6'/%3E%3Cpath class='st1' d='M0 0c0 0 169 75.2 340.2 70.4C511.4 65.6 635.4 41.6 737.8 48s208.8 58.4 333.6 62.4s337.4-31.9 432.8-31.9c103.2 0 179.5 7.1 269.1 26.4c116.6 25 146.7 52.2 146.7 52.2H0V0z'/%3E%3C/svg%3E");
+top: -128px;
+height: 10vw;
+display: block;
+background-size: 100% auto;
+background-repeat: no-repeat;
+background-color: #ffffff;
+background-position: bottom;
+max-height: 15rem;
+}
+
+
+    /*   Wavy content dividers
+----------------------------------------------------------------------------------------------------------
+
+Code below creates wavy dividers between alt and light content sections
+
+---------------------------------------------------------------------------------------------------------- */
+
+#content section .container-fluid .qld__promo-panel__container.row {
+position:relative;
+z-index:200;
+}
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body--alt + data + section.qld__body:not(.qld__body--alt, .qld__body--dark)::before, section.qld__body--alt + section.qld__body:not(.qld__body--alt, .qld__body--dark)::before{
+width: calc(100% + 2rem);
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23FFFFFF%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23F9F9FF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M0 125c0 0 136.2-57.3 425.4-54.4c152.2 1.6 352.5 36.9 443.7 38.4c126.5 2.1 174.6-30.4 285.6-34.4c110.9-4 208.9-1.5 292.6 11.9c98.8 15.8 211 15.9 270.9 4.1c55.5-11 143.7-18.2 202.1-39.7L1916.6 0H0v131.2V125z'/%3E%3C/svg%3E");
+height: 80px;
+display: block;
+background-size: 100% auto;
+background-repeat: no-repeat;
+background-color: #ffffff;
+margin-top: -64px;
+background-position: top;
+z-index: inherit;
+ margin-left: -1rem;
+}
+
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body:not(.qld__body--alt) + data + section.qld__body--alt::before,  section.qld__body:not(.qld__body--alt) + section.qld__body--alt::before{
+width: calc(100% + 2rem);
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23FFFFFF%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23FFFFFF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M1920.3 125c0 0-136.2-57.3-425.4-54.4c-152.2 1.6-352.5 36.9-443.7 38.4c-126.5 2.1-174.6-30.4-285.6-34.4c-110.9-4-208.9-1.5-292.6 11.9c-98.8 15.8-211 15.9-270.9 4.1C146.6 79.6 58.3 72.4 0 50.9L3.7 0l1916.6 0v131.2V125z'/%3E%3C/svg%3E");
+height: 80px;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #f9f9ff;
+margin-top: -64px;
+background-position: top;
+z-index: inherit;
+margin-left: -1rem;
+}
+
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body--alt + data + section.qld__body.qld__body--dark::before,  section.qld__body--alt + section.qld__body.qld__body--dark::before{
+width: 100%;
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23f9f9ff%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23F9F9FF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M0 125c0 0 136.2-57.3 425.4-54.4c152.2 1.6 352.5 36.9 443.7 38.4c126.5 2.1 174.6-30.4 285.6-34.4c110.9-4 208.9-1.5 292.6 11.9c98.8 15.8 211 15.9 270.9 4.1c55.5-11 143.7-18.2 202.1-39.7L1916.6 0H0v131.2V125z'/%3E%3C/svg%3E");
+height: 80px;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #00706c;
+margin-top: -64px;
+background-position: top;
+z-index: inherit;
+    z-index:100;  
+}
+
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body--dark-alt + data + section.qld__body--dark::before,  section.qld__body--dark-alt + section.qld__body--dark::before{
+width: 100%;
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23f9f9ff%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23f9f9ff%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M1920.3 125c0 0-136.2-57.3-425.4-54.4c-152.2 1.6-352.5 36.9-443.7 38.4c-126.5 2.1-174.6-30.4-285.6-34.4c-110.9-4-208.9-1.5-292.6 11.9c-98.8 15.8-211 15.9-270.9 4.1C146.6 79.6 58.3 72.4 0 50.9L3.7 0l1916.6 0v131.2V125z'/%3E%3C/svg%3E");
+height: 240px;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #00706c;
+margin-top: -260px;
+background-position: top;
+z-index: inherit;
+}
+
+
+
+
+@media (min-width: 992px){   
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body.qld__body--alt + data + section.qld__body:not(.qld__body--alt, .qld__body--dark)::before, section.qld__body.qld__body--alt + section.qld__body:not(.qld__body--alt, .qld__body--dark)::before{
+width: calc(100% + 2rem);
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23FFFFFF%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23F9F9FF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M0 125c0 0 136.2-57.3 425.4-54.4c152.2 1.6 352.5 36.9 443.7 38.4c126.5 2.1 174.6-30.4 285.6-34.4c110.9-4 208.9-1.5 292.6 11.9c98.8 15.8 211 15.9 270.9 4.1c55.5-11 143.7-18.2 202.1-39.7L1916.6 0H0v131.2V125z'/%3E%3C/svg%3E");
+height: 7vw;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #ffffff;
+margin-top: -128px;
+background-position: center top;
+margin-left: -1rem;
+}
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body:not(.qld__body--alt) + data + section.qld__body.qld__body--alt::before, section.qld__body:not(.qld__body--alt) + section.qld__body.qld__body--alt::before{
+width: calc(100% + 2rem);
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23FFFFFF%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23FFFFFF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M1920.3 125c0 0-136.2-57.3-425.4-54.4c-152.2 1.6-352.5 36.9-443.7 38.4c-126.5 2.1-174.6-30.4-285.6-34.4c-110.9-4-208.9-1.5-292.6 11.9c-98.8 15.8-211 15.9-270.9 4.1C146.6 79.6 58.3 72.4 0 50.9L3.7 0l1916.6 0v131.2V125z'/%3E%3C/svg%3E");
+height: 7vw;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #f9f9ff;
+margin-top: -128px;
+margin-left: -1rem;
+}
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body--alt + data + section.qld__body.qld__body--dark::before,  section.qld__body.qld__body--alt + section.qld__body--dark::before{
+width: 100%;
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23f9f9ff%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23F9F9FF%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M0 125c0 0 136.2-57.3 425.4-54.4c152.2 1.6 352.5 36.9 443.7 38.4c126.5 2.1 174.6-30.4 285.6-34.4c110.9-4 208.9-1.5 292.6 11.9c98.8 15.8 211 15.9 270.9 4.1c55.5-11 143.7-18.2 202.1-39.7L1916.6 0H0v131.2V125z'/%3E%3C/svg%3E");
+height: 7vw;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #00706c;
+margin-top: -128px;
+background-position: center top;
+}
+
+
+#content:not(.col-lg-8, .col-xl-9) section.qld__body--dark-alt + data + section.qld__body--dark::before, section.qld__body--dark-alt + section.qld__body--dark::before{
+width: 100%;
+content: " ";
+position: relative;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 26.3.1  SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 1920 157' style='enable-background:new 0 0 1920 157%3B' xml:space='preserve'%3E%3Cstyle type='text/css'%3E.st0%7Bfill:%23ffffff%3Bstroke:%23000000%3Bstroke-miterlimit:10%3B%7D.st1%7Bfill:%23ffffff%3B%7D%3C/style%3E%3Cpath class='st0' d='M-11.8 16.3'/%3E%3Cpath class='st1' d='M1920.3 125c0 0-136.2-57.3-425.4-54.4c-152.2 1.6-352.5 36.9-443.7 38.4c-126.5 2.1-174.6-30.4-285.6-34.4c-110.9-4-208.9-1.5-292.6 11.9c-98.8 15.8-211 15.9-270.9 4.1C146.6 79.6 58.3 72.4 0 50.9L3.7 0l1916.6 0v131.2V125z'/%3E%3C/svg%3E");
+height: 240px;
+display: block;
+background-size: 105% auto;
+background-repeat: no-repeat;
+background-color: #00706c;
+margin-top: -260px;
+background-position: center top;
+}
+
+
+}
+
+
+    /*   SPACING FIX 
+----------------------------------------------------------------------------------------------------------
+
+Fix for botton size so that the size it spans correctly to the content it contains  
+
+---------------------------------------------------------------------------------------------------------- */
+
+.qld__btn{
+    width:fit-content !important;
+}
+
+
+    /*   SPACING FIX 
+----------------------------------------------------------------------------------------------------------
+
+Genearl spacing fixes for content between rows 
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+div.row+div.row {
+margin-top: 20px;  /* Space between row for Mobile and Tbaler */ 
+} 
+
+.row.homepage-section{
+    row-gap:32px
+}
+
+
+
+@media (min-width: 992px){
+
+div.row+div.row {
+    margin-top: 32px;  /* Space between row for desktop */ 
+}
+
+}
+
+
+  /*   SPACING FIX 
+----------------------------------------------------------------------------------------------------------
+
+Fix spacing for text abover cards
+
+---------------------------------------------------------------------------------------------------------- */
+
+.qld__card-intro{
+    padding-bottom:0px !important;
+}
+
+
+    /*   Footer Graphic
+----------------------------------------------------------------------------------------------------------
+
+The code addsd a graphic device into the footer
+
+---------------------------------------------------------------------------------------------------------- */
+
+
+
+@media (min-width: 1600px){
+
+
+footer::before {
+width: 20vw;
+content: " ";
+position: absolute;
+background-image: url(./?a=97887);
+background-repeat: no-repeat;
+bottom: 0;
+background-position: right bottom;
+height: 100%;
+}
+
+
+}
+
+

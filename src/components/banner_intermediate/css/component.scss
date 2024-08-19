@@ -1,0 +1,284 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// {{component_name}}
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__banner.qld__banner__intermediate {
+
+    .qld__banner__wrapper{
+        @include QLD-media(lg) {
+            @include QLD-space(min-height, 21.5unit);
+        }
+    }       
+ 
+}
+
+
+
+
+//To be moved to the extended set
+.qld__banner.qld__banner__advanced {
+    .qld__banner__wrapper{
+        @include QLD-media(lg) {
+            @include QLD-space(min-height, 21.5unit);
+        }
+    }
+
+    .qld__banner__content {
+        .qld__card-list.qld__banner__card-list {
+            @include QLD-space(margin-top, .5unit);
+
+            li{
+                @include QLD-space(padding, 0unit);
+                @include QLD-space(margin-top, 1unit);
+            }
+            
+            @include QLD-media(lg) {
+                width: 70%;
+            }
+        }
+    }
+    
+    //with breadcrumbs
+    &.qld__banner--breadcrumbs{
+        .qld__banner__content{
+            
+            @include QLD-space(padding-top, 1unit);
+            @include QLD-space(padding-bottom, 2unit);
+    
+            @include QLD-media(md) {
+                @include QLD-space(padding-top, 3unit);
+                @include QLD-space(padding-bottom, 3unit);
+    
+                .qld__banner__breadcrumbs--desktop{
+                    @include QLD-space(margin, 0 0 1.5rem);
+                }
+                .qld__banner__heading__wrapper{
+                    @include QLD-space(margin-bottom, 0);
+                }
+            }
+            @include QLD-media(lg) {
+                @include QLD-space(padding-bottom, 4unit);
+            }
+            
+        }
+    }
+
+    //with breadcrumbs and hero image
+    &.qld__banner--breadcrumbs.qld__banner--has-hero{
+
+        .qld__banner__content{
+            @include QLD-space(padding-top, 1.5unit);
+            @include QLD-media(md) {
+                @include QLD-space(padding-top, 3unit);
+            }
+        }
+    }
+
+    //with tile nav
+    &.qld__banner--nav{
+        .qld__banner__wrapper{
+            @include QLD-space(margin-right, 6.25unit);
+            @include QLD-media(md) {
+                @include QLD-space(margin-right, 0unit);
+            }
+        }
+    }
+}
+
+.qld__banner__nav {
+    @include QLD-space(width, 6.25unit);
+    left: auto;
+    @include QLD-space(right, -7.25unit);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    .qld__banner--hero-right &{
+        @include QLD-space(right, 0unit);
+        @include QLD-media(lg) {
+            position: relative;
+        }
+    }
+
+    @include QLD-media(md) {
+        @include QLD-space(right, -1unit);
+    }
+    @include QLD-media(lg) {
+        @include QLD-space(right, 0unit);
+    }
+
+    @include QLD-media(xl) {
+
+        .qld__banner--padded & {
+            @include QLD-space(top, -3unit);
+        }
+        
+    }
+
+    &.qld__banner__nav--fix-right {
+        @include QLD-media(xl) {
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+
+.qld__tile-nav {
+    height: 100%;
+    background-color: var(--QLD-color-light__background);
+    @include QLD-media(xl) {
+        .qld__banner--padded & {
+            height: calc(100% + 96px);
+            height: calc(100% + 6rem);
+        }
+    }
+
+    .qld__banner__nav--fix-right & {
+        @include QLD-media(xl) {
+            height: 100%;
+        }
+    }
+
+    .qld__tile-nav__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .qld__tile-nav__item {
+        background-color: $QLD-color-neutral--white;
+        border-bottom: 1px solid var(--QLD-color-light__design-accent);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        @include QLD-space(padding, 1unit 0);
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        &:last-child {
+            border: none;
+        }
+
+        svg,
+        i {
+            display: block;
+            margin: 0 auto;
+            @include QLD-space(font-size, 1.5unit );
+            color: var(--QLD-color-light__action--secondary);
+
+            path {
+                fill: var(--QLD-color-light__action--secondary);
+            }
+        }
+
+        .qld__tile-nav__link {
+            @include QLD-underline('light','noUnderline');
+            color: var(--QLD-color-light__link);
+            display: inline-block;
+            margin-top: 4px;
+            @include QLD-fontgrid( xs, nospace );
+            letter-spacing: -0.5px;
+    
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+            }
+    
+            &:hover {
+                color: var(--QLD-color-light__link);
+            }
+        }
+    }
+
+
+    &--alt{
+        background-color: var(--QLD-color-light__background--alt);
+
+        .qld__tile-nav__item {
+            background-color: var(--QLD-color-light__background--alt);
+            border-bottom: 1px solid var(--QLD-color-light__design-accent);
+    
+            svg path,
+            i{
+                color: var(--QLD-color-light__action--secondary);
+                fill: var(--QLD-color-light__action--secondary);
+            }
+
+            .qld__tile-nav__link {
+                color: var(--QLD-color-light__link);
+                
+                &:hover {
+                    color: var(--QLD-color-light__link);
+                }
+            }
+        }
+    
+        
+    }
+
+    &--dark {
+        background-color: var(--QLD-color-dark__background);
+        .qld__tile-nav__item {
+            background-color: var(--QLD-color-dark__background);
+            border-bottom: 1px solid var(--QLD-color-dark__design-accent);
+    
+            svg path,
+            i{
+                color: var(--QLD-color-dark__action--secondary);
+                fill: var(--QLD-color-dark__action--secondary);
+                &:hover {
+                    color: var(--QLD-color-dark__action--secondary-hover);
+                }
+            }
+
+            .qld__tile-nav__link {
+                color: var(--QLD-color-dark__link);
+                @include QLD-underline('dark','noUnderline');
+                
+                &:hover {
+                    color: var(--QLD-color-dark__link);;
+                }
+            }
+        }
+    
+        
+    }
+
+    &--dark-alt {
+        background-color: var(--QLD-color-dark__background--alt);
+        .qld__tile-nav__item {
+            background-color: var(--QLD-color-dark__background--alt);
+            border-bottom: 1px solid var(--QLD-color-dark__design-accent);
+    
+            svg path,
+            i {
+                color: var(--QLD-color-dark__action--secondary);
+                fill: var(--QLD-color-dark__action--secondary);
+                &:hover {
+                    color: var(--QLD-color-dark__action--secondary-hover);
+                }
+            }
+
+            .qld__tile-nav__link {
+                color: var(--QLD-color-dark__link);
+                @include QLD-underline('dark','noUnderline');
+                &:hover {
+                    color: var(--QLD-color-dark__link);
+                }
+            }
+        }
+    
+    }
+}

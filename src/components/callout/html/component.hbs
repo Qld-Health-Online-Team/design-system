@@ -1,0 +1,28 @@
+{{#with component.data}}
+<section class="qld__callout--wrapper qld__body {{metadata.body_background.value}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}callout-{{assetid}}{{/if}}">
+    <div class="container-fluid">
+        <div class="qld__callout {{metadata.type.value}} {{metadata.theme.value}} {{metadata.background.value}} ">  
+                {{#ifCond metadata.type.value '==' ''}}
+                    {{#if metadata.heading.value}}
+                    <h3 class="qld__callout__heading {{metadata.heading_visible.value}}">
+                        {{metadata.heading.value}}
+                    </h3>
+                    {{/if}}
+                    {{{metadata.body.value}}}
+                {{else}}
+                    {{#if metadata.calendar_intro.value}}
+                    <p class="qld__callout--calendar-event__lede" >
+                        {{metadata.calendar_intro.value}}
+                    </p>
+                    <time class="qld__callout--calendar-event__time" datetime="{{metadata.calendar_date.value}}" >
+                    {{#formatDate metadata.calendar_date.value ''}}{{/formatDate}}
+                    </time>
+                    <span class="qld__callout--calendar-event__name" >
+                        {{metadata.calendar_name.value}}
+                    </span>
+                    {{/if}}   
+                {{/ifCond}}
+        </div>
+    </div>
+</section>
+{{/with}}

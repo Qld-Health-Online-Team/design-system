@@ -1,0 +1,198 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// .qld__modal
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__modal {
+    position: relative;
+    display: none;
+
+    &--content-centre{
+        text-align: center;
+    }
+
+    &.active {
+        display: block;
+    }
+
+    &__underlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(20, 20, 20, 0.4);
+        z-index: 1;
+    }
+
+    &__inner{
+        min-width: 17.5rem;
+        max-width: 17.5rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $QLD-color-neutral--white;
+        padding: 1.5rem;
+        border: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+        border-radius: $QLD-border-radius-sm;
+        @include QLD-box-shadow(4);
+        z-index: 101;
+
+        @include QLD-media(md) {
+            min-width: 22.5rem;
+            max-width: 37.5rem;
+        }
+
+        @include QLD-media(lg) {
+            padding: 2rem;
+            min-width: 25.5rem;
+            max-width: 53.5rem;
+        }
+    }
+
+    .qld__modal__header{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        line-height: 1.5rem;
+
+        .qld__modal__header-heading{
+            font-weight: bold;
+            margin-top: 0;
+            color: var(--QLD-color-light__heading);
+            word-break: break-all;
+        }
+
+        & &-icon{
+            flex: 1 0 auto;
+        }
+
+        .qld__btn.qld__btn--close{
+            flex: 1 0 auto;
+        }
+    }
+
+    &__close-btn{
+        min-width: auto;
+        padding: 0;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        background-color: $QLD-color-neutral--lightest;
+        border-color: $QLD-color-neutral--lightest;
+
+        &:hover{
+            background: var(--QLD-color-light__background--alt-shade);
+            border-color: var(--QLD-color-light__background--alt-shade);
+        }
+
+        i{
+            color: $QLD-color-neutral--black;
+        }
+    }
+
+    &__content{
+        margin-top: 1.5rem;
+        word-break: break-all;
+    }
+
+
+
+
+    //TO be removed once service finder is updated START
+    &.qld__services-modal__set-location, &.qld__services-modal__update-location {
+        .qld__modal__body {
+            min-width: pxToRem(360);
+
+            @include QLD-media(md) {
+                min-width: pxToRem(654);
+            }
+        }
+    }
+
+    &__body__content{
+        @include QLD-space(padding, 1.5unit  0);
+        
+        ul li a {
+            text-decoration: none;
+            color: var(--QLD-color-light__link--on-action);
+            background-color: var(--$QLD-color-light__action--primary);
+            &:hover {
+                background-color: var(--QLD-color-light__action--primary-hover);
+            }
+        }
+
+    }
+   
+	.qld__modal__body {
+        min-width: pxToRem(360);
+        max-width: pxToRem(654);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background-color: white;
+        padding: 1.5rem;
+        border: 2px solid $QLD-color-neutral--lighter;
+        @include sq-border-radius(4px);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        z-index: 101;
+
+        @include QLD-media(md) {
+            padding: pxToRem(40) pxToRem(45);
+        }
+
+        .qld__modal__body__header {
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .qld__modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--QLD-color-light__action--primary-hover);
+            box-shadow: none;
+            color: var(--QLD-color-light__text);
+            border: 0;
+            min-width: auto;
+            line-height: 0;
+
+            svg,
+            i {
+                color: var(--QLD-color-light__text);
+                font-size: 1.5rem;
+            }
+            &:hover{
+                // background-color: var(--QLD-color-light__action--primary-hover);
+                svg,
+                i {
+                    color: var(--QLD-color-dark__text);
+                }
+            }
+        }
+
+    }
+
+    &.qld__modal--small {
+        .qld__modal__body {
+            min-width: pxToRem(360);
+            max-width: pxToRem(360);
+        }
+    }
+
+    .qld__services-modal__content {
+        max-width: pxToRem(343);
+
+        .qld__modal__body__controls {
+            text-align: center;
+        }
+    }
+    //TO be removed once service finder is updated FINISH
+
+}

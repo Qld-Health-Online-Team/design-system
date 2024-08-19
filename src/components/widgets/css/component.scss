@@ -1,0 +1,68 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Widgets
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__widgets {
+    @include QLD-space(bottom, 0.75unit);
+    @include QLD-space(right, 0.75unit);
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+
+    .qld__btn--floating {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+    }
+}
+
+.qld__widgets + .qld__footer {
+    // @include QLD-space(padding-bottom, 4unit);
+
+    @include QLD-media(xl) {
+        @include QLD-space(padding-bottom, 4unit);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Back to top
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
+    @include QLD-space(margin-top, 0.5unit);
+    background-color: $QLD-color-neutral--lightest;
+    border-color: $QLD-color-neutral--lightest;
+    color: var(--QLD-color-light__link);
+    padding: 0.5rem 1rem;
+    
+    &:after {
+        @include QLD-space( width, 1unit );
+        @include QLD-space( height, 1unit );
+        @include QLD-space( margin, 0 0.25unit );
+        content: '↑';
+        color: var(--QLD-color-light__action--secondary);
+        display: inline-block;
+        width: auto;
+        height: auto;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--QLD-color-light__background--alt-shade);
+        border-color:  var(--QLD-color-light__background--alt-shade);
+        color: var(--QLD-color-light__link);
+        text-decoration-color: var(--QLD-color-light__link);
+        &::after{
+            content: '↑';
+            color: var(--QLD-color-light__action--secondary-hover);
+        }
+    }
+}
+
+@media print {
+    .qld__widgets {
+        display: none !important;
+    }
+}

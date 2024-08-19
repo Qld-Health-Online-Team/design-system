@@ -1,0 +1,68 @@
+// Best Practice Article: https://central.squiz.net/imp/best-practice/accessibility/screen-hidden-content
+// Prevent an element from being displayed.
+%screen-hide {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+// Restore to view
+%screen-show {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+// Re-usable list reset
+%list-reset {
+    @include sq-list-reset;
+}
+
+%inline-block {
+    @include sq-inline-block;
+}
+
+%border-box {
+    @include sq-border-box;
+}
+
+%flex-box {
+    @include sq-flex-box;
+}
+
+// Image replacement
+%ir {
+    color: transparent;
+    border: 0;
+    overflow: hidden;
+    // No rgba fallback (Modernizr class)
+    .no-rgba & { text-indent: 9999em; }
+    &::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
+}
+
+// Clear fix for containers of floated elements
+%clearfix {
+    &::before,
+    &::after {
+        content: '';
+        display: table;
+        line-height: 0;
+    }
+    &::after {
+        clear: both;
+    }
+    *zoom: 1;
+}

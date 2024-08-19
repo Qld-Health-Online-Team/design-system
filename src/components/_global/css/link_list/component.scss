@@ -1,0 +1,50 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Link List
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__link-list {
+	@include QLD-fontgrid( sm );
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	@include QLD-space( padding, 0.25unit 0 );
+
+	.qld__body & {
+		margin: 0;
+		@include QLD-space( padding, 0.25unit 0 );
+
+		
+	}
+
+	> li {
+		display: block;
+		@include QLD-space( margin, 0.25unit);
+	}
+
+	&.qld__link-list--inline {
+		display: inline-block;
+
+		> li {
+			display: inline-block;
+		}
+	}
+}
+
+.qld__body{
+	* + .qld__link-list {
+		@include QLD-space(margin-top, 2unit);
+	}
+
+	h1 + .qld__link-list, 
+	h2 + .qld__link-list, 
+	h3 + .qld__link-list,
+	h4 + .qld__link-list,
+	h5 + .qld__link-list,
+	h6 + .qld__link-list,
+	p + .qld__link-list,
+	[class^="qld__display"] + .qld__link-list {
+		@include QLD-space(margin-top, 1.5unit);
+	}
+
+
+}

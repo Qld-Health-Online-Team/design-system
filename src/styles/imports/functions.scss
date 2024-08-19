@@ -1,0 +1,519 @@
+// Convert a pixel value to EM units
+@function pxToEm($pixel) {
+  @return calc($pixel/$base-font-pixel) + em;
+}
+
+// Convert a pixel value to REM units
+@function pxToRem($pixel) {
+  @return calc($pixel/$base-font-pixel) + rem;
+}
+
+// Strip unit taken from foundation
+@function stripUnit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// String replace
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// Convert Photoshop Letter spacing to EM
+@function photoshopLetterspacingToEms($val) {
+  @return ( $val / 1000 ) * 1em;
+}
+
+// Convert Photoshop Letter spacing to PX
+@function photoshopLetterspacingToPixels($val, $font-size) {
+  @return ( $val * $font-size / 1000 ) * 1px;
+}
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// GLOBAL FUNCTIONS
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+/**
+ * QLD-replace - Replace a string with a string
+ * http://codepen.io/jakob-e/pen/doMoML
+ *
+ * @author @eriksen_dk <https://twitter.com/eriksen_dk>
+ *
+ * @param  {string} $string  - The haystack string to be manipulated
+ * @param  {string} $search  - The needle to be replace
+ * @param  {string} $replace - The replacement
+ *
+ * @return {string}          - The manipulated string with replaced values
+ */
+ @function QLD-replace( $string, $search, $replace: '' ) {
+	@if type-of( $string ) != 'string' {
+	@error "I have a bad feeling about this; the QLD-replace first argument must be a string!";
+	}
+
+	@if type-of( $search ) != 'string' {
+	@error "We’ll always have Paris; the QLD-replace second argument must be a string!";
+	}
+
+	@if type-of( $replace ) != 'string' {
+	@error "Hasta la vista, baby; the QLD-replace third argument must be a string!";
+	}
+
+	$index: str-index( $string, $search );
+
+	@return if( $index,
+	str-slice( $string, 1, $index - 1 ) +
+	$replace +
+	QLD-replace(
+		str-slice( $string, $index + str-length( $search )
+	), $search, $replace ),
+	$string
+	);
+}
+
+
+/**
+ * QLD-svguri - Generate an optimized SVG data-uri
+ * https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
+ * http://codepen.io/jakob-e/pen/doMoML
+ *
+ * @author @eriksen_dk <https://twitter.com/eriksen_dk>
+ *
+ * @param  {string} $svg - The SVG to be converted
+ *
+ * @return {string}      - An optimized data-uri
+ */
+@function QLD-svguri( $svg ) {
+	@if type-of( $svg ) != 'string' {
+	@error "With great power comes great responsibility; the QLD-svguri function only takes a string!";
+	}
+
+	@if not str-index( $svg, xmlns ) { // Add missing namespace
+	$svg: QLD-replace( $svg, '<svg','<svg xmlns="http://www.w3.org/2000/svg"' );
+	}
+
+	$encoded:'';
+	$slice: 2000;
+	$index: 0;
+	$loops: ceil( calc(str-length( $svg ) / $slice) ); // Chunk up string in order to avoid "stack level too deep" error
+
+	@for $i from 1 through $loops {
+	$chunk: str-slice( $svg, $index, $index + $slice - 1 );
+
+	$chunk: QLD-replace( $chunk,'"', "'" );
+	$chunk: QLD-replace( $chunk,'	', " " );
+	$chunk: QLD-replace( $chunk,"\a", " " );
+	$chunk: QLD-replace( $chunk,'  ', " " );
+	$chunk: QLD-replace( $chunk,'%', '%25' );
+	$chunk: QLD-replace( $chunk,'&', '%26' );
+	$chunk: QLD-replace( $chunk,'#', '%23' );
+	$chunk: QLD-replace( $chunk,'{', '%7B' );
+	$chunk: QLD-replace( $chunk,'}', '%7D' );
+	$chunk: QLD-replace( $chunk,'<', '%3C' );
+	$chunk: QLD-replace( $chunk,'>', '%3E' );
+
+	/*    The maybe list
+
+		 Keep size and compile time down
+		 ... only add on documented fail
+
+	 $chunk: QLD-replace( $chunk, '|', '%7C' );
+	 $chunk: QLD-replace( $chunk, '[', '%5B' );
+	 $chunk: QLD-replace( $chunk, ']', '%5D' );
+	 $chunk: QLD-replace( $chunk, '^', '%5E' );
+	 $chunk: QLD-replace( $chunk, '`', '%60' );
+	 $chunk: QLD-replace( $chunk, ';', '%3B' );
+	 $chunk: QLD-replace( $chunk, '?', '%3F' );
+	 $chunk: QLD-replace( $chunk, ':', '%3A' );
+	 $chunk: QLD-replace( $chunk, '@', '%40' );
+	 $chunk: QLD-replace( $chunk, '=', '%3D' );
+	*/
+
+	$encoded: #{ $encoded }#{ $chunk };
+	$index: $index + $slice;
+	}
+
+	@return url("data:image/svg+xml,#{ $encoded }");
+}
+
+
+/**
+ * QLD-factorial - Returns the factorial of a non-negative integer.
+ * https://github.com/terkel/mathsass
+ *
+ * @author Pascal Duez @pascalduez <http://pascalduez.me/>
+ *
+ * @param  {integer} $number - A non-negative integer.
+ *
+ * @return {integer}         - The factorial log
+ */
+@function QLD-factorial( $number ) {
+	@if $number < 0 or $number != floor( $number ) {
+	@error "You talking to me?; the QLD-factorial function only takes positive numbers.";
+	}
+
+	$factorial: 1;
+
+	@while $number > 0 {
+	$factorial: $factorial * $number;
+	$number: $number - 1;
+	}
+
+	@return $factorial;
+}
+
+
+/**
+ * QLD-pow - Returns base to the exponent power.
+ * https://github.com/terkel/mathsass
+ *
+ * @author Pascal Duez @pascalduez <http://pascalduez.me/>
+ *
+ * @param  {integers} $base     - The base number
+ * @param  {integers} $exponent - The exponent to which to raise base
+ *
+ * @return {integers}           - The result of the math
+ */
+@function QLD-pow( $base, $exponent ) {
+	@if $exponent < 0 {
+	@error "I can see dead people; the QLD-pow function only takes positive numbers as the second argument.";
+	}
+
+	// Constants
+	$LN2:   0.6931471805599453;
+	$SQRT2: 1.4142135623730951;
+
+	// full number
+	@if $exponent == floor( $exponent ) {
+	$rest: 1;
+
+	@if $exponent < 0 {
+		$exponent: $exponent * -1;
+	}
+
+	@while $exponent > 0 {
+		@if $exponent % 2 == 1 {
+		$rest: $rest * $base;
+		}
+
+		$exponent: floor($exponent * 0.5);
+		$base: $base * $base;
+	}
+
+	@return if( $exponent < 0, calc(1 / $rest), $rest );
+	}
+
+	// decimal number
+	@else {
+	@if $base <= 0 {
+		@return 0 / 0;
+	}
+
+	$normalized: calc( $base / $SQRT2 );
+	$log: 0;
+
+	@if $normalized < 0 {
+		$normalized: $normalized * -1;
+	}
+
+	@if $normalized < 0.5 {
+		@while $normalized < 0.5 {
+		$normalized: $normalized * 2;
+		$log: $log - 1;
+		}
+	}
+
+	@else if $normalized >= 1 {
+		@while $normalized >= 1 {
+		$normalized: $normalized / 2;
+		$log: $log + 1;
+		}
+	}
+
+	$divider: 1;
+	$deviderExponent: $log;
+
+	$baseExponent: if( $deviderExponent >= 0, 2, 1 / 2 );
+
+	@if $deviderExponent < 0 {
+		$deviderExponent: $deviderExponent * -1;
+	}
+
+	@while $deviderExponent > 0 {
+		@if $deviderExponent % 2 == 1 {
+		$divider: $divider * $baseExponent;
+		}
+		$baseExponent: $baseExponent * $baseExponent;
+		$deviderExponent: floor( $deviderExponent * 0.5 );
+	}
+
+	$base: $base / $divider;
+	$base: ( $base - 1 ) / ( $base + 1 );
+	$base2: $base * $base;
+	$iterator: 1;
+	$tempBase: $base;
+	$tempBase2: null;
+
+	@while $tempBase2 != $tempBase {
+		$base: $base * $base2;
+		$iterator: $iterator + 2;
+		$tempBase2: $tempBase;
+		$tempBase: $tempBase + $base / $iterator;
+	}
+
+	$logarithm: ( $LN2 * $log + 2 * $tempBase ) * $exponent;
+	$return: 0;
+
+	@for $quarter from 0 to 24 {
+		$return: $return + QLD-pow( $logarithm, $quarter ) / QLD-factorial( $quarter );
+	}
+
+	@return $return;
+	}
+}
+
+
+/**
+ * QLD-color-luminance - Calculate color luminance
+ *
+ * https://github.com/voxpelli/sass-color-helpers/blob/master/stylesheets/color-helpers/_contrast.scss
+ * Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
+ * Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+ *
+ * @author Pelle Wessman @voxpelli <http://kodfabrik.se/>
+ *
+ * @param  {string} $color - The color to calculate the luminance from
+ *
+ * @return {float}          - The luminance
+ */
+@function QLD-color-luminance( $color ) {
+	@if type-of( $color ) != 'color' {
+	@error "Go ahead, make my day; the QLD-color-luminance function only takes a color!";
+	}
+
+	$rgba: red( $color ), green( $color ), blue( $color );
+	$rgba2: ();
+
+	@for $i from 1 through 3 {
+	$rgb: nth( $rgba, $i );
+	$rgb: $rgb / 255;
+
+	$rgb: if( $rgb < .03928, $rgb / 12.92, QLD-pow( ( $rgb + .055 ) / 1.055, 2.4 ) );
+
+	$rgba2: append( $rgba2, $rgb );
+	}
+
+	@return .2126 * nth( $rgba2, 1 ) + .7152 * nth( $rgba2, 2 ) + 0.0722 * nth( $rgba2, 3 );
+}
+
+
+/**
+ * QLD-color-contrast - Get the contrast ratio of two colors and warn when it is below WCAG 2.0 AA standard 4.5:1
+ *
+ * https://github.com/voxpelli/sass-color-helpers/blob/master/stylesheets/color-helpers/_contrast.scss
+ * Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
+ * Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
+ *
+ * @author Pelle Wessman @voxpelli <http://kodfabrik.se/>
+ *
+ * @param  {string}   $foreground - Color one
+ * @param  {string}   $background - Color two
+ * @param  {boolean}  $silent     - If the logs get printed in the terminal
+ * @param  {boolean}  $rounded    - If the value is rounded or not
+ *
+ * @return {integer}              - The contrast ratio
+ */
+@function QLD-color-contrast( $foreground, $background, $silent: false, $rounded: true ) {
+	@if type-of( $foreground ) != 'color' {
+	@error "Elementary, my dear Watson; the QLD-color-contrast function only takes a color as first argument!";
+	}
+
+	@if type-of( $background ) != 'color' {
+	@error "You can’t handle the truth; the QLD-color-contrast function only takes a color as second argument!";
+	}
+
+	$luminance1: QLD-color-luminance( $foreground ) + .05;
+	$luminance2: QLD-color-luminance( $background ) + .05;
+	$ratio: $luminance1 / $luminance2;
+
+	@if $luminance2 > $luminance1 {
+	$ratio: 1 / $ratio;
+	}
+
+	@if $ratio < 4.5 and $silent == false {
+	@warn "Houston, we have a problem; contrast ratio of #{ $foreground } on #{ $background } is bad, just #{ $ratio }";
+	}
+
+	@if $rounded == true {
+	$ratio: round( $ratio * 10 ) / 10;
+	}
+
+	@return $ratio;
+}
+
+
+
+/**
+ * QLD-color-a11y - The function to find the nearest accessible color
+ *
+ * https://github.com/alex-page/sass-a11ycolor
+ *
+ * @author Alex Page @aalexpaage <http://alexpage.com.au>
+ *
+ * @param  {Color}           $toMakeA11y           - The color that is to be changed
+ * @param  {Color}           $background           - The background color to compare against toMakeA11y for the contrast
+ * @param  {'small'|'large'} $ratioKey   ['small'] - The keyword 'small' or 'large' to set the WCAG 2.1 contrast ration or 3.0 or 4.5
+ * @param  {Number}          $steps      [0.1]     - The step size our function is searching for a new color in. The bigger the number the faster the process
+ *                                                    the rougher the found color.
+ *
+ * @return {Color}                                 - Returns the nearest accessible color
+ */
+@function QLD-color-a11y( $toMakeA11y, $background, $ratioKey: 'small' ) {
+	@if type-of( $toMakeA11y ) != 'color' {
+	@error "Where we’re going, we don’t need roads; the QLD-a11ycolor function only takes a color as the first attribute!";
+	}
+
+	@if type-of( $background ) != 'color' {
+	@error "You shall not pass; the QLD-a11ycolor function only takes a color as the second attribute!";
+	}
+
+	@if $ratioKey != 'small' and $ratioKey != 'large' {
+	@error "I have always depended on the kindness of strangers; the QLD-a11ycolor function only takes 'small' or 'large' as third attribute.";
+	}
+
+
+	$ratios: (
+	'large': 3,
+	'small': 4.5,
+	);
+	$ratio: map-get( $ratios, $ratioKey );
+
+	// Check the ratio straight away, if it passes return the value as hex
+	@if QLD-color-contrast( $toMakeA11y, $background, true, false ) >= $ratio {
+	@return $toMakeA11y;
+	}
+
+	// Ratio didn't pass so we need to find the nearest color
+	$a11yLightness: lightness( $toMakeA11y );
+	$minHexDiff: 100 / 255; // 255 Colors / 100% HSL
+
+	$isBlackBgContrast: QLD-color-contrast( #000, $background, true, false ) >= $ratio;
+	$isWhiteBgContrast: QLD-color-contrast( #fff, $background, true, false ) >= $ratio;
+	$minLightness: 0;
+	$maxLightness: 100;
+	$isDarkColor: false;
+
+	// If our colour passes contrast on black and white
+	@if $isBlackBgContrast and $isWhiteBgContrast {
+	// Change the min lightness if the color is light
+	@if( $a11yLightness >= 50 ) {
+		$minLightness: $a11yLightness;
+	}
+	// Change the max lightness if the color is dark
+	@else {
+		$maxLightness: $a11yLightness;
+		$isDarkColor: true;
+	}
+	}
+	@else if $isBlackBgContrast {
+	$maxLightness: $a11yLightness;
+	$isDarkColor: true;
+	}
+	// It didn't pass on black
+	@else {
+	$minLightness: $a11yLightness;
+	}
+
+	// The color to return
+	$foundColor: '';
+
+	// Binary search until we find the colour that meets contrast
+	@while( $foundColor == '' ) {
+	$midLightness: ( $minLightness + $maxLightness ) / 2;
+	$midColor: hsl(
+		hue( $toMakeA11y ),
+		saturation( $toMakeA11y ),
+		$midLightness
+	);
+	$resetColor: mix( $midColor, $midColor );
+
+	// If we meet contrast
+	@if QLD-color-contrast( $resetColor, $background, true, false ) >= $ratio {
+		// The colour is in the minimal lightness range for one hexadecimal
+		@if $maxLightness - $minLightness < $minHexDiff {
+		$foundColor: $resetColor;
+		}
+
+		@if $isDarkColor {
+		$minLightness: $midLightness;
+		}
+		@else {
+		$maxLightness: $midLightness;
+		}
+	}
+	// We don't meet contrast
+	@else if $isDarkColor {
+		$maxLightness: $midLightness;
+	}
+	@else {
+		$minLightness: $midLightness;
+	}
+	}
+
+	@return $foundColor;
+}
+
+
+/**
+ * QLD-color-lowest-contrast - Find the lowest contrast color
+ *
+ * @param  {Colors}          $colors     - The color to find the lowest contrast
+ * @param  {Color}           $background - The background color to compare the colors against
+ *
+ * @return {Color}                       - Returns the lowest contrast color
+ */
+ @function QLD-color-lowest-contrast( $colors, $background ){
+	$current-lowest: nth( $colors, 1 );
+
+	// Loop through the $colors list
+	@each $color in $colors {
+	$colorContrast: QLD-color-contrast( $color, $background, true, false );
+	$lowestContrast: QLD-color-contrast( $current-lowest, $background, true, false );
+
+	// If the constast is lower make it the new lowest
+	@if $colorContrast < $lowestContrast {
+		$current-lowest: $color;
+	}
+	}
+
+	@return $current-lowest;
+}
+
+
+/**
+ * QLD-svg-with-fill - Select which level of box shadow
+ *
+ * @param  {keywords} $level - Either one of the following 1, 2, 3
+ *
+ * @return {string}               - Returns different box-shadow variables
+ */
+ @function  QLD-svg-with-fill($svg, $new-fill: 'currentColor') {
+
+    $fill-to-replace: 'currentColor';
+	$css-var: #{var($new-fill)};
+	// $this-new-fill: $new-fill;
+    
+	// var(--QLD-color-dark__action--secondary)
+	$replaced-svg: str-replace($svg, $fill-to-replace, $css-var);
+	
+	
+    $replaced-svg-url: QLD-svguri('#{$replaced-svg}');
+    
+    
+
+    @return $replaced-svg-url;
+}

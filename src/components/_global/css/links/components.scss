@@ -1,0 +1,71 @@
+.qld__header__pre-header,
+.qld__header__main,
+.qld__body,
+.qld__footer,
+.qld__banner,
+.qld__main-nav {
+    
+    .qld__link,
+    a.qld__link,
+    a {
+        color: var(--QLD-color-light__link);
+        @include QLD-underline('light');
+	
+		&:hover{
+			border-color: var(--QLD-color-light__action--primary-hover);
+		}
+	
+		&:focus {
+			@include QLD-focus();
+		}
+	
+		&:disabled,
+		&[disabled]{
+			cursor: not-allowed;
+			color: var(--QLD-color-light__text--lighter);
+	
+			i{
+				color: var(--QLD-color-light__text--lighter);
+			}
+		}
+    }
+
+    &.qld__body--dark,
+	&.qld__body--dark-alt,
+	&.qld__banner--dark,
+	&.qld__banner--dark-alt,
+	&.qld__header__main--dark,
+	&.qld__header__main--dark-alt,
+	&.qld__footer--dark,
+	&.qld__footer--dark-alt,
+    &.qld__header__pre-header--dark,
+    &.qld__header__pre-header--dark-alt,
+	.qld__code-header,
+	.qld__code.singleline{
+
+        .qld__link,
+        a.qld__link,
+        a {
+            color: var(--QLD-color-dark__link);
+            @include QLD-underline('dark');
+        
+            &:hover{
+                border-color: var(--QLD-color-dark__action--primary-hover);
+            }
+        
+            &:focus {
+                @include QLD-focus('dark');
+            }
+        
+            &:disabled,
+            &[disabled]{
+                color: var(--QLD-color-dark__text--lighter);
+        
+                i{
+                    color: var(--QLD-color-dark__text--lighter);
+                }
+            }
+        }
+    }
+}
+
