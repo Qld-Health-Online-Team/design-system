@@ -29,7 +29,7 @@
 
                 const containerFluidStyle = window.getComputedStyle(containerFluid);
                 
-                const paddings = parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/\D/g, '')) + parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/\D/g, ''));
+                const paddings = parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
                 bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
                 
                 if(!originalBreadCrumbUl) {
@@ -132,7 +132,6 @@
         breadCrumbsUlLis[1].className = "qld__overflow_menu--breadcrumbs";
         breadCrumbsUlLis[1].appendChild(overflowMenu);
         breadCrumbsUlLis[1].style.display = "flex";
-        truncateLastLi(breadCrumbsUlLis, breadcrumbUL);
     }
 
     breadcrumb.init = function () {
@@ -153,7 +152,6 @@
                 }
 
                 if(breadCrumbsUlLis.length > 5) {
-
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
@@ -166,7 +164,6 @@
                     }
 
                 } else if((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9))) {
-
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
@@ -181,14 +178,13 @@
 
                         i++;
                     }
-                } else if(parseFloat(breadCrumbsUl.style.maxWidth.replace(/\D/g, '')) < totalLisOffsetWidth) {
-
+                } else if(parseFloat(breadCrumbsUl.style.maxWidth.replace(/[^\d.]/g, '')) < totalLisOffsetWidth) {
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
                     i = 2;
 
-                    while ((parseFloat(breadCrumbsUl.style.maxWidth.replace(/\D/g, ''))< totalLisOffsetWidth) &&
+                    while ((parseFloat(breadCrumbsUl.style.maxWidth.replace(/[^\d.]/g, ''))< totalLisOffsetWidth) &&
                     (i < breadcrumbLisLength - 2)
                     ) {
 
@@ -198,6 +194,8 @@
                         i++;
                     }
                 }
+
+                truncateLastLi(breadCrumbsUlLis, breadCrumbsUl);
             }
         }
     };
