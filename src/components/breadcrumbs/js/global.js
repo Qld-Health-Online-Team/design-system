@@ -151,7 +151,7 @@
                     totalLisOffsetWidth += breadCrumbsUlLis[i].offsetWidth;
                 }
 
-                if(breadCrumbsUlLis.length > 5) {
+                if(breadcrumbLisLength > 5) {
                     insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                     breadCrumbsUlLis[1].style.display = "none";
                     appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
@@ -164,9 +164,13 @@
                     }
 
                 } else if((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9))) {
-                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
-                    breadCrumbsUlLis[1].style.display = "none";
-                    appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
+
+                    if(breadcrumbLisLength > 3) { 
+                        insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
+                        breadCrumbsUlLis[1].style.display = "none";
+                        appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
+                    }
+
                     i = 2;
 
                     while ((breadCrumbsUl.offsetHeight > (breadCrumbsUlLis[0].offsetHeight * 1.9)) &&
@@ -179,9 +183,13 @@
                         i++;
                     }
                 } else if(parseFloat(breadCrumbsUl.style.maxWidth.replace(/[^\d.]/g, '')) < totalLisOffsetWidth) {
-                    insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
-                    breadCrumbsUlLis[1].style.display = "none";
-                    appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
+                    
+                    if(breadcrumbLisLength > 3) {
+                        insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
+                        breadCrumbsUlLis[1].style.display = "none";
+                        appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
+                    }
+                    
                     i = 2;
 
                     while ((parseFloat(breadCrumbsUl.style.maxWidth.replace(/[^\d.]/g, ''))< totalLisOffsetWidth) &&
@@ -190,7 +198,6 @@
 
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
                         breadCrumbsUlLis[i].style.display = "none";
-
                         i++;
                     }
                 }
