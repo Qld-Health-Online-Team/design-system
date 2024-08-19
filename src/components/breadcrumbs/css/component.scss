@@ -17,7 +17,7 @@
     }
     & &__list--desktop{
         display: none;
-        @include QLD-media(md) {
+        @include QLD-media(lg) {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -25,13 +25,13 @@
         }
     }
     & &__list--mobile{
-        @include QLD-media(md) {
+        @include QLD-media(lg) {
             display: none;
         }
     }
     .qld__link-list.qld__link-list--inline:not(.qld__breadcrumbs .qld__breadcrumbs__list--mobile, .qld__banner__breadcrumbs--mobile ul) {
         display: none;
-        @include QLD-media(md) {
+        @include QLD-media(lg) {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -68,12 +68,6 @@
                 @include QLD-underline('light','underline','default','noVisited');
                 color: var(--QLD-color-light__link);
             }
-
-            // .qld__icon{
-            //     @include QLD-space(margin, 0 0.5unit);
-            //     color: var(--QLD-color-light__action--secondary);
-            //     @include QLD-space(height, 1unit);
-            // }
             
             &:after {
                 content: " ";
@@ -93,18 +87,16 @@
             
             &:last-child {
                 display: flex;
-                flex-grow: 1;
-                // overflow: hidden;
                 white-space: wrap;
                 text-overflow: ellipsis;
-                flex: 1 1 auto; 
+                flex: 0 1 auto; 
                 flex-shrink: 3;
 
                 &:after {
                     display: none;
                 }
 
-                @include QLD-media(md) {
+                @include QLD-media(lg) {
                     
                     white-space: nowrap;
                 }
@@ -162,7 +154,7 @@
     @include QLD-space(padding, 1unit 1unit);
     margin: 0;
 
-    @include QLD-media(md) {
+    @include QLD-media(lg) {
         display: none;
     }
 
@@ -184,7 +176,7 @@
 .qld__banner__breadcrumbs--desktop {
     display: none;
 
-    @include QLD-media(md) {
+    @include QLD-media(lg) {
         @include QLD-space(margin, 0 0 1rem);
         display: inline-block;
         > .qld__link-list > li {
@@ -223,7 +215,7 @@
     }
 
     ~ *:last-child {
-        @include QLD-media(md) {
+        @include QLD-media(lg) {
             @include QLD-space(margin-bottom, auto);
         }
     }
