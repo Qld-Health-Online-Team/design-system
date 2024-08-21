@@ -21,7 +21,7 @@
                     <div class="row qld__footer-contact">
                         <div class="col-xs-12 col-sm-8 col-lg-12">
                             {{#if footerCTAHeading}}
-                            <h4 class="qld__footer__heading">{{footerCTAHeading.value}}</h4> 
+                            <h4 class="qld__footer__heading">{{footerCTAHeading.value}}</h4>
                             {{/if}}
                             {{#if footerCTALead}}
                             <p class="qld__footer__cta-content">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            
+
             {{#with (jsonParse footerMetaMetadata.value)}}
             {{#if footerOptionalSecondLinksList}}
             <div class="col-xs-12 col-lg-2 qld__footer__column">
@@ -75,7 +75,7 @@
             </div>
             {{/if}}
             {{/with}}
-            
+
             {{#with (jsonParse footerMetaMetadata.value)}}
             {{#if footerLinks}}
             <div class="col-xs-12 col-lg-2 qld__footer__column">
@@ -123,7 +123,7 @@
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'twitter'}}
                                 <svg aria-hidden="true" focusable="false" width="32" height="20" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"><title>Twitter icon</title><path d="M14.1562 3.5H16.3438L11.5312 9.03125L17.2188 16.5H12.7812L9.28125 11.9688L5.3125 16.5H3.09375L8.25 10.625L2.8125 3.5H7.375L10.5 7.65625L14.1562 3.5ZM13.375 15.1875H14.5938L6.71875 4.75H5.40625L13.375 15.1875Z" fill="currentColor"></path></svg>{{/ifCond}}
                                 <span class="qld__footer__social__label">{{lookup this 'asset_short_name^escapequotes'}}</span>
-                                
+
                             </a>
                         </li>
                         {{/each}}
@@ -132,10 +132,10 @@
             </div>
             {{/if}}
             {{/with}}
-            
+
             <div class="col-xs-12 qld__footer__column">
                 <div class="">
-                    
+
                     {{#if footerAcknowledgementsHeading.value}}
                     <h3 class="qld__footer__heading">
                         {{footerAcknowledgementsHeading.value}}
@@ -194,11 +194,11 @@
                             <a class="qld__footer__clickable__link qld__footer__copyright-link" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
                             {{/ifCond}}
                         {{/if}}
-                        
+
                     {{/with}}
-                    
+
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 </footer>
