@@ -188,15 +188,17 @@
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[1]);
                         breadCrumbsUlLis[1].style.display = "none";
                         appendOverflow(breadCrumbsUlLis, overflowMenu, breadCrumbsUl);
+                        totalLisOffsetWidth -= breadCrumbsUlLis[1].offsetWidth;
                     }
                     
                     i = 2;
 
                     while ((parseFloat(breadCrumbsUl.style.maxWidth.replace(/[^\d.]/g, ''))< totalLisOffsetWidth) &&
                     (i < breadcrumbLisLength - 2)
-                    ) {
+                    ) {                        
 
                         insertOverFlowButton(overflowMenu, breadCrumbsUlLis[i]);
+                        totalLisOffsetWidth -= breadCrumbsUlLis[1].offsetWidth;
                         breadCrumbsUlLis[i].style.display = "none";
                         i++;
                     }
