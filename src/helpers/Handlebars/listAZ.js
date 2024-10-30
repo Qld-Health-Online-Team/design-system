@@ -1,4 +1,4 @@
-module.exports = function(items, url, options) {
+module.exports = function(items, letterHeading, url, options) {
     var html = '<li class="qld__a-z_listing__options__item">';
     var services = [];
     var letters = [];
@@ -49,7 +49,8 @@ module.exports = function(items, url, options) {
 
             return 0;
         })
-        html += `<h3 class="qld__a-z_listing__list__item__header"><span id="${letters[i]}">${letters[i]}</span></h3>`;
+
+        html += '<'+letterHeading+' class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></'+letterHeading+'>';
         html += '<ul class="qld__a-z_listing__list__item__services">';
         for(var k = 0; k < services[letters[i]].length; k++) {
             html += `<li class="qld__a-z_listing__list__item__services__item">

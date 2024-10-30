@@ -562,7 +562,7 @@ Handlebars.registerHelper('jsonParse', function(string) {
 Handlebars.registerHelper('jsonStringify', function(string) {
     return JSON.stringify(string);
 }); 
-Handlebars.registerHelper('listAZ', function(items, url, options) {
+Handlebars.registerHelper('listAZ', function(items, letterHeading, url, options) {
     var html = '<li class="qld__a-z_listing__options__item">';
     var services = [];
     var letters = [];
@@ -613,7 +613,8 @@ Handlebars.registerHelper('listAZ', function(items, url, options) {
 
             return 0;
         })
-        html += `<h3 class="qld__a-z_listing__list__item__header"><span id="${letters[i]}">${letters[i]}</span></h3>`;
+
+        html += '<'+letterHeading+' class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></'+letterHeading+'>';
         html += '<ul class="qld__a-z_listing__list__item__services">';
         for(var k = 0; k < services[letters[i]].length; k++) {
             html += `<li class="qld__a-z_listing__list__item__services__item">
