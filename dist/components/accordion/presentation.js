@@ -15,9 +15,9 @@
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0, blockParams, depths),"inverse":container.program(8, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":12,"column":67},"end":{"line":12,"column":163}}})) != null ? stack1 : "")
     + "\">\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"toggle_all") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","yes",{"name":"ifCond","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":13,"column":8},"end":{"line":17,"column":19}}})) != null ? stack1 : "")
-    + "        <ul class=\"qld__accordion-list\">\n"
+    + "        \n"
     + ((stack1 = (lookupProperty(helpers,"printAccordion")||(depth0 && lookupProperty(depth0,"printAccordion"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"metadata") : depth0),{"name":"printAccordion","hash":{},"fn":container.program(12, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":19,"column":12},"end":{"line":35,"column":31}}})) != null ? stack1 : "")
-    + "        </ul>\n    </div>\n";
+    + "        \n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -78,19 +78,19 @@
         return undefined
     };
 
-  return "                <li>\n                    <section class=\"qld__accordion\">\n                        <button class=\"qld__accordion__title js-qld__accordion qld__accordion--closed\" aria-controls=\"accordion-group-"
+  return "                    <div class=\"qld__accordion\">\n                        <h2>\n                            <button class=\"qld__accordion__title js-qld__accordion qld__accordion--closed\" aria-controls=\"accordion-group-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"assetid") : depths[1]), depth0))
     + "-"
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"fieldid") : depth0), depth0))
-    + "\" aria-expanded=\"false\" type=\"button\">\n                            "
+    + "\" aria-expanded=\"false\" type=\"button\">\n                                "
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"title") : depth0), depth0))
-    + "\n                        </button>\n            \n                        <div class=\"qld__accordion__body qld__accordion--closed\" id=\"accordion-group-"
+    + "\n                            </button>\n                        </h2>\n            \n                        <div class=\"qld__accordion__body qld__accordion--closed\" id=\"accordion-group-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"assetid") : depths[1]), depth0))
     + "-"
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"fieldid") : depth0), depth0))
     + "\">\n                            <div class=\"qld__accordion__body-wrapper\">\n                                "
     + ((stack1 = alias1((depth0 != null ? lookupProperty(depth0,"content") : depth0), depth0)) != null ? stack1 : "")
-    + "\n                            </div>\n                        </div>\n                    </section>\n                </li>\n";
+    + "\n                            </div>\n                        </div>\n                    </div>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
