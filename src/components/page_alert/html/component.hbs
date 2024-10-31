@@ -15,7 +15,7 @@
                 <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__error"></use></svg>
             {{/ifCond}} --}}
             {{#if metadata.heading.value}}
-                <div class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</div>
+                <{{metadata.heading_level.value}} class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</{{metadata.heading_level.value}}>
             {{/if}}
             {{#if metadata.body.value}}
                 <div>{{{metadata.body.value}}}</div>
