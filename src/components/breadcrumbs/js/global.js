@@ -37,7 +37,7 @@
                 }
     
                 if(resized) {
-                    bannerBreadCrumb.querySelector("ul.qld__link-list").innerHTML = originalBreadCrumbUl.innerHTML;
+                    bannerBreadCrumb.querySelector("ol.qld__link-list").innerHTML = originalBreadCrumbUl.innerHTML;
                 }
     
                 const breadCrumbsUl = bannerBreadCrumb.querySelector("ol.qld__link-list");
