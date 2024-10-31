@@ -25,9 +25,9 @@
         return undefined
     };
 
-  return "    <nav class=\"qld__breadcrumbs qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile\" aria-label=\"breadcrumb\">\n        <ul class=\"qld__link-list qld__link-list--inline\">\n"
+  return "    <nav class=\"qld__breadcrumbss qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile\" aria-label=\"breadcrumb\">\n        <ol class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||container.hooks.helperMissing).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":20,"column":20},"end":{"line":20,"column":47}}}),{"name":"with","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":20,"column":12},"end":{"line":32,"column":21}}})) != null ? stack1 : "")
-    + "        </ul>\n    </nav>\n";
+    + "        </ol>\n    </nav>\n";
 },"12":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -75,9 +75,9 @@
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":40,"column":16},"end":{"line":40,"column":112}}})) != null ? stack1 : "")
     + " \n                "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(19, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":41,"column":16},"end":{"line":41,"column":122}}})) != null ? stack1 : "")
-    + " \n                qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\"\n                aria-label=\"breadcrumb\">\n                    <ul class=\"qld__link-list qld__link-list--inline\">\n"
+    + " \n                qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\"\n                aria-label=\"breadcrumb\">\n                    <ol class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":45,"column":24},"end":{"line":49,"column":33}}})) != null ? stack1 : "")
-    + "                    </ul>\n                </nav>\n";
+    + "                    </ol>\n                </nav>\n";
 },"19":function(container,depth0,helpers,partials,data) {
     return "qld__breadcrumbs--dark";
 },"21":function(container,depth0,helpers,partials,data) {
