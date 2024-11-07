@@ -20,7 +20,7 @@
             
             var headingSelector = nav.getAttribute('data-headingType') ? nav.getAttribute('data-headingType') : 'h2';
             var pageContent = isLandingPage ? mainEl : document.getElementById('content');
-            var headings = pageContent.querySelectorAll(headingSelector + ':not(.qld__inpage-nav-links__heading):not(.qld__code ' + headingSelector + '):not(.banner__heading):not(.qld__accordion :not(h2) ' + headingSelector + ')');
+            var headings = pageContent.querySelectorAll(headingSelector + ':not(.qld__inpage-nav-links__heading):not(.qld__code ' + headingSelector + '):not(.banner__heading):not(.qld__accordion ' + headingSelector + '):not(h2)');
             var list = nav.querySelector('.qld__link-list');
             list.innerHTML = '';
 
