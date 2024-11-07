@@ -20,26 +20,12 @@
             
             var headingSelector = nav.getAttribute('data-headingType') ? nav.getAttribute('data-headingType') : 'h2';
             var pageContent = isLandingPage ? mainEl : document.getElementById('content');
-            
-            // Determine whether we should exclude .qld__accordion based on headingSelector
-            const excludeAccordion = /h[3-6]/.test(headingSelector);
-            
-            // Define the base selector to exclude .qld__code and additional classes
-            const baseSelector = `${headingSelector}:not(.qld__inpage-nav-links__heading):not(.banner__heading):not(.qld__code *)`;
-            
-            // Adjust the selector if excluding .qld__accordion headings
-            const finalSelector = excludeAccordion
-              ? `${baseSelector}:not(.qld__accordion)`
-              : baseSelector;
-            
-            // Collect unique headings using a Set to avoid duplicates
-            const headings = new Set(
-              Array.from(pageContent.querySelectorAll(finalSelector)).map(heading => heading.textContent.trim())
-            );
-            
-            // Log the unique text content of each heading in the console
-            headings.forEach(heading => console.log(heading));
-            
+            // var headings = pageContent.querySelectorAll(headingSelector + ':not(.qld__inpage-nav-links__heading):not(.qld__code *' + headingSelector + '):not(.banner__heading):not(.qld__accordion ' + headingSelector + '):not(h2)');
+            var headings = pageContent.querySelectorAll(
+                headingSelector +
+                ':not(.qld__inpage-nav-links__heading):not(.banner__heading):not(.qld__code *):not(.qld__accordion h3):not(.qld__accordion h4):not(.qld__accordion h5):not(.qld__accordion h6)'
+              );
+              
 
             var list = nav.querySelector('.qld__link-list');
             list.innerHTML = '';
