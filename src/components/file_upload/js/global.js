@@ -17,7 +17,7 @@
 
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
-        
+
         fileTemplate.classList.add('qld__form-file');
 
         fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
@@ -45,6 +45,7 @@
         let fileSize = null;
         const fileId = file.id != undefined ? file.id : fileName;
         let fileType = file.type != undefined ? getAssetType(file.type) : '';
+
 
         if (file && file.size) {
             fileSize = Math.ceil(file.size / 1000);
@@ -78,7 +79,7 @@
         const fileName = file.name;
         const fileTemplate = document.createElement('div');
         const fileId = file.id != undefined ? file.id : fileName;
-        
+        console.log("error:", file.name);
         fileTemplate.classList.add('qld__form-file','qld__form-file--error');
 
         fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
@@ -137,8 +138,17 @@
         const fileName = file.name;
         // Regex testing for characters: <, >, :, ", /, \, |, ?, *
         // Also tests for control characters: (\x00 to \x1F)
-        const illegalFileNameCharacters = /[<>:"/\\|?*\x00-\x1F]/;
+        // const illegalFileNameCharacters = /[<>:"/\\|?*\x00-\x1F]/;
         
+        // Combined regex for both illegal characters and HTML/JS patterns
+        const illegalFileNameCharacters = /[<>:"/\\|?*\x00-\x1F]|(<script.*?>|<\/script>|<.*?>|javascript:|<html.*?>|<\/html>)/i;
+
+        // If the file name contains illegal characters
+        if (illegalFileNameCharacters.test(fileName)) {
+            console.error("Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’");
+            return 'Unsupported characters in file name.';
+        }
+
         // If a file of the same name has already been uploaded to the field
         if (currentFiles.some(function(item) {return file.id == item.id})) {
             console.error('Duplicate file name');
@@ -164,16 +174,12 @@
         }
 
         // If the max file limit has been reached
-        if (!(fileSize > 0)) {
+        if (fileSize <= 0) {
             console.error('The selected file is empty');
             return 'The selected file is empty';
         }
 
-        // If the file name contains illegal characters
-        if (illegalFileNameCharacters.test(fileName)) {
-            console.error("Unsupported characters in file name. Only use letters, numbers, space, and special characters: -_(’");
-            return 'The selected file is empty';
-        }
+        
 
         return true;
     }
@@ -412,6 +418,27 @@
     }
 
     /**
+     * Sanitise File name
+     * 
+     * @memberof module:fileUploads
+     */
+
+    const sanitiseAndValidateFileName = function (fileName) {
+        // Remove potentially dangerous characters (e.g., <, >, ", /, \, etc.) and unwanted characters
+        let sanitisedFileName = fileName
+            .replace(/[^a-zA-Z0-9\s\-_\.]/g, '_')  // Replace unwanted characters with '_'
+            .replace(/[<>:"/\\|?*]/g, '_')          // Remove dangerous characters
+            .trim();                              // Trim leading/trailing spaces
+    
+        // Prevent starting or ending with special characters or spaces
+        sanitisedFileName = sanitisedFileName.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '');
+    
+        // Return the sanitized file name
+        return sanitisedFileName;
+    };
+    
+
+    /**
      * Handle any files the user has dropped/selected
      * 
      * @memberof module:fileUploads
@@ -421,46 +448,62 @@
         const usingJsApi = input_field_settings.jsApi !== undefined;
         const $dropZone = input_field_settings.dropzone_element;
         let promiseArray = [];
-
+    
         // Set 'updating' class for dropzone element
         toggleDropzoneClass($dropZone, "updating");
-
-        // Loop over all of the passed in files, and handle them based on input_field_settings
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            // Set an initial ID for the file object
-            file.id = file.id !== undefined ? file.id : file.name;
+    
+        // Loop over all of the passed-in files, and handle them based on input_field_settings
+        for (const element of files) {
+            const file = element;
+    
             // Returns either an error message (string), or true (boolean)
             let isValid = isFileValid(file, input_field_settings);
-            // Set the fileInfo block to the loading template HTML
-            let $fileInfo = loadingTemplate(file); 
+    
+            // Sanitise File Name for UI display purposes
+            let sanitisedFileName = sanitiseAndValidateFileName(file.name);
+    
+            // Create a new File object with the sanitised filename while preserving the content and other properties
+            const sanitisedFile = new File([file], sanitisedFileName, {
+                type: file.type,
+                lastModified: file.lastModified,
+            });
+    
+            // Ensure that we carry over the custom properties (e.g., `id`) from the original file
+            file.id = file.id !== undefined ? file.id : sanitisedFileName;
+            // file.name = sanitisedFileName;
+            // console.log(sanitisedFile.id);
+    
+            // Pass the actual File object to the loadingTemplate function, not just the sanitised name
+            let $fileInfo = loadingTemplate(sanitisedFile); // <-- Here we pass the sanitisedFile object
             // Append the file info box to the file preview list
             $fileList.appendChild($fileInfo);
-            
+    
             // If the file passes the validation rules
-            if(isValid === true) {
+            if (isValid === true) {
                 // If we're using the JS API to create file assets
-                if(usingJsApi) {
-                    promiseArray.push(uploadFileJsApi(file, $fileInfo, input_field_settings));
+                if (usingJsApi) {
+                    promiseArray.push(uploadFileJsApi(sanitisedFile, $fileInfo, input_field_settings));
                 } else {
-                    // Push File object into files array
-                    input_field_settings.files.push(file);
-                    promiseArray.push(simulateFileUpload(file, $fileInfo));
+                    // Push the sanitised File object into the files array (not the original file)
+                    input_field_settings.files.push(sanitisedFile);
+                    promiseArray.push(simulateFileUpload(sanitisedFile, $fileInfo));
                 }
             } else {
-                $fileInfo.replaceWith(errorTemplate(file, isValid));
+                $fileInfo.replaceWith(errorTemplate(sanitisedFile, isValid));
             }
         }
+    
         // Only update the FileList if the JS API isn't being used
-        if(!usingJsApi){
+        if (!usingJsApi) {
             // Default functionality for a file type input is to replace the current FileList with the newly selected file/s 
             // This will override that for subsequent interactions with the file input, or clicking the cancel button.
             updateFileInputFileList(input_field_settings);
         }
+    
         // Once all promises have resolved, remove the updating class, and validate the field
         try {
             await Promise.all(promiseArray);
-        } catch(error) {
+        } catch (error) {
             console.error(error);
         } finally {
             // Remove 'updating' class from dropzone
@@ -468,7 +511,8 @@
             // Validate file input
             $(input_field_settings.input_element).valid();
         }
-    }
+    };
+    
 
     /**
      * Update the FileList for the file input
