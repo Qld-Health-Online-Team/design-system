@@ -1,8 +1,9 @@
 {{#with component.data}}
 <section class="qld__card--wrapper qld__body {{metadata.body_background.value}} {{metadata.body_background_type.value}}" 
-    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{metadata.body_background_image.value}})" {{#if ../component.background_image_alt}}role="img" aria-label="{{../component.background_image_alt}}"{{/if}}{{/ifCond}}
-    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{metadata.body_background_pattern.value}})" {{#if ../component.background_image_alt}}role="img" aria-label="{{../component.background_image_alt}}"{{/if}}{{/ifCond}} >
+    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{metadata.body_background_image.value}})" {{#if ../component.image_alt}}role="img" aria-label="{{../component.image_alt}}"{{/if}}{{/ifCond}}
+    {{#ifCond metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{metadata.body_background_pattern.value}})" {{#if ../component.image_alt}}role="img" aria-label="{{../component.image_alt}}"{{/if}}{{/ifCond}} >
     <div class="container-fluid">
+        {{jsonStringify metadata}}
     
         {{#if metadata.intro_heading.value}}
         <div class="row">
