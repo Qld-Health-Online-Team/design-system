@@ -6,10 +6,10 @@ module.exports = function(thumbnails, index, shortName) {
     }
 
     // If thumbnails is an object, return the aria-label directly from the object
-    if (typeof thumbnails === 'object' && thumbnails.asset_thumbnail_assetid) {
-        return 'aria-label="' + thumbnails.asset_thumbnail_alt + '" role="img"';
-    }
+    // if (typeof thumbnails === 'object' && thumbnails.asset_thumbnail_assetid) {
+    //     return 'aria-label="' + thumbnails.asset_thumbnail_alt + '" role="img"';
+    // }
 
     // Return an empty string if no valid thumbnail found
-    return '';
+    return 'thumbnails:' + JSON.stringify(thumbnails);
 }
