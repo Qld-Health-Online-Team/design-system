@@ -450,12 +450,12 @@ Handlebars.registerHelper('getThumbnailAlt', function(thumbnails, index, shortNa
     }
 
     // If thumbnails is an object, return the aria-label directly from the object
-    if (typeof thumbnails === 'object' && thumbnails.asset_thumbnail_assetid) {
-        return 'aria-label="' + thumbnails.asset_thumbnail_alt + '" role="img"';
-    }
+    // if (typeof thumbnails === 'object' && thumbnails.asset_thumbnail_assetid) {
+    //     return 'aria-label="' + thumbnails.asset_thumbnail_alt + '" role="img"';
+    // }
 
     // Return an empty string if no valid thumbnail found
-    return '';
+    return 'aria-label="' + thumbnails.asset_thumbnail_alt + '"';
 }); 
 Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
