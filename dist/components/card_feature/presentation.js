@@ -53,8 +53,8 @@
 
   return " style=\"background-image:url(./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"body_background_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ")\" lt=\""
-    + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"hmetadata") : stack1)) != null ? lookupProperty(stack1,"body_background_image_alt") : stack1), depth0))
+    + ")\" alt=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"body_background_image_alt") : stack1), depth0))
     + "\"";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
