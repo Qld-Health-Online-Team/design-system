@@ -11,5 +11,5 @@ module.exports = function(thumbnails, index, shortName) {
     // }
 
     // Return an empty string if no valid thumbnail found
-    return 'thumbnails:' + JSON.stringify(thumbnails);
+    return 'aria-label="' + JSON.stringify(thumbnails) + '"';
 }
