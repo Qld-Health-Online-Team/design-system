@@ -33,14 +33,14 @@
                 bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
                 
                 if(!originalBreadCrumbUl) {
-                    originalBreadCrumbUl = bannerBreadCrumb.querySelector("ul.qld__link-list").cloneNode(true);
+                    originalBreadCrumbUl = bannerBreadCrumb.querySelector("ol.qld__link-list").cloneNode(true);
                 }
     
                 if(resized) {
-                    bannerBreadCrumb.querySelector("ul.qld__link-list").innerHTML = originalBreadCrumbUl.innerHTML;
+                    bannerBreadCrumb.querySelector("ol.qld__link-list").innerHTML = originalBreadCrumbUl.innerHTML;
                 }
     
-                const breadCrumbsUl = bannerBreadCrumb.querySelector("ul.qld__link-list");
+                const breadCrumbsUl = bannerBreadCrumb.querySelector("ol.qld__link-list");
                 breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
 
                 return {

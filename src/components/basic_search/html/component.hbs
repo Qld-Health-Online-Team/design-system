@@ -23,7 +23,7 @@
         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark-alt{{/ifCond}}
         
         qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb"> 
-        <ul class="qld__link-list qld__link-list--inline">
+        <ol class="qld__link-list qld__link-list--inline">
             {{#with (itemAt current.lineage -2)}}
                 {{#ifCond asset_type_code '!=' 'folder'}} 
                     <li>
@@ -31,7 +31,7 @@
                     </li>
                 {{/ifCond}}
             {{/with}}
-        </ul>
+        </ol>
     </nav>
     {{/ifCond}}
 
@@ -48,7 +48,7 @@
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
                         qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb">
-                            <ul class="qld__link-list qld__link-list--inline">
+                            <ol class="qld__link-list qld__link-list--inline">
                                 {{#each current.lineage}}   
                                 {{#ifCond asset_type_code '!=' 'folder'}}      
                                     <li {{#if @last}}aria-current="page"{{/if}}>
@@ -60,7 +60,7 @@
                                     </li>
                                 {{/ifCond}}
                                 {{/each}}
-                            </ul>
+                            </ol>
                         </nav>
                     {{/ifCond}}
 
