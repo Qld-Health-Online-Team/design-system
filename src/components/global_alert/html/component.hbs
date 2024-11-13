@@ -1,11 +1,7 @@
 {{#ifCond site.metadata.alertDisplay.value '==' 'true'}}
     <div 
     role="region" 
-    aria-label="{{#switch site.metadata.alertLevel.value}}
-                {{#case 'default'}}Warning{{/case}}
-                {{#case 'critical'}}Alert{{/case}}
-                {{#case 'general'}}Information{{/case}}
-                {{/switch}}" 
+    aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}" 
     class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}">
     </div>
         <div class="container-fluid">
@@ -46,11 +42,7 @@
 {{#ifCond site.metadata.secondAlertDisplay.value '==' 'true'}}
         <div 
         role="region" 
-        aria-label="{{#switch site.metadata.alertLevel.value}}
-                    {{#case 'default'}}Warning{{/case}}
-                    {{#case 'critical'}}Alert{{/case}}
-                    {{#case 'general'}}Information{{/case}}
-                    {{/switch}}" 
+        aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}"
         class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}">
         </div>
         <div class="container-fluid">
@@ -91,11 +83,7 @@
 {{#ifCond site.metadata.thirdAlertDisplay.value '==' 'true'}}
     <div 
         role="region" 
-        aria-label="{{#switch site.metadata.alertLevel.value}}
-                    {{#case 'default'}}Warning{{/case}}
-                    {{#case 'critical'}}Alert{{/case}}
-                    {{#case 'general'}}Information{{/case}}
-                    {{/switch}}" 
+        aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}"
         class="qld__global-alert qld__global-alert--{{site.metadata.thirdAlertLevel.value}}">
         <div class="container-fluid">
             <div class="qld__global-alert__main">
