@@ -14,8 +14,8 @@
 
   return "                        <li class=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":20,"column":35},"end":{"line":20,"column":68}}})) != null ? stack1 : "")
-    + " qld__main-nav__item\">\n                            <div class=\"qld__main-nav__item-title\">\n                                <a class=\"qld__main-nav__item-link\" "
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":22,"column":68},"end":{"line":22,"column":132}}})) != null ? stack1 : "")
+    + " qld__main-nav__item\">\n                            <div class=\"qld__main-nav__item-title\">\n                                <a class=\"qld__main-nav__item-link\" aria-label=\"Home\" "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":22,"column":86},"end":{"line":22,"column":133}}})) != null ? stack1 : "")
     + " href=\"./?a="
     + alias3(alias2(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\">\n                                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--md \"><use href=\""
@@ -26,7 +26,7 @@
 },"8":function(container,depth0,helpers,partials,data) {
     return "active";
 },"10":function(container,depth0,helpers,partials,data) {
-    return "aria-current=\"page\" aria-label=\"Home\"";
+    return "aria-current=\"page\" ";
 },"12":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
