@@ -168,7 +168,7 @@
 
   return "                        <a href=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"github_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__code-header-link\" target=\"_blank\">Github<i class=\"fa-regular fa-arrow-up-right-from-square\" aria-hidden=\"false\" role=\"img\" aria-label=\"Visit Github, opens in new tab\"></i> </a>\n";
+    + "\" class=\"qld__code-header-link\" target=\"_blank\">Github<i class=\"fa-regular fa-arrow-up-right-from-square\" role=\"img\" aria-label=\"Visit Github, opens in new tab\"></i> </a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -179,7 +179,7 @@
 
   return "                        <a href=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"figma_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__code-header-link\" target=\"_blank\">Figma<i class=\"fa-regular fa-arrow-up-right-from-square\" aria-hidden=\"false\" role=\"img\" aria-label=\"Visit Figma, opens in new tab\"></i> </a>\n";
+    + "\" class=\"qld__code-header-link\" target=\"_blank\">Figma<i class=\"fa-regular fa-arrow-up-right-from-square\" role=\"img\" aria-label=\"Visit Figma, opens in new tab\"></i> </a>\n";
 },"28":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -192,7 +192,7 @@
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_address") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" class=\"qld__code-header-link\" target=\"_blank\">"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "<i class=\"fa-regular fa-arrow-up-right-from-square\" aria-hidden=\"false\" role=\"img\" aria-label=\"Visit "
+    + "<i class=\"fa-regular fa-arrow-up-right-from-square\" role=\"img\" aria-label=\"Visit "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ", opens in new tab\"></i></a>\n";
 },"30":function(container,depth0,helpers,partials,data) {
