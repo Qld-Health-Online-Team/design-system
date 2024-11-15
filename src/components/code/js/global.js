@@ -10,12 +10,7 @@
         const copyButtons = document.querySelectorAll('.qld__code-copy--button')
         const showToggle = document.querySelectorAll('.qld__code-toggle-button')
         const colorButtons = document.querySelectorAll('.qld__code-preview-colours input[type=radio]')
-        const icon = document.querySelector('.qld__code-header .fa-arrow-up-right-from-square')
-
-        if (icon) {
-            icon.removeAttribute('aria-hidden');
-          }
-          
+       
         if (codes.length) {
             codes.forEach(function(code) {
                 code.innerHTML = Prism.highlight(code.innerText, Prism.languages.html, 'html')
@@ -161,5 +156,9 @@
     QLD.code = code;
 
     // Init In Page Nav on document load
-    document.addEventListener('DOMContentLoaded', QLD.code.init)
+    document.addEventListener('DOMContentLoaded', function() {
+        QLD.code.init();
+        const icons = document.querySelectorAll('.fa-arrow-up-right-from-square');
+        icons.forEach(icon => icon.removeAttribute('aria-hidden'));
+    })
 }());
