@@ -158,7 +158,7 @@
     // Init In Page Nav on document load
     document.addEventListener('DOMContentLoaded', function() {
         QLD.code.init();
-        const icons = document.querySelectorAll('.fa-arrow-up-right-from-square');
+        const icons = document.querySelectorAll('.qld__code-header .fa-arrow-up-right-from-square');
         icons.forEach(icon => icon.removeAttribute('aria-hidden'));
     })
 }());
