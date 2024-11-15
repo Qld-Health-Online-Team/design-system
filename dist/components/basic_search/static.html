@@ -95,16 +95,19 @@
                         </div>
 
                         <div class="qld__search__sort">
-                            <div class="qld__search__sort-text">Sort by:</div>
-                            <label for="sort" class="sr-only">Sort</label>
-                            <select id="search-sort" class="qld__select" name="sort" aria-label="sort">
+                            <!-- Removed: div.qld__search__sort-text element -->
+                            <label for="search-sort" class="qld__search__sort-text">Sort by:</label> <!-- Corrected: 'for' matches 'id' -->
+                            <select id="search-sort" class="qld__select" name="sort">
+                                <!-- Removed: duplicate id attribute -->
                                 <option value="" selected="">Relevance</option>
                                 <option value="title">A-Z</option>   
                                 <option value="dtitle">Z-A</option>   
-                                <option value="date">Newest</option>   
+                                <option value="date">Newest</option>
                                 <option value="adate">Oldest</option>
-                            </select>                    
+                            </select>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="qld__search__results">
