@@ -3,7 +3,7 @@
     role="region" 
     aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}" 
     class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}">
-    </div>
+ 
         <div class="container-fluid">
             <div class="qld__global-alert__main">
                 <div class="qld__global-alert__icon">
@@ -44,7 +44,6 @@
         role="region" 
         aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}"
         class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}">
-        </div>
         <div class="container-fluid">
             <div class="qld__global-alert__main">
                 <div class="qld__global-alert__icon">
