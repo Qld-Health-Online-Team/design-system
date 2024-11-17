@@ -42,7 +42,7 @@
 {{#ifCond site.metadata.secondAlertDisplay.value '==' 'true'}}
         <div 
         role="region" 
-        aria-label="{{#ifCond site.metadata.secondAlertDisplay.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.secondAlertDisplay.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.secondAlertDisplay.value '==' 'general'}}Information{{/ifCond}}"
+        aria-label="{{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
         class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}">
         <div class="container-fluid">
             <div class="qld__global-alert__main">
@@ -82,7 +82,7 @@
 {{#ifCond site.metadata.thirdAlertDisplay.value '==' 'true'}}
     <div 
         role="region" 
-        aria-label="{{#ifCond site.metadata.thirdAlertDisplay.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.thirdAlertDisplay.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.thirdAlertDisplay.value '==' 'general'}}Information{{/ifCond}}"
+        aria-label="{{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
         class="qld__global-alert qld__global-alert--{{site.metadata.thirdAlertLevel.value}}">
         <div class="container-fluid">
             <div class="qld__global-alert__main">
