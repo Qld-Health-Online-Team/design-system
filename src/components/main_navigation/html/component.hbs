@@ -19,7 +19,7 @@
                         {{#if site.metadata.mainNavHomeIconShow.value}}
                         <li class="{{#if current.home}}active{{/if}} qld__main-nav__item">
                             <div class="qld__main-nav__item-title">
-                                <a class="qld__main-nav__item-link" {{#if current.home}}aria-current="page"{{/if}} href="./?a={{site.data.assetid}}">
+                                <a class="qld__main-nav__item-link" aria-label="Home" {{#if current.home}}aria-current="page" {{/if}} href="./?a={{site.data.assetid}}">
                                     <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
                                     <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
                                 </a>
