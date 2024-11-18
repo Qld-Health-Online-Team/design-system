@@ -10,7 +10,7 @@
         const copyButtons = document.querySelectorAll('.qld__code-copy--button')
         const showToggle = document.querySelectorAll('.qld__code-toggle-button')
         const colorButtons = document.querySelectorAll('.qld__code-preview-colours input[type=radio]')
-       
+
         if (codes.length) {
             codes.forEach(function(code) {
                 code.innerHTML = Prism.highlight(code.innerText, Prism.languages.html, 'html')
@@ -153,24 +153,8 @@
         });
     }
 
-    function removeAriaHidden() {
-        const icons = document.querySelectorAll('.qld__code-header .fa-arrow-up-right-from-square');
-        icons.forEach(icon => icon.removeAttribute('aria-hidden'));
-    }
-    
-    // Mutation Observer to monitor changes in the DOM
-    const observer = new MutationObserver(() => {
-        removeAriaHidden();
-    });
-    
-    // Start observing the document for added nodes
-    observer.observe(document.body, { childList: true, subtree: true });
-
     QLD.code = code;
 
     // Init In Page Nav on document load
-    document.addEventListener('DOMContentLoaded', function() {
-        QLD.code.init();
-        removeAriaHidden();
-    })
+    document.addEventListener('DOMContentLoaded', QLD.code.init)
 }());
