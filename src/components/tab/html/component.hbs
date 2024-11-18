@@ -104,7 +104,7 @@
                         {{/ifCond}}
                     {{else}}
                         {{#each ../component.assets}}
-                            <button role="tab" lass="qld__tab-button {{#ifCond @key '==' 0}}active{{/ifCond}}" data-tab="tab{{@key}}-{{this.assetid}}" aria-selected="{{#ifCond @key '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{@key}}-{{this.assetid}}-content" tabindex="{{#ifCond @key '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{@key}}-button"><span>{{#if this.metadata.tabIcon.value}}<i class="{{this.metadata.tabIcon.value}}"></i>{{/if}}{{this.name}}</span></button>
+                            <button role="tab" class="qld__tab-button {{#ifCond @key '==' 0}}active{{/ifCond}}" data-tab="tab{{@key}}-{{this.assetid}}" aria-selected="{{#ifCond @key '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{@key}}-{{this.assetid}}-content" tabindex="{{#ifCond @key '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{@key}}-button"><span>{{#if this.metadata.tabIcon.value}}<i class="{{this.metadata.tabIcon.value}}"></i>{{/if}}{{this.name}}</span></button>
                         {{/each}}
                     {{/ifCond}}
             </div>
