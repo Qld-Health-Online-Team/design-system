@@ -34,10 +34,33 @@
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
                 <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
+                    <!-- ${require('../components/breadcrumbs/html/component.hbs')({
                         "site":require('/src/data/site.json'),
                         "current":require('/src/data/current.json'),
-                    })}
+                    })} -->
+                    <nav class="qld__breadcrumbs 
+                    qld__banner__breadcrumbs 
+                    qld__banner__breadcrumbs--desktop
+                    " aria-label="breadcrumb">
+                        <ul class="qld__link-list qld__link-list--inline">
+                                <li><a href="/home.html">Home</a></li>
+                                <li><a href="/">one</a></li>
+                                <li><a href="/">two</a></li>
+                                <li><a href="/">three</a></li>
+                                <li><a href="/">four</a></li>
+                                <li><a href="/">five</a></li>
+                                <li><a href="/">six</a></li>
+                                <li><a href="/">seven</a></li>
+                                <li><a href="/">eight</a></li>
+                                <li><a href="/">nine</a></li>
+                                <li><a href="/">ten</a></li>
+                                <li><a href="/">eleven</a></li>
+                                <li><a href="/">twelve</a></li>
+                                <li><a href="/">thirteen</a></li>
+                                <li aria-current="page">this e can have the entire thing in only one line so we can test this and see how it goes.</li>
+                        </ul>
+                    </nav>
+
                 </div>
             </section>
             <!--CONTENT-->

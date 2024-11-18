@@ -12,6 +12,14 @@
     padding: 0;
     position: relative;
 
+    &:not(.qld__banner__advanced):not(.qld__banner__basic) {
+        .qld__banner.qld__banner__content {
+            @include QLD-media(lg) {
+                width: 90%;
+            }
+        }
+    }
+
     & &__content {
         color: var(--QLD-color-light__text);
         position: relative;

@@ -443,16 +443,9 @@ Handlebars.registerHelper('getTags', function(selectValues, tags, options) {
     return output;
 }); 
 Handlebars.registerHelper('getThumbnailAlt', function(thumbnails, index, shortName) {
-    var ariaLabel = 'aria-label="Image for '
+    if (!thumbnails[index].asset_thumbnail_alt.length) return '';
 
-    if(thumbnails[index].asset_thumbnail_alt.length){
-        
-        ariaLabel += thumbnails[index].asset_thumbnail_alt + '"';
-    } else {
-        ariaLabel += shortName + '"';
-    }
-
-    return ariaLabel
+    return 'aria-label="' + thumbnails[index].asset_thumbnail_alt + '" role="img"';
 }); 
 Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
@@ -562,7 +555,7 @@ Handlebars.registerHelper('jsonParse', function(string) {
 Handlebars.registerHelper('jsonStringify', function(string) {
     return JSON.stringify(string);
 }); 
-Handlebars.registerHelper('listAZ', function(items, url, options) {
+Handlebars.registerHelper('listAZ', function(items, letterHeading, url, options) {
     var html = '<li class="qld__a-z_listing__options__item">';
     var services = [];
     var letters = [];
@@ -613,10 +606,15 @@ Handlebars.registerHelper('listAZ', function(items, url, options) {
 
             return 0;
         })
-        html += '<h3 class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></h3>';
+
+        html += '<'+letterHeading+' class="qld__a-z_listing__list__item__header"><span id="'+letters[i]+'">'+letters[i]+'</span></'+letterHeading+'>';
         html += '<ul class="qld__a-z_listing__list__item__services">';
         for(var k = 0; k < services[letters[i]].length; k++) {
-            html += '<li class="qld__a-z_listing__list__item__services__item"><a class="qld__a-z_listing__list__item__services__item__link" href="./?a='+services[letters[i]][k].id+'"><span>'+services[letters[i]][k].name+'</span></a></li>';
+            html += `<li class="qld__a-z_listing__list__item__services__item">
+                        <a class="qld__a-z_listing__list__item__services__item__link" href="./?a=${services[letters[i]][k].id}">
+                            <span>${services[letters[i]][k].name}</span>
+                        </a>
+                    </li>`;
         }
         html += '</ul>';
     }

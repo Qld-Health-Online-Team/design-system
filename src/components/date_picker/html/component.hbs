@@ -1,0 +1,28 @@
+{{#with component.data}}
+    <div class="qld__form-group">
+        <label class="qld__label" for="{{replace metadata.name.value ' ' '_'}}">{{metadata.name.value}}</label>
+        {{#if metadata.hint}}
+        <em class="sq-form-question-note qld__hint-text">{{metadata.hint.value}}</em>
+        {{/if}}
+        <div class="flatpickr">
+                <input
+                    type="text"
+                    class="qld__text-input"
+                    id="{{replace metadata.name.value ' ' '_'}}"
+                    name="{{replace metadata.name.value ' ' '_'}}"
+                    {{#if metadata.min_date.value}}data-min-date="{{metadata.min_date.value}}"{{/if}}
+                    {{#if metadata.max_date.value}}data-max-date="{{metadata.max_date.value}}"{{/if}}
+                    data-mode="{{#if metadata.mode.value}}{{metadata.mode.value}}{{else}}single{{/if}}"
+                    data-date-format="{{#if metadata.date_format.value}}{{metadata.date_format.value}}{{else}}d/m/Y{{/if}}"
+                    data-default-date="{{#if metadata.default_date.value}}{{metadata.default_date.value}}{{else}}today{{/if}}"
+                    data-input
+                >
+                {{#ifCond metadata.mode.value '===' 'multiple'}}
+                    <div class="date-list"></div>
+                {{/ifCond}}
+                <button type="button" class="calendar-toggle" title="Open date picker">
+                    <i class="fa-light fa-calendar-day"></i>
+                </button>
+        </div>
+    </div>
+{{/with}}

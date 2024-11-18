@@ -10,7 +10,7 @@
      * Set the correct Aria roles for given element on the accordion title and body
      * 
      * @memberof module:accordion
-     * @instance
+     * @instance 
      * @private
      * 
      * @param  {object} element - The DOM element we want to set attributes for
@@ -32,7 +32,7 @@
      *
      * @memberof module:accordion
      * @instance
-     * @private
+     * @private  
      * 
      * @param  {object} element      - The DOM element we want to toggle classes on
      * @param  {object} target       - The DOM element we want to toggle classes on

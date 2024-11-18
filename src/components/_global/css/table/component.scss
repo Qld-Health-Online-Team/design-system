@@ -301,6 +301,13 @@ table {
     }
 }
 
+
+@media print {
+    .qld__table--scroll {
+        max-height: none !important;
+    }    
+}
+
 .qld__table, .qld__table--scroll, .qld__table--contained {
     &:not(:first-child) {
       @include QLD-space( margin-top, 1.5unit);
