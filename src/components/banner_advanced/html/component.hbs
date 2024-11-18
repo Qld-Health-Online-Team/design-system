@@ -197,7 +197,7 @@
             {{#ifCond metadata.cta_type.value '==' 'icon-tiles'}}
                 {{#if metadata.root_node.value}}
                 <div class="qld__banner__nav {{#ifCond metadata.hero_image_alignment.value '==' 'page'}}qld__banner__nav--fix-right{{/ifCond}}">
-                    <nav {{#if cta_icon_tiles_label}}aria-label="{{cta_icon_tiles_label}}"{{/if}} class="
+                    <nav {{#if metadata.cta_icon_tiles_label.value}}aria-label="{{metadata.cta_icon_tiles_label.value}}" {{/if}} class="
                         qld__tile-nav 
                         {{#ifCond metadata.cta_icon_tile_background.value '==' 'alternate'}}qld__tile-nav--alt{{/ifCond}} 
                         {{#ifCond metadata.cta_icon_tile_background.value '==' 'dark'}}qld__tile-nav--dark{{/ifCond}} 
