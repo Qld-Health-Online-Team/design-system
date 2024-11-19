@@ -1,0 +1,1469 @@
+{
+	"component": {
+		"name": "Banner - Advanced",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"version": "0",
+		"status": "In Development",
+		"data": {
+            "assetid": "123",
+			"metadata": {
+				"breadcrumbs_display": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display Breadcrumbs?",
+					"value": "yes",
+					"options": {
+						"": "No",
+						"yes": "Yes"
+					},
+					"required": false,
+					"editable": true
+				},
+				"heading_primary": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Primary Heading",
+					"value": "Banner Advanced",
+					"required": false,
+					"editable": true
+				},
+				"heading_secondary": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Secondary Heading",
+					"value": "With Tile Nav",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": false,
+                        "operator": "OR",
+                        "rules": [{
+                            "field": "heading_background_display",
+                            "operator": "equals",
+                            "value": ""
+                        }]
+                    }
+				},
+				"heading_background_display": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display block background?",
+					"value": "yes",
+					"options": {
+						"": "No",
+						"yes": "Yes"
+					},
+					"required": false,
+					"editable": true
+				},
+				"abstract": {
+					"type": "metadata_field_wysiwyg",
+					"description": "",
+					"friendly_name": "Abstract",
+					"value": "Lorem ipsum dolor sit amet.",
+					"required": false,
+					"editable": true
+				},
+				"hero_image": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Image",
+					"value": "https://via.placeholder.com/782x520",
+                    "value2": "",
+					"required": false,
+					"editable": true
+				},
+				"hero_image_responsive_treatment": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Responsive treatment",
+					"value": "crop",
+					"options": {
+						"crop": "Crop",
+						"scale": "Scale"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": false,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "hero_image",
+                            "operator": "equals",
+                            "value": ""
+                        }]
+                    }
+				},
+				"hero_image_padding": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Display Padding?",
+					"value": "yes",
+					"options": {
+						"no": "No",
+						"yes": "Yes"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": false,
+                        "operator": "OR",
+                        "rules": [{
+                            "field": "hero_image",
+                            "operator": "equals",
+                            "value": ""
+                        }, {
+                            "field": "hero_image_responsive_treatment",
+                            "operator": "equals",
+                            "value": "crop"
+                        }]
+                    }
+				},
+				"hero_image_alignment": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Align Hero Image",
+					"value": "grid",
+					"options": {
+						"grid": "To Grid",
+						"page": "To Page"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": false,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "hero_image",
+                            "operator": "equals",
+                            "value": ""
+                        }]
+                    }
+				},
+				"background_type": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Background type",
+					"value": "image",
+					"options": {
+						"colour": "Colour",
+						"texture": "Texture",
+						"image": "Background Image"
+					},
+					"required": false,
+					"editable": true
+				},
+				"background_colour": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Background Colour",
+					"value": "dark",
+					"options": {
+						"": "White",
+                        "light": "Light",
+						"alternate": "Alternate",
+						"dark": "Dark",
+						"dark-alternate": "Dark Alternate"
+					},
+					"required": false,
+					"editable": true
+				},
+				"background_image_sm": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Background Image - Mobile",
+					"value": "/mysource_files/banner-background--mobile.png",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "background_type",
+                            "operator": "equals",
+                            "value": "image"
+                        }]
+                    }
+				},
+				"background_image_lg": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Background Image - Desktop and Tablet",
+					"value": "/mysource_files/banner-background--desktop.png",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "background_type",
+                            "operator": "equals",
+                            "value": "image"
+                        }]
+                    }
+				},
+				"background_image_alignment": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Background alignment",
+					"value": "center",
+					"options": {
+						"left": "Left",
+						"right": "Right",
+						"center": "Center"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "OR",
+                        "rules": [{
+                            "field": "background_type",
+                            "operator": "equals",
+                            "value": "image"
+                        }, {
+                            "field": "background_type",
+                            "operator": "equals",
+                            "value": "image-multi"
+                        }]
+                    }
+				},
+				"background_min_height": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Banner Height Overide",
+					"value": "",
+					"required": false,
+					"editable": true
+				},
+				"cta_type": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "CTA type",
+					"value": "link-list",
+					"options": {
+						"buttons": "Buttons",
+						"link-list": "Link List",
+						"icon-tiles": "Icon Tiles"
+					},
+					"required": false,
+					"editable": true
+				},
+				"cta_button_primary_text": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Primary Button Text",
+					"value": "Primary Button",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "buttons"
+                        }]
+                    }
+				},
+				"cta_button_primary_link": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Primary Button Link",
+					"value": "#",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "buttons"
+                        }]
+                    }
+				},
+				"cta_button_secondary_text": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Secondary Button Text",
+					"value": "Secondary Button",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "buttons"
+                        }]
+                    }
+				},
+				"cta_button_secondary_link": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "Secondary Button Link",
+					"value": "#",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "buttons"
+                        }]
+                    }
+				},
+                "cta_link_list_card_background": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Link List card background",
+					"value": "alternate",
+					"options": {
+						"": "White",
+                        "light": "Light",
+						"alternate": "Alternate",
+						"dark": "Dark",
+						"dark-alternate": "Dark Alternate"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "link-list"
+                        }]
+                    }
+				},
+                "cta_icon_tile_background": {
+					"type": "metadata_field_select",
+					"description": "",
+					"friendly_name": "Icon tile background",
+					"value": "dark-alternate",
+					"options": {
+                        "light": "Light",
+						"alternate": "Alternate",
+						"dark": "Dark",
+						"dark-alternate": "Dark Alternate"
+					},
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "icon-tiles"
+                        }]
+                    }
+				},
+                "cta_icon_tiles_label": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Icon Tiles Label",
+					"value": "Contact details",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "icon-tiles"
+                        }]
+                    }
+				},
+				"root_node": {
+					"type": "metadata_field_related_asset",
+					"description": "",
+					"friendly_name": "CTA Parent Asset",
+					"value": "123",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": false,
+                        "operator": "OR",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "buttons"
+                        }]
+                    }
+				},
+				"id_field": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Id field",
+					"value": "",
+					"required": false,
+					"editable": true
+				}
+			}
+		},
+		"children": [{
+            "assetid": "22724",
+            "type_code": "page_redirect",
+            "version": "0.0.1",
+            "name": "Brand",
+            "short_name": "Brand",
+            "status": "2",
+            "languages": "en",
+            "charset": "utf-8",
+            "created": "2021-07-19 10:06:21",
+            "created_userid": "312",
+            "updated": "2021-07-19 10:16:04",
+            "updated_userid": "312",
+            "published": "Never",
+            "published_userid": "",
+            "status_changed": "2021-07-19 10:06:21",
+            "status_changed_userid": "312",
+            "thumbnail": "23802",
+            "attributes": {
+                "short_name": {
+                    "attrid": "2069",
+                    "type": "text",
+                    "value": "Brand",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "new_window_options": {
+                    "attrid": "2075",
+                    "type": "selection",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_width": {
+                    "attrid": "2076",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_height": {
+                    "attrid": "2077",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "append_querystring": {
+                    "attrid": "2078",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "use_querystring_parameter": {
+                    "attrid": "2079",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_variables": {
+                    "attrid": "2080",
+                    "type": "parameter_map",
+                    "value": [],
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_vars": {
+                    "attrid": "2081",
+                    "type": "option_list",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "name": {
+                    "attrid": "2068",
+                    "type": "text",
+                    "value": "Brand",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "permanent_redirect": {
+                    "attrid": "2070",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "attrid": "2071",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "url_suffix": {
+                    "attrid": "2072",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "timeout": {
+                    "attrid": "2073",
+                    "type": "float",
+                    "value": 0,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window": {
+                    "attrid": "2074",
+                    "type": "boolean",
+                    "value": true,
+                    "is_contextable": false,
+                    "use_default": true
+                }
+            },
+            "metadata": {
+                "component": {
+                    "value": "",
+                    "fieldid": "22303",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "description": {
+                    "value": "",
+                    "fieldid": "22261",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "value": "#",
+                    "fieldid": "22361",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "shortDescription": {
+                    "value": "Additional text about the card",
+                    "fieldid": "22262",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "pageType": {
+                    "value": "content",
+                    "fieldid": "22264",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayBreadcrumbs": {
+                    "value": "true",
+                    "fieldid": "22265",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayQuickExit": {
+                    "value": "",
+                    "fieldid": "22266",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayLastUpdated": {
+                    "value": "yes",
+                    "fieldid": "22267",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "dataSource": {
+                    "value": "",
+                    "fieldid": "22269",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "detailsPage": {
+                    "value": "",
+                    "fieldid": "22270",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "mapMarker": {
+                    "value": "",
+                    "fieldid": "22271",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bookOnlineUrl": {
+                    "value": "",
+                    "fieldid": "22272",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardIcon": {
+                    "value": "fal fa-question-circle",
+                    "fieldid": "22274",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeader": {
+                    "value": "false",
+                    "fieldid": "22275",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeadingAsLink": {
+                    "value": "true",
+                    "fieldid": "22276",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileIcon": {
+                    "value": "",
+                    "fieldid": "22277",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileText": {
+                    "value": "Footer CTA",
+                    "fieldid": "22278",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileBackground": {
+                    "value": "",
+                    "fieldid": "22279",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta1TileURL": {
+                    "value": "",
+                    "fieldid": "22280",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileIcon": {
+                    "value": "",
+                    "fieldid": "22281",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileText": {
+                    "value": "Footer CTA",
+                    "fieldid": "22282",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileBackground": {
+                    "value": "",
+                    "fieldid": "22283",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta2TileURL": {
+                    "value": "",
+                    "fieldid": "22284",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayFooter": {
+                    "value": "true",
+                    "fieldid": "22285",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardNewWindow": {
+                    "value": "true",
+                    "fieldid": "22286",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "displayBanner": {
+                    "value": "true",
+                    "fieldid": "22288",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerBackground": {
+                    "value": "",
+                    "fieldid": "22289",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerImageBackground": {
+                    "value": "21586",
+                    "fieldid": "22290",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerSubTitle": {
+                    "value": "",
+                    "fieldid": "22291",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                }
+            }
+        }, {
+            "assetid": "22725",
+            "type_code": "page_redirect",
+            "version": "0.0.1",
+            "name": "Content",
+            "short_name": "Content",
+            "status": "2",
+            "languages": "en",
+            "charset": "utf-8",
+            "created": "2021-07-19 10:06:21",
+            "created_userid": "312",
+            "updated": "2021-07-19 10:16:05",
+            "updated_userid": "312",
+            "published": "Never",
+            "published_userid": "",
+            "status_changed": "2021-07-19 10:06:21",
+            "status_changed_userid": "312",
+            "thumbnail": "23802",
+            "attributes": {
+                "short_name": {
+                    "attrid": "2069",
+                    "type": "text",
+                    "value": "Content",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "new_window_options": {
+                    "attrid": "2075",
+                    "type": "selection",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_width": {
+                    "attrid": "2076",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_height": {
+                    "attrid": "2077",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "append_querystring": {
+                    "attrid": "2078",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "use_querystring_parameter": {
+                    "attrid": "2079",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_variables": {
+                    "attrid": "2080",
+                    "type": "parameter_map",
+                    "value": [],
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_vars": {
+                    "attrid": "2081",
+                    "type": "option_list",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "name": {
+                    "attrid": "2068",
+                    "type": "text",
+                    "value": "Content",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "permanent_redirect": {
+                    "attrid": "2070",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "attrid": "2071",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "url_suffix": {
+                    "attrid": "2072",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "timeout": {
+                    "attrid": "2073",
+                    "type": "float",
+                    "value": 0,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window": {
+                    "attrid": "2074",
+                    "type": "boolean",
+                    "value": true,
+                    "is_contextable": false,
+                    "use_default": true
+                }
+            },
+            "metadata": {
+                "component": {
+                    "value": "",
+                    "fieldid": "22303",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "description": {
+                    "value": "",
+                    "fieldid": "22261",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "value": "#",
+                    "fieldid": "22361",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "shortDescription": {
+                    "value": "Additional text about the card",
+                    "fieldid": "22262",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "pageType": {
+                    "value": "content",
+                    "fieldid": "22264",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayBreadcrumbs": {
+                    "value": "true",
+                    "fieldid": "22265",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayQuickExit": {
+                    "value": "",
+                    "fieldid": "22266",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayLastUpdated": {
+                    "value": "yes",
+                    "fieldid": "22267",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "dataSource": {
+                    "value": "",
+                    "fieldid": "22269",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "detailsPage": {
+                    "value": "",
+                    "fieldid": "22270",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "mapMarker": {
+                    "value": "",
+                    "fieldid": "22271",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bookOnlineUrl": {
+                    "value": "",
+                    "fieldid": "22272",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardIcon": {
+                    "value": "fal fa-stethoscope",
+                    "fieldid": "22274",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeader": {
+                    "value": "false",
+                    "fieldid": "22275",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeadingAsLink": {
+                    "value": "true",
+                    "fieldid": "22276",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileIcon": {
+                    "value": "",
+                    "fieldid": "22277",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileText": {
+                    "value": "",
+                    "fieldid": "22278",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileBackground": {
+                    "value": "",
+                    "fieldid": "22279",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta1TileURL": {
+                    "value": "",
+                    "fieldid": "22280",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileIcon": {
+                    "value": "",
+                    "fieldid": "22281",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileText": {
+                    "value": "",
+                    "fieldid": "22282",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileBackground": {
+                    "value": "",
+                    "fieldid": "22283",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta2TileURL": {
+                    "value": "",
+                    "fieldid": "22284",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayFooter": {
+                    "value": "false",
+                    "fieldid": "22285",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardNewWindow": {
+                    "value": "true",
+                    "fieldid": "22286",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "displayBanner": {
+                    "value": "true",
+                    "fieldid": "22288",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerBackground": {
+                    "value": "",
+                    "fieldid": "22289",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerImageBackground": {
+                    "value": "21586",
+                    "fieldid": "22290",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerSubTitle": {
+                    "value": "",
+                    "fieldid": "22291",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                }
+            }
+        }, {
+            "assetid": "22726",
+            "type_code": "page_redirect",
+            "version": "0.0.1",
+            "name": "Components",
+            "short_name": "Components",
+            "status": "2",
+            "languages": "en",
+            "charset": "utf-8",
+            "created": "2021-07-19 10:06:21",
+            "created_userid": "312",
+            "updated": "2021-07-19 10:16:07",
+            "updated_userid": "312",
+            "published": "Never",
+            "published_userid": "",
+            "status_changed": "2021-07-19 10:06:21",
+            "status_changed_userid": "312",
+            "thumbnail": "23802",
+            "attributes": {
+                "short_name": {
+                    "attrid": "2069",
+                    "type": "text",
+                    "value": "Components",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "new_window_options": {
+                    "attrid": "2075",
+                    "type": "selection",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_width": {
+                    "attrid": "2076",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window_height": {
+                    "attrid": "2077",
+                    "type": "int",
+                    "value": "0",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "append_querystring": {
+                    "attrid": "2078",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "use_querystring_parameter": {
+                    "attrid": "2079",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_variables": {
+                    "attrid": "2080",
+                    "type": "parameter_map",
+                    "value": [],
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "session_vars": {
+                    "attrid": "2081",
+                    "type": "option_list",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "name": {
+                    "attrid": "2068",
+                    "type": "text",
+                    "value": "Components",
+                    "is_contextable": true,
+                    "use_default": true
+                },
+                "permanent_redirect": {
+                    "attrid": "2070",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "attrid": "2071",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "url_suffix": {
+                    "attrid": "2072",
+                    "type": "text",
+                    "value": "",
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "timeout": {
+                    "attrid": "2073",
+                    "type": "float",
+                    "value": 0,
+                    "is_contextable": false,
+                    "use_default": true
+                },
+                "new_window": {
+                    "attrid": "2074",
+                    "type": "boolean",
+                    "value": false,
+                    "is_contextable": false,
+                    "use_default": true
+                }
+            },
+            "metadata": {
+                "component": {
+                    "value": "",
+                    "fieldid": "22303",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "description": {
+                    "value": "",
+                    "fieldid": "22261",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "redirect_url": {
+                    "value": "#",
+                    "fieldid": "22361",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "shortDescription": {
+                    "value": "Additional text about the card",
+                    "fieldid": "22262",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "pageType": {
+                    "value": "content",
+                    "fieldid": "22264",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayBreadcrumbs": {
+                    "value": "true",
+                    "fieldid": "22265",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayQuickExit": {
+                    "value": "",
+                    "fieldid": "22266",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "displayLastUpdated": {
+                    "value": "yes",
+                    "fieldid": "22267",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "dataSource": {
+                    "value": "",
+                    "fieldid": "22269",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "detailsPage": {
+                    "value": "",
+                    "fieldid": "22270",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "mapMarker": {
+                    "value": "",
+                    "fieldid": "22271",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bookOnlineUrl": {
+                    "value": "",
+                    "fieldid": "22272",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardIcon": {
+                    "value": "fal fa-heart",
+                    "fieldid": "22274",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeader": {
+                    "value": "false",
+                    "fieldid": "22275",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayHeadingAsLink": {
+                    "value": "true",
+                    "fieldid": "22276",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileIcon": {
+                    "value": "",
+                    "fieldid": "22277",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileText": {
+                    "value": "",
+                    "fieldid": "22278",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta1TileBackground": {
+                    "value": "",
+                    "fieldid": "22279",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta1TileURL": {
+                    "value": "",
+                    "fieldid": "22280",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileIcon": {
+                    "value": "",
+                    "fieldid": "22281",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileText": {
+                    "value": "",
+                    "fieldid": "22282",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardCta2TileBackground": {
+                    "value": "",
+                    "fieldid": "22283",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "cardCta2TileURL": {
+                    "value": "",
+                    "fieldid": "22284",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardDisplayFooter": {
+                    "value": "false",
+                    "fieldid": "22285",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "cardNewWindow": {
+                    "value": "false",
+                    "fieldid": "22286",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": true,
+                    "use_default": true
+                },
+                "displayBanner": {
+                    "value": "true",
+                    "fieldid": "22288",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerBackground": {
+                    "value": "",
+                    "fieldid": "22289",
+                    "type": "metadata_field_select",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerImageBackground": {
+                    "value": "21586",
+                    "fieldid": "22290",
+                    "type": "metadata_field_related_asset",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                },
+                "bannerSubTitle": {
+                    "value": "",
+                    "fieldid": "22291",
+                    "type": "metadata_field_text",
+                    "is_contextable": true,
+                    "default_value": false,
+                    "use_default": true
+                }
+            }
+        }]
+	}
+}
