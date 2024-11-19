@@ -3,13 +3,23 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__widgets {
-    @include QLD-space(bottom, 0.75unit);
-    @include QLD-space(right, 0.75unit);
-    align-items: flex-end;
+    padding-right: 1rem;
     display: flex;
     flex-direction: column;
-    position: relative;
     z-index: 1;
+    max-width: 86rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 64px;
+    align-items: flex-end;
+    right: 0;
+
+    @include QLD-media (md) {
+        padding-right: 2rem;
+    }
+    
 
     .qld__btn--floating {
         box-shadow: none;
