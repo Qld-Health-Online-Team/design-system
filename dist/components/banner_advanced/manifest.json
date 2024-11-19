@@ -364,6 +364,23 @@
                         }]
                     }
 				},
+                "cta_icon_tiles_label": {
+					"type": "metadata_field_text",
+					"description": "",
+					"friendly_name": "Icon Tiles Label",
+					"value": "Contact details",
+					"required": false,
+					"editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "cta_type",
+                            "operator": "equals",
+                            "value": "icon-tiles"
+                        }]
+                    }
+				},
 				"root_node": {
 					"type": "metadata_field_related_asset",
 					"description": "",

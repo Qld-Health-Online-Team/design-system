@@ -35,8 +35,8 @@
         {{/if}}
 
         <div class="row"> 
-            <ul class="qld__card-list qld__card-list--matchheight">
-                <li class="col-xs-12 col-md-12 {{@root.component.data.metadata.col_width.value}}">
+            <div class="qld__card-list qld__card-list--matchheight">
+                <div class="col-xs-12 col-md-12 {{@root.component.data.metadata.col_width.value}}">
 
                     <div class="qld__card qld__card__multi-action {{#ifCond metadata.show_arrow.value '==' 'true'}}qld__card--arrow{{/ifCond}} {{#ifCond metadata.show_icon_image.value '==' 'icon'}}qld__card--icon{{/ifCond}} {{#ifCond metadata.show_icon_image.value '==' 'image'}}qld__card--image{{/ifCond}} {{metadata.background.value}} {{#ifCond metadata.card_image_right.value '==' 'left'}}qld__card__multi-action--feature{{/ifCond}} {{#ifCond metadata.card_image_right.value '==' 'right'}}qld__card__multi-action--feature qld__card__multi-action--image-right{{/ifCond}}" >
                         {{#ifCond metadata.show_icon_image.value '==' 'icon'}}
@@ -108,14 +108,8 @@
                         </div>
 
                     </div>
-
-
-
-
-
-
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
 
             {{#if metadata.all_link.value}}

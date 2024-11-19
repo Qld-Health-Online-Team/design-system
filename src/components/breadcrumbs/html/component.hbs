@@ -1,6 +1,6 @@
 {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
 <nav class="qld__breadcrumbs" aria-label="breadcrumb">
-    <ul class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
+    <ol class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
         {{#each current.lineage}} 
             {{#ifCond asset_type_code '!=' 'folder'}}       
             <li {{#if @last}}aria-current="page"{{/if}}>
@@ -14,8 +14,8 @@
             </li>
             {{/ifCond}}
         {{/each}}
-    </ul>
-    <ul class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
+    </ol>
+    <ol class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
         {{#with (itemAt current.lineage -2)}}
         {{#ifCond asset_type_code '!=' 'folder'}} 
             <li>
@@ -29,7 +29,7 @@
         </li>
         {{/ifCond}}
         {{/with}}
-    </ul>
+    </ol>
 </nav>
 
 {{/ifCond}}

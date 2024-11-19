@@ -1,16 +1,20 @@
 {{#ifCond site.metadata.alertDisplay.value '==' 'true'}}
-    <section class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}">
+    <div 
+    role="region" 
+    aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}" 
+    class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}">
+ 
         <div class="container-fluid">
             <div class="qld__global-alert__main">
                 <div class="qld__global-alert__icon">
                     {{#ifCond site.metadata.alertLevel.value '==' 'default'}}
-                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.alertLevel.value '==' 'critical'}}
-                    <svg aria-label="Critical alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
+                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.alertLevel.value '==' 'general'}}
-                    <svg aria-label="General Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
@@ -33,21 +37,24 @@
                 </div>
             </div>
         </div> 
-    </section>
+    </div>
 {{/ifCond}}
 {{#ifCond site.metadata.secondAlertDisplay.value '==' 'true'}}
-    <section class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}">
+        <div 
+        role="region" 
+        aria-label="{{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
+        class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}">
         <div class="container-fluid">
             <div class="qld__global-alert__main">
                 <div class="qld__global-alert__icon">
                     {{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}
-                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}
-                    <svg aria-label="Critical alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
+                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}
-                    <svg aria-label="General Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
@@ -70,21 +77,24 @@
                 </div>
             </div>
         </div> 
-    </section>
+    </div>
 {{/ifCond}}
 {{#ifCond site.metadata.thirdAlertDisplay.value '==' 'true'}}
-    <section class="qld__global-alert qld__global-alert--{{site.metadata.thirdAlertLevel.value}}">
+    <div 
+        role="region" 
+        aria-label="{{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
+        class="qld__global-alert qld__global-alert--{{site.metadata.thirdAlertLevel.value}}">
         <div class="container-fluid">
             <div class="qld__global-alert__main">
                 <div class="qld__global-alert__icon">
                     {{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}
-                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                    <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}
-                    <svg aria-label="Critical alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
+                    <svg aria-label="Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__critical"></use></svg>
                     {{/ifCond}}
                     {{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}
-                    <svg aria-label="General Alert" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                    <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
@@ -107,5 +117,5 @@
                 </div>
             </div>
         </div> 
-    </section>
+    </div>
 {{/ifCond}}

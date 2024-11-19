@@ -199,6 +199,11 @@
             &:hover {
                 color: var(--QLD-color-light__link);
             }
+
+            &:focus {
+                outline: 3px solid var(--QLD-color-light__focus);
+                outline-offset: 1px;
+            }
         }
     }
 
@@ -248,7 +253,7 @@
                 @include QLD-underline('dark','noUnderline');
                 
                 &:hover {
-                    color: var(--QLD-color-dark__link);;
+                    color: var(--QLD-color-dark__link);
                 }
             }
         }

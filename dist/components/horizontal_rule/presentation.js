@@ -18,7 +18,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ";margin-bottom:"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ";\n\">\n</section>\n";
+    + ";\n\" aria-hidden=\"true\">\n</section>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
