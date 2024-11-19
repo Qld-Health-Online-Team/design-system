@@ -2,6 +2,13 @@
 // {{component_name}}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__banner_advanced {
-	
+/* Fixes an issue with the banner where the last element of the right-side menu disappears. */
+@media (min-width: 729px) and (max-width: $QLD-media-lg) {
+    .qld__banner__advanced{
+        .qld__banner__wrapper {
+            div.qld__banner__main.row {
+                min-height: 310px;
+            }
+        }
+    } 
 }

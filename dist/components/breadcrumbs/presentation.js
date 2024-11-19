@@ -6,11 +6,11 @@
         return undefined
     };
 
-  return "<nav class=\"qld__breadcrumbs\" aria-label=\"breadcrumb\">\n    <ul class=\"qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline\">\n"
+  return "<nav class=\"qld__breadcrumbs\" aria-label=\"breadcrumb\">\n    <ol class=\"qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":8},"end":{"line":16,"column":17}}})) != null ? stack1 : "")
-    + "    </ul>\n    <ul class=\"qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline\">\n"
+    + "    </ol>\n    <ol class=\"qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||container.hooks.helperMissing).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":19,"column":16},"end":{"line":19,"column":43}}}),{"name":"with","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":19,"column":8},"end":{"line":31,"column":17}}})) != null ? stack1 : "")
-    + "    </ul>\n</nav>\n\n";
+    + "    </ol>\n</nav>\n\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {

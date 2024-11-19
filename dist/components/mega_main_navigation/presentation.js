@@ -14,8 +14,8 @@
 
   return "                        <li class=\"qld__main-nav__item "
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":23,"column":55},"end":{"line":23,"column":88}}})) != null ? stack1 : "")
-    + "\">\n                            <div class=\"qld__main-nav__item-title\">\n                                <a class=\"qld__main-nav__item-home qld__main-nav__item-link\" "
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":25,"column":93},"end":{"line":25,"column":139}}})) != null ? stack1 : "")
+    + "\">\n                            <div class=\"qld__main-nav__item-title\">\n                                <a class=\"qld__main-nav__item-home qld__main-nav__item-link\" aria-label=\"Home\" "
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"home") : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":25,"column":111},"end":{"line":25,"column":157}}})) != null ? stack1 : "")
     + " href=\"./?a="
     + alias3(alias2(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\">\n                                    <svg aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__icon qld__icon--sm\"><use href=\""
