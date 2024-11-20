@@ -1,7 +1,11 @@
 {{#with component.data}}
 <section class="qld__body qld__page-alerts--wrapper" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}page-alert-{{assetid}}{{/if}}">
     <div class="container-fluid">
-        <div class="qld__page-alerts qld__page-alerts--{{metadata.type.value}}">
+        <div 
+            class="qld__page-alerts qld__page-alerts--{{metadata.type.value}}"
+            role="img"
+            aria-label="icon {{metadata.type.value}}"
+        >
             {{!-- {{#ifCond metadata.type.value '==' 'info'}} 
                 <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
             {{/ifCond}}
