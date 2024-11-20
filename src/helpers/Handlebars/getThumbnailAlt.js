@@ -1,12 +1,5 @@
 module.exports = function(thumbnails, index, shortName) {
-    var ariaLabel = 'aria-label="Image for '
+    if (!thumbnails[index].asset_thumbnail_alt.length) return '';
 
-    if(thumbnails[index].asset_thumbnail_alt.length){
-        
-        ariaLabel += thumbnails[index].asset_thumbnail_alt + '"';
-    } else {
-        ariaLabel += shortName + '"';
-    }
-
-    return ariaLabel
+    return 'aria-label="' + thumbnails[index].asset_thumbnail_alt + '" role="img"';
 }
