@@ -15,16 +15,14 @@
             <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">Open all</button>
         </div>
         {{/ifCond}}
-        
             {{#printAccordion metadata}}
                 {{#ifCond this.content '!=' ''}}
                     <div class="qld__accordion">
-                        <h2>
+                        <{{../metadata.title_level.value}}>
                             <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
                                 {{this.title}}
                             </button>
-                        </h2>
-            
+                        </{{../metadata.title_level.value}}>
                         <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
                             <div class="qld__accordion__body-wrapper">
                                 {{{this.content}}}
