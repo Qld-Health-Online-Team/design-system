@@ -676,8 +676,8 @@
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"isCurrent") : depth0),{"name":"if","hash":{},"fn":container.program(122, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":332,"column":55},"end":{"line":332,"column":86}}})) != null ? stack1 : "")
     + "\">\n                                    <a href=\""
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":333,"column":45},"end":{"line":333,"column":54}}}) : helper))) != null ? stack1 : "")
-    + "\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":333,"column":56},"end":{"line":333,"column":65}}}) : helper)))
+    + "\" aria-current=\"page\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":333,"column":76},"end":{"line":333,"column":85}}}) : helper)))
     + "</a></li>\n";
 },"122":function(container,depth0,helpers,partials,data) {
     return " active";
