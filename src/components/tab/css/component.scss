@@ -79,7 +79,8 @@
 
         &[tabindex="0"]:focus {
             outline: none;
-            border-color: var(--QLD-color-light__focus);
+            outline: 3px solid var(--QLD-color-light__focus);
+            outline-offset: -3px;
         }
 
         &[tabindex="-1"]:focus,
@@ -106,11 +107,11 @@
             }
 
             &::after {
-                background-color: var(--QLD-color-light__focus);
+                background-color: var(--QLD-color-light__design-accent);
             }
 
             &:focus::after{
-                background-color: var(--QLD-color-light__focus);
+                background-color: transparent;
                 transition: background-color 0.2s ease-in-out;
             }
         }
