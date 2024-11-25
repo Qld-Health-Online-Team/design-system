@@ -1,6 +1,6 @@
 <section class="qld__card--wrapper qld__body {{component.data.metadata.body_background.value}} {{component.data.metadata.body_background_type.value}}" id="{{#if component.data.metadata.id_field.value}}{{component.data.metadata.id_field.value}}{{else}}cards-single-{{component.data.assetid}}{{/if}}"
-    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{component.data.metadata.body_background_image.value}})"{{/ifCond}}
-    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{component.data.metadata.body_background_pattern.value}})"{{/ifCond}} >
+    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-image'}} style="background-image:url(./?a={{component.data.metadata.body_background_image.value}})"{{#if component.background_image_alt}} role="img" aria-label="{{component.background_image_alt}}"{{/if}}{{/ifCond}}
+    {{#ifCond component.data.metadata.body_background_type.value '==' 'qld__card--wrapper-bg-pattern'}} style="background-image:url(./?a={{component.data.metadata.body_background_pattern.value}})"{{#if component.background_pattern_alt}} role="img" aria-label="{{component.background_pattern_alt}}"{{/if}}{{/ifCond}} >
 
     <div class="container-fluid">
         
