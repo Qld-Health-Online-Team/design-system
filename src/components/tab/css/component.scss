@@ -77,16 +77,11 @@
             }
         }
 
-        &[tabindex="0"]:focus {
-            outline: none;
-            outline: 3px solid var(--QLD-color-light__focus);
-            outline-offset: -3px;
-        }
-
+        &[tabindex="0"]:focus,
         &[tabindex="-1"]:focus,
         &:focus-visible {
             outline: 3px solid var(--QLD-color-light__focus);
-            outline-offset: -3px;
+            outline-offset: -8px;
         }
 
         &.active {
@@ -100,10 +95,8 @@
             z-index: 1;
             text-decoration: none;
 
-            span {
-                i {
-                    color: var(--QLD-color-light__heading);
-                }
+            span i {
+                color: var(--QLD-color-light__heading);
             }
 
             &::after {
@@ -111,7 +104,7 @@
             }
 
             &:focus::after{
-                background-color: transparent;
+                background-color: var(--QLD-color-light__design-accent);
                 transition: background-color 0.2s ease-in-out;
             }
         }
@@ -300,17 +293,13 @@
 
                 &:focus {
                     outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
-                }
-
-                &[tabindex="0"]:focus {
-                    outline: none;
+                    outline-offset: -8px;
                 }
 
                 &[tabindex="-1"]:focus,
                 &:focus-visible {
                     outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
+                    outline-offset: -8px;
                 }
             }
             
