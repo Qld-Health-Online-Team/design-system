@@ -153,12 +153,10 @@
                 },
                 drawCallback: function (settings) {
                     var parentDiv = $(tableDivId + " div.qld__search-pagination");
-                    var ulElement = $(
-                        '<ul class="qld__search-pagination__list"></ul>'
-                    );
+                    var ulElement = $('<ul class="qld__search-pagination__list"></ul>');
                     parentDiv.children().appendTo(ulElement);
                     ulElement.appendTo(parentDiv);
-
+                
                     $(".qld__search-pagination_link").each(function () {
                         var $this = $(this);
                         if (
@@ -167,24 +165,33 @@
                             $this.children("svg").length === 0
                         ) {
                             var textContent = $this.text();
-                            $this.html(
-                                '<a class="num">' + textContent + "</a>"
-                            );
+                            $this.html('<a class="num">' + textContent + "</a>");
                         }
                     });
-
-                    $(".qld__search-pagination__list span:not([class])").each(
-                        function () {
-                            var $span = $(this);
-
-                            // Move the nested <li> elements outside of the <span>
-                            $span.before($span.contents());
-
-                            // Remove the empty <span>
-                            $span.remove();
-                        }
-                    );
-                    $("li.previous").addClass("prev"); //adding the appropriate class
+                
+                    $(".qld__search-pagination__list span:not([class])").each(function () {
+                        var $span = $(this);
+                
+                        // Move the nested <li> elements outside of the <span>
+                        $span.before($span.contents());
+                
+                        // Remove the empty <span>
+                        $span.remove();
+                    });
+                
+                    $("li.previous").addClass("prev"); // Adding the appropriate class
+                
+                    // Update sortable <th> elements
+                    $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
+                        const $this = $(this);
+                
+                        // Remove the tabindex attribute
+                        $this.removeAttr("tabindex");
+                
+                        // Replace the content with a button
+                        const textContent = $this.text().trim(); // Get the current text
+                        $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                    });
                 },
             });
 
@@ -275,40 +282,52 @@
             },
             drawCallback: function (settings) {
                 var parentDiv = $(tableDivId + " div.qld__search-pagination");
-                var ulElement = $(
-                    '<ul class="qld__search-pagination__list"></ul>'
-                );
+                var ulElement = $('<ul class="qld__search-pagination__list"></ul>');
                 parentDiv.children().appendTo(ulElement);
                 ulElement.appendTo(parentDiv);
-
+            
                 $(".qld__search-pagination_link").each(function () {
                     var $this = $(this);
                     if (
                         $this.children("a").length === 0 &&
+                        $this.children("button").length === 0 &&
                         $this.children("span").length === 0 &&
                         $this.children("svg").length === 0
                     ) {
                         var textContent = $this.text();
-                        $this.html('<a class="num">' + textContent + "</a>");
+                        $this.html('<button class="num">' + textContent + "</button>");
                     }
                 });
-
-                $(".qld__search-pagination__list span:not([class])").each(
-                    function () {
-                        var $span = $(this);
-
-                        // Move the nested <li> elements outside of the <span>
-                        $span.before($span.contents());
-
-                        // Remove the empty <span>
-                        $span.remove();
-                    }
-                );
-                $("li.previous").addClass("prev"); //adding the appropriate class
-
-
-
+            
+                $(".qld__search-pagination__list span:not([class])").each(function () {
+                    var $span = $(this);
+            
+                    // Move the nested <li> elements outside of the <span>
+                    $span.before($span.contents());
+            
+                    // Remove the empty <span>
+                    $span.remove();
+                });
+            
+                $("li.previous").addClass("prev"); // Adding the appropriate class
+            
+                // Remove role="link" and tabindex="0" from <li> elements in pagination
+                $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
+                $('li.qld__search-pagination_link').removeAttr('tabindex');
+            
+                // Update sortable <th> elements
+                $(tableDivId + " #qld_table_html th[tabindex='0']").each(function () {
+                    const $this = $(this);
+            
+                    // Remove the tabindex attribute
+                    $this.removeAttr("tabindex");
+            
+                    // Replace the content with a button
+                    const textContent = $this.text().trim(); // Get the current text
+                    $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                });
             },
+            
         });
 
         $( // this line enforces the correct sorting class to the html table's first column's footer. 
