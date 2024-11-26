@@ -38,6 +38,7 @@
 
                 &:hover{
                     background-color: var(--QLD-color-light__action--primary-hover);
+                    color: var(--QLD-color-light__link--on-action);
                     // border-color: var(--QLD-color-light__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--primary-hover);
                     @include QLD-box-shadow(1);
@@ -46,6 +47,7 @@
                 &:active,
                 &:focus {
                     background-color: var(--QLD-color-light__action--primary-hover);
+                    color: var(--QLD-color-light__link--on-action);
                     // border-color: var(--QLD-color-light__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-light__action--primary-hover);
                     outline: 3px solid var(--QLD-color-light__focus);
@@ -108,8 +110,8 @@
             a, button {
                 &:active,
                 &:focus {
-                    color: var(--QLD-color-dark__link);
-                    background-color: var(--QLD-color-light__action--secondary);
+                    color: var(--QLD-color-light__link);
+                    background-color: transparent;
                     // border: $QLD-border-width-default solid var(--QLD-color-light__action--secondary);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
                 }
@@ -129,7 +131,7 @@
             display: inline-flex;
             justify-content: center;
             @include QLD-space(line-height, 1.25unit);
-            box-shadow: inset 0 0 0 $QLD-border-width-thin $QLD-color-neutral--lighter;
+            box-shadow: inset 0 0 0 $QLD-border-width-thin $QLD-color-light__border--alt;
             border: none;
             cursor: pointer;
 
@@ -139,11 +141,13 @@
                 text-decoration: none;
                 box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
             }
+            &:visited{
+                color: var(--QLD-color-light__link);
+            }
 
             &[rel] {
                 color: var(--QLD-color-light__action--primary);
             }
-
         }
 
         span {
