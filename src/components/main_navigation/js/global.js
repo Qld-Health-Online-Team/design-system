@@ -204,6 +204,7 @@
         var openButton = document.querySelector('.qld__main-nav__toggle--open');
         var focustrapTop = menu.querySelector('.qld__main-nav__focus-trap-top');
         var focustrapBottom = menu.querySelector('.qld__main-nav__focus-trap-bottom');
+        var menuHeading = document.querySelector(".qld__main-nav__menu-heading");
         var focusContent = menu.querySelectorAll('a, .qld__main-nav__toggle');
         var closed = target.className.indexOf('qld__main-nav__content--open') === -1;
         var header = document.querySelector('.qld__header');
@@ -247,7 +248,7 @@
                     if (state === 'opening' ) {
 
                         // Move the focus to the close button
-                        closeButton.focus();
+                        menuHeading.focus();
                         openButton.setAttribute('aria-expanded', true);
                         closeButton.setAttribute('aria-expanded', true);
 
@@ -255,7 +256,7 @@
                         focustrapTop.setAttribute('tabindex', 0);
                         focustrapBottom.setAttribute('tabindex', 0);
 
-                        header.setAttribute('aria-hidden', true);
+                        // header.setAttribute('aria-hidden', true);
                         body.setAttribute('aria-hidden', true);
                         footer.setAttribute('aria-hidden', true);
 
@@ -285,7 +286,7 @@
                         }
                     } else {
                         // Move the focus back to the menu button
-                        openButton.focus();
+                        closeButton.focus();
                         openButton.setAttribute('aria-expanded', false);
                         closeButton.setAttribute('aria-expanded', false);
 
