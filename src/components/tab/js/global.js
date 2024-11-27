@@ -37,27 +37,27 @@
          */
 
 
-        function scrollRight(tabList, ScrollRightBtn, ScrollLeftBtn) {
-            // Check if the current scroll position is at the maximum scroll position
-            if (tabList.scrollLeft + SCROLL_AMOUNT >= tabList.scrollWidth - tabList.clientWidth) {
-                // Hide the scroll right button
-                ScrollRightBtn.style.display = "none";
-            }
+        // function scrollRight(tabList, ScrollRightBtn, ScrollLeftBtn) {
+        //     // Check if the current scroll position is at the maximum scroll position
+        //     if (tabList.scrollLeft + SCROLL_AMOUNT >= tabList.scrollWidth - tabList.clientWidth) {
+        //         // Hide the scroll right button
+        //         ScrollRightBtn.style.display = "none";
+        //     }
 
-            tabList.scrollLeft += SCROLL_AMOUNT;
-            ScrollLeftBtn.style.display = "block";
-        }
+        //     tabList.scrollLeft += SCROLL_AMOUNT;
+        //     ScrollLeftBtn.style.display = "block";
+        // }
 
-        function scrollLeft(tabList, ScrollRightBtn, ScrollLeftBtn) {
-            // Check if the current scroll position is at the beginning of the scroll
-            if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
-                // Hide the scroll left button
-                ScrollLeftBtn.style.display = "none";
-            }
+        // function scrollLeft(tabList, ScrollRightBtn, ScrollLeftBtn) {
+        //     // Check if the current scroll position is at the beginning of the scroll
+        //     if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
+        //         // Hide the scroll left button
+        //         ScrollLeftBtn.style.display = "none";
+        //     }
 
-            tabList.scrollLeft -= SCROLL_AMOUNT;
-            ScrollRightBtn.style.display = "block";
-        }
+        //     tabList.scrollLeft -= SCROLL_AMOUNT;
+        //     ScrollRightBtn.style.display = "block";
+        // }
 
         /**
          *  The function below checks if the tab list overflows the tab element and display the appropriate scroll buttons
@@ -111,6 +111,7 @@
             tabComponents.forEach((tabComponent) => {
                 // Get all tab heading elements within the tab component
                 const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
+                
                 // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
                 if(tabHeadings.length){
                     tabHeadings[0].setAttribute("tabindex", "0");
@@ -165,61 +166,65 @@
                     });
                 });
     
-                let currentTabIndex = 0;
-    
+                let currentTabIndex = 0; // Track the current tab index globally
+
                 tabHeadings.forEach((tabHeading, index) => {
+                    // Keydown event for arrow navigation
                     tabHeading.addEventListener("keydown", (event) => {
-    
-                        // If the key that was pressed was the "Enter" or "Space" key, treat it as if the tab heading was clicked
                         if (event.key === "Enter" || event.key === "Space") {
                             event.preventDefault();
                             event.currentTarget.click();
-                        }
-                        // If the key that was pressed was the left arrow key, switch to the previous tab if not already on the first tab
-                        if (event.key === "ArrowLeft") {
-                            if (currentTabIndex > 0) {
-                                event.preventDefault();
-                                const previousTabHeading = tabHeadings[index - 1];
-                                if (previousTabHeading) {
-                                    currentTabIndex = index - 1;
-                                    previousTabHeading.focus();
-                                }
-                            }
-                        }
-                        // If the key that was pressed was the right arrow key, switch to the next tab if not already on the last tab
-                        if (event.key === "ArrowRight") {
-                            if (currentTabIndex < tabHeadings.length - 1) {
-                                event.preventDefault();
-                                const nextTabHeading = tabHeadings[index + 1];
-                                if (nextTabHeading) {
-                                    currentTabIndex = index + 1;
-                                    nextTabHeading.focus();
-                                }
-                            }
+                        } else if (event.key === "ArrowLeft") {
+                            event.preventDefault();
+                            // Navigate to the previous tab
+                            currentTabIndex = (currentTabIndex - 1 + tabHeadings.length) % tabHeadings.length;
+                            setFocusOnTab(currentTabIndex);
+                        } else if (event.key === "ArrowRight") {
+                            event.preventDefault();
+                            // Navigate to the next tab
+                            currentTabIndex = (currentTabIndex + 1) % tabHeadings.length;
+                            setFocusOnTab(currentTabIndex);
                         }
                     });
-    
-                    // Add a focus and blur event listener to the tab heading
+                
+                    // Focus event to sync currentTabIndex
                     tabHeading.addEventListener("focus", (event) => {
-                        // Add the 'focused' class on the corresponding tab content element
+                        const tabIndex = Array.from(tabHeadings).indexOf(event.currentTarget);
+                        currentTabIndex = tabIndex; // Update the global index
+                        console.log("Focus on tab:", currentTabIndex);
+                
                         const tabContentId = event.currentTarget.getAttribute("data-tab");
                         const tabContent = tabComponent.querySelector(
                             `.qld__tab-content[data-tab="${tabContentId}"]`
                         );
-                        tabContent.classList.add("focused");
+                        if (tabContent) tabContent.classList.add("focused");
                     });
-    
+                
+                    // Blur event to remove focused class
                     tabHeading.addEventListener("blur", (event) => {
-                        // Remove the 'focused' class on the corresponding tab content element
                         const tabContentId = event.currentTarget.getAttribute("data-tab");
                         const tabContent = tabComponent.querySelector(
                             `.qld__tab-content[data-tab="${tabContentId}"]`
                         );
-                        tabContent.classList.remove("focused");
+                        if (tabContent) tabContent.classList.remove("focused");
                     });
-    
                 });
+
+                // Function to apply focus and delay the update of currentTabIndex
+                function setFocusOnTab(index, tabHeadings) {
+                    // Check if tabHeadings is valid and has elements
+                    if (tabHeadings && tabHeadings.length > 0) {
+                        // Ensure the index is within bounds
+                        index = (index + tabHeadings.length) % tabHeadings.length;
+
+                        setTimeout(() => {
+                            const nextTabHeading = tabHeadings[index];
+                            nextTabHeading.focus();
+                        }, 50);
+                    }
+                }
             });
+
 
             /*  This script implements horizontal scrolling for fixed tab components on a page. 
 
