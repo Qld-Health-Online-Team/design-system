@@ -169,19 +169,23 @@
                             $this.html('<a class="num">' + textContent + "</a>");
                         }
                     });
-                
-                    $(".qld__search-pagination__list span:not([class])").each(function () {
-                        var $span = $(this);
-                
-                        // Move the nested <li> elements outside of the <span>
-                        $span.before($span.contents());
-                
-                        // Remove the empty <span>
-                        $span.remove();
-                    });
-                
-                    $("li.previous").addClass("prev"); // Adding the appropriate class
-                
+
+                    $(".qld__search-pagination__list span:not([class])").each(
+                        function () {
+                            var $span = $(this);
+
+                            // Move the nested <li> elements outside of the <span>
+                            $span.before($span.contents());
+
+                            // Remove the empty <span>
+                            $span.remove();
+                        }
+                    );
+                    $("li.previous").addClass("prev"); //adding the appropriate class
+                    // Remove role="link" and tabindex="0" from <li> elements in pagination
+                    $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
+                    $('li.qld__search-pagination_link').removeAttr('tabindex');
+
                     // Update sortable <th> elements
                     $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
                         const $this = $(this);
@@ -299,24 +303,24 @@
                         $this.html('<button class="num">' + textContent + "</button>");
                     }
                 });
-            
-                $(".qld__search-pagination__list span:not([class])").each(function () {
-                    var $span = $(this);
-            
-                    // Move the nested <li> elements outside of the <span>
-                    $span.before($span.contents());
-            
-                    // Remove the empty <span>
-                    $span.remove();
-                });
-            
-                $("li.previous").addClass("prev"); // Adding the appropriate class
-            
-                // Remove role="link" and tabindex="0" from <li> elements in pagination
-                $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
-                $('li.qld__search-pagination_link').removeAttr('tabindex');
-            
-                // Update sortable <th> elements
+
+                $(".qld__search-pagination__list span:not([class])").each(
+                    function () {
+                        var $span = $(this);
+
+                        // Move the nested <li> elements outside of the <span>
+                        $span.before($span.contents());
+
+                        // Remove the empty <span>
+                        $span.remove();
+                    }
+                );
+                $("li.previous").addClass("prev"); //adding the appropriate class
+                 // Remove role="link" and tabindex="0" from <li> elements in pagination
+                 $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
+                 $('li.qld__search-pagination_link').removeAttr('tabindex');
+
+                 // Update sortable <th> elements
                 $(tableDivId + " #qld_table_html th[tabindex='0']").each(function () {
                     const $this = $(this);
             
