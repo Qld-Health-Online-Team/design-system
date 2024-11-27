@@ -199,7 +199,7 @@
                 
                         // Replace the content with a button
                         const textContent = $this.text().trim(); // Get the current text
-                        $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                        $this.html('<button type="button" class="sortable-header-btn qld__data-table__btn">' + textContent + "</button>");
                     });
                 },
             });
@@ -335,7 +335,7 @@
             
                     // Replace the content with a button
                     const textContent = $this.text().trim(); // Get the current text
-                    $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                    $this.html('<button type="button" class="sortable-header-btn qld__data-table__btn">' + textContent + "</button>");
                 });
 
             },
