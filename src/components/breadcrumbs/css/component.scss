@@ -29,7 +29,7 @@
             display: none;
         }
     }
-    .qld__link-list.qld__link-list--inline:not(.qld__breadcrumbs .qld__breadcrumbs__list--mobile, .qld__banner__breadcrumbs--mobile ol) {
+    .qld__link-list.qld__link-list--inline:not(.qld__breadcrumbs .qld__breadcrumbs__list--mobile, .qld__banner__breadcrumbs--mobile div) {
         display: none;
         @include QLD-media(lg) {
             display: flex;
@@ -59,7 +59,7 @@
             display: inline;
         }
         
-        > li {
+        > .qld__breadcrumbs__item {
             margin: 0; //Intentionally flush with the container, as breadcrumbs are designed to sit on a full viewport width bg.
             display: none;
             @include QLD-space(padding, 0.25unit 0);
@@ -133,13 +133,13 @@
         color: var(--QLD-color-dark__text--lighter);
         
         > .qld__link-list {
-            > li:not(:last-child){
+            > .qld__breadcrumbs__item:not(:last-child){
                 &::after{
                     background-color: var(--QLD-color-dark__action--secondary);
                 }
             }
 
-            > li {
+            > .qld__breadcrumbs__item {
                 a {
                     // @include QLD-underline('dark');
                     @include QLD-underline('dark','underline','default','noVisited');
@@ -179,7 +179,7 @@
     @include QLD-media(lg) {
         @include QLD-space(margin, 0 0 1rem);
         display: inline-block;
-        > .qld__link-list > li {
+        > .qld__link-list > .qld__breadcrumbs__item {
 
             flex: 0 0 auto;
             flex-shrink: 0;
@@ -197,7 +197,7 @@
     @include QLD-media(lg) {
         @include QLD-space(margin, 0 0 1.5rem);
 
-        > .qld__link-list > li {
+        > .qld__link-list > .qld__breadcrumbs__item {
             display: inline-block;
             flex-shrink: 0;
             &:last-child {
@@ -224,11 +224,11 @@
 .qld__banner__breadcrumbs--mobile,
 .qld__banner__breadcrumbs--desktop,
 .qld__breadcrumbs__list--mobile {
-    li .qld__icon{
+    .qld__breadcrumbs__item .qld__icon{
      color: var(--QLD-color-light__action--secondary);
     }
     
-    li::before {
+    .qld__breadcrumbs__item::before {
         @include QLD-space(width, 0.5unit);
         @include QLD-space(height, 1unit);
         @include QLD-space(margin, 0 0.25unit 0 0);
@@ -253,7 +253,7 @@
     .qld__body--dark &,
     .qld__body--dark-alt &  {
 
-        li::before{
+        .qld__breadcrumbs__item::before{
             background-color: var(--QLD-color-dark__action--secondary);
            }
 
