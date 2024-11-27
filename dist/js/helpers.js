@@ -443,16 +443,9 @@ Handlebars.registerHelper('getTags', function(selectValues, tags, options) {
     return output;
 }); 
 Handlebars.registerHelper('getThumbnailAlt', function(thumbnails, index, shortName) {
-    var ariaLabel = 'aria-label="Image for '
+    if (!thumbnails[index].asset_thumbnail_alt.length) return '';
 
-    if(thumbnails[index].asset_thumbnail_alt.length){
-        
-        ariaLabel += thumbnails[index].asset_thumbnail_alt + '"';
-    } else {
-        ariaLabel += shortName + '"';
-    }
-
-    return ariaLabel
+    return 'aria-label="' + thumbnails[index].asset_thumbnail_alt + '" role="img"';
 }); 
 Handlebars.registerHelper('getTitle', function (obj,name) {
     var index = name.replace(/\D/g, "");
