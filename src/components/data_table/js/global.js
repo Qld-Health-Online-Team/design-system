@@ -189,6 +189,18 @@
                     // Remove role="link" and tabindex="0" from <li> elements in pagination
                     $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
                     $('li.qld__search-pagination_link').removeAttr('tabindex');
+
+                    // Update sortable <th> elements
+                    $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
+                        const $this = $(this);
+                
+                        // Remove the tabindex attribute
+                        $this.removeAttr("tabindex");
+                
+                        // Replace the content with a button
+                        const textContent = $this.text().trim(); // Get the current text
+                        $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                    });
                 },
             });
 
@@ -314,6 +326,17 @@
                  $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
                  $('li.qld__search-pagination_link').removeAttr('tabindex');
 
+                 // Update sortable <th> elements
+                $(tableDivId + " #qld_table_html th[tabindex='0']").each(function () {
+                    const $this = $(this);
+            
+                    // Remove the tabindex attribute
+                    $this.removeAttr("tabindex");
+            
+                    // Replace the content with a button
+                    const textContent = $this.text().trim(); // Get the current text
+                    $this.html('<button type="button" class="sortable-header-btn data-table-header-btn">' + textContent + "</button>");
+                });
 
             },
         });
