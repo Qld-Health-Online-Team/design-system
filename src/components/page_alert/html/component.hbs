@@ -3,14 +3,6 @@
     <div class="container-fluid">
         <div role="region" 
         aria-label="{{#ifCond metadata.type.value '==' 'info'}}Information{{/ifCond}}{{#ifCond metadata.type.value '==' 'success'}}Success{{/ifCond}}{{#ifCond metadata.type.value '==' 'warning'}}Warning{{/ifCond}}{{#ifCond metadata.type.value '==' 'error'}}Error{{/ifCond}}" class="qld__page-alerts qld__page-alerts--svg qld__page-alerts--{{metadata.type.value}}">
-            {{#if metadata.heading.value}}
-                <{{metadata.heading_level.value}} class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</{{metadata.heading_level.value}}>
-            {{/if}}
-
-            {{#if metadata.body.value}}
-                <div>{{{metadata.body.value}}}</div>
-            {{/if}}
-            
             {{#ifCond metadata.type.value '==' 'info'}} 
             <div class="qld__page-alerts__icon">
                 <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
@@ -31,7 +23,13 @@
                 <svg aria-label="Error" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__error"></use></svg>
             </div>
             {{/ifCond}}
-            
+            {{#if metadata.heading.value}}
+                <{{metadata.heading_level.value}} class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</{{metadata.heading_level.value}}>
+            {{/if}}
+
+            {{#if metadata.body.value}}
+                <div>{{{metadata.body.value}}}</div>
+            {{/if}} 
         </div>
     </div>
 </section>
