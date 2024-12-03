@@ -42,11 +42,10 @@
                             <div class="qld__card__icon"><i class="{{metadata.card_icon.value}}"></i></div>
                         {{/ifCond}} 
                         {{#ifCond metadata.show_icon_image.value '==' 'image'}}
-                            <a aria-label="{{metadata.card_title.value}}" class="qld__card__image-link" href="./?a={{metadata.card_title_url.value}}">
-
+                            <div class="qld__card__image-link">
                                 <div class="qld__responsive-media-img--bg" style="background-image: url('./?a={{metadata.card_image.value}}');" {{#if ../component.image_alt}}role="img" aria-label="{{../component.image_alt}}"{{/if}}></div>
 
-                            </a>
+                            </div>
                         {{/ifCond}}
 
                         <div class="qld__card__inner">
