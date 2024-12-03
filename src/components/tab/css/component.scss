@@ -798,11 +798,13 @@
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
+                &[tabindex="-1"]:focus,
+                &:focus {
+                    outline: 3px solid var(--QLD-color-dark__focus);
+                    outline-offset: -8px;
+                }
             }
-            &[tabindex="-1"]:focus {
-                outline: 3px solid var(--QLD-color-dark__focus);
-                outline-offset: -8px;
-            }
+            
     
             &:hover {
                 background: var(--QLD-color-dark__action--primary-hover);
