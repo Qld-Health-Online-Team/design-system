@@ -391,7 +391,7 @@
                     outline: 3px solid var(--QLD-color-light__focus);
                     outline-offset: -8px;
                 }
-                .active {
+                &.active {
                     &:focus {
                         outline: 3px solid var(--QLD-color-dark__focus);
                         outline-offset: -8px;
@@ -749,7 +749,7 @@
         .qld__tab-button {
             &:not(.active) {
                 background: var(--QLD-color-light__background--alt-shade);
-                color: var(--QLD--color-light__link);
+                color: var(--QLD-color-light__link);
     
                     span i {
                         color: var(--QLD-color-light__action--secondary);
@@ -766,6 +766,7 @@
                 }
             }
         }
+
     }
 }
 
@@ -797,10 +798,10 @@
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
-                &:focus {
-                    outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -8px;
-                }
+            }
+            &[tabindex="-1"]:focus {
+                outline: 3px solid var(--QLD-color-dark__focus);
+                outline-offset: -8px;
             }
     
             &:hover {
