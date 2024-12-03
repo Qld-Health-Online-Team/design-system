@@ -3,7 +3,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__tab {
-
     &-intro{
         @include QLD-space(padding-bottom, 1.5unit);
         @include QLD-media(lg) {
@@ -77,6 +76,11 @@
             }
         }
 
+        /**
+        *   1. Light and Fix Width
+        *   2. Fix Width
+        *   3. Alt
+        */
         &[tabindex="0"]:focus,
         &[tabindex="-1"]:focus,
         &:focus-visible {
@@ -291,13 +295,14 @@
                     }
                 }
 
-                &:focus {
-                    outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -8px;
-                }
+                // &:focus {
+                //     outline: 3px solid var(--QLD-color-dark__focus);
+                //     outline-offset: -8px;
+                // }
 
                 &[tabindex="-1"]:focus,
-                &:focus-visible {
+                &:focus-visible,
+                &:focus {
                     outline: 3px solid var(--QLD-color-dark__focus);
                     outline-offset: -8px;
                 }
@@ -377,7 +382,7 @@
                 }
 
                 &:focus {
-                    outline: 3px solid var(--QLD-color-dark__focus);
+                    outline: 3px solid var(--QLD-color-light__focus);
                     outline-offset: -8px;
                 }
 
@@ -385,6 +390,12 @@
                 &:focus-visible {
                     outline: 3px solid var(--QLD-color-light__focus);
                     outline-offset: -8px;
+                }
+                .active {
+                    &:focus {
+                        outline: 3px solid var(--QLD-color-dark__focus);
+                        outline-offset: -8px;
+                    }
                 }
             }
 
@@ -785,6 +796,10 @@
     
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
+                }
+                &:focus {
+                    outline: 3px solid var(--QLD-color-dark__focus);
+                    outline-offset: -8px;
                 }
             }
     
