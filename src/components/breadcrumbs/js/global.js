@@ -1,4 +1,3 @@
-Breadcrumb.hbs
 (function () {
     "use strict";
 
