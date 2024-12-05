@@ -702,148 +702,9 @@
             }
         }
     }
-    .qld__tab {
-        &-content {
-            border-bottom: none;
-            border-left: none;
-            border-right: none;
-            padding-left: 0;
-        }
-
-        &-container {
-            // &__fixed {
-
-                .qld__tab-button {
-                    span i {
-                        color: var(--QLD-color-dark__action--secondary);
-                    }
-
-                    &:not(.active) {
-                        color: var(--QLD-color-dark__link);
-                        background: var(--QLD-color-dark__background--shade);
-
-                        &:hover {
-                            color: var(--QLD-color-dark__link--on-action);
-                            background: var(--QLD-color-dark__action--primary-hover);
-                            text-decoration-color: var(--QLD-color-dark__link--on-action);
-
-                            span i {
-                                color: var(--QLD-color-dark__link--on-action);
-                            }
-                        }
-                    }
-
-                    &.active {
-                        span i {
-                            color: var(--QLD-color-light__heading);
-                        }
-                    }
-                }
-
-                &--light {
-                    .qld__tab-button {
-                        &:not(.active) {
-                            background: var(--QLD-color-light__background--shade);
-                            color: var(--QLD-color-light__link);
-
-                            span i {
-                                color: var(--QLD-color-light__action--secondary);
-                            }
-
-                            &:hover {
-                                background: var(--QLD-color-light__action--primary-hover);
-                                color: var(--QLD-color-light__link--on-action);
-                                text-decoration-color: var(--QLD-color-light__link--on-action);
-
-                                span i {
-                                    color: var(--QLD-color-dark__heading);
-                                }
-                            }
-                        }
-
-                        &.active {
-                            span i {
-                                color: var(--QLD-color-light__heading);
-                            }
-                        }
-                    }
-                }
-
-                &--alt {
-                    .qld__tab-button {
-                        &:not(.active) {
-                            background: var(--QLD-color-light__background--alt-shade);
-                            color: var(--QLD-color-light__link);
-
-                            span i {
-                                color: var(--QLD-color-light__action--secondary);
-                            }
-
-                            &:hover {
-                                background: var(--QLD-color-light__action--primary-hover);
-                                color: var(--QLD-color-light__link--on-action);
-                                text-decoration-color: var(--QLD-color-light__link--on-action);
-
-                                span i {
-                                    color: var(--QLD-color-dark__heading);
-                                }
-                            }
-                        }
-
-                        &.active {
-                            span i {
-                                color: var(--QLD-color-light__heading);
-                            }
-                        }
-                    }
-                }
-
-                &--dark {
-                    .qld__tab-button {
-                        &:not(.active) {
-                            background: var(--QLD-color-light__background--shade);
-                            color: var(--QLD-color-light__link);
-                        }
-                    }
-                }
-
-                &--dark,
-                &--dark-alt {
-                    .qld__tab-button {
-                        span i {
-                            color: var(--QLD-color-light__action--secondary);
-                        }
-
-                        &:not(.active) {
-                            background-color: var(--QLD-color-light__background--alt-shade);
-                            color: var(--QLD-color-light__link);
-                            &:focus {
-                                outline: 3px solid var(--QLD-color-light__focus);
-                                outline-offset: -8px;
-                            }
-                        }
-        
-                        &:not(.active):hover {
-                            background: var(--QLD-color-light__action--primary-hover);
-                            color: var(--QLD-color-light__link--on-action);
-                            text-decoration-color: var(--QLD-color-light__link--on-action);
-
-                            span i {
-                                color: var(--QLD-color-dark__heading);
-                            }
-                        }
-
-                        &.active {
-                            span i {
-                                color: var(--QLD-color-dark__heading);
-                            }
-                        }
-                    }
-                }
-            // }
-        }
-    }
 }
+
+
 
 .qld__body--light+.qld__tab-section,
 .qld__body--light+data+.qld__tab-section{
@@ -1046,3 +907,146 @@
     }
 }
 
+.qld__body--full-width {
+    .qld__tab {
+        &-content {
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            padding-left: 0;
+        }
+
+        &-container {
+            // &__fixed {
+
+                .qld__tab-button {
+                    span i {
+                        color: var(--QLD-color-dark__action--secondary);
+                    }
+
+                    &:not(.active) {
+                        color: var(--QLD-color-dark__link);
+                        background: var(--QLD-color-dark__background--shade);
+
+                        &:hover {
+                            color: var(--QLD-color-dark__link--on-action);
+                            background: var(--QLD-color-dark__action--primary-hover);
+                            text-decoration-color: var(--QLD-color-dark__link--on-action);
+
+                            span i {
+                                color: var(--QLD-color-dark__link--on-action);
+                            }
+                        }
+                    }
+
+                    &.active {
+                        span i {
+                            color: var(--QLD-color-light__heading);
+                        }
+                    }
+                }
+
+                &--light {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
+
+                            span i {
+                                color: var(--QLD-color-light__action--secondary);
+                            }
+
+                            &:hover {
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
+
+                                span i {
+                                    color: var(--QLD-color-dark__heading);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-light__heading);
+                            }
+                        }
+                    }
+                }
+
+                &--alt {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light__background--alt-shade);
+                            color: var(--QLD-color-light__link);
+
+                            span i {
+                                color: var(--QLD-color-light__action--secondary);
+                            }
+
+                            &:hover {
+                                background: var(--QLD-color-light__action--primary-hover);
+                                color: var(--QLD-color-light__link--on-action);
+                                text-decoration-color: var(--QLD-color-light__link--on-action);
+
+                                span i {
+                                    color: var(--QLD-color-dark__heading);
+                                }
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-light__heading);
+                            }
+                        }
+                    }
+                }
+
+                &--dark {
+                    .qld__tab-button {
+                        &:not(.active) {
+                            background: var(--QLD-color-light__background--shade);
+                            color: var(--QLD-color-light__link);
+                        }
+                    }
+                }
+
+                &--dark,
+                &--dark-alt {
+                    .qld__tab-button {
+                        span i {
+                            color: var(--QLD-color-light__action--secondary);
+                        }
+
+                        &:not(.active) {
+                            background-color: var(--QLD-color-light__background--alt-shade);
+                            color: var(--QLD-color-light__link);
+                            &:focus {
+                                outline: 3px solid var(--QLD-color-light__focus);
+                                outline-offset: -8px;
+                            }
+                        }
+        
+                        &:not(.active):hover {
+                            background: var(--QLD-color-light__action--primary-hover);
+                            color: var(--QLD-color-light__link--on-action);
+                            text-decoration-color: var(--QLD-color-light__link--on-action);
+
+                            span i {
+                                color: var(--QLD-color-dark__heading);
+                            }
+                        }
+
+                        &.active {
+                            span i {
+                                color: var(--QLD-color-dark__heading);
+                            }
+                        }
+                    }
+                }
+            // }
+        }
+    }
+}
