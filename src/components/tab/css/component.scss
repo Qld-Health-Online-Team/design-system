@@ -889,6 +889,22 @@
 }
 
 .qld__body--full-width {
+    &:not(.qld__body--dark),
+    &:not(.qld__body--alt),
+    &:not(.qld__body--dark-alt) {
+        .qld__tab {
+            &-container {
+                .qld__tab-button {
+                    &:not(.active) {
+                        &:focus {
+                            outline: 3px solid var(--QLD-color-dark__focus);
+                            outline-offset: -8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .qld__tab {
         &-content {
             border-bottom: none;
