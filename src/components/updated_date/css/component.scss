@@ -1,0 +1,22 @@
+.qld__pre-footer {
+    .container-fluid {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        @include QLD-media (md) {
+            flex-direction: row;
+        }
+    }
+    .qld__widgets {
+        position: absolute;
+        margin-bottom: 0;
+        top: 40px;
+        @include QLD-media (md) {
+            top: 0;
+        }
+        .qld__btn--back-to-top {
+            margin-top: 0;
+        }
+    }
+}
