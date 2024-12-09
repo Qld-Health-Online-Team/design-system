@@ -37,27 +37,27 @@
          */
 
 
-        // function scrollRight(tabList, ScrollRightBtn, ScrollLeftBtn) {
-        //     // Check if the current scroll position is at the maximum scroll position
-        //     if (tabList.scrollLeft + SCROLL_AMOUNT >= tabList.scrollWidth - tabList.clientWidth) {
-        //         // Hide the scroll right button
-        //         ScrollRightBtn.style.display = "none";
-        //     }
+        function scrollRight(tabList, ScrollRightBtn, ScrollLeftBtn) {
+            // Check if the current scroll position is at the maximum scroll position
+            if (tabList.scrollLeft + SCROLL_AMOUNT >= tabList.scrollWidth - tabList.clientWidth) {
+                // Hide the scroll right button
+                ScrollRightBtn.style.display = "none";
+            }
 
-        //     tabList.scrollLeft += SCROLL_AMOUNT;
-        //     ScrollLeftBtn.style.display = "block";
-        // }
+            tabList.scrollLeft += SCROLL_AMOUNT;
+            ScrollLeftBtn.style.display = "block";
+        }
 
-        // function scrollLeft(tabList, ScrollRightBtn, ScrollLeftBtn) {
-        //     // Check if the current scroll position is at the beginning of the scroll
-        //     if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
-        //         // Hide the scroll left button
-        //         ScrollLeftBtn.style.display = "none";
-        //     }
+        function scrollLeft(tabList, ScrollRightBtn, ScrollLeftBtn) {
+            // Check if the current scroll position is at the beginning of the scroll
+            if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
+                // Hide the scroll left button
+                ScrollLeftBtn.style.display = "none";
+            }
 
-        //     tabList.scrollLeft -= SCROLL_AMOUNT;
-        //     ScrollRightBtn.style.display = "block";
-        // }
+            tabList.scrollLeft -= SCROLL_AMOUNT;
+            ScrollRightBtn.style.display = "block";
+        }
 
         /**
          *  The function below checks if the tab list overflows the tab element and display the appropriate scroll buttons
