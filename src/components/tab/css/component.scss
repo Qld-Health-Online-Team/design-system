@@ -3,7 +3,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__tab {
-
     &-intro{
         @include QLD-space(padding-bottom, 1.5unit);
         @include QLD-media(lg) {
@@ -77,15 +76,16 @@
             }
         }
 
-        &[tabindex="0"]:focus {
-            outline: none;
-            border-color: var(--QLD-color-light__focus);
-        }
-
+        /**
+        *   1. Light and Fix Width
+        *   2. Fix Width
+        *   3. Alt
+        */
+        &[tabindex="0"]:focus,
         &[tabindex="-1"]:focus,
         &:focus-visible {
             outline: 3px solid var(--QLD-color-light__focus);
-            outline-offset: -3px;
+            outline-offset: -8px;
         }
 
         &.active {
@@ -99,18 +99,16 @@
             z-index: 1;
             text-decoration: none;
 
-            span {
-                i {
-                    color: var(--QLD-color-light__heading);
-                }
+            span i {
+                color: var(--QLD-color-light__heading);
             }
 
             &::after {
-                background-color: var(--QLD-color-light__focus);
+                background-color: var(--QLD-color-light__design-accent);
             }
 
             &:focus::after{
-                background-color: var(--QLD-color-light__focus);
+                background-color: var(--QLD-color-light__design-accent);
                 transition: background-color 0.2s ease-in-out;
             }
         }
@@ -297,19 +295,16 @@
                     }
                 }
 
-                &:focus {
-                    outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
-                }
-
-                &[tabindex="0"]:focus {
-                    outline: none;
-                }
+                // &:focus {
+                //     outline: 3px solid var(--QLD-color-dark__focus);
+                //     outline-offset: -8px;
+                // }
 
                 &[tabindex="-1"]:focus,
-                &:focus-visible {
+                &:focus-visible,
+                &:focus {
                     outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
+                    outline-offset: -8px;
                 }
             }
             
@@ -369,6 +364,10 @@
                 &:not(.active) {
                     // background: var(--QLD-color-light__background--alt-shade);
                     // color: var(--QLD-color-light__link);
+                    &:focus {
+                        outline: 3px solid var(--QLD-color-dark__focus);
+                        outline-offset: -8px;
+                    }
                 }
 
                 &:not(.active):hover {
@@ -386,23 +385,21 @@
                     }
                 }
 
-                &:focus {
-                    outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
+                // &:focus {
+                //     outline: 3px solid var(--QLD-color-dark__focus);
+                //     outline-offset: -8px;
+                // }
 
-                    &:after {
-                        background-color: var(--QLD-color-dark__focus);
+                // &[tabindex="-1"]:focus,
+                // &:focus-visible {
+                //     outline: 3px solid var(--QLD-color-dark__focus);
+                //     outline-offset: -8px;
+                // }
+                &.active {
+                    &:focus {
+                        outline: 3px solid var(--QLD-color-dark__focus);
+                        outline-offset: -8px;
                     }
-                }
-
-                &[tabindex="0"]:focus {
-                    outline: none;
-                }
-
-                &[tabindex="-1"]:focus,
-                &:focus-visible {
-                    outline: 3px solid var(--QLD-color-dark__focus);
-                    outline-offset: -3px;
                 }
             }
 
@@ -464,7 +461,6 @@
     box-shadow: 0 -49px 0 0 $QLD-color-neutral--white;
 
     .qld__tab-button[tabindex="0"]:focus{
-        outline: none;
         border-color:var(--QLD-color-light__border--alt);
     }
 
@@ -728,6 +724,9 @@
                         color: var(--QLD-color-light__link--on-action)
                     }
                 }
+                &:focus {
+                    outline: 3px solid var(--QLD-color-light__focus);
+                }
             }
         }
     }
@@ -757,7 +756,7 @@
         .qld__tab-button {
             &:not(.active) {
                 background: var(--QLD-color-light__background--alt-shade);
-                color: var(--QLD--color-light__link);
+                color: var(--QLD-color-light__link);
     
                     span i {
                         color: var(--QLD-color-light__action--secondary);
@@ -772,8 +771,12 @@
                         color: var(--QLD-color-light__link--on-action)
                     }
                 }
+                &:focus {
+                    outline: 3px solid var(--QLD-color-light__focus);
+                }
             }
         }
+
     }
 }
 
@@ -805,7 +808,12 @@
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
+                &[tabindex="-1"]:focus,
+                &:focus {
+                    outline: 3px solid var(--QLD-color-dark__focus);
+                }
             }
+            
     
             &:hover {
                 background: var(--QLD-color-dark__action--primary-hover);
@@ -855,6 +863,10 @@
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
+                &[tabindex="-1"]:focus,
+                &:focus {
+                    outline: 3px solid var(--QLD-color-dark__focus);
+                }
             }
     
             &:hover {
@@ -877,6 +889,22 @@
 }
 
 .qld__body--full-width {
+    &:not(.qld__body--dark):not(.qld__body--alt):not(.qld__body--dark-alt) {
+        .qld__tab {
+            &-container:not(.qld__tab-container--dark):not(.qld__qld__tab-container--alt):not(.qld__qld__tab-container--dark-alt) {
+                .qld__tab-button {
+                    &:not(.active) {
+                        &:focus {
+                            outline: 3px solid var(--QLD-color-dark__focus);
+                            outline-offset: -8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
     .qld__tab {
         &-content {
             border-bottom: none;
@@ -992,6 +1020,10 @@
                         &:not(.active) {
                             background-color: var(--QLD-color-light__background--alt-shade);
                             color: var(--QLD-color-light__link);
+                            &:focus {
+                                outline: 3px solid var(--QLD-color-light__focus);
+                                outline-offset: -8px;
+                            }
                         }
         
                         &:not(.active):hover {
