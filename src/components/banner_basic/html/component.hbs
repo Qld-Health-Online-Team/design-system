@@ -58,21 +58,21 @@
     <nav class="qld__breadcrumbs {{#ifCond metadata.background_colour.value '==' 'alternate'}}qld__breadcrumbs--alt{{/ifCond}} 
     {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
     {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark-alt{{/ifCond}} qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb">
-        <ol class="qld__link-list qld__link-list--inline">
+        <div class="qld__link-list qld__link-list--inline">
             {{#with (itemAt ../current.lineage -2)}}
             {{#ifCond asset_type_code '!=' 'folder'}} 
-                <li>
-                    <a href="{{asset_url}}">
+                <div class="qld__breadcrumbs__item">
+                    <a href="{{asset_url}}" class="qld__breadcrumbs__link">
                         {{#ifCond asset_is_site_asset '==' '1'}}
                             Home
                         {{else}}
                             {{renderSpecialChar asset_short_name}}
                         {{/ifCond}}
                     </a>    
-                </li>
+                </div>
             {{/ifCond}}
             {{/with}}
-        </ol>
+        </div>
     </nav>
     {{/ifCond}}
     <div class="container-fluid">
@@ -107,11 +107,11 @@
                             <ol class="qld__link-list qld__link-list--inline">
                                 {{#each ../current.lineage}}  
                                 {{#ifCond asset_type_code '!=' 'folder'}}       
-                                    <li {{#if @last}}aria-current="page"{{/if}}>
+                                    <li {{#if @last}}aria-current="page"{{/if}} class="qld__breadcrumbs__item">
                                         {{#if @last}}
                                             {{renderSpecialChar asset_short_name}}
                                         {{else}}
-                                        <a href="{{asset_url}}">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>   
+                                        <a href="{{asset_url}}" class="qld__breadcrumbs__link">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>   
                                         {{/if}}
                                     </li>
                                 {{/ifCond}}
