@@ -179,7 +179,7 @@
         return undefined
     };
 
-  return "                            <div class=\"qld__card__image-link\">\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
+  return "                            <div class=\"qld__card__image-wrapper\">\n                                <div class=\"qld__responsive-media-img--bg\" style=\"background-image: url('./?a="
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_image") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "');\" "
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"image_alt") : stack1),{"name":"if","hash":{},"fn":container.program(28, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":46,"column":144},"end":{"line":46,"column":231}}})) != null ? stack1 : "")
