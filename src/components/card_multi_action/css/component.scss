@@ -27,6 +27,7 @@
         }
     }
 
+    .qld__card__image-wrapper,
     .qld__card__image-link {
         display: flex;
         position: relative;
@@ -35,7 +36,7 @@
         border-bottom-right-radius: 6.0882800608828% 10.81081081081081%;
         border-bottom-left-radius: 0px;
         max-width: 100%;
-    
+
         &::before {
             content: "";
             background-color: var(--QLD-color-dark__background);
@@ -51,7 +52,8 @@
             border-bottom-left-radius: 0px;
             z-index: 1;
         }
-    
+    }
+    .qld__card__image-link {
         &:hover,
         &:focus {
             &::before {
@@ -64,6 +66,8 @@
             box-shadow: inset 0 0 3px var(--QLD-color-light__focus);
         }
     }
+
+    
 
     a.qld__card--clickable__link{
         //remove hit area entire card
