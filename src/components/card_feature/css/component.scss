@@ -155,8 +155,7 @@
     }
 
     .qld__card__image-wrapper,
-    .qld__card__image-link{
-        
+    .qld__card__image-link{   
         @include QLD-media(md) {
             flex: 1;
             @include QLD-space(padding-bottom, 0unit);
@@ -164,6 +163,13 @@
         }
         @include QLD-media(lg) {
             flex: 2;
+        }
+    }
+
+    .qld__card__image-link {
+        &:focus {
+            outline: none;
+            box-shadow: inset 0 0 3px var(--QLD-color-light__focus);
         }
     }
 
