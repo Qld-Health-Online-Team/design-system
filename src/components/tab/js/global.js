@@ -191,7 +191,7 @@
                     tabHeading.addEventListener("focus", (event) => {
                         const tabIndex = Array.from(tabHeadings).indexOf(event.currentTarget);
                         currentTabIndex = tabIndex; // Update the global index
-                        console.log("Focus on tab:", currentTabIndex);
+                        
                 
                         const tabContentId = event.currentTarget.getAttribute("data-tab");
                         const tabContent = tabComponent.querySelector(
