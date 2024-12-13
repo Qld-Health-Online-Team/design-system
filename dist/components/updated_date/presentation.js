@@ -24,7 +24,7 @@
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteBackToTopShow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":16},"end":{"line":12,"column":23}}})) != null ? stack1 : "")
     + "            </div>\n        </section>\n";
 },"3":function(container,depth0,helpers,partials,data) {
-    return "                <div class=\"qld__widgets\">\n                    <a href=\"#content\" class=\"qld__btn qld__btn--floating qld__btn--back-to-top show\" aria-label=\"Back to top\">\n                        <span>Back to top</span>\n                    </a>\n                </div>\n";
+    return "                <div class=\"qld__widgets__back_to_top\">\n                    <a href=\"#content\" class=\"qld__btn qld__btn--floating qld__btn--back-to-top show\" aria-label=\"Back to top\">\n                        <span>Back to top</span>\n                    </a>\n                </div>\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -48,7 +48,7 @@
 
   return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteBackToTopShow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":61,"column":4},"end":{"line":67,"column":11}}})) != null ? stack1 : "");
 },"8":function(container,depth0,helpers,partials,data) {
-    return "    <div class=\"qld__widgets\">\n        <a href=\"#content\" class=\"qld__btn qld__btn--floating qld__btn--back-to-top show\" aria-label=\"Back to top\">\n            <span>Back to top</span>\n        </a>\n    </div>\n";
+    return "    <div class=\"qld__widgets__back_to_top\">\n        <a href=\"#content\" class=\"qld__btn qld__btn--floating qld__btn--back-to-top show\" aria-label=\"Back to top\">\n            <span>Back to top</span>\n        </a>\n    </div>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
