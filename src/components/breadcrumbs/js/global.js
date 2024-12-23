@@ -149,7 +149,7 @@
     
     function appendOverflow( breadCrumbsUlLis, overflowMenu, breadcrumbUL) {
         breadCrumbsUlLis[1].innerHTML = "";
-        breadCrumbsUlLis[1].className = "qld__overflow_menu--breadcrumbs";
+        breadCrumbsUlLis[1].className.add("qld__overflow_menu--breadcrumbs","qld__overflow_menu--breadcrumbs");
         breadCrumbsUlLis[1].appendChild(overflowMenu);
         breadCrumbsUlLis[1].style.display = "flex";
     }
