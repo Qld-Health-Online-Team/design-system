@@ -34,27 +34,31 @@
                 }
     
                 const breadCrumbsUl = bannerBreadCrumb.querySelector("ol.qld__link-list");
-
-                if (bannerBreadCrumb?.parentElement?.classList.contains("qld__banner__content")) {
+                if (bannerBreadCrumb.parentElement && bannerBreadCrumb.parentElement.classList.contains("qld__banner__content")) {
                     const contentBanner = bannerBreadCrumb.closest('.qld__banner__content');
                     const contentBannerStyle = window.getComputedStyle(contentBanner);
-
-                    const contentPaddings = parseFloat(contentBannerStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + parseFloat(contentBannerStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
-
+                
+                    const contentPaddings = 
+                        parseFloat(contentBannerStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + 
+                        parseFloat(contentBannerStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
+                
                     bannerBreadCrumb.style.maxWidth = (contentBanner.offsetWidth - contentPaddings) + 'px';
-
+                
                     breadCrumbsUl.style.maxWidth = (contentBanner.offsetWidth - contentPaddings) + 'px';
-
+                
                 } else {
                     const containerFluid = bannerBreadCrumb.closest('.container-fluid');
-
                     const containerFluidStyle = window.getComputedStyle(containerFluid);
-                    
-                    const paddings = parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
-                    bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                    if(containerFluid) {
+                        const paddings = 
+                        parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + 
+                        parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
+                
+                        bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                        breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                    }
 
-                    breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
-                }
+                }                
                 return {
                     bannerBreadCrumb,
                     breadCrumbsUl,
