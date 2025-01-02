@@ -34,12 +34,7 @@
                 }
     
                 const breadCrumbsUl = bannerBreadCrumb.querySelector("ol.qld__link-list");
-
-                if (
-                    bannerBreadCrumb &&
-                    bannerBreadCrumb.parentElement &&
-                    bannerBreadCrumb.parentElement.classList.contains("qld__banner__content")
-                ) {
+                if (bannerBreadCrumb.parentElement && bannerBreadCrumb.parentElement.classList.contains("qld__banner__content")) {
                     const contentBanner = bannerBreadCrumb.closest('.qld__banner__content');
                     const contentBannerStyle = window.getComputedStyle(contentBanner);
                 
@@ -51,17 +46,18 @@
                 
                     breadCrumbsUl.style.maxWidth = (contentBanner.offsetWidth - contentPaddings) + 'px';
                 
-                } else if (bannerBreadCrumb) {
+                } else {
                     const containerFluid = bannerBreadCrumb.closest('.container-fluid');
                     const containerFluidStyle = window.getComputedStyle(containerFluid);
-                
-                    const paddings = 
+                    if(containerFluid) {
+                        const paddings = 
                         parseFloat(containerFluidStyle.getPropertyValue('padding-right').replace(/[^\d.]/g, '')) + 
                         parseFloat(containerFluidStyle.getPropertyValue('padding-left').replace(/[^\d.]/g, ''));
                 
-                    bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
-                
-                    breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                        bannerBreadCrumb.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                        breadCrumbsUl.style.maxWidth = (containerFluid.offsetWidth - paddings) + 'px';
+                    }
+
                 }                
                 return {
                     bannerBreadCrumb,
