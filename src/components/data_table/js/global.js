@@ -327,7 +327,7 @@
                  $('li.qld__search-pagination_link').removeAttr('tabindex');
 
                  // Update sortable <th> elements
-                $(tableDivId + " #qld_table_html th[tabindex='0']").each(function () {
+                $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
                     const $this = $(this);
             
                     // Remove the tabindex attribute
@@ -374,7 +374,6 @@
         for(let tableDiv of tableDivs) {
             triggerFunctionBasedOnClass($(tableDiv));
         }
-        
     }
 
     QLD.dataTable = dataTable;
