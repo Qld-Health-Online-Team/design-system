@@ -103,13 +103,18 @@
             //Add data auto complete to date field ---Matrix bug fix---
             dobFieldAutocomplete($form);
 
-            linkHintText($form);
+            
+
 
             // Validate select fields when option is selected
             $form.find('select').on('change', function() {
                 console.log('select change');
                 $(this).valid();
             });
+        });
+
+        $('form').each(function() {
+            linkHintText($form);
         });
 
         $('[data-displayif-show]').each(function() {
@@ -282,7 +287,10 @@
 
     function linkHintText($form) {
         var $allFields = $form.find('.sq-form-question-answer');
-    
+        // Check if any fields are found before proceeding
+        if ($allFields.length === 0) {
+            return; // Exit early if no fields are found
+        }
         $allFields.each(function() {
             var $field = $(this);
     
