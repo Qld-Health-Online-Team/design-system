@@ -103,6 +103,8 @@
             //Add data auto complete to date field ---Matrix bug fix---
             dobFieldAutocomplete($form);
 
+            linkHintText($form);
+
             // Validate select fields when option is selected
             $form.find('select').on('change', function() {
                 console.log('select change');
@@ -277,5 +279,36 @@
             $(field).addClass('hidden');
         }
     }
+
+    function linkHinttext($form) {
+        var $allFields = $form.find('.sq-form-question-answer');
     
+        $allFields.each(function() {
+            var $field = $(this);
+    
+            // Get the direct child input/textarea/select element
+            var $inputElement = $field.find('input, textarea, select').first();
+    
+            if ($inputElement.length) {
+                // Get the ID of the input element
+                var inputId = $inputElement.attr('id');
+    
+                if (inputId) {
+                    // Find the sibling <em> element in the parent .sq-form-question
+                    var $hintElement = $field.closest('.sq-form-question').find('em').first();
+    
+                    if ($hintElement.length) {
+                        // Create a unique ID for the <em> element
+                        var hintId = inputId + '_hint';
+    
+                        // Apply the unique ID to the <em> element
+                        $hintElement.attr('id', hintId);
+    
+                        // Add the 'aria-describedby' attribute to the input element
+                        $inputElement.attr('aria-describedby', hintId);
+                    }
+                }
+            }
+        });
+    }
 }());
