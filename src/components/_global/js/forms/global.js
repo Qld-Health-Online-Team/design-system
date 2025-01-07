@@ -280,7 +280,7 @@
         }
     }
 
-    function linkHinttext($form) {
+    function linkHintText($form) {
         var $allFields = $form.find('.sq-form-question-answer');
     
         $allFields.each(function() {
