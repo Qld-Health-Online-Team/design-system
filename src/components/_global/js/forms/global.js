@@ -114,6 +114,7 @@
         });
 
         $('form').each(function() {
+            var $form = $(this);
             linkHintText($form);
         });
 
@@ -287,10 +288,12 @@
 
     function linkHintText($form) {
         var $allFields = $form.find('.sq-form-question-answer');
+
         // Check if any fields are found before proceeding
         if ($allFields.length === 0) {
             return; // Exit early if no fields are found
         }
+
         $allFields.each(function() {
             var $field = $(this);
     
