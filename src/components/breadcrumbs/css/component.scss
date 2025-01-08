@@ -156,8 +156,12 @@
 }
 
 .qld__banner__breadcrumbs {
-    &--mobile,
-    &--tablet {
+    &--mobile {
+        @include QLD-space(padding, 1unit 1unit);
+        margin: 0;
+        @include QLD-media(md) {
+            display: none;
+        }
 
         &.qld__breadcrumbs--alt {
             background-color: var(--QLD-color-light__background--alt);
@@ -181,15 +185,6 @@
             display: none;
         }
     }
-
-    &--mobile {
-        @include QLD-space(padding, 1unit 1unit);
-        margin: 0;
-        @include QLD-media(md) {
-            display: none;
-        }
-    }
-
 }
 
 
