@@ -24,12 +24,17 @@
             align-items: center;
         }
     }
-    & &__list--mobile{
+    & &__list--tablet{
         @include QLD-media(lg) {
             display: none;
         }
     }
-    .qld__link-list.qld__link-list--inline:not(.qld__breadcrumbs .qld__breadcrumbs__list--mobile, .qld__banner__breadcrumbs--mobile div) {
+    & &__list--mobile{
+        @include QLD-media(md) {
+            display: none;
+        }
+    }
+    .qld__link-list.qld__link-list--inline:not(.qld__breadcrumbs .qld__breadcrumbs__list--mobile, .qld__banner__breadcrumbs--mobile div, .qld__breadcrumbs .qld__breadcrumbs__list--tablet, .qld__banner__breadcrumbs--tablet div) {
         display: none;
         @include QLD-media(lg) {
             display: flex;
@@ -150,24 +155,39 @@
     }
 }
 
-.qld__banner__breadcrumbs--mobile {
-    @include QLD-space(padding, 1unit 1unit);
-    margin: 0;
+.qld__banner__breadcrumbs {
+    &--mobile,
+    &--tablet {
 
-    @include QLD-media(lg) {
-        display: none;
+        &.qld__breadcrumbs--alt {
+            background-color: var(--QLD-color-light__background--alt);
+        }
+    
+        &.qld__breadcrumbs--dark {
+            background-color: var(--QLD-color-dark__background);
+        }
+    
+        &.qld__breadcrumbs--alt-dark {
+            background-color: var(--QLD-color-dark__background--alt);
+        }
     }
 
-    &.qld__breadcrumbs--alt {
-        background-color: var(--QLD-color-light__background--alt);
+    &--tablet {
+        @include QLD-space(margin, 0 0 1.5rem);
+        @include QLD-media(lg) {
+            display: none;
+        }
+        @include QLD-media(md, 'down') {
+            display: none;
+        }
     }
 
-    &.qld__breadcrumbs--dark {
-        background-color: var(--QLD-color-dark__background);
-    }
-
-    &.qld__breadcrumbs--alt-dark {
-        background-color: var(--QLD-color-dark__background--alt);
+    &--mobile {
+        @include QLD-space(padding, 1unit 1unit);
+        margin: 0;
+        @include QLD-media(md) {
+            display: none;
+        }
     }
 
 }
@@ -222,6 +242,7 @@
 }
 
 .qld__banner__breadcrumbs--mobile,
+.qld__banner__breadcrumbs--tablet,
 .qld__banner__breadcrumbs--desktop,
 .qld__breadcrumbs__list--mobile {
     .qld__breadcrumbs__item .qld__icon{
