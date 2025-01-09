@@ -28,6 +28,10 @@
         @include QLD-media(lg) {
             display: none;
         }
+
+        @include QLD-media(md, 'down') {
+            display: none;
+        }
     }
     & &__list--mobile{
         @include QLD-media(md) {
@@ -239,6 +243,7 @@
 .qld__banner__breadcrumbs--mobile,
 .qld__banner__breadcrumbs--tablet,
 .qld__banner__breadcrumbs--desktop,
+.qld__breadcrumbs__list--tablet,
 .qld__breadcrumbs__list--mobile {
     .qld__breadcrumbs__item .qld__icon{
      color: var(--QLD-color-light__action--secondary);
