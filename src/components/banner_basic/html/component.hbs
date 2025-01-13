@@ -84,6 +84,29 @@
                 {{/if}}
 
                 <div class="qld__banner__content col-xs-12 col-md-12 col-lg-12">
+                    <!--@@ Breadcrumbs - Tablet @@-->
+                    {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
+                        <nav class="qld__breadcrumbs 
+                        {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
+                        {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb">
+                            <div class="qld__link-list qld__link-list--inline">
+                                {{#with (itemAt ../current.lineage -2)}}
+                                {{#ifCond asset_type_code '!=' 'folder'}} 
+                                    <div class="qld__breadcrumbs__item">
+                                        <a href="{{asset_url}}" class="qld__breadcrumbs__link">
+                                            {{#ifCond asset_is_site_asset '==' '1'}}
+                                                Home
+                                            {{else}}
+                                                {{renderSpecialChar asset_short_name}}
+                                            {{/ifCond}}
+                                        </a>    
+                                    </div>
+                                {{/ifCond}}
+                                {{/with}}
+                            </div>
+                        </nav>
+                    {{/ifCond}}
         
                     <!--@@ Breadcrumbs - Desktop @@-->
                     {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
