@@ -318,7 +318,7 @@
 	.qld__btn.qld__btn--tertiary,
 	a.qld__btn.qld__btn--tertiary,
 	a.qld__btn.qld__btn--tertiary:visited {
-		@include QLD-underline('light','noUnderline','default','noVisited');
+		@include QLD-underline('light','underline','default','noVisited');
 		background-color: transparent;
 		color: var(--QLD-color-light__link);
 		border-color: transparent;
@@ -336,6 +336,16 @@
 			}
 		}
 
+		&:active {
+			background-color: $QLD-color-neutral--lightest;
+			border-color: transparent;
+			color: var(--QLD-color-light__heading);
+			text-decoration: none;
+
+			i{
+				color: var(--QLD-color-light__heading);
+			}
+		}
 		&:focus:active {
 			background-color: $QLD-color-neutral--lightest;
 			border-color: transparent;
@@ -381,7 +391,7 @@
 		a.qld__btn.qld__btn--tertiary,
 		a.qld__btn.qld__btn--tertiary:visited {
 
-			@include QLD-underline('dark','noUnderline','default','noVisited');
+			@include QLD-underline('dark','underline','default','noVisited');
 			color: var(--QLD-color-dark__link);
 			background-color: transparent;
 			border-color: transparent;
@@ -396,6 +406,17 @@
 
 				i{
 					color: var(--QLD-color-dark__action--secondary-hover);
+				}
+			}
+
+			&:active {
+				background-color: $QLD-color-neutral--lightest;
+				border-color: transparent;
+				color: var(--QLD-color-light__heading);
+				text-decoration: none;
+	
+				i{
+					color: var(--QLD-color-light__heading);
 				}
 			}
 

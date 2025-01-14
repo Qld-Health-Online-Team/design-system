@@ -15,6 +15,21 @@
             {{/ifCond}}
         {{/each}}
     </ol>
+    <div class="qld__breadcrumbs__list--tablet qld__link-list qld__link-list--inline">
+        {{#with (itemAt current.lineage -2)}}
+        {{#ifCond asset_type_code '!=' 'folder'}} 
+            <div class="qld__breadcrumbs__item">
+                <a href="{{asset_url}}" class="qld__breadcrumbs__link">
+                    {{#ifCond asset_is_site_asset '==' '1'}}
+                        Home
+                    {{else}}
+                        {{renderSpecialChar asset_short_name}}
+                    {{/ifCond}}
+                </a>    
+            </div>
+        {{/ifCond}}
+        {{/with}}
+    </div>
     <div class="qld__breadcrumbs__list--mobile qld__link-list qld__link-list--inline">
         {{#with (itemAt current.lineage -2)}}
         {{#ifCond asset_type_code '!=' 'folder'}} 
