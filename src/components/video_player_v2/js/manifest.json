@@ -5,13 +5,64 @@
 		"version": "1.0",
 		"status": "In Development",
 		"data": {
-			"assetid": "video_player_v2-123",
+			"assetid": "123",
 			"metadata": {
-				"field1": {
+				"video_type": {
+					"type": "metadata_field_select",
+					"description": "Select the type of video",
+					"friendly_name": "Video Type",
+					"value": "youtube",
+					"options": {
+						"youtube": "YouTube",
+						"vimeo": "Vimeo"
+					},
+					"required": false,
+					"editable": true
+				},
+				"video_id": {
 					"type": "metadata_field_text",
-					"description": "A text field",
-					"friendly_name": "Field 1",
-					"value": "Example text",
+					"description": "Enter the video ID",
+					"friendly_name": "Video ID",
+					"value": "F5lPywAN5cw",
+					"required": false,
+					"editable": true
+				},
+				"heading_type": {
+					"type": "metadata_field_text",
+					"description": "Enter the video heading",
+					"friendly_name": "Video Heading",
+					"value": "h2",
+					"options": {
+						"h2": "H2",
+						"h3": "H3",
+						"h4": "H4",
+						"h5": "H5",
+						"h6": "H6"
+					},
+					"required": false,
+					"editable": true
+				},
+				"heading": {
+					"type": "metadata_field_text",
+					"description": "Enter the heading",
+					"friendly_name": "Heading",
+					"value": "Optional Heading",
+					"required": false,
+					"editable": true
+				},
+				"intro": {
+					"type": "metadata_field_text",
+					"description": "Enter the intro",
+					"friendly_name": "Intro",
+					"value": "Ipsum vulputate faucibus commodo laoreet tincidunt amet suspendisse urna. Turpis elementum eget dis senectus in enim varius aliquam. Vel amet odio nibh at sollicitudin. Nullam condimentum lectus.",
+					"required": false,
+					"editable": true
+				},
+				"button_text": {
+					"type": "related_asset",
+					"description": "Enter the button text",
+					"friendly_name": "Button Text",
+					"value": "Watch Video",
 					"required": false,
 					"editable": true
 				},
