@@ -31,7 +31,7 @@ jobs:
       - name: Git configuration
         run: |
           git config --global user.email "${{ secrets.QH_ORG_EMAIL }}"
-          git config --global user.name "${{ secrets.GH_ORG_NAME }}"
+          git config --global user.name "${{ secrets.QH_ORG_NAME }}"
   
       # Bump package version
       # Use tag latest
