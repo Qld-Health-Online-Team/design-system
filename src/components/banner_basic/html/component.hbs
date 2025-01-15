@@ -4,15 +4,12 @@
 <section id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}banner-{{assetid}}{{/if}}" 
     class="
         qld__banner qld__banner__basic
-        {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}qld__banner--has-hero{{/ifAny}}
         {{#ifCond metadata.background_colour.value '==' 'light'}}qld__banner--light{{/ifCond}}
         {{#ifCond metadata.background_colour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__banner--dark{{/ifCond}} 
         {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}} 
         
         {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}qld__banner--breadcrumbs{{/ifCond}}
-        {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'scale'}}qld__banner--hero-scale{{else}}{{#ifCond metadata.hero_image_padding.value '==' 'yes'}}qld__banner--padded{{/ifCond}}{{/ifCond}} 
-        {{#ifCond metadata.hero_image_alignment.value '==' 'page'}}qld__banner--hero-right{{/ifCond}}
     "
 
 >
@@ -79,24 +76,37 @@
         <div class="qld__banner__wrapper">
             
             <div class="qld__banner__main row">
-
                 <!--@@ Hero image @@-->
-                {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}
-                    <div class="qld__banner__hero col-xs-12  
-                    {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'scale'}}qld__banner__hero--scale col-md-6 col-lg-5 col-xl-4{{/ifCond}}
-                    {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'crop'}}
-                        {{#ifCond metadata.hero_image_alignment.value '==' 'grid'}}col-md-6 col-lg-5{{else}}col-md-7 col-lg-5 col-xl-4{{/ifCond}}
-                    {{/ifCond}}">
-                        {{#if metadata.hero_image.value}}
-                        <div class="qld__banner__image {{#if metadata.background_image_sm.value}}qld__banner__image--mobile-hide{{/if}}" style="background-image: url('./?a={{metadata.hero_image.value}}');"></div>
-                        {{/if}}
-                        {{#if metadata.background_image_sm.value}}
+                {{#if metadata.background_image_sm.value}}
+                    <div class="qld__banner__hero col-xs-12">
                         <div class="qld__banner__image qld__banner__image--desktop-hide" style="background-image: url('./?a={{metadata.background_image_sm.value}}');"></div>
-                        {{/if}}
                     </div>
-                {{/ifAny}}
-                
-                <div class="qld__banner__content col-xs-12 {{#if metadata.hero_image.value}}col-md-6 col-lg-7{{else}}col-md-12 col-lg-12{{/if}}">
+                {{/if}}
+
+                <div class="qld__banner__content col-xs-12 col-md-12 col-lg-12">
+                    <!--@@ Breadcrumbs - Tablet @@-->
+                    {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
+                        <nav class="qld__breadcrumbs 
+                        {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
+                        {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb">
+                            <div class="qld__link-list qld__link-list--inline">
+                                {{#with (itemAt ../current.lineage -2)}}
+                                {{#ifCond asset_type_code '!=' 'folder'}} 
+                                    <div class="qld__breadcrumbs__item">
+                                        <a href="{{asset_url}}" class="qld__breadcrumbs__link">
+                                            {{#ifCond asset_is_site_asset '==' '1'}}
+                                                Home
+                                            {{else}}
+                                                {{renderSpecialChar asset_short_name}}
+                                            {{/ifCond}}
+                                        </a>    
+                                    </div>
+                                {{/ifCond}}
+                                {{/with}}
+                            </div>
+                        </nav>
+                    {{/ifCond}}
         
                     <!--@@ Breadcrumbs - Desktop @@-->
                     {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
