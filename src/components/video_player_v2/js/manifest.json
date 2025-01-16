@@ -19,6 +19,39 @@
 					"required": false,
 					"editable": true
 				},
+				"layout": {
+					"type": "metadata_field_select",
+					"description": "Select the layout",
+					"friendly_name": "Layout",
+					"value": "stack",
+					"options": {
+						"stack": "Stack",
+						"two_col": "2 Col"
+					},
+					"required": false,
+					"editable": true
+				},
+				"stack_options": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Stack Layout Options",
+                    "value": "left",
+					"options": {
+						"left_aligned": "Left Aligned",
+						"centered": "Centered"
+					},
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "layout",
+                            "operator": "equals",
+                            "value": "stack"
+                        }]
+                    }
+                },
 				"video_id": {
 					"type": "metadata_field_text",
 					"description": "Enter the video ID",
@@ -51,21 +84,60 @@
 					"editable": true
 				},
 				"intro": {
-					"type": "metadata_field_text",
+					"type": "metadata_field_wysiwyg",
 					"description": "Enter the intro",
 					"friendly_name": "Intro",
 					"value": "Ipsum vulputate faucibus commodo laoreet tincidunt amet suspendisse urna. Turpis elementum eget dis senectus in enim varius aliquam. Vel amet odio nibh at sollicitudin. Nullam condimentum lectus.",
 					"required": false,
 					"editable": true
 				},
-				"button_text": {
-					"type": "related_asset",
+				"primary_button_text": {
+					"type": "metadata_field_text",
 					"description": "Enter the button text",
-					"friendly_name": "Button Text",
-					"value": "Watch Video",
+					"friendly_name": "Button 1 Text",
+					"value": "Label",
 					"required": false,
 					"editable": true
 				},
+				"primary_button_link": {
+					"type": "metadata_field_related_asset",
+					"description": "Choose the asset to link to",
+					"friendly_name": "Button 1",
+					"value": "23791",
+					"required": false,
+					"editable": true
+				},
+				"secondary_button_text": {
+					"type": "metadata_field_text",
+					"description": "Enter the button text",
+					"friendly_name": "Button 2 Text",
+					"value": "Label",
+					"required": false,
+					"editable": true
+				},
+				"secondary_button_link": {
+					"type": "metadata_field_related_asset",
+					"description": "Choose the asset to link to",
+					"friendly_name": "Button 2",
+					"value": "23791",
+					"required": false,
+					"editable": true
+				},
+				"body_background": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "Background colour",
+                    "value": "dark-alt",
+                    "options": {
+                        "": "White",
+                        "light": "Light",
+                        "alt": "Alternate",
+                        "dark": "Dark",
+                        "dark-alt": "Alternate Dark"
+                    },
+                    "required": false,
+                    "editable": true
+                },
 				"root_node": {
 					"type": "metadata_field_related_asset",
 					"description": "",
