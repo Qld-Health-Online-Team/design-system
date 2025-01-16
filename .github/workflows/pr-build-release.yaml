@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+          token: ${{ secrets.DIGITAL_QH_WORKFLOW }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -83,7 +83,7 @@ jobs:
  
       - name: Push changes to repository
         env:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+          token: ${{ secrets.DIGITAL_QH_WORKFLOW }}
         run: |
           git push origin && git push --tags
     
@@ -101,4 +101,4 @@ jobs:
           tag_name: ${{ env.NEW_VERSION }}
           body: ${{ steps.get-changelog.outputs.changelog }}
         env:
-          token: ${{ secrets.DIGITAL_QHEALTH_WORKFLOW }}
+          token: ${{ secrets.DIGITAL_QH_WORKFLOW }}
