@@ -19,14 +19,14 @@
 					"required": false,
 					"editable": true
 				},
-				"layout": {
+				"video_layout": {
 					"type": "metadata_field_select",
 					"description": "Select the layout",
 					"friendly_name": "Layout",
 					"value": "stack",
 					"options": {
 						"stack": "Stack",
-						"two_col": "2 Col"
+						"wysiwyg": "WYSIWYG"
 					},
 					"required": false,
 					"editable": true
@@ -52,6 +52,29 @@
                         }]
                     }
                 },
+				"wysiwyg_options": {
+                    "type": "metadata_field_select",
+                    "description": "",
+                    "friendly_name": "WYSIWYG Layout Options",
+                    "value": "left",
+					"options": {
+						"text_buttons": "Text and Buttons",
+						"card_stack": "Card Stack",
+						"text_ctas_stack": "Text and CTAs Stack",
+						"text_link_columns": "Text and Link Columns"  
+					},
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "layout",
+                            "operator": "equals",
+                            "value": "stack"
+                        }]
+                    }
+                },
 				"video_id": {
 					"type": "metadata_field_text",
 					"description": "Enter the video ID",
@@ -60,7 +83,28 @@
 					"required": false,
 					"editable": true
 				},
-				"heading_type": {
+				"video_size": {
+					"type": "metadata_field_select",
+					"description": "Select the video size",
+					"friendly_name": "Video Size",
+					"value": "Fill grid container",
+					"options": {
+						"fill_grid":"Fill grid container",
+						"eight_col": "8 Columns"
+					},
+					"display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [{
+                            "field": "layout",
+                            "operator": "equals",
+                            "value": "stack"
+                        }]
+                    },
+					"required": false,
+					"editable": true
+				},
+				"video_heading_type": {
 					"type": "metadata_field_text",
 					"description": "Enter the video heading",
 					"friendly_name": "Video Heading",
@@ -75,7 +119,7 @@
 					"required": false,
 					"editable": true
 				},
-				"heading": {
+				"video_heading": {
 					"type": "metadata_field_text",
 					"description": "Enter the heading",
 					"friendly_name": "Heading",
@@ -83,7 +127,7 @@
 					"required": false,
 					"editable": true
 				},
-				"intro": {
+				"video_intro": {
 					"type": "metadata_field_wysiwyg",
 					"description": "Enter the intro",
 					"friendly_name": "Intro",
@@ -91,7 +135,15 @@
 					"required": false,
 					"editable": true
 				},
-				"primary_button_text": {
+				"video_description": {
+					"type": "metadata_field_wysiwyg",
+					"description": "Enter the description",
+					"friendly_name": "Intro",
+					"value": "Ipsum vulputate faucibus commodo laoreet tincidunt amet suspendisse urna. Turpis elementum eget dis senectus in enim varius aliquam. Vel amet odio nibh at sollicitudin. Nullam condimentum lectus.",
+					"required": false,
+					"editable": true
+				},
+				"primary_button_text": { 
 					"type": "metadata_field_text",
 					"description": "Enter the button text",
 					"friendly_name": "Button 1 Text",
