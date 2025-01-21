@@ -1,19 +1,141 @@
 {{#with component.data}}
-<section class="qld__body qld__video-player-v2--wrapper
-{{#ifCond metadata.body_background.value '==' 'light'}}qld__body--light{{/ifCond}}
-        {{#ifCond metadata.body_background.value '==' 'alt'}}qld__body--alt{{/ifCond}} 
-        {{#ifCond metadata.body_background.value '==' 'dark'}}qld__body--dark{{/ifCond}} 
-        {{#ifCond metadata.body_background.value '==' 'dark-alt'}}qld__body--dark-alt{{/ifCond}}">
-        <div class="container-fluid">
-            <div class="row">
-                {{#ifCond metadata.layout.value '==' 'stack'}}
-                <div class="col-xs-12">
-                    <{{metadata.heading_type.value}}>{{metadata.heading.value}}</{{metadata.heading_type.value}}>
-                    <div class="qld__abstract">{{metadata.intro.value}}</div>
+<section class="qld__body qld__video__player-v2--wrapper 
+  {{#if metadata.body_background.value}}qld__body--{{metadata.body_background.value}}{{/if}}">
+  <div class="container-fluid">
+    <div class="row {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player-v2--align{{/ifCond}}">
+      {{#ifCond metadata.video_layout.value '==' 'stack'}}
+        {{#if metadata.video_description.value}}
+          <div class="col-xs-12 qld__video__player-v2--wysiwyg 
+            {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__copy--centered text-center{{/ifCond}}">
+            {{{metadata.video_description.value}}}
+          </div>
+        {{/if}}
+
+        <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-8{{else}}col-xs-12{{/ifCond}} 
+          {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__centered{{/ifCond}}">
+          {{#if metadata.video_id.value}}
+            <div class="qld__video__player-v2--embed">
+              <div class="qld__video__player-v2--embed--container">
+                    <iframe {{#ifCond metadata.video_type.value '==' 'youtube'}}src="https://www.youtube.com/embed/{{metadata.video_id.value}}"{{/ifCond}}
+                    {{#ifCond metadata.video_type.value '==' 'vimeo'}}src="https://player.vimeo.com/video/{{metadata.video_id.value}}"{{/ifCond}}
+                    frameborder="0"
+                    allow="fullscreen"
+                    allowfullscreen
+                    title="{{metadata.video_caption.value}} - Video"
+                    aria-label="Video: {{metadata.video_caption.value}}" 
+                    class="qld__video__player-v2--iframe">
+                    </iframe>
+              </div>
+
+              {{#ifAny metadata.video_caption.value metadata.video_duration.value}}
+                <div class="qld__video__player-v2--caption">
+                  {{metadata.video_caption.value}}
+                  {{#if metadata.video_duration.value}}
+                    <div class="qld__video__player-v2--duration">
+                      <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
+                    </div>
+                  {{/if}}
                 </div>
-                {{/ifCond}}
+              {{/ifAny}}
+
+              {{#ifCond metadata.transcript_options.value '==' 'link'}}
+                {{#if metadata.transcript_link.value}}
+                  <div class="qld__video__player-v2__transcript">
+                    <div class="qld__video__player-v2__transcript-link">
+                      <i class="fal fa-arrow-right-long"></i>
+                      <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/ifCond}}
+
+              {{#ifCond metadata.transcript_options.value '==' 'accordion'}}
+                {{#if metadata.transcript.value}}
+                  <div class="qld__video__player-v2__transcript">
+                    <div class="qld__accordion">
+                      <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
+                              aria-controls="accordion-group-{{assetid}}" aria-expanded="false">
+                        <i class="fal fa-file-lines"></i>Show transcript
+                      </button>
+                      <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{assetid}}">
+                        <div class="qld__accordion__body-wrapper">
+                          {{{metadata.transcript.value}}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/ifCond}}
             </div>
+          {{/if}}
         </div>
-   
+      {{/ifCond}}
+
+      {{#ifCond metadata.video_layout.value '==' 'two_column'}}
+        <div class="col-xs-12 col-lg-6 qld__video__player-v2--wysiwyg">
+          {{#if metadata.video_description.value}}
+            {{{metadata.video_description.value}}}
+          {{/if}}
+        </div>
+        <div class="col-xs-12 col-lg-6">
+          {{#if metadata.video_id.value}}
+            <div class="qld__video__player-v2--embed">
+              <div class="qld__video__player-v2--embed--container">
+                <iframe {{#ifCond metadata.video_type.value '==' 'youtube'}}src="https://www.youtube.com/embed/{{metadata.video_id.value}}"{{/ifCond}}
+                {{#ifCond metadata.video_type.value '==' 'vimeo'}}src="https://player.vimeo.com/video/{{metadata.video_id.value}}"{{/ifCond}}
+                frameborder="0"
+                allow="fullscreen"
+                allowfullscreen
+                title="{{metadata.video_caption.value}} - Video"
+                aria-label="Video: {{metadata.video_caption.value}}" 
+                class="qld__video__player-v2--iframe">
+                </iframe>
+              </div>
+
+              {{#ifAny metadata.video_caption.value metadata.video_duration.value}}
+                <div class="qld__video__player-v2--caption">
+                  {{metadata.video_caption.value}}
+                  {{#if metadata.video_duration.value}}
+                    <div class="qld__video__player-v2--duration">
+                      <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
+                    </div>
+                  {{/if}}
+                </div>
+              {{/ifAny}}
+
+              {{#ifCond metadata.transcript_options.value '==' 'link'}}
+                {{#if metadata.transcript_link.value}}
+                  <div class="qld__video__player-v2__transcript">
+                    <div class="qld__video__player-v2__transcript-link">
+                      <i class="fal fa-arrow-right-long"></i>
+                      <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/ifCond}}
+
+              {{#ifCond metadata.transcript_options.value '==' 'accordion'}}
+                {{#if metadata.transcript.value}}
+                  <div class="qld__video__player-v2__transcript">
+                    <div class="qld__accordion">
+                      <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
+                              aria-controls="accordion-group-{{assetid}}" aria-expanded="false">
+                        <i class="fal fa-file-lines"></i>Show transcript
+                      </button>
+                      <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{assetid}}">
+                        <div class="qld__accordion__body-wrapper">
+                          {{{metadata.transcript.value}}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/ifCond}}
+            </div>
+          {{/if}}
+        </div>
+      {{/ifCond}}
+    </div>
+  </div>
 </section>
 {{/with}}
