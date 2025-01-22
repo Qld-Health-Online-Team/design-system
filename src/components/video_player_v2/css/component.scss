@@ -1,10 +1,20 @@
 .qld__body {
     .qld__video__player-v2--caption,
+    .qld__accordion__title,
     .qld__video__player-v2__transcript-link,
     .qld__accordion__body-wrapper {
         background-color: $QLD-color-neutral--lightest;
         border: var(--QLD-border-width-thin) solid $QLD-color-neutral--lighter;
     } 
+    .qld__video__player-v2__transcript{
+        &-link,
+        .qld__accordion__title {
+            i {
+                color: var(--QLD-color-light__action--secondary);
+            }
+        }
+    }
+
     &--dark-alt {
         .qld__video__player-v2--caption,
         .qld__accordion__title,
@@ -45,19 +55,6 @@
          }
     }
 
-    &--light,
-    &--alt {
-        .qld__video__player-v2__transcript{
-            &-link,
-            .qld__accordion__title {
-                i {
-                    color: var(--QLD-color-light__action--secondary);
-                }
-            }
-        }
-        
-    }
-
     &--dark-alt,
     &--dark  {
         .qld__video__player-v2__transcript {
@@ -81,7 +78,9 @@
 }
 .qld__video__player-v2 {
     &--align {
-        align-items: center;
+        .qld__video__player-v2--wysiwyg {
+            margin-top: pxToRem(32);
+        }
     }
     &--embed--container {
         position: relative;
