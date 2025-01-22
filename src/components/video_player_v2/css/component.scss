@@ -110,9 +110,11 @@
     &--duration {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
         .fa-clock {
             margin: 0 pxToRem(4) pxToRem(-2) 0;
+        }
+        @include QLD-media(lg) {          
+            justify-content: flex-end;
         }
     }
 
