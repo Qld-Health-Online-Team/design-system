@@ -11,7 +11,7 @@
           </div>
         {{/if}}
 
-        <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-8{{else}}col-xs-12{{/ifCond}} 
+        <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-12 col-lg-8{{else}}col-xs-12{{/ifCond}} 
           {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__centered{{/ifCond}}">
           {{#if metadata.video_id.value}}
             <div class="qld__video__player-v2--embed">
