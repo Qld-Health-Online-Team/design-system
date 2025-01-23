@@ -9,7 +9,7 @@
             @include QLD-space(padding-bottom, 2unit);
         }
     }
-	
+
     &s {
         display: flex;
         flex-direction: row;
@@ -29,7 +29,7 @@
         padding: 8px 20px 0px 20px;
         min-width: fit-content;
         border: none;
-        background: $QLD-color-neutral--lightest;
+        background: var(--QLD-color-neutral--lightest);
         font-size: 1rem;
         color: var(--QLD-color-light__link);
         cursor: pointer;
@@ -90,7 +90,7 @@
 
         &.active {
             color: var(--QLD-color-light__heading);
-            background-color: $QLD-color-neutral--white;
+            background-color: var(--QLD-color-neutral--white);
             height: 48px;
             border-left: 1px solid var(--QLD-color-light__border--alt);
             border-right: 1px solid var(--QLD-color-light__border--alt);
@@ -144,7 +144,7 @@
         i {
             min-height: 32px;
             min-width: 32px;
-            background-color: $QLD-color-neutral--white;
+            background-color: var(--QLD-color-neutral--white);
             align-self: center;
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             cursor: pointer;
@@ -181,14 +181,14 @@
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
-            background: linear-gradient(to left, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
-    
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--QLD-color-neutral--white));
+
         }
-    
+
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0), $QLD-color-neutral--white);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--QLD-color-neutral--white));
         }
     }
 
@@ -307,7 +307,7 @@
                     outline-offset: -8px;
                 }
             }
-            
+
             .qld__tab-nav__item-scroll {
                 &.tab-overflow-nav-button-left {
                     display: none;
@@ -349,7 +349,7 @@
                     z-index: 1;
                     text-decoration: none;
                     outline: none;
-                    
+
                     &::after {
                         background-color: var(--QLD-color-dark__design-accent);
                     }
@@ -428,7 +428,7 @@
 
 #content .qld__tab-container{
     .qld__tab-content{
-        
+
         > section.qld__body:first-of-type{
             padding-top: 0;
         }
@@ -444,12 +444,12 @@
 }
 
 #content .qld__tab-section .qld__tab-container{
-    .qld__tab-content{   
+    .qld__tab-content{
         padding-left: 0px;
         padding-right: 0px;
     }
 }
-    
+
 
 *:not(.row) + .qld__tab-container {
     margin-top: 32px;
@@ -458,7 +458,7 @@
 .qld__tab-section {
     border-top: 1px solid var(--QLD-color-light__border--alt);
     margin-top: 48px;
-    box-shadow: 0 -49px 0 0 $QLD-color-neutral--white;
+    box-shadow: 0 -49px 0 0 var(--QLD-color-neutral--white);
 
     .qld__tab-button[tabindex="0"]:focus{
         border-color:var(--QLD-color-light__border--alt);
@@ -517,13 +517,13 @@
 
 
         .qld__tab-nav__item-scroll {
-        
+
             &.tab-overflow-nav-button-left {
                 display: none;
                 left: 0;
                 background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-light__background));
             }
-        
+
             &.tab-overflow-nav-button-right {
                 display: none;
                 right: 0;
@@ -535,23 +535,23 @@
             &:not(.active) {
                 background: var(--QLD-color-light__background--shade);
                 color: var(--QLD--color-light__link);
-    
+
                     span i {
                         color: var(--QLD-color-light__action--secondary);
                     }
-    
+
                 &:hover {
                     background: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
-    
+
                     span i {
                         color: var(--QLD-color-light__link--on-action)
                     }
                 }
             }
         }
-    }  
+    }
 }
 
 .qld__banner.qld__banner--alt+#content > section:first-child,
@@ -560,13 +560,13 @@
     &.qld__tab-section{
         box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
         .qld__tab-nav__item-scroll {
-            
+
             &.tab-overflow-nav-button-left {
                 display: none;
                 left: 0;
                 background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-light__background--alt));
             }
-        
+
             &.tab-overflow-nav-button-right {
                 display: none;
                 right: 0;
@@ -593,10 +593,10 @@
                     }
                 }
             }
-        }    
+        }
     }
 
-    
+
 }
 
 .qld__banner.qld__banner--dark+#content > section:first-child,
@@ -605,13 +605,13 @@
     &.qld__tab-section{
         box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
         .qld__tab-nav__item-scroll {
-                
+
             &.tab-overflow-nav-button-left {
                 display: none;
                 left: 0;
                 background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-dark__background));
             }
-        
+
             &.tab-overflow-nav-button-right {
                 display: none;
                 right: 0;
@@ -641,7 +641,7 @@
         }
     }
 
-    
+
 }
 .qld__banner.qld__banner--dark-alt+#content > section:first-child,
 .qld__banner.qld__banner--dark-alt+#content > data:first-child + section {
@@ -649,13 +649,13 @@
     &.qld__tab-section{
         box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background--alt);
         .qld__tab-nav__item-scroll {
-                    
+
             &.tab-overflow-nav-button-left {
                 display: none;
                 left: 0;
                 background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-dark__background--alt));
             }
-        
+
             &.tab-overflow-nav-button-right {
                 display: none;
                 right: 0;
@@ -682,7 +682,7 @@
                     color: var(--QLD-color-dark__link--on-action)
                 }
             }
-        } 
+        }
     }
 
 }
@@ -691,13 +691,13 @@
 .qld__body--light+data+.qld__tab-section{
     box-shadow: 0 -49px 0 0 var(--QLD-color-light__background);
     .qld__tab-nav__item-scroll {
-        
+
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
             background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-light__background));
         }
-    
+
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
@@ -710,16 +710,16 @@
             &:not(.active) {
                 background: var(--QLD-color-light__background--shade);
                 color: var(--QLD--color-light__link);
-    
+
                     span i {
                         color: var(--QLD-color-light__action--secondary);
                     }
-    
+
                 &:hover {
                     background: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
-    
+
                     span i {
                         color: var(--QLD-color-light__link--on-action)
                     }
@@ -737,13 +737,13 @@
     box-shadow: 0 -49px 0 0 var(--QLD-color-light__background--alt);
 
     .qld__tab-nav__item-scroll {
-        
+
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
             background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-light__background--alt));
         }
-    
+
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
@@ -757,16 +757,16 @@
             &:not(.active) {
                 background: var(--QLD-color-light__background--alt-shade);
                 color: var(--QLD-color-light__link);
-    
+
                     span i {
                         color: var(--QLD-color-light__action--secondary);
                     }
-    
+
                 &:hover {
                     background: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
-    
+
                     span i {
                         color: var(--QLD-color-light__link--on-action)
                     }
@@ -785,13 +785,13 @@
     box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background);
 
     .qld__tab-nav__item-scroll {
-        
+
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
             background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-dark__background));
         }
-    
+
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
@@ -804,7 +804,7 @@
             &:not(.active) {
                 background: var(--QLD-color-dark__background--shade);
                 color: var(--QLD-color-dark__link);
-    
+
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
@@ -813,13 +813,13 @@
                     outline: 3px solid var(--QLD-color-dark__focus);
                 }
             }
-            
-    
+
+
             &:hover {
                 background: var(--QLD-color-dark__action--primary-hover);
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
-    
+
                 span i {
                     color: var(--QLD-color-dark__link--on-action)
                 }
@@ -839,13 +839,13 @@
     box-shadow: 0 -49px 0 0 var(--QLD-color-dark__background--alt);
 
     .qld__tab-nav__item-scroll {
-        
+
         &.tab-overflow-nav-button-left {
             display: none;
             left: 0;
             background: linear-gradient(to left, rgba(255,255,255,0), var(--QLD-color-dark__background--alt));
         }
-    
+
         &.tab-overflow-nav-button-right {
             display: none;
             right: 0;
@@ -859,7 +859,7 @@
             &:not(.active) {
                 background: var(--QLD-color-dark__background--alt-shade);
                 color: var(--QLD-color-dark__link);
-    
+
                 span i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
@@ -868,12 +868,12 @@
                     outline: 3px solid var(--QLD-color-dark__focus);
                 }
             }
-    
+
             &:hover {
                 background: var(--QLD-color-dark__action--primary-hover);
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
-    
+
                 span i {
                     color: var(--QLD-color-dark__link--on-action)
                 }
@@ -904,7 +904,7 @@
         }
     }
 
-    
+
     .qld__tab {
         &-content {
             border-bottom: none;
@@ -1025,7 +1025,7 @@
                                 outline-offset: -8px;
                             }
                         }
-        
+
                         &:not(.active):hover {
                             background: var(--QLD-color-light__action--primary-hover);
                             color: var(--QLD-color-light__link--on-action);

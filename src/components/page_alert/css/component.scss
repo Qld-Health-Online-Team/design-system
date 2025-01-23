@@ -5,11 +5,11 @@
 	@include QLD-space( padding, 1unit );
 	@include QLD-fontgrid( sm );
 	position: relative;
-	border: solid $QLD-border-width-default $QLD-color-status__info;
+	border: solid $QLD-border-width-default var(--QLD-color-status__info);
 	@include QLD-space( border-left-width, 3unit );
 	border-radius: $QLD-border-radius-xs;
 	word-wrap: break-word;
-	background-color: $QLD-color-neutral--white;
+	background-color: var(--QLD-color-neutral--white);
 	max-width: 48rem;
 
 	&.qld__page-alerts--svg {
@@ -25,17 +25,17 @@
 		}
 
 		.qld__icon {
-			color: $QLD-color-neutral--white;
+			color: var(--QLD-color-neutral--white);
 		}
 
 		/**
 		* Page alert success
 		*/
 		&.qld__page-alerts--success {
-			border-color: $QLD-color-status__success;
+			border-color: var(--QLD-color-status__success);
 
 			.qld__icon {
-				color: $QLD-color-neutral--white;
+				color: var(--QLD-color-neutral--white);
 			}
 		}
 
@@ -43,10 +43,10 @@
 		* Page alert warning.
 		*/
 		&.qld__page-alerts--warning {
-			border-color: $QLD-color-status__caution;
+			border-color: var(--QLD-color-status__caution);
 
 			.qld__icon {
-				color: $QLD-color-neutral--black;
+				color: var(--QLD-color-neutral--black);
 			}
 		}
 
@@ -54,14 +54,14 @@
 		* Page alert error.
 		*/
 		&.qld__page-alerts--error {
-			border-color: $QLD-color-status__error;
+			border-color: var(--QLD-color-status__error);
 
 			.qld__icon {
-				color: $QLD-color-neutral--white;
+				color: var(--QLD-color-neutral--white);
 			}
 		}
 	}
-	
+
 	& .qld__page-alerts--heading.qld__display-lg {
 		color: var(--QLD-color-light__heading);
 		@include QLD-space(margin-bottom, 1unit);
@@ -79,10 +79,10 @@
 	* Page alert warning.
 	*/
 	&.qld__page-alerts--warning {
-		border-color: $QLD-color-status__caution;
+		border-color: var(--QLD-color-status__caution);
 
 		&::before{
-			background-color: $QLD-color-neutral--black;
+			background-color: var(--QLD-color-neutral--black);
 			mask-image: QLD-svguri($QLD-icon-warning);
 		}
 	}
@@ -91,10 +91,10 @@
 	* Page alert error.
 	*/
 	&.qld__page-alerts--error {
-		border-color: $QLD-color-status__error;
+		border-color: var(--QLD-color-status__error);
 
 		&::before{
-			background-color: $QLD-color-neutral--white;
+			background-color: var(--QLD-color-neutral--white);
 			mask-image: QLD-svguri($QLD-icon-error);
 		}
 	}
@@ -103,7 +103,7 @@
 	.qld__body--dark &,
 	.qld__body--dark-alt &{
 		color: var(--QLD-color-light__text);
-		
+
 		h3{
 			color: var(--QLD-color-light__heading);
 		}
@@ -119,7 +119,7 @@
 }
 
 /**
-* This section can be removed in the future once all WYSIWYG codes are updated to use SVG instead of pseudo. 
+* This section can be removed in the future once all WYSIWYG codes are updated to use SVG instead of pseudo.
 */
 .qld__page-alerts:not(.qld__page-alerts--svg) {
 	&::before{
@@ -131,7 +131,7 @@
 		mask-image: QLD-svguri($QLD-icon-info);
 		mask-repeat: no-repeat;
 		mask-position: center;
-		background-color: $QLD-color-neutral--white;
+		background-color: var(--QLD-color-neutral--white);
 		position: absolute;
 		@include QLD-space( left, -1.5unit );
 		top: 50%;
@@ -142,10 +142,10 @@
 	* Page alert success
 	*/
 	&.qld__page-alerts--success {
-		border-color: $QLD-color-status__success;
+		border-color: var(--QLD-color-status__success);
 
 		&::before{
-			background-color: $QLD-color-neutral--white;
+			background-color: var(--QLD-color-neutral--white);
 			mask-image: QLD-svguri($QLD-icon-success);
 		}
 	}
@@ -154,10 +154,10 @@
 	* Page alert warning.
 	*/
 	&.qld__page-alerts--warning {
-		border-color: $QLD-color-status__caution;
+		border-color: var(--QLD-color-status__caution);
 
 		&::before{
-			background-color: $QLD-color-neutral--black;
+			background-color: var(--QLD-color-neutral--black);
 			mask-image: QLD-svguri($QLD-icon-warning);
 		}
 	}
@@ -166,10 +166,10 @@
 	* Page alert error.
 	*/
 	&.qld__page-alerts--error {
-		border-color: $QLD-color-status__error;
+		border-color: var(--QLD-color-status__error);
 
 		&::before{
-			background-color: $QLD-color-neutral--white;
+			background-color: var(--QLD-color-neutral--white);
 			mask-image: QLD-svguri($QLD-icon-error);
 		}
 	}

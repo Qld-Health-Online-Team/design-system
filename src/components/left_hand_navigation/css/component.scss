@@ -19,7 +19,7 @@
                     }
                 }
 
-                
+
             }
         }
     }
@@ -39,21 +39,21 @@
         .qld__body:first-of-type{
             // padding-top: 0;
         }
-        
+
         > .qld__banner > .container-fluid,
         > .qld__body > .container-fluid,
         #content > .qld__body > .container-fluid {
 
                 padding-left: calc(48px + (100vw - 992px) *(72 - 48) / (1312 - 992));
                 @include QLD-space(padding-right, 3unit) ;
-            
+
         }
         // > .qld__body > .container-fluid > row{
     }
 
     .qld__left-nav {
-        background-color: $QLD-color-neutral--lightest;
-        border-right: $QLD-border-width-default solid $QLD-color-neutral--lighter;
+        background-color: var(--QLD-color-neutral--lightest);
+        border-right: $QLD-border-width-default solid var(--QLD-color-neutral--lighter);
         display: block;
         min-width: pxToRem(280);
         max-width: pxToRem(280);
@@ -82,7 +82,7 @@
         }
 
         .qld__left-nav__content {
-            border-bottom: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+            border-bottom: $QLD-border-width-thin solid var(--QLD-color-neutral--lighter);
         }
 
         ul {
@@ -91,12 +91,12 @@
             padding-bottom: 0px;
 
             li {
-                border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+                border-top: $QLD-border-width-thin solid var(--QLD-color-neutral--lighter);
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: space-between;
-                position: relative; 
+                position: relative;
                 margin: 0;
 
                 &.has-child {
@@ -117,13 +117,13 @@
                     }
 
                     > .qld__left-nav__item-link ~ .qld__accordion--closed {
-                        background-color: $QLD-color-neutral--white;
+                        background-color: var(--QLD-color-neutral--white);
                         color: var(--QLD-color-light__link);
                         // color of the arrowed option
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
-                            background-color: $QLD-color-neutral--white;
+                            background-color: var(--QLD-color-neutral--white);
                         }
 
                         .qld__left-nav__item-icon svg * {
@@ -175,13 +175,13 @@
                     }
 
                     &.qld__left-nav__item-link--open {
-                        background-color: $QLD-color-neutral--white;
+                        background-color: var(--QLD-color-neutral--white);
                         color: var(--QLD-color-light__link);
                         // arrowed optoin second
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
-                            background-color: $QLD-color-neutral--white;
+                            background-color: var(--QLD-color-neutral--white);
                         }
 
                         .qld__left-nav__item-icon svg * {
@@ -194,7 +194,7 @@
                     position: relative;
                     @include QLD-space(min-height, 2unit);
                     @include QLD-space(min-width, 2unit);
-                    background-color: $QLD-color-neutral--white;
+                    background-color: var(--QLD-color-neutral--white);
                     @include QLD-space(margin, 0 1unit);
                     align-self: center;
                     @include QLD-box-shadow(1);
@@ -239,7 +239,7 @@
                 }
 
                 ul {
-                    background-color: $QLD-color-neutral--white;
+                    background-color: var(--QLD-color-neutral--white);
                     flex-basis: 100%;
                     padding-top: 0;
 
@@ -312,7 +312,7 @@
 
                 .qld__left-nav__item-link {
                     color: var(--QLD-color-dark__text);
-                    
+
                     &.qld__left-nav__item-link--open {
                         background-color: var(--QLD-color-dark__background);
                         color: var(--QLD-color-dark__link);
@@ -347,7 +347,7 @@
         > .qld__body > .container-fluid,
         #content > .qld__body > .container-fluid{
 
-            @include QLD-space(margin-left, 0unit); 
+            @include QLD-space(margin-left, 0unit);
             padding-left: calc(72px + (100vw - 1312px) *(128 - 72) / (1600 - 1312));
         }
     }
@@ -358,8 +358,8 @@
         > .qld__banner > .container-fluid,
         > .qld__body > .container-fluid,
         #content > .qld__body > .container-fluid{
-            @include QLD-space(padding-left, 8unit); 
+            @include QLD-space(padding-left, 8unit);
         }
     }
-    
+
 }

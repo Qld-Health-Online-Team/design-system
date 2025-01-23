@@ -3,7 +3,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__a-z_listing {
-	
+
     .qld__a-z_listing__header {
 
         @include QLD-media(lg) {
@@ -11,12 +11,12 @@
         }
 
         .qld__a-z_listing__header__intro {
-            font-size: pxToRem(16); 
+            font-size: pxToRem(16);
             line-height: pxToRem(24);
 
             @include QLD-media(md) {
                 font-size: pxToRem(24);
-                line-height: pxToRem(32);  
+                line-height: pxToRem(32);
             }
         }
     }
@@ -46,7 +46,7 @@
 
                 &:not(:disabled) {
                     &:hover{
-                        background-color: $QLD-color-neutral--lightest;
+                        background-color: var(--QLD-color-neutral--lightest);
                         color: var(--QLD-color-light__text--lighter);
                         border: 2px solid var(--QLD-color-light__action--secondary-hover);
                         @include QLD-space(padding, 0);
@@ -58,7 +58,7 @@
                     background-color: var(--QLD-color-light__link);
                     border: none;
                     @include QLD-space(padding, 2px);
-                    
+
                 }
             }
         }
@@ -88,12 +88,12 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                border: 1px solid $QLD-color-neutral--lighter;
+                border: 1px solid var(--QLD-color-neutral--lighter);
                 text-align: center;
                 @include sq-border-radius(8px);
                 width: pxToRem(64);
                 height: pxToRem(64);
-                background-color: $QLD-color-neutral--lightest;
+                background-color: var(--QLD-color-neutral--lightest);
             }
 
             &.active {
@@ -105,7 +105,7 @@
         }
 
         .qld__a-z_listing__list__item__services {
-            border: 1px solid $QLD-color-neutral--lighter;
+            border: 1px solid var(--QLD-color-neutral--lighter);
             border-radius: pxToRem(12);
             list-style: none;
             overflow-y: hidden;
@@ -122,8 +122,8 @@
 
 
             .qld__a-z_listing__list__item__services__item {
-                
-                border-bottom: 1px solid $QLD-color-neutral--lighter;
+
+                border-bottom: 1px solid var(--QLD-color-neutral--lighter);
 
                 .qld__a-z_listing__list__item__services__item__link {
                     display: inline-block;
@@ -142,7 +142,7 @@
                 }
 
                 &:nth-child(2n) {
-                    background-color: $QLD-color-neutral--lightest;
+                    background-color: var(--QLD-color-neutral--lightest);
                 }
             }
         }

@@ -17,9 +17,9 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             th {
                 &,
                 &.sorting::before,
-                &.sorting::after, 
+                &.sorting::after,
                 &.sorting.sorting_desc::before,
-                &.sorting.sorting_desc::after, 
+                &.sorting.sorting_desc::after,
                 &.sorting.sorting_asc::before,
                 &.sorting.sorting_asc::after {
                     content: none;
@@ -55,12 +55,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &>tfoot>th {
         padding: 0.75rem;
     }
-    
+
     a {
         cursor: pointer;
     }
 
-    //start* this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables. 
+    //start* this is a datatables bug that even if you add your own search box, they keep their searchbox on the page. so, i needed to remove it manually here until they fix it and we update to the fixed version fo the datatables.
     #qld__header__search-query {
         display: none;
     }
@@ -83,11 +83,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 display: none;
             }
         }
-        
+
         @include QLD-media(md) {
             max-width: 360px;
             flex: 40%;
-    
+
             label {
                 width: 100%;
                 display: flex;
@@ -98,7 +98,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                     flex: 1;
                     margin-left: 12px;
                 }
-    
+
                 input:not(#qld__data-table__search-field) {
                     display: none;
                 }
@@ -115,12 +115,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         padding: 16px 12px;
         align-items: center;
         gap: 16px;
-        
+
 
 
         @include QLD-media(sm) {
             flex-direction: row;
-        }        
+        }
 
         .dataTables_length {
             display: flex;
@@ -133,7 +133,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
             @include QLD-media(sm) {
                 display: block;
-                max-width: 40%;   
+                max-width: 40%;
                 label {
                     display: block;
                 }
@@ -141,18 +141,18 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
 
         & .dataTables_paginate > .qld__search-pagination__list {
-    
+
             display: flex;
             justify-content: flex-start;
             & li.disabled {
                 display: none;
             }
-    
+
             @include QLD-media(sm) {
                 justify-content: flex-end;
-    
+
             }
-    
+
         }
     }
 
@@ -165,7 +165,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         font-size: 20px;
         line-height: 32px;
         color: var(--QLD-color-status__dark-underline);
-        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
+        box-shadow: inset 0 -1px 0 var(--QLD-color-neutral--lighter);
 
         .qld__caption{
             font-style: normal;
@@ -191,11 +191,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         tr {
 
             &:nth-child(2) {
-                background-color: $QLD-color-neutral--lightest;
+                background-color: var(--QLD-color-neutral--lightest);
             }
 
             th {
-    
+
                 background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDow}");
                 background-repeat: no-repeat;
                 background-position: right 11px center;
@@ -208,71 +208,71 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                     text-decoration: underline;
                     box-shadow: inset 0 -2px 0 var(--QLD-color-light__action--primary-hover);
                 }
-    
+
                 &:active {
                     box-shadow: inset 0 -2px 0 var(--QLD-color-light__design-accent);
                 }
-    
+
                 color: var(--QLD-color-light__underline--hover);
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
-            
+
                 box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light__border--alt);
-    
+
                 font-weight: bold;
                 @include QLD-fontgrid(md, heading);
-    
+
                 &.qld__data-table__cell--numeric {
                     text-align: right;
                     font-variant: tabular-nums;
                 }
-    
+
                 &.qld__data-table__cell--middle {
                     text-align: center;
                 }
-    
+
                 &.qld__data-table__header--width-10 {
                     width: 10%;
                 }
-    
+
                 &.qld__data-table__header--width-15 {
                     width: 15%;
                 }
-    
+
                 &.qld__data-table__header--width-20 {
                     width: 20%;
                 }
-    
+
                 &.qld__data-table__header--width-25 {
                     width: 25%;
                 }
-    
+
                 &.qld__data-table__header--width-33 {
                     width: 33%;
                 }
-    
+
                 &.qld__data-table__header--width-40 {
                     width: 40%;
                 }
-    
+
                 &.qld__data-table__header--width-50 {
                     width: 50%;
                 }
-    
+
                 &.qld__data-table__header--width-75 {
                     width: 75%;
                 }
-    
+
                 &.sorting_asc,
                 &.sorting_desc { //needs to stayl
-                    background-color: $QLD-color-neutral--lightest;
+                    background-color: var(--QLD-color-neutral--lightest);
                     box-shadow: inset 0 -2px 0 var(--QLD-color-light__design-accent);
                     text-decoration: underline;
                 }
-    
+
                 &.sorting_desc { //needs to stayl
                     background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDown}");
                 }
-    
+
                 &.sorting_asc { //needs to stayl
                     background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUp}");
                 }
@@ -297,7 +297,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     td {
         @include QLD-standard-space(padding, 3);
         padding: 12px 12px 12px 12px;
-        box-shadow: inset 0 0 -$QLD-border-width-thin 0 $QLD-color-neutral--lighter;
+        box-shadow: inset 0 0 -$QLD-border-width-thin 0 var(--QLD-color-neutral--lighter);
 
         &.qld__data-table__cell--numeric {
             text-align: right;
@@ -309,7 +309,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         }
 
         &.sorting_1 { //needs to stayl
-            background-color: $QLD-color-neutral--lightest;
+            background-color: var(--QLD-color-neutral--lightest);
         }
     }
 
@@ -319,8 +319,8 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     tfoot {
-        background-color: $QLD-color-neutral--white;
-        box-shadow: 0 1px 0 $QLD-color-neutral--lighter;
+        background-color: var(--QLD-color-neutral--white);
+        box-shadow: 0 1px 0 var(--QLD-color-neutral--lighter);
 
         &.qld__data-table-footer, tr { //needs to stayl
             th {
@@ -328,7 +328,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 padding: 1.25rem 0.75rem 1.25rem 0.75rem;
                 &.sorting_1 {
                     box-shadow: 0 -2px 0 var(--QLD-color-light__design-accent);
-                    background-color: $QLD-color-neutral--lightest;
+                    background-color: var(--QLD-color-neutral--lightest);
                 }
 
             }
@@ -336,11 +336,11 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .qld__data-table__cell-left-border {
-        border-left: 1px solid $QLD-color-neutral--lighter;
+        border-left: 1px solid var(--QLD-color-neutral--lighter);
     }
 
     .qld__data-table__cell-right-border {
-        border-right: 1px solid $QLD-color-neutral--lighter;
+        border-right: 1px solid var(--QLD-color-neutral--lighter);
     }
 
     &.qld__data-table__col-1-left-border tr td:nth-child(1), //needs to go after merging with tables
@@ -353,7 +353,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-8-left-border tr td:nth-child(8),
     &.qld__data-table__col-9-left-border tr td:nth-child(9),
     &.qld__data-table__col-10-left-border tr td:nth-child(10) {
-        border-left: 1px solid $QLD-color-neutral--lighter;
+        border-left: 1px solid var(--QLD-color-neutral--lighter);
     }
 
     &.qld__data-table__col-1-right-border tr td:nth-child(1), //needs to go after merging with tables
@@ -361,7 +361,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-3-right-border tr td:nth-child(3),
     .qld__data-table__header {
         color: var(--QLD-color-status__dark-underline);
-        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
+        box-shadow: inset 0 -1px 0 var(--QLD-color-neutral--lighter);
         .qld__display-md {
             font-size: 1rem;
         }
@@ -374,7 +374,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     &.qld__data-table__col-8-right-border tr td:nth-child(8),
     &.qld__data-table__col-9-right-border tr td:nth-child(9),
     &.qld__data-table__col-10-right-border tr td:nth-child(10) {
-        border-right: 1px solid $QLD-color-neutral--lighter;
+        border-right: 1px solid var(--QLD-color-neutral--lighter);
     }
 
         border-radius: $QLD-border-radius-sm;
@@ -387,7 +387,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
 
     &.qld__data-table--scroll { //needs to go after tables come in place or if Kenny asks for non scroll
-        border: 1px solid $QLD-color-neutral--lighter;
+        border: 1px solid var(--QLD-color-neutral--lighter);
         border-radius: $QLD-border-radius-sm;
         max-height: 640px;
         /* Max height for mobile devices based on average available screen space on mobile devices */
@@ -413,7 +413,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             thead {
                 inset-block-start: 0;
                 /* "top" */
-                background-color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-neutral--white);
             }
 
             tfoot {
@@ -439,7 +439,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     & {
         width: 100%;
         overflow: auto;
-        border: 1px solid $QLD-color-neutral--lighter;
+        border: 1px solid var(--QLD-color-neutral--lighter;
         border-radius: $QLD-border-radius-sm;
         overflow-x: hidden;
 
@@ -450,7 +450,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     .qld__text-input { //needs to stay
         color: var(--QLD-color-light__text);
         border: 2px solid var(--QLD-color-light__border--alt);
-        background-color: $QLD-color-neutral--white;
+        background-color: var(--QLD-color-neutral--white);
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         -webkit-appearance: none;
@@ -472,12 +472,12 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
     }
 
     .top { //needs to stay
-        box-shadow: inset 0 -1px 0 $QLD-color-neutral--lighter;
+        box-shadow: inset 0 -1px 0 var(--QLD-color-neutral--lighter);
     }
 
     .dataTables_length>label>select { //needs to stay
         border: 2px solid var(--QLD-color-light__border--alt);
-        background-color: $QLD-color-neutral--white;
+        background-color: var(--QLD-color-neutral--white);
         background-image: url("data:image/svg+xml;charset=utf-8,#{$chevronDown}");
         background-color: transparent;
         padding: 0.75rem 2rem 0.75rem 1rem;
@@ -492,7 +492,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
     .dataTables_wrapper { //needs to stay
         .qld__data-table-item-numbers {
-            color: $QLD-color-neutral--darker;
+            color: var(--QLD-color-neutral--darker);
 
             &-total {
                 font-weight: 700;
@@ -519,7 +519,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             font-weight: 600;
             color: var(--QLD-color-light__link);
         }
-        
+
     }
 
     &.qld__table--striped {
@@ -528,9 +528,9 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
         tbody {
             .qld__table__row:nth-last-child(odd),
             tr:nth-last-child(odd) {
-                background-color: $QLD-color-neutral--lightest;
+                background-color: var(--QLD-color-neutral--lightest);
             }
-            
+
         }
 
         .qld__table__row:nth-last-child(odd),
@@ -607,7 +607,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
                 background-color: var(--QLD-color-dark__background--shade);
                 box-shadow: inset 0 -2px 0 var(--QLD-color-dark__design-accent);
             }
-            
+
             &.sorting_desc { //needs to stayl
                 background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowDownDark}");
             }
@@ -617,7 +617,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             }
         }
 
-        thead>tr>th {              
+        thead>tr>th {
 
             background-image: url("data:image/svg+xml;charset=utf-8,#{$arrowUpDowDark}");
 
@@ -732,7 +732,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             border-right: 1px solid var(--QLD-color-dark__border);
         }
 
-        // &.qld__data-table--contained { 
+        // &.qld__data-table--contained {
             border: 1px solid var(--QLD-color-dark__border);
         // }
 
@@ -760,7 +760,7 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
 
 
     .qld__body--dark-alt &{
-        
+
         .qld__data-table__cell,
         td {
             &.sorting_1 { //needs to stayl
@@ -787,8 +787,8 @@ table.qld__data-table, table.dataTable { // the table needs to be used for this 
             color: var(--QLD-color-dark__heading);
             background-color: var(--QLD-color-dark__background--alt);
 
-           
-            
+
+
         }
 
         caption,
