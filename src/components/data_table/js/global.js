@@ -185,6 +185,8 @@
                     // Remove role="link" and tabindex="0" from <li> elements in pagination
                     $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
                     $('li.qld__search-pagination_link').removeAttr('tabindex');
+                    // Remove the aria-label attribute
+                    $(tableDivId + " .dataTables_wrapper th").removeAttr('aria-label');
 
                     // Update sortable <th> elements
                     $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
@@ -319,9 +321,11 @@
                  // Remove role="link" and tabindex="0" from <li> elements in pagination
                  $('li.qld__search-pagination_link[role="link"]').removeAttr('role');
                  $('li.qld__search-pagination_link').removeAttr('tabindex');
+                 // Remove the aria-label attribute
+                 $(tableDivId + " .dataTables_wrapper th").removeAttr('aria-label');
 
                  // Update sortable <th> elements
-                $(tableDivId + " #qld_table_html th[tabindex='0']").each(function () {
+                $(tableDivId + " .dataTables_wrapper th[tabindex='0']").each(function () {
                     const $this = $(this);
             
                     // Remove the tabindex attribute
@@ -368,7 +372,6 @@
         for(let tableDiv of tableDivs) {
             triggerFunctionBasedOnClass($(tableDiv));
         }
-        
     }
 
     QLD.dataTable = dataTable;

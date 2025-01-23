@@ -1,0 +1,165 @@
+.qld__body {
+    .qld__video__player-v2--caption,
+    .qld__accordion__title,
+    .qld__video__player-v2__transcript-link,
+    .qld__accordion__body-wrapper {
+        background-color: $QLD-color-neutral--lightest;
+        border: var(--QLD-border-width-thin) solid $QLD-color-neutral--lighter;
+    } 
+    .qld__video__player-v2__transcript{
+        &-link,
+        .qld__accordion__title {
+            i {
+                color: var(--QLD-color-light__action--secondary);
+            }
+        }
+    }
+
+    &--dark-alt {
+        .qld__video__player-v2--caption,
+        .qld__accordion__title,
+        .qld__video__player-v2__transcript-link,
+        .qld__accordion__body-wrapper {
+            color: $QLD-color-neutral--white;
+            background-color: var(--QLD-color-dark__background--alt-shade);
+            border: var(--QLD-border-width-thin) solid $QLD-color-dark__border--alt;
+        } 
+    }
+    &--dark {
+        .qld__video__player-v2--caption,
+        .qld__accordion__title,
+        .qld__video__player-v2__transcript-link,
+        .qld__accordion__body-wrapper {
+            color: $QLD-color-neutral--white;
+            background-color: var(--QLD-color-dark__background--shade);
+            border: var(--QLD-border-width-thin) solid $QLD-color-dark__border;
+        }
+    }
+
+    &--alt {
+        .qld__video__player-v2--caption,
+        .qld__accordion__title,
+        .qld__video__player-v2__transcript-link,
+        .qld__accordion__body-wrapper {
+            background-color: $QLD-color-neutral--light;
+            border: var(--QLD-border-width-thin) solid $QLD-color-light__border--alt;
+        }
+    }
+    &--light {
+        .qld__video__player-v2--caption,
+        .qld__accordion__title,
+        .qld__video__player-v2__transcript-link,
+        .qld__accordion__body-wrapper {
+             background-color: var(--QLD-color-light__background--shade);
+             border: var(--QLD-border-width-thin) solid $QLD-color-light__border;
+         }
+    }
+
+    &--dark-alt,
+    &--dark  {
+        .qld__video__player-v2__transcript {
+            .qld__accordion__title {
+                color: $QLD-color-neutral--white;
+                text-decoration-color: #fff;
+                i {
+                    color: var(--QLD-color-dark__action--secondary);
+                }
+                &:after {
+                    background-color: var(--QLD-color-dark__action--secondary);
+                }
+            }
+            &-link {
+                i {
+                    color: var(--QLD-color-dark__action--secondary);
+                }
+            }
+        }
+    }
+}
+.qld__video__player-v2 {
+    &--align {
+        .qld__video__player-v2--wysiwyg {
+            margin-top: pxToRem(32);
+        }
+    }
+    &--embed--container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+    }
+    &--iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &--caption {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: pxToRem(12) pxToRem(16);
+        font-size: pxToRem(14);
+        @include QLD-media(lg) {          
+            grid-template-columns: 1fr auto;
+        }
+    }
+
+    &--duration {
+        display: flex;
+        align-items: center;
+        .fa-clock {
+            margin: 0 pxToRem(4) pxToRem(-2) 0;
+        }
+        @include QLD-media(lg) {          
+            justify-content: flex-end;
+        }
+    }
+
+    &__transcript {
+        .qld__accordion {
+            border: none;
+            .qld__accordion__body-wrapper {
+                max-height: pxToRem(300);
+                overflow-y: auto;
+                background-color: transparent;
+            }
+        }
+        .qld__accordion__title {
+            font-size: pxToRem(16);
+            transition: transform 0.25s ease-in;
+            border-top: none;
+            i {
+                font-size: pxToRem(20);
+                margin-right: pxToRem(8);
+            }
+            &:hover {
+                background-color: transparent;
+            }
+        }
+        &-link {
+            padding: pxToRem(16) pxToRem(12);
+            i {
+                margin-right: pxToRem(8);
+            }
+        }
+    }
+}
+
+.qld__video {
+    &__copy--centered,
+    &__copy--centered p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &__player-v2--wysiwyg {
+        margin-bottom: pxToRem(32);
+    }
+    &__centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
