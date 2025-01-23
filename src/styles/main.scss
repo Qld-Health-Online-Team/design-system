@@ -1,0 +1,30 @@
+@charset "UTF-8";
+// Import the QGDS Design Tokens Level 1 (Primitive) and Level 2 (QGDS).
+@import "./../../node_modules/@qld-gov-au/qgds-tokens/dist/scss/styles/primitive";
+@import "./../../node_modules/@qld-gov-au/qgds-tokens/dist/scss/styles/qgds";
+// Level 3 (Theme-Palette) theme and palettes are combined in one file
+// Please don't change the following line. It is used by the build process to inject the correct path to the qgds-tokens package
+@import "../../node_modules/@qld-gov-au/qgds-tokens/dist/scss/styles/qgds-qld-default-palette.scss";
+// Mapping of the QGDS Design Tokens to general CSS variables
+@import "imports/variables-root.scss";
+// Mapping of tokens to CSS variables for the light and dark themes
+@import "imports/variables-light.scss";
+@import "imports/variables-dark.scss";
+// client selects theme via ui-component
+body.light {
+  @include css-variables-light();
+}
+body.dark {
+  @include css-variables-dark();
+}
+// system/os/browser prefers-color-scheme
+@media (prefers-color-scheme: light) {
+  body:not(.dark):not(.light) {
+    @include css-variables-light();
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body:not(.dark):not(.light) {
+    @include css-variables-dark();
+  }
+}

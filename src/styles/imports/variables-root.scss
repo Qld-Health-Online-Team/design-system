@@ -2,56 +2,76 @@
 // GLOBAL VARIABLES
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@import "figma.scss";
+//QGDS Tokens: Design System Tokens + Typography
+@use "sass:map";
+
 /**
  * QLD-pixelfallback enable pixel fallbacks
  */
 $QLD-pixelfallback: true !default;
 
- /**
+/**
   * QLD-media Breakpoints
   */
-$QLD-media-sm: 400px;
-$QLD-media-md: 699px;
-$QLD-media-lg: 992px;
-$QLD-media-xl: 1312px;
-$QLD-media-xxl: 1599px;
+$QLD-media-sm: $qgdsMediaQuerySm; //400px
+$QLD-media-md: $qgdsMediaQueryMd; //699px
+$QLD-media-lg: $qgdsMediaQueryLg; //992px
+$QLD-media-xl: $qgdsMediaQueryXl; //1312px
+$QLD-media-xxl: $qgdsMediaQueryXxl; //1599px
 $QLD-main-nav-breakpoint: lg;
 
- /**
+/**
   * QLD-rem value used for REM calculation
   */
 $QLD-rem: 16 !default;
 
- /**
+/**
   * QLD-unit used for all type and grid calculations
   */
 $QLD-unit: 4 !default;
 
- /**
+/**
   * QLD-font stack
   * QLD-font-monospace stack
   */
-$QLD-font: "Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$QLD-font:
+  $typographyMobileBodyFontFamily,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
 
-$QLD-font-monospace: "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
-$QLD-font-heading: "ff-meta-web-pro", "Noto Sans", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+$QLD-font-monospace: $typographyMobileCodeFontFamily, Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
+$QLD-font-heading:
+  $typographyMobileH1FontFamily,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
 
- /**
+/**
   * QLD-fontsize-map
   *
-  * Predetermined pixel sizes from a 1.25 typescale rounded to the nearest $QLD-unit (vertical grid)
+  * Predetermined pixel sizes
   */
 $QLD-fontsize-map: (
-    xs:   14,
-    sm:   16,
-    md:   20,
-    lg:   24,
-    xl:   32,
-    xxl:  40,
-    xxxl: 52
+  xs: $qgdsFontSizeMapDesktopXs,
+  sm: $qgdsFontSizeMapDesktopSm,
+  md: $qgdsFontSizeMapDesktopMd,
+  lg: $qgdsFontSizeMapDesktopLg,
+  xl: $qgdsFontSizeMapDesktopXxl,
+  xxl: $qgdsFontSizeMapDesktopXxxl,
+  xxxl: $qgdsFontSizeMapDesktopXxxxl,
 ) !default;
 
 // Base font
@@ -61,29 +81,65 @@ $base-font-pixel: 16; // Used for font size calculations & conversions
 /**
   * QLD-maxwidth for line lengths (the ‘measure’)
   */
-  $QLD-font-maxwidth: 80ch; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
+$QLD-font-maxwidth: 80ch; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
 
-  /**
+/**
   * QLD typography sizes
-  *
   */
-$QLD-font-size-desktop-xs: .875rem;
-$QLD-font-size-desktop-sm: 1rem;
-$QLD-font-size-desktop-md: 1.25rem;
-$QLD-font-size-desktop-lg: 1.5rem;
-$QLD-font-size-desktop-xl: 2rem;
-$QLD-font-size-desktop-xxl: 2.5rem;
-$QLD-font-size-desktop-xxxl: 3rem;
 
-$QLD-font-size-mobile-xs: .875rem;
-$QLD-font-size-mobile-sm: 1rem;
-$QLD-font-size-mobile-md: 1.25rem;
-$QLD-font-size-mobile-lg: 1.5rem;
-$QLD-font-size-mobile-xl: 1.75rem;
-$QLD-font-size-mobile-xxl: 2rem;
-$QLD-font-size-mobile-xxxl: 2.5rem;
+$QLD-font-size-desktop-xs: $typographyDesktopSmFontSize; //14px
+$QLD-font-size-desktop-sm: $typographyDesktopBodyFontSize; //16px
+$QLD-font-size-desktop-md: $typographyDesktopH5FontSize; //19.2px
+$QLD-font-size-desktop-lg: $typographyDesktopH4FontSize; //23.04px
+$QLD-font-size-desktop-xl: $typographyDesktopH3FontSize; //27.648px
+$QLD-font-size-desktop-xxl: $typographyDesktopH2FontSize; //33.1776px
+$QLD-font-size-desktop-xxxl: $typographyDesktopH1FontSize; //39.8131px
 
- /**
+$QLD-font-size-mobile-xs: $typographyMobileSmFontSize; //14px
+$QLD-font-size-mobile-sm: $typographyMobileBodyFontSize; //16px
+$QLD-font-size-mobile-md: $typographyMobileH5FontSize; //19.2px
+$QLD-font-size-mobile-lg: $typographyMobileH4FontSize; //23.04px
+$QLD-font-size-mobile-xl: $typographyMobileH3FontSize; //27.648px
+$QLD-font-size-mobile-xxl: $typographyMobileH2FontSize; //33.1776px
+$QLD-font-size-mobile-xxxl: $typographyMobileH1FontSize; //39.8131px
+
+/**
+* QLD default and heading for utility classes
+*/
+
+$QLD-default-mobile-xs: $QLD-font-size-mobile-xs;
+$QLD-default-mobile-sm: $QLD-font-size-mobile-sm;
+$QLD-default-mobile-md: $QLD-font-size-mobile-md;
+$QLD-default-mobile-lg: $QLD-font-size-mobile-lg;
+$QLD-default-mobile-xl: $QLD-font-size-mobile-xl;
+$QLD-default-mobile-xxl: $QLD-font-size-mobile-xxl;
+$QLD-default-mobile-xxxl: $QLD-font-size-mobile-xxxl;
+
+$QLD-heading-space-mobile-xs: $typographyMobileSmLineHeight;
+$QLD-heading-space-mobile-sm: $typographyMobileBodyLineHeight;
+$QLD-heading-space-mobile-md: $typographyMobileH5LineHeight;
+$QLD-heading-space-mobile-lg: $typographyMobileH4LineHeight;
+$QLD-heading-space-mobile-xl: $typographyMobileH3LineHeight;
+$QLD-heading-space-mobile-xxl: $typographyMobileH2LineHeight;
+$QLD-heading-space-mobile-xxxl: $typographyMobileH1LineHeight;
+
+$QLD-default-desktop-xs: $QLD-font-size-desktop-xs;
+$QLD-default-desktop-sm: $QLD-font-size-desktop-sm;
+$QLD-default-desktop-md: $QLD-font-size-desktop-md;
+$QLD-default-desktop-lg: $QLD-font-size-desktop-lg;
+$QLD-default-desktop-xl: $QLD-font-size-desktop-xl;
+$QLD-default-desktop-xxl: $QLD-font-size-desktop-xxl;
+$QLD-default-desktop-xxxl: $QLD-font-size-desktop-xxxl;
+
+$QLD-heading-space-desktop-xs: $typographyDesktopSmLineHeight;
+$QLD-heading-space-desktop-sm: $typographyDesktopBodyLineHeight;
+$QLD-heading-space-desktop-md: $typographyDesktopH5LineHeight;
+$QLD-heading-space-desktop-lg: $typographyDesktopH4LineHeight;
+$QLD-heading-space-desktop-xl: $typographyDesktopH3LineHeight;
+$QLD-heading-space-desktop-xxl: $typographyDesktopH2LineHeight;
+$QLD-heading-space-desktop-xxxl: $typographyDesktopH1LineHeight;
+
+/**
   * QLD-lineheight-map
   *
   * Predetermined lineheight mapped to keyword
@@ -93,77 +149,70 @@ $QLD-lineheight-map: (
   nospace: 1,
   heading: 1.25,
   default: 1.5,
-  h3: calc(4/3),
+  h3: calc(4 / 3),
   h4: 1.2,
-  h6: calc(8/7),
+  h6: calc(8 / 7),
   small: 1.4,
 );
 
- /**
+/**
   * QLD-spacing-map
   *
   * Predetermined standard spacing mapped to keyword
   */
-  $QLD-space-map: (
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 12,
-    4: 16,
-    5: 20,
-    6: 24,
-    7: 32,
-    8: 36,
-    9: 40,
-    10: 48,
-    11: 56,
-    12: 64,
-    13: 80,
-    14: 96,
-    15: 128,
-    16: 160
+$QLD-space-map: (
+  0: $spacing0,
+  1: $spacing1,
+  2: $spacing2,
+  3: $spacing3,
+  4: $spacing4,
+  5: $spacing5,
+  6: $spacing6,
+  7: $spacing7,
+  8: $spacing8,
+  9: $spacing9,
+  10: $spacing10,
+  11: $spacing11,
+  12: $spacing12,
+  13: $spacing13,
+  14: $spacing14,
+  15: $spacing15,
+  16: $spacing16,
 ) !default;
-
-
-
 
 /* Gutters - Space between cols in the grid  */
 $QLD-grid__gutter--media-sm: 4;
 $QLD-grid__gutter--media-md: 6;
 $QLD-grid__gutter--media-lg: 7;
-$QLD-grid__gutter--media-xl: 7;
+$QLD-grid__gutter--media-xl: 7; // not used
 
 /**
 Gutter - space between columns in the grid for vertical navigation
 */
-$QLD-grid__gutter--media-portal-lg: 6;
-$QLD-grid__gutter--media-portal-xl: 7;
+$QLD-grid__gutter--media-portal-lg: 6; // not used
+$QLD-grid__gutter--media-portal-xl: 7; // not used
 
 /* Outer page margins (defined by padding on the container-fluid class)  */
 $QLD-grid__inner-padding--media-xs: 4;
-$QLD-grid__inner-padding--media-sm: 4;
-$QLD-grid__inner-padding--media-md: 7;
+$QLD-grid__inner-padding--media-sm: 4; // not used
+$QLD-grid__inner-padding--media-md: 7; // not used
 $QLD-grid__inner-padding--media-lg: 7;
-$QLD-grid__inner-padding--media-xl: 7;
+$QLD-grid__inner-padding--media-xl: 7; // not used
 
 /* Outer page margins (defined by padding on the container-fluid class) for vertical navigation   */
-$QLD-grid__inner-padding--media-portal-lg: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992));
-$QLD-grid__inner-padding--media-portal-xl: calc(72px + (100vw - 1312px) *(128 - 72) / (1600 - 1312));
-
+$QLD-grid__inner-padding--media-portal-lg: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992)); // not used
+$QLD-grid__inner-padding--media-portal-xl: calc(72px + (100vw - 1312px) * (128 - 72) / (1600 - 1312)); // not used
 
 /* Max-width of content area   */
 $QLD-grid__maxwidth: 86rem;
-
 
 /*** Padding values for sections - ony veritcal spacing value that does not use margin top*/
 $QLD-padding__section--mobile: 9;
 $QLD-padding__section--desktop: 12;
 
-
 /* Spacing between <section> containers */
 $QLD-margin__section--desktop: 12;
 $QLD-margin__section--mobile: 9;
-
 
 /* Spacing beteen content containers, ie div within a <section> */
 $QLD-margin__content-block--desktop: 10;
@@ -173,24 +222,23 @@ $QLD-margin__content-block--mobile: 7;
 $QLD-margin__component--desktop: 7;
 $QLD-margin__component--mobile: 6;
 
-
 /* Heading, text and paragraph spacing   */
 
 /* Space above an H1 */
-$QLD-margin__h1--desktop: 11;
-$QLD-margin__h1--mobile: 7;
+//$QLD-margin__h1--desktop: 11; //deprecated
+//$QLD-margin__h1--mobile: 7; //deprecated
 
 /* Space above an H2 */
-$QLD-margin__h2--desktop:10;
-$QLD-margin__h2--mobile: 7;
+//$QLD-margin__h2--desktop: 10; //deprecated
+//$QLD-margin__h2--mobile: 7; //deprecated
 
 /* Space above an H3 */
-$QLD-margin__h3--desktop: 8;
-$QLD-margin__h3--mobile: 7;
+//$QLD-margin__h3--desktop: 8; //deprecated
+//$QLD-margin__h3--mobile: 7; //deprecated
 
 /* Space above an H4-h6 */
-$QLD-margin__h4-h6--desktop: 7;
-$QLD-margin__h4-h6--mobile: 5;
+//$QLD-margin__h4-h6--desktop: 7; //deprecated
+//$QLD-margin__h4-h6--mobile: 5; //deprecated
 
 /* Space between different and text elements (ul,li,p,a,dl) example (h1 + p) */
 $QLD-margin__text-element--desktop: 6;
@@ -212,45 +260,88 @@ $QLD-margin__li-wide--mobile: 3;
 $QLD-margin__lables--desktop: 2;
 $QLD-margin__lables--mobile: 2;
 
-
 /**
 * QLD border-width values
 */
-$QLD-border-width-thin: 1px;
-$QLD-border-width-default: 2px;
-$QLD-border-width-medium: 3px;
-$QLD-border-width-thick: 4px;
-$QLD-border-width-extra-thick: 8px;
-
+$QLD-border-width-thin: $borderWidthThin;
+$QLD-border-width-default: $borderWidthDefault;
+$QLD-border-width-medium: $borderWidthMedium;
+$QLD-border-width-thick: $borderWidthThick;
+$QLD-border-width-extra-thick: $borderWidthExtraThick;
 
 /**
 * QLD border-radius values
 */
-$QLD-border-radius-xs: map-get( $QLD-space-map, 1 ) + px;
-$QLD-border-radius-sm: map-get( $QLD-space-map, 3 ) + px;
-$QLD-border-radius-md: map-get( $QLD-space-map, 4 ) + px;
-$QLD-border-radius-lg: map-get( $QLD-space-map, 7 ) + px;
-$QLD-border-radius-xl: map-get( $QLD-space-map, 9 ) + px;
-$QLD-border-radius-xxl: map-get( $QLD-space-map, 12 ) + px;
+$QLD-border-radius-none: $borderRadiusNone;
+$QLD-border-radius-xs: $borderRadiusXs;
+$QLD-border-radius-sm: $borderRadiusSm;
+$QLD-border-radius-md: $borderRadiusMd;
+$QLD-border-radius-lg: $borderRadiusLg;
+$QLD-border-radius-xl: $borderRadiusXl;
+$QLD-border-radius-xxl: $borderRadiusXxl;
 
 /**
 * QLD underline-thickness values
 */
-$QLD-underline__thickness-thin: 0.5px;
-$QLD-underline__thickness-thick: 2px;
+$QLD-underline__thickness-thin: $textDecorationThicknessThin;
+$QLD-underline__thickness-thick: $textDecorationThicknessThick;
 
 /**
 * QLD underline-offset value
 */
-$QLD-underline__offset: 0.3em;
+$QLD-underline__offset: $textDecorationOffsetNear;
 
 /**
 * QLD box shadow values
+
+Example with "key: value" from QLD Design Tokens
+
+$boxShadowThree1X: 0px;
+$boxShadowThree1Y: 4px;
+$boxShadowThree1Blur: 8px;
+$boxShadowThree1Spread: 3px;
+$boxShadowThree1Color: rgba(0, 0, 0, 0.1);
+$boxShadowThree1Type: dropShadow;
+$boxShadowThree2X: 0px;
+$boxShadowThree2Y: 1px;
+$boxShadowThree2Blur: 3px;
+$boxShadowThree2Spread: 0;
+$boxShadowThree2Color: rgba(0, 0, 0, 0.2);
+$boxShadowThree2Type: dropShadow;
+
+$boxShadowFour1X: 7px;
+$boxShadowFour1Y: 6px;
+$boxShadowFour1Blur: 13px;
+$boxShadowFour1Spread: 0;
+$boxShadowFour1Color: rgba(0, 0, 0, 0.2);
+$boxShadowFour1Type: dropShadow;
+$boxShadowFour2X: 0px;
+$boxShadowFour2Y: 2px;
+$boxShadowFour2Blur: 5px;
+$boxShadowFour2Spread: 0;
+$boxShadowFour2Color: rgba(0, 0, 0, 0.1);
+$boxShadowFour2Type: dropShadow;
+$boxShadowFour3X: 0px;
+$boxShadowFour3Y: 13px;
+$boxShadowFour3Blur: 20px;
+$boxShadowFour3Spread: 0;
+$boxShadowFour3Color: rgba(0, 0, 0, 0.1);
+$boxShadowFour3Type: dropShadow;
+
 */
-$QLD-box-shadow-level-one: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
-$QLD-box-shadow-level-two: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-$QLD-box-shadow-level-three: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
-$QLD-box-shadow-level-four: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+$QLD-box-shadow-level-one:
+  $boxShadowOne1X $boxShadowOne1Y $boxShadowOne1Blur $boxShadowOne1Spread $boxShadowOne1Color,
+  $boxShadowOne2X $boxShadowOne2Y $boxShadowOne2Blur $boxShadowOne2Spread $boxShadowOne2Color;
+$QLD-box-shadow-level-two:
+  $boxShadowTwo1X $boxShadowTwo1Y $boxShadowTwo1Blur $boxShadowTwo1Spread $boxShadowTwo1Color,
+  $boxShadowTwo2X $boxShadowTwo2Y $boxShadowTwo2Blur $boxShadowTwo2Spread $boxShadowTwo2Color;
+$QLD-box-shadow-level-three:
+  $boxShadowThree1X $boxShadowThree1Y $boxShadowThree1Blur $boxShadowThree1Spread $boxShadowThree1Color,
+  $boxShadowThree2X $boxShadowThree2Y $boxShadowThree2Blur $boxShadowThree2Spread $boxShadowThree2Color;
+$QLD-box-shadow-level-four:
+  $boxShadowFour1X $boxShadowFour1Y $boxShadowFour1Blur $boxShadowFour1Spread $boxShadowFour1Color,
+  $boxShadowFour2X $boxShadowFour2Y $boxShadowFour2Blur $boxShadowFour2Spread $boxShadowFour2Color,
+  $boxShadowFour3X $boxShadowFour3Y $boxShadowFour3Blur $boxShadowFour3Spread $boxShadowFour3Color;
 
 /***
 QLD Fixed widths
@@ -297,7 +388,7 @@ $QLD-font-size__feature-lg: 8rem;
 /**
 * QLD default icons
 */
-$QLD-icon-arrow-up: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M379.8 225.7C376.7 229.3 372.3 231.1 368 231.1c-3.844 0-7.703-1.426-10.77-4.31L208 86.12v377.3c0 9.171-7.156 16.59-15.1 16.59S176 472.6 176 463.4V86.12l-149.2 140.7C20.25 232.1 10.14 232.5 4.156 225.7C-1.781 218.9-1.297 208.4 5.234 202.2l176-165.9c6.094-5.768 15.44-5.768 21.53 0l176 165.9C385.3 208.4 385.8 218.9 379.8 225.7z"/></svg>' ;
+$QLD-icon-arrow-up: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M379.8 225.7C376.7 229.3 372.3 231.1 368 231.1c-3.844 0-7.703-1.426-10.77-4.31L208 86.12v377.3c0 9.171-7.156 16.59-15.1 16.59S176 472.6 176 463.4V86.12l-149.2 140.7C20.25 232.1 10.14 232.5 4.156 225.7C-1.781 218.9-1.297 208.4 5.234 202.2l176-165.9c6.094-5.768 15.44-5.768 21.53 0l176 165.9C385.3 208.4 385.8 218.9 379.8 225.7z"/></svg>';
 $QLD-icon-arrow-right: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z"/></svg>';
 $QLD-icon-arrow-down: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M378.8 309.8l-176 165.9C199.7 478.6 195.9 480 192 480s-7.719-1.426-10.77-4.31l-176-165.9C-1.297 303.6-1.781 293.1 4.156 286.3c5.953-6.838 16.09-7.259 22.61-1.134L176 425.9V48.59c0-9.171 7.156-16.59 15.1-16.59S208 39.42 208 48.59v377.3l149.2-140.7c6.516-6.125 16.66-5.704 22.61 1.134C385.8 293.1 385.3 303.6 378.8 309.8z"/></svg>';
 $QLD-icon-arrow-left: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z"/></svg>';
@@ -321,155 +412,48 @@ $QLD-icon-search: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
 /**
   *  QLD-color-neutral  colours
   */
-$QLD-color-neutral--black:#131212;
-$QLD-color-neutral--darkest: #222020;
-$QLD-color-neutral--darker: #444444;
-$QLD-color-neutral--dark: #78797E;
-$QLD-color-neutral--light: #E0E0E0;
-$QLD-color-neutral--lighter: #EBEBEB;
-$QLD-color-neutral--lightest: #F5F5F5;
-$QLD-color-neutral--white: #FFFFFF;
+$QLD-color-neutral--black: $qgdsColorNeutralWhiteDefault;
+$QLD-color-neutral--darkest: $qgdsColorNeutralDarkestDefault;
+$QLD-color-neutral--darker: $qgdsColorNeutralDarkerDefault;
+$QLD-color-neutral--dark: $qgdsColorNeutralDarkDefault;
+$QLD-color-neutral--light: $qgdsColorNeutralLightDefault;
+$QLD-color-neutral--lighter: $qgdsColorNeutralLighterDefault;
+$QLD-color-neutral--lightest: $qgdsColorNeutralLightestDefault;
+$QLD-color-neutral--white: $qgdsColorNeutralWhiteDefault;
 
 /**
  QLD-color-neutral  opacity
 */
 
-$QLD-color-neutral--white__opacity-10: rgba(255, 255, 255, 0.10);
-$QLD-color-neutral--light__opacity-10: rgba(244, 244, 244, 0.10);
-$QLD-color-neutral--darkest__opacity-10: rgba(34, 32, 32, 0.10);
-$QLD-color-neutral--black__opacity-10: rgba(19, 18, 18, 0.10);
+$QLD-color-neutral--white__opacity-10: $qgdsColorNeutralWhiteOpacityLow;
+$QLD-color-neutral--light__opacity-10: $qgdsColorNeutralLightOpacityLow;
+$QLD-color-neutral--darkest__opacity-10: $qgdsColorNeutralDarkestOpacityLow;
+$QLD-color-neutral--black__opacity-10: $qgdsColorNeutralBlackOpacityLow;
 
 /**
   * QLD-color- status styles
   */
-$QLD-color-status__error: #E22339 !default;
-$QLD-color-status__error--lightest: #FFF6F6 !default;
-$QLD-color-status__error--lighter: #FDF0F0 !default;
-$QLD-color-status__error--darker: #8A1220 !default;
+$QLD-color-status__error: $themeColorReservedErrorDefault !default;
+$QLD-color-status__error--lightest: $themeColorReservedErrorLightest !default;
+$QLD-color-status__error--lighter: $themeColorReservedErrorLighter !default;
+$QLD-color-status__error--darker: $themeColorReservedErrorDarker !default;
 
-$QLD-color-status__success: #339D37 !default;
-$QLD-color-status__success--lightest: #F7FBF8 !default;
-$QLD-color-status__success--lighter: #F2FAF4 !default;
-$QLD-color-status__success--darker: #0A690D !default;
+$QLD-color-status__info: $themeColorReservedInformationDefault !default;
+$QLD-color-status__info--lightest: $themeColorReservedInformationLightest !default;
+$QLD-color-status__info--lighter: $themeColorReservedInformationLighter !default;
+$QLD-color-status__info--darker: $themeColorReservedInformationDarker !default;
 
-$QLD-color-status__caution: #FFCC2C !default;
-$QLD-color-status__caution--lightest: #FFFAEA !default;
-$QLD-color-status__caution--lighter: #FFF2C9 !default;
-$QLD-color-status__caution--darker: #B38800 !default;
+$QLD-color-status__success: $themeColorReservedSuccessDefault !default;
+$QLD-color-status__success--lightest: $themeColorReservedSuccessLightest !default;
+$QLD-color-status__success--lighter: $themeColorReservedSuccessLighter !default;
+$QLD-color-status__success--darker: $themeColorReservedSuccessDarker !default;
 
-$QLD-color-status__info: #0085B3 !default;
-$QLD-color-status__info--lighter: #E5EEF5 !default;
-$QLD-color-status__info--lightest: #EFF4F9 !default;
-$QLD-color-status__info--darker: #006A8F !default;
+$QLD-color-status__caution: $themeColorReservedAlertDefault !default;
+$QLD-color-status__caution--lightest: $themeColorReservedAlertLightest !default;
+$QLD-color-status__caution--lighter: $themeColorReservedAlertLighter !default;
+$QLD-color-status__caution--darker: $themeColorReservedAlertDarker !default;
 
- /**
-  * QLD-color-light styles
-  */
-$QLD-color-light__site-title: #022A50 !default;
-$QLD-color-light__design-accent:#6BBE27 !default;
-$QLD-color-light__heading: #04284C !default;
-$QLD-color-light__text: #414141 !default;
-$QLD-color-light__text--lighter:#636363 !default;
-$QLD-color-light__link: #09549F !default;
-$QLD-color-light__link--visited: #551A8B !default;
-$QLD-color-light__link--on-action: #FFFFFF !default;
-$QLD-color-light__action--primary: #09549F !default;
-$QLD-color-light__action--primary-hover:#003E7D !default;
-$QLD-color-light__action--secondary: #008733 !default;
-$QLD-color-light__action--secondary-hover: #005B23 !default;
-$QLD-color-light__focus: #0085B3 !default;
-$QLD-color-light__border: #CCDDEE !default;
-$QLD-color-light__background: #EFF4F9 !default;
-$QLD-color-light__background--shade: #E5EEF5 !default;
-
-
- /**
-  * QLD-color-light-alt styles
-  */
-
-$QLD-color-light__border--alt: #7A7A7A !default;
-$QLD-color-light__background--alt: #E8E8E8 !default;
-$QLD-color-light__background--alt-shade: #E0E0E0 !default;
-
- /**
-  * QLD-color-dark styles
-  */
-$QLD-color-dark__site-title: #FFFFFF !default;
-$QLD-color-dark__design-accent:#6BBE27 !default;
-$QLD-color-dark__heading: #FFFFFF !default;
-$QLD-color-dark__text: #FFFFFF !default;
-$QLD-color-dark__text--lighter:#DEEBF9 !default;
-$QLD-color-dark__link: #FFFFFF !default;
-$QLD-color-dark__link--visited: #E1BBEE !default;
-$QLD-color-dark__link--on-action: #121940 !default;
-$QLD-color-dark__action--primary: #78BA00 !default;
-$QLD-color-dark__action--primary-hover:#ADD33F !default;
-$QLD-color-dark__action--secondary: #FFE500 !default;
-$QLD-color-dark__action--secondary-hover: #FFEF60 !default;
-$QLD-color-dark__focus: #01B0E5 !default;
-$QLD-color-dark__border: #1D9AC6 !default;
-$QLD-color-dark__background: #09549F !default;
-$QLD-color-dark__background--shade: #04498F !default;
-
- /**
-  * QLD-color-alt-dark styles
-  */
-$QLD-color-dark__border--alt: #09ACFE !default;
-$QLD-color-dark__background--alt: #05325F !default;
-$QLD-color-dark__background--alt-shade: #052C53 !default;
-
-
- /**
-  * QLD-border-radius styles
-  */
-$QLD-border-radius: $QLD-unit + 0px !default;
-
-/**
-* QLD underline-color values
-*/
-$QLD-color-status__light-underline: rgba(255, 255, 255, 0.72) !default;
-$QLD-color-light__underline: #3F7AB4 !default;
-$QLD-color-light__underline--hover: #{$QLD-color-light__link} !default;
-$QLD-color-light__underline--visited: #8B63B0 !default;
-$QLD-color-light__underline--hover-visited: #{$QLD-color-light__link--visited} !default;
-$QLD-color-status__dark-underline: rgba(3, 33, 63, 0.72) !default;
-$QLD-color-dark__underline: #B5CCE2 !default;
-$QLD-color-dark__underline--hover: #{$QLD-color-dark__link} !default;
-$QLD-color-dark__underline--visited: #E1C2FF !default;
-$QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__link--visited} !default;
-
-
-/**
-* QLD Line height variables
-*/
-
-$QLD-default-mobile-xs: 14px;
-$QLD-default-mobile-sm: 16px;
-$QLD-default-mobile-md: 20px;
-$QLD-default-mobile-lg: 24px;
-$QLD-default-mobile-xl: 28px;
-$QLD-default-mobile-xxl: 32px;
-$QLD-default-mobile-xxxl: 40px;
-
-$QLD-default-desktop-xs: 14px;
-$QLD-default-desktop-sm: 16px;
-$QLD-default-desktop-md: 20px;
-$QLD-default-desktop-lg: 24px;
-$QLD-default-desktop-xl: 32px;
-$QLD-default-desktop-xxl: 40px;
-$QLD-default-desktop-xxxl: 48px;
-
-$QLD-heading-space-xs: 16px;
-$QLD-heading-space-sm: 20px;
-$QLD-heading-space-md: 24px;
-$QLD-heading-space-lg: 32px;
-$QLD-heading-space-xl: 40px;
-$QLD-heading-space-xxl: 52px;
-$QLD-heading-space-xxxl: 60px;
-
-
-$QLD-color-contained-layout__background: #EFF4F9;
-
+//$QLD-color-contained-layout__background: #eff4f9; //deprecated
 
 /**
 * QLD custom properties (CSS variables) - defaults
@@ -477,61 +461,42 @@ $QLD-color-contained-layout__background: #EFF4F9;
 :root,
 ::after,
 ::before {
-  --QLD-color-light__site-title: #{$QLD-color-light__site-title};
-  --QLD-color-light__design-accent:#{$QLD-color-light__design-accent};
-  --QLD-color-light__heading: #{$QLD-color-light__heading};
-  --QLD-color-light__text: #{$QLD-color-light__text};
-  --QLD-color-light__text--lighter:#{$QLD-color-light__text--lighter};
-  --QLD-color-light__link: #{$QLD-color-light__link};
-  --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
-  --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
-  --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
-  --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
-  --QLD-color-light__focus: #{$QLD-color-light__focus};
-  --QLD-color-light__border: #{$QLD-color-light__border};
-  --QLD-color-light__background: #{$QLD-color-light__background};
-  --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
-  --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
-  --QLD-color-light__underline: #{$QLD-color-light__underline};
-  --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
-  --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
-  --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
-  --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
-  --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
-  --QLD-color-light__border--alt: #{$QLD-color-light__border--alt};
-  --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
-  --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
-
-  --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
-  --QLD-color-dark__design-accent:#{$QLD-color-dark__design-accent};
-  --QLD-color-dark__heading: #{$QLD-color-dark__heading};
-  --QLD-color-dark__text: #{$QLD-color-dark__text};
-  --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
-  --QLD-color-dark__link: #{$QLD-color-dark__link};
-  --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
-  --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
-  --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
-  --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
-  --QLD-color-dark__focus: #{$QLD-color-dark__focus};
-  --QLD-color-dark__border: #{$QLD-color-dark__border};
-  --QLD-color-dark__background: #{$QLD-color-dark__background};
-  --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
-  --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
-  --QLD-color-dark__underline: #{$QLD-color-dark__underline};
-  --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
-  --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
-  --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
-
-
-  --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
-  --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
-  --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
-  --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
-  --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
-
+  --QLD-color-neutral--black: #{$QLD-color-neutral--black};
+  --QLD-color-neutral--darkest: #{$QLD-color-neutral--darkest};
+  --QLD-color-neutral--darker: #{$QLD-color-neutral--darker};
+  --QLD-color-neutral--dark: #{$QLD-color-neutral--dark};
+  --QLD-color-neutral--light: #{$QLD-color-neutral--light};
+  --QLD-color-neutral--lighter: #{$QLD-color-neutral--lighter};
+  --QLD-color-neutral--lightest: #{$QLD-color-neutral--lightest};
+  --QLD-color-neutral--white: #{$QLD-color-neutral--white};
   --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
   --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
   --QLD-underline__offset: #{$QLD-underline__offset};
+
+  --QLD-color-neutral--white__opacity-10: #{$QLD-color-neutral--white__opacity-10};
+  --QLD-color-neutral--light__opacity-10: #{$QLD-color-neutral--light__opacity-10};
+  --QLD-color-neutral--darkest__opacity-10: #{$QLD-color-neutral--darkest__opacity-10};
+  --QLD-color-neutral--black__opacity-10: #{$QLD-color-neutral--black__opacity-10};
+
+  --QLD-color-status__error: #{$QLD-color-status__error};
+  --QLD-color-status__error--lightest: #{$QLD-color-status__error--lightest};
+  --QLD-color-status__error--lighter: #{$QLD-color-status__error--lighter};
+  --QLD-color-status__error--darker: #{$QLD-color-status__error--darker};
+
+  --QLD-color-status__info: #{$QLD-color-status__info};
+  --QLD-color-status__info--lightest: #{$QLD-color-status__info--lightest};
+  --QLD-color-status__info--lighter: #{$QLD-color-status__info--lighter};
+  --QLD-color-status__info--darker: #{$QLD-color-status__info--darker};
+
+  --QLD-color-status__success: #{$QLD-color-status__success};
+  --QLD-color-status__success--lightest: #{$QLD-color-status__success--lightest};
+  --QLD-color-status__success--lighter: #{$QLD-color-status__success--lighter};
+  --QLD-color-status__success--darker: #{$QLD-color-status__success--darker};
+
+  --QLD-color-status__caution: #{$QLD-color-status__caution};
+  --QLD-color-status__caution--lightest: #{$QLD-color-status__caution--lightest};
+  --QLD-color-status__caution--lighter: #{$QLD-color-status__caution--lighter};
+  --QLD-color-status__caution--darker: #{$QLD-color-status__caution--darker};
 
   --QLD-border-radius-xs: #{$QLD-border-radius-xs};
   --QLD-border-radius-sm: #{$QLD-border-radius-sm};
@@ -546,7 +511,6 @@ $QLD-color-contained-layout__background: #EFF4F9;
   --QLD-border-width-thick: #{$QLD-border-width-thick};
   --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
 
-
   --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
   --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
   --QLD-default-mobile-md: #{$QLD-default-mobile-md};
@@ -554,6 +518,14 @@ $QLD-color-contained-layout__background: #EFF4F9;
   --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
   --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
   --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
+
+  --QLD-heading-space-mobile-xs: #{$QLD-heading-space-mobile-xs};
+  --QLD-heading-space-mobile-sm: #{$QLD-heading-space-mobile-sm};
+  --QLD-heading-space-mobile-md: #{$QLD-heading-space-mobile-md};
+  --QLD-heading-space-mobile-lg: #{$QLD-heading-space-mobile-lg};
+  --QLD-heading-space-mobile-xl: #{$QLD-heading-space-mobile-xl};
+  --QLD-heading-space-mobile-xxl: #{$QLD-heading-space-mobile-xxl};
+  --QLD-heading-space-mobile-xxxl: #{$QLD-heading-space-mobile-xxxl};
 
   --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
   --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
@@ -563,12 +535,11 @@ $QLD-color-contained-layout__background: #EFF4F9;
   --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
   --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
 
-  --QLD-heading-space-xs: #{$QLD-heading-space-xs};
-  --QLD-heading-space-sm: #{$QLD-heading-space-sm};
-  --QLD-heading-space-md: #{$QLD-heading-space-md};
-  --QLD-heading-space-lg: #{$QLD-heading-space-lg};
-  --QLD-heading-space-xl: #{$QLD-heading-space-xl};
-  --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
-  --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
-  --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
+  --QLD-heading-space-desktop-xs: #{$QLD-heading-space-desktop-xs};
+  --QLD-heading-space-desktop-sm: #{$QLD-heading-space-desktop-sm};
+  --QLD-heading-space-desktop-md: #{$QLD-heading-space-desktop-md};
+  --QLD-heading-space-desktop-lg: #{$QLD-heading-space-desktop-lg};
+  --QLD-heading-space-desktop-xl: #{$QLD-heading-space-desktop-xl};
+  --QLD-heading-space-desktop-xxl: #{$QLD-heading-space-desktop-xxl};
+  --QLD-heading-space-desktop-xxxl: #{$QLD-heading-space-desktop-xxxl};
 }

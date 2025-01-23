@@ -6,7 +6,7 @@
     overflow: visible;
 }
 
-.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper, 
+.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper,
 .qld__overflow_menu_wrapper {
 
     button.qld__btn.qld__btn--toggle {
@@ -46,7 +46,7 @@
         width: calc(100vw - 4rem);
         @include QLD-space(max-width, 22.5unit);
         margin-top: 4px;
-        box-shadow: $QLD-box-shaddow-level-two;
+        box-shadow: $QLD-box-shadow-level-two;
         overflow: hidden;
         z-index: 9999;
         &.qld__accordion--open {
@@ -120,26 +120,26 @@
     .qld__breadcrumbs--dark & {
 
         button.qld__btn.qld__btn--toggle {
-                
+
             background-color: transparent;
-            
+
             svg {
                 color: var(--QLD-color-dark__link);
             }
-    
+
             &:hover, &.qld__accordion--open {
                 background-color: $QLD-color-neutral--black__opacity-10;
-                
+
                 svg {
                     color: var(--QLD-color-dark__action--secondary);
                 }
             }
-    
+
             &:focus, &:hover:focus {
                 background-color: $QLD-color-neutral--black__opacity-10;
                 // box-shadow: none;
             }
-            
+
         }
 
         .qld__overflow_menu {
@@ -173,11 +173,11 @@
                         color: var(--QLD-color-light__text);
                         background-color: $QLD-color-neutral--lightest;
                         text-decoration: none;
-    
+
                         &:visited {
                             color: var(--QLD-color-light__text);
                         }
-    
+
                         &:hover,
                         &:hover:visited {
                             color: var(--QLD-color-light__link);
@@ -185,12 +185,12 @@
                             text-decoration-color: var(--QLD-color-light__link);
                             background-color: $QLD-color-neutral--lighter;
                         }
-    
+
                         &:focus {
                             outline: 3px solid var(--QLD-color-light__focus);
                             outline-offset: -3px !important;
                         }
-    
+
                         &:active {
                             color: var(--QLD-color-light__text);
                             background-color: $QLD-color-neutral--white;
