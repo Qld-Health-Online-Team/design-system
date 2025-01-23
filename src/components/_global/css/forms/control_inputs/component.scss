@@ -132,7 +132,7 @@ input[type='checkbox'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff  );
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light__background)  );
 			}
 		}
 
@@ -156,7 +156,7 @@ input[type='checkbox'],
 			&:checked + label:after {
 				opacity: 0.5;
 
-				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 
@@ -299,7 +299,7 @@ input[type='radio'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 
@@ -331,7 +331,7 @@ input[type='radio'],
 
 			&:checked + label:after {
 				opacity: 0.5; //amir
-				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 	}
@@ -340,7 +340,7 @@ input[type='radio'],
 // Print styles
 @media print {
 	.qld__control-input__text {
-		color: #000 !important;
+		color: var(--QLD-color-dark__background) !important;
 
 		&:before,
 		&:after {

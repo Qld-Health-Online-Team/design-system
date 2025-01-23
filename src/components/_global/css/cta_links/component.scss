@@ -20,7 +20,7 @@ a.qld__cta-link{
 		content: ' ';
 		@include QLD-space( width, 1.25unit );
 		@include QLD-space( height, 1.5unit );
-		@include QLD-space( margin, 0 0.5unit 0 0.5unit ); 
+		@include QLD-space( margin, 0 0.5unit 0 0.5unit );
 		transition: margin 0.2s ease;
 		display: inline-block;
 		vertical-align: text-top;
@@ -28,7 +28,7 @@ a.qld__cta-link{
 		mask-repeat: no-repeat;
 		mask-position: center;
 		background-color: var(--QLD-color-light__action--secondary);
-		
+
 		.ie8 &,
 		.lt-ie8 & {
 			content: ' > ';
@@ -64,7 +64,7 @@ a.qld__cta-link{
 
 	.qld__body--dark &,
 	.qld__body--dark-alt &,
-	.qld__main-nav--dark &{ 
+	.qld__main-nav--dark &{
 		color: var(--QLD-color-dark__link);
 
 		@include QLD-focus(dark);
@@ -97,7 +97,7 @@ a.qld__cta-link.qld__cta-link--view-all{
 	.qld__main-nav--dark &{
 		&:after{
 			background-color: var(--QLD-color-dark__action--secondary);
-	
+
 		}
 	}
 }
@@ -105,8 +105,8 @@ a.qld__cta-link.qld__cta-link--view-all{
 // Print styles
 @media print {
 	.qld__cta-link {
-		color: #000 !important;
-		
+		color: var(--QLD-color-dark__background) !important;
+
 		&:after {
 			background-image: none !important;
 			content: ' > ' !important;

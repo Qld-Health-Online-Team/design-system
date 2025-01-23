@@ -401,8 +401,8 @@
 	$a11yLightness: lightness( $toMakeA11y );
 	$minHexDiff: 100 / 255; // 255 Colors / 100% HSL
 
-	$isBlackBgContrast: QLD-color-contrast( #000, $background, true, false ) >= $ratio;
-	$isWhiteBgContrast: QLD-color-contrast( #fff, $background, true, false ) >= $ratio;
+	$isBlackBgContrast: QLD-color-contrast( var(--QLD-color-dark__background), $background, true, false ) >= $ratio;
+	$isWhiteBgContrast: QLD-color-contrast( var(--QLD-color-light__background), $background, true, false ) >= $ratio;
 	$minLightness: 0;
 	$maxLightness: 100;
 	$isDarkColor: false;
@@ -506,14 +506,14 @@
     $fill-to-replace: 'currentColor';
 	$css-var: #{var($new-fill)};
 	// $this-new-fill: $new-fill;
-    
+
 	// var(--QLD-color-dark__action--secondary)
 	$replaced-svg: str-replace($svg, $fill-to-replace, $css-var);
-	
-	
+
+
     $replaced-svg-url: QLD-svguri('#{$replaced-svg}');
-    
-    
+
+
 
     @return $replaced-svg-url;
 }

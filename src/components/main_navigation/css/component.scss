@@ -744,7 +744,7 @@ $QLD-header-md: 72px;
         display: none;
 
         a {
-            color: #000 !important;
+            color: var(--QLD-color-dark__background) !important;
 
             &:hover {
                 background: transparent !important;
@@ -752,12 +752,12 @@ $QLD-header-md: 72px;
         }
 
         .active a {
-            border-color: #fff !important;
+            border-color: var(--QLD-color-light__background) !important;
             background-color: transparent !important;
         }
 
         .qld__link-list > li {
-            border-color: #000 !important;
+            border-color: var(--QLD-color-dark__background) !important;
 
             &:last-of-type {
                 border-bottom: 1px solid !important;
@@ -765,7 +765,7 @@ $QLD-header-md: 72px;
         }
 
         @include QLD-media( $QLD-main-nav-breakpoint ) {
-            @include QLD-space( border-bottom, 0.5unit solid #000 !important );
+            @include QLD-space( border-bottom, 0.5unit solid var(--QLD-color-dark__background) !important );
 
             .qld__link-list > li:last-of-type {
                 border-bottom: none !important;

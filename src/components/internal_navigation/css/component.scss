@@ -435,7 +435,7 @@ $QLD-side-nav-breakpoint: lg !default;
         background: transparent !important;
 
         a {
-            color: #000;
+            color: var(--QLD-color-dark__background);
             text-decoration: underline;
 
             &:hover {
@@ -452,12 +452,12 @@ $QLD-side-nav-breakpoint: lg !default;
 
         ul ul ul a:before {
             background-image: QLD-svguri( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-            '<path fill="#000" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
+            '<path fill="var(--QLD-color-dark__background)" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
             '</svg>') !important;
         }
 
         & > ul > li {
-            border-color: #000 !important;
+            border-color: var(--QLD-color-dark__background) !important;
         }
 	}
 }
