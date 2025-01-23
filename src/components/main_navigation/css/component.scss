@@ -15,7 +15,7 @@ $QLD-header-md: 72px;
     border-bottom: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
 
     @include QLD-media(lg) {
-        background-color: var(--QLD-color-neutral--lightest);
+        background-color: var(--QLD-color-light__background--shade);
         border-bottom-width: $QLD-border-width-extra-thick;
     }
 
@@ -55,7 +55,7 @@ $QLD-header-md: 72px;
         }
         // Move the menu content off the screen so it can slide in
         .js & {
-            background-color: var(--QLD-color-neutral--lightest);
+            background-color: var(--QLD-color-light__background--shade);
             display: none;
             overflow: auto;
             position: fixed;
@@ -161,7 +161,7 @@ $QLD-header-md: 72px;
                     }
 
                     &:hover{
-                        background-color: var(--QLD-color-neutral--white);
+                        background-color: var(--QLD-color-light__background);
 
                         .qld__icon{
                             color: var(--QLD-color-light__action--secondary-hover);
@@ -175,7 +175,7 @@ $QLD-header-md: 72px;
             }
 
             .qld__link-list{
-                background-color: var(--QLD-color-neutral--lightest);
+                background-color: var(--QLD-color-light__background--shade);
             }
         }
 
@@ -253,7 +253,7 @@ $QLD-header-md: 72px;
 
             &:active {
                 color: var(--QLD-color-light__text);
-                background-color: var(--QLD-color-neutral--white);
+                background-color: var(--QLD-color-light__background);
                 border-left-color: var(--QLD-color-neutral--lightest);
                 font-weight: bold;
 
@@ -478,7 +478,7 @@ $QLD-header-md: 72px;
 
     &__header {
         display: flex;
-        background-color: var(--QLD-color-neutral--white);
+        background-color: var(--QLD-color-light__background);
         color: var(--QLD-color-light__text);
         align-items: center;
         @include QLD-box-shadow(1);
@@ -532,7 +532,7 @@ $QLD-header-md: 72px;
         border-left: solid $QLD-border-width-thin var(--QLD-color-neutral--lighter);
 
         &:hover {
-            background-color: var(--QLD-color-neutral--lightest);
+            background-color: var(--QLD-color-light__background--shade);
 
             svg{
                 color: var(--QLD-color-light__action--secondary-hover);
@@ -622,7 +622,7 @@ $QLD-header-md: 72px;
         margin: 0;
         padding: 0;
         // @include QLD-space(padding-bottom, 6.5unit);
-        background-color: var(--QLD-color-neutral--lightest);
+        background-color: var(--QLD-color-light__background--shade);
 
         @include QLD-media(lg) {
             // display: flex;

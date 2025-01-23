@@ -46,7 +46,7 @@
 
                 &:not(:disabled) {
                     &:hover{
-                        background-color: var(--QLD-color-neutral--lightest);
+                        background-color: var(--QLD-color-light__background--shade);
                         color: var(--QLD-color-light__text--lighter);
                         border: 2px solid var(--QLD-color-light__action--secondary-hover);
                         @include QLD-space(padding, 0);
@@ -88,12 +88,12 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                border: 1px solid var(--QLD-color-neutral--lighter);
+                border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
                 text-align: center;
                 @include sq-border-radius(8px);
                 width: pxToRem(64);
                 height: pxToRem(64);
-                background-color: var(--QLD-color-neutral--lightest);
+                background-color: var(--QLD-color-light__background--shade);
             }
 
             &.active {
@@ -105,7 +105,7 @@
         }
 
         .qld__a-z_listing__list__item__services {
-            border: 1px solid var(--QLD-color-neutral--lighter);
+            border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
             border-radius: pxToRem(12);
             list-style: none;
             overflow-y: hidden;
@@ -142,7 +142,7 @@
                 }
 
                 &:nth-child(2n) {
-                    background-color: var(--QLD-color-neutral--lightest);
+                    background-color: var(--QLD-color-light__background--shade);
                 }
             }
         }

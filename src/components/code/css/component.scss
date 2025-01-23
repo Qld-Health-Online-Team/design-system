@@ -38,7 +38,7 @@
         }
 
         &.copied {
-            background-color: var(--QLD-color-neutral--lightest);
+            background-color: var(--QLD-color-light__background--shade);
             border-color: var(--QLD-color-neutral--lightest);
             color: var(--QLD-color-light__text);
 
@@ -189,7 +189,7 @@
 
         &-colours {
             align-items: center;
-            background-color: var(--QLD-color-neutral--lightest);
+            background-color: var(--QLD-color-light__background--shade);
             border-radius: 0 $QLD-border-radius-xs 0 0;
             color: var(--QLD-color-light__text);
             width: 100%;
@@ -278,7 +278,7 @@
 
         &.with-preview {
             display: inline-grid;
-            background-color: var(--QLD-color-neutral--white);
+            background-color: var(--QLD-color-light__background);
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
             @include QLD-space('margin-top', 1.5unit);
@@ -338,7 +338,7 @@
         cursor: pointer;
         display: inline-block;
         text-align: left;
-        background-color: var(--QLD-color-neutral--lightest);
+        background-color: var(--QLD-color-light__background--shade);
         color: var(--QLD-color-light__text);
         @include QLD-space('padding', .125unit .5unit);
 
@@ -391,7 +391,7 @@
 
 .qld__code-tooltip {
     display: none;
-    background: var(--QLD-color-neutral--white);
+    background-color: var(--QLD-color-light__background);
     border-radius: $QLD-border-radius-xs;
     position: absolute;
     bottom: calc(100% + 5px);

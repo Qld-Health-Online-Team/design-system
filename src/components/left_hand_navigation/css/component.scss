@@ -52,7 +52,7 @@
     }
 
     .qld__left-nav {
-        background-color: var(--QLD-color-neutral--lightest);
+        background-color: var(--QLD-color-light__background--shade);
         border-right: $QLD-border-width-default solid var(--QLD-color-neutral--lighter);
         display: block;
         min-width: pxToRem(280);
@@ -117,13 +117,13 @@
                     }
 
                     > .qld__left-nav__item-link ~ .qld__accordion--closed {
-                        background-color: var(--QLD-color-neutral--white);
+                        background-color: var(--QLD-color-light__background);
                         color: var(--QLD-color-light__link);
                         // color of the arrowed option
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
-                            background-color: var(--QLD-color-neutral--white);
+                            background-color: var(--QLD-color-light__background);
                         }
 
                         .qld__left-nav__item-icon svg * {
@@ -175,13 +175,13 @@
                     }
 
                     &.qld__left-nav__item-link--open {
-                        background-color: var(--QLD-color-neutral--white);
+                        background-color: var(--QLD-color-light__background);
                         color: var(--QLD-color-light__link);
                         // arrowed optoin second
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
-                            background-color: var(--QLD-color-neutral--white);
+                            background-color: var(--QLD-color-light__background);
                         }
 
                         .qld__left-nav__item-icon svg * {
@@ -194,7 +194,7 @@
                     position: relative;
                     @include QLD-space(min-height, 2unit);
                     @include QLD-space(min-width, 2unit);
-                    background-color: var(--QLD-color-neutral--white);
+                    background-color: var(--QLD-color-light__background);
                     @include QLD-space(margin, 0 1unit);
                     align-self: center;
                     @include QLD-box-shadow(1);
@@ -239,7 +239,7 @@
                 }
 
                 ul {
-                    background-color: var(--QLD-color-neutral--white);
+                    background-color: var(--QLD-color-light__background);
                     flex-basis: 100%;
                     padding-top: 0;
 

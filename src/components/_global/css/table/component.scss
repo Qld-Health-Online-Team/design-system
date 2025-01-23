@@ -38,7 +38,7 @@ table {
         @include QLD-space(padding, 0.75unit);
         color: var(--QLD-color-light__heading);
         box-shadow: inset 0 -1px 0 var(--QLD-color-neutral--lighter);
-        background-color: var(--QLD-color-neutral--white);
+        background-color: var(--QLD-color-light__background);
 
         .qld__caption {
             display: block;
@@ -52,7 +52,7 @@ table {
 
         tr {
             &:nth-child(2) {
-                background-color: var(--QLD-color-neutral--lightest);
+                background-color: var(--QLD-color-light__background--shade);
             }
         }
     }
@@ -143,7 +143,7 @@ table {
 
     tfoot {
         box-shadow: 0 -2px 0 var(--QLD-color-light__design-accent);
-        background-color: var(--QLD-color-neutral--white);
+        background-color: var(--QLD-color-light__background);
 
         td {
             box-shadow: none;
@@ -282,7 +282,7 @@ table {
 
             .qld__table__row:nth-last-child(odd),
             tr:nth-last-child(odd) {
-                background-color: var(--QLD-color-neutral--lightest);
+                background-color: var(--QLD-color-light__background--shade);
             }
         }
 
@@ -322,7 +322,7 @@ table {
 .qld__table--contained {
     width: 100%;
     overflow: auto;
-    border: 1px solid var(--QLD-color-neutral--lighter);
+    border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
@@ -331,7 +331,7 @@ table {
 }
 
 .qld__table--scroll {
-    border: 1px solid var(--QLD-color-neutral--lighter);
+    border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
     border-radius: $QLD-border-radius-sm;
     max-height: 640px;
     /* Max height for mobile devices based on average available screen space on mobile devices */
@@ -357,7 +357,7 @@ table {
         thead {
             inset-block-start: 0;
             /* "top" */
-            background-color: var(--QLD-color-neutral--white);
+            background-color: var(--QLD-color-light__background);
         }
 
         tfoot {

@@ -9,7 +9,7 @@
 	@include QLD-space ( font-size, .875unit);
 	@include QLD-space ( line-height, 1.5unit);
 	color: var(--QLD-color-light__text--lighter);
-	border: 1px solid var(--QLD-color-neutral--lighter);
+	border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
 	border-radius: $QLD-border-radius-md;
 	@include QLD-space(margin, 0);
 	@include QLD-focus();
@@ -188,7 +188,7 @@ a.qld__tag,
 .qld__card__footer .qld__tag.qld__tag--info{
 	color: var(--QLD-color-light__text--lighter);
 	border-color: var(--QLD-color-neutral--lightest);
-	background-color: var(--QLD-color-neutral--lightest);
+	background-color: var(--QLD-color-light__background--shade);
 
 	.qld__body--light &,
 	.qld__card--light .qld__card__footer &{

@@ -324,7 +324,7 @@ form {
     text-size-adjust: 100%;
     font-family: $QLD-font;
     color: var(--QLD-color-light__text);
-    background-color: var(--QLD-color-neutral--white);
+    background-color: var(--QLD-color-light__background);
     letter-spacing: .009rem;
 
     a {
@@ -559,9 +559,9 @@ form {
             counter-increment: li;
             @include QLD-space(height, 1.75unit);
             @include QLD-space(width, 1.75unit);
-            border: 1px solid var(--QLD-color-neutral--lighter);
+            border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
             border-radius: 50%;
-            background-color: var(--QLD-color-neutral--lightest);
+            background-color: var(--QLD-color-light__background--shade);
             color: var(--QLD-color-light__heading);
             align-items: center;
             position: absolute;
@@ -700,7 +700,7 @@ form {
         font-family: $QLD-font-monospace;
         display: inline-block;
         border-radius: $QLD-border-radius-xs;
-        background-color: var(--QLD-color-neutral--lightest);
+        background-color: var(--QLD-color-light__background--shade);
         color: var(--QLD-color-light__text);
     }
 
