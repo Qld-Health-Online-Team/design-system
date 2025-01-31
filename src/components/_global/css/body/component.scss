@@ -41,11 +41,11 @@ form {
         @include QLD-container-padding($QLD-padding__section--mobile);
 
         + .pb-0 {
-            @include QLD-space(padding-bottom, 0); 
+            @include QLD-space(padding-bottom, 0);
         }
 
         + .pt-0 {
-            @include QLD-space(padding-top, 0); 
+            @include QLD-space(padding-top, 0);
         }
 
         /**
@@ -146,12 +146,12 @@ form {
         @include QLD-media(lg) {
             @include QLD-container-padding($QLD-padding__section--desktop);
         }
-                
-        
+
+
         &--example {
             @include QLD-space(padding, 1.5unit);
         }
-        
+
         //Align the body when within a two col layout/ content page
         #content[class^="col-"] > .qld__body {
             @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal );
@@ -166,7 +166,7 @@ form {
             @include QLD-media(md) {
                 @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal );
                 @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal );
-                
+
             }
 
             @include QLD-media(lg) {
@@ -201,10 +201,10 @@ form {
                 }
             }
 
-            
+
             &:last-of-type{
                 @include QLD-space(padding-bottom, 0);
-                
+
                 &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
@@ -215,7 +215,7 @@ form {
                         @include QLD-container-padding($QLD-padding__section--desktop !important);
                     }
                 }
-                
+
             }
 
             .container-fluid {
@@ -231,7 +231,7 @@ form {
                 &:not(.qld__tab-section) {
                     padding-top: 0;
                 }
-                
+
                 &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt{
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
@@ -302,7 +302,7 @@ form {
         }
         //-----END:Reduce padding top if the following section has the same background----
     }
-    
+
     .qld__body--breadcrumb {
         @include QLD-space(padding-top, 1unit);
         @include QLD-space(padding-bottom, 1unit);
@@ -324,7 +324,7 @@ form {
     text-size-adjust: 100%;
     font-family: $QLD-font;
     color: var(--QLD-color-light__text);
-    background-color: $QLD-color-neutral--white;
+    background-color: var(--QLD-color-light__background);
     letter-spacing: .009rem;
 
     a {
@@ -365,14 +365,14 @@ form {
         max-width: 100%;
 	    height: auto;
     }
-    
+
     /**
 	 * Highlighting in-page sections that are in focus
 	 */
     [tabindex="0"]:focus {
         @include QLD-outline();
     }
-    
+
     /**
 	 * `mark` styling.
 	 */
@@ -386,7 +386,7 @@ form {
 	 */
     ::selection {
         color: var(--QLD-color-dark__text);
-       
+
         background-color: var(--QLD-color-dark__background);
         opacity: .99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
@@ -402,7 +402,7 @@ form {
 
     ul:not([class]),
     ol:not([class]),
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list,
     dl:not([class]),
     .qld__margin-t-li--sm,
@@ -414,8 +414,8 @@ form {
     pre {
         white-space: pre-wrap;
     }
-    
-    
+
+
     * + dl:not([class]),
     * + pre {
         @include QLD-space(margin-top, 1unit);
@@ -423,14 +423,14 @@ form {
 
     * + ol:not([class]),
     * + ul:not([class]),
-    * + ol.qld__aligned-list, 
+    * + ol.qld__aligned-list,
     * + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1.5unit);
     }
 
     p + ol:not([class]),
     p + ul:not([class]),
-    p + ol.qld__aligned-list, 
+    p + ol.qld__aligned-list,
     p + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1unit);
     }
@@ -442,7 +442,7 @@ form {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
-            
+
             > ul:not([class]),
             .qld__margin-t-li--sm,
             .qld__margin-t-li--lg {
@@ -477,7 +477,7 @@ form {
                     }
                 }
             }
-            
+
             &:first-child {
                 @include QLD-space(margin-top, 0unit);
             }
@@ -489,16 +489,16 @@ form {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
-            
+
             > ol:not([class]) {
                 // @include QLD-space(margin-top, 1unit);
                     > li {
                     list-style-type: lower-alpha;
                     @include QLD-space(margin-top, 0.5unit);
-    
+
                     > ol:not([class]) {
                         // @include QLD-space(margin-top, 1unit);
-    
+
                         > li {
                             @include QLD-space(margin-top, 0.5unit);
                             list-style-type: lower-roman;
@@ -506,16 +506,16 @@ form {
                     }
                 }
             }
-    
+
             &:first-child {
                 @include QLD-space(margin-top, 0unit);
             }
         }
     }
-    
+
     ol:not([class]),
     ul:not([class]),
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list,
     .qld__margin-t-li--sm,
     .qld__margin-t-li--lg {
@@ -524,9 +524,9 @@ form {
         }
     }
 
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list {
-        @include QLD-space(padding-left, 1.5unit); 
+        @include QLD-space(padding-left, 1.5unit);
     }
 
     ol.qld__numbered-list {
@@ -559,9 +559,9 @@ form {
             counter-increment: li;
             @include QLD-space(height, 1.75unit);
             @include QLD-space(width, 1.75unit);
-            border: 1px solid $QLD-color-neutral--lighter;
+            border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
             border-radius: 50%;
-            background-color: $QLD-color-neutral--lightest;
+            background-color: var(--QLD-color-light__background--shade);
             color: var(--QLD-color-light__heading);
             align-items: center;
             position: absolute;
@@ -580,11 +580,11 @@ form {
             border-left: solid 1px;
             max-width: $QLD-font-maxwidth;
         }
-        
+
         > dt {
             @include QLD-space(margin-top, 1.5unit);
             font-weight: bold;
-            
+
             &:first-of-type {
                 margin-top: 0;
             }
@@ -658,7 +658,7 @@ form {
         padding: 0 1px;
         font-style: italic;
         font-family: serif; //We want mathematical notation to use serif vars per convention.
-        
+
         sup,
         sub {
             font-family: $QLD-font;
@@ -678,15 +678,15 @@ form {
         position: relative;
         vertical-align: baseline;
     }
-    
+
     sub {
         bottom: -0.25em;
     }
-    
+
     sup {
         top: -0.5em;
     }
-    
+
     /**
 	 * Keyboard strokes.
 	 * Code snippets and code blocks.
@@ -700,7 +700,7 @@ form {
         font-family: $QLD-font-monospace;
         display: inline-block;
         border-radius: $QLD-border-radius-xs;
-        background-color: $QLD-color-neutral--lightest;
+        background-color: var(--QLD-color-light__background--shade);
         color: var(--QLD-color-light__text);
     }
 
@@ -720,15 +720,15 @@ form {
             &.comment {
                 color: #B3CBDE;
             }
-    
+
             &.tag {
                 color: #A7E5FF;
             }
-    
+
             &.attr-name {
                 color: #C78DF7;
             }
-    
+
             &.attr-value {
                 color: #6BBE26;
             }
@@ -744,7 +744,7 @@ form {
         display: block;
         tab-size: 4;
     }
-    
+
     /**
 	 * Blockquote
 	 */
@@ -771,7 +771,7 @@ form {
         @include QLD-fontgrid(md, small);
         color: var(--QLD-color-light__heading);
         font-weight: 600;
-        
+
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
@@ -782,7 +782,7 @@ form {
         *:not([type="hidden"]) + &{
             margin-top: 1.5rem;
         }
-        
+
     }
 
     /**
@@ -793,7 +793,7 @@ form {
         @include QLD-space(height, 0.063unit);
         overflow: visible;
         border: none;
-        background-color: $QLD-color-neutral--lighter;
+        background-color: var(--QLD-color-neutral--lighter);
         @include QLD-space(margin-top, 1.25unit);
         @include QLD-space(margin-bottom, 1.188unit);
         width: 100%;
@@ -818,7 +818,7 @@ form {
         hr {
             background-color: var(--QLD-color-light__border);
         }
-        
+
         code,
         kbd,
         samp {
@@ -840,7 +840,7 @@ form {
         hr {
             background-color: var(--QLD-color-light__border--alt);
         }
-        
+
         code,
         kbd,
         samp {
@@ -855,49 +855,49 @@ form {
             }
         }
     }
-    
+
     &.qld__body--dark,
     &.qld__footer--dark {
         background: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
-        
+
         ::selection {
             color: var(--QLD-color-dark__background);
             background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
-        
+
         // Decrease the opacity for certain elements
         img::selection,
         video::selection,
         iframe::selection {
             background-color: var(--QLD-color-dark__link);
         }
-        
+
         a{
             color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
-            
+
             &:hover {
                 color: var(--QLD-color-dark__text);
             }
 
             @include QLD-focus("dark");
         }
-        
+
         [tabindex="0"]:focus{
             @include QLD-outline("dark");
         }
-        
+
         mark {
             background-color: var(--QLD-color-dark__link);
             color: var(--QLD-color-dark__background);
         }
-        
+
         hr {
             background-color: var(--QLD-color-dark__border);
         }
-        
+
         code,
         kbd,
         samp {
@@ -915,7 +915,7 @@ form {
             .qld__quote-source {
                 color: var(--QLD-color-dark__text--lighter);
             }
-            
+
         }
 
         ol.qld__numbered-list {
@@ -926,29 +926,29 @@ form {
             }
         }
     }
-    
+
     &.qld__body--dark-alt,
     &.qld__footer--dark-alt {
         background: var(--QLD-color-dark__background--alt);
         color: var(--QLD-color-dark__text);
-        
+
         ::selection {
             color: var(--QLD-color-dark__background);
             background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
-        
+
         // Decrease the opacity for certain elements
         img::selection,
         video::selection,
         iframe::selection {
             background-color: var(--QLD-color-dark__link);
         }
-        
+
         a {
             color: var(--QLD-color-dark__link);
             @include QLD-underline('dark');
-            
+
             &:hover {
                 color: var(--QLD-color-dark__link);
             }
@@ -1010,10 +1010,10 @@ form {
         *,
         & {
             text-shadow: none !important;
-            color: #000 !important;
+            color: black !important;
             background-color: transparent !important;
             box-shadow: none !important;
-            border-color: #000 !important;
+            border-color: black !important;
         }
 
         a,
@@ -1039,9 +1039,9 @@ form {
         }
 
         pre {
-            border: 1px solid #000;
+            border: 1px solid black;
             padding: 6px;
-            page-break-inside: avoid; 
+            page-break-inside: avoid;
         }
 
         thead {
@@ -1074,7 +1074,7 @@ form {
         }
 
         select {
-            background: #fff !important;
+            background: white !important;
         }
 	}
 }
@@ -1093,10 +1093,10 @@ form {
         *,
         & {
             text-shadow: none !important;
-            color: #000 !important;
+            color: black !important;
             background-color: transparent !important;
             box-shadow: none !important;
-            border-color: #000 !important;
+            border-color: black !important;
         }
 
         a,
@@ -1122,7 +1122,7 @@ form {
         }
 
         pre {
-            border: 1px solid #000;
+            border: 1px solid black;
             padding: 6px;
             page-break-inside: avoid;
         }
@@ -1157,11 +1157,11 @@ form {
         }
 
         select {
-            background: #fff !important;
+            background: white !important;
         }
 	}
 
-    @page { 
-        margin: 10mm 5mm;  
-    } 
+    @page {
+        margin: 10mm 5mm;
+    }
 }

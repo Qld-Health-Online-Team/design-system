@@ -139,7 +139,7 @@
 
 // CSS arrow helper
 // $direction: top, left, right, bottom
-@mixin sq-arrow($direction: top, $color: #000, $size: 5px, $height: 0) {
+@mixin sq-arrow($direction: top, $color: var(--QLD-color-dark__background), $size: 5px, $height: 0) {
     $_height: $size+$height;
 
     height: 0;
@@ -308,7 +308,7 @@
 	@if type-of( $property ) != 'string' {
 	@error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
 	}
-    
+
 	// Loop through the $values list
 	@each $value in $values {
 	// This is a pixel on unitless unit. Let’s convert it to rems
@@ -318,7 +318,7 @@
 
         // Get the value from supplied key for pixel and calculate the rem value
         $rem: calc($value / $QLD-rem);
-        
+
         $fallback: join( $fallback, $value + 0px );
 		$output: join( $output, #{ $rem }rem );
 
@@ -483,11 +483,11 @@
 }
 
 /**
- * QLD-container-padding - Select which level of padding 
+ * QLD-container-padding - Select which level of padding
  *
- * @param  {keywords} $values - Either one of the following 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 
+ * @param  {keywords} $values - Either one of the following 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 * @param  {keywords} $verHoz - vertical option sets top and bottom padding. horizontal option sets left and right padding
-* @param  {keywords} $option - Extra option for !important 
+* @param  {keywords} $option - Extra option for !important
  *
  */
  @mixin QLD-container-padding($values, $verHoz: 'vertical', $option: '') {
@@ -512,22 +512,22 @@
                 padding-right: $padding-px + px + $option;   // Pixel fallback for non-rem support
                 padding-right: $padding-rem + rem + $option; // REM size
             }
-            
+
 
             $output: join( $output, $value );
         }
     }
-    // Mixin output 
+    // Mixin output
     $output:$output;
 }
 
 /**
-* QLD-container-margin - Select which level of margins 
+* QLD-container-margin - Select which level of margins
 *
-* @param  {keywords} $values - Either one of the following 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 
+* @param  {keywords} $values - Either one of the following 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
 * @param  {keywords} $posNeg - pos option sets positive values, neg option sets negitive values
 * @param  {keywords} $verHoz - vertical option sets top and bottom margin. horizontal option sets left and right margin
-* @param  {keywords} $option - Extra option for !important 
+* @param  {keywords} $option - Extra option for !important
 *
 */
  @mixin QLD-container-margin($values,$posNeg, $verHoz: 'vertical', $option: '') {
@@ -540,14 +540,14 @@
             // Get the value from supplied key for pixel and calculate the rem value
             $padding-px: map-get( $QLD-space-map, $value );
             $padding-rem: calc($padding-px / $QLD-rem);
-            
+
             @if $posNeg == 'pos'{
                 $padding-px:($padding-px);
                 $padding-rem:($padding-rem);
             } @else if $posNeg == 'neg'{
                 $padding-px:(-#{$padding-px});
                 $padding-rem:(-#{$padding-rem});
-            } 
+            }
 
             @if $verHoz == 'vertical'{
                 margin-top: $padding-px + px + $option;   // Pixel fallback for non-rem support
@@ -565,7 +565,7 @@
             $output: join( $output, $value );
         }
     }
-    // Mixin output 
+    // Mixin output
     $output:$output;
 }
 
@@ -646,20 +646,20 @@
  */
  @mixin QLD-box-shadow($level) {
     @if $level==1 {
-        box-shadow: $QLD-box-shaddow-level-one;
+        box-shadow: $QLD-box-shadow-level-one;
     } @else if $level==2 {
-        box-shadow: $QLD-box-shaddow-level-two;
+        box-shadow: $QLD-box-shadow-level-two;
     } @else if $level==3 {
-        box-shadow: $QLD-box-shaddow-level-three;
+        box-shadow: $QLD-box-shadow-level-three;
     } @else if $level==4 {
-        box-shadow: $QLD-box-shaddow-level-four;
-    } 
+        box-shadow: $QLD-box-shadow-level-four;
+    }
 }
 
 /**
  * QLD-webkit-text-underline        - Applies webkit underline to the underline
  *
- * @param 
+ * @param
  *
  * @return {string}                 - Returns the underline and web kit underline
  */
@@ -671,7 +671,7 @@
 /**
  * QLD-webkit-text-decoration-none        - Applies webkit none to the none
  *
- * @param 
+ * @param
  *
  * @return {string}                 - Returns the none and web kit none
  */
@@ -687,12 +687,12 @@
  *
  * @param  {keywords} $defaultUnderline  - Either 'underline' or 'noUnderline' underlines but default before hover or other state
  *
- * @param  {keywords} $buttonTextColor  - 'buttonText' for when you need to use $QLD-color-light__link--on-action or $QLD-color-dark__link--on-action
+ * @param  {keywords} $buttonTextColor  - 'buttonText' for when you need to use var(--QLD-color-light__link--on-action or var(--QLD-color-dark__link--on-action
   *
- * @param  {keywords} $visitedState  - 'noVisited' for when you need to remove the visited state 
+ * @param  {keywords} $visitedState  - 'noVisited' for when you need to remove the visited state
  *
  * @return {string}                 - Returns the underline color and style of the link.
- */ 
+ */
  @mixin QLD-underline($colorScheme: 'light', $defaultUnderline: 'underline', $buttonTextColor: 'default', $visitedState: 'hasVisited') {
     //Whoevern inheriting this work, please get rid of this mixin approach as soon as possible. :-)
     //the colorScheme refers to the color of the body that contains the element. So, colorShcheme of the element itself is managed within this mixin.
@@ -706,11 +706,11 @@
             text-decoration-color: var(--QLD-color-light__underline);
             text-underline-offset: var(--QLD-underline__offset);
             text-decoration-skip-ink: auto;
-    
+
             &:hover,
             &:focus {
                 text-decoration-color: var(--QLD-color-light__underline--hover);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
 
             @if $visitedState == "hasVisited"{
@@ -719,7 +719,7 @@
                     color: var(--QLD-color-light__link--visited);
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                 }
-        
+
                 &:hover:visited {
                     color: var(--QLD-color-light__link--visited);
                     text-decoration-color: var(--QLD-color-light__underline--hover-visited);
@@ -737,7 +737,7 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
-            
+
             &:disabled,
             &[disabled]{
                 @include QLD-webkit-text-decoration-none();
@@ -755,30 +755,30 @@
             &:hover,
             &:focus {
                 @include QLD-webkit-text-underline();
-                
+
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 @if $buttonTextColor == "buttonText"{
                     text-decoration-color: var(--QLD-color-light__link--on-action);
                 }@else{
                     text-decoration-color: var(--QLD-color-light__underline--hover);
                 }
-                
+
             }
-            
+
             @if $visitedState == "hasVisited"{
 
                 &:visited {
                     // @include QLD-webkit-text-underline();
-                    
+
                     text-decoration-color: var(--QLD-color-light__underline--visited);
                     @if $buttonTextColor == "buttonText"{
                         color: var(--QLD-color-light__link--visited);
-                        
+
                     }@else{
                         text-decoration-color: var(--QLD-color-light__underline--hover);
                     }
                 }
-    
+
                 &:hover:visited {
                     // @include QLD-webkit-text-underline();
                     // color: var(--QLD-color-light__underline--hover-visited);
@@ -798,7 +798,7 @@
             &[disabled]{
                 @include QLD-webkit-text-decoration-none();
             }
-        }       
+        }
     }
 
     @else if $colorScheme== "dark" {
@@ -862,16 +862,16 @@
             &:hover,
             &:focus {
                 @include QLD-webkit-text-underline();
-                
+
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
 
                 @if $buttonTextColor == "buttonText"{
-                    text-decoration-color: var(--QLD-color-dark__link--on-action); 
+                    text-decoration-color: var(--QLD-color-dark__link--on-action);
                 }@else{
                     text-decoration-color: var(--QLD-color-dark__underline--hover);
                 }
 
-                
+
             }
 
             @if $visitedState == "hasVisited"{

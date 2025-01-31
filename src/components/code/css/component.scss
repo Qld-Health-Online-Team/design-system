@@ -9,12 +9,12 @@
         min-width: initial;
         position: relative;
         text-decoration: none;
-        
+
 
         &-text {
             @include QLD-space('margin-left', .5unit);
-            
-            
+
+
             @include QLD-media(sm, down) {
                 display: none;
             }
@@ -33,17 +33,17 @@
             display: none;
 
             i {
-                @include QLD-space('font-size', 1.5unit);   
+                @include QLD-space('font-size', 1.5unit);
             }
         }
 
         &.copied {
-            background-color: $QLD-color-neutral--lightest;
-            border-color: $QLD-color-neutral--lightest;
+            background-color: var(--QLD-color-light__background--shade);
+            border-color: var(--QLD-color-neutral--lightest);
             color: var(--QLD-color-light__text);
 
             i {
-                color: $QLD-color-status__success;
+                color: var(--QLD-color-status__success);
             }
 
             .clean {
@@ -64,7 +64,7 @@
                 @include QLD-underline('dark','noUnderline','buttonText');
             }
 
-            
+
             @include QLD-media(sm, down) {
                 text-decoration: underline;
                 .qld__code-tooltip {
@@ -133,7 +133,7 @@
         &.qld__body--dark {
             background-color: var(--QLD-color-dark__background);
         }
-        
+
         &.qld__body--dark-alt {
             background-color: var(--QLD-color-dark__background--alt);
         }
@@ -183,13 +183,13 @@
             margin: 0;
 
             @include QLD-media(md) {
-                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal); 
+                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
             }
         }
 
         &-colours {
             align-items: center;
-            background-color: $QLD-color-neutral--lightest;
+            background-color: var(--QLD-color-light__background--shade);
             border-radius: 0 $QLD-border-radius-xs 0 0;
             color: var(--QLD-color-light__text);
             width: 100%;
@@ -273,12 +273,12 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        
+
         @include QLD-space('max-width', 65unit);
 
         &.with-preview {
             display: inline-grid;
-            background-color: $QLD-color-neutral--white;
+            background-color: var(--QLD-color-light__background);
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
             @include QLD-space('margin-top', 1.5unit);
@@ -297,7 +297,7 @@
             position: relative;
             transition: max-height 0.5s ease-in-out;
             @include QLD-space('padding', 1.25unit 1unit);
-            
+
         }
 
         &:not(.show_less) {
@@ -338,22 +338,22 @@
         cursor: pointer;
         display: inline-block;
         text-align: left;
-        background-color: $QLD-color-neutral--lightest;
+        background-color: var(--QLD-color-light__background--shade);
         color: var(--QLD-color-light__text);
         @include QLD-space('padding', .125unit .5unit);
 
         .token.attr-value {
             color: #052C53;
         }
-        
+
         .token.punctuation {
             color: var(--QLD-color-light__text--lighter);
         }
-        
+
         .token.attr-name {
             color: #006400;
         }
-        
+
         .token.tag {
             color: #09549F;
         }
@@ -369,15 +369,15 @@
             .token.attr-value {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.punctuation {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.attr-name {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.tag {
                 color: var(--QLD-color-light__link--on-action);
             }
@@ -391,7 +391,7 @@
 
 .qld__code-tooltip {
     display: none;
-    background: $QLD-color-neutral--white;
+    background-color: var(--QLD-color-light__background);
     border-radius: $QLD-border-radius-xs;
     position: absolute;
     bottom: calc(100% + 5px);
@@ -407,7 +407,7 @@
         height: 0;
         border-style: solid;
         border-width: 4px 4px 0 4px;
-        border-color: #ffffff transparent transparent transparent;
+        border-color: var(--QLD-color-light__background) transparent transparent transparent;
         position: absolute;
         bottom: -4px;
         left: 50%;

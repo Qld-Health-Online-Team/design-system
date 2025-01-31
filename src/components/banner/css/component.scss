@@ -4,7 +4,7 @@
 
 .qld__banner {
     color: var(--QLD-color-light__text);
-    background-color: $QLD-color-neutral--white;
+    background-color: var(--QLD-color-light__background);
     background-position: center center;
     background-repeat: repeat;
     background-size: auto;
@@ -23,10 +23,10 @@
     & &__content {
         color: var(--QLD-color-light__text);
         position: relative;
-        
+
         @include QLD-space(padding-top, 2unit);
         @include QLD-space(padding-bottom, 2unit);
-    
+
         @include QLD-media(lg) {
             display: flex;
             flex-direction: column;
@@ -69,12 +69,12 @@
             margin: 0;
             border-left: 0px;
             padding: 0px;
-    
+
             @include QLD-media(lg) {
                 @include QLD-space(font-size, 2.5unit);
                 line-height: 52px;
             }
-    
+
             &__wrapper {
                 // display: flex;
                 // flex-direction: column;
@@ -83,7 +83,7 @@
                 display: block;
                 @include QLD-space(padding, .5unit 1.25unit);
             }
-    
+
             &--dark {
                 display: inline;
                 background-color: var(--QLD-color-dark__background);
@@ -95,14 +95,14 @@
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
             }
-    
+
             &--light {
                 display: table;
-                background-color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-light__background);
                 color: var(--QLD-color-light__text);
                 font-weight: 300;
-                // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);  
-                box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+                box-shadow: 8px 0px 0 6px var(--QLD-color-neutral--white), -8px 0px 0 6px var(--QLD-color-neutral--white), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
@@ -114,13 +114,13 @@
         .qld__banner__content--body.qld__abstract {
             @include QLD-space(margin-top, 1unit);
             @include QLD-space(margin-bottom, 0unit);
-    
+
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
                 @include QLD-space(font-size, 1.5unit);
                 @include QLD-space(line-height, 2unit);
             }
-    
+
         }
         .qld__banner__content--cta {
             display: flex;
@@ -137,7 +137,7 @@
                         @include QLD-space(margin-right, 2unit);
                     }
                 }
-                
+
             }
             a{
                 @include QLD-space(margin, 1unit 0unit 0unit 0unit);
@@ -149,13 +149,13 @@
                     width: auto;
                 }
             }
-           
+
             @include QLD-media(lg) {
                 flex-direction: row;
             }
         }
 
-        
+
     }
 
     &__main {
@@ -172,7 +172,7 @@
         display: block;
     }
 
-    //Base hero image 
+    //Base hero image
     .qld__banner__hero {
         background-color: var(--QLD-color-light__background--shade);
         padding: 0;
@@ -189,7 +189,7 @@
             left: 58.33%;
             @include QLD-space(padding-left, 1.25unit);
         }
-        
+
         &.qld__banner__hero--scale{
 
             @include QLD-media(md) {
@@ -207,7 +207,7 @@
                     background-position: right center;
                 }
             }
-            
+
         }
 
         &.qld__banner__hero--fix-right {
@@ -258,7 +258,7 @@
         @include QLD-media(md) {
             padding-bottom: 0;
             height: 100%;
-            
+
         }
 
         @include QLD-media(md) {
@@ -279,7 +279,7 @@
                 display: none;
             }
         }
-        
+
 
         &.qld__banner__image--sm {
             @include QLD-media(md) {
@@ -309,7 +309,7 @@
         .qld__banner__content{
             @include QLD-space(padding-top, 0unit);
             @include QLD-space(padding-bottom, 2unit);
-    
+
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 1.5unit);
                 @include QLD-space(padding-bottom, 2unit);
@@ -336,7 +336,7 @@
 
         .qld__banner__content .qld__banner__heading__wrapper{
             @include QLD-space(margin-top, -4unit);
-            
+
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
             }
@@ -410,7 +410,7 @@
             }
         }
     }
-    
+
     &.qld__banner--search.qld__banner--breadcrumbs{
         .qld__banner__content{
             @include QLD-media(md) {
@@ -450,7 +450,7 @@
 
         .qld__banner__hero {
             background-color: var(--QLD-color-light__background);
-    
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -469,14 +469,14 @@
 
             .qld__banner__heading{
                 &--light{
-                    background-color: $QLD-color-neutral--white;
+                    background-color: var(--QLD-color-light__background);
                 }
             }
         }
 
         .qld__banner__hero {
             background-color: var(--QLD-color-light__background--alt-shade);
-    
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -499,17 +499,17 @@
                     background-color: var(--QLD-color-dark__background--shade);
                     box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 }
-        
+
                 &--light {
-                    background-color: $QLD-color-neutral--white;
-                    box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                    background-color: var(--QLD-color-light__background);
+                    box-shadow: 8px 0px 0 6px var(--QLD-color-neutral--white), -8px 0px 0 6px var(--QLD-color-neutral--white), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
                 }
             }
         }
 
         .qld__banner__hero {
             background-color: var(--QLD-color-dark__background--shade);
-            
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -531,14 +531,14 @@
                     background-color: var(--QLD-color-dark__background);
                 }
                 &--light{
-                    background-color: $QLD-color-neutral--white;
+                    background-color: var(--QLD-color-light__background);
                 }
             }
         }
 
         .qld__banner__hero {
             background-color: var(--QLD-color-dark__background--alt-shade);
-            
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -559,7 +559,7 @@
 
 //Not sure if needed
 .qld__banner {
-    
+
     &--padded {
         @include QLD-space(padding-bottom, 2.5unit);
         @include QLD-media(md) {
@@ -568,7 +568,7 @@
         }
     }
 
-    
+
 
 
     // &.qld__banner--search {
@@ -632,7 +632,7 @@
     //             }
     //         }
     //     }
-        
+
     // }
 
 }

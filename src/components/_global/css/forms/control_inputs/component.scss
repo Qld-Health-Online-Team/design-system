@@ -42,16 +42,16 @@ input[type='checkbox'],
 			border-color: var(--QLD-color-light__border--alt);
 			background-image: none !important;
 
-			
+
 		}
 
 		&:after {
 			z-index: 101;
-			
+
 
 		}
 	}
-	
+
 	.qld__control-input--small &{
 		+ label {
 			line-height: 20px;
@@ -61,7 +61,7 @@ input[type='checkbox'],
 	// hover
 	&:hover:not([disabled]) {
 		+ label:before {
-			background-color: $QLD-color-neutral--lightest;
+			background-color: var(--QLD-color-light__background--shade);
 		}
 	}
 
@@ -82,7 +82,7 @@ input[type='checkbox'],
 
 	// disabled
 	&:disabled {
-		
+
 		+ label:before {
 			opacity: 0.3;
 			background-color: rgba(0, 0, 0, 0.2);
@@ -101,14 +101,14 @@ input[type='checkbox'],
 
 	&.qld__input--valid{
 		+ label:before {
-			box-shadow: 0 0 0 3px $QLD-color-status__success;
+			box-shadow: 0 0 0 3px var(--QLD-color-status__success);
 			border-color: var(--QLD-color-light__text);
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			box-shadow: 0 0 0 3px $QLD-color-status__error;
+			box-shadow: 0 0 0 3px var(--QLD-color-status__error);
 			border-color: var(--QLD-color-light__text);
 		}
 	}
@@ -132,7 +132,7 @@ input[type='checkbox'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff  );
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light__background)  );
 			}
 		}
 
@@ -156,7 +156,7 @@ input[type='checkbox'],
 			&:checked + label:after {
 				opacity: 0.5;
 
-				@include QLD-getControlShape( 'checkbox', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'checkbox', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 
@@ -165,7 +165,7 @@ input[type='checkbox'],
 				border-color: var(--QLD-color-dark__text);
 			}
 		}
-	
+
 		&.qld__input--error{
 			+ label:before {
 				border-color: var(--QLD-color-dark__text);
@@ -213,7 +213,7 @@ input[type='radio'],
 			border-color: var(--QLD-color-light__border--alt);
 			background-image: none !important;
 		}
-	
+
 		&:after {
 			z-index: 101;
 		}
@@ -230,7 +230,7 @@ input[type='radio'],
 	// hover
 	&:hover {
 		+ label:before {
-			background-color: $QLD-color-neutral--lightest;
+			background-color: var(--QLD-color-light__background--shade);
 		}
 	}
 
@@ -265,18 +265,18 @@ input[type='radio'],
 			opacity: 0.5; //amir
 			@include QLD-getControlShape( 'radio', 'foreground', #636363 );
 		}
-		
+
 	}
 
 	&.qld__input--valid{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-status__success );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit var(--QLD-color-status__success) );
 		}
 	}
 
 	&.qld__input--error{
 		+ label:before {
-			@include QLD-space( box-shadow, 0 0 0 0.188unit $QLD-color-status__error );
+			@include QLD-space( box-shadow, 0 0 0 0.188unit var(--QLD-color-status__error) );
 		}
 	}
 
@@ -299,7 +299,7 @@ input[type='radio'],
 		// normal checked
 		&:checked {
 			+ label:after {
-				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 
@@ -308,7 +308,7 @@ input[type='radio'],
 			@include QLD-outline('dark');
 			box-shadow: none;
 		}
-		
+
 
 		// disabled
 		&:disabled {
@@ -316,22 +316,22 @@ input[type='radio'],
 
 			&:checked + label:after {
 				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__text--lighter) );
-				
+
 			}
 
 			+ label:before {
 				opacity: 0.3;
 				background-color: rgba(0, 0, 0, 0.2);
 			}
-	
+
 			+ label {
 				color: var(--QLD-color-dark__text--lighter);
 				cursor: not-allowed;
 			}
-	
+
 			&:checked + label:after {
 				opacity: 0.5; //amir
-				@include QLD-getControlShape( 'radio', 'foreground', #ffffff );
+				@include QLD-getControlShape( 'radio', 'foreground', var(--QLD-color-light__background) );
 			}
 		}
 	}
@@ -340,7 +340,7 @@ input[type='radio'],
 // Print styles
 @media print {
 	.qld__control-input__text {
-		color: #000 !important;
+		color: black !important;
 
 		&:before,
 		&:after {

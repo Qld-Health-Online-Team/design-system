@@ -71,19 +71,19 @@ img.pull-right {
 }
 
 .text-error {
-    color: $QLD-color-status__error;
+    color: var(--QLD-color-status__error);
 }
 
 .text-success {
-    color: $QLD-color-status__success;
+    color: var(--QLD-color-status__success);
 }
 
 .text-warning {
-    color: $QLD-color-status__caution;
+    color: var(--QLD-color-status__caution);
 }
 
 .text-info {
-    color: $QLD-color-status__info;
+    color: var(--QLD-color-status__info);
 }
 
 .text-center {
@@ -127,7 +127,7 @@ img.pull-right {
 }
 
 .capitalised:first-letter {
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 .breakout {
@@ -174,134 +174,134 @@ a.qld__max-width {
     .qld__default-xxxl {
       font-weight: 400;
     }
-  
+
     .qld__no-space {
       line-height: 1 !important;
     }
-  
+
     .qld__default-xs {
       font-size: var(--QLD-default-mobile-xs);
       line-height: 20px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-xs);
       }
     }
-  
+
     .qld__default-sm {
       font-size: var(--QLD-default-mobile-sm);
       line-height: 24px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-sm);
       }
     }
-  
+
     .qld__default-md {
       font-size: var(--QLD-default-mobile-md);
       line-height: 32px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-md);
       }
     }
-  
+
     .qld__default-lg {
       font-size: var(--QLD-default-mobile-lg);
       line-height: 36px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-lg);
       }
     }
-  
+
     .qld__default-xl {
       font-size: var(--QLD-default-mobile-xl);
       line-height: 36px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-xl);
       }
     }
-  
+
     .qld__default-xxl {
       font-size: var(--QLD-default-mobile-xxl);
       line-height: 48px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-xxl);
       }
     }
-  
+
     .qld__default-xxxl {
       font-size: var(--QLD-default-mobile-xxxl);
       line-height: 60px;
-  
+
       &.qld__heading-space {
         line-height: var(--QLD-heading-space-xxxl);
       }
     }
-  
+
     @include QLD-media(lg)  {
       .qld__default-xs {
         font-size: var(--QLD-default-desktop-xs);
         line-height: 20px;
       }
-  
+
       .qld__default-sm {
         font-size: var(--QLD-default-desktop-sm);
         line-height: 24px;
       }
-  
+
       .qld__default-md {
         font-size: var(--QLD-default-desktop-md);
         line-height: 32px;
       }
-  
+
       .qld__default-lg {
         font-size: var(--QLD-default-desktop-lg);
         line-height: 36px;
       }
-  
+
       .qld__default-xl {
         font-size: var(--QLD-default-desktop-xl);
         line-height: 48px;
       }
-  
+
       .qld__default-xxl {
         font-size: var(--QLD-default-desktop-xxl);
         line-height: 60px;
       }
-  
+
       .qld__default-xxxl {
         font-size: var(--QLD-default-desktop-xxxl);
         line-height: 72px;
       }
-  
+
       .qld__default-xs.qld__heading-space {
         line-height: var(--QLD-heading-space-xs);
       }
-  
+
       .qld__default-sm.qld__heading-space {
         line-height: var(--QLD-heading-space-sm);
       }
-  
+
       .qld__default-md.qld__heading-space {
         line-height: var(--QLD-heading-space-md);
       }
-  
+
       .qld__default-lg.qld__heading-space {
         line-height: var(--QLD-heading-space-lg);
       }
-  
+
       .qld__default-xl.qld__heading-space {
         line-height: var(--QLD-heading-space-xl);
       }
-  
+
       .qld__default-xxl.qld__heading-space {
         line-height: var(--QLD-heading-space-xxl);
       }
-  
+
       .qld__default-xxxl.qld__heading-space {
         line-height: var(--QLD-heading-space-xxxl);
       }
@@ -344,11 +344,11 @@ a.qld__max-width {
 
 }
 
-/** 
+/**
   Spacing utility classes
 */
 .qld__margin-t-section {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__section--mobile ) + px !important;
 
   @include QLD-media(lg) {
@@ -358,7 +358,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-content-block {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__content-block--mobile ) + px !important;
 
   @include QLD-media(lg) {
@@ -368,7 +368,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-component {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__component--mobile) + px !important;
 
   @include QLD-media(lg) {
@@ -378,7 +378,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-text-element {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
 
   @include QLD-media(lg) {
@@ -388,7 +388,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-p {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__p--mobile ) + px !important;
 
   @include QLD-media(lg) {
@@ -398,7 +398,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-li--sm {
-  
+
   margin: 0;
   padding: 0;
 
@@ -418,7 +418,7 @@ a.qld__max-width {
 
   margin: 0;
   padding: 0;
-  
+
   li, ol, ul {
 
     margin-top: map-get( $QLD-space-map, $QLD-margin__li-wide--mobile ) + px !important;
@@ -432,7 +432,7 @@ a.qld__max-width {
 }
 
 .qld__margin-t-label {
-  
+
   margin-top: map-get( $QLD-space-map, $QLD-margin__lables--mobile ) + px !important;
 
   @include QLD-media(lg) {
@@ -443,7 +443,7 @@ a.qld__max-width {
 
 
 .qld__margin-t-none {
-  
+
   margin-top: map-get( $QLD-space-map, 0 ) + px !important;
 
   @include QLD-media(lg) {
@@ -453,12 +453,12 @@ a.qld__max-width {
 }
 
 .qld__padding-t-none {
-  
+
   padding-top: map-get( $QLD-space-map, 0 ) + px !important;
 
 }
 
-/** 
+/**
   Spacing flex utility row classes
 */
 .qld__row-gap-content-block {
@@ -515,7 +515,7 @@ a.qld__max-width {
 
 }
 
-/** 
+/**
   Spacing flex utility column classes
 */
 
@@ -575,7 +575,7 @@ a.qld__max-width {
 
 /*   New Classes that apply the form sizes variables
   ----------------------------------------------------------------------------------------------------------
-      
+
 New classes to dictate field size, this applied variables that affec thte max-width of a for inpout field
 
 ---------------------------------------------------------------------------------------------------------- */
@@ -700,7 +700,7 @@ Written to address squiz forms' error state issues
 div.sq-form-question-tickbox-list.sq-form-question-error {
   fieldset {
       label::before {
-              box-shadow: 0 0 0 3px $QLD-color-status__error;
+              box-shadow: 0 0 0 3px var(--QLD-color-status__error);
       }
   }
 }
@@ -708,7 +708,7 @@ div.sq-form-question-tickbox-list.sq-form-question-error {
 div.sq-form-question-option-list.sq-form-question-error {
   fieldset {
       label::before {
-          box-shadow: 0 0 0 3px $QLD-color-status__error;
+          box-shadow: 0 0 0 3px var(--QLD-color-status__error);
       }
   }
 }
@@ -719,17 +719,17 @@ div.sq-form-question-error {
   input[type=date]:not(:focus),
   textarea:not(:focus),
   select:not(:focus) {
-      border-color: $QLD-color-status__error;
-      background-color: $QLD-color-status__error--lightest;
+      border-color: var(--QLD-color-status__error);
+      background-color: var(--QLD-color-status__error--lightest);
   }
 }
 
 .qld__body--dark, .qld__body--dark-alt {
   .sq-form-error {
-      color: $QLD-color-status__error--lightest;
+      color: var(--QLD-color-status__error--lightest);
   }
 }
 
 .sq-form-error {
-  color: $QLD-color-status__error;
+  color: var(--QLD-color-status__error);
 }

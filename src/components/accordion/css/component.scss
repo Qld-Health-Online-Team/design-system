@@ -3,12 +3,12 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__accordion {
-	border: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+	border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
 	display: block;
 	padding: 0;
 
 	&__title{
-		background-color: $QLD-color-neutral--lightest;
+		background-color: var(--QLD-color-light__background--shade);
 		@include QLD-underline('light');
 		@include QLD-fontgrid( md, heading );
 		@include QLD-space( padding, 1unit 3unit 1unit 1unit );
@@ -86,15 +86,15 @@
 			}
 		}
 		& &-wrapper{
-			border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+			border-top: $QLD-border-width-thin solid var(--QLD-color-neutral--lighter);
 			color: var(--QLD-color-light__text);
-			background-color: $QLD-color-neutral--white;
+			background-color: var(--QLD-color-light__background);
 			@include QLD-space( padding, 1unit);
 
 			ul{
 				list-style: disc;
 				@include QLD-space(margin-left, 1.25unit);
-			}			
+			}
 		}
 	}
 
@@ -105,7 +105,7 @@
 		justify-content: end;
 		@include QLD-space(padding, .5unit 0);
 		@include QLD-space(font-size, 0.75unit);
-		
+
 
 		&-btn{
 			@include QLD-underline('light');
@@ -139,12 +139,12 @@
 			// 	transition: transform 0.25s ease-in;
 			// 	@include QLD-space( margin-left, 0.5unit );
 			// }
-			
+
 			&--closed {
 				&::after{
 					transform: rotate(-180deg);
 				}
-				
+
 			}
 		}
 	}
@@ -165,11 +165,11 @@
 .qld__body--dark, .qld__body--dark-alt  {
 	.qld__accordion {
 		&__title {
-			
+
 			&:focus {
 				outline: 3px solid var(--QLD-color-dark__focus);
 				outline-offset: 2px
-			} 
+			}
 		}
 	}
 }
@@ -182,13 +182,13 @@
 	&:last-child{
 		@include QLD-space(margin-bottom, 0unit);
 	}
-	
+
 	ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
-	
+
 	.qld__accordion__toggle-btn{
 
 		.qld__body--dark &,
@@ -199,7 +199,7 @@
 			&::after{
 				background-color: var(--QLD-color-dark__action--secondary);
 			}
-			
+
 		}
 	}
 
@@ -309,7 +309,7 @@ li + li .qld__accordion {
 // 			@include QLD-media(lg) {
 // 				@include QLD-space(margin-top, 2unit);
 // 			}
-			
+
 // 			&:last-child{
 // 				@include QLD-space(margin-bottom, 0unit);
 // 			}
@@ -320,13 +320,13 @@ li + li .qld__accordion {
 
 @media print {
 	.qld__accordion {
-		border-color: #000 !important;
-		color: #000 !important;
+		border-color: black !important;
+		color: black !important;
 	}
 
 	.qld__accordion__title {
-		background: #fff !important;
-		color: #000 !important;
+		background: white !important;
+		color: black !important;
 		border: 1px !important;
 
 		&:after {
@@ -335,7 +335,7 @@ li + li .qld__accordion {
 	}
 
 	.qld__accordion__body-wrapper {
-		border-color: #000 !important;
+		border-color: black !important;
 	}
 
 	.qld__accordion__body {

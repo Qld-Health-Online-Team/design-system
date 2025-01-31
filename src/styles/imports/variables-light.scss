@@ -1,0 +1,132 @@
+/**
+  * QLD-color-light styles
+  */
+$QLD-light-theme-color--light__site-title: $paletteBrightTypographySiteTitleDefault !default;
+$QLD-light-theme-color--light__design-accent: $paletteBrightAccentDefault !default;
+$QLD-light-theme-color--light__design-on-accent: $paletteBrightAccentOnAccent !default;
+$QLD-light-theme-color--light__heading: $paletteBrightTypographyHeadingDefault !default;
+$QLD-light-theme-color--light__text: $paletteBrightTypographyBodyDefault !default;
+$QLD-light-theme-color--light__text--lighter: $paletteBrightTypographyBodyVariant !default;
+$QLD-light-theme-color--light__link: $paletteBrightActionLinkDefaultColor !default;
+$QLD-light-theme-color--light__link--visited: $paletteBrightActionLinkVisitedColor !default;
+$QLD-light-theme-color--light__link--on-action: $paletteBrightActionButtonPrimaryDefaultText !default;
+$QLD-light-theme-color--light__action--primary: $paletteBrightActionButtonPrimaryDefaultBackground !default;
+$QLD-light-theme-color--light__action--primary-hover: $paletteBrightActionButtonPrimaryHoverBackground !default;
+$QLD-light-theme-color--light__action--secondary: $paletteBrightActionButtonSecondaryDefaultBorder !default;
+$QLD-light-theme-color--light__action--secondary-hover: $paletteBrightActionButtonSecondaryHoverBorder !default;
+$QLD-light-theme-color--light__focus: $paletteBrightFocusOutlineColor !default;
+$QLD-light-theme-color--light__border: $paletteBrightBorderDefault !default;
+$QLD-light-theme-color--light__border--variant: $paletteBrightBorderVariant !default;
+$QLD-light-theme-color--light__background: $paletteBrightBackground !default;
+$QLD-light-theme-color--light__background--shade: $paletteBrightShade !default;
+
+/**
+  * QLD-color-light-alt styles
+  */
+
+$QLD-light-theme-color--light__border--alt: $paletteAltBorderDefault !default;
+$QLD-light-theme-color--light__background--alt: $paletteAltBackground !default;
+$QLD-light-theme-color--light__background--alt-shade: $paletteAltShade !default;
+
+/**
+  * QLD-color-dark styles
+  */
+$QLD-light-theme-color--dark__site-title: $paletteBoldTypographySiteTitleDefault !default;
+$QLD-light-theme-color--dark__design-accent: $paletteBoldAccentDefault !default;
+$QLD-light-theme-color--dark__design-on-accent: $paletteBoldAccentOnAccent !default;
+$QLD-light-theme-color--dark__heading: $paletteBoldTypographyHeadingDefault !default;
+$QLD-light-theme-color--dark__text: $paletteBoldTypographyBodyDefault !default;
+$QLD-light-theme-color--dark__text--lighter: $paletteBoldTypographyBodyVariant !default;
+$QLD-light-theme-color--dark__link: $paletteBoldActionLinkDefaultColor !default;
+$QLD-light-theme-color--dark__link--visited: $paletteBoldActionLinkVisitedColor !default;
+$QLD-light-theme-color--dark__link--on-action: $paletteBoldActionButtonPrimaryDefaultText !default;
+$QLD-light-theme-color--dark__action--primary: $paletteBoldActionButtonPrimaryDefaultBackground !default;
+$QLD-light-theme-color--dark__action--primary-hover: $paletteBoldActionButtonPrimaryHoverBackground !default;
+$QLD-light-theme-color--dark__action--secondary: $paletteBoldActionButtonSecondaryDefaultBorder !default;
+$QLD-light-theme-color--dark__action--secondary-hover: $paletteBoldActionButtonSecondaryHoverBorder !default;
+$QLD-light-theme-color--dark__focus: $paletteBoldFocusOutlineColor !default;
+$QLD-light-theme-color--dark__border: $paletteBoldBorderDefault !default;
+$QLD-light-theme-color--dark__border--variant: $paletteBoldBorderVariant !default;
+$QLD-light-theme-color--dark__background: $paletteBoldBackground !default;
+$QLD-light-theme-color--dark__background--shade: $paletteBoldShade !default;
+
+/**
+  * QLD-color-alt-dark styles
+  */
+$QLD-light-theme-color--dark__border--alt: $paletteStrongBorderDefault !default;
+$QLD-light-theme-color--dark__background--alt: $paletteStrongBackground !default;
+$QLD-light-theme-color--dark__background--alt-shade: $paletteStrongShade !default;
+
+/**
+* QLD underline-color values
+*/
+$QLD-light-theme-color--status__light-underline: $transparencyWhiteMd !default;
+$QLD-light-theme-color--light__underline: $paletteBrightActionLinkDefaultTextDecorationColor !default;
+$QLD-light-theme-color--light__underline--hover: $paletteBrightActionLinkHoverTextDecorationColor !default;
+$QLD-light-theme-color--light__underline--visited: $paletteBrightActionLinkVisitedTextDecorationColor !default;
+$QLD-light-theme-color--light__underline--hover-visited: $paletteBrightActionLinkVisitedTextDecorationColor !default;
+$QLD-light-theme-color--status__dark-underline: $transparencyBlackMd !default;
+$QLD-light-theme-color--dark__underline: $paletteBoldActionLinkDefaultTextDecorationColor !default;
+$QLD-light-theme-color--dark__underline--hover: $paletteBoldActionLinkHoverTextDecorationColor !default;
+$QLD-light-theme-color--dark__underline--visited: $paletteBoldActionLinkVisitedTextDecorationColor !default;
+$QLD-light-theme-color--dark__underline--hover-visited: $paletteBoldActionLinkVisitedTextDecorationColor !default;
+
+/**
+* QLD custom properties (CSS variables) - defaults
+*/
+@mixin css-variables-light() {
+  --QLD-color-light__site-title: #{$QLD-light-theme-color--light__site-title};
+  --QLD-color-light__design-accent: #{$QLD-light-theme-color--light__design-accent};
+  --QLD-color-light__design-on-accent: #{$QLD-light-theme-color--light__design-on-accent};
+  --QLD-color-light__heading: #{$QLD-light-theme-color--light__heading};
+  --QLD-color-light__text: #{$QLD-light-theme-color--light__text};
+  --QLD-color-light__text--lighter: #{$QLD-light-theme-color--light__text--lighter};
+  --QLD-color-light__link: #{$QLD-light-theme-color--light__link};
+  --QLD-color-light__link--visited: #{$QLD-light-theme-color--light__link--visited};
+  --QLD-color-light__link--on-action: #{$QLD-light-theme-color--light__link--on-action};
+  --QLD-color-light__action--primary: #{$QLD-light-theme-color--light__action--primary};
+  --QLD-color-light__action--primary-hover: #{$QLD-light-theme-color--light__action--primary-hover};
+  --QLD-color-light__focus: #{$QLD-light-theme-color--light__focus};
+  --QLD-color-light__border: #{$QLD-light-theme-color--light__border};
+  --QLD-color-light__border--variant: #{$QLD-light-theme-color--light__border--variant};
+  --QLD-color-light__background: #{$QLD-light-theme-color--light__background};
+  --QLD-color-light__background--shade: #{$QLD-light-theme-color--light__background--shade};
+  --QLD-color-status__light-underline: #{$QLD-light-theme-color--status__light-underline};
+  --QLD-color-light__underline: #{$QLD-light-theme-color--light__underline};
+  --QLD-color-light__underline--hover: #{$QLD-light-theme-color--light__underline--hover};
+  --QLD-color-light__underline--visited: #{$QLD-light-theme-color--light__underline--visited};
+  --QLD-color-light__underline--hover-visited: #{$QLD-light-theme-color--light__underline--hover-visited};
+  --QLD-color-light__action--secondary: #{$QLD-light-theme-color--light__action--secondary};
+  --QLD-color-light__action--secondary-hover: #{$QLD-light-theme-color--light__action--secondary-hover};
+  --QLD-color-light__border--alt: #{$QLD-light-theme-color--light__border--alt};
+  --QLD-color-light__background--alt: #{$QLD-light-theme-color--light__background--alt};
+  --QLD-color-light__background--alt-shade: #{$QLD-light-theme-color--light__background--alt-shade};
+
+  --QLD-color-dark__site-title: #{$QLD-light-theme-color--dark__site-title};
+  --QLD-color-dark__design-accent: #{$QLD-light-theme-color--dark__design-accent};
+  --QLD-color-dark__design-on-accent: #{$QLD-light-theme-color--dark__design-on-accent};
+  --QLD-color-dark__heading: #{$QLD-light-theme-color--dark__heading};
+  --QLD-color-dark__text: #{$QLD-light-theme-color--dark__text};
+  --QLD-color-dark__text--lighter: #{$QLD-light-theme-color--dark__text--lighter};
+  --QLD-color-dark__link: #{$QLD-light-theme-color--dark__link};
+  --QLD-color-dark__link--visited: #{$QLD-light-theme-color--dark__link--visited};
+  --QLD-color-dark__link--on-action: #{$QLD-light-theme-color--dark__link--on-action};
+  --QLD-color-dark__action--primary: #{$QLD-light-theme-color--dark__action--primary};
+  --QLD-color-dark__action--primary-hover: #{$QLD-light-theme-color--dark__action--primary-hover};
+  --QLD-color-dark__focus: #{$QLD-light-theme-color--dark__focus};
+  --QLD-color-dark__border: #{$QLD-light-theme-color--dark__border};
+  --QLD-color-dark__border--variant: #{$QLD-light-theme-color--dark__border--variant};
+  --QLD-color-dark__background: #{$QLD-light-theme-color--dark__background};
+  --QLD-color-dark__background--shade: #{$QLD-light-theme-color--dark__background--shade};
+  --QLD-color-status__dark-underline: #{$QLD-light-theme-color--status__dark-underline};
+  --QLD-color-dark__underline: #{$QLD-light-theme-color--dark__underline};
+  --QLD-color-dark__underline--hover: #{$QLD-light-theme-color--dark__underline--hover};
+  --QLD-color-dark__underline--visited: #{$QLD-light-theme-color--dark__underline--visited};
+  --QLD-color-dark__underline--hover-visited: #{$QLD-light-theme-color--dark__underline--hover-visited};
+
+  --QLD-color-dark__action--secondary: #{$QLD-light-theme-color--dark__action--secondary};
+  --QLD-color-dark__action--secondary-hover: #{$QLD-light-theme-color--dark__action--secondary-hover};
+  --QLD-color-dark__border--alt: #{$QLD-light-theme-color--dark__border--alt};
+  --QLD-color-dark__background--alt: #{$QLD-light-theme-color--dark__background--alt};
+  --QLD-color-dark__background--alt-shade: #{$QLD-light-theme-color--dark__background--alt-shade};
+}

@@ -10,7 +10,7 @@
 	border:$QLD-border-width-thin solid var(--QLD-color-light__border--alt);
     position: relative;
     color: var(--QLD-color-light__text);
-    background: $QLD-color-neutral--white;
+    background-color: var(--QLD-color-light__background);
     overflow: hidden;
 
     & &__inner {
@@ -36,7 +36,7 @@
         color: var(--QLD-color-light__heading);
         @include QLD-space(font-size, 1.25unit);
         line-height: 1.4;
-        @include QLD-space(margin, 0unit); 
+        @include QLD-space(margin, 0unit);
     }
 
     & &__inner &__description{
@@ -122,7 +122,7 @@
         }
 
         //make hit area entire card
-        
+
         &:after {
             content: "";
             position: absolute;
@@ -184,14 +184,14 @@
             @include QLD-space(font-size, 2.5unit);
             @include QLD-space(width, 6unit);
             @include QLD-space(height, 6unit);
-            background-color: $QLD-color-neutral--lightest;
+            background-color: var(--QLD-color-light__background--shade);
             justify-content: center;
             align-self: center;
             color: var(--QLD-color-light__heading);
             @include QLD-space(margin, 1unit 1unit 0 1unit);
 
             @include QLD-media(md) {
-                @include QLD-space(margin, 1.25unit 1.25unit 0 1.25unit); 
+                @include QLD-space(margin, 1.25unit 1.25unit 0 1.25unit);
                 @include QLD-space(width, 6unit);
                 @include QLD-space(height, 6unit);
             }
@@ -201,14 +201,14 @@
                 @include QLD-space(width, 8unit);
                 @include QLD-space(height, 8unit);
             }
-    
+
             svg, i {
                 @include QLD-space(font-size, 2.813unit);
                 @include QLD-space(line-height, 6unit);
-                display: flex; 
+                display: flex;
                 align-self: center;
                 @include QLD-space(margin-bottom, -.25unit);
-    
+
                 @include QLD-media(lg) {
                     @include QLD-space(font-size, 3.75unit);
                     @include QLD-space(line-height, 8unit);
@@ -225,7 +225,7 @@
             text-align: left;
             flex: 1 0 0%;
             justify-content: center;
-            
+
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 1.25unit);
             }
@@ -324,7 +324,7 @@
             &--length{
                 background-color: var(--QLD-color-dark__action--primary);
             }
-        }   
+        }
     }
 
     //Dark Alt theme
@@ -359,7 +359,7 @@
             &--length{
                 background-color: var(--QLD-color-dark__action--primary);
             }
-        }         
+        }
     }
 
     .qld__body--dark &,
@@ -380,7 +380,7 @@
             &:visited, &:hover:visited {
                 color: var(--QLD-color-light__link--visited);
             }
-    
+
             &:focus {
                 outline: none;
             }
@@ -394,15 +394,15 @@
                 &:visited, &:hover:visited {
                     color: var(--QLD-color-dark__link--visited);
                 }
-        
+
                 &:focus {
                     outline: none;
                 }
-    
+
             }
         }
     }
-} 
+}
 
 .qld__body, .qld__body--alt {
     .qld__card{
@@ -415,11 +415,11 @@
             a.qld__card--clickable__link{
                 color: var(--QLD-color-dark__link);
                 @include QLD-underline('dark');
-    
+
             }
         }
     }
-} 
+}
 
 // Card listing match height
 .qld__body .qld__card-list,
@@ -465,12 +465,12 @@
     @include QLD-media(md) {
         .col-md-6:nth-of-type(-n + 2) {
             @include QLD-space(margin-top, 0unit);
-        } 
+        }
     }
     @include QLD-media(lg) {
         .col-lg-4:nth-of-type(-n + 3) {
             @include QLD-space(margin-top, 0unit);
-        } 
+        }
         .col-lg-3:nth-of-type(-n + 4){
             @include QLD-space(margin-top, 0unit);
         }
@@ -510,7 +510,7 @@
         .qld__slick-controls {
             order: 1;
         }
-        
+
         a {
             order: 0;
         }
@@ -548,14 +548,14 @@
 // Checks if two card components are adjacent and same background to reduce padding
 .qld__body.qld__card--wrapper{
     + .qld__body.qld__card--wrapper,
-    + data + .qld__body.qld__card--wrapper{ 
+    + data + .qld__body.qld__card--wrapper{
         @include QLD-space(margin-top, -1unit );
 
         .qld__card-intro{
             @include QLD-space(padding-bottom, 1.5unit );
 
             &.qld__card-intro--no-top-p {
-                padding-top: 0; 
+                padding-top: 0;
             }
         }
         @include QLD-media(md) {
@@ -573,7 +573,7 @@
         &.qld__card--wrapper-bg-image{
             @include QLD-space(margin-top, 0unit);
         }
-        
+
     }
     + .qld__body:not(.qld__card--wrapper){
         @include QLD-space(padding-top, 2.5unit !important);
@@ -585,7 +585,7 @@
         + .qld__body.qld__card--wrapper,
         + data + .qld__body.qld__card--wrapper{
             @include QLD-space(margin-top, 0unit );
-        
+
             &.qld__body--alt{
                 @include QLD-space(margin-top, -1unit );
                 @include QLD-media(md) {
@@ -605,7 +605,7 @@
         + .qld__body.qld__card--wrapper,
         + data + .qld__body.qld__card--wrapper{
             @include QLD-space(margin-top, 0unit );
-        
+
             &.qld__body--dark{
                 @include QLD-space(margin-top, -1unit );
                 @include QLD-media(md) {
@@ -625,7 +625,7 @@
         + .qld__body.qld__card--wrapper,
         + data + .qld__body.qld__card--wrapper{
             @include QLD-space(margin-top, 0unit );
-        
+
             &.qld__body--dark-alt{
                 @include QLD-space(margin-top, -1unit );
                 @include QLD-media(md) {
@@ -655,13 +655,13 @@
     + .qld__body.qld__card--wrapper,
     + data + .qld__body.qld__card--wrapper,
     + .qld__body.qld__card--wrapper,
-    + data + .qld__body.qld__card--wrapper{ 
+    + data + .qld__body.qld__card--wrapper{
         @include QLD-space(padding-top, 2.5unit !important);
         @include QLD-media(lg) {
                     @include QLD-space(padding-top, 4unit !important);
                 }
     }
-    
+
 }
 .qld__body--alt.qld__card--wrapper{
     + .qld__body--alt.qld__card--wrapper,

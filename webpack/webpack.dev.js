@@ -14,7 +14,7 @@ module.exports = merge(common, {
         },
         hot: true,
         host: '0.0.0.0',
-        port: 8080,
+        port: 8081, // todo: change it back to 8080
     },
     module: {
         rules: [
@@ -43,7 +43,7 @@ module.exports = merge(common, {
                             'search':/\.\/\?a=/g,
                             'replace':''
                         }
-                    }      
+                    }
                 ],
                 enforce:"post"
             }

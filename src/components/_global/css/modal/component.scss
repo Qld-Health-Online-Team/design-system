@@ -31,9 +31,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: $QLD-color-neutral--white;
+        background-color: var(--QLD-color-light__background);
         padding: 1.5rem;
-        border: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+        border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
         border-radius: $QLD-border-radius-sm;
         @include QLD-box-shadow(4);
         z-index: 101;
@@ -85,8 +85,8 @@
         border-radius: 50%;
         height: 2rem;
         width: 2rem;
-        background-color: $QLD-color-neutral--lightest;
-        border-color: $QLD-color-neutral--lightest;
+        background-color: var(--QLD-color-light__background--shade);
+        border-color: var(--QLD-color-neutral--lightest);
 
         &:hover{
             background: var(--QLD-color-light__background--alt-shade);
@@ -94,7 +94,7 @@
         }
 
         i{
-            color: $QLD-color-neutral--black;
+            color: var(--QLD-color-neutral--black);
         }
     }
 
@@ -119,18 +119,18 @@
 
     &__body__content{
         @include QLD-space(padding, 1.5unit  0);
-        
+
         ul li a {
             text-decoration: none;
             color: var(--QLD-color-light__link--on-action);
-            background-color: var(--$QLD-color-light__action--primary);
+            background-color: var(--QLD-color-light__action--primary);
             &:hover {
                 background-color: var(--QLD-color-light__action--primary-hover);
             }
         }
 
     }
-   
+
 	.qld__modal__body {
         min-width: pxToRem(360);
         max-width: pxToRem(654);
@@ -140,7 +140,7 @@
         transform: translate(-50%, -100%);
         background-color: white;
         padding: 1.5rem;
-        border: 2px solid $QLD-color-neutral--lighter;
+        border: 2px solid var(--QLD-color-neutral--lighter);
         @include sq-border-radius(4px);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         z-index: 101;
@@ -152,7 +152,7 @@
         .qld__modal__body__header {
             display: flex;
             justify-content: space-between;
-            
+
         }
         .qld__modal__close {
             position: absolute;

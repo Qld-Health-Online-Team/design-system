@@ -3,7 +3,7 @@
 }
 
 .qld__promo-panel {
-    
+
     .container-fluid {
         max-width: 100rem;
         position: relative;
@@ -216,12 +216,12 @@
             width: 100%;
         }
 
-        
+
         h2 {
             margin-top: 24px;
         }
 
-        
+
         h2:first-child {
             margin-top: 0;
         }
@@ -263,7 +263,7 @@
             padding-top: pxToRem(40);
             padding-bottom: 44px;
             margin-bottom: 64px;
-            min-height: 350px; 
+            min-height: 350px;
             .qld__promo-panel--image-right & {
                 border-radius: 0 0 0 0;
 
@@ -343,7 +343,7 @@
             .qld__promo-panel--image-right & {
                 border-radius: 0 0 0 0;
                 padding-right: pxToRem(64);
-                padding-left: clamp(48px, 17.5%, calc(100% - 656px)); 
+                padding-left: clamp(48px, 17.5%, calc(100% - 656px));
 
                 &:before {
                     right: 0;
@@ -356,7 +356,7 @@
                 padding-right: 9rem;
                 padding-left: 4rem;
 
-                &:before { 
+                &:before {
                     left: 0;
                     width: 50vw;
                 }
@@ -380,7 +380,7 @@
     }
 
     .qld__promo-panel__container-icon {
-        background-color: $QLD-color-neutral--lightest;        
+        background-color: var(--QLD-color-light__background--shade);
     }
 
     & {
@@ -586,9 +586,9 @@
 }
 
 section.qld__body.qld__promo-panel {
-    
+
     background-color: var(--QLD-color-light-background);
-    
+
     @include QLD-media(sm) {
         background-color: transparent;
     }
@@ -633,7 +633,7 @@ section.qld__body.qld__promo-panel {
             }
 
             @include QLD-media(lg) {
-                border-radius:0px 0px var(--QLD-border-radius-xl) 0px; 
+                border-radius:0px 0px var(--QLD-border-radius-xl) 0px;
             }
 
             @include QLD-media(xxl) {
@@ -710,7 +710,7 @@ section.qld__body.qld__promo-panel {
         }
 
         @include QLD-media(lg) {
-            padding-left: 32px; 
+            padding-left: 32px;
             padding-right: 32px;
         }
 
@@ -721,8 +721,8 @@ section.qld__body.qld__promo-panel {
         }
     }
 
-    &.qld__promo-panel--image-left { 
-  
+    &.qld__promo-panel--image-left {
+
         .qld__promo-panel__container-inner{
             @include QLD-media(xl) {
                  padding-left: 64px;
@@ -730,7 +730,7 @@ section.qld__body.qld__promo-panel {
             }
         }
     }
-    
+
     &.qld__body--light {
         .qld__promo-panel__container {
             background: var(--QLD-color-light__background);
@@ -812,7 +812,7 @@ section.qld__body.qld__promo-panel {
     }
 }
 
-.qld__promo-panel.qld__body--full-image { 
+.qld__promo-panel.qld__body--full-image {
     .qld__promo-panel__container-image {
         @include QLD-media(md) {
             width: 50%;
@@ -883,7 +883,7 @@ section.qld__body.qld__promo-panel {
             padding-left: 64px;
             padding-right: 64px;
             &.qld__promo-panel--image-right {
-                padding-left: 48px; 
+                padding-left: 48px;
             }
         }
 
@@ -963,7 +963,7 @@ section.qld__body.qld__promo-panel {
     section.qld__promo-panel + data + section.qld__body,
     section.qld__promo-panel + section.qld__body {
         margin-top:-64px;
-        padding-top:104px !important;  
+        padding-top:104px !important;
     }
 }
 
@@ -971,6 +971,6 @@ section.qld__body.qld__promo-panel {
     section.qld__promo-panel + data + section.qld__body,
     section.qld__promo-panel + section.qld__body {
         margin-top:-64px;
-        padding-top:128px !important;  
+        padding-top:128px !important;
     }
 }
