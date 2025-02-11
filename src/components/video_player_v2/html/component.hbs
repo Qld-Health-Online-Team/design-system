@@ -3,7 +3,12 @@
   {{#if metadata.body_background.value}}qld__body--{{metadata.body_background.value}}{{/if}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}video_player-v2-{{assetid}}{{/if}}">
   <div class="container-fluid">
     <div class="row qld__row-gap-component {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player-v2--align{{/ifCond}}">
+
+
+      <!-- Check for 'stack' video layout option -->
       {{#ifCond metadata.video_layout.value '==' 'stack'}}
+
+      <!-- If video description exists, display it -->
         {{#if metadata.video_description.value}}
           <div class="col-xs-12 
             {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__copy--centered text-center{{/ifCond}}">
@@ -11,11 +16,15 @@
           </div>
         {{/if}}
 
+        <!-- Embed video based on selected video size and layout -->
         <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-12 col-lg-8{{else}}col-xs-12{{/ifCond}} 
           {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__centered{{/ifCond}}">
+
+          <!-- Only embed the video if a video ID is provided -->
           {{#if metadata.video_id.value}}
             <div class="qld__video__player-v2--embed">
               <div class="qld__video__player-v2--embed--container">
+                <!-- Embed YouTube or Vimeo based on the selected video type -->
                     <iframe {{#ifCond metadata.video_type.value '==' 'youtube'}}src="https://www.youtube.com/embed/{{metadata.video_id.value}}"{{/ifCond}}
                     {{#ifCond metadata.video_type.value '==' 'vimeo'}}src="https://player.vimeo.com/video/{{metadata.video_id.value}}"{{/ifCond}}
                     frameborder="0"
@@ -27,6 +36,7 @@
                     </iframe>
               </div>
 
+              <!-- Display video caption and duration if provided -->
               <div class="qld__video__player-v2--summary">
                 {{#ifAny metadata.video_caption.value metadata.video_duration.value}}
                   <div class="qld__video__player-v2--caption">
@@ -39,6 +49,7 @@
                   </div>
                 {{/ifAny}}
 
+                <!-- Display transcript link if transcript option is 'link' -->
                 {{#ifCond metadata.transcript_options.value '==' 'link'}}
                   {{#if metadata.transcript_link.value}}
                     <div class="qld__video__player-v2__transcript">
@@ -50,6 +61,7 @@
                   {{/if}}
                 {{/ifCond}}
 
+                <!-- Display transcript accordion if transcript option is 'accordion' -->
                 {{#ifCond metadata.transcript_options.value '==' 'accordion'}}
                 {{#if metadata.transcript.value}}
                   <div class="qld__video__player-v2__transcript">
@@ -68,16 +80,12 @@
                 {{/if}}
               {{/ifCond}}
               </div>
-              
-
-
-
-
             </div>
           {{/if}}
         </div>
       {{/ifCond}}
 
+      <!-- Check for 'two_column' video layout option -->
       {{#ifCond metadata.video_layout.value '==' 'two_column'}}
         <div class="col-xs-12 col-lg-6">
           {{#if metadata.video_description.value}}
@@ -85,6 +93,7 @@
           {{/if}}
         </div>
         <div class="col-xs-12 col-lg-6">
+          <!-- Embed the video if a video ID exists -->
           {{#if metadata.video_id.value}}
             <div class="qld__video__player-v2--embed">
               <div class="qld__video__player-v2--embed--container">
@@ -110,6 +119,7 @@
                   </div>
                 {{/ifAny}}
 
+                <!-- Display transcript link or accordion based on options -->
                 {{#ifCond metadata.transcript_options.value '==' 'link'}}
                   {{#if metadata.transcript_link.value}}
                     <div class="qld__video__player-v2__transcript">

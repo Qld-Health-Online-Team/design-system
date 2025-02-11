@@ -55,6 +55,7 @@
         .qld__accordion__body-wrapper {
             color: $QLD-color-neutral--white;
             background-color: var(--QLD-color-dark__background--shade);
+            border-top: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border);
         }
         .qld__video__player-v2 {
             &--summary {
@@ -117,6 +118,11 @@
                 i {
                     color: var(--QLD-color-dark__action--secondary);
                 }
+                &:hover {
+                    i {
+                        color: var(--QLD-color-dark__action--secondary-hover);
+                    }
+                }
             }
         }
     }
@@ -153,6 +159,7 @@
         gap: 0.5rem;
         padding: pxToRem(12) pxToRem(16);
         font-size: pxToRem(14);
+        border-radius: 0 0 $QLD-border-radius-xs $QLD-border-radius-xs;
         @include QLD-media(lg) {          
             grid-template-columns: 1fr auto;
         }
@@ -190,6 +197,8 @@
         }
         &-link {
             padding: pxToRem(16) pxToRem(12);
+            border-bottom-left-radius: $QLD-border-radius-xs; 
+            border-bottom-right-radius: $QLD-border-radius-xs; 
             i {
                 margin-right: pxToRem(8);
             }
