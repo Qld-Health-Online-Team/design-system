@@ -56,14 +56,13 @@ $QLD-side-nav-breakpoint: lg !default;
                 text-decoration: none;
             }
         }
+
+        &:visited {
+            color: var(--QLD-color-light__text);
+        }
         
         @include QLD-focus();
     }
-
-    a:visited {
-        all: unset;
-    }
-
     
     // Link list
     .qld__link-list {
@@ -284,9 +283,9 @@ $QLD-side-nav-breakpoint: lg !default;
             }
         }
 
-        &:visited {
-            all: unset;
-        }
+        // &:visited {
+        //     all: unset;
+        // }
         
         
         @include QLD-focus("dark");
@@ -371,9 +370,9 @@ $QLD-side-nav-breakpoint: lg !default;
             }
         }
 
-        &:visited {
-            all: unset;
-        }
+        // &:visited {
+        //     all: unset;
+        // }
         
         @include QLD-focus("dark");
     }
