@@ -1,8 +1,8 @@
 {{#with component.data}}
-<section class="qld__body qld__video__player-v2--wrapper 
-  {{#if metadata.body_background.value}}qld__body--{{metadata.body_background.value}}{{/if}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}video_player-v2-{{assetid}}{{/if}}">
+<section class="qld__body qld__video__player--wrapper 
+  {{#if metadata.body_background.value}}qld__body--{{metadata.body_background.value}}{{/if}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}video_player-{{assetid}}{{/if}}">
   <div class="container-fluid">
-    <div class="row qld__row-gap-component {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player-v2--align{{/ifCond}}">
+    <div class="row qld__row-gap-component {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player--align{{/ifCond}}">
 
 
       <!-- Check for 'stack' video layout option -->
@@ -22,8 +22,8 @@
 
           <!-- Only embed the video if a video ID is provided -->
           {{#if metadata.video_id.value}}
-            <div class="qld__video__player-v2--embed">
-              <div class="qld__video__player-v2--embed--container">
+            <div class="qld__video__player--embed">
+              <div class="qld__video__player--embed--container">
                 <!-- Embed YouTube or Vimeo based on the selected video type -->
                     <iframe {{#ifCond metadata.video_type.value '==' 'youtube'}}src="https://www.youtube.com/embed/{{metadata.video_id.value}}"{{/ifCond}}
                     {{#ifCond metadata.video_type.value '==' 'vimeo'}}src="https://player.vimeo.com/video/{{metadata.video_id.value}}"{{/ifCond}}
@@ -32,17 +32,17 @@
                     allowfullscreen
                     title="{{metadata.video_caption.value}} - Video"
                     aria-label="Video: {{metadata.video_caption.value}}" 
-                    class="qld__video__player-v2--iframe">
+                    class="qld__video__player--iframe">
                     </iframe>
               </div>
 
               <!-- Display video caption and duration if provided -->
-              <div class="qld__video__player-v2--summary">
+              <div class="qld__video__player--summary">
                 {{#ifAny metadata.video_caption.value metadata.video_duration.value}}
-                  <div class="qld__video__player-v2--caption">
+                  <div class="qld__video__player--caption">
                     {{metadata.video_caption.value}}
                     {{#if metadata.video_duration.value}}
-                      <div class="qld__video__player-v2--duration">
+                      <div class="qld__video__player--duration">
                         <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
                       </div>
                     {{/if}}
@@ -52,8 +52,8 @@
                 <!-- Display transcript link if transcript option is 'link' -->
                 {{#ifCond metadata.transcript_options.value '==' 'link'}}
                   {{#if metadata.transcript_link.value}}
-                    <div class="qld__video__player-v2__transcript">
-                      <div class="qld__video__player-v2__transcript-link">
+                    <div class="qld__video__player__transcript">
+                      <div class="qld__video__player__transcript-link">
                         <i class="fal fa-arrow-right-long"></i>
                         <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
                       </div>
@@ -64,7 +64,7 @@
                 <!-- Display transcript accordion if transcript option is 'accordion' -->
                 {{#ifCond metadata.transcript_options.value '==' 'accordion'}}
                 {{#if metadata.transcript.value}}
-                  <div class="qld__video__player-v2__transcript">
+                  <div class="qld__video__player__transcript">
                     <div class="qld__accordion">
                       <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
                               aria-controls="accordion-group-{{assetid}}" aria-expanded="false">
@@ -95,8 +95,8 @@
         <div class="col-xs-12 col-lg-6">
           <!-- Embed the video if a video ID exists -->
           {{#if metadata.video_id.value}}
-            <div class="qld__video__player-v2--embed">
-              <div class="qld__video__player-v2--embed--container">
+            <div class="qld__video__player--embed">
+              <div class="qld__video__player--embed--container">
                 <iframe {{#ifCond metadata.video_type.value '==' 'youtube'}}src="https://www.youtube.com/embed/{{metadata.video_id.value}}"{{/ifCond}}
                 {{#ifCond metadata.video_type.value '==' 'vimeo'}}src="https://player.vimeo.com/video/{{metadata.video_id.value}}"{{/ifCond}}
                 frameborder="0"
@@ -104,15 +104,15 @@
                 allowfullscreen
                 title="{{metadata.video_caption.value}} - Video"
                 aria-label="Video: {{metadata.video_caption.value}}" 
-                class="qld__video__player-v2--iframe">
+                class="qld__video__player--iframe">
                 </iframe>
               </div>
-              <div class="qld__video__player-v2--summary">
+              <div class="qld__video__player--summary">
                 {{#ifAny metadata.video_caption.value metadata.video_duration.value}}
-                  <div class="qld__video__player-v2--caption">
+                  <div class="qld__video__player--caption">
                     {{metadata.video_caption.value}}
                     {{#if metadata.video_duration.value}}
-                      <div class="qld__video__player-v2--duration">
+                      <div class="qld__video__player--duration">
                         <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
                       </div>
                     {{/if}}
@@ -122,8 +122,8 @@
                 <!-- Display transcript link or accordion based on options -->
                 {{#ifCond metadata.transcript_options.value '==' 'link'}}
                   {{#if metadata.transcript_link.value}}
-                    <div class="qld__video__player-v2__transcript">
-                      <div class="qld__video__player-v2__transcript-link">
+                    <div class="qld__video__player__transcript">
+                      <div class="qld__video__player__transcript-link">
                         <i class="fal fa-arrow-right-long"></i>
                         <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
                       </div>
@@ -133,7 +133,7 @@
 
                 {{#ifCond metadata.transcript_options.value '==' 'accordion'}}
                   {{#if metadata.transcript.value}}
-                    <div class="qld__video__player-v2__transcript">
+                    <div class="qld__video__player__transcript">
                       <div class="qld__accordion">
                         <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
                                 aria-controls="accordion-group-{{assetid}}" aria-expanded="false">

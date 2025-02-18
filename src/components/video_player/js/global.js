@@ -2,7 +2,7 @@
     'use strict';
 
     // Select all accordion title buttons
-    const accordionTitles = document.querySelectorAll('.qld__accordion__title');
+    const accordionTitles = document.querySelectorAll('.qld__body qld__video__player--wrapper .qld__accordion__title');
 
     if (!accordionTitles.length) return;
 
