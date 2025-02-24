@@ -343,7 +343,7 @@
             .qld__promo-panel--image-right & {
                 border-radius: 0 0 0 0;
                 padding-right: pxToRem(64);
-                padding-left: clamp(48px, 17.5%, calc(100% - 656px)); 
+                padding-left: clamp(48px, 20%, calc(100% - 657px));
 
                 &:before {
                     right: 0;
@@ -353,7 +353,7 @@
 
             .qld__promo-panel--image-left & {
                 border-radius: 0 0 0 0;
-                padding-right: 9rem;
+                padding-right: clamp(48px, 20%, calc(100% - 657px));
                 padding-left: 4rem;
 
                 &:before { 
@@ -793,8 +793,8 @@ section.qld__body.qld__promo-panel {
         .qld__promo-panel__container {
             @include QLD-media(xl) {
                 border-radius: 0;
-                padding-left: 128px;
-                padding-right: 128px;
+                padding-left: clamp(48px, 20%, calc(50% - 610px));
+                padding-right: clamp(48px, 20%, calc(50% - 610px));
             }
 
             @include QLD-media(xxl) {
@@ -880,8 +880,8 @@ section.qld__body.qld__promo-panel {
         }
         @include QLD-media(xl) {
             border-radius: 0;
-            padding-left: 64px;
-            padding-right: 64px;
+            padding-left: clamp(48px, 20%, calc(50% - 610px));
+            padding-right: clamp(48px, 20%, calc(50% - 610px));
             &.qld__promo-panel--image-right {
                 padding-left: 48px; 
             }
@@ -916,7 +916,7 @@ section.qld__body.qld__promo-panel {
     &.qld__promo-panel--image-right {
         .qld__promo-panel__container {
             @include QLD-media(xl) {
-                padding-left: 128px;
+                padding-left: clamp(48px, 20%, calc(50% - 610px));
             }
         }
     }
