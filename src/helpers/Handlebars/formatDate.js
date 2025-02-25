@@ -1,8 +1,6 @@
 module.exports = function (datetime, formatStr) {
     var date = new Date(datetime);
 
-    console.log(date);
-
     if (isNaN(date.valueOf())) {
         // date is not valid
         return datetime;

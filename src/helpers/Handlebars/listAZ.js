@@ -27,8 +27,6 @@ module.exports = function(items, letterHeading, url, options) {
         return 0;
     })
 
-    console.log(services);
-
     letters = letters.sort(function(a, b){
         if(a < b) { return -1; }
         if(a > b) { return 1; }
