@@ -3,24 +3,24 @@
     <div class="container-fluid">
         <div role="region" 
         aria-label="{{#ifCond metadata.type.value '==' 'info'}}Information{{/ifCond}}{{#ifCond metadata.type.value '==' 'success'}}Success{{/ifCond}}{{#ifCond metadata.type.value '==' 'warning'}}Warning{{/ifCond}}{{#ifCond metadata.type.value '==' 'error'}}Error{{/ifCond}}" class="qld__page-alerts qld__page-alerts--svg qld__page-alerts--{{metadata.type.value}}">
-            {{#ifCond metadata.type.value '==' 'info'}} 
+            {{#ifCond metadata.type.value '==' 'info'}}            
             <div class="qld__page-alerts__icon">
-                <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__info"></use></svg>
+                <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use></svg>
             </div>
             {{/ifCond}}
             {{#ifCond metadata.type.value '==' 'success'}} 
             <div class="qld__page-alerts__icon">
-                <svg aria-label="Success" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__success"></use></svg>
+                <svg aria-label="Success" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-success"></use></svg>
             </div>
             {{/ifCond}}
             {{#ifCond metadata.type.value '==' 'warning'}} 
             <div class="qld__page-alerts__icon">
-                <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__warning"></use></svg>
+                <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-warning"></use></svg>
             </div>
             {{/ifCond}}
             {{#ifCond metadata.type.value '==' 'error'}} 
             <div class="qld__page-alerts__icon">
-                <svg aria-label="Error" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__error"></use></svg>
+                <svg aria-label="Error" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-error"></use></svg>
             </div>
             {{/ifCond}}
             {{#if metadata.heading.value}}
