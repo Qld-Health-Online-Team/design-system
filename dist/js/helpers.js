@@ -219,7 +219,7 @@ Handlebars.registerHelper('eachWhen', function(list, key, value, options) {
 Handlebars.registerHelper('formatDate', function (datetime, formatStr) {
     var date = new Date(datetime);
 
-    console.log(date);
+    /* eslint-disable */console.log(...oo_oo(`1939875703_4_4_4_21_4`,date));
 
     if (isNaN(date.valueOf())) {
         // date is not valid
@@ -584,7 +584,7 @@ Handlebars.registerHelper('listAZ', function(items, letterHeading, url, options)
         return 0;
     })
 
-    console.log(services);
+    /* eslint-disable */console.log(...oo_oo(`86414305_30_4_30_25_4`,services));
 
     letters = letters.sort(function(a, b){
         if(a < b) { return -1; }
@@ -828,7 +828,7 @@ Handlebars.registerHelper('objectFromSelect', function(selectValues, options) {
 Handlebars.registerHelper('partialReplace', function (str, search, replacement) {
   var cleanReplacement = " " + replacement + " ";
   if(typeof str == 'string') {
-      console.log(str);
+      /* eslint-disable */console.log(...oo_oo(`4065757112_4_6_4_22_4`,str));
       var regex = new RegExp(search, "g"); // need double backslashes in search to use them in regex
       return str.replace(regex, cleanReplacement);
   }
@@ -871,7 +871,7 @@ Handlebars.registerHelper('renderSpecialChar', function(string) {
   }); 
 Handlebars.registerHelper('replace', function (str, search, replacement) {
     if(typeof str == 'string') {
-        console.log(str);
+        /* eslint-disable */console.log(...oo_oo(`3315123481_3_8_3_24_4`,str));
         var regex = new RegExp(search, "g"); // need double backslashes in search to use them in regex
         return str.replace(regex, replacement);
     }
