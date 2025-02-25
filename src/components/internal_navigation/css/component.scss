@@ -5,18 +5,6 @@
 $QLD-side-nav-depth: 3 !default;
 $QLD-side-nav-breakpoint: lg !default;
 
-// Mobile side nav spacing
-// .qld__side-nav {
-//     @include QLD-space(margin-bottom, 2.5unit);
-    
-//     @include QLD-media(sm) {
-//         @include QLD-space(margin-bottom, 0unit);
-//     }
-//     @include QLD-media(lg) {
-//         @include QLD-space(margin-right, 1unit);
-//     }
-// }
-
 .qld__side-nav {
     @include QLD-fontgrid(sm);
     font-family: $QLD-font;
@@ -60,6 +48,11 @@ $QLD-side-nav-breakpoint: lg !default;
         &:visited {
             color: var(--QLD-color-light__text);
         }
+
+        &:focus {
+            color: var(--QLD-color-light__link);
+            background-color: $QLD-color-neutral--lightest;
+        }
         
         @include QLD-focus();
     }
@@ -86,19 +79,18 @@ $QLD-side-nav-breakpoint: lg !default;
 
         a,
         span{
-            border-top:$QLD-border-width-thin solid var(--QLD-color-light__border--alt);
-
-            
+            border-top:$QLD-border-width-thin solid var(--QLD-color-light__border--alt); 
 
         }
 
         .qld__link-list {
             @include QLD-space(border-top-width, 0unit);
 
-            li{
+            li {
+                border-top:$QLD-border-width-thin solid $QLD-color-neutral--lighter;
                 a,
                 span{
-                    border-top:$QLD-border-width-thin solid $QLD-color-neutral--lighter;
+                   // border-top:$QLD-border-width-thin solid $QLD-color-neutral--lighter;
                 }
             }
         }
@@ -230,12 +222,13 @@ $QLD-side-nav-breakpoint: lg !default;
 }
 
 // Alternate colour variation
-.qld__side-nav.qld__side-nav--alt,
-.qld__body--alt .qld__side-nav{
+
+.qld__body--alt .qld__side-nav {
     background-color: var(--QLD-color-light__background--alt-shade);
     
     .qld__accordion__title {
         color: var(--QLD-color-light__heading);
+        text-decoration-color: var(--QLD-color-light__heading);
         background-color: inherit;
     }
     
@@ -253,39 +246,54 @@ $QLD-side-nav-breakpoint: lg !default;
     
     .qld__link-list {
         li {
-            @include QLD-space(
-                border-top,
-                solid 0.0625unit var(--QLD-color-light__border--alt)
-            );
+            a,span {
+                @include QLD-space(
+                    border-top,
+                    solid 0.0625unit var(--QLD-color-light__border--alt)
+                );
+            }
+
         }
     }
 }
 
 // Dark colour variation
-.qld__side-nav.qld__side-nav--dark,
+
 .qld__body--dark .qld__side-nav {
     background: var(--QLD-color-dark__background--shade);
     
     .qld__accordion__title {
         color: var(--QLD-color-dark__heading);
+        text-decoration-color: var(--QLD-color-dark__heading);
         background-color: inherit;
+        &:after {
+            background-color: var(--QLD-color-dark__action--secondary);
+        }
     }
     
-    a {
-        color: var(--QLD-color-dark__text);
-        @include QLD-underline('dark','noUnderline');
+    .qld__sidenav__link {
+        color: var(--QLD-color-dark__link);
+        @include QLD-underline('light','noUnderline');
         &:hover {
-            background: var(--QLD-color-dark__background--alt-shade);
-
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+            text-decoration-color: var(--QLD-color-dark__link);
             &:visited {
-                color: var(--QLD-color-dark__text);
+                color: var(--QLD-color-dark__link);
+                background-color: var(--QLD-color-dark__background--shade);
                 text-decoration: none;
             }
         }
+        &:visited {
+            color: var(--QLD-color-dark__link);
+            text-decoration: none;
+        }
 
-        // &:visited {
-        //     all: unset;
-        // }
+        &:focus {
+            color: var(--QLD-color-dark__link);
+            background-color: var(--QLD-color-dark__background--shade);
+            text-decoration-color: var(--QLD-color-dark__link);
+        }
         
         
         @include QLD-focus("dark");
@@ -340,6 +348,10 @@ $QLD-side-nav-breakpoint: lg !default;
         li {
             margin: 0;
         }
+        a,
+        span {
+            border-top-color: var(--QLD-color-dark__border)
+        }
         
         .qld__link-list {
             @include QLD-space(border-top-width, 0unit);
@@ -349,7 +361,7 @@ $QLD-side-nav-breakpoint: lg !default;
 
 // Dark alternative colour variation
 // Dark colour variation
-.qld__side-nav.qld__side-nav--alt-dark,
+
 .qld__body--dark-alt .qld__side-nav {
     background: var(--QLD-color-dark__background--alt-shade);
     
@@ -358,21 +370,38 @@ $QLD-side-nav-breakpoint: lg !default;
         background-color: inherit;
     }
     
-    a {
+    .qld__sidenav__link {
         color: var(--QLD-color-dark__text);
         @include QLD-underline('dark','noUnderline');
-        &:hover {
-            background: var(--QLD-color-dark__background--alt);
+        // &:hover {
+        //     background: var(--QLD-color-dark__background--alt);
 
+        //     &:visited {
+        //         color: var(--QLD-color-dark__text);
+        //         text-decoration: none;
+        //     }
+        // }
+
+        &:hover {
+            background: var(--QLD-color-dark__background--shade);
+            color: var(--QLD-color-dark__link);
+            text-decoration-color: var(--QLD-color-dark__link);
             &:visited {
-                color: var(--QLD-color-dark__text);
+                color: var(--QLD-color-dark__link);
+                background-color: var(--QLD-color-dark__background--shade);
                 text-decoration: none;
             }
         }
+        &:visited {
+            color: var(--QLD-color-dark__link);
+            text-decoration: none;
+        }
 
-        // &:visited {
-        //     all: unset;
-        // }
+        &:focus {
+            color: var(--QLD-color-dark__link);
+            background-color: var(--QLD-color-dark__background--shade);
+            text-decoration-color: var(--QLD-color-dark__link);
+        }
         
         @include QLD-focus("dark");
     }
@@ -392,7 +421,7 @@ $QLD-side-nav-breakpoint: lg !default;
         }
         
         & > ul > li {
-            border-color: var(--QLD-color-dark__border);
+            // border-color: var(--QLD-color-dark__border);
         }
     }
     
@@ -427,9 +456,17 @@ $QLD-side-nav-breakpoint: lg !default;
     }
 }
 
+// Update Internal Navigation Colours based on wrapper class
+// qld__body--light
+// qld__body--dark
+// qld__body--alt
+// qld__body--dark-alt
+// white which is no class
+
+
 // Print styles
 @media print {
-	.qld__side-nav {
+    .qld__side-nav {
         display: none !important;
         background: transparent !important;
 
@@ -445,9 +482,9 @@ $QLD-side-nav-breakpoint: lg !default;
         .qld__accordion__title {
             display: none;
         }
-	}
+    }
 
-	.qld__side-nav__content {
+    .qld__side-nav__content {
 
         ul ul ul a:before {
             background-image: QLD-svguri( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
@@ -458,5 +495,5 @@ $QLD-side-nav-breakpoint: lg !default;
         & > ul > li {
             border-color: #000 !important;
         }
-	}
+    }
 }
