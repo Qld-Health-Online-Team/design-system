@@ -3,7 +3,6 @@
 }
 
 .qld__promo-panel {
-    
     .container-fluid {
         max-width: 100rem;
         position: relative;
@@ -20,7 +19,7 @@
     &__container {
         display: flex;
         flex-direction: column;
-        background-position:center;
+        background-position: center;
 
         @include QLD-media(md) {
             margin-left: -1.5rem !important;
@@ -136,7 +135,7 @@
             width: auto;
 
             .qld__promo-panel--image-left & {
-                border-radius:0px 0px var(--QLD-border-radius-xl) 0px;
+                border-radius: 0px 0px var(--QLD-border-radius-xl) 0px;
                 right: 0;
             }
 
@@ -159,7 +158,7 @@
             }
 
             .qld__promo-panel--image-right & {
-                border-radius: 0 0 0  var(--QLD-border-radius-xl) ;
+                border-radius: 0 0 0 var(--QLD-border-radius-xl);
             }
         }
 
@@ -169,7 +168,7 @@
             }
 
             .qld__promo-panel--image-right & {
-                border-radius: 0 var(--QLD-border-radius-xl)  var(--QLD-border-radius-xl)  var(--QLD-border-radius-xl) ;
+                border-radius: 0 var(--QLD-border-radius-xl) var(--QLD-border-radius-xl) var(--QLD-border-radius-xl);
             }
         }
     }
@@ -183,9 +182,9 @@
         position: relative;
         overflow: hidden;
         z-index: 0;
-        margin-top:auto;
-        margin-bottom:auto;
-        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
+        margin-top: auto;
+        margin-bottom: auto;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 3px 3px 1px rgba(0, 0, 0, 0.1);
         clip-path: inset(2px -10px -10px -10px);
         @include QLD-media(md) {
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
@@ -216,12 +215,10 @@
             width: 100%;
         }
 
-        
         h2 {
             margin-top: 24px;
         }
 
-        
         h2:first-child {
             margin-top: 0;
         }
@@ -254,7 +251,6 @@
                     width: 50vw;
                 }
             }
-
         }
 
         @include QLD-media(md) {
@@ -263,7 +259,7 @@
             padding-top: pxToRem(40);
             padding-bottom: 44px;
             margin-bottom: 64px;
-            min-height: 350px; 
+            min-height: 350px;
             .qld__promo-panel--image-right & {
                 border-radius: 0 0 0 0;
 
@@ -289,7 +285,6 @@
             h2 {
                 margin-top: 32px;
             }
-
         }
 
         @include QLD-media(lg) {
@@ -343,7 +338,7 @@
             .qld__promo-panel--image-right & {
                 border-radius: 0 0 0 0;
                 padding-right: pxToRem(64);
-                padding-left: clamp(48px, 17.5%, calc(100% - 656px)); 
+                padding-left: clamp(48px, 20%, calc(100% - 657px));
 
                 &:before {
                     right: 0;
@@ -353,10 +348,10 @@
 
             .qld__promo-panel--image-left & {
                 border-radius: 0 0 0 0;
-                padding-right: 9rem;
+                padding-right: clamp(48px, 20%, calc(100% - 657px));
                 padding-left: 4rem;
 
-                &:before { 
+                &:before {
                     left: 0;
                     width: 50vw;
                 }
@@ -366,7 +361,6 @@
                 margin-top: pxToRem(32);
             }
         }
-
         @include QLD-media(xxl) {
             .qld__promo-panel--image-right & {
                 border-radius: var(--QLD-border-radius-xl) 0px 0px var(--QLD-border-radius-xl);
@@ -376,20 +370,15 @@
                 border-radius: 0px var(--QLD-border-radius-xl) var(--QLD-border-radius-xl) 0px;
             }
         }
-
     }
 
     .qld__promo-panel__container-icon {
-        background-color: $QLD-color-neutral--lightest;        
+        background-color: $QLD-color-neutral--lightest;
     }
 
     & {
         .qld__promo-panel__container-image {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                white 50%
-            );
+            background: linear-gradient(to bottom, transparent 50%, white 50%);
         }
         @include QLD-media(md) {
             .qld__promo-panel__container-image {
@@ -409,11 +398,7 @@
 
     &.qld__body--light {
         .qld__promo-panel__container-image {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                var(--QLD-color-light__background) 50%
-            );
+            background: linear-gradient(to bottom, transparent 50%, var(--QLD-color-light__background) 50%);
         }
         @include QLD-media(md) {
             .qld__promo-panel__container-image {
@@ -433,11 +418,7 @@
 
     &.qld__body--alt {
         .qld__promo-panel__container-image {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                var(--QLD-color-light__background--alt) 50%
-            );
+            background: linear-gradient(to bottom, transparent 50%, var(--QLD-color-light__background--alt) 50%);
         }
         @include QLD-media(md) {
             .qld__promo-panel__container-image {
@@ -456,11 +437,7 @@
 
     &.qld__body--dark {
         .qld__promo-panel__container-image {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                var(--QLD-color-dark__background) 50%
-            );
+            background: linear-gradient(to bottom, transparent 50%, var(--QLD-color-dark__background) 50%);
         }
         @include QLD-media(md) {
             .qld__promo-panel__container-image {
@@ -507,11 +484,7 @@
 
     &.qld__body--dark-alt {
         .qld__promo-panel__container-image {
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                var(--QLD-color-dark__background--alt) 50%
-            );
+            background: linear-gradient(to bottom, transparent 50%, var(--QLD-color-dark__background--alt) 50%);
         }
 
         @include QLD-media(md) {
@@ -586,9 +559,8 @@
 }
 
 section.qld__body.qld__promo-panel {
-    
-    background-color: var(--QLD-color-light-background);
-    
+    background-color: $QLD-color-neutral--white;
+
     @include QLD-media(sm) {
         background-color: transparent;
     }
@@ -598,7 +570,7 @@ section.qld__body.qld__promo-panel {
     &.qld__promo-panel--image-left {
         .qld__promo-panel__container-inner {
             margin-bottom: 0;
-            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 3px 3px 1px rgba(0, 0, 0, 0.1);
             @include QLD-media(md) {
                 box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
                 border-radius: 0 0 0 44px;
@@ -633,7 +605,7 @@ section.qld__body.qld__promo-panel {
             }
 
             @include QLD-media(lg) {
-                border-radius:0px 0px var(--QLD-border-radius-xl) 0px; 
+                border-radius: 0px 0px var(--QLD-border-radius-xl) 0px;
             }
 
             @include QLD-media(xxl) {
@@ -686,7 +658,7 @@ section.qld__body.qld__promo-panel {
         @include QLD-media(xl) {
             max-width: 656px;
             margin-left: auto;
-            width:100%;
+            width: 100%;
         }
     }
 
@@ -710,27 +682,25 @@ section.qld__body.qld__promo-panel {
         }
 
         @include QLD-media(lg) {
-            padding-left: 32px; 
+            padding-left: 32px;
             padding-right: 32px;
         }
 
         @include QLD-media(xl) {
             padding-left: clamp(0px, 17.5%, calc(100% - 648px));
             padding-right: 32px;
-
         }
     }
 
-    &.qld__promo-panel--image-left { 
-  
-        .qld__promo-panel__container-inner{
+    &.qld__promo-panel--image-left {
+        .qld__promo-panel__container-inner {
             @include QLD-media(xl) {
-                 padding-left: 64px;
-                 padding-right: clamp(0px, 17.5%, calc(100% - 648px));
+                padding-left: 64px;
+                padding-right: clamp(0px, 17.5%, calc(100% - 648px));
             }
         }
     }
-    
+
     &.qld__body--light {
         .qld__promo-panel__container {
             background: var(--QLD-color-light__background);
@@ -793,8 +763,8 @@ section.qld__body.qld__promo-panel {
         .qld__promo-panel__container {
             @include QLD-media(xl) {
                 border-radius: 0;
-                padding-left: 128px;
-                padding-right: 128px;
+                padding-left: clamp(48px, 20%, calc(50% - 624px));
+                padding-right: clamp(48px, 20%, calc(50% - 624px));
             }
 
             @include QLD-media(xxl) {
@@ -807,12 +777,11 @@ section.qld__body.qld__promo-panel {
                 padding-left: 0px;
                 padding-right: 32px;
             }
-
         }
     }
 }
 
-.qld__promo-panel.qld__body--full-image { 
+.qld__promo-panel.qld__body--full-image {
     .qld__promo-panel__container-image {
         @include QLD-media(md) {
             width: 50%;
@@ -839,7 +808,7 @@ section.qld__body.qld__promo-panel {
     .qld__promo-panel__container-inner {
         border-radius: 20px;
         margin-bottom: 0;
-        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2),0px 3px 3px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 3px 3px 1px rgba(0, 0, 0, 0.1);
         @include QLD-media(lg) {
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
             padding-left: 32px;
@@ -880,10 +849,10 @@ section.qld__body.qld__promo-panel {
         }
         @include QLD-media(xl) {
             border-radius: 0;
-            padding-left: 64px;
-            padding-right: 64px;
+            padding-left: clamp(48px, 20%, calc(50% - 624px));
+            padding-right: clamp(48px, 20%, calc(50% - 624px));
             &.qld__promo-panel--image-right {
-                padding-left: 48px; 
+                padding-left: 48px;
             }
         }
 
@@ -916,61 +885,59 @@ section.qld__body.qld__promo-panel {
     &.qld__promo-panel--image-right {
         .qld__promo-panel__container {
             @include QLD-media(xl) {
-                padding-left: 128px;
+                padding-left: clamp(48px, 20%, calc(50% - 624px));
             }
         }
     }
 }
-.qld__body--light  + data +  section.qld__promo-panel,
-.qld__body--light  +  section.qld__promo-panel{
+.qld__body--light + data + section.qld__promo-panel,
+.qld__body--light + section.qld__promo-panel {
     background: var(--QLD-color-light__background);
 }
 
-.qld__body--alt  + data +  section.qld__promo-panel,
-.qld__body--alt  +  section.qld__promo-panel{
-    background: linear-gradient(to bottom, var(--QLD-color-light-alt-background) 25px, var(--QLD-color-light-alt-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+.qld__body--alt + data + section.qld__promo-panel,
+.qld__body--alt + section.qld__promo-panel {
+    background: linear-gradient(to bottom, var(--QLD-color-light__background--alt) 25px, var(--QLD-color-light__background--alt) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
     @include QLD-media(md) {
-        background: var(--QLD-color-light-alt-background);
+        background: var(--QLD-color-light__background--alt);
     }
 }
-.qld__body--dark  + data +  section.qld__promo-panel,
-.qld__body--dark  + section.qld__promo-panel{
-    background: linear-gradient(to bottom, var(--QLD-color-dark-background) 25px, var(--QLD-color-dark-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+.qld__body--dark + data + section.qld__promo-panel,
+.qld__body--dark + section.qld__promo-panel {
+    background: linear-gradient(to bottom, var(--QLD-color-dark__background) 25px, var(--QLD-color-dark__background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
     @include QLD-media(md) {
-        background: var(--QLD-color-dark-background);
+        background: var(--QLD-color-dark__background);
     }
 }
-.qld__body--dark-alt  + data +  section.qld__promo-panel,
-.qld__body--dark-alt  +  section.qld__promo-panel{
-    background: linear-gradient(to bottom, var(--QLD-color-dark-alt-background) 25px, var(--QLD-color-dark-alt-background) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
+.qld__body--dark-alt + data + section.qld__promo-panel,
+.qld__body--dark-alt + section.qld__promo-panel {
+    background: linear-gradient(to bottom, var(--QLD-color-dark__background--alt) 25px, var(--QLD-color-dark__background--alt) 25px, rgba(0, 0, 0, 0) 25px, rgba(0, 0, 0, 0) 100%);
     @include QLD-media(md) {
-        background: var(--QLD-color-dark-alt-background);
+        background: var(--QLD-color-dark__background--alt);
     }
     background: var(--QLD-color-light__background--alt);
 }
-.qld__body--dark  + data +  section.qld__promo-panel,
-.qld__body--dark  + section.qld__promo-panel{
+.qld__body--dark + data + section.qld__promo-panel,
+.qld__body--dark + section.qld__promo-panel {
     background: var(--QLD-color-dark__background);
 }
-.qld__body--dark-alt  + data +  section.qld__promo-panel,
-.qld__body--dark-alt  +  section.qld__promo-panel{
+.qld__body--dark-alt + data + section.qld__promo-panel,
+.qld__body--dark-alt + section.qld__promo-panel {
     background: var(--QLD-color-dark__background--alt);
 }
-
-
 
 @include QLD-media(md) {
     section.qld__promo-panel + data + section.qld__body,
     section.qld__promo-panel + section.qld__body {
-        margin-top:-64px;
-        padding-top:104px !important;  
+        margin-top: -64px;
+        padding-top: 104px !important;
     }
 }
 
 @include QLD-media(lg) {
     section.qld__promo-panel + data + section.qld__body,
     section.qld__promo-panel + section.qld__body {
-        margin-top:-64px;
-        padding-top:128px !important;  
+        margin-top: -64px;
+        padding-top: 128px !important;
     }
 }
