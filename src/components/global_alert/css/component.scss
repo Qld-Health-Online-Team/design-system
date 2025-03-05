@@ -3,25 +3,24 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__global-alert_include {
-    max-height:0;
-    transition:max-height 1s ease-in;
-    overflow:hidden;
+    max-height: 0;
+    transition: max-height 1s ease-in;
+    overflow: hidden;
 }
 
 .qld__global-alert {
-    padding:5px 0 5px 0;
+    font-size: #{map-get($QLD-fontsize-map, xs)}px;
 
     .container-fluid {
         padding-left: 2rem;
         padding-right: 2rem;
     }
-    
+
     &.qld__global-alert--critical {
         background-color: $QLD-color-status__error;
         color: $QLD-color-neutral--white;
-        font-size:pxToEm(13);
         & + & {
-            border-top: 1px solid #8A1220;
+            border-top: 1px solid #8a1220;
         }
         a {
             text-decoration-line: solid;
@@ -41,28 +40,28 @@
                 }
             }
 
-            &:hover, 
-            &:visited{
+            &:hover,
+            &:visited {
                 text-decoration-color: $QLD-color-neutral--white;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
-                .qld__icon{
-                    color: $QLD-color-neutral--white;
-                }
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
-        
-        .qld__icon{
+
+        .qld__icon,
+        .qld__icon:hover {
             color: $QLD-color-neutral--white;
+
+            @media (prefers-contrast: more) {
+                color: revert;
+            }
         }
-        
     }
-    
+
     &.qld__global-alert--default {
         background-color: $QLD-color-status__caution;
         color: $QLD-color-neutral--darkest;
-        font-size:pxToEm(14);
         & + & {
-            border-top: 1px solid #B38800;
+            border-top: 1px solid #b38800;
         }
         a {
             text-decoration-line: solid;
@@ -81,27 +80,31 @@
                     text-decoration-color: $QLD-color-neutral--darkest;
                 }
             }
-            &:hover, 
-            &:visited{
+            &:hover,
+            &:visited {
                 text-decoration-color: $QLD-color-neutral--darkest;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
-                .qld__icon{
-                    color: $QLD-color-neutral--darkest;
-                }
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
-        .qld__icon{
+
+        .qld__icon,
+        .qld__icon:hover {
             color: $QLD-color-neutral--darkest;
+
+            @media (prefers-contrast: more) {
+                color: revert;
+            }
         }
     }
-    
+
     &.qld__global-alert--general {
         background-color: $QLD-color-status__info--lighter;
         color: $QLD-color-neutral--darkest;
-        font-size:pxToEm(14);
+
         & + & {
             border-top: 1px solid #5c94c0;
         }
+
         a {
             text-decoration-line: solid;
             text-decoration-thickness: var(--QLD-underline__thickness-thin);
@@ -120,123 +123,128 @@
                 }
             }
 
-            &:hover, 
-            &:visited{
+            &:hover,
+            &:visited {
                 text-decoration-color: $QLD-color-neutral--darkest;
-                text-decoration-thickness: var(--QLD-underline__thickness-thick); 
-                .qld__icon {
-                    color: $QLD-color-neutral--darkest;
-                }
+                text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
-        
-        .qld__icon {
+
+        .qld__icon,
+        .qld__icon:hover {
             color: $QLD-color-neutral--darkest;
+
+            @media (prefers-contrast: more) {
+                color: revert;
+            }
         }
     }
 
     .qld__global-alert__icon {
-        line-height:1;
+        line-height: 1;
         margin-top: 2px;
     }
-    
+
     .qld__global-alert__main {
-        display:flex;
-        margin:6px 0;
-        
+        display: flex;
+        margin: 0.75rem 0 0.75rem 0;
+
         @include QLD-media(sm) {
-            margin:14px 0;
+            margin: 1rem 0 1rem 0;
         }
-        
+
         @include QLD-media(md) {
-            margin:6px 0;
             align-items: center;
         }
     }
-    
+
+    .qld__global-alert__message {
+        strong {
+            font-weight: 600;
+        }
+    }
+
     .qld__global-alert__content {
         display: flex;
         flex-direction: column;
-        padding:0 16px 0 16px;
-        
+        padding: 0 16px 0 16px;
+
         @include QLD-media(md) {
             flex-direction: row;
-            padding:0 48px 0 16px;
+            padding: 0 48px 0 16px;
         }
     }
-    
-    .qld__global-alert__action { 
+
+    .qld__global-alert__action {
         flex-shrink: 0;
-        font-weight: bold;
+        font-weight: 600;
         margin-top: 0.75rem;
-        &:first-child{
+        &:first-child {
             margin: 0;
         }
-        
+
         a {
             display: flex;
             align-items: center;
-            &:hover{
-                svg{
+            &:hover {
+                svg {
                     transform: translateX(4px);
                 }
             }
-            &:focus{
+            &:focus {
                 outline: 3px solid $QLD-color-dark__background--alt-shade;
-				outline-offset: 2px;
+                outline-offset: 2px;
                 border-radius: 4px;
             }
         }
-        
+
         svg {
-            display:inline-block;
+            display: inline-block;
             flex-shrink: 0;
-            margin-left:8px;
-            transition: all .3s ease;
+            margin-left: 8px;
+            transition: all 0.3s ease;
         }
-        
-        
+
         @include QLD-media(md) {
             margin-top: 0;
             margin-left: 2rem;
         }
     }
-    
+
     .qld__global-alert__close {
-        margin-left:auto;
-        position:relative;
-        line-height:1;
-        display:flex;
+        margin-left: auto;
+        position: relative;
+        line-height: 1;
+        display: flex;
         // align-items: center;
         text-align: center;
         justify-content: center;
-        
+
         button {
-            background-color:rgba(0, 0, 0, 0.1);
-            cursor:pointer;
-            height:32px;
-            width:32px;
-            padding:0;
-            border-radius:20px;
-            border:0;
+            background-color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            height: 32px;
+            width: 32px;
+            padding: 0;
+            border-radius: 20px;
+            border: 0;
             position: relative;
-            transition: all .3s ease;
-            
+            transition: all 0.3s ease;
+
             svg {
-                width:12px;
-                height:12px;
-                margin:50%;
-                padding:0;
+                width: 12px;
+                height: 12px;
+                margin: 50%;
+                padding: 0;
                 transform: translate(-50%, -50%);
-                
             }
-            
+
             &:hover {
                 transform: scale(1.3);
             }
-            &:focus{
+            &:focus {
                 outline: 3px solid $QLD-color-dark__background--alt-shade;
-				outline-offset: 2px;
+                outline-offset: 2px;
             }
 
             @include QLD-media(md) {
