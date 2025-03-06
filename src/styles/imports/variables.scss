@@ -8,7 +8,7 @@
  */
 $QLD-pixelfallback: true !default;
 
- /**
+/**
   * QLD-media Breakpoints
   */
 $QLD-media-sm: 400px;
@@ -17,57 +17,55 @@ $QLD-media-lg: 992px;
 $QLD-media-xl: 1312px;
 $QLD-media-xxl: 1599px;
 $QLD-main-nav-breakpoint: lg;
- 
- /**
+
+/**
   * QLD-rem value used for REM calculation
   */
 $QLD-rem: 16 !default;
- 
- /**
+
+/**
   * QLD-unit used for all type and grid calculations
   */
 $QLD-unit: 4 !default;
- 
- /**
+
+/**
   * QLD-font stack
   * QLD-font-monospace stack
   */
-$QLD-font: "Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$QLD-font: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $QLD-font-monospace: "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
-$QLD-font-heading: "ff-meta-web-pro", "Noto Sans", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
- 
- /**
+$QLD-font-heading: "ff-meta-web-pro", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+/**
   * QLD-fontsize-map
   *
   * Predetermined pixel sizes from a 1.25 typescale rounded to the nearest $QLD-unit (vertical grid)
   */
 $QLD-fontsize-map: (
-    xs:   14,
-    sm:   16,
-    md:   20,
-    lg:   24,
-    xl:   32,
-    xxl:  40,
-    xxxl: 52
+    xs: 14,
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 32,
+    xxl: 48,
+    xxxl: 52,
 ) !default;
 
 // Base font
 $base-font-scale: 1; // The font scale multiplier (e.g. 2 = 32px/2em/2rem)
 $base-font-pixel: 16; // Used for font size calculations & conversions
- 
+
 /**
   * QLD-maxwidth for line lengths (the ‘measure’)
   */
-  $QLD-font-maxwidth: 80ch; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
+$QLD-font-maxwidth: 80ch; // Answer to life, the universe, and everything (keeps things readable on wide viewports).
 
-  /**
+/**
   * QLD typography sizes
   *
   */
-$QLD-font-size-desktop-xs: .875rem;
+$QLD-font-size-desktop-xs: 0.875rem;
 $QLD-font-size-desktop-sm: 1rem;
 $QLD-font-size-desktop-md: 1.25rem;
 $QLD-font-size-desktop-lg: 1.5rem;
@@ -75,36 +73,36 @@ $QLD-font-size-desktop-xl: 2rem;
 $QLD-font-size-desktop-xxl: 2.5rem;
 $QLD-font-size-desktop-xxxl: 3rem;
 
-$QLD-font-size-mobile-xs: .875rem;
+$QLD-font-size-mobile-xs: 0.875rem;
 $QLD-font-size-mobile-sm: 1rem;
 $QLD-font-size-mobile-md: 1.25rem;
 $QLD-font-size-mobile-lg: 1.5rem;
 $QLD-font-size-mobile-xl: 1.75rem;
 $QLD-font-size-mobile-xxl: 2rem;
 $QLD-font-size-mobile-xxxl: 2.5rem;
- 
- /**
+
+/**
   * QLD-lineheight-map
   * 
   * Predetermined lineheight mapped to keyword
   */
 
 $QLD-lineheight-map: (
-  nospace: 1,
-  heading: 1.25,
-  default: 1.5,
-  h3: calc(4/3),
-  h4: 1.2,
-  h6: calc(8/7),
-  small: 1.4,
+    nospace: 1,
+    heading: 1.25,
+    default: 1.5,
+    h3: calc(4 / 3),
+    h4: 1.2,
+    h6: calc(8 / 7),
+    small: 1.4,
 );
 
- /**
+/**
   * QLD-spacing-map
   *
   * Predetermined standard spacing mapped to keyword
   */
-  $QLD-space-map: (
+$QLD-space-map: (
     0: 0,
     1: 4,
     2: 8,
@@ -121,11 +119,8 @@ $QLD-lineheight-map: (
     13: 80,
     14: 96,
     15: 128,
-    16: 160 
+    16: 160,
 ) !default;
-
-
-
 
 /* Gutters - Space between cols in the grid  */
 $QLD-grid__gutter--media-sm: 4;
@@ -148,22 +143,18 @@ $QLD-grid__inner-padding--media-xl: 7;
 
 /* Outer page margins (defined by padding on the container-fluid class) for vertical navigation   */
 $QLD-grid__inner-padding--media-portal-lg: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992));
-$QLD-grid__inner-padding--media-portal-xl: calc(72px + (100vw - 1312px) *(128 - 72) / (1600 - 1312));
-
+$QLD-grid__inner-padding--media-portal-xl: calc(72px + (100vw - 1312px) * (128 - 72) / (1600 - 1312));
 
 /* Max-width of content area   */
 $QLD-grid__maxwidth: 86rem;
-
 
 /*** Padding values for sections - ony veritcal spacing value that does not use margin top*/
 $QLD-padding__section--mobile: 9;
 $QLD-padding__section--desktop: 12;
 
-
 /* Spacing between <section> containers */
 $QLD-margin__section--desktop: 12;
 $QLD-margin__section--mobile: 9;
-
 
 /* Spacing beteen content containers, ie div within a <section> */
 $QLD-margin__content-block--desktop: 10;
@@ -173,7 +164,6 @@ $QLD-margin__content-block--mobile: 7;
 $QLD-margin__component--desktop: 7;
 $QLD-margin__component--mobile: 6;
 
-
 /* Heading, text and paragraph spacing   */
 
 /* Space above an H1 */
@@ -181,7 +171,7 @@ $QLD-margin__h1--desktop: 11;
 $QLD-margin__h1--mobile: 7;
 
 /* Space above an H2 */
-$QLD-margin__h2--desktop:10;
+$QLD-margin__h2--desktop: 10;
 $QLD-margin__h2--mobile: 7;
 
 /* Space above an H3 */
@@ -202,7 +192,7 @@ $QLD-margin__p--mobile: 4;
 
 /* Close spacing between list items */
 $QLD-margin__li-close--desktop: 2;
-$QLD-margin__li-close--mobile: 2; 
+$QLD-margin__li-close--mobile: 2;
 
 /* Wide spacing between list items */
 $QLD-margin__li-wide--desktop: 3;
@@ -212,7 +202,6 @@ $QLD-margin__li-wide--mobile: 3;
 $QLD-margin__lables--desktop: 2;
 $QLD-margin__lables--mobile: 2;
 
-
 /**
 * QLD border-width values
 */
@@ -220,18 +209,17 @@ $QLD-border-width-thin: 1px;
 $QLD-border-width-default: 2px;
 $QLD-border-width-medium: 3px;
 $QLD-border-width-thick: 4px;
-$QLD-border-width-extra-thick: 8px; 
-
+$QLD-border-width-extra-thick: 8px;
 
 /**
 * QLD border-radius values
 */
-$QLD-border-radius-xs: map-get( $QLD-space-map, 1 ) + px;
-$QLD-border-radius-sm: map-get( $QLD-space-map, 3 ) + px;
-$QLD-border-radius-md: map-get( $QLD-space-map, 4 ) + px;
-$QLD-border-radius-lg: map-get( $QLD-space-map, 7 ) + px;
-$QLD-border-radius-xl: map-get( $QLD-space-map, 9 ) + px;
-$QLD-border-radius-xxl: map-get( $QLD-space-map, 12 ) + px;
+$QLD-border-radius-xs: map-get($QLD-space-map, 1) + px;
+$QLD-border-radius-sm: map-get($QLD-space-map, 3) + px;
+$QLD-border-radius-md: map-get($QLD-space-map, 4) + px;
+$QLD-border-radius-lg: map-get($QLD-space-map, 7) + px;
+$QLD-border-radius-xl: map-get($QLD-space-map, 9) + px;
+$QLD-border-radius-xxl: map-get($QLD-space-map, 12) + px;
 
 /**
 * QLD underline-thickness values
@@ -262,11 +250,11 @@ $QLD-fixed-width__char-4: 6.125rem;
 $QLD-fixed-width__char-5: 7.125rem;
 $QLD-fixed-width__char-10: 12.1875rem;
 $QLD-fixed-width__char-20: 22.375rem;
-    
+
 /*  
 QLD form input DTA defaults 
 */
-    
+
 $QLD-form-input__width-xs: 4.3rem;
 $QLD-form-input__width-sm: 6.3rem;
 $QLD-form-input__width-md: 10rem;
@@ -297,7 +285,7 @@ $QLD-font-size__feature-lg: 8rem;
 /**
 * QLD default icons
 */
-$QLD-icon-arrow-up: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M379.8 225.7C376.7 229.3 372.3 231.1 368 231.1c-3.844 0-7.703-1.426-10.77-4.31L208 86.12v377.3c0 9.171-7.156 16.59-15.1 16.59S176 472.6 176 463.4V86.12l-149.2 140.7C20.25 232.1 10.14 232.5 4.156 225.7C-1.781 218.9-1.297 208.4 5.234 202.2l176-165.9c6.094-5.768 15.44-5.768 21.53 0l176 165.9C385.3 208.4 385.8 218.9 379.8 225.7z"/></svg>' ;
+$QLD-icon-arrow-up: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M379.8 225.7C376.7 229.3 372.3 231.1 368 231.1c-3.844 0-7.703-1.426-10.77-4.31L208 86.12v377.3c0 9.171-7.156 16.59-15.1 16.59S176 472.6 176 463.4V86.12l-149.2 140.7C20.25 232.1 10.14 232.5 4.156 225.7C-1.781 218.9-1.297 208.4 5.234 202.2l176-165.9c6.094-5.768 15.44-5.768 21.53 0l176 165.9C385.3 208.4 385.8 218.9 379.8 225.7z"/></svg>';
 $QLD-icon-arrow-right: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z"/></svg>';
 $QLD-icon-arrow-down: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M378.8 309.8l-176 165.9C199.7 478.6 195.9 480 192 480s-7.719-1.426-10.77-4.31l-176-165.9C-1.297 303.6-1.781 293.1 4.156 286.3c5.953-6.838 16.09-7.259 22.61-1.134L176 425.9V48.59c0-9.171 7.156-16.59 15.1-16.59S208 39.42 208 48.59v377.3l149.2-140.7c6.516-6.125 16.66-5.704 22.61 1.134C385.8 293.1 385.3 303.6 378.8 309.8z"/></svg>';
 $QLD-icon-arrow-left: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z"/></svg>';
@@ -321,105 +309,103 @@ $QLD-icon-search: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
 /**
   *  QLD-color-neutral  colours
   */
-$QLD-color-neutral--black:#131212;
+$QLD-color-neutral--black: #131212;
 $QLD-color-neutral--darkest: #222020;
 $QLD-color-neutral--darker: #444444;
-$QLD-color-neutral--dark: #78797E;
-$QLD-color-neutral--light: #E0E0E0;
-$QLD-color-neutral--lighter: #EBEBEB;
-$QLD-color-neutral--lightest: #F5F5F5;
-$QLD-color-neutral--white: #FFFFFF;
+$QLD-color-neutral--dark: #78797e;
+$QLD-color-neutral--light: #e0e0e0;
+$QLD-color-neutral--lighter: #ebebeb;
+$QLD-color-neutral--lightest: #f5f5f5;
+$QLD-color-neutral--white: #ffffff;
 
 /**
  QLD-color-neutral  opacity
 */
 
-$QLD-color-neutral--white__opacity-10: rgba(255, 255, 255, 0.10);
-$QLD-color-neutral--light__opacity-10: rgba(244, 244, 244, 0.10);
-$QLD-color-neutral--darkest__opacity-10: rgba(34, 32, 32, 0.10);
-$QLD-color-neutral--black__opacity-10: rgba(19, 18, 18, 0.10);
+$QLD-color-neutral--white__opacity-10: rgba(255, 255, 255, 0.1);
+$QLD-color-neutral--light__opacity-10: rgba(244, 244, 244, 0.1);
+$QLD-color-neutral--darkest__opacity-10: rgba(34, 32, 32, 0.1);
+$QLD-color-neutral--black__opacity-10: rgba(19, 18, 18, 0.1);
 
 /**
   * QLD-color- status styles
   */
-$QLD-color-status__error: #E22339 !default;
-$QLD-color-status__error--lightest: #FFF6F6 !default;
-$QLD-color-status__error--lighter: #FDF0F0 !default;
-$QLD-color-status__error--darker: #8A1220 !default;
+$QLD-color-status__error: #e22339 !default;
+$QLD-color-status__error--lightest: #fff6f6 !default;
+$QLD-color-status__error--lighter: #fdf0f0 !default;
+$QLD-color-status__error--darker: #8a1220 !default;
 
-$QLD-color-status__success: #339D37 !default;
-$QLD-color-status__success--lightest: #F7FBF8 !default;
-$QLD-color-status__success--lighter: #F2FAF4 !default;
-$QLD-color-status__success--darker: #0A690D !default;
+$QLD-color-status__success: #339d37 !default;
+$QLD-color-status__success--lightest: #f7fbf8 !default;
+$QLD-color-status__success--lighter: #f2faf4 !default;
+$QLD-color-status__success--darker: #0a690d !default;
 
-$QLD-color-status__caution: #FFCC2C !default;
-$QLD-color-status__caution--lightest: #FFFAEA !default;
-$QLD-color-status__caution--lighter: #FFF2C9 !default;
-$QLD-color-status__caution--darker: #B38800 !default;
+$QLD-color-status__caution: #ffcc2c !default;
+$QLD-color-status__caution--lightest: #fffaea !default;
+$QLD-color-status__caution--lighter: #fff2c9 !default;
+$QLD-color-status__caution--darker: #b38800 !default;
 
-$QLD-color-status__info: #0085B3 !default;
-$QLD-color-status__info--lighter: #E5EEF5 !default;
-$QLD-color-status__info--lightest: #EFF4F9 !default;
-$QLD-color-status__info--darker: #006A8F !default;
+$QLD-color-status__info: #0085b3 !default;
+$QLD-color-status__info--lighter: #e5eef5 !default;
+$QLD-color-status__info--lightest: #eff4f9 !default;
+$QLD-color-status__info--darker: #006a8f !default;
 
- /**
+/**
   * QLD-color-light styles
   */
-$QLD-color-light__site-title: #022A50 !default;
-$QLD-color-light__design-accent:#6BBE27 !default;
-$QLD-color-light__heading: #04284C !default;
+$QLD-color-light__site-title: #022a50 !default;
+$QLD-color-light__design-accent: #6bbe27 !default;
+$QLD-color-light__heading: #04284c !default;
 $QLD-color-light__text: #414141 !default;
-$QLD-color-light__text--lighter:#636363 !default;
-$QLD-color-light__link: #09549F !default;
-$QLD-color-light__link--visited: #551A8B !default;
-$QLD-color-light__link--on-action: #FFFFFF !default;
-$QLD-color-light__action--primary: #09549F !default;
-$QLD-color-light__action--primary-hover:#003E7D !default;
+$QLD-color-light__text--lighter: #636363 !default;
+$QLD-color-light__link: #09549f !default;
+$QLD-color-light__link--visited: #551a8b !default;
+$QLD-color-light__link--on-action: #ffffff !default;
+$QLD-color-light__action--primary: #09549f !default;
+$QLD-color-light__action--primary-hover: #003e7d !default;
 $QLD-color-light__action--secondary: #008733 !default;
-$QLD-color-light__action--secondary-hover: #005B23 !default;
-$QLD-color-light__focus: #0085B3 !default;
-$QLD-color-light__border: #CCDDEE !default;
-$QLD-color-light__background: #EFF4F9 !default;
-$QLD-color-light__background--shade: #E5EEF5 !default;
+$QLD-color-light__action--secondary-hover: #005b23 !default;
+$QLD-color-light__focus: #0085b3 !default;
+$QLD-color-light__border: #ccddee !default;
+$QLD-color-light__background: #eff4f9 !default;
+$QLD-color-light__background--shade: #e5eef5 !default;
 
-
- /**
+/**
   * QLD-color-light-alt styles
   */
 
-$QLD-color-light__border--alt: #7A7A7A !default; 
-$QLD-color-light__background--alt: #E8E8E8 !default;
-$QLD-color-light__background--alt-shade: #E0E0E0 !default;
+$QLD-color-light__border--alt: #7a7a7a !default;
+$QLD-color-light__background--alt: #e8e8e8 !default;
+$QLD-color-light__background--alt-shade: #e0e0e0 !default;
 
- /**
+/**
   * QLD-color-dark styles
   */
-$QLD-color-dark__site-title: #FFFFFF !default;
-$QLD-color-dark__design-accent:#6BBE27 !default;
-$QLD-color-dark__heading: #FFFFFF !default;
-$QLD-color-dark__text: #FFFFFF !default;
-$QLD-color-dark__text--lighter:#DEEBF9 !default;
-$QLD-color-dark__link: #FFFFFF !default;
-$QLD-color-dark__link--visited: #E1BBEE !default;
+$QLD-color-dark__site-title: #ffffff !default;
+$QLD-color-dark__design-accent: #6bbe27 !default;
+$QLD-color-dark__heading: #ffffff !default;
+$QLD-color-dark__text: #ffffff !default;
+$QLD-color-dark__text--lighter: #deebf9 !default;
+$QLD-color-dark__link: #ffffff !default;
+$QLD-color-dark__link--visited: #e1bbee !default;
 $QLD-color-dark__link--on-action: #121940 !default;
-$QLD-color-dark__action--primary: #78BA00 !default;
-$QLD-color-dark__action--primary-hover:#ADD33F !default;
-$QLD-color-dark__action--secondary: #FFE500 !default;
-$QLD-color-dark__action--secondary-hover: #FFEF60 !default;
-$QLD-color-dark__focus: #01B0E5 !default;
-$QLD-color-dark__border: #1D9AC6 !default;
-$QLD-color-dark__background: #09549F !default;
-$QLD-color-dark__background--shade: #04498F !default;
+$QLD-color-dark__action--primary: #78ba00 !default;
+$QLD-color-dark__action--primary-hover: #add33f !default;
+$QLD-color-dark__action--secondary: #ffe500 !default;
+$QLD-color-dark__action--secondary-hover: #ffef60 !default;
+$QLD-color-dark__focus: #01b0e5 !default;
+$QLD-color-dark__border: #1d9ac6 !default;
+$QLD-color-dark__background: #09549f !default;
+$QLD-color-dark__background--shade: #04498f !default;
 
- /**
+/**
   * QLD-color-alt-dark styles
   */
-$QLD-color-dark__border--alt: #09ACFE !default;
-$QLD-color-dark__background--alt: #05325F !default;
-$QLD-color-dark__background--alt-shade: #052C53 !default;
+$QLD-color-dark__border--alt: #09acfe !default;
+$QLD-color-dark__background--alt: #05325f !default;
+$QLD-color-dark__background--alt-shade: #052c53 !default;
 
-
- /**
+/**
   * QLD-border-radius styles
   */
 $QLD-border-radius: $QLD-unit + 0px !default;
@@ -428,16 +414,15 @@ $QLD-border-radius: $QLD-unit + 0px !default;
 * QLD underline-color values
 */
 $QLD-color-status__light-underline: rgba(255, 255, 255, 0.72) !default;
-$QLD-color-light__underline: #3F7AB4 !default;
-$QLD-color-light__underline--hover: #{$QLD-color-light__link} !default; 
-$QLD-color-light__underline--visited: #8B63B0 !default;
+$QLD-color-light__underline: #3f7ab4 !default;
+$QLD-color-light__underline--hover: #{$QLD-color-light__link} !default;
+$QLD-color-light__underline--visited: #8b63b0 !default;
 $QLD-color-light__underline--hover-visited: #{$QLD-color-light__link--visited} !default;
 $QLD-color-status__dark-underline: rgba(3, 33, 63, 0.72) !default;
-$QLD-color-dark__underline: #B5CCE2 !default;
+$QLD-color-dark__underline: #b5cce2 !default;
 $QLD-color-dark__underline--hover: #{$QLD-color-dark__link} !default;
-$QLD-color-dark__underline--visited: #E1C2FF !default;
+$QLD-color-dark__underline--visited: #e1c2ff !default;
 $QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__link--visited} !default;
-
 
 /**
 * QLD Line height variables 
@@ -467,9 +452,7 @@ $QLD-heading-space-xl: 40px;
 $QLD-heading-space-xxl: 52px;
 $QLD-heading-space-xxxl: 60px;
 
-
-$QLD-color-contained-layout__background: #EFF4F9;
-
+$QLD-color-contained-layout__background: #eff4f9;
 
 /**
 * QLD custom properties (CSS variables) - defaults
@@ -477,98 +460,96 @@ $QLD-color-contained-layout__background: #EFF4F9;
 :root,
 ::after,
 ::before {
-  --QLD-color-light__site-title: #{$QLD-color-light__site-title};
-  --QLD-color-light__design-accent:#{$QLD-color-light__design-accent};
-  --QLD-color-light__heading: #{$QLD-color-light__heading};
-  --QLD-color-light__text: #{$QLD-color-light__text};
-  --QLD-color-light__text--lighter:#{$QLD-color-light__text--lighter};
-  --QLD-color-light__link: #{$QLD-color-light__link};
-  --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
-  --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
-  --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
-  --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
-  --QLD-color-light__focus: #{$QLD-color-light__focus};
-  --QLD-color-light__border: #{$QLD-color-light__border};
-  --QLD-color-light__background: #{$QLD-color-light__background};
-  --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
-  --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
-  --QLD-color-light__underline: #{$QLD-color-light__underline};
-  --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
-  --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
-  --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
-  --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
-  --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
-  --QLD-color-light__border--alt: #{$QLD-color-light__border--alt}; 
-  --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
-  --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
+    --QLD-color-light__site-title: #{$QLD-color-light__site-title};
+    --QLD-color-light__design-accent: #{$QLD-color-light__design-accent};
+    --QLD-color-light__heading: #{$QLD-color-light__heading};
+    --QLD-color-light__text: #{$QLD-color-light__text};
+    --QLD-color-light__text--lighter: #{$QLD-color-light__text--lighter};
+    --QLD-color-light__link: #{$QLD-color-light__link};
+    --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
+    --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
+    --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
+    --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
+    --QLD-color-light__focus: #{$QLD-color-light__focus};
+    --QLD-color-light__border: #{$QLD-color-light__border};
+    --QLD-color-light__background: #{$QLD-color-light__background};
+    --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
+    --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
+    --QLD-color-light__underline: #{$QLD-color-light__underline};
+    --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
+    --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
+    --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
+    --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
+    --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
+    --QLD-color-light__border--alt: #{$QLD-color-light__border--alt};
+    --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
+    --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
 
-  --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
-  --QLD-color-dark__design-accent:#{$QLD-color-dark__design-accent};
-  --QLD-color-dark__heading: #{$QLD-color-dark__heading};
-  --QLD-color-dark__text: #{$QLD-color-dark__text};
-  --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
-  --QLD-color-dark__link: #{$QLD-color-dark__link};
-  --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
-  --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
-  --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
-  --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
-  --QLD-color-dark__focus: #{$QLD-color-dark__focus};
-  --QLD-color-dark__border: #{$QLD-color-dark__border};
-  --QLD-color-dark__background: #{$QLD-color-dark__background};
-  --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
-  --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
-  --QLD-color-dark__underline: #{$QLD-color-dark__underline};
-  --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
-  --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
-  --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
+    --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
+    --QLD-color-dark__design-accent: #{$QLD-color-dark__design-accent};
+    --QLD-color-dark__heading: #{$QLD-color-dark__heading};
+    --QLD-color-dark__text: #{$QLD-color-dark__text};
+    --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
+    --QLD-color-dark__link: #{$QLD-color-dark__link};
+    --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
+    --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
+    --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
+    --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
+    --QLD-color-dark__focus: #{$QLD-color-dark__focus};
+    --QLD-color-dark__border: #{$QLD-color-dark__border};
+    --QLD-color-dark__background: #{$QLD-color-dark__background};
+    --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
+    --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
+    --QLD-color-dark__underline: #{$QLD-color-dark__underline};
+    --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
+    --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
+    --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
 
+    --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
+    --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
+    --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
+    --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
+    --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
 
-  --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
-  --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
-  --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
-  --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
-  --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
+    --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
+    --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
+    --QLD-underline__offset: #{$QLD-underline__offset};
 
-  --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
-  --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
-  --QLD-underline__offset: #{$QLD-underline__offset};
+    --QLD-border-radius-xs: #{$QLD-border-radius-xs};
+    --QLD-border-radius-sm: #{$QLD-border-radius-sm};
+    --QLD-border-radius-md: #{$QLD-border-radius-md};
+    --QLD-border-radius-lg: #{$QLD-border-radius-lg};
+    --QLD-border-radius-xl: #{$QLD-border-radius-xl};
+    --QLD-border-radius-xxl: #{$QLD-border-radius-xxl};
 
-  --QLD-border-radius-xs: #{$QLD-border-radius-xs};
-  --QLD-border-radius-sm: #{$QLD-border-radius-sm};
-  --QLD-border-radius-md: #{$QLD-border-radius-md};
-  --QLD-border-radius-lg: #{$QLD-border-radius-lg};
-  --QLD-border-radius-xl: #{$QLD-border-radius-xl};
-  --QLD-border-radius-xxl: #{$QLD-border-radius-xxl};
+    --QLD-border-width-thin: #{$QLD-border-width-thin};
+    --QLD-border-width-default: #{$QLD-border-width-default};
+    --QLD-border-width-medium: #{$QLD-border-width-medium};
+    --QLD-border-width-thick: #{$QLD-border-width-thick};
+    --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
 
-  --QLD-border-width-thin: #{$QLD-border-width-thin};
-  --QLD-border-width-default: #{$QLD-border-width-default};
-  --QLD-border-width-medium: #{$QLD-border-width-medium};
-  --QLD-border-width-thick: #{$QLD-border-width-thick};
-  --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
+    --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
+    --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
+    --QLD-default-mobile-md: #{$QLD-default-mobile-md};
+    --QLD-default-mobile-lg: #{$QLD-default-mobile-lg};
+    --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
+    --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
+    --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
 
-  
-  --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
-  --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
-  --QLD-default-mobile-md: #{$QLD-default-mobile-md};
-  --QLD-default-mobile-lg: #{$QLD-default-mobile-lg};
-  --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
-  --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
-  --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
+    --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
+    --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
+    --QLD-default-desktop-md: #{$QLD-default-desktop-md};
+    --QLD-default-desktop-lg: #{$QLD-default-desktop-lg};
+    --QLD-default-desktop-xl: #{$QLD-default-desktop-xl};
+    --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
+    --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
 
-  --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
-  --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
-  --QLD-default-desktop-md: #{$QLD-default-desktop-md};
-  --QLD-default-desktop-lg: #{$QLD-default-desktop-lg};
-  --QLD-default-desktop-xl: #{$QLD-default-desktop-xl};
-  --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
-  --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
-
-  --QLD-heading-space-xs: #{$QLD-heading-space-xs};
-  --QLD-heading-space-sm: #{$QLD-heading-space-sm};
-  --QLD-heading-space-md: #{$QLD-heading-space-md};
-  --QLD-heading-space-lg: #{$QLD-heading-space-lg};
-  --QLD-heading-space-xl: #{$QLD-heading-space-xl};
-  --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
-  --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
-  --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
+    --QLD-heading-space-xs: #{$QLD-heading-space-xs};
+    --QLD-heading-space-sm: #{$QLD-heading-space-sm};
+    --QLD-heading-space-md: #{$QLD-heading-space-md};
+    --QLD-heading-space-lg: #{$QLD-heading-space-lg};
+    --QLD-heading-space-xl: #{$QLD-heading-space-xl};
+    --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
+    --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
+    --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
 }
