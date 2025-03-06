@@ -12,8 +12,18 @@
     font-size: #{map-get($QLD-fontsize-map, xs)}px;
 
     .container-fluid {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: #{map-get($QLD-space-map, 4)}px;
+        padding-right: #{map-get($QLD-space-map, 4)}px;
+
+        @include QLD-media(md) {
+            padding-left: #{map-get($QLD-space-map, 7)}px;
+            padding-right: #{map-get($QLD-space-map, 7)}px;
+        }
+
+        @include QLD-media(lg) {
+            padding-left: #{map-get($QLD-space-map, 7)}px;
+            padding-right: #{map-get($QLD-space-map, 7)}px;
+        }
     }
 
     &.qld__global-alert--critical {
@@ -243,10 +253,6 @@
             &:focus {
                 outline: 3px solid $QLD-color-dark__background--alt-shade;
                 outline-offset: 2px;
-            }
-
-            @include QLD-media(md) {
-                right: -20px;
             }
 
             @include QLD-media(lg) {
