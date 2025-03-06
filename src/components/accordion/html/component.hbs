@@ -12,7 +12,10 @@
     <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
         {{#ifCond metadata.toggle_all.value '==' 'yes'}}
         <div class="qld__accordion__toggle">
-            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">Open all</button>
+            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">
+                Open all
+                <svg class="accordion-all-svg" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
+            </button>
         </div>
         {{/ifCond}}
             {{#printAccordion metadata}}
@@ -21,8 +24,9 @@
                         <{{../metadata.title_level.value}}>
                             <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
                                 {{this.title}}
+                                <svg class="accordion-svg" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                             </button>
-                        </{{../metadata.title_level.value}}>
+                            </{{../metadata.title_level.value}}>
                         <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
                             <div class="qld__accordion__body-wrapper">
                                 {{{this.content}}}
