@@ -16,10 +16,9 @@
     align-items: flex-end;
     right: 0;
 
-    @include QLD-media (md) {
+    @include QLD-media(md) {
         padding-right: 2rem;
     }
-    
 
     .qld__btn--floating {
         box-shadow: none;
@@ -45,28 +44,47 @@ body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
     border-color: $QLD-color-neutral--lightest;
     color: var(--QLD-color-light__link);
     padding: 0.5rem 1rem;
-    
-    &:after {
-        @include QLD-space( width, 1unit );
-        @include QLD-space( height, 1unit );
-        @include QLD-space( margin, 0 0.25unit );
-        content: '↑';
+    line-height: 0; // Aligns the span with the svg
+
+    span,
+    svg {
+        vertical-align: middle;
+    }
+
+    svg {
         color: var(--QLD-color-light__action--secondary);
-        display: inline-block;
-        width: auto;
-        height: auto;
     }
 
     &:hover,
     &:focus,
     &:active {
         background-color: var(--QLD-color-light__background--alt-shade);
-        border-color:  var(--QLD-color-light__background--alt-shade);
+        border-color: var(--QLD-color-light__background--alt-shade);
         color: var(--QLD-color-light__link);
-        text-decoration-color: var(--QLD-color-light__link);
-        &::after{
-            content: '↑';
+        text-decoration: none;
+
+        svg {
             color: var(--QLD-color-light__action--secondary-hover);
+        }
+    }
+
+    &:hover span {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: var(--QLD-color-light__link);
+    }
+
+    @media (prefers-contrast: more) {
+        svg {
+            color: revert;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            svg {
+                color: revert;
+            }
         }
     }
 }
