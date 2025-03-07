@@ -75,9 +75,9 @@
         svg.setAttribute("height", "32");
         svg.setAttribute("role", "img");
 
-        const usePath = document.querySelector('use[data-ref="breadcrumb-overflow"]').getAttribute("href");
+        const usePath = document.getElementById("icon-data").getAttribute("data-path");
         let use = document.createElement("use");
-        use.setAttribute("href", usePath);
+        use.setAttribute("href", `${usePath}#more-horizontal`);
 
         svg.appendChild(use);
         button.appendChild(svg);
