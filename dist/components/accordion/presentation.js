@@ -66,7 +66,7 @@
         return undefined
     };
 
-  return "        <div class=\"qld__accordion__toggle\">\r\n            <button class=\"qld__accordion__toggle-btn qld__accordion__toggle-btn--closed\" type=\"button\" aria-expanded=\"false\">\r\n                Open all\r\n                <svg class=\"accordion-all-svg\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "        <div class=\"qld__accordion__toggle\">\r\n            <button class=\"qld__accordion__toggle-btn qld__accordion__toggle-btn--closed\" type=\"button\" aria-expanded=\"false\">\r\n                Open all\r\n                <svg class=\"accordion-all-svg\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#chevron-up\"></use></svg>\r\n            </button>\r\n        </div>\r\n";
 },"12":function(container,depth0,helpers,partials,data,blockParams,depths) {
@@ -94,7 +94,7 @@
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"fieldid") : depth0), depth0))
     + "\" aria-expanded=\"false\" type=\"button\">\r\n                                "
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"title") : depth0), depth0))
-    + "\r\n                                <svg class=\"accordion-svg\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "\r\n                                <svg class=\"accordion-svg\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#chevron-up\"></use></svg>\r\n                            </button>\r\n                            </"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"metadata") : depths[1])) != null ? lookupProperty(stack1,"title_level") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
