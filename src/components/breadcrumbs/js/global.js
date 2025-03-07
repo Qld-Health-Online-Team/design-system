@@ -75,7 +75,7 @@
         svg.setAttribute("height", "32");
         svg.setAttribute("role", "img");
 
-        const usePath = document.getElementById("icon-data").getAttribute("data-path");
+        const usePath = document.querySelector("nav.qld__breadcrumbs[data-path]").getAttribute("data-path");
         let use = document.createElement("use");
         use.setAttribute("href", `${usePath}#more-horizontal`);
 
