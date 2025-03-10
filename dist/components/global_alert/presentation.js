@@ -22,9 +22,9 @@
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"alertLinkURL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\r\n                            <span>"
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"alertLinkTitle") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#close\"></use></svg>\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div> \r\n    </div>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
@@ -41,7 +41,7 @@
         return undefined
     };
 
-  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Warning icon\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Warning icon\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#alert-warning\"></use></svg>\r\n";
 },"10":function(container,depth0,helpers,partials,data) {
@@ -52,7 +52,7 @@
         return undefined
     };
 
-  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Alert icon\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Alert icon\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#alert-danger\"></use></svg>\r\n";
 },"12":function(container,depth0,helpers,partials,data) {
@@ -63,7 +63,7 @@
         return undefined
     };
 
-  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Information icon\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "                    <svg class=\"qld__icon qld__icon--md\" role=\"img\" aria-label=\"Information icon\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#alert-information\"></use></svg>\r\n";
 },"14":function(container,depth0,helpers,partials,data) {
@@ -103,9 +103,9 @@
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"secondAlertLinkURL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\r\n                            <span>"
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"secondAlertLinkTitle") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#close\"></use></svg>\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div> \r\n    </div>\r\n";
 },"17":function(container,depth0,helpers,partials,data) {
@@ -145,9 +145,9 @@
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"thirdAlertLinkURL") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">\r\n                            <span>"
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"thirdAlertLinkTitle") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "</span>\r\n                            <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "#arrow-right\"></use></svg>\r\n                        </a>   \r\n                    </div>\r\n                </div>\r\n                <div class=\"qld__global-alert__close\">\r\n                    <button aria-label=\"Close alert\">\r\n                        <svg class=\"qld__icon qld__icon--sm\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#close\"></use></svg>\r\n                    </button>\r\n                </div>\r\n            </div>\r\n        </div> \r\n    </div>\r\n";
 },"20":function(container,depth0,helpers,partials,data) {
