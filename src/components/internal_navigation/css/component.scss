@@ -258,7 +258,6 @@ $QLD-side-nav-breakpoint: lg !default;
 }
 
 // Dark colour variation
-
 .qld__body--dark .qld__side-nav {
     background: var(--QLD-color-dark__background--shade);
     
@@ -355,6 +354,9 @@ $QLD-side-nav-breakpoint: lg !default;
         
         .qld__link-list {
             @include QLD-space(border-top-width, 0unit);
+            li {
+                border-top-color: var(--QLD-color-dark__border);
+            }
         }
     }
 }
@@ -452,6 +454,9 @@ $QLD-side-nav-breakpoint: lg !default;
         
         .qld__link-list {
             @include QLD-space(border-top-width, 0unit);
+            li {
+                border-top-color: var(--QLD-color-dark__border--alt);
+            }
         }
     }
 }
