@@ -225,7 +225,6 @@ $QLD-side-nav-breakpoint: lg !default;
 
 .qld__body--alt .qld__side-nav {
     background-color: var(--QLD-color-light__background--alt-shade);
-    
     .qld__accordion__title {
         color: var(--QLD-color-light__heading);
         text-decoration-color: var(--QLD-color-light__heading);
@@ -260,7 +259,9 @@ $QLD-side-nav-breakpoint: lg !default;
 // Dark colour variation
 .qld__body--dark .qld__side-nav {
     background: var(--QLD-color-dark__background--shade);
-    
+    &.qld__accordion {
+        border-color: var(--QLD-color-dark__border);
+    }
     .qld__accordion__title {
         color: var(--QLD-color-dark__heading);
         text-decoration-color: var(--QLD-color-dark__heading);
@@ -366,7 +367,9 @@ $QLD-side-nav-breakpoint: lg !default;
 
 .qld__body--dark-alt .qld__side-nav {
     background: var(--QLD-color-dark__background--alt-shade);
-    
+    &.qld__accordion {
+        border-color: var(--QLD-color-dark__border--alt);
+    }
     .qld__accordion__title {
         color: var(--QLD-color-dark__heading);
         background-color: inherit;
