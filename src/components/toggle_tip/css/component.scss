@@ -1,0 +1,164 @@
+.qld__toggle-tip {
+    position: relative;
+    display: inline-block;
+
+    &-trigger {
+        // Removing the default button styling
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        display: block;
+
+        &:not(:has(.qld__toggle-tip-trigger-definition)) {
+            border-radius: 50%;
+        }
+
+        .qld__icon {
+            display: block;
+            color: var(--QLD-color-light__action--secondary);
+            background-color: $QLD-color-neutral--white;
+            border-radius: 50%;
+        }
+
+        &:hover,
+        &:focus {
+            .qld__icon {
+                color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-light__action--secondary-hover);
+            }
+        }
+
+        &-active,
+        &:active {
+            .qld__icon {
+                color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-light__action--secondary);
+            }
+        }
+
+        &-definition {
+            display: block;
+            text-decoration: underline dotted var(--QLD-underline__thickness-thick);
+            text-decoration-color: var(--QLD-color-light__underline);
+            text-underline-offset: 5px;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: var(--QLD-color-light__link);
+                text-decoration-color: var(--QLD-color-light__link);
+                text-decoration-style: solid;
+            }
+        }
+    }
+
+    &-content {
+        position: absolute;
+        width: 19.875rem;
+        border-radius: $QLD-border-radius-xs;
+        padding: #{map-get($QLD-space-map, 4)}px;
+        font-size: #{map-get($QLD-fontsize-map, xs)}px;
+        line-height: 1.25rem;
+        font-weight: 400;
+        background-color: $QLD-color-neutral--darkest;
+        color: var(--QLD-color-dark__text);
+
+        &-heading {
+            margin-bottom: 1rem;
+            color: var(--QLD-color-dark__heading);
+            font-weight: 600;
+            line-height: 1rem;
+        }
+
+        &-link {
+            margin-top: 1rem;
+
+            > a {
+                color: var(--QLD-color-dark__link);
+            }
+        }
+
+        &-carat {
+            position: absolute;
+            z-index: 8;
+            top: 0;
+            left: 0;
+            border: #{map-get($QLD-space-map, 1)}px solid transparent;
+            border-bottom-color: $QLD-color-neutral--darkest;
+        }
+    }
+
+    .qld__toggle-tip-content {
+        &.qld__toggle-tip-hidden {
+            display: none;
+        }
+
+        &.qld__toggle-tip-visible {
+            display: block;
+        }
+    }
+}
+
+.qld__body--dark,
+.qld__body--dark-alt {
+    .qld__toggle-tip {
+        &-trigger {
+            .qld__icon {
+                color: var(--QLD-color-light__action--secondary);
+                background-color: $QLD-color-neutral--white;
+            }
+
+            &:hover,
+            &:focus {
+                .qld__icon {
+                    color: var(--QLD-color-dark__background);
+                    background-color: var(--QLD-color-dark__action--secondary-hover);
+                }
+            }
+
+            &-active,
+            &:active {
+                .qld__icon {
+                    color: var(--QLD-color-dark__background);
+                    background-color: var(--QLD-color-dark__action--secondary);
+                }
+            }
+
+            &-definition {
+                color: var(--QLD-color-dark__text);
+                text-decoration-color: var(--QLD-color-dark__underline);
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: var(--QLD-color-dark__link);
+                    text-decoration-color: var(--QLD-color-dark__link);
+                    text-decoration-style: solid;
+                }
+            }
+        }
+
+        &-content {
+            background-color: $QLD-color-neutral--white;
+            color: var(--QLD-color-light__text);
+
+            &-heading {
+                color: var(--QLD-color-light__heading);
+            }
+
+            &-link {
+                > a {
+                    color: var(--QLD-color-light__link);
+                }
+            }
+
+            &-carat {
+                border-bottom-color: $QLD-color-neutral--white;
+            }
+        }
+    }
+}
