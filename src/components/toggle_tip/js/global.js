@@ -6,6 +6,8 @@
     let lastClickedToggleTipTrigger = null;
     // Variable to store whether the last clicked toggle tip is open
     let lastClickedToggleTipIsOpen = false;
+    const toggleTipContentClass = ".qld__toggle-tip-content";
+    const toggleTipCaratClass = ".qld__toggle-tip-content-carat";
     const toggleTipVisibleClass = "qld__toggle-tip-visible";
     const toggleTipHiddenClass = "qld__toggle-tip-hidden";
     const toggleTipActiveClass = "qld__toggle-tip-trigger-active";
@@ -18,9 +20,9 @@
         if (!toggleTipTriggers.length) return;
 
         toggleTipTriggers.forEach(function (toggleTipTrigger) {
-            // Get the next sibling element with class "toggle-tip-content"
-            const toggleTipContent = toggleTipTrigger.nextElementSibling;
-            const carat = toggleTipContent.nextElementSibling;
+            const toggleTip = toggleTipTrigger.parentElement;
+            const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
+            const carat = toggleTip.querySelector(toggleTipCaratClass);
             lastClickedToggleTipTrigger = toggleTipTrigger;
             const linkElement = toggleTipContent.querySelector("a");
 
@@ -52,8 +54,9 @@
         // Close toggle tip if the toggle content is open and the user hits the "Escape" key
         document.addEventListener("keydown", function (event) {
             if (event.key === "Escape" && lastClickedToggleTipTrigger) {
-                const toggleTipContent = lastClickedToggleTipTrigger.nextElementSibling;
-                const carat = toggleTipContent.nextElementSibling;
+                const toggleTip = lastClickedToggleTipTrigger.parentElement;
+                const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
+                const carat = toggleTip.querySelector(toggleTipCaratClass);
 
                 if (toggleTipContent.classList.contains(toggleTipVisibleClass)) {
                     closeToggleTip(lastClickedToggleTipTrigger, toggleTipContent, carat);
@@ -65,8 +68,9 @@
         // Close toggle tip if the toggle content is open and the user clicks OFF the content
         document.addEventListener("click", function (event) {
             if (lastClickedToggleTipTrigger && lastClickedToggleTipIsOpen) {
-                const toggleTipContent = lastClickedToggleTipTrigger.nextElementSibling;
-                const carat = toggleTipContent.nextElementSibling;
+                const toggleTip = lastClickedToggleTipTrigger.parentElement;
+                const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
+                const carat = toggleTip.querySelector(toggleTipCaratClass);
 
                 if (!toggleTipContent.contains(event.target)) {
                     closeToggleTip(lastClickedToggleTipTrigger, toggleTipContent, carat);
@@ -112,7 +116,7 @@
 
     function positionContentBox(toggleTip, content) {
         const toggleTipDimensions = toggleTip.getBoundingClientRect();
-        const carat = toggleTip.querySelector(".qld__toggle-tip-content-carat");
+        const carat = toggleTip.querySelector(toggleTipCaratClass);
         const caratWidth = carat.offsetWidth;
         const marginFromToggleTip = 8 + caratWidth / 2;
         const direction = getAlignmentDirection(content);
