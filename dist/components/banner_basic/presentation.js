@@ -6,35 +6,35 @@
         return undefined
     };
 
-  return "\r\n<!--@@ Banner @@-->\r\n<section id=\""
+  return "\n<!--@@ Banner @@-->\n<section id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.program(4, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":4,"column":13},"end":{"line":4,"column":104}}})) != null ? stack1 : "")
-    + "\" \r\n    class=\"\r\n        qld__banner qld__banner__basic\r\n        "
+    + "\" \n    class=\"\n        qld__banner qld__banner__basic\n        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","light",{"name":"ifCond","hash":{},"fn":container.program(6, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":8},"end":{"line":7,"column":94}}})) != null ? stack1 : "")
-    + "\r\n        "
+    + "\n        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","alternate",{"name":"ifCond","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":8},"end":{"line":8,"column":96}}})) != null ? stack1 : "")
-    + " \r\n        "
+    + " \n        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":9,"column":8},"end":{"line":9,"column":92}}})) != null ? stack1 : "")
-    + " \r\n        "
+    + " \n        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(12, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":10,"column":8},"end":{"line":10,"column":106}}})) != null ? stack1 : "")
-    + " \r\n        \r\n        "
+    + " \n        \n        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"breadcrumbs_display") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","yes",{"name":"ifCond","hash":{},"fn":container.program(14, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":12,"column":8},"end":{"line":12,"column":100}}})) != null ? stack1 : "")
-    + "\r\n    \"\r\n\r\n>\r\n    <style>\r\n    \r\n"
+    + "\n    \"\n\n>\n    <style>\n    \n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","image",{"name":"ifCond","hash":{},"fn":container.program(16, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":18,"column":4},"end":{"line":27,"column":15}}})) != null ? stack1 : "")
-    + "\r\n"
+    + "\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","texture",{"name":"ifCond","hash":{},"fn":container.program(18, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":29,"column":4},"end":{"line":50,"column":15}}})) != null ? stack1 : "")
-    + "\r\n    </style>\r\n    <!--@@ Breadcrumbs - Mobile @@-->\r\n"
+    + "\n    </style>\n    <!--@@ Breadcrumbs - Mobile @@-->\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"breadcrumbs_display") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","yes",{"name":"ifCond","hash":{},"fn":container.program(23, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":54,"column":4},"end":{"line":74,"column":15}}})) != null ? stack1 : "")
-    + "    <div class=\"container-fluid\">\r\n        <div class=\"qld__banner__wrapper\">\r\n            \r\n            <div class=\"qld__banner__main row\">\r\n                <!--@@ Hero image @@-->\r\n"
+    + "    <div class=\"container-fluid\">\n        <div class=\"qld__banner__wrapper\">\n            \n            <div class=\"qld__banner__main row\">\n                <!--@@ Hero image @@-->\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_image_sm") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(36, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":80,"column":16},"end":{"line":84,"column":23}}})) != null ? stack1 : "")
-    + "\r\n                <div class=\"qld__banner__content col-xs-12 col-md-12 col-lg-12\">\r\n                    <!--@@ Breadcrumbs - Tablet @@-->\r\n"
+    + "\n                <div class=\"qld__banner__content col-xs-12 col-md-12 col-lg-12\">\n                    <!--@@ Breadcrumbs - Tablet @@-->\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"breadcrumbs_display") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","yes",{"name":"ifCond","hash":{},"fn":container.program(38, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":88,"column":20},"end":{"line":109,"column":31}}})) != null ? stack1 : "")
-    + "        \r\n                    <!--@@ Breadcrumbs - Desktop @@-->\r\n"
+    + "        \n                    <!--@@ Breadcrumbs - Desktop @@-->\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"breadcrumbs_display") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","yes",{"name":"ifCond","hash":{},"fn":container.program(45, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":112,"column":20},"end":{"line":131,"column":31}}})) != null ? stack1 : "")
-    + "\r\n                    <!--@@ Heading(s) @@-->\r\n                    <h1>"
+    + "\n                    <!--@@ Heading(s) @@-->\n                    <h1>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"heading_primary") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h1>\r\n\r\n                    <!--@@ Abstract @@-->\r\n"
+    + "</h1>\n\n                    <!--@@ Abstract @@-->\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"abstract") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(57, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":137,"column":20},"end":{"line":139,"column":27}}})) != null ? stack1 : "")
-    + "                    \r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n";
+    + "                    \n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -72,13 +72,13 @@
         return undefined
     };
 
-  return "        @media (min-width:699px) {\r\n            #banner-"
+  return "        @media (min-width:699px) {\n            #banner-"
     + alias1(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":20,"column":20},"end":{"line":20,"column":31}}}) : helper)))
-    + " {\r\n                background-image: url(./?a="
+    + " {\n                background-image: url(./?a="
     + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_image_lg") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ");\r\n                background-size: cover;\r\n                background-repeat: no-repeat;\r\n                background-position-x: "
+    + ");\n                background-size: cover;\n                background-repeat: no-repeat;\n                background-position-x: "
     + alias1(alias2(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_image_alignment") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ";\r\n            }\r\n        }\r\n";
+    + ";\n            }\n        }\n";
 },"18":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -101,9 +101,9 @@
 
   return "        #banner-"
     + alias1(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":31,"column":16},"end":{"line":31,"column":27}}}) : helper)))
-    + " {\r\n            background-image: url(./?a="
+    + " {\n            background-image: url(./?a="
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"site") : depths[1])) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerTexture") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ");\r\n        }\r\n";
+    + ");\n        }\n";
 },"21":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -114,9 +114,9 @@
 
   return "         #banner-"
     + alias1(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":41,"column":17},"end":{"line":41,"column":28}}}) : helper)))
-    + " {\r\n            background-image: url(./?a="
+    + " {\n            background-image: url(./?a="
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"site") : depths[1])) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerTextureDark") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ");\r\n        }\r\n";
+    + ");\n        }\n";
 },"23":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -127,13 +127,13 @@
 
   return "    <nav class=\"qld__breadcrumbs "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","alternate",{"name":"ifCond","hash":{},"fn":container.program(24, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":55,"column":33},"end":{"line":55,"column":126}}})) != null ? stack1 : "")
-    + " \r\n    "
+    + " \n    "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":56,"column":4},"end":{"line":56,"column":93}}})) != null ? stack1 : "")
-    + " \r\n    "
+    + " \n    "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(28, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":57,"column":4},"end":{"line":57,"column":107}}})) != null ? stack1 : "")
-    + " qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile\" aria-label=\"breadcrumb\">\r\n        <div class=\"qld__link-list qld__link-list--inline\">\r\n"
+    + " qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile\" aria-label=\"breadcrumb\">\n        <div class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||alias2).call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"current") : depths[1])) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":59,"column":20},"end":{"line":59,"column":50}}}),{"name":"with","hash":{},"fn":container.program(30, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":59,"column":12},"end":{"line":71,"column":21}}})) != null ? stack1 : "")
-    + "        </div>\r\n    </nav>\r\n";
+    + "        </div>\n    </nav>\n";
 },"24":function(container,depth0,helpers,partials,data) {
     return "qld__breadcrumbs--alt";
 },"26":function(container,depth0,helpers,partials,data) {
@@ -157,13 +157,13 @@
         return undefined
     };
 
-  return "                <div class=\"qld__breadcrumbs__item\">\r\n                    <a href=\""
+  return "                <div class=\"qld__breadcrumbs__item\">\n                    <a href=\""
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":62,"column":29},"end":{"line":62,"column":42}}}) : helper)))
-    + "\" class=\"qld__breadcrumbs__link\">\r\n"
+    + "\" class=\"qld__breadcrumbs__link\">\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_is_site_asset") : depth0),"==","1",{"name":"ifCond","hash":{},"fn":container.program(32, data, 0),"inverse":container.program(34, data, 0),"data":data,"loc":{"start":{"line":63,"column":24},"end":{"line":67,"column":35}}})) != null ? stack1 : "")
-    + "                    </a>    \r\n                </div>\r\n";
+    + "                    </a>    \n                </div>\n";
 },"32":function(container,depth0,helpers,partials,data) {
-    return "                            Home\r\n";
+    return "                            Home\n";
 },"34":function(container,depth0,helpers,partials,data) {
     var lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -174,7 +174,7 @@
 
   return "                            "
     + container.escapeExpression((lookupProperty(helpers,"renderSpecialChar")||(depth0 && lookupProperty(depth0,"renderSpecialChar"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0),{"name":"renderSpecialChar","hash":{},"data":data,"loc":{"start":{"line":66,"column":28},"end":{"line":66,"column":66}}}))
-    + "\r\n";
+    + "\n";
 },"36":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -183,9 +183,9 @@
         return undefined
     };
 
-  return "                    <div class=\"qld__banner__hero col-xs-12\">\r\n                        <div class=\"qld__banner__image qld__banner__image--desktop-hide\" style=\"background-image: url('./?a="
+  return "                    <div class=\"qld__banner__hero col-xs-12\">\n                        <div class=\"qld__banner__image qld__banner__image--desktop-hide\" style=\"background-image: url('./?a="
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_image_sm") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "');\"></div>\r\n                    </div>\r\n";
+    + "');\"></div>\n                    </div>\n";
 },"38":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -194,13 +194,13 @@
         return undefined
     };
 
-  return "                        <nav class=\"qld__breadcrumbs \r\n                        "
+  return "                        <nav class=\"qld__breadcrumbs \n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":90,"column":24},"end":{"line":90,"column":113}}})) != null ? stack1 : "")
-    + " \r\n                        "
+    + " \n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":91,"column":24},"end":{"line":91,"column":123}}})) != null ? stack1 : "")
-    + " \r\n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet\" aria-label=\"breadcrumb\">\r\n                            <div class=\"qld__link-list qld__link-list--inline\">\r\n"
+    + " \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet\" aria-label=\"breadcrumb\">\n                            <div class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||alias2).call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"current") : depths[1])) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":94,"column":40},"end":{"line":94,"column":70}}}),{"name":"with","hash":{},"fn":container.program(39, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":94,"column":32},"end":{"line":106,"column":41}}})) != null ? stack1 : "")
-    + "                            </div>\r\n                        </nav>\r\n";
+    + "                            </div>\n                        </nav>\n";
 },"39":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -218,13 +218,13 @@
         return undefined
     };
 
-  return "                                    <div class=\"qld__breadcrumbs__item\">\r\n                                        <a href=\""
+  return "                                    <div class=\"qld__breadcrumbs__item\">\n                                        <a href=\""
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":97,"column":49},"end":{"line":97,"column":62}}}) : helper)))
-    + "\" class=\"qld__breadcrumbs__link\">\r\n"
+    + "\" class=\"qld__breadcrumbs__link\">\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_is_site_asset") : depth0),"==","1",{"name":"ifCond","hash":{},"fn":container.program(41, data, 0),"inverse":container.program(43, data, 0),"data":data,"loc":{"start":{"line":98,"column":44},"end":{"line":102,"column":55}}})) != null ? stack1 : "")
-    + "                                        </a>    \r\n                                    </div>\r\n";
+    + "                                        </a>    \n                                    </div>\n";
 },"41":function(container,depth0,helpers,partials,data) {
-    return "                                                Home\r\n";
+    return "                                                Home\n";
 },"43":function(container,depth0,helpers,partials,data) {
     var lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -235,7 +235,7 @@
 
   return "                                                "
     + container.escapeExpression((lookupProperty(helpers,"renderSpecialChar")||(depth0 && lookupProperty(depth0,"renderSpecialChar"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0),{"name":"renderSpecialChar","hash":{},"data":data,"loc":{"start":{"line":101,"column":48},"end":{"line":101,"column":86}}}))
-    + "\r\n";
+    + "\n";
 },"45":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -244,13 +244,13 @@
         return undefined
     };
 
-  return "                        <nav class=\"qld__breadcrumbs \r\n                        "
+  return "                        <nav class=\"qld__breadcrumbs \n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":114,"column":24},"end":{"line":114,"column":113}}})) != null ? stack1 : "")
-    + " \r\n                        "
+    + " \n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(26, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":115,"column":24},"end":{"line":115,"column":123}}})) != null ? stack1 : "")
-    + " \r\n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\" aria-label=\"breadcrumb\">\r\n                            <ol class=\"qld__link-list qld__link-list--inline\">\r\n"
+    + " \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\" aria-label=\"breadcrumb\">\n                            <ol class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"current") : depths[1])) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(46, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":118,"column":32},"end":{"line":128,"column":41}}})) != null ? stack1 : "")
-    + "                            </ol>\r\n                        </nav>\r\n";
+    + "                            </ol>\n                        </nav>\n";
 },"46":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -270,9 +270,9 @@
 
   return "                                    <li "
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(data && lookupProperty(data,"last")),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":120,"column":40},"end":{"line":120,"column":79}}})) != null ? stack1 : "")
-    + " class=\"qld__breadcrumbs__item\">\r\n"
+    + " class=\"qld__breadcrumbs__item\">\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(data && lookupProperty(data,"last")),{"name":"if","hash":{},"fn":container.program(50, data, 0),"inverse":container.program(52, data, 0),"data":data,"loc":{"start":{"line":121,"column":40},"end":{"line":125,"column":47}}})) != null ? stack1 : "")
-    + "                                    </li>\r\n";
+    + "                                    </li>\n";
 },"48":function(container,depth0,helpers,partials,data) {
     return "aria-current=\"page\"";
 },"50":function(container,depth0,helpers,partials,data) {
@@ -285,7 +285,7 @@
 
   return "                                            "
     + container.escapeExpression((lookupProperty(helpers,"renderSpecialChar")||(depth0 && lookupProperty(depth0,"renderSpecialChar"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0),{"name":"renderSpecialChar","hash":{},"data":data,"loc":{"start":{"line":122,"column":44},"end":{"line":122,"column":82}}}))
-    + "\r\n";
+    + "\n";
 },"52":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -298,7 +298,7 @@
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":124,"column":49},"end":{"line":124,"column":62}}}) : helper)))
     + "\" class=\"qld__breadcrumbs__link\">"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(data && lookupProperty(data,"first")),{"name":"if","hash":{},"fn":container.program(53, data, 0),"inverse":container.program(55, data, 0),"data":data,"loc":{"start":{"line":124,"column":95},"end":{"line":124,"column":166}}})) != null ? stack1 : "")
-    + "</a>   \r\n";
+    + "</a>   \n";
 },"53":function(container,depth0,helpers,partials,data) {
     return "Home";
 },"55":function(container,depth0,helpers,partials,data) {
@@ -320,7 +320,7 @@
 
   return "                        <div class=\"qld__banner__content--body qld__abstract\">"
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"abstract") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "</div>\r\n";
+    + "</div>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
