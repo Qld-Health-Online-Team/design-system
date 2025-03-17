@@ -1,5 +1,5 @@
 {{#with component.data}}
-    <span class="qld__toggle-tip" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}toggle-tip-{{assetid}}{{/if}}">
+    <div class="qld__toggle-tip" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}toggle-tip-{{assetid}}{{/if}}">
         <button class="qld__toggle-tip-trigger" aria-controls="toggle-tip-content-{{assetid}}" aria-expanded="false" aria-label="more information" aria-haspopup="dialog" tabindex="0">
         {{#ifCond metadata.definition.value "==" "true"}}
             <span class="qld__toggle-tip-trigger-definition">
@@ -34,5 +34,5 @@
             {{/if}}
         </div>
         <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
-    </span>
+    </div>
 {{/with}}
