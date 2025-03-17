@@ -146,7 +146,12 @@
 
     function doesToggleTipOverlap(content) {
         const contentDimensions = content.getBoundingClientRect();
-        return !(contentDimensions.top >= 0 && contentDimensions.left >= 0 && contentDimensions.bottom <= document.documentElement.clientHeight && contentDimensions.right <= document.documentElement.clientWidth);
+        return !(
+            contentDimensions.top >= marginFromSide &&
+            contentDimensions.left >= 0 &&
+            contentDimensions.bottom + marginFromSide <= document.documentElement.clientHeight &&
+            contentDimensions.right <= document.documentElement.clientWidth
+        );
     }
 
     function checkAlternativesForTopPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
