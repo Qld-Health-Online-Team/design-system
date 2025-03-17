@@ -58,7 +58,9 @@
 
     &-content {
         position: absolute;
-        width: 19.875rem;
+        width: max-content;
+        max-width: 19.875rem;
+
         z-index: 8;
         border-radius: $QLD-border-radius-xs;
         padding: #{map-get($QLD-space-map, 4)}px;
@@ -93,19 +95,23 @@
         }
     }
 
-    .qld__toggle-tip-content {
-        &.qld__toggle-tip-hidden {
-            display: none;
-        }
+    .qld__toggle-tip-hidden {
+        display: none;
+    }
 
-        &.qld__toggle-tip-visible {
-            display: block;
-        }
+    .qld__toggle-tip-visible {
+        display: block;
     }
 }
 
 .qld__body--dark,
-.qld__body--dark-alt {
+.qld__body--dark-alt,
+.qld__card--dark,
+.qld__card--dark-alt,
+.qld__banner--dark,
+.qld__banner--dark-alt,
+.qld__footer--dark,
+.qld__footer--dark-alt {
     .qld__toggle-tip {
         &-trigger {
             .qld__icon {
@@ -116,7 +122,7 @@
             &:hover,
             &:focus {
                 .qld__icon {
-                    color: var(--QLD-color-dark__background);
+                    color: $QLD-color-neutral--darkest;
                     background-color: var(--QLD-color-dark__action--secondary-hover);
                 }
             }
@@ -124,7 +130,7 @@
             &-active,
             &:active {
                 .qld__icon {
-                    color: var(--QLD-color-dark__background);
+                    color: $QLD-color-neutral--darkest;
                     background-color: var(--QLD-color-dark__action--secondary);
                 }
             }
@@ -154,6 +160,11 @@
             &-link {
                 > a {
                     color: var(--QLD-color-light__link);
+
+                    &:hover {
+                        color: var(--QLD-color-light__link);
+                        text-decoration-color: var(--QLD-color-light__link);
+                    }
                 }
             }
 
