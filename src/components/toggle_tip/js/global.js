@@ -23,10 +23,11 @@
             const toggleTip = toggleTipTrigger.parentElement;
             const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
             const carat = toggleTip.querySelector(toggleTipCaratClass);
-            lastClickedToggleTipTrigger = toggleTipTrigger;
             const linkElement = toggleTipContent.querySelector("a");
 
             toggleTipTrigger.addEventListener("click", function (e) {
+                lastClickedToggleTipTrigger = toggleTipTrigger;
+
                 // Check and toggle the classes
                 if (toggleTipContent.classList.contains(toggleTipHiddenClass)) {
                     openToggleTip(toggleTipTrigger, toggleTipContent, carat);
