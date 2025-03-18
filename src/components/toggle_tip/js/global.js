@@ -6,8 +6,9 @@
     let lastClickedToggleTipTrigger = null;
     // Variable to store whether the last clicked toggle tip is open
     let lastClickedToggleTipIsOpen = false;
-    const toggleTipContentClass = ".qld__toggle-tip-content";
-    const toggleTipCaratClass = ".qld__toggle-tip-content-carat";
+    const toggleTipTriggerQueryClass = ".qld__toggle-tip-trigger";
+    const toggleTipContentQueryClass = ".qld__toggle-tip-content";
+    const toggleTipCaratQueryClass = ".qld__toggle-tip-content-carat";
     const toggleTipVisibleClass = "qld__toggle-tip-visible";
     const toggleTipHiddenClass = "qld__toggle-tip-hidden";
     const toggleTipActiveClass = "qld__toggle-tip-trigger-active";
@@ -21,8 +22,8 @@
 
         toggleTipTriggers.forEach(function (toggleTipTrigger) {
             const toggleTip = toggleTipTrigger.parentElement;
-            const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
-            const carat = toggleTip.querySelector(toggleTipCaratClass);
+            const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
+            const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
             const linkElement = toggleTipContent.querySelector("a");
 
             toggleTipTrigger.addEventListener("click", function (e) {
@@ -56,8 +57,8 @@
         document.addEventListener("keydown", function (event) {
             if (event.key === "Escape" && lastClickedToggleTipTrigger) {
                 const toggleTip = lastClickedToggleTipTrigger.parentElement;
-                const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
-                const carat = toggleTip.querySelector(toggleTipCaratClass);
+                const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
+                const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
 
                 if (toggleTipContent.classList.contains(toggleTipVisibleClass)) {
                     closeToggleTip(lastClickedToggleTipTrigger, toggleTipContent, carat);
@@ -70,21 +71,10 @@
         document.addEventListener("click", function (event) {
             if (lastClickedToggleTipTrigger && lastClickedToggleTipIsOpen) {
                 const toggleTip = lastClickedToggleTipTrigger.parentElement;
-                const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
+                const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
 
                 if (!toggleTipContent.contains(event.target)) {
-                    // As a precaution, we close all toggle tips
-                    const toggleTipTriggers = document.querySelectorAll("button.qld__toggle-tip-trigger");
-
-                    if (!toggleTipTriggers.length) return;
-
-                    toggleTipTriggers.forEach(function (toggleTipTrigger) {
-                        const toggleTip = toggleTipTrigger.parentElement;
-                        const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
-                        const carat = toggleTip.querySelector(toggleTipCaratClass);
-
-                        closeToggleTip(toggleTip, toggleTipContent, carat);
-                    });
+                    closeAllToggleTips();
                 }
             }
         });
@@ -92,6 +82,9 @@
 
     // Function to open the toggle tip
     function openToggleTip(trigger, content, carat) {
+        // Ensure that in multiple instances, all other toggle tips are closed
+        closeAllToggleTips();
+
         content.classList.remove(toggleTipHiddenClass);
         content.classList.add(toggleTipVisibleClass);
         carat.classList.remove(toggleTipHiddenClass);
@@ -99,7 +92,7 @@
         lastClickedToggleTipIsOpen = true;
         trigger.setAttribute("aria-expanded", "true");
         trigger.classList.add(toggleTipActiveClass);
-        trigger.parentElement.setAttribute("aria-live", "assertive");
+        trigger.parentElement.setAttribute("aria-live", "polite");
 
         positionContentBox(trigger.parentElement, content);
     }
@@ -116,6 +109,22 @@
         trigger.parentElement.removeAttribute("aria-live");
     }
 
+    // Function to close all toggle tips found on the page
+    function closeAllToggleTips() {
+        const toggleTips = document.querySelectorAll(".qld__toggle-tip");
+
+        if (!toggleTips.length) return;
+
+        toggleTips.forEach(function (toggleTip) {
+            const trigger = toggleTip.querySelector(toggleTipTriggerQueryClass);
+            const content = toggleTip.querySelector(toggleTipContentQueryClass);
+            const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
+
+            closeToggleTip(trigger, content, carat);
+        });
+    }
+
+    // Function to get the direction from the metadata provided via class
     function getAlignmentDirection(content) {
         const classPrefix = "qld__toggle-tip-aligned-";
         const direction = Array.from(content.classList)
@@ -125,17 +134,19 @@
         return direction;
     }
 
+    // Function to position the content box dynamically based off the trigger
     function positionContentBox(toggleTip, content) {
         const toggleTipDimensions = toggleTip.getBoundingClientRect();
-        const carat = toggleTip.querySelector(toggleTipCaratClass);
+        const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
         const caratWidth = carat.offsetWidth;
         const marginFromToggleTip = 8 + caratWidth / 2;
         const direction = getAlignmentDirection(content);
 
+        positionCarat(toggleTipDimensions, carat, direction);
+
         if (direction === "top") {
             content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
             content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "top");
 
             if (doesToggleTipOverlap(content)) {
                 checkAlternativesForTopPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
@@ -143,7 +154,6 @@
         } else if (direction === "bottom") {
             content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
             content.style.top = `${toggleTipDimensions.height + marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "bottom");
 
             if (doesToggleTipOverlap(content)) {
                 checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
@@ -151,14 +161,23 @@
         } else if (direction === "left") {
             content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
             content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
-            positionCarat(toggleTipDimensions, carat, "left");
+
+            if (doesToggleTipOverlapSides(content)) {
+                content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
+                positionCarat(toggleTipDimensions, carat, "right");
+            }
         } else if (direction === "right") {
             content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
             content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
-            positionCarat(toggleTipDimensions, carat, "right");
+
+            if (doesToggleTipOverlapSides(content)) {
+                content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
+                positionCarat(toggleTipDimensions, carat, "left");
+            }
         }
     }
 
+    // Check if the content box is overlapping the ALL sides of the screen
     function doesToggleTipOverlap(content) {
         const contentDimensions = content.getBoundingClientRect();
         return !(
@@ -169,6 +188,13 @@
         );
     }
 
+    // Check if the content box is overlapping the left and right sides only
+    function doesToggleTipOverlapSides(content) {
+        const contentDimensions = content.getBoundingClientRect();
+        return !(contentDimensions.left >= 0 && contentDimensions.right <= document.documentElement.clientWidth);
+    }
+
+    // If the toggle tip is positioned top, we want to try sliding or inverting the content box
     function checkAlternativesForTopPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
         const contentDimensions = content.getBoundingClientRect();
         const screenCenter = document.documentElement.clientWidth / 2;
@@ -196,6 +222,7 @@
         }
     }
 
+    // If the toggle tip is positioned bottom, we want to try sliding or inverting the content box
     function checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
         const contentDimensions = content.getBoundingClientRect();
         const screenCenter = document.documentElement.clientWidth / 2;
@@ -223,6 +250,7 @@
         }
     }
 
+    // Function to position the carat based off the direction provided
     function positionCarat(toggleTipDimensions, carat, direction) {
         const caratWidth = carat.offsetWidth;
         const caratHeight = carat.offsetHeight;
