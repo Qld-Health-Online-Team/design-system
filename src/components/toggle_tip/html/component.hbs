@@ -1,6 +1,6 @@
 {{#with component.data}}
     <div class="qld__toggle-tip" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}toggle-tip-{{assetid}}{{/if}}">
-        <button class="qld__toggle-tip-trigger" aria-controls="toggle-tip-content-{{assetid}}" aria-expanded="false" aria-label="more information" aria-haspopup="dialog" tabindex="0">
+        <button class="qld__toggle-tip-trigger" aria-controls="toggle-tip-content-{{assetid}}" aria-expanded="false" aria-label="{{#if metadata.title.value}}{{{metadata.title.value}}}{{else}}Show {{metadata.type.value}}{{/if}}" aria-haspopup="dialog" tabindex="0">
         {{#ifCond metadata.definition.value "==" "true"}}
             <span class="qld__toggle-tip-trigger-definition">
                 {{metadata.title.value}}
@@ -8,12 +8,12 @@
         {{else}}
             <div class="qld__toggle-tip-trigger-icon">
                 {{#ifCond metadata.type.value "==" "info"}}
-                <svg class="qld__icon qld__icon--{{#ifCond metadata.icon_size.value "==" "medium"}}md{{else}}lg{{/ifCond}}" aria-label="Information toggle tip" xmlns="http://www.w3.org/2000/svg">
-                    <use href="{{@root.site.metadata.coreSiteIcons.value}}#status-info"></use>
+                <svg class="qld__icon qld__icon--{{#ifCond metadata.icon_size.value "==" "medium"}}md{{else}}lg{{/ifCond}}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use>
                 </svg>
                 {{/ifCond}}
                 {{#ifCond metadata.type.value "==" "help"}}
-                <svg class="qld__icon qld__icon--{{#ifCond metadata.icon_size.value "==" "medium"}}md{{else}}lg{{/ifCond}}" aria-label="Help toggle tip" xmlns="http://www.w3.org/2000/svg">
+                <svg class="qld__icon qld__icon--{{#ifCond metadata.icon_size.value "==" "medium"}}md{{else}}lg{{/ifCond}}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                     <use href="{{@root.site.metadata.coreSiteIcons.value}}#help"></use>
                 </svg>
                 {{/ifCond}}
