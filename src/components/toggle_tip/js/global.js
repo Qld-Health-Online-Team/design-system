@@ -71,10 +71,20 @@
             if (lastClickedToggleTipTrigger && lastClickedToggleTipIsOpen) {
                 const toggleTip = lastClickedToggleTipTrigger.parentElement;
                 const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
-                const carat = toggleTip.querySelector(toggleTipCaratClass);
 
                 if (!toggleTipContent.contains(event.target)) {
-                    closeToggleTip(lastClickedToggleTipTrigger, toggleTipContent, carat);
+                    // As a precaution, we close all toggle tips
+                    const toggleTipTriggers = document.querySelectorAll("button.qld__toggle-tip-trigger");
+
+                    if (!toggleTipTriggers.length) return;
+
+                    toggleTipTriggers.forEach(function (toggleTipTrigger) {
+                        const toggleTip = toggleTipTrigger.parentElement;
+                        const toggleTipContent = toggleTip.querySelector(toggleTipContentClass);
+                        const carat = toggleTip.querySelector(toggleTipCaratClass);
+
+                        closeToggleTip(toggleTip, toggleTipContent, carat);
+                    });
                 }
             }
         });
