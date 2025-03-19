@@ -171,7 +171,7 @@
             content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
 
             if (doesToggleTipOverlapSides(content)) {
-                content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
+                content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
                 positionCarat(toggleTipDimensions, carat, "left");
             }
         }
