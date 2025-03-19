@@ -162,17 +162,15 @@
             content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
             content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
 
-            if (doesToggleTipOverlapSides(content)) {
-                content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
-                positionCarat(toggleTipDimensions, carat, "right");
+            if (doesToggleTipOverlap(content)) {
+                checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
             }
         } else if (direction === "right") {
             content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
             content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
 
-            if (doesToggleTipOverlapSides(content)) {
-                content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
-                positionCarat(toggleTipDimensions, carat, "left");
+            if (doesToggleTipOverlap(content)) {
+                checkAlternativesForRightPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
             }
         }
     }
@@ -180,6 +178,7 @@
     // Check if the content box is overlapping the ALL sides of the screen
     function doesToggleTipOverlap(content) {
         const contentDimensions = content.getBoundingClientRect();
+
         return !(
             contentDimensions.top >= marginFromSide &&
             contentDimensions.left >= 0 &&
@@ -188,9 +187,10 @@
         );
     }
 
-    // Check if the content box is overlapping the left and right sides only
+    // Check if the content box is overlapping on the left or right sides
     function doesToggleTipOverlapSides(content) {
         const contentDimensions = content.getBoundingClientRect();
+
         return !(contentDimensions.left >= 0 && contentDimensions.right <= document.documentElement.clientWidth);
     }
 
@@ -203,11 +203,9 @@
 
         // Compare the element's position to the center
         if (closerToLeft) {
-            const leftScreenPosition = marginFromSide - toggleTipDimensions.left;
-            content.style.left = `${leftScreenPosition}px`;
+            content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
         } else {
-            const rightScreenPosition = toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide;
-            content.style.left = `${rightScreenPosition}px`;
+            content.style.left = `${toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide}px`;
         }
 
         // If sliding the element horizontally doesn't work, we want to try the bottom now
@@ -215,7 +213,7 @@
             content.style.top = `${toggleTipDimensions.height + marginFromToggleTip}px`;
             positionCarat(toggleTipDimensions, carat, "bottom");
 
-            // If the space between the sides and the toggle tip is too great, try the content below  || right side needs margin....??
+            // If the space between the sides and the toggle tip is too great, try the content below
             if ((closerToLeft && toggleTipDimensions.right > contentDimensions.width + marginFromSide) || (!closerToLeft && rightGap + toggleTipDimensions.width + marginFromSide > contentDimensions.width)) {
                 content.style.left = `${toggleTipDimensions.width / 2 - contentDimensions.width / 2}px`;
             }
@@ -231,21 +229,69 @@
 
         // Compare the element's position to the center
         if (closerToLeft) {
-            const leftScreenPosition = marginFromSide - toggleTipDimensions.left;
-            content.style.left = `${leftScreenPosition}px`;
+            content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
         } else {
-            const rightScreenPosition = toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide;
-            content.style.left = `${rightScreenPosition}px`;
+            content.style.left = `${toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide}px`;
         }
 
-        // If sliding the element horizontally doesn't work, we want to try the bottom now
+        // If sliding the element horizontally doesn't work, we want to try the top now
         if (doesToggleTipOverlap(content)) {
             content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
             positionCarat(toggleTipDimensions, carat, "top");
 
-            // If the space between the sides and the toggle tip is too great, try the content below  || right side needs margin....??
+            // If the space between the sides and the toggle tip is too great, try the content above
             if ((closerToLeft && toggleTipDimensions.right > contentDimensions.width + marginFromSide) || (!closerToLeft && rightGap + toggleTipDimensions.width + marginFromSide > contentDimensions.width)) {
                 content.style.left = `${toggleTipDimensions.width / 2 - contentDimensions.width / 2}px`;
+            }
+        }
+    }
+
+    // If the toggle tip is positioned left, we want to try sliding or inverting the content box
+    function checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+        const contentDimensions = content.getBoundingClientRect();
+        const screenCenter = document.documentElement.clientHeight / 2;
+        const closerToTop = toggleTipDimensions.top + toggleTipDimensions.height / 2 < screenCenter;
+        const bottomGap = document.documentElement.clientHeight - toggleTipDimensions.bottom;
+
+        // Compare the element's position to the center
+        if (closerToTop) {
+            content.style.top = `${-toggleTipDimensions.y + marginFromSide}px`;
+        } else {
+            content.style.top = `${-contentDimensions.height + toggleTipDimensions.height + bottomGap - marginFromSide}px`;
+        }
+
+        // If sliding the element horizontally doesn't work, we want to try the right now
+        if (doesToggleTipOverlapSides(content)) {
+            content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
+            positionCarat(toggleTipDimensions, carat, "right");
+
+            if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
+                content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
+            }
+        }
+    }
+
+    // If the toggle tip is positioned right, we want to try sliding or inverting the content box
+    function checkAlternativesForRightPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+        const contentDimensions = content.getBoundingClientRect();
+        const screenCenter = document.documentElement.clientHeight / 2;
+        const closerToTop = toggleTipDimensions.top + toggleTipDimensions.height / 2 < screenCenter;
+        const bottomGap = document.documentElement.clientHeight - toggleTipDimensions.bottom;
+
+        // Compare the element's position to the center
+        if (closerToTop) {
+            content.style.top = `${-toggleTipDimensions.y + marginFromSide}px`;
+        } else {
+            content.style.top = `${-contentDimensions.height + toggleTipDimensions.height + bottomGap - marginFromSide}px`;
+        }
+
+        // If sliding the element horizontally doesn't work, we want to try the left now
+        if (doesToggleTipOverlapSides(content)) {
+            content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
+            positionCarat(toggleTipDimensions, carat, "left");
+
+            if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
+                content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
             }
         }
     }
