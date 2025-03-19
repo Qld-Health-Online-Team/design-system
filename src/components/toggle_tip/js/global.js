@@ -12,7 +12,8 @@
     const toggleTipVisibleClass = "qld__toggle-tip-visible";
     const toggleTipHiddenClass = "qld__toggle-tip-hidden";
     const toggleTipActiveClass = "qld__toggle-tip-trigger-active";
-    const marginFromSide = 8;
+    const marginFromSide = 16;
+    const marginFromToggleTip = 8.5;
 
     toggleTip.init = function () {
         // Find all toggle tip trigger elements
@@ -305,18 +306,18 @@
 
         if (direction === "top") {
             caratLeftPosition = toggleTipDimensions.width / 2 - caratWidth / 2;
-            caratTopPosition = -(caratWidth / 2 + marginFromSide);
+            caratTopPosition = -(caratWidth / 2 + marginFromToggleTip);
             carat.style.transform = "rotate(180deg)";
         } else if (direction === "bottom") {
             caratLeftPosition = toggleTipDimensions.width / 2 - caratWidth / 2;
-            caratTopPosition = toggleTipDimensions.height - caratWidth / 2 + marginFromSide;
+            caratTopPosition = toggleTipDimensions.height - caratWidth / 2 + marginFromToggleTip;
             carat.style.transform = "rotate(0deg)";
         } else if (direction === "left") {
-            caratLeftPosition = -caratWidth / 2 - marginFromSide;
+            caratLeftPosition = -caratWidth / 2 - marginFromToggleTip;
             caratTopPosition = toggleTipDimensions.height / 2 - caratHeight / 2;
             carat.style.transform = "rotate(90deg)";
         } else if (direction === "right") {
-            caratLeftPosition = toggleTipDimensions.width - caratWidth / 2 + marginFromSide;
+            caratLeftPosition = toggleTipDimensions.width - caratWidth / 2 + marginFromToggleTip;
             caratTopPosition = toggleTipDimensions.height / 2 - caratHeight / 2;
             carat.style.transform = "rotate(270deg)";
         }
