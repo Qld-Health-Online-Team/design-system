@@ -1,5 +1,5 @@
 {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
-<nav class="qld__breadcrumbs" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
+<nav class="qld__breadcrumbs qld__breadcrumbs-svg-path-{{@root.site.metadata.coreSiteIcons.value}}" aria-label="breadcrumbs">
     <ol class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
         {{#each current.lineage}} 
             {{#ifCond asset_type_code '!=' 'folder'}}       

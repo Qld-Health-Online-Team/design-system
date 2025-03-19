@@ -75,12 +75,16 @@
         svg.setAttribute("height", "32");
         svg.setAttribute("role", "img");
 
-        const usePath = document.querySelector("nav.qld__breadcrumbs[data-path]").getAttribute("data-path");
-        let use = document.createElement("use");
-        use.setAttribute("href", `${usePath}#more-horizontal`);
-
-        svg.appendChild(use);
-        button.appendChild(svg);
+        const svgPathPrefix = "qld__breadcrumbs-svg-path-";
+        const breadcrumbs = document.querySelector("nav.qld__breadcrumbs");
+        const usePath = Array.from(breadcrumbs.classList).find((className) => className.startsWith("qld__breadcrumbs-svg-path-"));
+        if (usePath) {
+            breadcrumbs.classList.remove(usePath);
+            let use = document.createElement("use");
+            use.setAttribute("href", `${usePath.replace(svgPathPrefix, "")}#more-horizontal`);
+            svg.appendChild(use);
+            button.appendChild(svg);
+        }
 
         overFlowWrapper.appendChild(button);
 
