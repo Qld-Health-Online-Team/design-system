@@ -269,6 +269,12 @@
             if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
                 content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
             }
+
+            if (doesToggleTipOverlapSides(content)) {
+                content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
+                content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
+                positionCarat(toggleTipDimensions, carat, "top");
+            }
         }
     }
 
@@ -293,6 +299,12 @@
 
             if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
                 content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
+            }
+
+            if (doesToggleTipOverlapSides(content)) {
+                content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
+                content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
+                positionCarat(toggleTipDimensions, carat, "top");
             }
         }
     }
