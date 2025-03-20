@@ -11,7 +11,7 @@
                     <div class="qld__main-nav__header">
                         <h2 class="qld__main-nav__menu-heading" tabindex="-1">Menu</h2>
                         <button aria-controls="main-nav" class="qld__main-nav__toggle qld__main-nav__toggle--close">
-                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md"><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__close"></use></svg>
+                            <svg class="qld__icon qld__icon--md accordion-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                             <span class="qld__main-nav__toggle-text">Close</span>
                         </button>
                     </div>
@@ -20,7 +20,7 @@
                         <li class="{{#if current.home}}active{{/if}} qld__main-nav__item">
                             <div class="qld__main-nav__item-title">
                                 <a class="qld__main-nav__item-link" aria-label="Home" {{#if current.home}}aria-current="page" {{/if}} href="./?a={{site.data.assetid}}">
-                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--md "><use href="{{@root.site.metadata.siteDefaultIcons.value}}#qld__icon__home"></use></svg>
+                                    <svg class="qld__icon qld__icon--md accordion-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                                     <span class="qld__main-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
                                 </a>
                             </div>
