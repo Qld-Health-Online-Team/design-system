@@ -3,78 +3,111 @@
 
     let toggleTip = {};
     // Variable to store the last clicked toggle tip
-    let lastClickedToggleTipTrigger = null;
+    let lastTriggeredToggleTip = null;
+    let lastTriggeredToggleTipTrigger = null;
     // Variable to store whether the last clicked toggle tip is open
     let lastClickedToggleTipIsOpen = false;
     const toggleTipTriggerQueryClass = ".qld__toggle-tip-trigger";
     const toggleTipContentQueryClass = ".qld__toggle-tip-content";
+    const toggleTipLinkQueryClass = ".qld__toggle-tip-content-link";
     const toggleTipCaratQueryClass = ".qld__toggle-tip-content-carat";
     const toggleTipVisibleClass = "qld__toggle-tip-visible";
     const toggleTipHiddenClass = "qld__toggle-tip-hidden";
     const toggleTipActiveClass = "qld__toggle-tip-trigger-active";
     const marginFromSide = 16;
-    const marginFromToggleTip = 8.5;
+    const marginFromTrigger = 8;
 
     toggleTip.init = function () {
         // Find all toggle tip trigger elements
-        const toggleTipTriggers = document.querySelectorAll("button.qld__toggle-tip-trigger");
+        const toggleTipTriggers = document.querySelectorAll(toggleTipTriggerQueryClass);
 
         if (!toggleTipTriggers.length) return;
 
         toggleTipTriggers.forEach(function (toggleTipTrigger) {
-            const toggleTip = toggleTipTrigger.parentElement;
-            const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
-            const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
-            const linkElement = toggleTipContent.querySelector("a");
+            const toggleTipId = toggleTipTrigger.getAttribute("data-target");
+
+            if (!toggleTipId) return;
+
+            const toggleTip = document.getElementById(toggleTipId);
+            const content = toggleTip.querySelector(toggleTipContentQueryClass);
+            const linkElement = content.querySelector("a");
 
             toggleTipTrigger.addEventListener("click", function (e) {
-                lastClickedToggleTipTrigger = toggleTipTrigger;
+                lastTriggeredToggleTip = toggleTip;
+                lastTriggeredToggleTipTrigger = toggleTipTrigger;
 
                 // Check and toggle the classes
-                if (toggleTipContent.classList.contains(toggleTipHiddenClass)) {
-                    openToggleTip(toggleTipTrigger, toggleTipContent, carat);
-                } else if (toggleTipContent.classList.contains(toggleTipVisibleClass)) {
-                    closeToggleTip(toggleTipTrigger, toggleTipContent, carat);
+                if (content.classList.contains(toggleTipHiddenClass)) {
+                    openToggleTip(toggleTip, toggleTipTrigger);
+                } else if (content.classList.contains(toggleTipVisibleClass)) {
+                    closeToggleTip(toggleTip, toggleTipTrigger);
                 }
 
                 // Prevent the click event on window from bubbling up
                 e.stopPropagation();
             });
 
-            toggleTipContent.addEventListener("keydown", function (event) {
-                if (event.key === "Tab") {
+            toggleTipTrigger.addEventListener("keydown", function (e) {
+                if (e.key === "Tab" && lastClickedToggleTipIsOpen) {
+                    e.preventDefault();
+
                     // Check if the user is trying to tab out of the content
-                    if (linkElement && document.activeElement === linkElement) {
-                        closeToggleTip(toggleTipTrigger, toggleTipContent, carat);
-                        event.preventDefault();
-                        // Move focus back to the toggle tip element
-                        toggleTipTrigger.focus();
+                    lastTriggeredToggleTip.querySelector("a").focus();
+                }
+
+                if (e.keyCode === 32 || e.key === "Enter") {
+                    e.preventDefault();
+
+                    lastTriggeredToggleTip = toggleTip;
+                    lastTriggeredToggleTipTrigger = toggleTipTrigger;
+
+                    // Check and toggle the classes
+                    if (content.classList.contains(toggleTipHiddenClass)) {
+                        openToggleTip(toggleTip, toggleTipTrigger);
+                    } else if (content.classList.contains(toggleTipVisibleClass)) {
+                        closeToggleTip(toggleTip, toggleTipTrigger);
                     }
+
+                    // Prevent the click event on window from bubbling up
+                    e.stopPropagation();
+                }
+            });
+
+            linkElement.addEventListener("keydown", function (e) {
+                if (e.key === "Tab") {
+                    e.preventDefault();
+
+                    // Close toggle tip and move focus back to the toggle tip element
+                    closeToggleTip(toggleTip, toggleTipTrigger);
+                    toggleTipTrigger.focus();
+                }
+
+                if (e.key === "Escape") {
+                    closeToggleTip(toggleTip, toggleTipTrigger);
+                    toggleTipTrigger.focus();
                 }
             });
         });
 
         // Close toggle tip if the toggle content is open and the user hits the "Escape" key
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" && lastClickedToggleTipTrigger) {
-                const toggleTip = lastClickedToggleTipTrigger.parentElement;
-                const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
-                const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && lastTriggeredToggleTip) {
+                const content = lastTriggeredToggleTip.querySelector(toggleTipContentQueryClass);
+                const trigger = lastTriggeredToggleTip.querySelector(toggleTipTriggerQueryClass);
 
-                if (toggleTipContent.classList.contains(toggleTipVisibleClass)) {
-                    closeToggleTip(lastClickedToggleTipTrigger, toggleTipContent, carat);
-                    lastClickedToggleTipTrigger.focus();
+                if (content.classList.contains(toggleTipVisibleClass)) {
+                    closeToggleTip(lastTriggeredToggleTip, trigger);
+                    lastTriggeredToggleTip.focus();
                 }
             }
         });
 
         // Close toggle tip if the toggle content is open and the user clicks OFF the content
-        document.addEventListener("click", function (event) {
-            if (lastClickedToggleTipTrigger && lastClickedToggleTipIsOpen) {
-                const toggleTip = lastClickedToggleTipTrigger.parentElement;
-                const toggleTipContent = toggleTip.querySelector(toggleTipContentQueryClass);
+        document.addEventListener("click", function (e) {
+            if (lastTriggeredToggleTip && lastClickedToggleTipIsOpen) {
+                const toggleTipContent = lastTriggeredToggleTip.querySelector(toggleTipContentQueryClass);
 
-                if (!toggleTipContent.contains(event.target)) {
+                if (!toggleTipContent.contains(e.target)) {
                     closeAllToggleTips();
                 }
             }
@@ -82,7 +115,10 @@
     };
 
     // Function to open the toggle tip
-    function openToggleTip(trigger, content, carat) {
+    function openToggleTip(toggleTip, trigger) {
+        const content = toggleTip.querySelector(toggleTipContentQueryClass);
+        const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
+
         // Ensure that in multiple instances, all other toggle tips are closed
         closeAllToggleTips();
 
@@ -95,11 +131,14 @@
         trigger.classList.add(toggleTipActiveClass);
         trigger.parentElement.setAttribute("aria-live", "polite");
 
-        positionContentBox(trigger.parentElement, content);
+        positionContentBox(toggleTip, content);
     }
 
     // Function to close the toggle tip
-    function closeToggleTip(trigger, content, carat) {
+    function closeToggleTip(toggleTip, trigger) {
+        const content = toggleTip.querySelector(toggleTipContentQueryClass);
+        const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
+
         content.classList.remove(toggleTipVisibleClass);
         content.classList.add(toggleTipHiddenClass);
         carat.classList.remove(toggleTipVisibleClass);
@@ -117,11 +156,7 @@
         if (!toggleTips.length) return;
 
         toggleTips.forEach(function (toggleTip) {
-            const trigger = toggleTip.querySelector(toggleTipTriggerQueryClass);
-            const content = toggleTip.querySelector(toggleTipContentQueryClass);
-            const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
-
-            closeToggleTip(trigger, content, carat);
+            closeToggleTip(toggleTip, toggleTip.querySelector(toggleTipTriggerQueryClass));
         });
     }
 
@@ -139,39 +174,45 @@
     function positionContentBox(toggleTip, content) {
         const toggleTipDimensions = toggleTip.getBoundingClientRect();
         const carat = toggleTip.querySelector(toggleTipCaratQueryClass);
-        const caratWidth = carat.offsetWidth;
-        const marginFromToggleTip = 8 + caratWidth / 2;
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const contentFromTop = toggleTipDimensions.top + window.scrollY;
+        const contentFromTriggerY = triggerFromTop - contentFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const contentFromLeft = toggleTipDimensions.left + window.scrollX;
+        const contentFromTriggerX = triggerFromLeft - contentFromLeft;
+        const contentMarginFromTrigger = 8 + carat.offsetWidth / 2;
         const direction = getAlignmentDirection(content);
 
         positionCarat(toggleTipDimensions, carat, direction);
 
         if (direction === "top") {
-            content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
-            content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
+            content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
+            content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
 
             if (doesToggleTipOverlap(content)) {
-                checkAlternativesForTopPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
+                checkAlternativesForTopPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger);
             }
         } else if (direction === "bottom") {
-            content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
-            content.style.top = `${toggleTipDimensions.height + marginFromToggleTip}px`;
+            content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
+            content.style.top = `${contentFromTriggerY + triggerDimensions.height + contentMarginFromTrigger}px`;
 
             if (doesToggleTipOverlap(content)) {
-                checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
+                checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger);
             }
         } else if (direction === "left") {
-            content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
-            content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
+            content.style.left = `${contentFromTriggerX - content.offsetWidth - contentMarginFromTrigger}px`;
+            content.style.top = `${contentFromTriggerY - content.offsetHeight / 2 + triggerDimensions.height / 2}px`;
 
             if (doesToggleTipOverlap(content)) {
-                checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
+                checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger);
             }
         } else if (direction === "right") {
-            content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
-            content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
+            content.style.left = `${contentFromTriggerX + triggerDimensions.width + contentMarginFromTrigger}px`;
+            content.style.top = `${contentFromTriggerY - content.offsetHeight / 2 + triggerDimensions.height / 2}px`;
 
             if (doesToggleTipOverlap(content)) {
-                checkAlternativesForRightPosition(toggleTipDimensions, content, carat, marginFromToggleTip);
+                checkAlternativesForRightPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger);
             }
         }
     }
@@ -182,155 +223,181 @@
 
         return !(
             contentDimensions.top >= marginFromSide &&
-            contentDimensions.left >= 0 &&
+            contentDimensions.left >= marginFromSide &&
             contentDimensions.bottom + marginFromSide <= document.documentElement.clientHeight &&
-            contentDimensions.right <= document.documentElement.clientWidth
+            contentDimensions.right + marginFromSide <= document.documentElement.clientWidth
         );
+    }
+
+    // Check if the content box is overlapping the ALL sides of the screen
+    function doesToggleTipOverlapTopBot(content) {
+        const contentDimensions = content.getBoundingClientRect();
+
+        return !(contentDimensions.top >= marginFromSide && contentDimensions.bottom + marginFromSide <= document.documentElement.clientHeight);
     }
 
     // Check if the content box is overlapping on the left or right sides
     function doesToggleTipOverlapSides(content) {
         const contentDimensions = content.getBoundingClientRect();
 
-        return !(contentDimensions.left >= 0 && contentDimensions.right <= document.documentElement.clientWidth);
+        return !(contentDimensions.left >= marginFromSide && contentDimensions.right + marginFromSide <= document.documentElement.clientWidth);
     }
 
     // If the toggle tip is positioned top, we want to try sliding or inverting the content box
-    function checkAlternativesForTopPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+    function checkAlternativesForTopPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger) {
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
         const contentDimensions = content.getBoundingClientRect();
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const contentFromTop = toggleTipDimensions.top + window.scrollY;
+        const contentFromTriggerY = triggerFromTop - contentFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const contentFromLeft = toggleTipDimensions.left + window.scrollX;
+        const contentFromTriggerX = triggerFromLeft - contentFromLeft;
         const screenCenter = document.documentElement.clientWidth / 2;
         const closerToLeft = contentDimensions.left + contentDimensions.width / 2 < screenCenter;
-        const rightGap = document.documentElement.clientWidth - toggleTipDimensions.right;
 
-        // Compare the element's position to the center
-        if (closerToLeft) {
-            content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
-        } else {
-            content.style.left = `${toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide}px`;
+        if (doesToggleTipOverlapTopBot(content)) {
+            content.style.top = `${contentFromTriggerY + triggerDimensions.height + contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "bottom");
         }
 
-        // If sliding the element horizontally doesn't work, we want to try the bottom now
-        if (doesToggleTipOverlap(content)) {
-            content.style.top = `${toggleTipDimensions.height + marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "bottom");
-
-            // If the space between the sides and the toggle tip is too great, try the content below
-            if ((closerToLeft && toggleTipDimensions.right > contentDimensions.width + marginFromSide) || (!closerToLeft && rightGap + toggleTipDimensions.width + marginFromSide > contentDimensions.width)) {
-                content.style.left = `${toggleTipDimensions.width / 2 - contentDimensions.width / 2}px`;
+        if (doesToggleTipOverlapSides(content)) {
+            // Compare the element's position to the center
+            if (closerToLeft) {
+                content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
+            } else {
+                content.style.left = `${contentFromTriggerX - triggerDimensions.left + document.documentElement.clientWidth - contentDimensions.width - marginFromSide}px`;
             }
         }
     }
 
     // If the toggle tip is positioned bottom, we want to try sliding or inverting the content box
-    function checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+    function checkAlternativesForBottomPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger) {
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
         const contentDimensions = content.getBoundingClientRect();
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const contentFromTop = toggleTipDimensions.top + window.scrollY;
+        const contentFromTriggerY = triggerFromTop - contentFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const contentFromLeft = toggleTipDimensions.left + window.scrollX;
+        const contentFromTriggerX = triggerFromLeft - contentFromLeft;
         const screenCenter = document.documentElement.clientWidth / 2;
         const closerToLeft = contentDimensions.left + contentDimensions.width / 2 < screenCenter;
-        const rightGap = document.documentElement.clientWidth - toggleTipDimensions.right;
 
-        // Compare the element's position to the center
-        if (closerToLeft) {
-            content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
-        } else {
-            content.style.left = `${toggleTipDimensions.width - contentDimensions.width + rightGap - marginFromSide}px`;
+        if (doesToggleTipOverlapTopBot(content)) {
+            content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "top");
         }
 
-        // If sliding the element horizontally doesn't work, we want to try the top now
-        if (doesToggleTipOverlap(content)) {
-            content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "top");
-
-            // If the space between the sides and the toggle tip is too great, try the content above
-            if ((closerToLeft && toggleTipDimensions.right > contentDimensions.width + marginFromSide) || (!closerToLeft && rightGap + toggleTipDimensions.width + marginFromSide > contentDimensions.width)) {
-                content.style.left = `${toggleTipDimensions.width / 2 - contentDimensions.width / 2}px`;
+        if (doesToggleTipOverlapSides(content)) {
+            // Compare the element's position to the center
+            if (closerToLeft) {
+                content.style.left = `${marginFromSide - toggleTipDimensions.left}px`;
+            } else {
+                content.style.left = `${contentFromTriggerX - triggerDimensions.left + document.documentElement.clientWidth - contentDimensions.width - marginFromSide}px`;
             }
         }
     }
 
     // If the toggle tip is positioned left, we want to try sliding or inverting the content box
-    function checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+    function checkAlternativesForLeftPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger) {
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
         const contentDimensions = content.getBoundingClientRect();
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const contentFromTop = toggleTipDimensions.top + window.scrollY;
+        const contentFromTriggerY = triggerFromTop - contentFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const contentFromLeft = toggleTipDimensions.left + window.scrollX;
+        const contentFromTriggerX = triggerFromLeft - contentFromLeft;
         const screenCenter = document.documentElement.clientHeight / 2;
-        const closerToTop = toggleTipDimensions.top + toggleTipDimensions.height / 2 < screenCenter;
-        const bottomGap = document.documentElement.clientHeight - toggleTipDimensions.bottom;
+        const closerToTop = contentDimensions.top + contentDimensions.height / 2 < screenCenter;
 
-        // Compare the element's position to the center
-        if (closerToTop) {
-            content.style.top = `${-toggleTipDimensions.y + marginFromSide}px`;
-        } else {
-            content.style.top = `${-contentDimensions.height + toggleTipDimensions.height + bottomGap - marginFromSide}px`;
+        if (doesToggleTipOverlapSides(content)) {
+            content.style.left = `${contentFromTriggerX + triggerDimensions.width + contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "right");
         }
 
-        // If sliding the element horizontally doesn't work, we want to try the right now
+        if (doesToggleTipOverlapTopBot(content)) {
+            // Compare the element's position to the center
+            if (closerToTop) {
+                content.style.top = `${marginFromSide - toggleTipDimensions.top}px`;
+            } else {
+                content.style.top = `${contentFromTriggerY - triggerDimensions.top + document.documentElement.clientHeight - contentDimensions.height - marginFromSide}px`;
+            }
+        }
+
+        // For the specific case on mobile where the toggle tip cannot fit on BOTH sides
         if (doesToggleTipOverlapSides(content)) {
-            content.style.left = `${toggleTipDimensions.width + marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "right");
-
-            if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
-                content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
-            }
-
-            if (doesToggleTipOverlapSides(content)) {
-                content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
-                content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
-                positionCarat(toggleTipDimensions, carat, "top");
-            }
+            content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
+            content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "top");
         }
     }
 
     // If the toggle tip is positioned right, we want to try sliding or inverting the content box
-    function checkAlternativesForRightPosition(toggleTipDimensions, content, carat, marginFromToggleTip) {
+    function checkAlternativesForRightPosition(toggleTipDimensions, content, carat, contentMarginFromTrigger) {
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
         const contentDimensions = content.getBoundingClientRect();
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const contentFromTop = toggleTipDimensions.top + window.scrollY;
+        const contentFromTriggerY = triggerFromTop - contentFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const contentFromLeft = toggleTipDimensions.left + window.scrollX;
+        const contentFromTriggerX = triggerFromLeft - contentFromLeft;
         const screenCenter = document.documentElement.clientHeight / 2;
-        const closerToTop = toggleTipDimensions.top + toggleTipDimensions.height / 2 < screenCenter;
-        const bottomGap = document.documentElement.clientHeight - toggleTipDimensions.bottom;
+        const closerToTop = contentDimensions.top + contentDimensions.height / 2 < screenCenter;
 
-        // Compare the element's position to the center
-        if (closerToTop) {
-            content.style.top = `${-toggleTipDimensions.y + marginFromSide}px`;
-        } else {
-            content.style.top = `${-contentDimensions.height + toggleTipDimensions.height + bottomGap - marginFromSide}px`;
+        if (doesToggleTipOverlapSides(content)) {
+            content.style.left = `${contentFromTriggerX - content.offsetWidth - contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "left");
         }
 
-        // If sliding the element horizontally doesn't work, we want to try the left now
+        if (doesToggleTipOverlapTopBot(content)) {
+            // Compare the element's position to the center
+            if (closerToTop) {
+                content.style.top = `${marginFromSide - toggleTipDimensions.top}px`;
+            } else {
+                content.style.top = `${contentFromTriggerY - triggerDimensions.top + document.documentElement.clientHeight - contentDimensions.height - marginFromSide}px`;
+            }
+        }
+
+        // For the specific case on mobile where the toggle tip cannot fit on BOTH sides
         if (doesToggleTipOverlapSides(content)) {
-            content.style.left = `${-content.offsetWidth - marginFromToggleTip}px`;
-            positionCarat(toggleTipDimensions, carat, "left");
-
-            if ((closerToTop && toggleTipDimensions.bottom > contentDimensions.height + marginFromSide) || (!closerToTop && bottomGap + toggleTipDimensions.height + marginFromSide > contentDimensions.height)) {
-                content.style.top = `${toggleTipDimensions.height / 2 - content.offsetHeight / 2}px`;
-            }
-
-            if (doesToggleTipOverlapSides(content)) {
-                content.style.left = `${toggleTipDimensions.width / 2 - content.offsetWidth / 2}px`;
-                content.style.top = `${-content.offsetHeight - marginFromToggleTip}px`;
-                positionCarat(toggleTipDimensions, carat, "top");
-            }
+            content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
+            content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
+            positionCarat(toggleTipDimensions, carat, "top");
         }
     }
 
     // Function to position the carat based off the direction provided
     function positionCarat(toggleTipDimensions, carat, direction) {
-        const caratWidth = carat.offsetWidth;
-        const caratHeight = carat.offsetHeight;
+        const triggerDimensions = lastTriggeredToggleTipTrigger.getBoundingClientRect();
+        const caratWidth = carat.offsetWidth / 2;
+        const caratHeight = carat.offsetHeight / 2;
+        const triggerFromTop = triggerDimensions.top + window.scrollY;
+        const caratFromTop = toggleTipDimensions.top + window.scrollY;
+        const caratFromTriggerY = triggerFromTop - caratFromTop;
+        const triggerFromLeft = triggerDimensions.left + window.scrollX;
+        const caratFromLeft = toggleTipDimensions.left + window.scrollX;
+        const caratFromTriggerX = triggerFromLeft - caratFromLeft;
         let caratTopPosition = 0;
         let caratLeftPosition = 0;
 
         if (direction === "top") {
-            caratLeftPosition = toggleTipDimensions.width / 2 - caratWidth / 2;
-            caratTopPosition = -(caratWidth / 2 + marginFromToggleTip);
+            caratLeftPosition = caratFromTriggerX + triggerDimensions.width / 2 - caratWidth;
+            caratTopPosition = caratFromTriggerY - caratHeight - marginFromTrigger;
             carat.style.transform = "rotate(180deg)";
         } else if (direction === "bottom") {
-            caratLeftPosition = toggleTipDimensions.width / 2 - caratWidth / 2;
-            caratTopPosition = toggleTipDimensions.height - caratWidth / 2 + marginFromToggleTip;
+            caratLeftPosition = caratFromTriggerX + triggerDimensions.width / 2 - caratWidth;
+            caratTopPosition = caratFromTriggerY - caratHeight + triggerDimensions.height + marginFromTrigger;
             carat.style.transform = "rotate(0deg)";
         } else if (direction === "left") {
-            caratLeftPosition = -caratWidth / 2 - marginFromToggleTip;
-            caratTopPosition = toggleTipDimensions.height / 2 - caratHeight / 2;
+            caratLeftPosition = caratFromTriggerX - caratWidth - marginFromTrigger;
+            caratTopPosition = caratFromTriggerY + triggerDimensions.height / 2 - caratHeight;
             carat.style.transform = "rotate(90deg)";
         } else if (direction === "right") {
-            caratLeftPosition = toggleTipDimensions.width - caratWidth / 2 + marginFromToggleTip;
-            caratTopPosition = toggleTipDimensions.height / 2 - caratHeight / 2;
+            caratLeftPosition = caratFromTriggerX + triggerDimensions.width - caratWidth + marginFromTrigger;
+            caratTopPosition = caratFromTriggerY + triggerDimensions.height / 2 - caratHeight;
             carat.style.transform = "rotate(270deg)";
         }
 
