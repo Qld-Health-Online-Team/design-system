@@ -72,20 +72,22 @@
                 }
             });
 
-            linkElement.addEventListener("keydown", function (e) {
-                if (e.key === "Tab") {
-                    e.preventDefault();
+            if (linkElement) {
+                linkElement.addEventListener("keydown", function (e) {
+                    if (e.key === "Tab") {
+                        e.preventDefault();
 
-                    // Close toggle tip and move focus back to the toggle tip element
-                    closeToggleTip(toggleTip, toggleTipTrigger);
-                    toggleTipTrigger.focus();
-                }
+                        // Close toggle tip and move focus back to the toggle tip element
+                        closeToggleTip(toggleTip, toggleTipTrigger);
+                        toggleTipTrigger.focus();
+                    }
 
-                if (e.key === "Escape") {
-                    closeToggleTip(toggleTip, toggleTipTrigger);
-                    toggleTipTrigger.focus();
-                }
-            });
+                    if (e.key === "Escape") {
+                        closeToggleTip(toggleTip, toggleTipTrigger);
+                        toggleTipTrigger.focus();
+                    }
+                });
+            }
         });
 
         // Close toggle tip if the toggle content is open and the user hits the "Escape" key
