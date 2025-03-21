@@ -15,19 +15,7 @@
         display: inline-block;
 
         &-trigger {
-            // Removing the default button styling
-            background: none;
-            color: inherit;
-            border: none;
-            padding: 0;
-            font: inherit;
-            cursor: pointer;
-            outline: inherit;
-            display: block;
-
-            // &:not(:has(.qld__toggle-tip-trigger-definition)) {
-            //     border-radius: 50%;
-            // }
+            display: inline-block;
 
             .qld__icon {
                 display: block;
@@ -59,8 +47,11 @@
                 }
             }
 
+            &-icon {
+                border-radius: 50%;
+            }
+
             &-definition {
-                display: inline;
                 text-decoration: underline dotted var(--QLD-underline__thickness-thick);
                 text-decoration-color: var(--QLD-color-light__underline);
                 text-underline-offset: 5px;

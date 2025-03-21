@@ -9,7 +9,6 @@
     let lastClickedToggleTipIsOpen = false;
     const toggleTipTriggerQueryClass = ".qld__toggle-tip-trigger";
     const toggleTipContentQueryClass = ".qld__toggle-tip-content";
-    const toggleTipLinkQueryClass = ".qld__toggle-tip-content-link";
     const toggleTipCaratQueryClass = ".qld__toggle-tip-content-carat";
     const toggleTipVisibleClass = "qld__toggle-tip-visible";
     const toggleTipHiddenClass = "qld__toggle-tip-hidden";
@@ -124,12 +123,12 @@
 
         content.classList.remove(toggleTipHiddenClass);
         content.classList.add(toggleTipVisibleClass);
+        content.setAttribute("aria-expanded", "true");
+        toggleTip.setAttribute("aria-live", "polite");
         carat.classList.remove(toggleTipHiddenClass);
         carat.classList.add(toggleTipVisibleClass);
         lastClickedToggleTipIsOpen = true;
-        trigger.setAttribute("aria-expanded", "true");
         trigger.classList.add(toggleTipActiveClass);
-        trigger.parentElement.setAttribute("aria-live", "polite");
 
         positionContentBox(toggleTip, content);
     }
@@ -141,17 +140,17 @@
 
         content.classList.remove(toggleTipVisibleClass);
         content.classList.add(toggleTipHiddenClass);
+        content.setAttribute("aria-expanded", "false");
+        toggleTip.removeAttribute("aria-live");
         carat.classList.remove(toggleTipVisibleClass);
         carat.classList.add(toggleTipHiddenClass);
         lastClickedToggleTipIsOpen = false;
-        trigger.setAttribute("aria-expanded", "false");
         trigger.classList.remove(toggleTipActiveClass);
-        trigger.parentElement.removeAttribute("aria-live");
     }
 
     // Function to close all toggle tips found on the page
     function closeAllToggleTips() {
-        const toggleTips = document.querySelectorAll(".qld__toggle-tip");
+        const toggleTips = document.querySelectorAll("span.qld__toggle-tip");
 
         if (!toggleTips.length) return;
 
