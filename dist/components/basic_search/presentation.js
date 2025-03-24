@@ -647,7 +647,7 @@
 
   return "<span class=\"qld__search__result-date\">"
     + container.escapeExpression((lookupProperty(helpers,"formatDate")||(depth0 && lookupProperty(depth0,"formatDate"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"listMetadata") : depth0)) != null ? lookupProperty(stack1,"d") : stack1)) != null ? lookupProperty(stack1,"0") : stack1),"j F Y",{"name":"formatDate","hash":{},"data":data,"loc":{"start":{"line":305,"column":97},"end":{"line":305,"column":138}}}))
-    + " —</span>";
+    + " -</span>";
 },"117":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
