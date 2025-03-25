@@ -107,7 +107,6 @@
         document.addEventListener("click", function (e) {
             if (lastTriggeredToggleTip && lastClickedToggleTipIsOpen) {
                 const toggleTipContent = lastTriggeredToggleTip.querySelector(toggleTipContentQueryClass);
-
                 if (!toggleTipContent.contains(e.target)) {
                     closeAllToggleTips();
                 }
@@ -125,7 +124,7 @@
 
         content.classList.remove(toggleTipHiddenClass);
         content.classList.add(toggleTipVisibleClass);
-        content.setAttribute("aria-expanded", "true");
+        trigger.setAttribute("aria-expanded", "true");
         toggleTip.setAttribute("aria-live", "polite");
         carat.classList.remove(toggleTipHiddenClass);
         carat.classList.add(toggleTipVisibleClass);
@@ -142,7 +141,7 @@
 
         content.classList.remove(toggleTipVisibleClass);
         content.classList.add(toggleTipHiddenClass);
-        content.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("aria-expanded", "false");
         toggleTip.removeAttribute("aria-live");
         carat.classList.remove(toggleTipVisibleClass);
         carat.classList.add(toggleTipHiddenClass);
@@ -152,12 +151,17 @@
 
     // Function to close all toggle tips found on the page
     function closeAllToggleTips() {
-        const toggleTips = document.querySelectorAll("span.qld__toggle-tip");
+        const toggleTipTriggers = document.querySelectorAll("span.qld__toggle-tip-trigger");
 
-        if (!toggleTips.length) return;
+        if (!toggleTipTriggers.length) return;
 
-        toggleTips.forEach(function (toggleTip) {
-            closeToggleTip(toggleTip, toggleTip.querySelector(toggleTipTriggerQueryClass));
+        toggleTipTriggers.forEach(function (toggleTipTrigger) {
+            const toggleTipId = toggleTipTrigger.getAttribute("data-target");
+
+            if (!toggleTipId) return;
+
+            const toggleTip = document.getElementById(toggleTipId);
+            closeToggleTip(toggleTip, toggleTipTrigger);
         });
     }
 
