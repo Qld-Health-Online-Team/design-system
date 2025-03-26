@@ -47,11 +47,18 @@
             });
 
             toggleTipTrigger.addEventListener("keydown", function (e) {
+                // Check if the user is trying to tab in or out of the content
                 if (e.key === "Tab" && lastClickedToggleTipIsOpen) {
                     e.preventDefault();
 
-                    // Check if the user is trying to tab out of the content
-                    lastTriggeredToggleTip.querySelector("a").focus();
+                    if (linkElement) {
+                        linkElement.focus();
+                    } else {
+                        closeToggleTip(toggleTip, toggleTipTrigger);
+                    }
+
+                    // Prevent the click event on window from bubbling up
+                    e.stopPropagation();
                 }
 
                 if (e.keyCode === 32 || e.key === "Enter") {
