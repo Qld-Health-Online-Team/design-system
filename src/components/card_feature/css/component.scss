@@ -223,4 +223,31 @@
 }
 
 
+/* Tag hover colour for default (light cards) */ 
+.qld__card .qld__card__footer a.qld__tag:hover, .qld__card .qld__card__footer .qld__tag.qld__tag--link:hover {
+    background-color: var(--QLD-color-light__action--primary-hover);
+    color: var(--QLD-color-light__link--on-action);
+    border-color: var(--QLD-color-light__action--primary-hover);
+    text-decoration-color: var(--QLD-color-light__link--on-action); 
+}
 
+/* New CSS this Default */ 
+.qld__card .qld__card__footer a.qld__tag, .qld__card .qld__card__footer .qld__tag.qld__tag--link:visited {
+    color: var(--QLD-color-light__link);
+}
+
+/* Visited link hover */ 
+.qld__card .qld__card__footer a.qld__tag:hover, .qld__card .qld__card__footer .qld__tag.qld__tag--link:visited:hover {
+    background-color: var(--QLD-color-light__action--primary-hover);
+    color: var(--QLD-color-light__link--on-action);
+    border-color: var(--QLD-color-light__action--primary-hover);
+    text-decoration-color: var(--QLD-color-light__link--on-action);
+}
+
+/* Visited link hover colour for dark cards */ 
+.qld__body--dark a.qld__tag:hover:visited, .qld__card--dark .qld__card__footer a.qld__tag:hover:visited, .qld__body--dark-alt a.qld__tag:hover:visited, .qld__card--dark-alt .qld__card__footer a.qld__tag:hover:visited, .qld__body--dark .qld__tag.qld__tag--link:hover:visited, .qld__card--dark .qld__card__footer .qld__tag.qld__tag--link:hover:visited, .qld__body--dark-alt .qld__tag.qld__tag--link:hover:visited, .qld__card--dark-alt .qld__card__footer .qld__tag.qld__tag--link:hover:visited {
+    color: var(--QLD-color-dark__link--on-action);
+    -webkit-text-decoration-color: var(--QLD-color-dark__link--on-action);
+    text-decoration-color: var(--QLD-color-dark__link--on-action);
+    background-color: var(--QLD-color-dark__action--primary-hover);
+}
