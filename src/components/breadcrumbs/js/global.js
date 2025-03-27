@@ -54,7 +54,7 @@
         }
     }
 
-    function createOverFlow() {
+    function createOverFlow(svgPath) {
         const overFlowWrapper = document.createElement("div");
         overFlowWrapper.className = "qld__overflow_menu_wrapper";
 
@@ -67,21 +67,12 @@
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.classList.add("qld__icon");
         svg.classList.add("qld__icon--lg");
-        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        svg.setAttribute("viewBox", "0 0 448 512");
         svg.setAttribute("aria-hidden", "true");
-        svg.setAttribute("focusable", "false");
-        svg.setAttribute("width", "24");
-        svg.setAttribute("height", "32");
-        svg.setAttribute("role", "img");
+        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
-        const svgPathPrefix = "qld__breadcrumbs-svg-path-";
-        const breadcrumbs = document.querySelector("nav.qld__breadcrumbs");
-        const usePath = Array.from(breadcrumbs.classList).find((className) => className.startsWith("qld__breadcrumbs-svg-path-"));
-        if (usePath) {
-            breadcrumbs.classList.remove(usePath);
+        if (svgPath) {
             let use = document.createElement("use");
-            use.setAttribute("href", `${usePath.replace(svgPathPrefix, "")}#more-horizontal`);
+            use.setAttribute("href", svgPath + "#more-horizontal");
             svg.appendChild(use);
             button.appendChild(svg);
         }
@@ -137,7 +128,10 @@
 
             const breadCrumbsUlLis = breadCrumbsUl.querySelectorAll("li");
             if (breadCrumbsUlLis.length > 2 && breadCrumbsUlLis[0].offsetHeight > 0) {
-                const overflowMenu = createOverFlow();
+                const parent = breadCrumbsUl.parentElement;
+                const svgPath = parent.getAttribute("data-path");
+                const overflowMenu = createOverFlow(svgPath);
+
                 let breadcrumbLisLength = breadCrumbsUlLis.length;
                 let i = 1;
 
