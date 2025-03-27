@@ -64,17 +64,8 @@
         button.setAttribute("aria-controls", "overflow-menu--");
         button.setAttribute("aria-expanded", "false");
 
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.classList.add("qld__icon");
-        svg.classList.add("qld__icon--lg");
-        svg.setAttribute("aria-hidden", "true");
-        svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-
         if (svgPath) {
-            let use = document.createElement("use");
-            use.setAttribute("href", svgPath + "#more-horizontal");
-            svg.appendChild(use);
-            button.appendChild(svg);
+            button.innerHTML = `<svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#more-horizontal"></use></svg>`;
         }
 
         overFlowWrapper.appendChild(button);

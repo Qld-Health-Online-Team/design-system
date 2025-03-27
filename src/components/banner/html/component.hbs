@@ -15,7 +15,7 @@
 >
 <!--@@ Breadcrumbs - Mobile @@-->
 {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
-    <nav class="qld__breadcrumbs qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
+    <nav class="qld__breadcrumbs qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb">
         <div class="qld__link-list qld__link-list--inline">
             {{#with (itemAt current.lineage -2)}}
             {{#ifCond asset_type_code '!=' 'folder'}}  
