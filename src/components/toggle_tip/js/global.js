@@ -98,10 +98,9 @@
         document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && lastTriggeredToggleTip) {
                 const content = lastTriggeredToggleTip.querySelector(toggleTipContentQueryClass);
-                const trigger = lastTriggeredToggleTip.querySelector(toggleTipTriggerQueryClass);
 
                 if (content.classList.contains(toggleTipVisibleClass)) {
-                    closeToggleTip(lastTriggeredToggleTip, trigger);
+                    closeToggleTip(lastTriggeredToggleTip, lastTriggeredToggleTipTrigger);
                     lastTriggeredToggleTip.focus();
                 }
             }
