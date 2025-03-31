@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+        <html class="no-js lt-ie8 lt-ie9" lang="en">
+    <![endif]-->
+<!--[if IE 8]>
+        <html class="no-js lt-ie9 ie8" lang="en">
+    <![endif]-->
+<!--[if IE 9]>
+        <html class="no-js ie9" lang="en">
+    <![endif]-->
+<!--[if !(IE)]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+
+    <head>
+        <title>Queensland Design System</title>
+
+        ${require('../components/_global/html/head.html')}
+    </head>
+
+    <body class="qld__grid">
+        <!--noindex-->
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        <!--endnoindex-->
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        <!-- MAIN BODY -->
+        <main class="main" role="main">
+            <section class="qld__body qld__body--breadcrumb">
+                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
+            </section>
+            <!--CONTENT-->
+            <div class="qld__body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 col-lg-3">
+                            <!-- INTERNAL NAVIGATION -->
+                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
+                        </div>
+                        <div class="col-xs-12 col-md-8 col-lg-9" id="content">
+                            <h2>Toggle Tip examples</h2>
+                            <h3>Definition version</h3>
+                            <br />
+                            <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-1" role="button" aria-expanded="false" aria-controls="toggle-tip-content-1" aria-haspopup="dialog" tabindex="0"
+                                >I am standalone</span
+                            >
+                            <p>
+                                I am a paragraph and
+                                <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-2" role="button" aria-expanded="false" aria-controls="toggle-tip-content-2" aria-haspopup="dialog" tabindex="0"
+                                    >COVID-19</span
+                                >
+                                is very dangerous.
+                            </p>
+                            <div class="qld__body qld__body--dark qld__dark">
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                    data-target="toggle-tip-100"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="toggle-tip-content-100"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                    >I am standalone</span
+                                >
+                                <p>
+                                    I am a paragraph and
+                                    <span
+                                        class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                        data-target="toggle-tip-101"
+                                        role="button"
+                                        aria-expanded="false"
+                                        aria-controls="toggle-tip-content-101"
+                                        aria-haspopup="dialog"
+                                        tabindex="0"
+                                        >COVID-19</span
+                                    >
+                                    is very dangerous.
+                                </p>
+                            </div>
+                            <div class="qld__body qld__body--dark-alt qld__dark">
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                    data-target="toggle-tip-100"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="toggle-tip-content-100"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                    >I am standalone</span
+                                >
+                                <p>
+                                    I am a paragraph and
+                                    <span
+                                        class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                        data-target="toggle-tip-101"
+                                        role="button"
+                                        aria-expanded="false"
+                                        aria-controls="toggle-tip-content-101"
+                                        aria-haspopup="dialog"
+                                        tabindex="0"
+                                        >COVID-19</span
+                                    >
+                                    is very dangerous.
+                                </p>
+                            </div>
+
+                            <h3>Icon version</h3>
+                            <br />
+
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-3"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-3"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                </svg>
+                            </span>
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-4"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-4"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                </svg>
+                            </span>
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-5"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-5"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-6"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-6"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+                            <div class="qld__body qld__body--dark qld__dark">
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-103"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-103"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-104"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-104"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-105"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-105"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    </svg>
+                                </span>
+
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-106"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-106"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="qld__body qld__body--dark-alt qld__dark">
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-103"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-103"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-104"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-104"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    </svg>
+                                </span>
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-105"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-105"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    </svg>
+                                </span>
+
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                    data-target="toggle-tip-106"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-label="Show help"
+                                    aria-controls="toggle-tip-106"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
+                                >
+                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    </svg>
+                                </span>
+                            </div>
+
+                            <h3>Directional content</h3>
+                            <br />
+
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-7"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-7"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-8"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-8"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-9"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-9"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
+                                data-target="toggle-tip-10"
+                                role="button"
+                                aria-expanded="false"
+                                aria-label="Show help"
+                                aria-controls="toggle-tip-10"
+                                aria-haspopup="dialog"
+                                tabindex="0"
+                            >
+                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                </svg>
+                            </span>
+
+                            <div class="qld__toggle-tip" id="toggle-tip-1">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-2">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-3">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-4">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-5">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-6">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-7">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-8">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-right" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-9">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-bottom" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__toggle-tip" id="toggle-tip-10">
+                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-left" aria-expanded="false" role="status">
+                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                    <div class="qld__toggle-tip-content-link">
+                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    </div>
+                                </div>
+                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                            </div>
+                            <div class="qld__body qld__body--dark qld__dark">
+                                <div class="qld__toggle-tip" id="toggle-tip-100">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                                <div class="qld__toggle-tip" id="toggle-tip-101">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                                <div class="qld__toggle-tip" id="toggle-tip-103">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                                <div class="qld__toggle-tip" id="toggle-tip-104">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                                <div class="qld__toggle-tip" id="toggle-tip-105">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                                <div class="qld__toggle-tip" id="toggle-tip-106">
+                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" aria-expanded="false" role="status">
+                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
+                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                        <div class="qld__toggle-tip-content-link">
+                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        </div>
+                                    </div>
+                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- END MAIN BODY -->
+
+        <!-- WIDGETS -->
+        ${require('../components/widgets/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
+
+        <!-- FOOTER-->
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
+
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
+    </body>
+</html>
