@@ -23,9 +23,11 @@
                     $(`a[href^="${hash}"].qld__a-z_listing__options__item__link`).addClass('active');
                     $(`.qld__a-z_listing__list__item__header ${hash}`).parent().addClass('active');
 
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - 20
-                    }, 400);
+                    if ($(hash).length > 0) {
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top - 20
+                        }, 400);
+                    }
                 }, 100);
             }
         }
@@ -47,9 +49,11 @@
             $(this).addClass('active');
             $(`.qld__a-z_listing__list__item__header ${target}`).parent().addClass('active');
         
-            $('html, body').animate({
-                scrollTop: $(target).offset().top - 20
-            }, 400);
+            if ($(target).length > 0) {
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - 20
+                }, 400);
+            }
 
             window.location.hash = target;
         });

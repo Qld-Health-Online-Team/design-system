@@ -44,11 +44,12 @@
         color: var(--QLD-color-light__link);
     }
     a:hover {
-        &:visited {
-            text-decoration: none;
-        }
+        // &:visited {
+        //     text-decoration: none;
+        // }
     }
-    a:visited {
+    a:visited,
+    a:hover:visited {
         color: var(--QLD-color-light__link);
         text-decoration: none;
         
@@ -370,15 +371,12 @@
         color: var(--QLD-color-dark__text);
 
         a {
-            color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-dark__link);   
         }
-        a:hover {
-            &:visited {
-                all: unset;
-            }
-        }
+        a:hover:visited,
         a:visited {
-            all: unset;
+            color: var(--QLD-color-dark__link);
+            text-decoration: var(--QLD-color-dark__link);
         }
 
         .qld__footer__heading{
