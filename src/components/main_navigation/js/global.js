@@ -338,6 +338,11 @@
 
    
     window.addEventListener('DOMContentLoaded', function () {
+        // Remove all inline styling from the main navs
+        var mainNavs = this.document.querySelectorAll("#main-nav > div.qld__main-nav__menu");
+        mainNavs.forEach(function (nav) {
+            nav.removeAttribute("style");
+        });
         
         // Add toggle event to open mobile nav
         var navToggles = document.querySelectorAll('*[aria-controls="main-nav"]');
