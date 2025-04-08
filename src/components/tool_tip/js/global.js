@@ -5,7 +5,9 @@
     // Variable to store the last clicked tool tip trigger
     let lastTriggeredToolTipTrigger = null;
     const componentName = "qld__tool-tip";
-    const toolTipTriggerQueryClass = ".qld__tool-tip-trigger";
+    const toolTipTriggerQueryClass = "." + componentName + "-trigger";
+    const toolTipContentQueryClass = "." + componentName + "-content";
+    const toolTipVisibleClass = componentName + "-visible";
     const marginFromTrigger = 4;
     const contentLeaveDelay = 200; // Delay before hiding the content on mouse leave
 
@@ -17,34 +19,41 @@
 
         toolTipTriggers.forEach(function (toolTipTrigger) {
             let closeTimeout = null;
-            let toolTipIsOpen = false;
             const toolTipId = toolTipTrigger.getAttribute("data-target");
 
             if (!toolTipId) return;
 
             const toolTip = document.getElementById(toolTipId);
-            const content = toolTip.querySelector(`.${componentName}-content`);
+            const content = toolTip.querySelector(toolTipContentQueryClass);
+
+            // Function to check if the tool tip is open
+            function isToolTipOpen() {
+                return content.classList.contains(toolTipVisibleClass);
+            }
 
             // Function to open the tool tip
             function openToolTip() {
                 lastTriggeredToolTipTrigger = toolTipTrigger;
                 QLD.toggleToolTips.openToggleToolTip(componentName, toolTip, toolTipTrigger, marginFromTrigger);
-                toolTipIsOpen = true;
             }
 
             // Function to open the tool tip
             function closeToolTip() {
                 QLD.toggleToolTips.closeToggleToolTip(componentName, toolTip, toolTipTrigger);
-                toolTipIsOpen = false;
             }
 
             toolTipTrigger.addEventListener("pointerdown", function (e) {
+                const previousTrigger = lastTriggeredToolTipTrigger;
+
+                closeAllToolTips();
+
                 // Check and toggle the classes
-                if (toolTipIsOpen) {
+                if (isToolTipOpen() || toolTipTrigger === previousTrigger) {
                     closeToolTip();
                 } else {
                     openToolTip();
                 }
+
                 // Prevent window from bubbling up
                 e.stopPropagation();
             });
@@ -75,7 +84,7 @@
                 if (e.keyCode === 32 || e.key === "Enter") {
                     e.preventDefault();
 
-                    if (toolTipIsOpen) {
+                    if (isToolTipOpen()) {
                         closeToolTip();
                     } else {
                         openToolTip();
@@ -114,6 +123,7 @@
 
         if (!toolTipTriggers.length) return;
 
+        lastTriggeredToolTipTrigger = null;
         QLD.toggleToolTips.closeAllToggleToolTips(componentName, toolTipTriggers);
     }
 

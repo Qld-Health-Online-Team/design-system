@@ -25,7 +25,6 @@
                 display: block;
                 color: var(--QLD-color-light__action--secondary);
                 background-color: $QLD-color-neutral--white;
-                border-radius: 50%;
                 box-shadow: $QLD-box-shaddow-level-one;
             }
 
@@ -53,6 +52,26 @@
 
             &-icon {
                 border-radius: 50%;
+
+                .qld__icon {
+                    border-radius: 50%;
+                }
+            }
+
+            &-button {
+                border-radius: 15%;
+
+                .qld__icon {
+                    border-radius: 15%;
+
+                    &.qld__icon--md {
+                        padding: 5px;
+                    }
+
+                    &.qld__icon--lg {
+                        padding: 7px;
+                    }
+                }
             }
 
             &-definition {

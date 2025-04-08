@@ -8,14 +8,13 @@
     var toggleToolTips = {
         // Classes relative to the main component
         contentQueryClass: ":nth-child(1)",
-        caratQueryClass: ":nth-child(2)",
         // Positioning variables
         marginFromSide: 16,
 
         // Function to open the toggle/tool tip
         openToggleToolTip: function (componentName, toggleToolTip, trigger, marginFromTrigger) {
             const content = toggleToolTip.querySelector(this.contentQueryClass);
-            const carat = toggleToolTip.querySelector(this.caratQueryClass);
+            const carat = content.nextElementSibling;
 
             content.classList.remove(componentName + "-hidden");
             content.classList.add(componentName + "-visible");
@@ -24,14 +23,13 @@
             carat.classList.remove(componentName + "-hidden");
             carat.classList.add(componentName + "-visible");
             trigger.classList.add(componentName + "-trigger-active");
-
             this.positionContentBox(trigger, toggleToolTip, marginFromTrigger);
         },
 
         // Function to close the toggle/tool tip
         closeToggleToolTip: function (componentName, toggleToolTip, trigger) {
             const content = toggleToolTip.querySelector(this.contentQueryClass);
-            const carat = toggleToolTip.querySelector(this.caratQueryClass);
+            const carat = content.nextElementSibling;
 
             content.classList.remove(componentName + "-visible");
             content.classList.add(componentName + "-hidden");
@@ -42,7 +40,7 @@
             trigger.classList.remove(componentName + "-trigger-active");
         },
 
-        // Function to close all tool tips found on the page
+        // Function to close all toggle/tool tips found on the page
         closeAllToggleToolTips: function (componentName, triggers) {
             for (let i = 0; i < triggers.length; i++) {
                 const Id = triggers[i].getAttribute("data-target");
@@ -55,10 +53,16 @@
         },
 
         // Function to get the direction from the metadata provided via class
-        getAlignmentDirection: function (content, classPrefix) {
-            const direction = Array.from(content.classList)
-                .find((className) => className.startsWith(classPrefix))
-                .replace(classPrefix, "");
+        getAlignmentDirection: function (content) {
+            const alignedClass = "tip-aligned-";
+            let direction = null;
+
+            const foundClass = Array.from(content.classList).find((className) => className.includes(alignedClass));
+
+            if (foundClass) {
+                const index = foundClass.indexOf(alignedClass);
+                direction = foundClass.slice(index + alignedClass.length);
+            }
 
             return direction;
         },
@@ -101,124 +105,125 @@
         },
 
         // Function to position the content box dynamically based off the trigger
-        positionContentBox: function (trigger, toolTip, marginFromTrigger) {
-            const toolTipDimensions = toolTip.getBoundingClientRect();
-            const content = toolTip.querySelector(this.contentQueryClass);
-            const carat = toolTip.querySelector(this.caratQueryClass);
+        positionContentBox: function (trigger, toggleToolTip, marginFromTrigger) {
+            const toggleToolTipDimensions = toggleToolTip.getBoundingClientRect();
+            const content = toggleToolTip.querySelector(this.contentQueryClass);
+            const carat = content.nextElementSibling;
             const triggerDimensions = trigger.getBoundingClientRect();
             const triggerFromTop = triggerDimensions.top + window.scrollY;
-            const contentFromTop = toolTipDimensions.top + window.scrollY;
+            const contentFromTop = toggleToolTipDimensions.top + window.scrollY;
             const contentFromTriggerY = triggerFromTop - contentFromTop;
             const triggerFromLeft = triggerDimensions.left + window.scrollX;
-            const contentFromLeft = toolTipDimensions.left + window.scrollX;
+            const contentFromLeft = toggleToolTipDimensions.left + window.scrollX;
             const contentFromTriggerX = triggerFromLeft - contentFromLeft;
             const contentMarginFromTrigger = marginFromTrigger + carat.offsetWidth / 2;
-            const direction = this.getAlignmentDirection(content, "qld__tool-tip-aligned-");
-            this.positionCarat(trigger, toolTipDimensions, carat, direction, marginFromTrigger);
+            const direction = this.getAlignmentDirection(content);
+
+            this.positionCarat(trigger, toggleToolTipDimensions, carat, direction, marginFromTrigger);
 
             if (direction === "top") {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
                 content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
 
                 if (this.doesElementOverlapAnySide(content)) {
-                    this.checkAlternativesForTopPosition(trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
+                    this.checkAlternativesForTopPosition(trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
                 }
             } else if (direction === "bottom") {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
                 content.style.top = `${contentFromTriggerY + triggerDimensions.height + contentMarginFromTrigger}px`;
 
                 if (this.doesElementOverlapAnySide(content)) {
-                    this.checkAlternativesForBottomPosition(trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
+                    this.checkAlternativesForBottomPosition(trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
                 }
             } else if (direction === "left") {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth - contentMarginFromTrigger}px`;
                 content.style.top = `${contentFromTriggerY - content.offsetHeight / 2 + triggerDimensions.height / 2}px`;
 
                 if (this.doesElementOverlapAnySide(content)) {
-                    this.checkAlternativesForLeftPosition(trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
+                    this.checkAlternativesForLeftPosition(trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
                 }
             } else if (direction === "right") {
                 content.style.left = `${contentFromTriggerX + triggerDimensions.width + contentMarginFromTrigger}px`;
                 content.style.top = `${contentFromTriggerY - content.offsetHeight / 2 + triggerDimensions.height / 2}px`;
 
                 if (this.doesElementOverlapAnySide(content)) {
-                    this.checkAlternativesForRightPosition(trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
+                    this.checkAlternativesForRightPosition(trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger);
                 }
             }
         },
 
-        // If the tool tip is positioned top, we want to try sliding or inverting the content box
-        checkAlternativesForTopPosition: function (trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
+        // If the toggle/tool tip is positioned top, we want to try sliding or inverting the content box
+        checkAlternativesForTopPosition: function (trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
             const triggerDimensions = trigger.getBoundingClientRect();
             const contentDimensions = content.getBoundingClientRect();
             const triggerFromTop = triggerDimensions.top + window.scrollY;
-            const contentFromTop = toolTipDimensions.top + window.scrollY;
+            const contentFromTop = toggleToolTipDimensions.top + window.scrollY;
             const contentFromTriggerY = triggerFromTop - contentFromTop;
             const triggerFromLeft = triggerDimensions.left + window.scrollX;
-            const contentFromLeft = toolTipDimensions.left + window.scrollX;
+            const contentFromLeft = toggleToolTipDimensions.left + window.scrollX;
             const contentFromTriggerX = triggerFromLeft - contentFromLeft;
 
             if (this.doesElementOverlapScreenY(content, this.marginFromSide)) {
                 content.style.top = `${contentFromTriggerY + triggerDimensions.height + contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "bottom", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "bottom", marginFromTrigger);
             }
 
             if (this.doesElementOverlapScreenX(content, this.marginFromSide)) {
                 // Compare the element's position to the center
                 if (this.elementCloserToLeft(content)) {
-                    content.style.left = `${this.marginFromSide - toolTipDimensions.left}px`;
+                    content.style.left = `${this.marginFromSide - toggleToolTipDimensions.left}px`;
                 } else {
                     content.style.left = `${contentFromTriggerX - triggerDimensions.left + document.documentElement.clientWidth - contentDimensions.width - this.marginFromSide}px`;
                 }
             }
         },
 
-        // If the tool tip is positioned bottom, we want to try sliding or inverting the content box
-        checkAlternativesForBottomPosition: function (trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
+        // If the toggle/tool tip is positioned bottom, we want to try sliding or inverting the content box
+        checkAlternativesForBottomPosition: function (trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
             const triggerDimensions = trigger.getBoundingClientRect();
             const contentDimensions = content.getBoundingClientRect();
             const triggerFromTop = triggerDimensions.top + window.scrollY;
-            const contentFromTop = toolTipDimensions.top + window.scrollY;
+            const contentFromTop = toggleToolTipDimensions.top + window.scrollY;
             const contentFromTriggerY = triggerFromTop - contentFromTop;
             const triggerFromLeft = triggerDimensions.left + window.scrollX;
-            const contentFromLeft = toolTipDimensions.left + window.scrollX;
+            const contentFromLeft = toggleToolTipDimensions.left + window.scrollX;
             const contentFromTriggerX = triggerFromLeft - contentFromLeft;
 
             if (this.doesElementOverlapScreenY(content, this.marginFromSide)) {
                 content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "top", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "top", marginFromTrigger);
             }
 
             if (this.doesElementOverlapScreenX(content)) {
                 // Compare the element's position to the center
                 if (this.elementCloserToLeft(content)) {
-                    content.style.left = `${this.marginFromSide - toolTipDimensions.left}px`;
+                    content.style.left = `${this.marginFromSide - toggleToolTipDimensions.left}px`;
                 } else {
                     content.style.left = `${contentFromTriggerX - triggerDimensions.left + document.documentElement.clientWidth - contentDimensions.width - this.marginFromSide}px`;
                 }
             }
         },
 
-        // If the tool tip is positioned left, we want to try sliding or inverting the content box
-        checkAlternativesForLeftPosition: function (trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
+        // If the toggle/tool tip is positioned left, we want to try sliding or inverting the content box
+        checkAlternativesForLeftPosition: function (trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
             const triggerDimensions = trigger.getBoundingClientRect();
             const contentDimensions = content.getBoundingClientRect();
             const triggerFromTop = triggerDimensions.top + window.scrollY;
-            const contentFromTop = toolTipDimensions.top + window.scrollY;
+            const contentFromTop = toggleToolTipDimensions.top + window.scrollY;
             const contentFromTriggerY = triggerFromTop - contentFromTop;
             const triggerFromLeft = triggerDimensions.left + window.scrollX;
-            const contentFromLeft = toolTipDimensions.left + window.scrollX;
+            const contentFromLeft = toggleToolTipDimensions.left + window.scrollX;
             const contentFromTriggerX = triggerFromLeft - contentFromLeft;
 
             if (this.doesElementOverlapScreenX(content)) {
                 content.style.left = `${contentFromTriggerX + triggerDimensions.width + contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "right", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "right", marginFromTrigger);
             }
 
             if (this.doesElementOverlapScreenY(content, this.marginFromSide)) {
                 // Compare the element's position to the center
                 if (this.elementCloserToTop(content)) {
-                    content.style.top = `${this.marginFromSide - toolTipDimensions.top}px`;
+                    content.style.top = `${this.marginFromSide - toggleToolTipDimensions.top}px`;
                 } else {
                     content.style.top = `${contentFromTriggerY - triggerDimensions.top + document.documentElement.clientHeight - contentDimensions.height - this.marginFromSide}px`;
                 }
@@ -228,30 +233,30 @@
             if (this.doesElementOverlapScreenX(content)) {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
                 content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "top", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "top", marginFromTrigger);
             }
         },
 
-        // If the tool tip is positioned right, we want to try sliding or inverting the content box
-        checkAlternativesForRightPosition: function (trigger, toolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
+        // If the toggle/tool tip is positioned right, we want to try sliding or inverting the content box
+        checkAlternativesForRightPosition: function (trigger, toggleToolTipDimensions, content, carat, marginFromTrigger, contentMarginFromTrigger) {
             const triggerDimensions = trigger.getBoundingClientRect();
             const contentDimensions = content.getBoundingClientRect();
             const triggerFromTop = triggerDimensions.top + window.scrollY;
-            const contentFromTop = toolTipDimensions.top + window.scrollY;
+            const contentFromTop = toggleToolTipDimensions.top + window.scrollY;
             const contentFromTriggerY = triggerFromTop - contentFromTop;
             const triggerFromLeft = triggerDimensions.left + window.scrollX;
-            const contentFromLeft = toolTipDimensions.left + window.scrollX;
+            const contentFromLeft = toggleToolTipDimensions.left + window.scrollX;
             const contentFromTriggerX = triggerFromLeft - contentFromLeft;
 
             if (this.doesElementOverlapScreenX(content)) {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth - contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "left", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "left", marginFromTrigger);
             }
 
             if (this.doesElementOverlapScreenY(content, this.marginFromSide)) {
                 // Compare the element's position to the center
                 if (this.elementCloserToTop(content)) {
-                    content.style.top = `${this.marginFromSide - toolTipDimensions.top}px`;
+                    content.style.top = `${this.marginFromSide - toggleToolTipDimensions.top}px`;
                 } else {
                     content.style.top = `${contentFromTriggerY - triggerDimensions.top + document.documentElement.clientHeight - contentDimensions.height - this.marginFromSide}px`;
                 }
@@ -261,7 +266,7 @@
             if (this.doesElementOverlapScreenX(content)) {
                 content.style.left = `${contentFromTriggerX - content.offsetWidth / 2 + triggerDimensions.width / 2}px`;
                 content.style.top = `${contentFromTriggerY - content.offsetHeight - contentMarginFromTrigger}px`;
-                this.positionCarat(trigger, toolTipDimensions, carat, "top", marginFromTrigger);
+                this.positionCarat(trigger, toggleToolTipDimensions, carat, "top", marginFromTrigger);
             }
         },
 
