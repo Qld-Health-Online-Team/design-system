@@ -7,7 +7,6 @@
     const componentName = "qld__tool-tip";
     const toolTipTriggerQueryClass = "." + componentName + "-trigger";
     const toolTipContentQueryClass = "." + componentName + "-content";
-    const toolTipVisibleClass = componentName + "-visible";
     const marginFromTrigger = 4;
     const contentLeaveDelay = 200; // Delay before hiding the content on mouse leave
 
@@ -26,11 +25,6 @@
             const toolTip = document.getElementById(toolTipId);
             const content = toolTip.querySelector(toolTipContentQueryClass);
 
-            // Function to check if the tool tip is open
-            function isToolTipOpen() {
-                return content.classList.contains(toolTipVisibleClass);
-            }
-
             // Function to open the tool tip
             function openToolTip() {
                 lastTriggeredToolTipTrigger = toolTipTrigger;
@@ -42,24 +36,8 @@
                 QLD.toggleToolTips.closeToggleToolTip(componentName, toolTip, toolTipTrigger);
             }
 
-            toolTipTrigger.addEventListener("pointerdown", function (e) {
-                const previousTrigger = lastTriggeredToolTipTrigger;
-
-                closeAllToolTips();
-
-                // Check and toggle the classes
-                if (isToolTipOpen() || toolTipTrigger === previousTrigger) {
-                    closeToolTip();
-                } else {
-                    openToolTip();
-                }
-
-                // Prevent window from bubbling up
-                e.stopPropagation();
-            });
-
             toolTipTrigger.addEventListener("mouseenter", function (e) {
-                closeAllToolTips(componentName);
+                closeAllToolTips();
                 openToolTip();
 
                 e.stopPropagation();
@@ -77,22 +55,7 @@
             });
 
             toolTipTrigger.addEventListener("blur", function () {
-                closeAllToolTips(componentName);
-            });
-
-            toolTipTrigger.addEventListener("keydown", function (e) {
-                if (e.keyCode === 32 || e.key === "Enter") {
-                    e.preventDefault();
-
-                    if (isToolTipOpen()) {
-                        closeToolTip();
-                    } else {
-                        openToolTip();
-                    }
-
-                    // Prevent the click event on window from bubbling up
-                    e.stopPropagation();
-                }
+                closeAllToolTips();
             });
 
             content.addEventListener("mouseenter", function () {
@@ -112,7 +75,7 @@
         // Close tool tip if the tool content is open and the user hits the "Escape" key
         document.addEventListener("keydown", function (e) {
             if (e.key === "Escape" && lastTriggeredToolTipTrigger) {
-                closeAllToolTips(componentName);
+                closeAllToolTips();
             }
         });
     };

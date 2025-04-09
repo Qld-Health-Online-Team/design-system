@@ -18,7 +18,9 @@
 
             content.classList.remove(componentName + "-hidden");
             content.classList.add(componentName + "-visible");
-            trigger.setAttribute("aria-expanded", "true");
+            if (trigger.getAttribute("aria-expanded")) {
+                trigger.setAttribute("aria-expanded", "true");
+            }
             toggleToolTip.setAttribute("aria-live", "polite");
             carat.classList.remove(componentName + "-hidden");
             carat.classList.add(componentName + "-visible");
@@ -33,7 +35,9 @@
 
             content.classList.remove(componentName + "-visible");
             content.classList.add(componentName + "-hidden");
-            trigger.setAttribute("aria-expanded", "false");
+            if (trigger.getAttribute("aria-expanded")) {
+                trigger.setAttribute("aria-expanded", "false");
+            }
             toggleToolTip.removeAttribute("aria-live");
             carat.classList.remove(componentName + "-visible");
             carat.classList.add(componentName + "-hidden");
