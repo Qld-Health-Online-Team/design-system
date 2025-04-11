@@ -4,18 +4,18 @@
 
 .qld__breadcrumbs {
     width: 100%;
-    
+
     * + & {
         @include QLD-space(margin-top, 1unit);
     }
-    
+
     @include QLD-media(sm) {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
     }
-    & &__list--desktop{
+    & &__list--desktop {
         display: none;
         @include QLD-media(lg) {
             display: flex;
@@ -24,16 +24,16 @@
             align-items: center;
         }
     }
-    & &__list--tablet{
+    & &__list--tablet {
         @include QLD-media(lg) {
             display: none;
         }
 
-        @include QLD-media(md, 'down') {
+        @include QLD-media(md, "down") {
             display: none;
         }
     }
-    & &__list--mobile{
+    & &__list--mobile {
         @include QLD-media(md) {
             display: none;
         }
@@ -62,43 +62,47 @@
         .qld__overflow_menu--breadcrumbs {
             display: flex;
             align-items: center;
-            padding: none;
+            padding: 0;
         }
         .qld__overflow_menu_wrapper {
             display: inline;
         }
-        
+
         > li {
             margin: 0; //Intentionally flush with the container, as breadcrumbs are designed to sit on a full viewport width bg.
             display: none;
-            @include QLD-space(padding, 0.25unit 0);
+            position: relative;
             flex-shrink: 0;
+            margin-right: 1.25rem;
+            @include QLD-space(padding, 0.25unit 0);
+
             a {
-                @include QLD-underline('light','underline','default','noVisited');
+                @include QLD-underline("light", "underline", "default", "noVisited");
                 color: var(--QLD-color-light__link);
             }
-            
+
             &:after {
-                content: " ";
-                display: inline-block;
-                @include QLD-space(width, 0.5unit);
-                @include QLD-space(height, 1unit);
-                @include QLD-space(margin, 0 0.5unit);
-                // background-image: QLD-svg-with-fill($QLD-icon-chevron-right, var(--QLD-color-light__action--secondary));
-                // background-size: contain;
-                // background-repeat: no-repeat;
-                vertical-align: middle;
-                mask-image: QLD-svguri($QLD-icon-chevron-right);
-                mask-repeat: no-repeat;
-                mask-position: center;
-                background-color: var(--QLD-color-light__action--secondary);
+                content: "";
+                border-right: 1px solid var(--QLD-color-light__action--secondary);
+                border-top: 1px solid var(--QLD-color-light__action--secondary);
+                font-size: max(16px, 1em);
+                transform: rotate(45deg);
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: -0.75rem;
+                width: 0.4375em;
+                height: 0.4375em;
+                margin: auto 0;
+                background-color: transparent;
             }
-            
+
             &:last-child {
                 display: flex;
                 white-space: wrap;
                 text-overflow: ellipsis;
-                flex: 0 1 auto; 
+                flex: 0 1 auto;
                 flex-shrink: 3;
 
                 &:after {
@@ -106,14 +110,10 @@
                 }
 
                 @include QLD-media(lg) {
-                    
                     white-space: nowrap;
                 }
-
             }
 
-
-            
             .ie8 &,
             .lt-ie8 & {
                 &:after {
@@ -138,21 +138,21 @@
     .qld__body--dark &,
     .qld__body--dark-alt &,
     .qld__banner--dark &,
-    .qld__banner--dark-alt &{
+    .qld__banner--dark-alt & {
         color: var(--QLD-color-dark__text--lighter);
-        
+
         > .qld__link-list {
             > .qld__breadcrumbs__item:not(:last-child),
             > .qld__overflow_menu--breadcrumbs {
-                &::after{
-                    background-color: var(--QLD-color-dark__action--secondary);
+                &::after {
+                    border-color: var(--QLD-color-dark__action--secondary);
                 }
             }
 
             > .qld__breadcrumbs__item {
                 a {
                     // @include QLD-underline('dark');
-                    @include QLD-underline('dark','underline','default','noVisited');
+                    @include QLD-underline("dark", "underline", "default", "noVisited");
                     color: var(--QLD-color-dark__text);
                 }
             }
@@ -171,11 +171,11 @@
         // &.qld__breadcrumbs--alt {
         //     background-color: var(--QLD-color-light__background--alt);
         // }
-    
+
         // &.qld__breadcrumbs--dark {
         //     background-color: var(--QLD-color-dark__background);
         // }
-    
+
         // &.qld__breadcrumbs--alt-dark {
         //     background-color: var(--QLD-color-dark__background--alt);
         // }
@@ -186,12 +186,11 @@
         @include QLD-media(lg) {
             display: none;
         }
-        @include QLD-media(md, 'down') {
+        @include QLD-media(md, "down") {
             display: none;
         }
     }
 }
-
 
 .qld__banner__breadcrumbs--desktop {
     display: none;
@@ -200,7 +199,6 @@
         @include QLD-space(margin, 0 0 1rem);
         display: inline-block;
         > .qld__link-list > .qld__breadcrumbs__item {
-
             flex: 0 0 auto;
             flex-shrink: 0;
             // Hide current page
@@ -211,7 +209,7 @@
             &:after {
                 content: none;
             }
-        }   
+        }
     }
 
     @include QLD-media(lg) {
@@ -246,26 +244,34 @@
 .qld__banner__breadcrumbs--desktop,
 .qld__breadcrumbs__list--tablet,
 .qld__breadcrumbs__list--mobile {
-    .qld__breadcrumbs__item .qld__icon{
-     color: var(--QLD-color-light__action--secondary);
+    .qld__breadcrumbs__item .qld__icon {
+        color: var(--QLD-color-light__action--secondary);
     }
-    
-    .qld__breadcrumbs__item::before {
-        @include QLD-space(width, 0.5unit);
-        @include QLD-space(height, 1unit);
-        @include QLD-space(margin, 0 0.25unit 0 0);
-        // background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-light__action--secondary));
-        // background-size: 100%;
-        // background-repeat: no-repeat;
-        // background-size: contain;
-        content: " ";
-        display: inline-block;
-        vertical-align: middle;
-        background-position: center;
-        mask-image: QLD-svguri($QLD-icon-chevron-left);
-		mask-repeat: no-repeat;
-		mask-position: center;
-		background-color: var(--QLD-color-light__action--secondary);
+
+    .qld__breadcrumbs__item {
+        position: relative;
+        left: 15px;
+
+        &:before {
+            content: "";
+            border-right: 1px solid var(--QLD-color-light__action--secondary);
+            border-top: 1px solid var(--QLD-color-light__action--secondary);
+            font-size: max(16px, 1em);
+            transform: rotate(225deg);
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -0.75rem;
+            width: 0.4375em;
+            height: 0.4375em;
+            margin: auto 0;
+            background-color: transparent;
+        }
+    }
+
+    .qld__overflow_menu--breadcrumbs {
+        left: 15px;
     }
 
     &.qld__breadcrumbs--dark,
@@ -273,15 +279,10 @@
     .qld__banner--dark &,
     .qld__banner--dark-alt &,
     .qld__body--dark &,
-    .qld__body--dark-alt &  {
-
-        .qld__breadcrumbs__item::before{
-            background-color: var(--QLD-color-dark__action--secondary);
-           }
-
-        // li::before {
-        //     background-image: QLD-svg-with-fill($QLD-icon-chevron-left, var(--QLD-color-dark__action--secondary));
-        // }
+    .qld__body--dark-alt & {
+        .qld__breadcrumbs__item::before {
+            border-color: var(--QLD-color-dark__action--secondary);
+        }
     }
 }
 
