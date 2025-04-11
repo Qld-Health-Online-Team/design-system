@@ -103,7 +103,7 @@
                         <nav class="qld__breadcrumbs 
                         {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                         {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
-                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb">
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
                             <div class="qld__link-list qld__link-list--inline">
                                 {{#with (itemAt ../current.lineage -2)}}
                                 {{#ifCond asset_type_code '!=' 'folder'}} 
@@ -126,7 +126,7 @@
                         <nav class="qld__breadcrumbs 
                         {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                         {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
-                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb">
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
                             <ol class="qld__link-list qld__link-list--inline">
                                 {{#each ../current.lineage}} 
                                 {{#ifCond asset_type_code '!=' 'folder'}}        
