@@ -1,42 +1,41 @@
 <section class="qld__body">
     <div class="container-fluid">
+        {{#with component.data}}
+            {{#if metadata.heading.value}}
+            <h2>{{metadata.heading.value}}</h2>
+            {{/if}}
 
-{{#with component.data}}
-    {{#if metadata.heading.value}}
-    <h2>{{metadata.heading.value}}</h2>
-    {{/if}}
-
-    {{#if metadata.intro.value}}
-    {{{metadata.intro.value}}}
-    {{/if}}
-    <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
-        {{#ifCond metadata.toggle_all.value '==' 'yes'}}
-        <div class="qld__accordion__toggle">
-            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">Open all</button>
-        </div>
-        {{/ifCond}}
-            {{#printAccordion metadata}}
-                {{#ifCond this.content '!=' ''}}
-                    <div class="qld__accordion">
-                        <{{../metadata.title_level.value}}>
-                            <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
-                                {{this.title}}
-                            </button>
-                        </{{../metadata.title_level.value}}>
-                        <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
-                            <div class="qld__accordion__body-wrapper">
-                                {{{this.content}}}
-                            </div>
-                        </div>
-                    </div>
+            {{#if metadata.intro.value}}
+            {{{metadata.intro.value}}}
+            {{/if}}
+            <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
+                {{#ifCond metadata.toggle_all.value '==' 'yes'}}
+                <div class="qld__accordion__toggle">
+                    <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">
+                        <span class="qld__accordion__toggle-btn-text">Open all</span>
+                        <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
+                    </button>
+                </div>
                 {{/ifCond}}
-            {{/printAccordion}}
-        
+                    {{#printAccordion metadata}}
+                        {{#ifCond this.content '!=' ''}}
+                            <div class="qld__accordion">
+                                <{{../metadata.title_level.value}}>
+                                    <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
+                                        {{this.title}}
+                                        <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
+                                    </button>
+                                </{{../metadata.title_level.value}}>
+                                <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
+                                    <div class="qld__accordion__body-wrapper">
+                                        {{{this.content}}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/ifCond}}
+                    {{/printAccordion}}
+            </div>
+        {{/with}}
     </div>
-{{/with}}
-
-{{!-- {{#ifCond current.data.metadata.pageType.value '==' 'landing'}} --}}
-</div>
 </section>
-{{!-- {{/ifCond}} --}}
 
