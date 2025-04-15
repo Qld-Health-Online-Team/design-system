@@ -155,11 +155,13 @@
     .qld__accordion__toggle-btn {
         .qld__body--dark &,
         .qld__body--dark-alt & {
-            color: var(--QLD-color-dark__link);
-            @include QLD-underline("dark");
+            &-text {
+                color: var(--QLD-color-dark__link);
+                @include QLD-underline("dark");
+            }
 
             .qld__icon {
-                background-color: var(--QLD-color-dark__action--secondary);
+                color: var(--QLD-color-dark__action--secondary);
             }
         }
     }
@@ -195,8 +197,6 @@
     }
 
     &--dark {
-        background-color: var(--QLD-color-dark__background--shade);
-
         .qld__accordion {
             border-color: var(--QLD-color-dark__border);
         }
@@ -215,8 +215,6 @@
     }
 
     &--dark-alt {
-        background-color: var(--QLD-color-dark__background--alt-shade);
-
         .qld__accordion {
             border-color: var(--QLD-color-dark__border--alt);
         }
