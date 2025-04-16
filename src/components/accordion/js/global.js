@@ -254,6 +254,8 @@
         var toggleAllButton = elements;
         // find the accordion wrapper
         var wrapper = toggleAllButton.closest(".qld__accordion-group");
+        // Get toggle all button
+        var toogleAllText = wrapper.querySelector(".qld__accordion__toggle-btn-text");
         // get all the accordion buttons
         var accordionButtons = wrapper.querySelectorAll(".qld__accordion__title");
 
@@ -262,30 +264,18 @@
             callbacks = {};
         }
 
-        // We must save the svg to append it back after the animation
-        var accordionAllIcon = wrapper.querySelector(".accordion-all-svg");
-        accordionAllIcon.style.transition = "transform 0.25s ease-in";
-        // Button state classes
-        var buttonClosedClass = "qld__accordion__toggle-btn--closed";
-        var buttonOpenClass = "qld__accordion__toggle-btn--open";
-
         // Check if opened or closed
-        if (toggleAllButton.classList.contains(buttonClosedClass)) {
-            toggleAllButton.classList.remove(buttonClosedClass);
+        if (toggleAllButton.classList.contains("qld__accordion__toggle-btn--closed")) {
+            toggleAllButton.classList.remove("qld__accordion__toggle-btn--closed");
             toggleAllButton.setAttribute("aria-expanded", "true");
-            toggleAllButton.classList.add(buttonOpenClass);
-            toggleAllButton.textContent = "Close all";
-            accordionAllIcon.style.transform = "rotate(-180deg)";
-            toggleAllButton.appendChild(accordionAllIcon);
+            toggleAllButton.classList.add("qld__accordion__toggle-btn--open");
+            toogleAllText.textContent = "Close all";
             accordion.Open(accordionButtons);
-            accordionAllIcon.style.transform = "rotate(0deg)";
-        } else if (toggleAllButton.classList.contains(buttonOpenClass)) {
-            toggleAllButton.classList.remove(buttonOpenClass);
+        } else if (toggleAllButton.classList.contains("qld__accordion__toggle-btn--open")) {
+            toggleAllButton.classList.remove("qld__accordion__toggle-btn--open");
             toggleAllButton.setAttribute("aria-expanded", "false");
-            toggleAllButton.classList.add(buttonClosedClass);
-            toggleAllButton.textContent = "Open all";
-            accordionAllIcon.style.transform = "rotate(0deg)";
-            toggleAllButton.appendChild(accordionAllIcon);
+            toggleAllButton.classList.add("qld__accordion__toggle-btn--closed");
+            toogleAllText.textContent = "Open all";
             accordion.Close(accordionButtons);
             accordionAllIcon.style.transform = "rotate(-180deg)";
         }
