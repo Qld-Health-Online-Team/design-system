@@ -152,20 +152,6 @@
         margin: 0;
     }
 
-    .qld__accordion__toggle-btn {
-        .qld__body--dark &,
-        .qld__body--dark-alt & {
-            &-text {
-                color: var(--QLD-color-dark__link);
-                @include QLD-underline("dark");
-            }
-
-            .qld__icon {
-                color: var(--QLD-color-dark__action--secondary);
-            }
-        }
-    }
-
     &--light {
         .qld__accordion {
             border-color: var(--QLD-color-light__border);
@@ -234,12 +220,19 @@
 
     &--dark,
     &--dark-alt {
-        .qld__icon {
-            color: var(--QLD-color-dark__action--secondary);
+        .qld__accordion,
+        .qld__accordion__toggle {
+            .qld__icon {
+                color: var(--QLD-color-dark__action--secondary);
+            }
         }
 
         .qld__accordion__toggle-btn {
             color: var(--QLD-color-dark__link);
+
+            &-text {
+                @include QLD-underline("dark");
+            }
         }
 
         .qld__accordion__body-wrapper {
