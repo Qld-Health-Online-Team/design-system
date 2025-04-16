@@ -277,7 +277,6 @@
             toggleAllButton.classList.add("qld__accordion__toggle-btn--closed");
             toogleAllText.textContent = "Open all";
             accordion.Close(accordionButtons);
-            accordionAllIcon.style.transform = "rotate(-180deg)";
         }
 
         return false;
