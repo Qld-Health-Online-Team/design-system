@@ -1,14 +1,14 @@
 .qld__tab_panel {
     &.qld__tab--closed,
     &[hidden] {
-        display:none !important;
+        display: none !important;
     }
 }
 
 .qld__tab {
-    cursor:pointer;
+    cursor: pointer;
     background-color: $QLD-color-neutral--white !important;
-    
+
     &[aria-selected="true"] {
         background-color: $QLD-color-neutral--lightest !important;
     }
@@ -20,12 +20,12 @@
     margin-bottom: pxToRem(24);
 
     .qld__tab {
-        cursor:pointer;
+        cursor: pointer;
         background-color: transparent !important;
         border: 0;
         line-height: pxToRem(32);
         padding: pxToRem(15) pxToRem(15);
-        
+
         &[aria-selected="true"] {
             background-color: transparent !important;
             font-weight: 600;
@@ -35,9 +35,5 @@
         &:hover {
             font-weight: 600;
         }
-    }
-
-    .qld__tab + .qld__tab {
-
     }
 }
