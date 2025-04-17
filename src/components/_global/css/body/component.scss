@@ -37,15 +37,15 @@ main,
 #main_form,
 #content,
 form {
-     .qld__body {
+    .qld__body {
         @include QLD-container-padding($QLD-padding__section--mobile);
 
         + .pb-0 {
-            @include QLD-space(padding-bottom, 0); 
+            @include QLD-space(padding-bottom, 0);
         }
 
         + .pt-0 {
-            @include QLD-space(padding-top, 0); 
+            @include QLD-space(padding-top, 0);
         }
 
         /**
@@ -55,19 +55,21 @@ form {
         + data + .qld__body,
         + h1.sr-only + .qld__body,
         + h1.sr-only + data + .qld__body {
-
             &:not(.qld__tab-section) {
                 padding-top: 0;
             }
 
-            &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt {
+            &.qld__body--light,
+            &.qld__body--alt,
+            &.qld__body--dark,
+            &.qld__body--dark-alt {
                 @include QLD-container-padding($QLD-padding__section--mobile);
                 @include QLD-media(lg) {
                     @include QLD-container-padding($QLD-padding__section--desktop);
                 }
             }
         }
-        &.qld__body--light{
+        &.qld__body--light {
             + .qld__body.qld__body--light,
             + data + .qld__body--light,
             + h1.sr-only + .qld__body--light,
@@ -86,7 +88,7 @@ form {
                 }
             }
         }
-        &.qld__body--alt{
+        &.qld__body--alt {
             + .qld__body.qld__body--alt,
             + data + .qld__body--alt,
             + h1.sr-only + .qld__body--alt,
@@ -105,11 +107,11 @@ form {
                 }
             }
         }
-        &.qld__body--dark{
+        &.qld__body--dark {
             + .qld__body.qld__body--dark,
             + data + .qld__body.qld__body--dark,
             + h1.sr-only + .qld__body--dark,
-            + h1.sr-only + data + .qld__body--dark{
+            + h1.sr-only + data + .qld__body--dark {
                 &:not(.qld__tab-section) {
                     padding-top: 0 !important;
                 }
@@ -124,11 +126,11 @@ form {
                 }
             }
         }
-        &.qld__body--dark-alt{
+        &.qld__body--dark-alt {
             + .qld__body.qld__body--dark-alt,
             + data + .qld__body.qld__body--dark-alt,
             + h1.sr-only + .qld__body--dark-alt,
-            + h1.sr-only + data + .qld__body--dark-alt{
+            + h1.sr-only + data + .qld__body--dark-alt {
                 &:not(.qld__tab-section) {
                     padding-top: 0 !important;
                 }
@@ -146,15 +148,14 @@ form {
         @include QLD-media(lg) {
             @include QLD-container-padding($QLD-padding__section--desktop);
         }
-                
-        
+
         &--example {
             @include QLD-space(padding, 1.5unit);
         }
-        
+
         //Align the body when within a two col layout/ content page
         #content[class^="col-"] > .qld__body {
-            @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal );
+            @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal);
             @include QLD-container-padding($QLD-padding__section--mobile);
 
             &.qld__tab-section {
@@ -164,9 +165,8 @@ form {
             }
 
             @include QLD-media(md) {
-                @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal );
-                @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal );
-                
+                @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
+                @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
             }
 
             @include QLD-media(lg) {
@@ -178,8 +178,8 @@ form {
                 @include QLD-container-padding($QLD-padding__section--mobile);
             }
 
-            &:first-of-type{
-                padding-top: 0 ;
+            &:first-of-type {
+                padding-top: 0;
                 // &:last-of-type{
                 //     @include QLD-space(padding-top, 2.5unit);
                 //     @include QLD-media(lg) {
@@ -190,7 +190,7 @@ form {
                 &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
-                &.qld__body--dark-alt{
+                &.qld__body--dark-alt {
                     @include QLD-space(padding-top, 2.5unit);
                     // @include QLD-container-padding($QLD-padding__section--mobile, !important);
 
@@ -201,98 +201,98 @@ form {
                 }
             }
 
-            
-            &:last-of-type{
+            &:last-of-type {
                 @include QLD-space(padding-bottom, 0);
-                
+
                 &.qld__body--light,
                 &.qld__body--alt,
                 &.qld__body--dark,
-                &.qld__body--dark-alt{
+                &.qld__body--dark-alt {
                     @include QLD-container-padding($QLD-padding__section--mobile, !important);
 
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop !important);
                     }
                 }
-                
             }
 
             .container-fluid {
-                @include QLD-container-padding($QLD-grid__inner-padding--media-xs, horizontal );
+                @include QLD-container-padding($QLD-grid__inner-padding--media-xs, horizontal);
                 @include QLD-media(lg) {
-                    @include QLD-container-padding($QLD-grid__inner-padding--media-lg, horizontal );
+                    @include QLD-container-padding($QLD-grid__inner-padding--media-lg, horizontal);
                 }
             }
 
             + .qld__body,
-            + data + .qld__body{
-
+            + data + .qld__body {
                 &:not(.qld__tab-section) {
                     padding-top: 0;
                 }
-                
-                &.qld__body--light, &.qld__body--alt, &.qld__body--dark, &.qld__body--dark-alt{
+
+                &.qld__body--light,
+                &.qld__body--alt,
+                &.qld__body--dark,
+                &.qld__body--dark-alt {
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
-            &.qld__body--light{
+            &.qld__body--light {
                 + .qld__body.qld__body--light,
-                + data + .qld__body--light{
+                + data + .qld__body--light {
                     &:not(.qld__tab-section) {
                         padding-top: 0 !important;
                     }
                 }
                 + .qld__body,
-                + data + .qld__body{
+                + data + .qld__body {
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
-            &.qld__body--alt{
+            &.qld__body--alt {
                 + .qld__body.qld__body--alt,
-                + data + .qld__body--alt{
+                + data + .qld__body--alt {
                     &:not(.qld__tab-section) {
                         padding-top: 0 !important;
                     }
                 }
                 + .qld__body,
-                + data + .qld__body{
+                + data + .qld__body {
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
-            &.qld__body--dark{
+            &.qld__body--dark {
                 + .qld__body.qld__body--dark,
-                + data + .qld__body.qld__body--dark{
+                + data + .qld__body.qld__body--dark {
                     &:not(.qld__tab-section) {
                         padding-top: 0 !important;
                     }
                 }
                 + .qld__body,
-                + data + .qld__body{
+                + data + .qld__body {
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop);
                     }
                 }
             }
-            &.qld__body--dark-alt{
+            &.qld__body--dark-alt {
                 + .qld__body.qld__body--dark-alt,
-                + data + .qld__body.qld__body--dark-alt{
+                + data + .qld__body.qld__body--dark-alt {
                     &:not(.qld__tab-section) {
                         padding-top: 0 !important;
                     }
                 }
                 + .qld__body,
-                + data + .qld__body{
+                + data + .qld__body {
                     @include QLD-container-padding($QLD-padding__section--mobile);
                     @include QLD-media(lg) {
                         @include QLD-container-padding($QLD-padding__section--desktop);
@@ -302,7 +302,7 @@ form {
         }
         //-----END:Reduce padding top if the following section has the same background----
     }
-    
+
     .qld__body--breadcrumb {
         @include QLD-space(padding-top, 1unit);
         @include QLD-space(padding-bottom, 1unit);
@@ -319,17 +319,17 @@ form {
 
 .qld__body,
 .qld__footer {
-    @include QLD-fontgrid(sm) ;
+    @include QLD-fontgrid(sm);
     margin: 0;
     text-size-adjust: 100%;
     font-family: $QLD-font;
     color: var(--QLD-color-light__text);
     background-color: $QLD-color-neutral--white;
-    letter-spacing: .009rem;
+    letter-spacing: 0.009rem;
 
     a {
         color: var(--QLD-color-light__link);
-        @include QLD-underline('light');
+        @include QLD-underline("light");
         @include QLD-space(max-width, $QLD-font-maxwidth);
         @include QLD-focus();
     }
@@ -353,26 +353,27 @@ form {
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
             }
-
         }
     }
 
-    p + p, ul + p, p + ul {
+    p + p,
+    ul + p,
+    p + ul {
         @include QLD-space(margin-top, 1unit);
     }
 
     img {
         max-width: 100%;
-	    height: auto;
+        height: auto;
     }
-    
+
     /**
 	 * Highlighting in-page sections that are in focus
 	 */
     [tabindex="0"]:focus {
         @include QLD-outline();
     }
-    
+
     /**
 	 * `mark` styling.
 	 */
@@ -386,9 +387,9 @@ form {
 	 */
     ::selection {
         color: var(--QLD-color-dark__text);
-       
+
         background-color: var(--QLD-color-dark__background);
-        opacity: .99;
+        opacity: 0.99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
     }
 
@@ -397,12 +398,12 @@ form {
     video::selection,
     iframe::selection {
         background-color: var(--QLD-color-light__link);
-        opacity: .75;
+        opacity: 0.75;
     }
 
     ul:not([class]),
     ol:not([class]),
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list,
     dl:not([class]),
     .qld__margin-t-li--sm,
@@ -414,8 +415,7 @@ form {
     pre {
         white-space: pre-wrap;
     }
-    
-    
+
     * + dl:not([class]),
     * + pre {
         @include QLD-space(margin-top, 1unit);
@@ -423,14 +423,14 @@ form {
 
     * + ol:not([class]),
     * + ul:not([class]),
-    * + ol.qld__aligned-list, 
+    * + ol.qld__aligned-list,
     * + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1.5unit);
     }
 
     p + ol:not([class]),
     p + ul:not([class]),
-    p + ol.qld__aligned-list, 
+    p + ol.qld__aligned-list,
     p + ul.qld__aligned-list {
         @include QLD-space(margin-top, 1unit);
     }
@@ -442,7 +442,7 @@ form {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
-            
+
             > ul:not([class]),
             .qld__margin-t-li--sm,
             .qld__margin-t-li--lg {
@@ -477,7 +477,7 @@ form {
                     }
                 }
             }
-            
+
             &:first-child {
                 @include QLD-space(margin-top, 0unit);
             }
@@ -489,16 +489,16 @@ form {
         @include QLD-space(padding-inline-start, 2unit);
         > li {
             @include QLD-space(margin-top, 0.5unit);
-            
+
             > ol:not([class]) {
                 // @include QLD-space(margin-top, 1unit);
-                    > li {
+                > li {
                     list-style-type: lower-alpha;
                     @include QLD-space(margin-top, 0.5unit);
-    
+
                     > ol:not([class]) {
                         // @include QLD-space(margin-top, 1unit);
-    
+
                         > li {
                             @include QLD-space(margin-top, 0.5unit);
                             list-style-type: lower-roman;
@@ -506,16 +506,16 @@ form {
                     }
                 }
             }
-    
+
             &:first-child {
                 @include QLD-space(margin-top, 0unit);
             }
         }
     }
-    
+
     ol:not([class]),
     ul:not([class]),
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list,
     .qld__margin-t-li--sm,
     .qld__margin-t-li--lg {
@@ -524,9 +524,9 @@ form {
         }
     }
 
-    ol.qld__aligned-list, 
+    ol.qld__aligned-list,
     ul.qld__aligned-list {
-        @include QLD-space(padding-left, 1.5unit); 
+        @include QLD-space(padding-left, 1.5unit);
     }
 
     ol.qld__numbered-list {
@@ -571,7 +571,6 @@ form {
         }
     }
 
-
     dl:not([class]) {
         > dd {
             @include QLD-space(margin-top, 0.5unit);
@@ -580,11 +579,11 @@ form {
             border-left: solid 1px;
             max-width: $QLD-font-maxwidth;
         }
-        
+
         > dt {
             @include QLD-space(margin-top, 1.5unit);
             font-weight: bold;
-            
+
             &:first-of-type {
                 margin-top: 0;
             }
@@ -658,7 +657,7 @@ form {
         padding: 0 1px;
         font-style: italic;
         font-family: serif; //We want mathematical notation to use serif vars per convention.
-        
+
         sup,
         sub {
             font-family: $QLD-font;
@@ -678,15 +677,15 @@ form {
         position: relative;
         vertical-align: baseline;
     }
-    
+
     sub {
         bottom: -0.25em;
     }
-    
+
     sup {
         top: -0.5em;
     }
-    
+
     /**
 	 * Keyboard strokes.
 	 * Code snippets and code blocks.
@@ -710,27 +709,27 @@ form {
         display: block;
         font-family: $QLD-font-monospace;
         white-space: pre-wrap;
-        @include QLD-space('font-size', .875unit);
-        @include QLD-space('padding', .125unit .5unit);
-        @include QLD-space('margin', 0);
+        @include QLD-space("font-size", 0.875unit);
+        @include QLD-space("padding", 0.125unit 0.5unit);
+        @include QLD-space("margin", 0);
 
         .token {
             pointer-events: none;
 
             &.comment {
-                color: #B3CBDE;
+                color: #b3cbde;
             }
-    
+
             &.tag {
-                color: #A7E5FF;
+                color: #a7e5ff;
             }
-    
+
             &.attr-name {
-                color: #C78DF7;
+                color: #c78df7;
             }
-    
+
             &.attr-value {
-                color: #6BBE26;
+                color: #6bbe26;
             }
         }
     }
@@ -744,7 +743,7 @@ form {
         display: block;
         tab-size: 4;
     }
-    
+
     /**
 	 * Blockquote
 	 */
@@ -760,7 +759,7 @@ form {
         margin: 0;
     }
 
-    .qld__block-quote{
+    .qld__block-quote {
         padding-left: 1.375rem;
         border-left: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
         margin: 0;
@@ -771,18 +770,16 @@ form {
         @include QLD-fontgrid(md, small);
         color: var(--QLD-color-light__heading);
         font-weight: 600;
-        
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
             color: var(--QLD-color-light__text--lighter);
-            margin-top: .625rem;
+            margin-top: 0.625rem;
         }
 
-        *:not([type="hidden"]) + &{
+        *:not([type="hidden"]) + & {
             margin-top: 1.5rem;
         }
-        
     }
 
     /**
@@ -797,7 +794,6 @@ form {
         @include QLD-space(margin-top, 1.25unit);
         @include QLD-space(margin-bottom, 1.188unit);
         width: 100%;
-
     }
 
     .qld__caption {
@@ -807,8 +803,7 @@ form {
     }
     *:not([type="hidden"]) {
         + .qld__caption {
-        @include QLD-space(margin-top, 1unit);
-
+            @include QLD-space(margin-top, 1unit);
         }
     }
 
@@ -818,7 +813,7 @@ form {
         hr {
             background-color: var(--QLD-color-light__border);
         }
-        
+
         code,
         kbd,
         samp {
@@ -840,7 +835,7 @@ form {
         hr {
             background-color: var(--QLD-color-light__border--alt);
         }
-        
+
         code,
         kbd,
         samp {
@@ -855,49 +850,45 @@ form {
             }
         }
     }
-    
+
     &.qld__body--dark,
     &.qld__footer--dark {
         background: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
-        
+
         ::selection {
             color: var(--QLD-color-dark__background);
             background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
-        
+
         // Decrease the opacity for certain elements
         img::selection,
         video::selection,
         iframe::selection {
             background-color: var(--QLD-color-dark__link);
         }
-        
-        a{
+
+        a {
             color: var(--QLD-color-dark__link);
-            @include QLD-underline('dark');
-            
-            &:hover {
-                color: var(--QLD-color-dark__text);
-            }
+            @include QLD-underline("dark");
 
             @include QLD-focus("dark");
         }
-        
-        [tabindex="0"]:focus{
+
+        [tabindex="0"]:focus {
             @include QLD-outline("dark");
         }
-        
+
         mark {
             background-color: var(--QLD-color-dark__link);
             color: var(--QLD-color-dark__background);
         }
-        
+
         hr {
             background-color: var(--QLD-color-dark__border);
         }
-        
+
         code,
         kbd,
         samp {
@@ -915,7 +906,6 @@ form {
             .qld__quote-source {
                 color: var(--QLD-color-dark__text--lighter);
             }
-            
         }
 
         ol.qld__numbered-list {
@@ -926,37 +916,33 @@ form {
             }
         }
     }
-    
+
     &.qld__body--dark-alt,
     &.qld__footer--dark-alt {
         background: var(--QLD-color-dark__background--alt);
         color: var(--QLD-color-dark__text);
-        
+
         ::selection {
             color: var(--QLD-color-dark__background);
             background-color: var(--QLD-color-dark__link);
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
-        
+
         // Decrease the opacity for certain elements
         img::selection,
         video::selection,
         iframe::selection {
             background-color: var(--QLD-color-dark__link);
         }
-        
+
         a {
             color: var(--QLD-color-dark__link);
-            @include QLD-underline('dark');
-            
-            &:hover {
-                color: var(--QLD-color-dark__link);
-            }
+            @include QLD-underline("dark");
 
             @include QLD-focus("dark");
         }
 
-        [tabindex="0"]:focus{
+        [tabindex="0"]:focus {
             @include QLD-outline("dark");
         }
 
@@ -997,8 +983,8 @@ form {
     }
 
     &.qld__body--half-width {
-        .container-fluid{
-            div{
+        .container-fluid {
+            div {
                 width: 50%;
             }
         }
@@ -1006,7 +992,7 @@ form {
 }
 
 @media print {
-	.qld__body {
+    .qld__body {
         *,
         & {
             text-shadow: none !important;
@@ -1041,7 +1027,7 @@ form {
         pre {
             border: 1px solid #000;
             padding: 6px;
-            page-break-inside: avoid; 
+            page-break-inside: avoid;
         }
 
         thead {
@@ -1076,7 +1062,7 @@ form {
         select {
             background: #fff !important;
         }
-	}
+    }
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1087,9 +1073,8 @@ form {
 // - print styles
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 @media print {
-	.qld__body {
+    .qld__body {
         *,
         & {
             text-shadow: none !important;
@@ -1159,9 +1144,9 @@ form {
         select {
             background: #fff !important;
         }
-	}
+    }
 
-    @page { 
-        margin: 10mm 5mm;  
-    } 
+    @page {
+        margin: 10mm 5mm;
+    }
 }
