@@ -13,7 +13,6 @@
     border-radius: $QLD-border-radius-md;
     @include QLD-space(margin, 0);
     @include QLD-focus();
-    // white-space: nowrap;
     text-align: center;
     text-decoration: none;
     &-list--wrapper {
@@ -95,7 +94,6 @@ a.qld__tag,
     text-decoration: none;
     text-underline-offset: auto;
     text-decoration-color: var(--QLD-color-light__link);
-    // @include QLD-underline('light','noUnderline','');
     .qld__card .qld__card__footer & {
         color: var(--QLD-color-light__link);
         border-color: var(--QLD-color-light__link);
@@ -113,7 +111,6 @@ a.qld__tag,
     }
 
     &:hover:visited {
-        // color: var(--QLD-color-light__link);
         text-decoration-color: var(--QLD-color-light__link--on-action);
     }
 
@@ -154,7 +151,6 @@ a.qld__tag,
         text-underline-offset: auto;
         text-decoration-color: var(--QLD-color-dark__link);
         text-decoration: none;
-        // @include QLD-underline('dark','noUnderline','buttonText');
 
         &:hover {
             background-color: var(--QLD-color-dark__action--primary-hover);
@@ -172,9 +168,6 @@ a.qld__tag,
         &:hover:visited {
             color: var(--QLD-color-dark__link--on-action);
             text-decoration-color: var(--QLD-color-dark__link--on-action);
-        }
-
-        &.qld__tag--large {
         }
     }
 }
@@ -228,7 +221,9 @@ a.qld__tag,
     display: flex;
     align-items: center;
 
-    &:hover {
+    &:hover,
+    &:focus {
+        outline: none;
         color: var(--QLD-color-light__text);
         background-color: transparent;
         border-color: $QLD-color-neutral--lighter;
