@@ -205,8 +205,7 @@
      */
     fileUploads.init = function () {
         const iconDataPathElement = document.querySelector("form.qld__form--validate[data-path]");
-        const iconDataPath = iconDataPathElement.getAttribute("data-path");
-        fileUploads.iconDataPath = iconDataPath;
+        fileUploads.iconDataPath = iconDataPathElement ? iconDataPathElement.getAttribute("data-path") : "";
 
         // Store all file input fields in inputs property
         let $file_inputs = QLD.utils.listToArray(document.querySelectorAll("input[type=file].qld__file-input"));
