@@ -733,3 +733,31 @@ div.sq-form-question-error {
 .sq-form-error {
   color: $QLD-color-status__error;
 }
+
+.qld__text-columns-2 {
+  /* Margin removed for utility-based spacing */
+
+  @media screen and (min-width: 992px) {
+    column-count: 2;
+    column-gap: 2rem;
+
+    /* Prevent headings from breaking across columns (limited browser support) */
+    .qld__text-columns-2 h1,
+    .qld__text-columns-2 h2,
+    .qld__text-columns-2 h3,
+    .qld__text-columns-2 h4,
+    .qld__text-columns-2 h5,
+    .qld__text-columns-2 h6 {
+        break-after: avoid;
+        break-inside: avoid;
+        page-break-after: avoid;
+    }
+
+    /* Utility to keep block-level content together in one column */
+    .qld__keep-together {
+        break-inside: avoid;
+        display: inline-block;
+        width: 100%;
+    }
+  }
+}
