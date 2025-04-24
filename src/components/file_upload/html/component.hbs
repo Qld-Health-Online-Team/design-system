@@ -1,11 +1,11 @@
 {{#with component.data}}
-<form class="qld__form--validate" action="/">
+<form class="qld__form--validate" action="/" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
     <div class="qld__form-group">
         <label class="qld__label" for="ij-field__{{metadata.input_name.value}}">{{metadata.input_name.value}}</label>
         <div class="qld__form-file-wrapper sq-form-question-answer">
             <div class="qld__form-file-dropzone">
                 <div class="qld__file-input-icon">
-                    <i class="fa-light fa-2x fa-arrow-up-from-bracket"></i>
+                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#upload"></use></svg>
                     <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
                         <span class="qld__loading_spinner-wheel"></span>
                         <div class="qld__loading_spinner-label qld__display-md">Uploading...</div>
