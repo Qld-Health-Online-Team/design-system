@@ -43,7 +43,8 @@
                     {{metadata.video_caption.value}}
                     {{#if metadata.video_duration.value}}
                       <div class="qld__video__player--duration">
-                        <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
+                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#clock"></use></svg>
+                        Duration: {{metadata.video_duration.value}}
                       </div>
                     {{/if}}
                   </div>
@@ -54,7 +55,7 @@
                   {{#if metadata.transcript_link.value}}
                     <div class="qld__video__player__transcript">
                       <div class="qld__video__player__transcript-link">
-                        <i class="fal fa-arrow-right-long"></i>
+                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
                         <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
                       </div>
                     </div>
@@ -68,7 +69,8 @@
                     <div class="qld__accordion">
                       <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
                               aria-controls="accordion-group-{{assetid}}" aria-expanded="false">
-                        <i class="fal fa-file-lines"></i>Show transcript
+                        <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#transcript"></use></svg>
+                        <span>Show transcript</span>
                       </button>
                       <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{assetid}}">
                         <div class="qld__accordion__body-wrapper">
@@ -113,7 +115,8 @@
                     {{metadata.video_caption.value}}
                     {{#if metadata.video_duration.value}}
                       <div class="qld__video__player--duration">
-                        <i class="fal fa-clock"></i>Duration: {{metadata.video_duration.value}}
+                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#clock"></use></svg>
+                        Duration: {{metadata.video_duration.value}}
                       </div>
                     {{/if}}
                   </div>
@@ -124,7 +127,7 @@
                   {{#if metadata.transcript_link.value}}
                     <div class="qld__video__player__transcript">
                       <div class="qld__video__player__transcript-link">
-                        <i class="fal fa-arrow-right-long"></i>
+                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
                         <a href="%globals_asset_assetid:{{metadata.transcript_link.value}}^as_asset:asset_url%">View transcript</a>
                       </div>
                     </div>
@@ -137,7 +140,8 @@
                       <div class="qld__accordion">
                         <button class="qld__accordion__title js-qld__accordion qld__accordion--closed"
                                 aria-controls="accordion-group-{{assetid}}" aria-expanded="false">
-                          <i class="fal fa-file-lines"></i>Show transcript
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#transcript"></use></svg>
+                            <span>Show transcript</span>
                         </button>
                         <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{assetid}}">
                           <div class="qld__accordion__body-wrapper">
