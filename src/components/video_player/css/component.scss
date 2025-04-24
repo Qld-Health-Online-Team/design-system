@@ -1,22 +1,17 @@
-.qld__body {
+.qld__body.qld__video__player--wrapper {
     .qld__video__player--caption,
     .qld__accordion__title,
     .qld__video__player__transcript-link,
     .qld__accordion__body-wrapper {
         background-color: $QLD-color-neutral--lightest;
         border-top: var(--QLD-border-width-thin) solid $QLD-color-neutral--lighter;
-    } 
-    .qld__video__player__transcript{
+    }
+    .qld__video__player__transcript {
         &-link,
         .qld__accordion__title {
             i {
                 color: var(--QLD-color-light__action--secondary);
             }
-            // &:hover {
-            //     i {
-            //         color: var(--QLD-color-light__action--secondary-hover);
-            //     }
-            // }
         }
     }
 
@@ -32,107 +27,96 @@
         }
     }
 
-    &--dark-alt {
-        .qld__video__player--caption,
-        .qld__accordion__title,
-        .qld__video__player__transcript-link,
-        .qld__accordion__body-wrapper {
-            color: $QLD-color-neutral--white;
-            background-color: var(--QLD-color-dark__background--alt-shade);
-            border-top: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border--alt);
-        }
-        .qld__video__player {
-            &--summary {
-                border: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border--alt);
-                border-top: none;
+    &.qld__body {
+        &--dark-alt {
+            .qld__video__player--caption,
+            .qld__accordion__title,
+            .qld__video__player__transcript-link,
+            .qld__accordion__body-wrapper {
+                color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-dark__background--alt-shade);
+                border-top: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border--alt);
             }
-        } 
-    }
-    &--dark {
-        .qld__video__player--caption,
-        .qld__accordion__title,
-        .qld__video__player__transcript-link,
-        .qld__accordion__body-wrapper {
-            color: $QLD-color-neutral--white;
-            background-color: var(--QLD-color-dark__background--shade);
-            border-top: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border);
-        }
-        .qld__video__player {
-            &--summary {
-                border: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border);
-                border-top: none;
+            .qld__video__player {
+                &--summary {
+                    border: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border--alt);
+                    border-top: none;
+                }
             }
-        } 
-    }
+        }
+        &--dark {
+            .qld__video__player--caption,
+            .qld__accordion__title,
+            .qld__video__player__transcript-link,
+            .qld__accordion__body-wrapper {
+                color: $QLD-color-neutral--white;
+                background-color: var(--QLD-color-dark__background--shade);
+                border-top: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border);
+            }
+            .qld__video__player {
+                &--summary {
+                    border: var(--QLD-border-width-thin) solid var(--QLD-color-dark__border);
+                    border-top: none;
+                }
+            }
+        }
 
-    &--alt {
-        .qld__video__player--caption,
-        .qld__accordion__title,
-        .qld__video__player__transcript-link,
-        .qld__accordion__body-wrapper {
-            background-color: var(--QLD-color-light__background--alt-shade);
-            border-top: var(--QLD-border-width-thin) solid var(--QLD-color-light__border--alt);
+        &--alt {
+            .qld__video__player--caption,
+            .qld__accordion__title,
+            .qld__video__player__transcript-link,
+            .qld__accordion__body-wrapper {
+                background-color: var(--QLD-color-light__background--alt-shade);
+                border-top: var(--QLD-border-width-thin) solid var(--QLD-color-light__border--alt);
+            }
+            .qld__video__player {
+                &--summary {
+                    border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border--alt);
+                    border-top: none;
+                }
+            }
         }
-        .qld__video__player {
-            &--summary {
-                border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border--alt);
-                border-top: none;
+        &--light {
+            .qld__video__player--caption,
+            .qld__accordion__title,
+            .qld__video__player__transcript-link,
+            .qld__accordion__body-wrapper {
+                background-color: var(--QLD-color-light__background--shade);
+                border-top: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
             }
-        } 
-    }
-    &--light {
-        .qld__video__player--caption,
-        .qld__accordion__title,
-        .qld__video__player__transcript-link,
-        .qld__accordion__body-wrapper {
-             background-color: var(--QLD-color-light__background--shade);
-             border-top: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
-         }
-         .qld__video__player {
-            &--summary {
-                border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
-                border-top: none;
+            .qld__video__player {
+                &--summary {
+                    border: var(--QLD-border-width-thin) solid var(--QLD-color-light__border);
+                    border-top: none;
+                }
             }
-        } 
-    }
+        }
 
-    &--dark-alt,
-    &--dark  {
-        .qld__video__player__transcript {
-            .qld__accordion__title {
-                color: var(--QLD-color-dark__link);
-                text-decoration-color: #fff;
-                i {
-                    color: var(--QLD-color-dark__action--secondary);
+        &--dark-alt,
+        &--dark {
+            .qld__video__player__transcript {
+                .qld__accordion__title {
+                    color: var(--QLD-color-dark__link);
+                    text-decoration-color: #fff;
+                    i,
+                    .qld__icon {
+                        color: var(--QLD-color-dark__action--secondary);
+                    }
                 }
-                &:after {
-                    background-color: var(--QLD-color-dark__action--secondary);
+                &-link {
+                    i {
+                        color: var(--QLD-color-dark__action--secondary);
+                    }
                 }
-                // &:hover {
-                //     i {
-                //         color: var(--QLD-color-dark__action--secondary-hover);
-                //     }
-                // }
-            }
-            &-link {
-                i {
-                    color: var(--QLD-color-dark__action--secondary);
-                }
-                // &:hover {
-                //     i {
-                //         color: var(--QLD-color-dark__action--secondary-hover);
-                //     }
-                // }
             }
         }
     }
 }
 
-
 .qld__video__player {
     &--wrapper {
         .qld__accordion__title:focus {
-            outline-offset: -3px
+            outline-offset: -3px;
         }
     }
 
@@ -160,7 +144,7 @@
         padding: pxToRem(12) pxToRem(16);
         font-size: pxToRem(14);
         border-radius: 0 0 $QLD-border-radius-xs $QLD-border-radius-xs;
-        @include QLD-media(lg) {          
+        @include QLD-media(lg) {
             grid-template-columns: 1fr auto;
         }
     }
@@ -185,8 +169,8 @@
         .qld__accordion__title {
             font-size: pxToRem(16);
             transition: transform 0.25s ease-in;
-            border-bottom-left-radius: $QLD-border-radius-xs; 
-            border-bottom-right-radius: $QLD-border-radius-xs; 
+            border-bottom-left-radius: $QLD-border-radius-xs;
+            border-bottom-right-radius: $QLD-border-radius-xs;
             i {
                 font-size: pxToRem(20);
                 margin-right: pxToRem(8);
@@ -197,8 +181,8 @@
         }
         &-link {
             padding: pxToRem(16) pxToRem(12);
-            border-bottom-left-radius: $QLD-border-radius-xs; 
-            border-bottom-right-radius: $QLD-border-radius-xs; 
+            border-bottom-left-radius: $QLD-border-radius-xs;
+            border-bottom-right-radius: $QLD-border-radius-xs;
             i {
                 margin-right: pxToRem(8);
             }
@@ -217,4 +201,3 @@
         margin-right: auto;
     }
 }
-
