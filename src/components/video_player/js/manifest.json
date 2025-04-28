@@ -1,87 +1,91 @@
 {
-	"component": {
-		"name": "video_player",
-		"description": "",
-		"version": "1.0",
-		"status": "In Development",
-		"data": {
-			"assetid": "123",
-			"metadata": {
-				"video_type": {
-					"type": "metadata_field_select",
-					"description": "Select the type of video",
-					"friendly_name": "Video Type",
-					"value": "vimeo",
-					"options": {
-						"youtube": "YouTube",
-						"vimeo": "Vimeo"
-					},
-					"required": false,
-					"editable": true
-				},
-				"video_layout": {
-					"type": "metadata_field_select",
-					"description": "Select the layout",
-					"friendly_name": "Layout",
-					"value": "two_column",
-					"options": {
-						"stack": "Stacked",
-						"two_column": "2 Columns"
-					},
-					"required": false,
-					"editable": true
-				},
-				"stack_options": {
+    "component": {
+        "name": "video_player",
+        "description": "",
+        "version": "1.0",
+        "status": "In Development",
+        "data": {
+            "assetid": "123",
+            "metadata": {
+                "video_type": {
+                    "type": "metadata_field_select",
+                    "description": "Select the type of video",
+                    "friendly_name": "Video Type",
+                    "value": "vimeo",
+                    "options": {
+                        "youtube": "YouTube",
+                        "vimeo": "Vimeo"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "video_layout": {
+                    "type": "metadata_field_select",
+                    "description": "Select the layout",
+                    "friendly_name": "Layout",
+                    "value": "two_column",
+                    "options": {
+                        "stack": "Stacked",
+                        "two_column": "2 Columns"
+                    },
+                    "required": false,
+                    "editable": true
+                },
+                "stack_options": {
                     "type": "metadata_field_select",
                     "description": "Choose the alignment for the stack layout",
                     "friendly_name": "Stacked Layout Options",
                     "value": "left",
-					"options": {
-						"left_aligned": "Left Aligned",
-						"centered": "Centered"
-					},
+                    "options": {
+                        "left_aligned": "Left Aligned",
+                        "centered": "Centered"
+                    },
                     "required": false,
                     "editable": true,
                     "display_if": {
                         "show": true,
                         "operator": "AND",
-                        "rules": [{
-                            "field": "video_layout",
-                            "operator": "equals",
-                            "value": "stack"
-                        }]
+                        "rules": [
+                            {
+                                "field": "video_layout",
+                                "operator": "equals",
+                                "value": "stack"
+                            }
+                        ]
                     }
                 },
-				"video_id": {
-					"type": "metadata_field_text",
-					"description": "Enter the video ID",
-					"friendly_name": "Video ID",
-					"value": "1001805640?h=414b9bb286",
-					"required": false,
-					"editable": true
-				},
-				"video_size": {
-					"type": "metadata_field_select",
-					"description": "Select the video size",
-					"friendly_name": "Video Size",
-					"value": "Fill grid container",
-					"options": {
-						"fill_grid":"Fill grid container",
-						"eight_col": "8 Columns"
-					},
-					"display_if": {
+                "video_id": {
+                    "type": "metadata_field_text",
+                    "description": "Enter the video ID",
+                    "friendly_name": "Video ID",
+                    "value": "1001805640?h=414b9bb286",
+                    "required": false,
+                    "editable": true
+                },
+                "video_size": {
+                    "type": "metadata_field_select",
+                    "description": "Select the video size",
+                    "friendly_name": "Video Size",
+                    "value": "Fill grid container",
+                    "options": {
+                        "fill_grid": "Fill grid container",
+                        "eight_col": "8 Columns"
+                    },
+                    "display_if": {
                         "show": true,
                         "operator": "AND",
-                        "rules": [{
-                            "field": "video_layout",
-                            "operator": "equals",
-                            "value": "stack"
-                        }]
+                        "rules": [
+                            {
+                                "field": "video_layout",
+                                "operator": "equals",
+                                "value": "stack"
+                            }
+                        ]
                     },
-					"required": false,
-					"editable": true
-				},
-				"video_duration": {
+                    "required": false,
+                    "editable": true
+                },
+                "video_duration": {
                     "type": "metadata_field_text",
                     "description": "",
                     "friendly_name": "Video Duration",
@@ -89,7 +93,7 @@
                     "required": false,
                     "editable": true
                 },
-				"video_caption": {
+                "video_caption": {
                     "type": "metadata_field_text",
                     "description": "",
                     "friendly_name": "Video Caption",
@@ -119,11 +123,13 @@
                     "display_if": {
                         "show": true,
                         "operator": "AND",
-                        "rules": [{
-                            "field": "transcript_options",
-                            "operator": "equals",
-                            "value": "link"
-                        }]
+                        "rules": [
+                            {
+                                "field": "transcript_options",
+                                "operator": "equals",
+                                "value": "link"
+                            }
+                        ]
                     }
                 },
                 "transcript": {
@@ -136,22 +142,24 @@
                     "display_if": {
                         "show": true,
                         "operator": "AND",
-                        "rules": [{
-                            "field": "transcript_options",
-                            "operator": "equals",
-                            "value": "accordion"
-                        }]
+                        "rules": [
+                            {
+                                "field": "transcript_options",
+                                "operator": "equals",
+                                "value": "accordion"
+                            }
+                        ]
                     }
                 },
-				"video_description": {
-					"type": "metadata_field_wysiwyg",
-					"description": "Enter the video description",
-					"friendly_name": "Video Description",
-					"value": "<h2>Optional Heading</h2> <p>Enter the video description</p><a href='#' class='qld__btn qld__btn--secondary'>Link</a>",
-					"required": false,
-					"editable": true
-				},
-				"body_background": {
+                "video_description": {
+                    "type": "metadata_field_wysiwyg",
+                    "description": "Enter the video description",
+                    "friendly_name": "Video Description",
+                    "value": "<h2>Optional Heading</h2> <p>Enter the video description</p><a href='#' class='qld__btn qld__btn--secondary'>Link</a>",
+                    "required": false,
+                    "editable": true
+                },
+                "body_background": {
                     "type": "metadata_field_select",
                     "description": "",
                     "friendly_name": "Background Colour",
@@ -167,14 +175,14 @@
                     "editable": true
                 },
                 "id_field": {
-					"type": "metadata_field_text",
-					"description": "",
-					"friendly_name": "Id field",
-					"value": "",
-					"required": false,
-					"editable": true
-				}
-			}
-		}
-	}
+                    "type": "metadata_field_text",
+                    "description": "",
+                    "friendly_name": "Id field",
+                    "value": "",
+                    "required": false,
+                    "editable": true
+                }
+            }
+        }
+    }
 }
