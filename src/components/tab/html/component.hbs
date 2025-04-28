@@ -50,8 +50,12 @@
         {{/if}}
         
         <div class="qld__tab-container{{#if metadata.theme.value}} qld__tab-container--{{metadata.theme.value}}{{/if}} qld__tab-container__fixed" id="tab-{{assetid}}">
-            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
+                <svg class="qld__icon qld__icon--xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
+            </button>
+            <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1">
+                <svg class="qld__icon qld__icon--xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
+            </button>
             <div class="qld__tabs" role="tablist">
                     {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                         {{#if metadata.title_1.value}}

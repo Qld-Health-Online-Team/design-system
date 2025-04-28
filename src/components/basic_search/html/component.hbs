@@ -52,7 +52,7 @@
 
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark-alt{{/ifCond}}
                         
-                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb"> 
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}"> 
                         <div class="qld__link-list qld__link-list--inline">
                             {{#with (itemAt current.lineage -2)}}
                                 {{#ifCond asset_type_code '!=' 'folder'}} 
@@ -69,7 +69,7 @@
                         <nav class="qld__breadcrumbs 
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
-                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb">
+                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
                             <ol class="qld__link-list qld__link-list--inline">
                                 {{#each current.lineage}}   
                                 {{#ifCond asset_type_code '!=' 'folder'}}      
@@ -337,7 +337,7 @@
                         {{#each resultsPage.pagination}}
                             {{#ifCond linkType '===' 'last'}}
                                 <li class="ellipsis">
-                                    <svg  class="qld__icon qld__icon--lg"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="24" height="32" role="img"><path fill="currentColor" d="M352 256C352 238.3 366.3 224 384 224C401.7 224 416 238.3 416 256C416 273.7 401.7 288 384 288C366.3 288 352 273.7 352 256zM192 256C192 238.3 206.3 224 224 224C241.7 224 256 238.3 256 256C256 273.7 241.7 288 224 288C206.3 288 192 273.7 192 256zM96 256C96 273.7 81.67 288 64 288C46.33 288 32 273.7 32 256C32 238.3 46.33 224 64 224C81.67 224 96 238.3 96 256z"/></svg>
+                                    <svg class="qld__icon qld__icon--lg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
                                 </li>
                             {{/ifCond}}
 
@@ -345,28 +345,29 @@
                                 {{#ifCond linkType '===' 'prev'}}
                                 <li class="prev">
                                     <a href="{{{url}}}" rel="prev" aria-label="Previous page of results">
-                                        <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="16" height="16" role="img"><path fill="currentColor" d="M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z"/></svg>
+                                        <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-left"></use></svg>
                                         <span>Back</span>
                                     </a>
                                 {{/ifCond}}
                                 
                                 {{#if label}}
                                 <li class="{{linkType}}{{#if isCurrent}} active{{/if}}">
-                                    <a href="{{{url}}}" aria-current="page">{{label}}</a></li>
+                                    <a href="{{{url}}}" aria-current="page">{{label}}</a>
+                                </li>
                                 {{/if}}
 
                                 {{#ifCond linkType '===' 'next'}}
                                 <li class="next">
                                     <a href="{{{url}}}" rel="next" aria-label="Next page of results">
-                                    <span>Next</span>
-                                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="16" height="16" role="img"><path fill="currentColor" d="M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z"/></svg>
+                                        <span>Next</span>
+                                        <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
                                     </a>
                                 {{/ifCond}}
                             </li>
                         
                             {{#ifCond linkType '===' 'first'}}
                                 <li class="ellipsis">
-                                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false" width="24" height="32" role="img"><path fill="currentColor" d="M352 256C352 238.3 366.3 224 384 224C401.7 224 416 238.3 416 256C416 273.7 401.7 288 384 288C366.3 288 352 273.7 352 256zM192 256C192 238.3 206.3 224 224 224C241.7 224 256 238.3 256 256C256 273.7 241.7 288 224 288C206.3 288 192 273.7 192 256zM96 256C96 273.7 81.67 288 64 288C46.33 288 32 273.7 32 256C32 238.3 46.33 224 64 224C81.67 224 96 238.3 96 256z"/></svg>
+                                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
                                 </li>
                             {{/ifCond}}
                         {{/each}}
