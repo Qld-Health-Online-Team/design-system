@@ -6,7 +6,9 @@
         return undefined
     };
 
-  return "<nav class=\"qld__breadcrumbs\" aria-label=\"breadcrumb\">\n    <ol class=\"qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline\">\n"
+  return "<nav class=\"qld__breadcrumbs\" aria-label=\"breadcrumb\" data-path=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "\">\n    <ol class=\"qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":4,"column":8},"end":{"line":16,"column":17}}})) != null ? stack1 : "")
     + "    </ol>\n    <div class=\"qld__breadcrumbs__list--tablet qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":19,"column":16},"end":{"line":19,"column":43}}}),{"name":"with","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":19,"column":8},"end":{"line":31,"column":17}}})) != null ? stack1 : "")

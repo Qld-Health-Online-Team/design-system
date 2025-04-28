@@ -95,7 +95,9 @@
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":51,"column":24},"end":{"line":51,"column":120}}})) != null ? stack1 : "")
     + "\n\n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(20, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":53,"column":24},"end":{"line":53,"column":134}}})) != null ? stack1 : "")
-    + "\n                        \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet\" aria-label=\"breadcrumb\"> \n                        <div class=\"qld__link-list qld__link-list--inline\">\n"
+    + "\n                        \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet\" aria-label=\"breadcrumb\" data-path=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "\"> \n                        <div class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,(lookupProperty(helpers,"itemAt")||(depth0 && lookupProperty(depth0,"itemAt"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),-2,{"name":"itemAt","hash":{},"data":data,"loc":{"start":{"line":57,"column":36},"end":{"line":57,"column":63}}}),{"name":"with","hash":{},"fn":container.program(29, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":57,"column":28},"end":{"line":63,"column":37}}})) != null ? stack1 : "")
     + "                        </div>\n                    </nav>\n";
 },"29":function(container,depth0,helpers,partials,data) {
@@ -132,7 +134,9 @@
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":70,"column":24},"end":{"line":70,"column":120}}})) != null ? stack1 : "")
     + " \n                        "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":71,"column":24},"end":{"line":71,"column":130}}})) != null ? stack1 : "")
-    + " \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\" aria-label=\"breadcrumb\">\n                            <ol class=\"qld__link-list qld__link-list--inline\">\n"
+    + " \n                        qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\" aria-label=\"breadcrumb\" data-path=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "\">\n                            <ol class=\"qld__link-list qld__link-list--inline\">\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(33, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":74,"column":32},"end":{"line":84,"column":41}}})) != null ? stack1 : "")
     + "                            </ol>\n                        </nav>\n";
 },"33":function(container,depth0,helpers,partials,data) {
@@ -672,7 +676,7 @@
     };
 
   return "                <nav class=\"text-center hidden-print qld__search-pagination\" aria-label=\"pagination\">\n                    <h2 class=\"sr-only\">Pagination</h2> \n                    <ul class=\"qld__search-pagination__list\">\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"pagination") : stack1),{"name":"each","hash":{},"fn":container.program(120, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":337,"column":24},"end":{"line":372,"column":33}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"pagination") : stack1),{"name":"each","hash":{},"fn":container.program(120, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":337,"column":24},"end":{"line":373,"column":33}}})) != null ? stack1 : "")
     + "                    </ul>\n                </nav>\n";
 },"120":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -686,13 +690,22 @@
     + "\n                            \n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"linkType") : depth0),"===","prev",{"name":"ifCond","hash":{},"fn":container.program(123, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":345,"column":32},"end":{"line":351,"column":43}}})) != null ? stack1 : "")
     + "                                \n"
-    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"label") : depth0),{"name":"if","hash":{},"fn":container.program(125, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":353,"column":32},"end":{"line":356,"column":39}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"label") : depth0),{"name":"if","hash":{},"fn":container.program(125, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":353,"column":32},"end":{"line":357,"column":39}}})) != null ? stack1 : "")
     + "\n"
-    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"linkType") : depth0),"===","next",{"name":"ifCond","hash":{},"fn":container.program(128, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":358,"column":32},"end":{"line":364,"column":43}}})) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"linkType") : depth0),"===","next",{"name":"ifCond","hash":{},"fn":container.program(128, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":359,"column":32},"end":{"line":365,"column":43}}})) != null ? stack1 : "")
     + "                            </li>\n                        \n"
-    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"linkType") : depth0),"===","first",{"name":"ifCond","hash":{},"fn":container.program(130, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":367,"column":28},"end":{"line":371,"column":39}}})) != null ? stack1 : "");
+    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"linkType") : depth0),"===","first",{"name":"ifCond","hash":{},"fn":container.program(130, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":368,"column":28},"end":{"line":372,"column":39}}})) != null ? stack1 : "");
 },"121":function(container,depth0,helpers,partials,data) {
-    return "                                <li class=\"ellipsis\">\n                                    <svg  class=\"qld__icon qld__icon--lg\"xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" aria-hidden=\"true\" focusable=\"false\" width=\"24\" height=\"32\" role=\"img\"><path fill=\"currentColor\" d=\"M352 256C352 238.3 366.3 224 384 224C401.7 224 416 238.3 416 256C416 273.7 401.7 288 384 288C366.3 288 352 273.7 352 256zM192 256C192 238.3 206.3 224 224 224C241.7 224 256 238.3 256 256C256 273.7 241.7 288 224 288C206.3 288 192 273.7 192 256zM96 256C96 273.7 81.67 288 64 288C46.33 288 32 273.7 32 256C32 238.3 46.33 224 64 224C81.67 224 96 238.3 96 256z\"/></svg>\n                                </li>\n";
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                                <li class=\"ellipsis\">\n                                    <svg class=\"qld__icon qld__icon--lg\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "#more-horizontal\"></use></svg>\n                                </li>\n";
 },"123":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -703,7 +716,9 @@
 
   return "                                <li class=\"prev\">\n                                    <a href=\""
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":347,"column":45},"end":{"line":347,"column":54}}}) : helper))) != null ? stack1 : "")
-    + "\" rel=\"prev\" aria-label=\"Previous page of results\">\n                                        <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" aria-hidden=\"true\" focusable=\"false\" width=\"16\" height=\"16\" role=\"img\"><path fill=\"currentColor\" d=\"M448 256C448 264.8 440.6 272 431.4 272H54.11l140.7 149.3c6.157 6.531 5.655 16.66-1.118 22.59C190.5 446.6 186.5 448 182.5 448c-4.505 0-9.009-1.75-12.28-5.25l-165.9-176c-5.752-6.094-5.752-15.41 0-21.5l165.9-176c6.19-6.562 16.69-7 23.45-1.094c6.773 5.938 7.275 16.06 1.118 22.59L54.11 240h377.3C440.6 240 448 247.2 448 256z\"/></svg>\n                                        <span>Back</span>\n                                    </a>\n";
+    + "\" rel=\"prev\" aria-label=\"Previous page of results\">\n                                        <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "#arrow-left\"></use></svg>\n                                        <span>Back</span>\n                                    </a>\n";
 },"125":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -719,7 +734,7 @@
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":355,"column":45},"end":{"line":355,"column":54}}}) : helper))) != null ? stack1 : "")
     + "\" aria-current=\"page\">"
     + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":355,"column":76},"end":{"line":355,"column":85}}}) : helper)))
-    + "</a></li>\n";
+    + "</a>\n                                </li>\n";
 },"126":function(container,depth0,helpers,partials,data) {
     return " active";
 },"128":function(container,depth0,helpers,partials,data) {
@@ -731,10 +746,21 @@
     };
 
   return "                                <li class=\"next\">\n                                    <a href=\""
-    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":360,"column":45},"end":{"line":360,"column":54}}}) : helper))) != null ? stack1 : "")
-    + "\" rel=\"next\" aria-label=\"Next page of results\">\n                                    <span>Next</span>\n                                    <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" aria-hidden=\"true\" focusable=\"false\" width=\"16\" height=\"16\" role=\"img\"><path fill=\"currentColor\" d=\"M443.7 266.8l-165.9 176C274.5 446.3 269.1 448 265.5 448c-3.986 0-7.988-1.375-11.16-4.156c-6.773-5.938-7.275-16.06-1.118-22.59L393.9 272H16.59c-9.171 0-16.59-7.155-16.59-15.1S7.421 240 16.59 240h377.3l-140.7-149.3c-6.157-6.531-5.655-16.66 1.118-22.59c6.789-5.906 17.27-5.469 23.45 1.094l165.9 176C449.4 251.3 449.4 260.7 443.7 266.8z\"/></svg>\n                                    </a>\n";
+    + ((stack1 = ((helper = (helper = lookupProperty(helpers,"url") || (depth0 != null ? lookupProperty(depth0,"url") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"url","hash":{},"data":data,"loc":{"start":{"line":361,"column":45},"end":{"line":361,"column":54}}}) : helper))) != null ? stack1 : "")
+    + "\" rel=\"next\" aria-label=\"Next page of results\">\n                                        <span>Next</span>\n                                        <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "#arrow-right\"></use></svg>\n                                    </a>\n";
 },"130":function(container,depth0,helpers,partials,data) {
-    return "                                <li class=\"ellipsis\">\n                                    <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\" aria-hidden=\"true\" focusable=\"false\" width=\"24\" height=\"32\" role=\"img\"><path fill=\"currentColor\" d=\"M352 256C352 238.3 366.3 224 384 224C401.7 224 416 238.3 416 256C416 273.7 401.7 288 384 288C366.3 288 352 273.7 352 256zM192 256C192 238.3 206.3 224 224 224C241.7 224 256 238.3 256 256C256 273.7 241.7 288 224 288C206.3 288 192 273.7 192 256zM96 256C96 273.7 81.67 288 64 288C46.33 288 32 273.7 32 256C32 238.3 46.33 224 64 224C81.67 224 96 238.3 96 256z\"/></svg>\n                                </li>\n";
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                                <li class=\"ellipsis\">\n                                    <svg class=\"qld__icon qld__icon--sm\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "#more-horizontal\"></use></svg>\n                                </li>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.lambda, alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -780,6 +806,6 @@
     + "                </div>\n                \n\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"resultsSummary") : stack1)) != null ? lookupProperty(stack1,"totalMatching") : stack1),"<","1",{"name":"ifCond","hash":{},"fn":container.program(117, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":317,"column":16},"end":{"line":330,"column":27}}})) != null ? stack1 : "")
     + "                \n\n"
-    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"resultsSummary") : stack1)) != null ? lookupProperty(stack1,"totalMatching") : stack1),">=","11",{"name":"ifCond","hash":{},"fn":container.program(119, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":333,"column":16},"end":{"line":375,"column":27}}})) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"resultsSummary") : stack1)) != null ? lookupProperty(stack1,"totalMatching") : stack1),">=","11",{"name":"ifCond","hash":{},"fn":container.program(119, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":333,"column":16},"end":{"line":376,"column":27}}})) != null ? stack1 : "")
     + "            </div>\n        </div>\n    </div>\n</section>";
 },"useData":true,"useBlockParams":true}
