@@ -97,7 +97,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_1_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":26,"column":16},"end":{"line":30,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_1_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(14, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":32,"column":16},"end":{"line":36,"column":23}}})) != null ? stack1 : "")
@@ -166,7 +168,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_2_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":56,"column":16},"end":{"line":60,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_2_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":62,"column":16},"end":{"line":66,"column":23}}})) != null ? stack1 : "")
@@ -235,7 +239,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_3_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(30, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":86,"column":16},"end":{"line":90,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_3_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(32, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":92,"column":16},"end":{"line":96,"column":23}}})) != null ? stack1 : "")
@@ -304,7 +310,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_4_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(39, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":116,"column":16},"end":{"line":120,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_4_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(41, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":122,"column":16},"end":{"line":126,"column":23}}})) != null ? stack1 : "")
@@ -373,7 +381,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_5_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":146,"column":16},"end":{"line":150,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_5_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(50, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":152,"column":16},"end":{"line":156,"column":23}}})) != null ? stack1 : "")
@@ -442,7 +452,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_6_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(57, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":176,"column":16},"end":{"line":180,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_6_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(59, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":182,"column":16},"end":{"line":186,"column":23}}})) != null ? stack1 : "")
@@ -511,7 +523,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_7_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(66, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":206,"column":16},"end":{"line":210,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_7_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(68, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":212,"column":16},"end":{"line":216,"column":23}}})) != null ? stack1 : "")
@@ -580,7 +594,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_8_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(75, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":236,"column":16},"end":{"line":240,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_8_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(77, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":242,"column":16},"end":{"line":246,"column":23}}})) != null ? stack1 : "")
@@ -649,7 +665,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_9_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(84, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":266,"column":16},"end":{"line":270,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_9_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(86, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":272,"column":16},"end":{"line":276,"column":23}}})) != null ? stack1 : "")
@@ -718,7 +736,9 @@
         return undefined
     };
 
-  return "            <div class=\"row qld__margin-t-text-element qld__row-gap-text-element\">\n\n"
+  return "            <div class=\"row qld__margin-t-text-element "
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"space_rows") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + "\">\n\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_10_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(93, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":296,"column":16},"end":{"line":300,"column":23}}})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"col_10_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(95, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":302,"column":16},"end":{"line":306,"column":23}}})) != null ? stack1 : "")
