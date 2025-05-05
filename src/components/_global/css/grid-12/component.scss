@@ -15,6 +15,12 @@
 $QLD-grid-12-columns: 12 !default;        //column amounts
 // $QLD-grid-12-gutter-width: 32px !default; //gutter space
 
+// Define margin spacing variables based on Figma specs
+// Using existing gutter variables from variables.scss file
+$QLD-grid__gutter--media-md: 24px !default;  // Medium devices (700-991px)
+$QLD-grid__gutter--media-lg: 32px !default;  // Large devices (992-1312px)
+$QLD-grid__gutter--media-xl: 48px !default;  // Extra large devices (>1312px)
+
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Mixins and grid class generation
@@ -29,19 +35,21 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
 	}
 
 	#{ $list } {
-        box-sizing: border-box; //we can’t assume that has been added on * {}
+        box-sizing: border-box; //we can't assume that has been added on * {}
         position: relative;
-        // padding-left:  ceil( ( $QLD-grid-12-gutter-width / 2 ) );
-        // padding-right: floor( ( $QLD-grid-12-gutter-width / 2 ) );
         @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
         flex: 0 0 auto;
 
         @include QLD-media(md) {
-            @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
+            @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal);
         }
         
         @include QLD-media(lg) {
-            // @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
+            @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
+        }
+        
+        @include QLD-media(xl) {
+            @include QLD-container-padding($QLD-grid__gutter--media-xl, horizontal);
         }
 	}
 }
@@ -128,17 +136,20 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
     @include QLD-space(max-width, $QLD-grid__maxwidth);
     margin-left: auto;
     margin-right: auto;
+    // Using existing gutter variables for small screens
     @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
 
     @include QLD-media(md) {
-        @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal); 
-
+        @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal); 
     }
 
     @include QLD-media(lg) {
-        @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
+        @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
     }
-
+    
+    @include QLD-media(xl) {
+        @include QLD-container-padding($QLD-grid__gutter--media-xl, horizontal);
+    }
 }
 
 .qld__grid {
@@ -158,12 +169,10 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         @include QLD-media(lg) {
             @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal); 
         }
-        
-
+        @include QLD-media(xl) {
+            @include QLD-container-padding($QLD-grid__gutter--media-xl, horizontal); 
+        }
     }
-
-    
-    
 }
 
 .qld__grid {
@@ -176,27 +185,6 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
     .container-fluid {
         box-sizing: border-box;
         @include QLD-clearfix;
-        
-        // .container,
-        // .container-fluid:not(.qld__example__inline &) {
-        //     padding: 0;
-            
-        //     @include QLD-media(md) {
-        //         padding: 0;
-        //     }
-            
-        //     @include QLD-media(lg) {
-        //         padding: 0;
-        //     }
-            
-        //     @include QLD-media(xl) {
-        //         padding: 0;
-        //     }
-            
-        //     @include QLD-media(xxl) {
-        //         padding: 0;
-        //     }
-        // }
     }
 
     //create row and clear floats inside
@@ -206,22 +194,19 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         flex-direction: row;
         clear: both;
         @include QLD-clearfix;
-        @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal );
+        @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal);
 
         @include QLD-media(md) {
-            @include QLD-container-margin($QLD-grid__gutter--media-sm, neg, horizontal);
+            @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
         }
         
         @include QLD-media(lg) {
-            // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
+            @include QLD-container-margin($QLD-grid__gutter--media-lg, neg, horizontal);
         }
-
         
-        // &--section {
-        //     * + & {
-        //         @include QLD-space(margin-top, 3unit);
-        //     }
-        // }
+        @include QLD-media(xl) {
+            @include QLD-container-margin($QLD-grid__gutter--media-xl, neg, horizontal);
+        }
         
         &--heading-paragraph-columns {
             * + h2 {
@@ -234,21 +219,14 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
             
             * + p {
                 @include QLD-space(margin-top, 1unit);
-
             }
+            
             div[class^="col-"]{
                 @include QLD-space(margin-top, 1unit);
-                // @include QLD-space(margin-bottom, 1unit);
-                // &:last-child{
-                //     @include QLD-space(margin-bottom, 0unit);
-                // }
+                
                 @include QLD-media(lg) {
                     @include QLD-space(margin-top, 0unit);
-                    // @include QLD-space(margin-bottom, 0unit);
                 }
-
-                
-
             }
             
             .qld__callout {
@@ -274,41 +252,33 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
         
         #content{
             @include QLD-media(md) {
-                @include QLD-container-padding($QLD-grid__gutter--media-sm, horizontal);
+                @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal);
+            }
+            
+            @include QLD-media(lg) {
+                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
+            }
+            
+            @include QLD-media(xl) {
+                @include QLD-container-padding($QLD-grid__gutter--media-xl, horizontal);
             }
         }
     }
+    
     main > {
-        // div > section > .container-fluid > .row,
-        // section > .container-fluid > .row{
-        //     // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
-        //     @include QLD-media(md) {
-        //         @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
-        //     }
-        //     @include QLD-media(lg) {
-        //         @include QLD-container-margin($QLD-grid__gutter--media-lg, neg, horizontal);
-        //     }
-        // }
         .qld__body > .container-fluid {
-            > .row{
+            > .row > div[class^="col-"],
+            > .row > div[class^="col-"]#content{
+                @include QLD-media(md) {
+                    @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal);
+                }
                 @include QLD-media(lg) {
-                    // @include QLD-container-margin($QLD-grid__gutter--media-md, neg, horizontal);
+                    @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
+                }
+                @include QLD-media(xl) {
+                    @include QLD-container-padding($QLD-grid__gutter--media-xl, horizontal);
                 }
             }
-            > .row> div[class^="col-"],
-            > .row> div[class^="col-"]#content{
-                @include QLD-media(lg) {
-                    // @include QLD-container-padding($QLD-grid__gutter--media-md, horizontal ) ;
-                    // section { //QHWT-585
-                    //     max-width: 54rem;
-                    //     margin-left: -0.75rem;
-                    // }
-                    // &:not(#content) { //QHWT-585
-                    //     padding-right: 0.75rem;
-                    // } 
-                }
-            }
-            
         }
     }
     
