@@ -1,7 +1,8 @@
 import Handlebars from "handlebars";
 import Template from "../../components/page_alert/html/component.hbs?raw";
+import { figmaLinks } from "../../../.storybook/globals";
 
-const renderPageAlert = ({ assetid, id_field, type, heading_level, heading, body, ...args }) =>
+const renderInPageAlert = ({ assetid, id_field, type, heading_level, heading, body, ...args }) =>
     Handlebars.compile(Template)({
         component: {
             data: {
@@ -18,19 +19,18 @@ const renderPageAlert = ({ assetid, id_field, type, heading_level, heading, body
         ...args,
     });
 
-const pageAlertArgs = {
+const inPageAlertArgs = {
     assetid: "12345",
     id_field: "123",
     type: "info",
     heading_level: "h2",
-    heading: "Page alert title",
-    body: "Woohoo! This is the body of my page alert",
+    heading: "In-page alert title",
+    body: "Woohoo! This is the body of my in-page alert",
 };
 
 export default {
-    title: "Squiz components/Page Alert",
-    render: renderPageAlert,
-
+    title: "Components/In-page Alert",
+    render: renderInPageAlert,
     argTypes: {
         assetid: { control: "text" },
         id_field: { control: "text" },
@@ -53,38 +53,48 @@ export default {
         heading: { control: "text", description: "The heading of the alert" },
         body: { control: "text", description: "The body text of the alert" },
     },
-    args: { ...pageAlertArgs },
+    args: { ...inPageAlertArgs },
+    parameters: {
+        design: {
+            type: "figma",
+            url: figmaLinks.inPageAlert.design,
+        },
+    },
 };
 
 export const Default = {
     args: {
-        ...pageAlertArgs,
+        ...inPageAlertArgs,
     },
 };
+
 export const Info = {
     args: {
-        ...pageAlertArgs,
+        ...inPageAlertArgs,
         type: "info",
     },
     tags: ["!dev"],
 };
+
 export const Success = {
     args: {
-        ...pageAlertArgs,
+        ...inPageAlertArgs,
         type: "success",
     },
     tags: ["!dev"],
 };
+
 export const Warning = {
     args: {
-        ...pageAlertArgs,
+        ...inPageAlertArgs,
         type: "warning",
     },
     tags: ["!dev"],
 };
+
 export const Error = {
     args: {
-        ...pageAlertArgs,
+        ...inPageAlertArgs,
         type: "error",
     },
     tags: ["!dev"],

@@ -1,7 +1,7 @@
 import "./assets/handlebar-helpers.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-import { withThemeByClassName } from "@storybook/addon-themes";
-import { viewports, themes } from "./globals.js";
+// import { withThemeByClassName } from "@storybook/addon-themes";
+import { viewports, themes, themeColours } from "./globals.js";
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
@@ -34,6 +34,31 @@ const preview = {
                 excludeDecorators: true,
             },
         },
+        backgrounds: {
+            default: "white",
+            values: [
+                {
+                    name: "white",
+                    value: themeColours["white"],
+                },
+                {
+                    name: "light",
+                    value: themeColours["light"],
+                },
+                {
+                    name: "light alt",
+                    value: themeColours["light alt"],
+                },
+                {
+                    name: "dark",
+                    value: themeColours["dark"],
+                },
+                {
+                    name: "dark alt",
+                    value: themeColours["dark alt"],
+                },
+            ],
+        },
     },
     args: {
         site: { metadata: { coreSiteIcons: { value: "/QLD-icons.svg" } } },
@@ -44,10 +69,26 @@ const preview = {
     },
     decorators: [
         // The classes qld__light and qld__dark for example, are not currently supported but will be in the future.
-        withThemeByClassName({
-            themes: themes,
-            defaultTheme: "white",
-        }),
+        // withThemeByClassName({
+        //     themes: themes,
+        //     defaultTheme: "white",
+        // }),
+        (storyFn, context) => {
+            const theme = context.globals.theme || "white";
+            const themeClass = themes[theme] || "qld__body";
+
+            const wrapper = document.createElement("div");
+            wrapper.className = themeClass;
+
+            const story = storyFn();
+            if (typeof story === "string") {
+                wrapper.innerHTML = story;
+            } else if (story instanceof HTMLElement) {
+                wrapper.appendChild(story);
+            }
+
+            return wrapper;
+        },
     ],
 };
 
