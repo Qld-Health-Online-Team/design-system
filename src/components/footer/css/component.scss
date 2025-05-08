@@ -182,32 +182,36 @@
     &__social,
     &__navigation {
         border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+
         @include QLD-media(lg) {
             border-top: none;
         }
+
         ul.qld__link-list {
             padding: 0;
             margin: 0;
             display: flex;
             flex-wrap: wrap;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-between;
             line-height: 1.4;
+
+            @include QLD-media(lg, "down") {
+                flex-direction: row;
+            }
 
             > li {
                 margin: 0;
 
                 @include QLD-space(margin-bottom, 0.5unit);
                 width: 50%;
-                flex-basis: 50%;
 
                 @include QLD-media(md) {
                     width: 33%;
-                    flex-basis: 33%;
                 }
+
                 @include QLD-media(lg) {
                     width: auto;
-                    flex-basis: 100%;
                     @include QLD-space(margin-bottom, 0.75unit);
                 }
 
@@ -284,7 +288,6 @@
         }
         ul.qld__link-list {
             display: flex;
-            align-items: end;
             justify-content: space-between;
 
             @include QLD-media(lg) {
