@@ -3,40 +3,78 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 hr.qld__horizontal-rule {
-	background-color: $QLD-color-neutral--lighter;
-	border: none;
+    background-color: $QLD-color-neutral--lighter;
+    border: none;
 
-	.qld__card .qld__card__footer &{
-		background-color: $QLD-color-neutral--lighter;
-	}
+    .qld__card .qld__card__footer & {
+        background-color: $QLD-color-neutral--lighter;
+    }
 
-	.qld__body--light &,
-	.qld__card--light .qld__card__footer &{
-		background-color: var(--QLD-color-light__border);
-	}
+    .qld__body--light &,
+    .qld__card--light .qld__card__footer & {
+        background-color: var(--QLD-color-light__border);
+    }
 
-	.qld__body--alt &,
-	.qld__card--alt .qld__card__footer &{
-		background-color: var(--QLD-color-light__border--alt);
-	}
-	.qld__body--dark &,
-	.qld__card--dark .qld__card__footer &,
-	.qld__main-nav--dark &{
-		background-color: var(--QLD-color-dark__border);
-	}
-	.qld__body--dark-alt &,
-	.qld__card--dark-alt .qld__card__footer &{
-		background-color: var(--QLD-color-dark__border--alt); 
-	}
+    .qld__body--alt &,
+    .qld__card--alt .qld__card__footer & {
+        background-color: var(--QLD-color-light__border--alt);
+    }
+    .qld__body--dark &,
+    .qld__card--dark .qld__card__footer &,
+    .qld__main-nav--dark & {
+        background-color: var(--QLD-color-dark__border);
+    }
+    .qld__body--dark-alt &,
+    .qld__card--dark-alt .qld__card__footer & {
+        background-color: var(--QLD-color-dark__border--alt);
+    }
 
-	&.qld__horizontal-rule--md{
-		height: 2px;
-		@include QLD-space(margin, 1.438unit 0 1.438unit 0);
-	}
+    &.qld__horizontal-rule--md {
+        height: 2px;
+        @include QLD-space(margin, 1.438unit 0 1.438unit 0);
+    }
 
-	&.qld__horizontal-rule--lg{
-		height: 2px;
-		@include QLD-space(margin, 1.938unit 0 1.938unit 0);
-	}
+    &.qld__horizontal-rule--lg {
+        height: 2px;
+        @include QLD-space(margin, 1.938unit 0 1.938unit 0);
+    }
+}
 
+/* Accessible versions for body sections */
+
+.qld__horizontal-rule,
+hr.qld__horizontal-rule {
+    .qld__body & {
+        background-color: var(--QLD-color-light__border--alt);
+    }
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        background-color: var(--QLD-color-dark__border--alt);
+    }
+}
+
+/* Decorative versions for body sections */
+
+.qld__horizontal-rule[aria-hidden="true"],
+hr.qld__horizontal-rule[aria-hidden="true"] {
+    .qld__body & {
+        background-color: $QLD-color-neutral--lighter;
+    }
+
+    .qld__body--light & {
+        background-color: var(--QLD-color-light__border);
+    }
+
+    .qld__body--alt & {
+        background-color: var(--QLD-color-light__border--alt);
+    }
+
+    .qld__body--dark & {
+        background-color: var(--QLD-color-dark__border);
+    }
+
+    .qld__body--dark-alt & {
+        background-color: var(--QLD-color-dark__border--alt);
+    }
 }
