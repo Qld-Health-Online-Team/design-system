@@ -273,7 +273,9 @@
     }
 
     .qld__overflow_menu--breadcrumbs {
-        left: 15px;
+        @include QLD-media(lg, "down") {
+            left: 15px;
+        }
     }
 
     &.qld__breadcrumbs--dark,
