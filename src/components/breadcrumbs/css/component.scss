@@ -250,7 +250,9 @@
 
     .qld__breadcrumbs__item {
         position: relative;
-        left: 15px;
+        @include QLD-media(lg, "down") {
+            left: 15px;
+        }
 
         &:before {
             content: "";
@@ -271,7 +273,9 @@
     }
 
     .qld__overflow_menu--breadcrumbs {
-        left: 15px;
+        @include QLD-media(lg, "down") {
+            left: 15px;
+        }
     }
 
     &.qld__breadcrumbs--dark,
