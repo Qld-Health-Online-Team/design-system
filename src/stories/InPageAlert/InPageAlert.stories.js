@@ -1,6 +1,7 @@
 import Handlebars from "handlebars";
 import Template from "../../components/page_alert/html/component.hbs?raw";
 import { figmaLinks } from "../../../.storybook/globals";
+import { variantsThemeMapper } from "../../../.storybook/helper-functions";
 
 const renderInPageAlert = ({ assetid, id_field, type, heading_level, heading, body, ...args }) =>
     Handlebars.compile(Template)({
@@ -68,34 +69,22 @@ export const Default = {
     },
 };
 
-export const Info = {
-    args: {
-        ...inPageAlertArgs,
-        type: "info",
-    },
-    tags: ["!dev"],
-};
+export const InfoVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "info" });
+InfoVariant.tags = ["!dev"];
 
-export const Success = {
-    args: {
-        ...inPageAlertArgs,
-        type: "success",
-    },
-    tags: ["!dev"],
-};
+export const SuccessVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "success" });
+SuccessVariant.tags = ["!dev"];
 
-export const Warning = {
-    args: {
-        ...inPageAlertArgs,
-        type: "warning",
-    },
-    tags: ["!dev"],
-};
+export const WarningVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "warning" });
+WarningVariant.tags = ["!dev"];
 
-export const Error = {
-    args: {
-        ...inPageAlertArgs,
-        type: "error",
-    },
-    tags: ["!dev"],
-};
+export const ErrorVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "error" });
+ErrorVariant.tags = ["!dev"];
+
+export const InfoVariants = (inPageAlertArgs) => variantsThemeMapper("Info", InfoVariant(inPageAlertArgs));
+
+export const SuccessVariants = (inPageAlertArgs) => variantsThemeMapper("Success", SuccessVariant(inPageAlertArgs));
+
+export const WarningVariants = (inPageAlertArgs) => variantsThemeMapper("Warning", WarningVariant(inPageAlertArgs));
+
+export const ErrorVariants = (inPageAlertArgs) => variantsThemeMapper("Error", ErrorVariant(inPageAlertArgs));

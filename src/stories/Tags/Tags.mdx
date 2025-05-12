@@ -1,0 +1,66 @@
+import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
+import * as TagsStories from "./Tags.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={TagsStories} />
+
+# Tags
+
+## Overview
+
+Tags classify content using keywords or labels. They’re added to a web page, an asset or other content to help users search for and find related content quickly and easily.
+
+There are 4 types of tags in our Design System:
+
+<ul>
+    <li>Default tags</li>
+    <li>Action tags</li>
+    <li>Supplementary information tags</li>
+    <li>Applied filter tags (removable tags)</li>
+</ul>
+
+All tags are available in 2 sizes. Default and Large. Default tags are used for search results or in cards. Large tags are useful to tag sections of content such as articles and blogs posts.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Default tags
+
+This is the default style for tags, they're used to display a list of keywords or labels but aren't clickable.
+
+<Story of={TagsStories.DefaultVariant} />
+
+## Action tags
+
+Action tags are clickable links and are used when a tag needs to be interactive. In most cases this is when tags link to additional content related to that tagged topic.
+
+<Story of={TagsStories.ActionVariant} />
+
+## Information tags
+
+Information tags convey additional data about a subject and are styled differently to tags that are topic based. These tags are most often used for content that is numerical such as read time, distance and file size. This style of tag is also used to indicate result numbers within our filterable search component.
+
+Information tags are similar but not the same as <a href="https://getbootstrap.com/docs/4.0/components/badge/" target="_blank" rel="noopener noreferrer">badges</a>. Badges usually contain numbers or icons and are used to indicate a status, notification count, or a very small piece of information attached to an item. Information tags similar to badges often contain numbers but don't sit within the component, are larger and convey more unique content.
+
+<Story of={TagsStories.InfoVariant} />
+
+## Applied filter tags
+
+Applied filter tags are a unique variant of large clickable tags that are used to indicate applied filters or facets.
+
+<Story of={TagsStories.FilterVariant} />
+
+## Design resources
+
+-   <a href={figmaLinks.tags.design} target="_blank" rel="noopener noreferrer">
+        Component design view (Figma)
+    </a>
+-   <a href={figmaLinks.tags.file} target="_blank" rel="noopener noreferrer">
+        Component file (Figma)
+    </a>
+-   <a href={figmaLinks.tags.ds} target="_blank" rel="noopener noreferrer">
+        Design System website
+    </a>
