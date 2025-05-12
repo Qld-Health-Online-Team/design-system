@@ -1,8 +1,8 @@
 {{#with component.data}}
-<section class="qld__body qld__video__player--wrapper 
+<section class="qld__body qld__video__player--wrapper
   {{#if metadata.body_background.value}}qld__body--{{metadata.body_background.value}}{{/if}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}video_player-{{assetid}}{{/if}}">
   <div class="container-fluid">
-    <div class="row qld__row-gap-component {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player--align{{/ifCond}}">
+    <div class="row qld__row-gap-component {{#ifCond metadata.video_layout.value '==' 'two_column'}}qld__video__player--align-{{metadata.video_align_items.value}}{{/ifCond}}">
 
 
       <!-- Check for 'stack' video layout option -->
@@ -10,14 +10,14 @@
 
       <!-- If video description exists, display it -->
         {{#if metadata.video_description.value}}
-          <div class="col-xs-12 
+          <div class="col-xs-12
             {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__copy--centered text-center{{/ifCond}}">
             {{{metadata.video_description.value}}}
           </div>
         {{/if}}
 
         <!-- Embed video based on selected video size and layout -->
-        <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-12 col-lg-8{{else}}col-xs-12{{/ifCond}} 
+        <div class="{{#ifCond metadata.video_size.value '==' 'eight_col'}}col-xs-12 col-lg-8{{else}}col-xs-12{{/ifCond}}
           {{#ifCond metadata.stack_options.value '==' 'centered'}}qld__video__centered{{/ifCond}}">
 
           <!-- Only embed the video if a video ID is provided -->
@@ -31,7 +31,7 @@
                     allow="fullscreen"
                     allowfullscreen
                     title="{{metadata.video_caption.value}} - Video"
-                    aria-label="Video: {{metadata.video_caption.value}}" 
+                    aria-label="Video: {{metadata.video_caption.value}}"
                     class="qld__video__player--iframe">
                     </iframe>
               </div>
@@ -105,7 +105,7 @@
                 allow="fullscreen"
                 allowfullscreen
                 title="{{metadata.video_caption.value}} - Video"
-                aria-label="Video: {{metadata.video_caption.value}}" 
+                aria-label="Video: {{metadata.video_caption.value}}"
                 class="qld__video__player--iframe">
                 </iframe>
               </div>
