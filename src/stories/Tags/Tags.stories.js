@@ -56,20 +56,26 @@ export const Default = {
 
 export const DefaultVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "default" });
 DefaultVariant.tags = ["!dev"];
+export const DefaultVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "default", tagSize: "large" });
+DefaultVariantLarge.tags = ["!dev"];
 
 export const ActionVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "action" });
 ActionVariant.tags = ["!dev"];
+export const ActionVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "action", tagSize: "large" });
+ActionVariantLarge.tags = ["!dev"];
 
 export const InfoVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "info" });
 InfoVariant.tags = ["!dev"];
+export const InfoVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "info", tagSize: "large" });
+InfoVariantLarge.tags = ["!dev"];
 
 export const FilterVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "filter" });
 FilterVariant.tags = ["!dev"];
 
-export const DefaultVariants = (tagsArgs) => variantsThemeMapper("Default", DefaultVariant(tagsArgs));
+export const DefaultVariants = (tagsArgs) => variantsThemeMapper("Default regular tags", DefaultVariant(tagsArgs)) + variantsThemeMapper("Default large tags", DefaultVariantLarge(tagsArgs));
 
-export const ActionVariants = (tagsArgs) => variantsThemeMapper("Action", ActionVariant(tagsArgs));
+export const ActionVariants = (tagsArgs) => variantsThemeMapper("Action regular tags", ActionVariant(tagsArgs)) + variantsThemeMapper("Action large tags", ActionVariantLarge(tagsArgs));
 
-export const InfoVariants = (tagsArgs) => variantsThemeMapper("Info", InfoVariant(tagsArgs));
+export const InfoVariants = (tagsArgs) => variantsThemeMapper("Info regular tags", InfoVariant(tagsArgs)) + variantsThemeMapper("Info large tags", InfoVariantLarge(tagsArgs));
 
 export const FilterVariants = (tagsArgs) => variantsThemeMapper("Filter", FilterVariant(tagsArgs));
