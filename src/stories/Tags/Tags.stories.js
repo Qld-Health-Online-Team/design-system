@@ -1,12 +1,12 @@
 import { Tags } from "./Tags";
 import { figmaLinks } from "../../../.storybook/globals";
-import { variantsThemeMapper } from "../../../.storybook/helper-functions";
+import { themes } from "../../../.storybook/globals";
 
 const tagsArgs = {
     type: "default",
     leadingText: "Tags:",
     text: "Policies",
-    tagSize: "default",
+    isLargeTag: false,
     action: "javascript:alert(`tag clicked!`)",
 };
 
@@ -15,19 +15,27 @@ export default {
     render: (args) => Tags(args),
     argTypes: {
         type: {
-            control: "select",
+            control: {
+                type: "radio",
+                labels: {
+                    default: "Default",
+                    action: "Action",
+                    info: "Info",
+                    filter: "Filter",
+                },
+            },
             options: ["default", "action", "info", "filter"],
             description: "The type of tags that will be displayed",
             table: {
                 defaultValue: { summary: "default" },
             },
         },
-        leadingText: { control: "text", description: "The text displayed leading the tags" },
+        leadingText: { name: "leading_text", control: "text", description: "The text displayed leading the tags" },
         text: { control: "text", description: "The text to be displayed within the tag" },
-        tagSize: {
-            control: "select",
-            options: ["default", "large"],
-            description: "The size of the tags",
+        isLargeTag: {
+            name: "is_large_tag",
+            control: "boolean",
+            description: "The size of the tags, either default or large",
             table: {
                 defaultValue: { summary: "default" },
             },
@@ -54,28 +62,91 @@ export const Default = {
     },
 };
 
-export const DefaultVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "default" });
-DefaultVariant.tags = ["!dev"];
-export const DefaultVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "default", tagSize: "large" });
-DefaultVariantLarge.tags = ["!dev"];
+export const defaultVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "default" });
+defaultVariant.tags = ["!dev"];
+export const defaultVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "default", isLargeTag: true });
+defaultVariantLarge.tags = ["!dev"];
 
-export const ActionVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "action" });
-ActionVariant.tags = ["!dev"];
-export const ActionVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "action", tagSize: "large" });
-ActionVariantLarge.tags = ["!dev"];
+export const actionVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "action" });
+actionVariant.tags = ["!dev"];
+export const actionVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "action", isLargeTag: true });
+actionVariantLarge.tags = ["!dev"];
 
-export const InfoVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "info" });
-InfoVariant.tags = ["!dev"];
-export const InfoVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "info", tagSize: "large" });
-InfoVariantLarge.tags = ["!dev"];
+export const infoVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "info" });
+infoVariant.tags = ["!dev"];
+export const infoVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "info", isLargeTag: true });
+infoVariantLarge.tags = ["!dev"];
 
-export const FilterVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "filter" });
-FilterVariant.tags = ["!dev"];
+export const filterVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "filter" });
+filterVariant.tags = ["!dev"];
 
-export const DefaultVariants = (tagsArgs) => variantsThemeMapper("Default regular tags", DefaultVariant(tagsArgs)) + variantsThemeMapper("Default large tags", DefaultVariantLarge(tagsArgs));
+export const allVariants = (args, theme) => {
+    return `
+        <div class="${theme}">
+            <h3>Default tags</h3>
+            ${defaultVariant(args)}
+            ${defaultVariantLarge(args)}
+            <h3>Action tags</h3>
+            ${actionVariant(args)}
+            ${actionVariantLarge(args)}
+            <h3>Info tags</h3>
+            ${infoVariant(args)}
+            ${infoVariantLarge(args)}
+            <h3>Filter tags</h3>
+            ${filterVariant(args)}
+        </div>
+    `;
+};
+const allVariantsArgTypes = {
+    type: {
+        table: {
+            disable: true,
+        },
+    },
+    isLargeTag: {
+        table: {
+            disable: true,
+        },
+    },
+};
+allVariants.tags = ["!dev"];
 
-export const ActionVariants = (tagsArgs) => variantsThemeMapper("Action regular tags", ActionVariant(tagsArgs)) + variantsThemeMapper("Action large tags", ActionVariantLarge(tagsArgs));
+export const white = {
+    args: tagsArgs,
+    argTypes: allVariantsArgTypes,
+    render: (args) => {
+        return allVariants(args, themes["white"]);
+    },
+};
 
-export const InfoVariants = (tagsArgs) => variantsThemeMapper("Info regular tags", InfoVariant(tagsArgs)) + variantsThemeMapper("Info large tags", InfoVariantLarge(tagsArgs));
+export const light = {
+    args: tagsArgs,
+    argTypes: allVariantsArgTypes,
+    render: (args) => {
+        return allVariants(args, themes["light"]);
+    },
+};
 
-export const FilterVariants = (tagsArgs) => variantsThemeMapper("Filter", FilterVariant(tagsArgs));
+export const lightAlt = {
+    args: tagsArgs,
+    argTypes: allVariantsArgTypes,
+    render: (args) => {
+        return allVariants(args, themes["light alt"]);
+    },
+};
+
+export const dark = {
+    args: tagsArgs,
+    argTypes: allVariantsArgTypes,
+    render: (args) => {
+        return allVariants(args, themes["dark"]);
+    },
+};
+
+export const darkAlt = {
+    args: tagsArgs,
+    argTypes: allVariantsArgTypes,
+    render: (args) => {
+        return allVariants(args, themes["dark alt"]);
+    },
+};

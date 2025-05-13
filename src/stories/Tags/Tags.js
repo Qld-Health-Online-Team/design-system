@@ -1,4 +1,4 @@
-export const Tags = ({ type, leadingText, text, tagSize, action }) => {
+export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
     const tagListWrapperStart = `<div class="qld__tag-list--wrapper"><span class="qld__tag-list--title">${leadingText}</span><ul class="qld__tag-list">`;
     const tagListWrapperEnd = `</div>`;
     let tagListContent = "";
@@ -6,16 +6,16 @@ export const Tags = ({ type, leadingText, text, tagSize, action }) => {
     switch (type) {
         case "action":
             tagListContent = `
-                <li><a class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
-                <li><a class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
-                <li><a class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
             `;
             break;
         case "info":
             tagListContent = `
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
             `;
             break;
         case "filter":
@@ -52,9 +52,9 @@ export const Tags = ({ type, leadingText, text, tagSize, action }) => {
         case "default":
         default:
             tagListContent = `
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""}">${text}</li>
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""}">${text}</li>
-                <li class="qld__tag ${tagSize === "large" ? "qld__tag--large" : ""}">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
             `;
             break;
     }

@@ -1,17 +1,15 @@
 import Handlebars from "handlebars";
 import Template from "../../components/page_alert/html/component.hbs?raw";
 import { figmaLinks } from "../../../.storybook/globals";
-import { variantsThemeMapper } from "../../../.storybook/helper-functions";
 
-const renderInPageAlert = ({ assetid, id_field, type, heading_level, heading, body, ...args }) =>
+const renderInPageAlert = ({ id, type, headingLevel, heading, body, ...args }) =>
     Handlebars.compile(Template)({
         component: {
             data: {
-                assetid: assetid,
                 metadata: {
-                    id_field: { value: id_field },
+                    id_field: { value: id },
                     type: { value: type },
-                    heading_level: { value: heading_level },
+                    heading_level: { value: headingLevel },
                     heading: { value: heading },
                     body: { value: body },
                 },
@@ -21,10 +19,9 @@ const renderInPageAlert = ({ assetid, id_field, type, heading_level, heading, bo
     });
 
 const inPageAlertArgs = {
-    assetid: "12345",
-    id_field: "123",
+    id: "123",
     type: "info",
-    heading_level: "h2",
+    headingLevel: "h2",
     heading: "In-page alert title",
     body: "Woohoo! This is the body of my in-page alert",
 };
@@ -33,18 +30,32 @@ export default {
     title: "Components/In-page Alert",
     render: renderInPageAlert,
     argTypes: {
-        assetid: { control: "text" },
-        id_field: { control: "text" },
+        id: { control: "text" },
         type: {
-            control: "select",
-            options: ["info", "success", "error", "warning"],
-            description: "The type of the alert. For example informational, error",
-            table: {
-                defaultValue: { summary: "info" },
+            control: {
+                type: "radio",
+                labels: {
+                    info: "Info",
+                    success: "Success",
+                    warning: "Warning",
+                    error: "Error",
+                },
             },
+            options: ["info", "success", "error", "warning"],
         },
-        heading_level: {
-            control: "select",
+        headingLevel: {
+            name: "heading_level",
+            control: {
+                type: "radio",
+                labels: {
+                    h1: "H1",
+                    h2: "H2",
+                    h3: "H3",
+                    h4: "H4",
+                    h5: "H5",
+                    h6: "H6",
+                },
+            },
             options: ["h1", "h2", "h3", "h4", "h5", "h6"],
             description: "The heading level of the alert, for example H1, H6. The sole purpose of this variable is to change the semantic HTML tag used, not the visual appearance",
             table: {
@@ -69,22 +80,14 @@ export const Default = {
     },
 };
 
-export const InfoVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "info" });
-InfoVariant.tags = ["!dev"];
+export const infoVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "info" });
+infoVariant.tags = ["!dev"];
 
-export const SuccessVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "success" });
-SuccessVariant.tags = ["!dev"];
+export const successVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "success" });
+successVariant.tags = ["!dev"];
 
-export const WarningVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "warning" });
-WarningVariant.tags = ["!dev"];
+export const warningVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "warning" });
+warningVariant.tags = ["!dev"];
 
-export const ErrorVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "error" });
-ErrorVariant.tags = ["!dev"];
-
-export const InfoVariants = (inPageAlertArgs) => variantsThemeMapper("Info", InfoVariant(inPageAlertArgs));
-
-export const SuccessVariants = (inPageAlertArgs) => variantsThemeMapper("Success", SuccessVariant(inPageAlertArgs));
-
-export const WarningVariants = (inPageAlertArgs) => variantsThemeMapper("Warning", WarningVariant(inPageAlertArgs));
-
-export const ErrorVariants = (inPageAlertArgs) => variantsThemeMapper("Error", ErrorVariant(inPageAlertArgs));
+export const errorVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "error" });
+errorVariant.tags = ["!dev"];

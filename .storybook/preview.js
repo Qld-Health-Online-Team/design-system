@@ -2,6 +2,7 @@ import "./assets/handlebar-helpers.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 // import { withThemeByClassName } from "@storybook/addon-themes";
 import { viewports, themes, themeColours } from "./globals.js";
+import "./storybook.css";
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
