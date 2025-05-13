@@ -102,23 +102,25 @@
         };
     }
 
-    function updateNavLinks(tab) {
-        const navLinksContainer = tab.querySelector(".qld__inpage-nav-links");
-        if (!navLinksContainer) return;
+    function updateNavLinks() {
+        const tabs = document.querySelectorAll(".qld__tab-content");
 
-        const links = navLinksContainer.querySelectorAll("li a");
+        for (let tab of tabs) {
+            const links = tab.querySelectorAll(".qld__inpage-nav-links li a");
 
-        links.forEach((link) => {
-            let targetId = link.getAttribute("href");
-            if (!targetId) return;
+            if (!links) return;
 
-            targetId = correctSelectors(targetId);
-            const targetElement = tab.querySelector(targetId);
+            links.forEach((link) => {
+                let targetId = link.getAttribute("href");
+                targetId = correctSelectors(targetId);
+                targetElement = tab.querySelector(targetId);
 
-            if (!targetElement) {
-                link.parentElement.remove();
-            }
-        });
+                if (!targetElement) {
+                    link.parentElement.remove();
+                }
+            });
+        }
+
         window.removeEventListener("scroll");
     }
 
