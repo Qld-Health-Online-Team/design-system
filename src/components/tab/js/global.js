@@ -161,7 +161,7 @@
 
     function tabFixInitializer() {
         let buttons = document.getElementsByClassName("qld__tab-button");
-        for (button of buttons) {
+        for (let button of buttons) {
             updateNavLinks();
             button.addEventListener("click", () => {
                 updateNavLinks();
