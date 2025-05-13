@@ -121,7 +121,7 @@
             });
         }
 
-        window.removeEventListener("scroll");
+        window.removeEventListener("scroll", handleScroll);
     }
 
     function correctSelectors(selector) {
@@ -169,6 +169,9 @@
                 updateNavLinks();
             });
         }
+    }
+    function handleScroll() {
+        tabFixInitializer();
     }
 
     tab.init = function () {
@@ -362,7 +365,5 @@
         QLD.tab.init();
         tabFixInitializer();
     });
-    window.addEventListener("scroll", () => {
-        tabFixInitializer();
-    });
+    window.addEventListener("scroll", handleScroll);
 })();
