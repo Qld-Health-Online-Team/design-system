@@ -113,7 +113,7 @@
             links.forEach((link) => {
                 let targetId = link.getAttribute("href");
                 targetId = correctSelectors(targetId);
-                targetElement = tab.querySelector(targetId);
+                let targetElement = tab.querySelector(targetId);
 
                 if (!targetElement) {
                     link.parentElement.remove();
