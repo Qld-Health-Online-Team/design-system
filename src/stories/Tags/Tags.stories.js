@@ -82,7 +82,7 @@ filterVariant.tags = ["!dev"];
 
 export const allVariants = (args, theme) => {
     return `
-        <div class="${theme}">
+        <div class="${theme}" style="padding: 2rem;">
             <h3>Default tags</h3>
             ${defaultVariant(args)}
             ${defaultVariantLarge(args)}

@@ -1,6 +1,5 @@
 import "./assets/handlebar-helpers.js";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-// import { withThemeByClassName } from "@storybook/addon-themes";
 import { viewports, themes, themeColours } from "./globals.js";
 import "./storybook.css";
 
@@ -69,11 +68,6 @@ const preview = {
         site: { table: { disable: true } },
     },
     decorators: [
-        // The classes qld__light and qld__dark for example, are not currently supported but will be in the future.
-        // withThemeByClassName({
-        //     themes: themes,
-        //     defaultTheme: "white",
-        // }),
         (storyFn, context) => {
             const theme = context.globals.theme || "white";
             const themeClass = themes[theme] || "qld__body";
