@@ -1,6 +1,6 @@
 export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
     const tagListWrapperStart = `<div class="qld__tag-list--wrapper"><span class="qld__tag-list--title">${leadingText}</span><ul class="qld__tag-list">`;
-    const tagListWrapperEnd = `</div>`;
+    const tagListWrapperEnd = `</ul></div>`;
     let tagListContent = "";
 
     switch (type) {
@@ -13,9 +13,9 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
             break;
         case "info":
             tagListContent = `
-                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
-                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
-                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info" role="note">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
+                <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
             `;
             break;
         case "filter":
