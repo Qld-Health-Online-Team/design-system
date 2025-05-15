@@ -1,0 +1,67 @@
+import { Meta, Primary, Controls, Story, Source, Design } from "@storybook/blocks";
+import * as InPageAlertsStories from "./InPageAlert.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={InPageAlertsStories} />
+
+# In-page Alert
+
+## Overview
+
+In-page alerts are a helpful tool for informing users about essential updates or modifications on a webpage, all while capturing their attention without disrupting their ongoing task.
+Usually positioned at the top of a page after a submit action, these alerts are designed to be noticeable yet unobtrusive.
+There are 4 types of in-page alerts in the Design System including:
+
+<ul>
+    <li>Information</li>
+    <li>Success</li>
+    <li>Error</li>
+    <li>Warning</li>
+</ul>
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Information
+
+This is for things you should know, but they're not super important. They can be helpful tips or messages that don't need a lot of attention. In general, they're used for time-sensitive information.
+
+<Story of={InPageAlertsStories.infoVariant} />
+
+## Success
+
+The success in-page alert is used for notifying the user they did something right or an action was successful, like submitting a form.
+
+<Story of={InPageAlertsStories.successVariant} />
+
+## Warning
+
+Use warning in-page alerts to tell the user something urgent. Only use an alert if the information will help the user avoid a problem. This style of alert is used to warn you about something that might go wrong, like your password
+expiring.
+
+<Story of={InPageAlertsStories.warningVariant} />
+
+## Error
+
+The error in-page alert should be used with form validation errors or other errors that will block the user from completing their task. This is for when something really bad happens, like the website crashing.
+
+<Story of={InPageAlertsStories.errorVariant} />
+
+## Variants
+
+In-page alerts do not have theme variants.
+
+## Design resources
+
+-   <a href={figmaLinks.inPageAlert.design} target="_blank" rel="noopener noreferrer">
+        Component design view (Figma)
+    </a>
+-   <a href={figmaLinks.inPageAlert.file} target="_blank" rel="noopener noreferrer">
+        Component file (Figma)
+    </a>
+-   <a href={figmaLinks.inPageAlert.ds} target="_blank" rel="noopener noreferrer">
+        Design System website
+    </a>
