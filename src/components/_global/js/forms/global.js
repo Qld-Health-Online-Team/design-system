@@ -1,35 +1,34 @@
-(function(){
-    'use strict';
+(function () {
+    "use strict";
 
     var forms = {};
 
-    forms.init = function() {
-        $.validator.addMethod("nospaces", function(value, element) {
-            return this.optional(element) || (value.indexOf(' ') === -1);
+    forms.init = function () {
+        $.validator.addMethod("nospaces", function (value, element) {
+            return this.optional(element) || value.indexOf(" ") === -1;
         });
 
-        $.validator.addMethod("postcode", function(value, element) {
+        $.validator.addMethod("postcode", function (value, element) {
             return this.optional(element) || (!isNaN(value) && value.length === 4);
         });
 
-        $('.qld__form--validate').each(function() {
+        $(".qld__form--validate").each(function () {
             var $form = $(this);
 
             // Validate form
             $form.validate({
-
                 // Error properties
-                errorElement: 'p',
-                errorClass: 'qld__input--error',
-                errorAttribute: 'tabindex=”0″',
+                errorElement: "p",
+                errorClass: "qld__input--error",
+                errorAttribute: "tabindex=”0″",
 
                 // Place error appropriately in DOM
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     if (element.closest(".sq-form-question-answer").length > 0) {
                         var errorPlacement = element.closest(".sq-form-question-answer").parent();
-                        var errorID = '#' + error[0].id.replace( /(:|\.|\[|\]|,|=|@)/g, "\\$1" );
-                        error.attr('tabindex','0');
-                        if(errorPlacement.find(errorID).length === 0){
+                        var errorID = "#" + error[0].id.replace(/(:|\.|\[|\]|,|=|@)/g, "\\$1");
+                        error.attr("tabindex", "0");
+                        if (errorPlacement.find(errorID).length === 0) {
                             if (element.closest(".qld__form-file-wrapper").length > 0) {
                                 element.closest(".qld__form-file-wrapper").before(error);
                             } else {
@@ -37,64 +36,63 @@
                             }
                         }
                         error.focus();
-                        
                     } else if (element.closest(".qld__form-group").length > 0) {
-                        error.attr('tabindex','0');
+                        error.attr("tabindex", "0");
                         error.prependTo(element.closest(".qld__form-group"));
                         error.focus();
                     }
                 },
 
                 // Set valid class
-                validClass: 'qld__input--valid',
+                validClass: "qld__input--valid",
 
                 // Check validation on focus out
-                onfocusout: function(element) {
+                onfocusout: function (element) {
                     $(element).valid();
                 },
 
                 // Check validation on click
-                onclick: function(element) {
-                    if ( element.type === "radio" || element.type === "checkbox") {
+                onclick: function (element) {
+                    if (element.type === "radio" || element.type === "checkbox") {
                         $(element).valid();
                     }
                 },
 
                 // Highlight invalid
-                highlight: function( element, errorClass, validClass ) {
-                    if ( element.type === "radio" || element.type === "checkbox") {
-                        this.findByName( element.name ).addClass( errorClass ).removeClass( validClass );
-                    } else if ( element.type === "file" && element.classList.contains("qld__file-input") ) {
-                        $( element ).closest(".qld__form-file-dropzone").addClass( errorClass ).removeClass( validClass );
-                    }  else {
-                        $( element ).addClass( errorClass ).removeClass( validClass );
+                highlight: function (element, errorClass, validClass) {
+                    if (element.type === "radio" || element.type === "checkbox") {
+                        this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+                    } else if (element.type === "file" && element.classList.contains("qld__file-input")) {
+                        $(element).closest(".qld__form-file-dropzone").addClass(errorClass).removeClass(validClass);
+                    } else {
+                        $(element).addClass(errorClass).removeClass(validClass);
                     }
                 },
 
                 // Highlight valid
-                unhighlight: function( element, errorClass, validClass ) {
-                    if ( element.type === "radio" || element.type === "checkbox") {
-                        if(this.findByName(element.name).is(":checked") || this.findByName(element.name).is(":selected")){
-                            this.findByName( element.name ).removeClass( errorClass ).addClass( validClass );
-                        }  
+                unhighlight: function (element, errorClass, validClass) {
+                    if (element.type === "radio" || element.type === "checkbox") {
+                        if (this.findByName(element.name).is(":checked") || this.findByName(element.name).is(":selected")) {
+                            this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+                        }
                     } else if (element.type === "file" && element.classList.contains("qld__file-input")) {
-                        $( element ).closest(".qld__form-file-dropzone").removeClass( errorClass ).addClass( validClass );
+                        $(element).closest(".qld__form-file-dropzone").removeClass(errorClass).addClass(validClass);
                     } else {
-                        if ($( element ).val().length > 0){
-                            $( element ).removeClass( errorClass ).addClass( validClass );
+                        if ($(element).val().length > 0) {
+                            $(element).removeClass(errorClass).addClass(validClass);
                         }
                     }
-                }
+                },
             });
 
             // Add custom rules if they exist
-            if (typeof(addCustomRules) !== 'undefined') {
+            if (typeof addCustomRules !== "undefined") {
                 addCustomRules();
             }
 
             // Add required labels to fields
             updateRequiredLabels($form);
-            $form.on('change', function() {
+            $form.on("change", function () {
                 updateRequiredLabels($(this));
             });
             // Add aria tag to helper text
@@ -103,101 +101,110 @@
             //Add data auto complete to date field ---Matrix bug fix---
             dobFieldAutocomplete($form);
 
-            
-
-
             // Validate select fields when option is selected
-            $form.find('select').on('change', function() {
-                console.log('select change');
+            $form.find("select").on("change", function () {
+                console.log("select change");
                 $(this).valid();
             });
         });
 
-        $('form').each(function() {
+        $("form").each(function () {
             var $form = $(this);
             linkHintText($form);
         });
 
-        $('[data-displayif-show]').each(function() {
+        $("[data-displayif-show]").each(function () {
             displayCheck($(this));
         });
-    }
+
+        document.querySelectorAll("select").forEach((select) => {
+            // Create wrapper div
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("select-wrapper");
+
+            // Insert wrapper BEFORE the select
+            select.parentNode.insertBefore(wrapper, select);
+
+            // Move the select into the wrapper
+            wrapper.appendChild(select);
+        });
+    };
 
     // Make forms available to public
     QLD.forms = forms;
-    
-    document.addEventListener("DOMContentLoaded", function(event) { 
+
+    document.addEventListener("DOMContentLoaded", function (event) {
         QLD.forms.init();
     });
 
     function updateRequiredLabels($form) {
-        var $requiredFields = $form.find('[required]');
-            
-        $requiredFields.each(function() {
+        var $requiredFields = $form.find("[required]");
+
+        $requiredFields.each(function () {
             var $field = $(this);
-            var $question = $field.closest('.sq-form-question');
-            
+            var $question = $field.closest(".sq-form-question");
+
             if ($question.length > 0) {
-                var $requiredLabel = $question.find('.sq-form-required-field');
-                
+                var $requiredLabel = $question.find(".sq-form-required-field");
+
                 if ($requiredLabel.length === 0) {
-                    var $title = $question.find('.sq-form-question-title');
+                    var $title = $question.find(".sq-form-question-title");
                     $title.append(' <abbr class="sq-form-required-field" title="required">*</abbr>');
                 }
             }
-            
         });
-    };
+    }
     function updateHelperText($form) {
-        var $allFields = $form.find('input:not([type=hidden])');
+        var $allFields = $form.find("input:not([type=hidden])");
 
-        $allFields.each(function() {
+        $allFields.each(function () {
             var currentField = $(this);
-            var currentID = $(this).attr('id');
+            var currentID = $(this).attr("id");
 
-            if(currentField.parents('.sq-form-question-answer').siblings('.sq-form-question-note').length){
-                currentField.attr('aria-describedby', currentID + '_description');
-                currentField.parents('.sq-form-question-answer').siblings('.sq-form-question-note').attr('id', currentID + '_description');
-
+            if (currentField.parents(".sq-form-question-answer").siblings(".sq-form-question-note").length) {
+                currentField.attr("aria-describedby", currentID + "_description");
+                currentField
+                    .parents(".sq-form-question-answer")
+                    .siblings(".sq-form-question-note")
+                    .attr("id", currentID + "_description");
             }
         });
-    };
+    }
 
     function dobFieldAutocomplete($form) {
-        var $dateFieldWrapper = $form.find('.sq-form-question-datetime');
+        var $dateFieldWrapper = $form.find(".sq-form-question-datetime");
 
-        if($dateFieldWrapper.length){
-            var $dateFieldWrapperId = $form.find('.sq-form-question-datetime').attr('id');
-            var $dateFieldLegend = $dateFieldWrapper.find('legend');
-            var $dateFieldLegendId = $dateFieldWrapperId.replace( /(wrapper)/g, "legend" );
-            var $dateField = $dateFieldWrapper.find('input:not([type=hidden])');
-            
-            var $dateHelperTextId = $dateFieldWrapper.find('em.sq-form-question-note').attr('id');
+        if ($dateFieldWrapper.length) {
+            var $dateFieldWrapperId = $form.find(".sq-form-question-datetime").attr("id");
+            var $dateFieldLegend = $dateFieldWrapper.find("legend");
+            var $dateFieldLegendId = $dateFieldWrapperId.replace(/(wrapper)/g, "legend");
+            var $dateField = $dateFieldWrapper.find("input:not([type=hidden])");
 
-            $dateFieldLegend.attr('id', $dateFieldLegendId);
-            $dateFieldLegend.attr('aria-labeledby', $dateFieldLegendId + " " + $dateHelperTextId);
+            var $dateHelperTextId = $dateFieldWrapper.find("em.sq-form-question-note").attr("id");
 
-            if($dateFieldWrapper.find('.sq-form-question-title').text().toLowerCase().indexOf("birth") >= 0){
-                $dateField.each(function() {
+            $dateFieldLegend.attr("id", $dateFieldLegendId);
+            $dateFieldLegend.attr("aria-labeledby", $dateFieldLegendId + " " + $dateHelperTextId);
+
+            if ($dateFieldWrapper.find(".sq-form-question-title").text().toLowerCase().indexOf("birth") >= 0) {
+                $dateField.each(function () {
                     var currentField = $(this);
-                    var currentID = $(this).attr('id');
-                    if(currentID.toLowerCase().indexOf("value_d") >= 0){
-                        currentField.attr('autocomplete', 'bday-day');
-                    }else if(currentID.toLowerCase().indexOf("value_m") >= 0){
-                        currentField.attr('autocomplete', 'bday-month');
-                    }else if(currentID.toLowerCase().indexOf("value_y") >= 0){
-                        currentField.attr('autocomplete', 'bday-year');
+                    var currentID = $(this).attr("id");
+                    if (currentID.toLowerCase().indexOf("value_d") >= 0) {
+                        currentField.attr("autocomplete", "bday-day");
+                    } else if (currentID.toLowerCase().indexOf("value_m") >= 0) {
+                        currentField.attr("autocomplete", "bday-month");
+                    } else if (currentID.toLowerCase().indexOf("value_y") >= 0) {
+                        currentField.attr("autocomplete", "bday-year");
                     }
-
                 });
             }
         }
-    };
+    }
 
     function displayCheck(field) {
         var show_hide = field[0].dataset.displayifShow;
         var logic_operator = field[0].dataset.displayifOperator;
-        var rules = field[0].dataset.displayifRule.replaceAll('}{','},{');
+        var rules = field[0].dataset.displayifRule.replaceAll("}{", "},{");
         rules = JSON.parse(rules);
         var rulesPassed = 0;
         var ruleCount = rules.length;
@@ -207,119 +214,112 @@
             var fieldName = rule.field;
             var operator = rule.operator;
             var ruleValue = rule.value;
-            
-            var dependantOnField = $('#' + fieldName);
+
+            var dependantOnField = $("#" + fieldName);
             var fieldValue = dependantOnField.val();
 
-            if (fieldName.indexOf(':') !== -1) {
+            if (fieldName.indexOf(":") !== -1) {
                 dependantOnField = $(`[name="${fieldName}"]`);
                 fieldValue = $(`[name="${fieldName}"]:checked`).val();
             }
 
-            dependantOnField.on('change', function() {
+            dependantOnField.on("change", function () {
                 displayCheck(field);
             });
-            
-            if(dependantOnField.is(`input[type="checkbox"]`)) {
-                if(!dependantOnField.is(':checked')) {
-                    fieldValue = ""; 
+
+            if (dependantOnField.is(`input[type="checkbox"]`)) {
+                if (!dependantOnField.is(":checked")) {
+                    fieldValue = "";
                 }
             }
-            
-            
+
             if (operator == "equals") {
                 if (fieldValue == ruleValue) {
                     rulesPassed++;
                 }
-
-            } else if(operator == "less_than") {
-                
+            } else if (operator == "less_than") {
                 var dependantNumber = Number(fieldValue);
                 var valueNumber = Number(ruleValue);
-                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber) ){
+                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber)) {
                     if (dependantNumber < valueNumber) {
                         rulesPassed++;
                     }
                 }
-                
-            } else if (operator == "greater_than"){
-                
+            } else if (operator == "greater_than") {
                 var dependantNumber = Number(fieldValue);
                 var valueNumber = Number(ruleValue);
-                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber) ){
+                if (!Number.isNaN(dependantNumber) && !Number.isNaN(valueNumber)) {
                     if (dependantNumber > valueNumber) {
                         rulesPassed++;
                     }
                 }
-                
-            } else if (operator == "contains"){
+            } else if (operator == "contains") {
                 if (fieldValue.indexOf(ruleValue) !== -1) {
                     rulesPassed++;
                 }
-            
             }
         }
 
         // For 'AND', check that all rules have passed
-        if (logic_operator === 'AND') {
+        if (logic_operator === "AND") {
             if (rulesPassed === ruleCount) {
-                showHideField($(field).closest('.sq-form-question'), show_hide);
+                showHideField($(field).closest(".sq-form-question"), show_hide);
             } else {
-                showHideField($(field).closest('.sq-form-question'), !show_hide);
+                showHideField($(field).closest(".sq-form-question"), !show_hide);
             }
-            
-        // For 'OR', check that at least 1 rule has passed
-        } else if (logic_operator === 'OR') {
+
+            // For 'OR', check that at least 1 rule has passed
+        } else if (logic_operator === "OR") {
             if (rulesPassed > 0) {
-                showHideField($(field).closest('.sq-form-question'), show_hide);
+                showHideField($(field).closest(".sq-form-question"), show_hide);
             } else {
-                showHideField($(field).closest('.sq-form-question'), !show_hide);
+                showHideField($(field).closest(".sq-form-question"), !show_hide);
             }
         }
     }
 
     function showHideField(field, show_hide) {
         if (show_hide) {
-            $(field).removeClass('hidden');
+            $(field).removeClass("hidden");
         } else {
-            $(field).addClass('hidden');
+            $(field).addClass("hidden");
         }
     }
 
     function linkHintText($form) {
-        var $allFields = $form.find('.sq-form-question-answer');
+        var $allFields = $form.find(".sq-form-question-answer");
 
         // Check if any fields are found before proceeding
         if ($allFields.length === 0) {
             return; // Exit early if no fields are found
         }
 
-        $allFields.each(function() {
+        $allFields.each(function () {
             var $field = $(this);
-    
+
             // Get the direct child input/textarea/select element
-            var $inputElement = $field.find('input, textarea, select').first();
-    
+            var $inputElement = $field.find("input, textarea, select").first();
+
             if ($inputElement.length) {
                 // Get the ID of the input element
-                var inputId = $inputElement.attr('id');
-    
+                var inputId = $inputElement.attr("id");
+
                 if (inputId) {
                     // Find the sibling <em> element in the parent .sq-form-question
-                    var $hintElement = $field.closest('.sq-form-question').find('em').first();
-    
+                    var $hintElement = $field.closest(".sq-form-question").find("em").first();
+
                     if ($hintElement.length) {
                         // Create a unique ID for the <em> element
-                        var hintId = inputId + '_hint';
-    
+                        var hintId = inputId + "_hint";
+
                         // Apply the unique ID to the <em> element
-                        $hintElement.attr('id', hintId);
-    
+                        $hintElement.attr("id", hintId);
+
                         // Add the 'aria-describedby' attribute to the input element
-                        $inputElement.attr('aria-describedby', hintId);
+                        $inputElement.attr("aria-describedby", hintId);
                     }
                 }
             }
         });
     }
-}());
+})();
