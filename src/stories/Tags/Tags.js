@@ -6,9 +6,9 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
     switch (type) {
         case "action":
             tagListContent = `
-                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
-                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
-                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" role="link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
+                <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
             `;
             break;
         case "info":
