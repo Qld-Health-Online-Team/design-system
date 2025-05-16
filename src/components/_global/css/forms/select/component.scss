@@ -38,9 +38,7 @@
     }
 
     // Light mode, select error - default, hover and focus states
-    &:has(select.qld__text-input--error)::after {
-        border-color: $QLD-color-status__error;
-    }
+    &:has(select.qld__text-input--error)::after,
     &:has(select.qld__text-input--error:hover)::after {
         border-color: $QLD-color-status__error;
     }
@@ -49,9 +47,7 @@
     }
 
     // Light mode, select valid - default, hover and focus states
-    &:has(select.qld__text-input--valid)::after {
-        border-color: $QLD-color-status__success;
-    }
+    &:has(select.qld__text-input--valid)::after,
     &:has(select.qld__text-input--valid:hover)::after {
         border-color: $QLD-color-status__success;
     }
@@ -78,9 +74,7 @@
         }
 
         // Dark mode, select error - default, hover and focus states
-        &:has(select.qld__text-input--error)::after {
-            border-color: $QLD-color-status__error;
-        }
+        &:has(select.qld__text-input--error)::after,
         &:has(select.qld__text-input--error:hover)::after {
             border-color: $QLD-color-status__error;
         }
@@ -89,9 +83,7 @@
         }
 
         // Dark mode, select valid - default, hover and focus states
-        &:has(select.qld__text-input--valid)::after {
-            border-color: $QLD-color-status__success;
-        }
+        &:has(select.qld__text-input--valid)::after,
         &:has(select.qld__text-input--valid:hover)::after {
             border-color: $QLD-color-status__success;
         }
@@ -102,6 +94,34 @@
         // Dark mode, select disabled
         &:has(select:disabled)::after {
             border-color: var(--QLD-color-dark__text--lighter);
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Matrix styling - Select wrapper-in-error to allow for the usage of icons
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Select in error
+.select-wrapper-in-error {
+    // Light mode, select error - default, hover and focus states
+    &:has(select)::after,
+    &:has(select:hover)::after {
+        border-color: $QLD-color-status__error;
+    }
+    &:has(select:focus)::after {
+        border-color: var(--QLD-color-light__action--secondary);
+    }
+
+    // Dark mode, select error - default, hover and focus states
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        &:has(select)::after,
+        &:has(select:hover)::after {
+            border-color: $QLD-color-status__error;
+        }
+        &:has(select:focus)::after {
+            border-color: var(--QLD-color-light__action--secondary);
         }
     }
 }
