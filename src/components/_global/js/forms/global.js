@@ -122,6 +122,11 @@
             const wrapper = document.createElement("div");
             wrapper.classList.add("select-wrapper");
 
+            // Matrix specific - add error class to wrapper if the field has an error
+            if (select.closest(".sq-form-question-error")) {
+                wrapper.classList.add("select-wrapper-in-error");
+            }
+
             // Insert wrapper BEFORE the select
             select.parentNode.insertBefore(wrapper, select);
 
