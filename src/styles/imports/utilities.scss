@@ -379,16 +379,12 @@ a.qld__max-width {
 
 .qld__margin-t-text-element {
 
-  &:first-child {
-    margin-top: 0px !important;
-  }
+  margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
 
-  &:nth-child(n+2) {
-    margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
-  }
-  
   @include QLD-media(lg) {
-    margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
+    &:nth-child(n+2) {
+      margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
+    }
   }
 
 }
