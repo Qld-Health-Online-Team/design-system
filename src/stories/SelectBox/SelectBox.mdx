@@ -1,0 +1,59 @@
+import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
+import * as selectBoxStories from "./SelectBox.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={selectBoxStories} />
+
+# Select Box
+
+## Overview
+
+Select boxes, also known as dropdown lists, provide a space-saving and convenient way to present multiple choices to users while occupying minimal screen real estate.
+
+We currently only have one style of select box but like other forms components it is available in both the filled and outlined styles.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Default select (outlined)
+
+<Story of={selectBoxStories.defaultVariant} />
+
+## Default select (filled)
+
+<Story of={selectBoxStories.filledVariant} />
+
+## Valid select
+
+<Story of={selectBoxStories.successVariant} />
+
+## Invalid select
+
+<Story of={selectBoxStories.errorVariant} />
+
+## Filled select
+
+<Story of={selectBoxStories.filledVariant} />
+
+## Required select
+
+<Story of={selectBoxStories.requiredVariant} />
+
+## Disabled select
+
+<Story of={selectBoxStories.disabledVariant} />
+
+## Design resources
+
+-   <a className="figma-link" href={figmaLinks.selectBox.design} target="_blank" rel="noopener noreferrer">
+        Component design view (Figma)
+    </a>
+-   <a className="figma-link" href={figmaLinks.selectBox.file} target="_blank" rel="noopener noreferrer">
+        Component file (Figma)
+    </a>
+-   <a className="figma-link" href={figmaLinks.selectBox.ds} target="_blank" rel="noopener noreferrer">
+        Design System website
+    </a>

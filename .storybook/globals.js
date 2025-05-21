@@ -38,4 +38,9 @@ export const figmaLinks = {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395550&t=y8LMLpCtTxOgtHpT-0",
         ds: "https://www.designsystem.qld.gov.au/components/tags",
     },
+    selectBox: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=Zn3A2cka0rRnj1UP-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395571&t=nEqRcloGJuj1X51X-0",
+        ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
+    },
 };

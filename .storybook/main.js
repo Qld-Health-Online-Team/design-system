@@ -6,6 +6,6 @@ const config = {
         name: "@storybook/html-webpack5",
         options: {},
     },
-    staticDirs: ["../dist/mysource_files/img", "./assets"],
+    staticDirs: ["../dist/mysource_files/img", "./core-assets", "./assets"],
 };
 export default config;

@@ -1,10 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
-// const filesToCopy = ["main.css", "js/helpers.js"];
-const filesToCopy = ["main.css", "js/main.js", "js/helpers.js"];
+const filesToCopy = ["main.css", "main.css.map", "js/main.js", "js/main.js.map", "js/helpers.js"];
 const srcDir = path.resolve("dist");
-const destDir = path.resolve(".storybook/assets");
+const destDir = path.resolve(".storybook/core-assets");
 
 // Purge directory for a fresh start
 if (fs.existsSync(destDir)) {
