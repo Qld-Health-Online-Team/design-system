@@ -1,6 +1,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// Code component
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 .qld__body .qld__code {
     display: block;
 
@@ -9,12 +10,10 @@
         min-width: initial;
         position: relative;
         text-decoration: none;
-        
 
         &-text {
-            @include QLD-space('margin-left', .5unit);
-            
-            
+            @include QLD-space("margin-left", 0.5unit);
+
             @include QLD-media(sm, down) {
                 display: none;
             }
@@ -22,29 +21,16 @@
 
         .clean {
             display: flex;
-
-            i {
-                @include QLD-space('font-size', 1.25unit);
-                @include QLD-space('margin', 0.125unit);
-            }
         }
 
         .dirty {
             display: none;
-
-            i {
-                @include QLD-space('font-size', 1.5unit);   
-            }
         }
 
         &.copied {
             background-color: $QLD-color-neutral--lightest;
             border-color: $QLD-color-neutral--lightest;
             color: var(--QLD-color-light__text);
-
-            i {
-                color: $QLD-color-status__success;
-            }
 
             .clean {
                 display: none;
@@ -61,10 +47,9 @@
             text-decoration: none;
 
             .qld__code-copy--button-text {
-                @include QLD-underline('dark','noUnderline','buttonText');
+                @include QLD-underline("dark", "noUnderline", "buttonText");
             }
 
-            
             @include QLD-media(sm, down) {
                 text-decoration: underline;
                 .qld__code-tooltip {
@@ -81,8 +66,8 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
-        @include QLD-space('padding', .75unit 1unit);
-        @include QLD-space('border-bottom', solid var(--QLD-color-dark__border--alt) 0.0625unit);
+        @include QLD-space("padding", 0.75unit 1unit);
+        @include QLD-space("border-bottom", solid var(--QLD-color-dark__border--alt) 0.0625unit);
 
         &-left {
             display: flex;
@@ -91,12 +76,15 @@
             a {
                 display: inline-block;
                 border-radius: $QLD-border-radius-xs;
-                @include QLD-space('margin-left', 1.25unit);
+                @include QLD-space("margin-left", 1.25unit);
+                text-decoration: none;
 
-                i {
+                span {
+                    text-decoration: underline;
+                }
+
+                .qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
-                    @include QLD-space('font-size', 1.25unit);
-                    @include QLD-space('margin-left', .5unit);
                 }
 
                 text-underline-offset: var(--QLD-underline__offset);
@@ -106,10 +94,12 @@
                 text-decoration-thickness: var(--QLD-underline__thickness-thin);
 
                 &:hover {
-                    text-underline-offset: var(--QLD-underline__offset);
-                    -webkit-text-decoration-color: var(--QLD-color-dark__underline--hover);
-                    text-decoration-color: var(--QLD-color-dark__underline--hover);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    span {
+                        text-underline-offset: var(--QLD-underline__offset);
+                        -webkit-text-decoration-color: var(--QLD-color-dark__underline--hover);
+                        text-decoration-color: var(--QLD-color-dark__underline--hover);
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                    }
                 }
             }
         }
@@ -133,23 +123,24 @@
         &.qld__body--dark {
             background-color: var(--QLD-color-dark__background);
         }
-        
+
         &.qld__body--dark-alt {
             background-color: var(--QLD-color-dark__background--alt);
         }
 
         &-button {
+            display: flex;
+            flex-direction: row;
             background-color: var(--QLD-color-dark__background--alt-shade);
             border: 0;
             border-radius: $QLD-border-radius-xs $QLD-border-radius-xs 0 0;
             color: var(--QLD-color-dark__text);
             cursor: pointer;
-            @include QLD-space('padding', .75unit 1unit);
+            @include QLD-space("padding", 0.75unit 1unit);
 
-            i {
+            .qld__icon {
                 color: var(--QLD-color-dark__action--secondary);
-                @include QLD-space('font-size', 1.25unit);
-                @include QLD-space('margin-left', .5unit);
+                @include QLD-space("margin-left", 0.5unit);
                 transition: transform 0.25s ease-in;
             }
 
@@ -183,7 +174,7 @@
             margin: 0;
 
             @include QLD-media(md) {
-                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal); 
+                @include QLD-container-padding($QLD-grid__gutter--media-lg, horizontal);
             }
         }
 
@@ -193,16 +184,16 @@
             border-radius: 0 $QLD-border-radius-xs 0 0;
             color: var(--QLD-color-light__text);
             width: 100%;
-            @include QLD-space('padding', 1.0625unit 0.875unit);
+            @include QLD-space("padding", 1.0625unit 0.875unit);
 
             @include QLD-media(md) {
                 display: flex;
-                @include QLD-space('padding', 1.0625unit 1unit);
+                @include QLD-space("padding", 1.0625unit 1unit);
             }
 
             &-label {
                 font-weight: 600;
-                @include QLD-space('padding-right', 0.75unit);
+                @include QLD-space("padding-right", 0.75unit);
             }
 
             ul {
@@ -210,22 +201,22 @@
                 flex-wrap: wrap;
                 list-style: none;
                 padding-left: 0;
-                @include QLD-space('margin-top', 0.625unit);
+                @include QLD-space("margin-top", 0.625unit);
 
                 @include QLD-media(md) {
-                    @include QLD-space('margin-top', 0);
+                    @include QLD-space("margin-top", 0);
                 }
 
                 li {
                     display: flex;
                     align-items: center;
-                    @include QLD-space('margin', 0.1875unit 1unit 0.1875unit 0);
+                    @include QLD-space("margin", 0.1875unit 1unit 0.1875unit 0);
 
                     label {
                         color: var(--QLD-color-light__text);
                         font-weight: 400;
-                        @include QLD-space('margin', 0);
-                        @include QLD-space('padding-left', 2.5unit);
+                        @include QLD-space("margin", 0);
+                        @include QLD-space("padding-left", 2.5unit);
                     }
                 }
             }
@@ -239,12 +230,10 @@
             font-weight: 600;
             display: inline-block;
             position: absolute;
-            @include QLD-space('font-size', 0.875unit);
-            @include QLD-space('line-height', 1unit);
-            @include QLD-space('padding', 0.25unit 1unit);
+            @include QLD-space("font-size", 0.875unit);
+            @include QLD-space("line-height", 1unit);
+            @include QLD-space("padding", 0.25unit 1unit);
         }
-
-
     }
 
     // Single line type
@@ -260,7 +249,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            @include QLD-space('padding', .625unit 1unit);
+            @include QLD-space("padding", 0.625unit 1unit);
         }
 
         .qld__code-copy--button {
@@ -273,20 +262,21 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        
-        @include QLD-space('max-width', 65unit);
+
+        @include QLD-space("max-width", 65unit);
 
         &.with-preview {
             display: inline-grid;
             background-color: $QLD-color-neutral--white;
             border-radius: $QLD-border-radius-xs;
             @include QLD-box-shadow(2);
-            @include QLD-space('margin-top', 1.5unit);
+            @include QLD-space("margin-top", 1.5unit);
         }
 
         &:not(.with-preview) {
             .qld__code-toggle-button,
-            .qld__code-header, code {
+            .qld__code-header,
+            code {
                 @include QLD-box-shadow(2);
             }
         }
@@ -296,8 +286,7 @@
             overflow: hidden;
             position: relative;
             transition: max-height 0.5s ease-in-out;
-            @include QLD-space('padding', 1.25unit 1unit);
-            
+            @include QLD-space("padding", 1.25unit 1unit);
         }
 
         &:not(.show_less) {
@@ -309,7 +298,6 @@
 
         &.show_less {
             code {
-
                 &:before {
                     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(2, 42, 80, 0.2) 86.21%);
                     bottom: 0;
@@ -317,11 +305,11 @@
                     left: 0;
                     position: absolute;
                     width: 100%;
-                    @include QLD-space('height', 3.75unit);
+                    @include QLD-space("height", 3.75unit);
                 }
             }
 
-            .qld__code-toggle-button i {
+            .qld__code-toggle-button .qld__icon {
                 transform: rotate(-180deg);
             }
         }
@@ -340,22 +328,22 @@
         text-align: left;
         background-color: $QLD-color-neutral--lightest;
         color: var(--QLD-color-light__text);
-        @include QLD-space('padding', .125unit .5unit);
+        @include QLD-space("padding", 0.125unit 0.5unit);
 
         .token.attr-value {
-            color: #052C53;
+            color: #052c53;
         }
-        
+
         .token.punctuation {
             color: var(--QLD-color-light__text--lighter);
         }
-        
+
         .token.attr-name {
             color: #006400;
         }
-        
+
         .token.tag {
-            color: #09549F;
+            color: #09549f;
         }
 
         &:focus,
@@ -369,22 +357,22 @@
             .token.attr-value {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.punctuation {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.attr-name {
                 color: var(--QLD-color-light__link--on-action);
             }
-            
+
             .token.tag {
                 color: var(--QLD-color-light__link--on-action);
             }
         }
 
         &:focus {
-            @include QLD-space('border', solid var(--QLD-color-light__focus) 0.125unit);
+            @include QLD-space("border", solid var(--QLD-color-light__focus) 0.125unit);
         }
     }
 }
@@ -398,7 +386,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    @include QLD-space('padding', .25unit 1.5unit);
+    @include QLD-space("padding", 0.25unit 1.5unit);
     @include QLD-box-shadow(3);
 
     &:before {
@@ -416,13 +404,13 @@
 }
 
 main .qld__body #content .qld__code .qld__code-preview-body.qld__body {
-    @include QLD-space('margin', 0);
-    @include QLD-space('padding-bottom', 1.5unit);
+    @include QLD-space("margin", 0);
+    @include QLD-space("padding-bottom", 1.5unit);
 
     &.qld__body--light,
     &.qld__body--alt,
     &.qld__body--dark,
     &.qld__body--dark-alt {
-        @include QLD-space('padding-bottom', 1.5unit);
+        @include QLD-space("padding-bottom", 1.5unit);
     }
 }
