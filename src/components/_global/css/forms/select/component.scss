@@ -2,7 +2,7 @@
 // Select wrapper to allow for the usage of icons
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.select-wrapper {
+.qld__select {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -22,7 +22,7 @@
         pointer-events: none;
     }
 
-    // Add spacing above select-wrapper if there is ever a success/error message
+    // Add spacing above qld__select if there is ever a success/error message
     .qld__input--success + &,
     .qld__input--error + & {
         @include QLD-space(margin-top, 0.5unit);
@@ -99,11 +99,11 @@
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Matrix styling - Select wrapper-in-error to allow for the usage of icons
+// Matrix styling - select-error to allow for the usage of icons
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Select in error
-.select-wrapper-in-error {
+.qld__select-error {
     // Light mode, select error - default, hover and focus states
     &:has(select)::after,
     &:has(select:hover)::after {
@@ -132,7 +132,7 @@
 
 .sq-form-question-select select,
 .sq-form-question-datetime select,
-.qld__select,
+.qld__select-control,
 select {
     color: var(--QLD-color-light__text--lighter);
     @include QLD-space(padding, 0.75unit 2unit 0.75unit 1unit);
@@ -280,7 +280,7 @@ select {
     .qld__body--alt-dark & {
         .sq-form-question-select select,
         .sq-form-question-datetime select,
-        .qld__select {
+        .qld__select-control {
             background-color: var(--QLD-color-dark__background--shade);
             border-color: var(--QLD-color-dark__border--alt);
             color: var(--QLD-color-dark__text);
@@ -347,7 +347,7 @@ select {
     }
     .sq-form-question-select select,
     .sq-form-question-datetime select,
-    .qld__select {
+    .qld__select-control {
         background-color: $QLD-color-neutral--lightest;
         border-width: 0 0 2px 0;
         border-bottom-left-radius: 0;
@@ -395,19 +395,19 @@ select {
 //firefox hacks...
 //=================
 // https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff
-.sq-form-question-select select:-moz-focusring .qld__select:-moz-focusring {
+.sq-form-question-select select:-moz-focusring .qld__select-control:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
 }
 
-html>/**/body .qld__select,
+html>/**/body .qld__select-control,
 x:-moz-any-link,
 x:default {
     @include QLD-space(padding-right, 1unit);
 }
 
 @supports (-moz-osx-font-smoothing: auto) {
-    html body .qld__select {
+    html body .qld__select-control {
         @include QLD-space(padding-right, 2.25unit);
     }
 }
@@ -415,11 +415,11 @@ x:default {
 // Print styles
 @media print {
     .sq-form-question-select select,
-    .qld__select {
+    .qld__select-control {
         border-color: $QLD-color-neutral--black;
     }
 
-    .select-wrapper {
+    .qld__select {
         .qld__body--dark &,
         .qld__body--dark-alt & {
             &::after {
