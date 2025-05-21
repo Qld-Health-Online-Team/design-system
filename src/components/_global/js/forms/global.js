@@ -120,11 +120,11 @@
         document.querySelectorAll("select").forEach((select) => {
             // Create wrapper div
             const wrapper = document.createElement("div");
-            wrapper.classList.add("select-wrapper");
+            wrapper.classList.add("qld__select");
 
             // Matrix specific - add error class to wrapper if the field has an error
             if (select.closest(".sq-form-question-error")) {
-                wrapper.classList.add("select-wrapper-in-error");
+                wrapper.classList.add("qld__select-error");
             }
 
             // Insert wrapper BEFORE the select
