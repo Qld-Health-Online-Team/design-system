@@ -258,10 +258,6 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
             }
             
             @include QLD-media(lg) {
-                * + & {
-                    @include QLD-space(margin-top, 1.5unit);
-                }
-                
                 h2,
                 h3,
                 p {
@@ -334,5 +330,11 @@ $QLD-grid-12-columns: 12 !default;        //column amounts
     //create xl classes
     @include QLD-media(xl) {
         @include QLD-grid-12-make-grid(xl);
+    }
+}
+
+* + .row--heading-paragraph-columns {
+    @include QLD-media(lg) {
+        @include QLD-space(margin-top, 1.5unit);
     }
 }
