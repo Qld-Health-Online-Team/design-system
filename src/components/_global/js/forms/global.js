@@ -118,6 +118,11 @@
         });
 
         document.querySelectorAll("select").forEach((select) => {
+            // First check that the select is not already wrapped
+            if (select.closest(".qld__select")) {
+                return;
+            }
+
             // Create wrapper div
             const wrapper = document.createElement("div");
             wrapper.classList.add("qld__select");
