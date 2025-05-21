@@ -1,412 +1,430 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Select wrapper to allow for the usage of icons
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.qld__select {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-bottom: pxToRem(1.5) solid var(--QLD-color-light__action--secondary);
+        border-right: pxToRem(1.5) solid var(--QLD-color-light__action--secondary);
+        transform: rotate(45deg) translateY(-100%);
+        right: pxToRem(24);
+        top: 50%;
+        pointer-events: none;
+    }
+
+    // Add spacing above qld__select if there is ever a success/error message
+    .qld__input--success + &,
+    .qld__input--error + & {
+        @include QLD-space(margin-top, 0.5unit);
+        display: flex;
+    }
+
+    // Light mode - hover and focus states
+    &:has(select:hover)::after {
+        border-color: var(--QLD-color-light__action--secondary-hover);
+    }
+    &:has(select:focus)::after {
+        border-color: var(--QLD-color-light__action--secondary);
+    }
+
+    // Light mode, select error - default, hover and focus states
+    &:has(select.qld__text-input--error)::after,
+    &:has(select.qld__text-input--error:hover)::after {
+        border-color: $QLD-color-status__error;
+    }
+    &:has(select.qld__text-input--error:focus)::after {
+        border-color: var(--QLD-color-light__action--secondary);
+    }
+
+    // Light mode, select valid - default, hover and focus states
+    &:has(select.qld__text-input--valid)::after,
+    &:has(select.qld__text-input--valid:hover)::after {
+        border-color: $QLD-color-status__success;
+    }
+    &:has(select.qld__text-input--valid:focus)::after {
+        border-color: var(--QLD-color-light__action--secondary);
+    }
+
+    // Light mode, select disabled
+    &:has(select:disabled)::after {
+        border-color: var(--QLD-color-light__text--lighter);
+    }
+
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        // Dark mode - default, hover and focus states
+        &::after {
+            border-color: var(--QLD-color-dark__action--secondary);
+        }
+        &:has(select:hover)::after {
+            border-color: var(--QLD-color-dark__action--secondary-hover);
+        }
+        &:has(select:focus)::after {
+            border-color: var(--QLD-color-light__action--secondary);
+        }
+
+        // Dark mode, select error - default, hover and focus states
+        &:has(select.qld__text-input--error)::after,
+        &:has(select.qld__text-input--error:hover)::after {
+            border-color: $QLD-color-status__error;
+        }
+        &:has(select.qld__text-input--error:focus)::after {
+            border-color: var(--QLD-color-light__action--secondary);
+        }
+
+        // Dark mode, select valid - default, hover and focus states
+        &:has(select.qld__text-input--valid)::after,
+        &:has(select.qld__text-input--valid:hover)::after {
+            border-color: $QLD-color-status__success;
+        }
+        &:has(select.qld__text-input--valid:focus)::after {
+            border-color: var(--QLD-color-light__action--secondary);
+        }
+
+        // Dark mode, select disabled
+        &:has(select:disabled)::after {
+            border-color: var(--QLD-color-dark__text--lighter);
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Matrix styling - select-error to allow for the usage of icons
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Select in error
+.qld__select-error {
+    // Light mode, select error - default, hover and focus states
+    &:has(select)::after,
+    &:has(select:hover)::after {
+        border-color: $QLD-color-status__error;
+    }
+    &:has(select:focus)::after {
+        border-color: var(--QLD-color-light__action--secondary);
+    }
+
+    // Dark mode, select error - default, hover and focus states
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        &:has(select)::after,
+        &:has(select:hover)::after {
+            border-color: $QLD-color-status__error;
+        }
+        &:has(select:focus)::after {
+            border-color: var(--QLD-color-light__action--secondary);
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Select box
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .sq-form-question-select select,
 .sq-form-question-datetime select,
-.qld__select,
-select{
-	color: var(--QLD-color-light__text--lighter);
-	@include QLD-space( padding, 0.75unit 2unit 0.75unit 1unit );
-	border: $QLD-border-width-default solid var(--QLD-color-light__border--alt);
-	border-radius: $QLD-border-radius-xs;
-	background-image: QLD-svguri($QLD-icon-chevron-down);
-	// mask-image: QLD-svguri($QLD-icon-chevron-down);
-	// mask-repeat: no-repeat;
-	// mask-position: center;
-	// background-color: var(--QLD-color-light__action--secondary);
+.qld__select-control,
+select {
+    color: var(--QLD-color-light__text--lighter);
+    @include QLD-space(padding, 0.75unit 2unit 0.75unit 1unit);
+    border: $QLD-border-width-default solid var(--QLD-color-light__border--alt);
+    border-radius: $QLD-border-radius-xs;
+    background-color: $QLD-color-neutral--white;
+    appearance: none;
+    box-sizing: border-box;
+    color: var(--QLD-color-light__text--lighter);
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-indent: 0.01px;
+    text-overflow: unset;
+    vertical-align: middle;
+    width: 100%;
+    @include QLD-focus();
 
+    &::-ms-expand {
+        display: none;
+    }
 
-	background-color: $QLD-color-neutral--white;
-	appearance: none;
-	background-repeat: no-repeat;
-	background-position: right 11px center;
-	background-size: 1rem auto;
-	box-sizing: border-box;
-	color: var(--QLD-color-light__text--lighter);
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	text-indent: 0.01px;
-	text-overflow: unset;
-	vertical-align: middle;
-	width: 100%;
-	// max-width: 12.8125rem;
-	@include QLD-focus();
+    &:hover {
+        &:not(:focus) {
+            background-color: $QLD-color-neutral--lightest;
+            border-color: var(--QLD-color-light__action--primary-hover);
+        }
+    }
 
-	&::-ms-expand {
-		display: none;
-	}
+    &:disabled,
+    &[disabled] {
+        cursor: not-allowed;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+        opacity: 0.5;
 
-	&:hover{
-		&:not(:focus) {
-			background-color: $QLD-color-neutral--lightest;
-			border-color: var(--QLD-color-light__action--primary-hover);
-		}
-	}
+        &:hover {
+            background-color: transparent !important;
+            border-color: var(--QLD-color-light__border--alt);
+        }
+    }
 
-	&:disabled,
-	&[disabled]{
-		cursor: not-allowed;
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-		opacity: 0.5;
+    .qld__input--success + &,
+    .qld__input--error + & {
+        @include QLD-space(margin-top, 0.5unit);
+        display: flex;
+    }
 
-		&:hover{
-			background-color: transparent !important;
-			border-color: var(--QLD-color-light__border--alt);
-		}
-	}
+    &.qld__text-input--valid {
+        &:not(:focus) {
+            border-color: $QLD-color-status__success;
+            background-color: $QLD-color-status__success--lightest;
+        }
+    }
 
-	.qld__input--success + &,
-	.qld__input--error + & {
-		@include QLD-space(margin-top, 0.5unit);
-		display: flex;
-	}
+    &.qld__input--error {
+        border-color: $QLD-color-status__error;
+        background-color: RGBA(226, 35, 57, 0.05); //$QLD-color-status__error with .05 opacity
+    }
 
-		
-	&.qld__text-input--valid {
-			
-		&:not(:focus) {
-			border-color: $QLD-color-status__success;
-			background-color: $QLD-color-status__success--lightest;
+    &.qld__text-input--error {
+        &:not(:focus) {
+            border-color: $QLD-color-status__error;
+            background-color: $QLD-color-status__error--lightest;
+        }
 
-		}
-	}
-	
+        &:hover:not(:focus) {
+            border-color: $QLD-color-status__error;
+            background-color: $QLD-color-status__error--lighter;
+        }
+    }
 
-	&.qld__input--error {
-		border-color: $QLD-color-status__error;
-		background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
-	}
+    &:focus {
+        border-color: $QLD-color-neutral--lighter;
+    }
 
-	&.qld__text-input--error {
-		
-		&:not(:focus) { 
-			border-color: $QLD-color-status__error;
-			background-color: $QLD-color-status__error--lightest;
-		}
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+        color: var(--QLD-color-dark__text--lighter);
+        border-color: var(--QLD-color-dark__border--alt);
+        background-color: var(--QLD-color-dark__background);
 
-		&:hover:not(:focus) {
-			border-color: $QLD-color-status__error;
-			background-color: $QLD-color-status__error--lighter;
-		}
-	}
+        &.qld__text-input--valid {
+            border-color: $QLD-color-status__success;
+            background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
+            color: var(--QLD-color-light__text);
 
-	&:focus{
-		border-color: $QLD-color-neutral--lighter;
-	}
+            &:hover {
+                &:not(:focus) {
+                    background-color: $QLD-color-status__success--lighter;
+                    border-color: $QLD-color-status__success;
+                }
+            }
 
-	.qld__body--dark &,
-	.qld__body--dark-alt & {
-		color: var(--QLD-color-dark__text--lighter);
-		border-color: var(--QLD-color-dark__border--alt);
-		background-color: var(--QLD-color-dark__background);
-		
-		&:not(:focus):not(.qld__text-input--valid):not(.qld__text-input--error) { 
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
-		}
+            &::placeholder {
+                color: var(--QLD-color-light__text--lighter);
+            }
+        }
 
-		&:focus {
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z'/%3E%3C/svg%3E");
-		}
+        &.qld__input--error {
+            border-color: $QLD-color-status__error;
+            background-color: RGBA(226, 35, 57, 0.05); //$QLD-color-status__error with .05 opacity
+        }
 
-		&.qld__text-input--valid {
-			border-color: $QLD-color-status__success;
-			background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
-			color: var(--QLD-color-light__text);
-			background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
-			&:hover {
-				&:not(:focus) { 
-					background-color: $QLD-color-status__success--lighter;
-					border-color: $QLD-color-status__success;
-				}
-			}
+        &.qld__text-input--error {
+            &:not(:focus) {
+                border-color: $QLD-color-status__error;
+                background-color: $QLD-color-status__error--lightest;
+            }
 
-			&::placeholder {
-				color: var(--QLD-color-light__text--lighter);
-			}
-		}
-		
-	
-		&.qld__input--error {
-			border-color: $QLD-color-status__error;
-			background-color: RGBA(226,35,57,0.05); //$QLD-color-status__error with .05 opacity
-		}
+            &:hover:not(:focus) {
+                border-color: $QLD-color-status__error;
+                background-color: $QLD-color-status__error--lighter;
+            }
 
-		&.qld__text-input--error {
-		
-			&:not(:focus) { 
-				border-color: $QLD-color-status__error;
-				background-color: $QLD-color-status__error--lightest;
-			}
-	
-			&:hover:not(:focus) {
-				border-color: $QLD-color-status__error;
-				background-color: $QLD-color-status__error--lighter;
-			}
+            color: var(--QLD-color-light__text);
+        }
 
-			color: var(--QLD-color-light__text);
-		}
+        &:hover {
+            &:not(:focus) {
+                background-color: $QLD-color-neutral--black__opacity-10;
+                border-color: var(--QLD-color-dark__action--primary-hover);
+            }
+        }
 
-		&:hover{
-			&:not(:focus) {
-				background-color: $QLD-color-neutral--black__opacity-10;
-				border-color: var(--QLD-color-dark__action--primary-hover);
-			}
-		}
+        &:disabled,
+        &[disabled] {
+            &:hover {
+                border-color: var(--QLD-color-dark__border--alt);
+            }
+        }
 
-		&:disabled,
-		&[disabled]{
-			&:hover{
-				border-color: var(--QLD-color-dark__border--alt);
-			}
-		}
-
-		&:focus {
-			background-color: $QLD-color-neutral--lightest;
-			color: var(--QLD-color-light__text);
-			border-color: $QLD-color-neutral--lighter;
-			&::placeholder {
-				color: var(--QLD-color-light__text--lighter);
-			}
-		}
-	}
+        &:focus {
+            background-color: $QLD-color-neutral--lightest;
+            color: var(--QLD-color-light__text);
+            border-color: $QLD-color-neutral--lighter;
+            &::placeholder {
+                color: var(--QLD-color-light__text--lighter);
+            }
+        }
+    }
 }
-
-.qld__body--light {
-	.sq-form-question-select select,
-	.sq-form-question-datetime select,
-	.qld__select,
-	select {
-		background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#{ $QLD-color-light__action--secondary }" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>')
-	
-	}
-}
-
 
 .qld__form-style-filled {
-	.qld__body--dark &,
-	.qld__body--alt-dark & {
-		.sq-form-question-select select,
-		.sq-form-question-datetime select,
-		.qld__select {
-			background-color: var(--QLD-color-dark__background--shade);
-			border-color: var(--QLD-color-dark__border--alt);
-			color: var(--QLD-color-dark__text);
-			background-image: QLD-svguri('<svg fill="#{ $QLD-color-dark__action--secondary }" width="1.5em" height="auto" viewBox="0 0 28 12" xmlns="http://www.w3.org/2000/svg">' +
-				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
-				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
-			'</svg>'); 
-			
-			&:hover{
-				&:not(:focus) { 
-					background-color: var(--QLD-color-dark__background--shade);
-					border-color: var(--QLD-color-dark__action--primary-hover);
-				}
-			}
-			
-			&:focus {
-				background-color: $QLD-color-neutral--white;
-				color: var(--QLD-color-light__text);
-				border-color: $QLD-color-neutral--lighter;
-				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
-			
-				&::placeholder {
-					color: var(--QLD-color-light__text--lighter);
-				}
-			}
+    .qld__body--dark &,
+    .qld__body--alt-dark & {
+        .sq-form-question-select select,
+        .sq-form-question-datetime select,
+        .qld__select-control {
+            background-color: var(--QLD-color-dark__background--shade);
+            border-color: var(--QLD-color-dark__border--alt);
+            color: var(--QLD-color-dark__text);
 
-			&.qld__text-input--valid {
-				border-color: $QLD-color-status__success;
-				background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
-				color: var(--QLD-color-light__text);
-				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
+            &:hover {
+                &:not(:focus) {
+                    background-color: var(--QLD-color-dark__background--shade);
+                    border-color: var(--QLD-color-dark__action--primary-hover);
+                }
+            }
 
-				&:hover {
-					&:not(:focus) { 
-						background-color: $QLD-color-status__success--lighter;
-						border-color: $QLD-color-status__success;
-					}
-				}
+            &:focus {
+                background-color: $QLD-color-neutral--white;
+                color: var(--QLD-color-light__text);
+                border-color: $QLD-color-neutral--lighter;
 
-				&:focus {
-					background-color: $QLD-color-neutral--white;
-					color: var(--QLD-color-light__text);
-					border-color: $QLD-color-neutral--lighter;
-				}
-			}
+                &::placeholder {
+                    color: var(--QLD-color-light__text--lighter);
+                }
+            }
 
-			&.qld__text-input--error  {
-				border-color: $QLD-color-status__error;
-				background-color: $QLD-color-status__error--lightest; //$QLD-color-status__error with .05 opacity
-				color: var(--QLD-color-light__text);
-				background-image: QLD-svguri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="black" d="M4.251 181.1C7.392 177.7 11.69 175.1 16 175.1c3.891 0 7.781 1.406 10.86 4.25l197.1 181.1l197.1-181.1c6.5-6 16.64-5.625 22.61 .9062c6 6.5 5.594 16.59-.8906 22.59l-208 192c-6.156 5.688-15.56 5.688-21.72 0l-208-192C-1.343 197.7-1.749 187.6 4.251 181.1z"/></svg>'); 
+            &.qld__text-input--valid {
+                border-color: $QLD-color-status__success;
+                background-color: $QLD-color-status__success--lightest; //$QLD-color-status__success with .05 opacity
+                color: var(--QLD-color-light__text);
 
-				&:hover {
-					&:not(:focus) { 
-						background-color: $QLD-color-status__error--lighter;
-						border-color: $QLD-color-status__error;
-					}
-				}
+                &:hover {
+                    &:not(:focus) {
+                        background-color: $QLD-color-status__success--lighter;
+                        border-color: $QLD-color-status__success;
+                    }
+                }
 
-				&:focus {
-					background-color: $QLD-color-neutral--white;
-					color: var(--QLD-color-light__text);
-					border-color: $QLD-color-neutral--lighter;
-				}
+                &:focus {
+                    background-color: $QLD-color-neutral--white;
+                    color: var(--QLD-color-light__text);
+                    border-color: $QLD-color-neutral--lighter;
+                }
+            }
 
-				&::placeholder {
-					color: var(--QLD-color-light__text);
-				}
-			}
+            &.qld__text-input--error {
+                border-color: $QLD-color-status__error;
+                background-color: $QLD-color-status__error--lightest; //$QLD-color-status__error with .05 opacity
+                color: var(--QLD-color-light__text);
 
-		}
-	}
-	.sq-form-question-select select,
-	.sq-form-question-datetime select,
-	.qld__select {
-		background-color: $QLD-color-neutral--lightest;
-		border-width: 0 0 2px 0;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		@include QLD-space( padding, 0.875unit 1.125unit 0.75unit 1.125unit);
+                &:hover {
+                    &:not(:focus) {
+                        background-color: $QLD-color-status__error--lighter;
+                        border-color: $QLD-color-status__error;
+                    }
+                }
 
-		&:focus{
-			background-color: $QLD-color-neutral--white;
-			border-radius: $QLD-border-radius-xs;
-			border:$QLD-border-width-default solid $QLD-color-neutral--lighter;
-			border-bottom-left-radius: 4px;
-			border-bottom-right-radius: 4px;
-			@include QLD-space( padding, 0.75unit 1unit 0.75unit 1unit);
-			&::placeholder {
-				color: var(--QLD-color-light__text--lighter);
-			}
-		}
+                &:focus {
+                    background-color: $QLD-color-neutral--white;
+                    color: var(--QLD-color-light__text);
+                    border-color: $QLD-color-neutral--lighter;
+                }
 
-		&.qld__select--dark {
-			background-color: var(--QLD-color-dark__background--shade);
-			border-color: var(--QLD-color-dark__border--alt);
-			color: var(--QLD-color-dark__text);
-			background-image: QLD-svguri('<svg fill="#{ $QLD-color-dark__action--secondary }" width="1.5em" height="auto" viewBox="0 0 28 12" xmlns="http://www.w3.org/2000/svg">' +
-				'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
-				'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
-			'</svg>');
-		}
+                &::placeholder {
+                    color: var(--QLD-color-light__text);
+                }
+            }
+        }
+    }
+    .sq-form-question-select select,
+    .sq-form-question-datetime select,
+    .qld__select-control {
+        background-color: $QLD-color-neutral--lightest;
+        border-width: 0 0 2px 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        @include QLD-space(padding, 0.875unit 1.125unit 0.75unit 1.125unit);
 
-		&.qld__text-input--valid {
-			color: var(--QLD-color-light__text);
-		}
-	}
+        &:focus {
+            background-color: $QLD-color-neutral--white;
+            border-radius: $QLD-border-radius-xs;
+            border: $QLD-border-width-default solid $QLD-color-neutral--lighter;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            @include QLD-space(padding, 0.75unit 1unit 0.75unit 1unit);
+            &::placeholder {
+                color: var(--QLD-color-light__text--lighter);
+            }
+        }
+
+        &.qld__select--dark {
+            background-color: var(--QLD-color-dark__background--shade);
+            border-color: var(--QLD-color-dark__border--alt);
+            color: var(--QLD-color-dark__text);
+        }
+
+        &.qld__text-input--valid {
+            color: var(--QLD-color-light__text);
+        }
+    }
 }
 
-.sq-form-question-datetime{
-	select{
-		@include QLD-space(margin-left, .25unit );
-		@include QLD-space(margin-right, .75unit );
-		width: 50%;
-	}
+.sq-form-question-datetime {
+    select {
+        @include QLD-space(margin-left, 0.25unit);
+        @include QLD-space(margin-right, 0.75unit);
+        width: 50%;
+    }
 }
-
-// .sq-form-question-select select,
-// .qld__select {
-// 	@include QLD-fontgrid( sm );
-	
-// 	@include QLD-focus();
-
-// 	&:focus {
-// 		border-radius: 0;
-// 	}
-
-// 	&[disabled] {
-// 		cursor: not-allowed;
-// 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-// 		opacity: 0.5;
-// 	}
-
-// 	&:disabled {
-// 		cursor: not-allowed;
-// 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-// 		opacity: 0.5;
-// 	}
-
-// 	&.qld__select--dark.qld__input--error,
-// 	&.qld__input--error {
-// 		background-color: var(--QLD-color-light__background--shade);
-// 		border-color: $QLD-color-status__error;
-// 	}
-
-// 	&.qld__select--dark.qld__input--valid,
-// 	&.qld__input--valid {
-// 		background-color: var(--QLD-color-light__background--shade);
-// 		border-color: $QLD-color-status__success;
-// 	}
-
-// 	.ie8 &,
-// 	.ie9 & {
-// 		&:after {
-// 			display: none;
-// 		}
-// 	}
-
-	
-
-// 	.ie8 &,
-// 	.ie9 & {
-// 		@include QLD-space( padding-right, .25unit );
-// 	}
-
-// 	&.qld__select--dark,
-// 	.qld__body--dark &,
-// 	.qld__body--dark-alt &{
-// 		@include QLD-focus( 'dark' );
-// 	}
-
-// 	&.qld__select--block {
-// 		width: 100%;
-// 	}
-
-// 	&[multiple="multiple"] {
-// 		background-image: none;
-// 		height: auto;
-// 	}
-// }
 
 // Matrix error styling
-.sq-form-question-select.sq-form-question-error select{
-	background-color: $QLD-color-neutral--lightest;
-	border-color: $QLD-color-status__error;
+.sq-form-question-select.sq-form-question-error select {
+    background-color: $QLD-color-neutral--lightest;
+    border-color: $QLD-color-status__error;
 }
-
 
 //firefox hacks...
 //=================
 // https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff
-.sq-form-question-select select:-moz-focusring
-.qld__select:-moz-focusring {
-	color: transparent;
-	text-shadow: 0 0 0 #000;
+.sq-form-question-select select:-moz-focusring .qld__select-control:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
 }
 
-html>/**/body .qld__select,
+html>/**/body .qld__select-control,
 x:-moz-any-link,
 x:default {
-	@include QLD-space( padding-right, 1unit );
+    @include QLD-space(padding-right, 1unit);
 }
 
-@supports (-moz-osx-font-smoothing:auto) {
-	html body .qld__select {
-		@include QLD-space( padding-right, 2.25unit );
-	}
+@supports (-moz-osx-font-smoothing: auto) {
+    html body .qld__select-control {
+        @include QLD-space(padding-right, 2.25unit);
+    }
 }
 
 // Print styles
 @media print {
-	.sq-form-question-select select,
-	.qld__select {
-		border-color: #000 !important;
-		background-image: QLD-svguri('<svg fill="#000" width="1.5em" height="auto" viewBox="0 0 28 12" xmlns="http://www.w3.org/2000/svg">' +
-			'<path d="M1.9 1.1L8 7.2l6.1-6.1L16 2.9l-8 8-8-8 1.9-1.8z"/>' +
-			'<path fill="none" d="M2-5.8h24v24H2v-24z"/>' +
-		'</svg>') !important;
-	}
+    .sq-form-question-select select,
+    .qld__select-control {
+        border-color: $QLD-color-neutral--black;
+    }
+
+    .qld__select {
+        .qld__body--dark &,
+        .qld__body--dark-alt & {
+            &::after {
+                border-color: var(--QLD-color-light__action--secondary);
+            }
+        }
+    }
 }

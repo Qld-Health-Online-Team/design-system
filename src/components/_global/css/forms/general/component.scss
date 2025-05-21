@@ -6,62 +6,62 @@
 .qld__fieldset__legend,
 .sq-form-question-title {
     color: var(--QLD-color-light__text);
-	display: block;
+    display: block;
 
     .qld__body--dark &,
-	.qld__body--dark-alt & {
+    .qld__body--dark-alt & {
         color: var(--QLD-color-dark__text);
     }
 }
 
-legend.sq-form-section-title{
+legend.sq-form-section-title {
     @include QLD-space(padding-top, 2unit);
     @include QLD-fontgrid(lg, heading);
     font-weight: bold;
     color: var(--QLD-color-light__heading);
 
-    + *{
+    + * {
         @include QLD-space(margin-top, 1.25unit);
     }
 
     .qld__body--dark &,
-	.qld__body--dark-alt & {
+    .qld__body--dark-alt & {
         color: var(--QLD-color-dark__heading);
     }
 }
 
-legend, legend.sq-form-question-title{
-    margin-bottom : 0;
+legend,
+legend.sq-form-question-title {
+    margin-bottom: 0;
     padding: 0;
     font-weight: 600;
 }
 
-
 //Label
 .qld__label,
-label{
+label {
     color: var(--QLD-color-light__text);
     display: block;
     font-weight: 600;
     line-height: 1.5rem;
 
-    @include QLD-media (lg) {
+    @include QLD-media(lg) {
         vertical-align: middle;
     }
 
-    // Add space between any <input> element and `.qld__select class
-    &+select,
-    +input,
-    +textarea {
+    // Add space between any <input> element and select
+    & + .qld__select,
+    + input,
+    + textarea {
         @include QLD-space(margin-top, 0.5unit);
     }
 
     &--inline {
         display: inline-block;
 
-        &+select,
-        +input,
-        +textarea {
+        & + .qld__select,
+        + input,
+        + textarea {
             margin-top: 0;
         }
     }
@@ -73,7 +73,7 @@ label{
         font-weight: 400;
     }
 
-    + .qld__select,
+    & + .qld__select,
     + input,
     + textarea {
         @include QLD-space(margin-top, 0.5unit);
@@ -86,9 +86,8 @@ label{
 }
 
 .qld__input--valid {
-    color: var(--QLD-color-light__text); 
+    color: var(--QLD-color-light__text);
 }
-
 
 .qld__input--error {
     color: $QLD-color-status__error;
@@ -97,19 +96,19 @@ label{
 .qld__hint-text,
 .sq-form-question-note {
     font-family: $QLD-font;
-	font-style: normal;
+    font-style: normal;
     color: var(--QLD-color-light__text--lighter);
-	display: block;
+    display: block;
     @include QLD-fontgrid(sm, default);
 
-    *+& {
+    * + & {
         @include QLD-space(margin-top, 0.5unit);
     }
 
     //add space between form control and hint text
-    &+select,
-    +input,
-    +textarea {
+    & + .qld__select,
+    + input,
+    + textarea {
         @include QLD-space(margin-top, 0.5unit);
     }
 
@@ -123,11 +122,11 @@ label{
     }
 }
 
-// Matrix forms 
+// Matrix forms
 .qld__grid .qld__form-group,
 .sq-form-question {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
     // Error state for form group
     &--invalid {
@@ -154,23 +153,23 @@ label{
 
     .sq-form-question-answer {
         @include QLD-space(margin-top, 0.5unit);
-        ul{
+        ul {
             padding: 0;
             list-style: none;
 
-            .qld__control-input--inline &{
+            .qld__control-input--inline & {
                 display: flex;
             }
         }
 
-        li{
+        li {
             display: block;
             position: relative;
             @include QLD-clearfix();
 
             & + li {
                 @include QLD-space(margin-top, 0.5unit);
-                .qld__control-input--inline &{
+                .qld__control-input--inline & {
                     @include QLD-space(margin-top, 0unit);
                     @include QLD-space(margin-left, 0.5unit);
                 }
@@ -191,7 +190,7 @@ label{
 }
 
 #content[class^="col-"] form {
-    @include QLD-media ( md ) {
+    @include QLD-media(md) {
         @include QLD-space(margin-top, 2unit);
     }
 }
@@ -210,12 +209,12 @@ fieldset {
 }
 
 form {
-    > .sq-form-control{
+    > .sq-form-control {
         @include QLD-space(margin-top, 1.25unit);
     }
-    &+select,
-    +input,
-    +textarea {
+    & + .qld__select,
+    + input,
+    + textarea {
         @include QLD-space(margin-top, 0.5unit);
     }
     * + .qld__btn {
@@ -230,7 +229,6 @@ form {
     }
 }
 
-
 .qld__hint-text,
 .qld__input--error,
 .qld__input--success {
@@ -240,27 +238,33 @@ form {
     }
 }
 
+.sq-form-error:has(> .qld__icon),
+span.qld__input--error,
+span.qld__input--success {
+    display: flex;
+    flex-direction: row;
+}
+
 .qld__input--error {
     color: $QLD-color-status__error;
 
     .qld__body--dark &,
-	.qld__body--dark-alt & {
+    .qld__body--dark-alt & {
         color: $QLD-color-status__error--lightest;
     }
-
 }
 
 .qld__body {
-    .sq-form-required-field, abbr[title="required"]  {
+    .sq-form-required-field,
+    abbr[title="required"] {
         float: left;
         @include QLD-space(margin-right, 0.25unit);
-        color:$QLD-color-status__error;
+        color: $QLD-color-status__error;
         font-size: 1rem;
-        border:0;
-        text-decoration:none;
+        border: 0;
+        text-decoration: none;
     }
 }
-
 
 .qld__control-group {
     *:not(hr) + & {
@@ -276,61 +280,22 @@ form {
     }
 }
 
-
-
-
-// .qld__control-input,
-// .sq-form-question li {
-	
-
-// 	& + .qld__control-input,
-	
-
-// 	&.qld__control-input--inline {
-// 		display: inline-block;
-// 	}
-// }
-
-
-
-
-
-
-// .qld__example__title + .qld__form-group {
-//     @include QLD-space(margin-top, 1.25unit);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-p.qld__input--error, span.qld__input--error
-p.sq-form-error {
+p.qld__input--error,
+span.qld__input--error p.sq-form-error {
     font-family: $QLD-font;
     font-weight: bold;
     @include QLD-fontgrid(sm, default);
     color: $QLD-color-status__error;
-	display: block;
+    display: block;
 
-    *+& {
-		@include QLD-space(margin-top, 0.5unit);
+    * + & {
+        @include QLD-space(margin-top, 0.5unit);
     }
 
     //add space between form control and hint text
-    &+select,
-    +input,
-    +textarea {
+    & + .qld__select,
+    + input,
+    + textarea {
         @include QLD-space(margin-top, 0.5unit);
         display: block;
     }
@@ -338,9 +303,9 @@ p.sq-form-error {
     &--inline {
         display: inline-block;
 
-        &+select,
-        +input,
-        +textarea {
+        & + .qld__select,
+        + input,
+        + textarea {
             margin-top: 0;
         }
     }
@@ -349,14 +314,12 @@ p.sq-form-error {
     &--hidden {
         display: none;
     }
-    
 }
 
 .qld__body--dark {
-    p.qld__input--error, span.qld__input--error,
+    p.qld__input--error,
+    span.qld__input--error,
     p.sq-form-error {
         color: $QLD-color-status__error--lightest;
-
     }
 }
-
