@@ -381,7 +381,15 @@ a.qld__max-width {
 
   margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--mobile ) + px !important;
 
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
   @include QLD-media(lg) {
+    &:first-child {
+      margin-top: 0 !important;
+    }
+
     &:nth-child(n+2) {
       margin-top: map-get( $QLD-space-map, $QLD-margin__text-element--desktop ) + px !important;
     }
