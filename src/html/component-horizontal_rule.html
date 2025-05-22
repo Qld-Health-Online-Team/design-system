@@ -153,7 +153,7 @@
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
@@ -168,56 +168,71 @@
                             ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            <h1>Buttons</h1>
-                            <div class="qld__abstract">
-                                <p>Buttons desc</p>
-                            </div>
+                            <h1>Horizontal rule</h1>
+
                             <div class="qld__body">
                                 <div class="container-fluid">
-                                    <h2>Default (Light)</h2>
-                                    <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
-                                        toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
-                                    </a>
+                                    <h2>White</h2>
+                                    <h3>Decorative</h3>
+                                    <hr class="qld__horizontal-rule" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" aria-hidden="true" />
+                                    <h3>Accessible</h3>
+                                    <hr class="qld__horizontal-rule" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" />
+                                </div>
+                            </div>
+                            <div class="qld__body qld__body--light">
+                                <div class="container-fluid">
+                                    <h2>White</h2>
+                                    <h3>Decorative</h3>
+                                    <hr class="qld__horizontal-rule" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" aria-hidden="true" />
+                                    <h3>Accessible</h3>
+                                    <hr class="qld__horizontal-rule" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" />
                                 </div>
                             </div>
                             <div class="qld__body qld__body--alt">
                                 <div class="container-fluid">
-                                    <h2>Alternative</h2>
-                                    <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
-                                        toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
-                                    </a>
+                                    <h2>Alt</h2>
+                                    <h3>Decorative</h3>
+                                    <hr class="qld__horizontal-rule" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" aria-hidden="true" />
+                                    <h3>Accessible</h3>
+                                    <hr class="qld__horizontal-rule" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" />
                                 </div>
                             </div>
                             <div class="qld__body qld__body--dark">
                                 <div class="container-fluid">
                                     <h2>Dark</h2>
-                                    <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
-                                        toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
-                                    </a>
+                                    <h3>Decorative</h3>
+                                    <hr class="qld__horizontal-rule" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" aria-hidden="true" />
+                                    <h3>Accessible</h3>
+                                    <hr class="qld__horizontal-rule" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" />
                                 </div>
                             </div>
                             <div class="qld__body qld__body--dark-alt">
                                 <div class="container-fluid">
                                     <h2>Dark Alternative</h2>
-                                    <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
-                                        toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
-                                    </a>
+                                    <h3>Decorative</h3>
+                                    <hr class="qld__horizontal-rule" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" aria-hidden="true" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" aria-hidden="true" />
+                                    <h3>Accessible</h3>
+                                    <hr class="qld__horizontal-rule" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--md" />
+                                    <hr class="qld__horizontal-rule qld__horizontal-rule--lg" />
                                 </div>
                             </div>
                         </div>

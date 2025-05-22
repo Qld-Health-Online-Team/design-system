@@ -23,7 +23,7 @@
                     "type": "metadata_field_select",
                     "description": "Select the layout",
                     "friendly_name": "Layout",
-                    "value": "two_column",
+                    "value": "stack",
                     "options": {
                         "stack": "Stacked",
                         "two_column": "2 Columns"
@@ -50,6 +50,29 @@
                                 "field": "video_layout",
                                 "operator": "equals",
                                 "value": "stack"
+                            }
+                        ]
+                    }
+                },
+                "video_align_items": {
+                    "type": "metadata_field_select",
+                    "description": "Select the align items of video",
+                    "friendly_name": "Align items",
+                    "value": "top",
+                    "options": {
+                        "top": "Top",
+                        "centered_vertically": "Centered vertically"
+                    },
+                    "required": false,
+                    "editable": true,
+                    "display_if": {
+                        "show": true,
+                        "operator": "AND",
+                        "rules": [
+                            {
+                                "field": "video_layout",
+                                "operator": "equals",
+                                "value": "two_column"
                             }
                         ]
                     }

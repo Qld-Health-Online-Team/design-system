@@ -320,7 +320,7 @@
                                 <fieldset class="qld__form-style-filled">
                                     <label for="pet-select">Select</label>
 
-                                    <select class="qld__select qld__text-input--valid" id="pet-select">
+                                    <select class="qld__select-control qld__text-input--valid" id="pet-select">
                                         <option value="">--Please choose an option--</option>
                                         <option value="dog">Dog</option>
                                         <option value="cat">Cat</option>
@@ -336,7 +336,7 @@
                                     <label class="sq-form-question-title" for="q49141_q18">Select</label>
                                     <div class="sq-form-question-answer">
                                         <select name="q49141:q18" id="q49141_q18"
-                                            class="qld__select qld__text-input--valid" aria-invalid="false">
+                                            class="qld__select-control qld__text-input--valid" aria-invalid="false">
                                             <option value="1" selected="selected">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -344,6 +344,34 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <fieldset>
+                                    <label for="pet-select">Select disabled</label>
+
+                                    <select id="pet-select" disabled>
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="hamster">Hamster</option>
+                                        <option value="parrot">Parrot</option>
+                                        <option value="spider">Spider</option>
+                                        <option value="goldfish">Goldfish</option>
+                                    </select>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-select "
+                                    id="sq_form_field_wrapper_q49141_q18">
+                                    <label class="sq-form-question-title" for="q49141_q18">Select disabled</label>
+                                    <div class="sq-form-question-answer">
+                                        <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                            aria-invalid="false" disabled>
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                                                
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-xs-6">
@@ -364,7 +392,7 @@
                                                         aria-hidden="true" focusable="false">
                                                         <title>Error icon</title>
                                                         <desc>Indicates an error</desc>
-                                                        <use href="./?a=151118#icon-Status-Error">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-error">
                                                     </svg>Please choose an option
                                                 </span>
 
@@ -416,7 +444,7 @@
                                                         aria-hidden="true" focusable="false">
                                                         <title>Success icon</title>
                                                         <desc>Indicates a correct answer</desc>
-                                                        <use href="./?a=151118#icon-Status-Success">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                     </svg>
                                                     Correct
                                                 </span>
@@ -477,7 +505,7 @@
                                                             aria-hidden="true" focusable="false">
                                                             <title>Success icon</title>
                                                             <desc>Indicates a correct answer</desc>
-                                                            <use href="./?a=151118#icon-Status-Success">
+                                                            <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                             </use>
                                                         </svg>
                                                         Correct
@@ -531,7 +559,7 @@
                                                         <svg class="qld__icon qld__icon--lead qld__icon--sm"
                                                             aria-hidden="true" focusable="false">
                                                             <title>Error icon</title>
-                                                            <use href="./?a=151118#icon-Status-Error">
+                                                            <use href="/mysource_files/img/QLD-icons.svg#status-error">">
                                                             </use>
                                                         </svg>
                                                         This field is required
@@ -592,12 +620,12 @@
                                                     <desc>
                                                         Indicates a error state
                                                     </desc>
-                                                    <use href="./?a=151118#icon-Status-Error">
+                                                    <use href="/mysource_files/img/QLD-icons.svg#status-error">
                                                     </use>
                                                 </svg>
                                                 Error message</span>
                                             <select id="select-example-3"
-                                                class="qld__select qld__text-input--block qld__text-input--error">
+                                                class="qld__select-control qld__text-input--block qld__text-input--error">
                                                 <option value="">Please select</option>
                                                 <option value="1">Option 1</option>
                                                 <option value="2">Option 2</option>
@@ -617,12 +645,12 @@
                                                     <desc>
                                                         Indicates a error state
                                                     </desc>
-                                                    <use href="./?a=151118#icon-Status-Error">
+                                                    <use href="/mysource_files/img/QLD-icons.svg#status-error">
                                                     </use>
                                                 </svg>
                                                 Error message</span>
                                             <select id="select-example-4"
-                                                class="qld__select qld__text-input--block qld__text-input--error">
+                                                class="qld__select-control qld__text-input--block qld__text-input--error">
                                                 <option value="">Please select</option>
                                                 <option value="1">Option 1</option>
                                                 <option value="2">Option 2</option>
@@ -644,12 +672,12 @@
                                                     <desc>
                                                         Indicates a success state
                                                     </desc>
-                                                    <use href="./?a=151118#icon-Status-Success">
+                                                    <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                     </use>
                                                 </svg>
                                                 Success message</span>
                                             <select id="select-example-5"
-                                                class="qld__select qld__text-input--block qld__text-input--valid"
+                                                class="qld__select-control qld__text-input--block qld__text-input--valid"
                                                 aria-describedby="select-example-hint-5">
                                                 <option value="">Please select</option>
                                                 <option value="1">Option 1</option>
@@ -670,12 +698,12 @@
                                                     <desc>
                                                         Indicates a success state
                                                     </desc>
-                                                    <use href="./?a=151118#icon-Status-Success">
+                                                    <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                     </use>
                                                 </svg>
                                                 Success message</span>
                                             <select id="select-example-6"
-                                                class="qld__select qld__text-input--block qld__text-input--valid"
+                                                class="qld__select-control qld__text-input--block qld__text-input--valid"
                                                 aria-describedby="select-example-hint-6">
                                                 <option value="">Please select</option>
                                                 <option value="1">Option 1</option>
@@ -690,7 +718,7 @@
                             </div>
                             <div class="qld__body qld__body--dark">
                                 <div class="container-fluid">
-                                    <h2>Default (Light)</h2>
+                                    <h2>Default (Dark)</h2>
                                     <fieldset>
                                         <legend>Text field</legend>
                                         <div>
@@ -936,7 +964,7 @@
                                     <hr>
                                     <fieldset class="qld__form-style-filled">
                                         <label for="pet-select">Select</label>
-                                        <select class="qld__select qld__text-input--valid" id="pet-select">
+                                        <select class="qld__select-control qld__text-input--valid" id="pet-select">
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
                                             <option value="cat">Cat</option>
@@ -952,7 +980,34 @@
                                         <label class="sq-form-question-title" for="q49141_q18">Select</label>
                                         <div class="sq-form-question-answer">
                                             <select name="q49141:q18" id="q49141_q18"
-                                                class="qld__select qld__text-input--valid" aria-invalid="false">
+                                                class="qld__select-control qld__text-input--valid" aria-invalid="false">
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <fieldset>
+                                        <label for="pet-select">Select disabled</label>
+
+                                        <select id="pet-select" disabled>
+                                            <option value="">--Please choose an option--</option>
+                                            <option value="dog">Dog</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="hamster">Hamster</option>
+                                            <option value="parrot">Parrot</option>
+                                            <option value="spider">Spider</option>
+                                            <option value="goldfish">Goldfish</option>
+                                        </select>
+                                    </fieldset>
+
+                                    <div class="sq-form-question sq-form-question-select "
+                                        id="sq_form_field_wrapper_q49141_q18">
+                                        <label class="sq-form-question-title" for="q49141_q18">Select disabled</label>
+                                        <div class="sq-form-question-answer">
+                                            <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                                aria-invalid="false" disabled>
                                                 <option value="1" selected="selected">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -980,7 +1035,7 @@
                                                             aria-hidden="true" focusable="false">
                                                             <title>Error icon</title>
                                                             <desc>Indicates an error</desc>
-                                                            <use href="./?a=151118#icon-Status-Error">
+                                                            <use href="/mysource_files/img/QLD-icons.svg#status-error">">
                                                         </svg>Please choose an option
                                                     </span>
 
@@ -1032,7 +1087,7 @@
                                                             aria-hidden="true" focusable="false">
                                                             <title>Success icon</title>
                                                             <desc>Indicates a correct answer</desc>
-                                                            <use href="./?a=151118#icon-Status-Success">
+                                                            <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                         </svg>
                                                         Correct
                                                     </span>
@@ -1093,7 +1148,7 @@
                                                                 aria-hidden="true" focusable="false">
                                                                 <title>Success icon</title>
                                                                 <desc>Indicates a correct answer</desc>
-                                                                <use href="./?a=151118#icon-Status-Success">
+                                                                <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                                 </use>
                                                             </svg>
                                                             Correct
@@ -1148,7 +1203,7 @@
                                                             <svg class="qld__icon qld__icon--lead qld__icon--sm"
                                                                 aria-hidden="true" focusable="false">
                                                                 <title>Error icon</title>
-                                                                <use href="./?a=151118#icon-Status-Error">
+                                                                <use href="/mysource_files/img/QLD-icons.svg#status-error">">
                                                                 </use>
                                                             </svg>
                                                             This field is required
@@ -1213,12 +1268,12 @@
                                                         <desc>
                                                             Indicates a error state
                                                         </desc>
-                                                        <use href="./?a=151118#icon-Status-Error">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-error">
                                                         </use>
                                                     </svg>
                                                     Error message</span>
                                                 <select id="select-example-3"
-                                                    class="qld__select qld__text-input--block qld__text-input--error">
+                                                    class="qld__select-control qld__text-input--block qld__text-input--error">
                                                     <option value="">Please select</option>
                                                     <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
@@ -1238,12 +1293,12 @@
                                                         <desc>
                                                             Indicates a error state
                                                         </desc>
-                                                        <use href="./?a=151118#icon-Status-Error">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-error">
                                                         </use>
                                                     </svg>
                                                     Error message</span>
                                                 <select id="select-example-4"
-                                                    class="qld__select qld__text-input--block qld__text-input--error">
+                                                    class="qld__select-control qld__text-input--block qld__text-input--error">
                                                     <option value="">Please select</option>
                                                     <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
@@ -1265,12 +1320,12 @@
                                                         <desc>
                                                             Indicates a success state
                                                         </desc>
-                                                        <use href="./?a=151118#icon-Status-Success">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                         </use>
                                                     </svg>
                                                     Success message</span>
                                                 <select id="select-example-5"
-                                                    class="qld__select qld__text-input--block qld__text-input--valid"
+                                                    class="qld__select-control qld__text-input--block qld__text-input--valid"
                                                     aria-describedby="select-example-hint-5">
                                                     <option value="">Please select</option>
                                                     <option value="1">Option 1</option>
@@ -1291,12 +1346,12 @@
                                                         <desc>
                                                             Indicates a success state
                                                         </desc>
-                                                        <use href="./?a=151118#icon-Status-Success">
+                                                        <use href="/mysource_files/img/QLD-icons.svg#status-success">
                                                         </use>
                                                     </svg>
                                                     Success message</span>
                                                 <select id="select-example-6"
-                                                    class="qld__select qld__text-input--block qld__text-input--valid"
+                                                    class="qld__select-control qld__text-input--block qld__text-input--valid"
                                                     aria-describedby="select-example-hint-6">
                                                     <option value="">Please select</option>
                                                     <option value="1">Option 1</option>
