@@ -41,8 +41,8 @@ When you first clone down the Design System, you automatically get the following
 - Hot-reload HTML, CSS and JS
 
 ### Requirements
-- Node: v16.20.0
-- NPM: 8.19.4
+- Node: v20.19.1
+- NPM: 10.8.2
 
 ### Local Development
 

@@ -1,6 +1,5 @@
 import { Tags } from "./Tags";
-import { figmaLinks } from "../../../.storybook/globals";
-import { themes } from "../../../.storybook/globals";
+import { themes, figmaLinks } from "../../../.storybook/globals";
 
 const tagsArgs = {
     type: "default",
