@@ -1,63 +1,6 @@
 <div class="qld__side-nav qld__accordion">
-    testing {{current.data.metadata.sideNavigationParent.value}}, {{current.data.metadata.sideNavigationParent}}
-    {{#if current.data.metadata.sideNavigationParent.value}}
-        <button class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed" aria-controls="nav-default" aria-expanded="false" aria-selected="false" >
-        In {{current.data.metadata.sideNavigationParent.asset_name}}
-        </button>
-        <nav aria-label="side navigation" id="nav-default" class="qld__side-nav__content qld__accordion--closed qld__accordion__body"> 
-            <h2 class="qld__sidenav__title">
-                <a class="qld__sidenav__link" href="./?a={{current.data.metadata.sideNavigationParent.asset_url}}">{{current.data.metadata.sideNavigationParent.asset_name}}</a>
-            </h2>
-            <ul class="qld__link-list">
-                {{current.data.metadata.sideNavigationParent.children}}
-            {{#each current.data.metadata.sideNavigationParent.children}}
-                {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                <li>
-                    <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
-                {{/ifCond}}
-                {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                <li class="active" aria-current="page">
-                    <span>{{{asset_short_name}}}</span>
-                {{/ifCond}}
-                {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
-                    {{#if children}}
-                        <ul class="qld__link-list">
-                        {{#each children}}
-                            {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                            <li>
-                                <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
-                            {{/ifCond}}
-                            {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                            <li class="active" aria-current="page">
-                                <span>{{{asset_short_name}}}</span>
-                            {{/ifCond}}
-                            {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
-                                {{#if children}}
-                                    <ul class="qld__link-list">
-                                    {{#each children}}
-                                        {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                                        <li>
-                                            <a class="qld__sidenav__link" href="{{asset_url}}">{{{asset_short_name}}}</a>
-                                        {{/ifCond}}
-                                        {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                                        <li class="active" aria-current="page">
-                                            <span>{{{asset_short_name}}}</span>
-                                        {{/ifCond}}
-                                        </li>    
-                                    {{/each}}
-                                    </ul>  
-                                {{/if}}
-                            {{/inArray}}
-                            </li>
-                        {{/each}}
-                        </ul>  
-                    {{/if}}
-                {{/inArray}}
-                </li>
-            {{/each}}
-            </ul>
-        </nav>
-    {{else}}
+   
+
         <button class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed" aria-controls="nav-default" aria-expanded="false" aria-selected="false" >
         In {{{current.top.asset_name}}}
         </button>
@@ -113,7 +56,7 @@
             {{/each}}
             </ul>
         </nav>
-    {{/if}}
+
 
     
 </div>
