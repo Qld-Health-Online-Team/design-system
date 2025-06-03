@@ -4,7 +4,7 @@
     </button>
     <nav aria-label="side navigation" id="nav-default" class="qld__side-nav__content qld__accordion--closed qld__accordion__body"> 
         
-        {{#ifCond current.data.metadata.sideNavigation.value '==' 'custom'}}
+        {{#ifCond current.data.metadata.sideNavigation.value '==' 'custom' '&&' current.data.metadata.sideNavigationParent.value}}
             <h2 class="qld__sidenav__title">
                 <a class="qld__sidenav__link" href="{{current.topOverride.asset_url}}">{{{current.topOverride.asset_name}}}</a>
             </h2>
@@ -56,7 +56,7 @@
             {{/each}}
             </ul>
         {{/ifCond}}
-        {{#ifCond current.data.metadata.sideNavigation.value '==' 'default'}}
+        {{#ifCond current.data.metadata.sideNavigation.value '==' 'default' '||' !current.data.metadata.sideNavigationParent.value}}
             <h2 class="qld__sidenav__title">
                 <a class="qld__sidenav__link" href="{{current.top.asset_url}}">{{{current.top.asset_name}}}</a>
             </h2>
