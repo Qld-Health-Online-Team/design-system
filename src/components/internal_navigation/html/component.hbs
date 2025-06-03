@@ -56,7 +56,7 @@
             {{/each}}
             </ul>
         {{/ifCond}}
-        {{#ifCond current.data.metadata.sideNavigation.value '==' 'default' '||' !current.data.metadata.sideNavigationParent.value}}
+        {{#ifCond current.data.metadata.sideNavigation.value '==' 'default' '||' current.data.metadata.sideNavigationParent.value '==' ''}}
             <h2 class="qld__sidenav__title">
                 <a class="qld__sidenav__link" href="{{current.top.asset_url}}">{{{current.top.asset_name}}}</a>
             </h2>
