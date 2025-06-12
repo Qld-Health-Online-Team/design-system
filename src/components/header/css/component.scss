@@ -373,7 +373,7 @@
                 display: flex;
 
                 @include QLD-media(lg) {
-                    max-height: 56px;
+                    max-height: pxToRem(56);
                 }
 
                 &:hover {
@@ -450,6 +450,12 @@
 
                 @include QLD-media(md) {
                     @include QLD-fontgrid(sm, heading);
+                }
+            }
+
+            picture {
+                @include QLD-media(lg) {
+                    max-height: pxToRem(56);
                 }
             }
         }
