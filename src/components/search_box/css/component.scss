@@ -3,49 +3,57 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Search form
-.qld__search-form--wrapper{
-	position: relative;
+.qld__search-form--wrapper {
+    position: relative;
 
-	.qld__search-form {
-		font-size: 1rem;
-		margin-top: 0;
-		
-		
-		&__label {
-			@include QLD-sronly();
-		}
+    .qld__search-form__inner {
+        input.qld__text-input,
+        .qld__search-form__btn button {
+            height: pxToRem(52);
+        }
+    }
 
-		&__inner{
-			display: flex;
-			align-items: center;
-			width: 100%;
-		}
+    .qld__search-form {
+        font-size: 1rem;
+        margin-top: 0;
 
-		.qld__text-input {
-			border-bottom-right-radius: 0;
-			border-right: 0;
-			border-top-right-radius: 0;
-			display: table-cell;
-			max-width: 100%;
-			position: relative;
-			vertical-align: top;
-			width: 100%;
-			line-height: 24px;
-			font-size: 1rem;
+        &__label {
+            @include QLD-sronly();
+        }
 
-			&::-webkit-search-decoration,
-			&::-webkit-search-cancel-button,
-			&::-webkit-search-results-button,
-			&::-webkit-search-results-decoration { display: none; }
-		}
+        &__inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
 
-		.qld__btn {
-			border-bottom-left-radius: 0;
-			border-top-left-radius: 0;
-			margin: 0;
-			width: 100%;
-			line-height: 24px;
-			font-size: 1rem;
-		}
-	}
+        .qld__text-input {
+            border-bottom-right-radius: 0;
+            border-right: 0;
+            border-top-right-radius: 0;
+            display: table-cell;
+            max-width: 100%;
+            position: relative;
+            vertical-align: top;
+            width: 100%;
+            line-height: 24px;
+            font-size: 1rem;
+
+            &::-webkit-search-decoration,
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                display: none;
+            }
+        }
+
+        .qld__btn {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin: 0;
+            width: 100%;
+            line-height: 24px;
+            font-size: 1rem;
+        }
+    }
 }
