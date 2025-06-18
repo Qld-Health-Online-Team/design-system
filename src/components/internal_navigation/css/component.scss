@@ -8,17 +8,15 @@ $QLD-side-nav-breakpoint: lg !default;
 .qld__side-nav {
     @include QLD-fontgrid(sm);
     font-family: $QLD-font;
-    background-color: $QLD-color-neutral--lightest;
     border-radius: $QLD-border-radius;
     overflow: hidden;
     @include QLD-space(margin-bottom, 2.5unit);
-    
+
     @include QLD-media(lg) {
         @include QLD-space(margin-bottom, 0unit);
-        // @include QLD-space(margin-right, 1unit);
         border: 0;
     }
-    
+
     @include QLD-media(xl) {
         @include QLD-space(margin-bottom, 0unit);
     }
@@ -29,19 +27,27 @@ $QLD-side-nav-breakpoint: lg !default;
         color: var(--QLD-color-light__text);
         display: block;
     }
-    
+
     a {
         max-width: 100%;
-        @include QLD-underline('light','noUnderline');
-        
-        &:hover {
+        @include QLD-underline("light", "noUnderline");
+
+        &:hover,
+        &:focus {
             color: var(--QLD-color-light__link);
             background-color: $QLD-color-neutral--lightest;
 
-            &:visited {
-                color: var(--QLD-color-light__link);
-                background-color: $QLD-color-neutral--lightest;
-                text-decoration: none;
+            .qld__body--light & {
+                background-color: var(--QLD-color-light__background--shade);
+            }
+            .qld__body--alt & {
+                background-color: var(--QLD-color-light__background--alt-shade);
+            }
+            .qld__body--dark & {
+                background-color: var(--QLD-color-dark__background--shade);
+            }
+            .qld__body--dark-alt & {
+                background-color: var(--QLD-color-dark__background--alt-shade);
             }
         }
 
@@ -49,27 +55,42 @@ $QLD-side-nav-breakpoint: lg !default;
             color: var(--QLD-color-light__text);
         }
 
-        &:focus {
-            color: var(--QLD-color-light__link);
-            background-color: $QLD-color-neutral--lightest;
-        }
-        
         @include QLD-focus();
     }
-    
+
+    .qld__sidenav__link {
+        svg.qld__icon {
+            color: var(--QLD-color-light__heading);
+            fill: var(--QLD-color-light__heading);
+
+            .qld__body--dark &,
+            .qld__body--dark-alt & {
+                color: var(--QLD-color-dark__heading);
+                fill: var(--QLD-color-dark__heading);
+            }
+        }
+    }
+
     // Link list
     .qld__link-list {
-        @include QLD-space(
-            border-top,
-            solid 0.0625unit var(--QLD-color-light__design-accent)
-        );
+        @include QLD-space(border-top, solid 0.0625unit var(--QLD-color-light__design-accent));
         padding: 0;
         margin: 0 !important;
-        
+
+        > li:not(:first-child) {
+            // First level li; same colour for normal, light, and alt
+            border-top: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+            // First level li; same colour for dark and dark-alt
+            .qld__body--dark &,
+            .qld__body--dark-alt & {
+                border-top: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
+            }
+        }
+
         li {
             margin: 0;
 
-            &:first-child{
+            &:first-child {
                 a,
                 span {
                     border-top-color: transparent;
@@ -77,73 +98,119 @@ $QLD-side-nav-breakpoint: lg !default;
             }
         }
 
-        a,
-        span{
-            border-top:$QLD-border-width-thin solid var(--QLD-color-light__border--alt); 
-
-        }
-
         .qld__link-list {
             @include QLD-space(border-top-width, 0unit);
 
             li {
-                border-top:$QLD-border-width-thin solid $QLD-color-neutral--lighter;
-                a,
-                span{
-                   // border-top:$QLD-border-width-thin solid $QLD-color-neutral--lighter;
+                border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+
+                .qld__body--light & {
+                    border-top-color: var(--QLD-color-light__border);
+                }
+                .qld__body--alt & {
+                    border-top-color: $QLD-color-neutral--darkest__opacity-10;
+                }
+                .qld__body--dark & {
+                    border-top-color: var(--QLD-color-dark__border);
+                }
+                .qld__body--dark-alt & {
+                    border-top-color: $QLD-color-neutral--light__opacity-10;
                 }
             }
         }
     }
-    
+
     // Accordion styles
+    &.qld__accordion {
+        @include QLD-media(lg, "down") {
+            border-bottom: 1px solid $QLD-color-neutral--lighter;
+
+            .qld__body--light & {
+                border-color: var(--QLD-color-light__border);
+            }
+            .qld__body--alt & {
+                border-color: var(--QLD-color-light__border--alt);
+            }
+            .qld__body--dark & {
+                border-color: var(--QLD-color-dark__border);
+            }
+            .qld__body--dark-alt & {
+                border-color: var(--QLD-color-dark__border--alt);
+            }
+        }
+    }
+
     .qld__accordion__body {
         overflow: visible;
     }
-    
+
     .qld__accordion__title {
         @include QLD-fontgrid(md, heading);
         color: var(--QLD-color-light__link);
         font-weight: normal;
         background-color: inherit;
-        
+
+        &.qld__side-nav__toggle {
+            background: $QLD-color-neutral--lightest;
+
+            .qld__body--light & {
+                background: var(--QLD-color-light__background--shade);
+            }
+            .qld__body--alt & {
+                background: var(--QLD-color-light__background--alt-shade);
+            }
+            .qld__body--dark & {
+                background: var(--QLD-color-dark__background--shade);
+            }
+            .qld__body--dark-alt & {
+                background: var(--QLD-color-dark__background--alt-shade);
+            }
+        }
+
+        &.qld__side-nav__toggle.qld__accordion--open {
+            border-bottom: 1px solid $QLD-color-neutral--lighter;
+
+            .qld__body--light & {
+                border-bottom-color: var(--QLD-color-light__border);
+            }
+            .qld__body--alt & {
+                border-bottom-color: var(--QLD-color-light__border--alt);
+            }
+            .qld__body--dark & {
+                border-bottom-color: var(--QLD-color-dark__border);
+            }
+            .qld__body--dark-alt & {
+                border-bottom-color: var(--QLD-color-dark__border--alt);
+            }
+        }
+
         &:focus {
             outline-offset: -3px;
         }
-        
+
         // Hide the accordion title without javascript
         .no-js & {
             display: none;
         }
-        
-        &::after {
-            background-image: QLD-svg-with-fill($QLD-icon-chevron-up, var(--QLD-color-light__action--secondary));
-            margin-top: -.8rem;
-            @include QLD-space(height, 1.5unit);
-        }
     }
-    
+
     .qld__accordion__body-wrapper {
         border: 0;
         padding: 0;
     }
-    
+
     // Desktop styles
     @include QLD-media($QLD-side-nav-breakpoint) {
         background: transparent;
         border-radius: 0;
         overflow: visible;
-        
+
         // Open the menu on desktop
         .qld__accordion__body.qld__accordion--closed {
             display: block;
             height: auto;
         }
-        
-        a:hover {
-            background-color: $QLD-color-neutral--lightest;
-        }
-        
+
         .qld__accordion__title {
             display: none;
         }
@@ -153,44 +220,22 @@ $QLD-side-nav-breakpoint: lg !default;
 // Content inside the side navigation accordion
 .qld__side-nav__content {
     @include QLD-space(margin, 0 1unit);
-    
+
     ul {
-        @include QLD-side-nav-indent(3);
-        @include QLD-side-nav-indent(3, ".active > span");
+        @include QLD-side-nav-indent(1);
+        @include QLD-side-nav-indent(1, ".active > span");
     }
-    
+
     .active > span {
         font-weight: bold;
         color: var(--QLD-color-light__heading);
     }
-    
-    ul ul ul a,
-    ul ul ul .active > span {
-        &:before {
-            content: " ";
-            @include QLD-space(width, 1unit);
-            @include QLD-space(height, 1unit);
-            @include QLD-space(background-size, 1unit);
-            @include QLD-space(margin-left, -1.5unit);
-            display: block;
-            float: left;
-            background-repeat: no-repeat;
-            background-image: QLD-svguri(
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-                    '<path fill="#{ var(--QLD-color-light__border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
-                    "</svg>"
-            );
-        }
+
+    ul ul ul svg.qld__icon {
+        margin-right: pxToRem(10);
+        transform: rotate(45deg);
     }
-    
-    & > ul > li {
-        // border-bottom: 1px solid var(--QLD-color-light__border);
-        
-        &:last-of-type {
-            border: none;
-        }
-    }
-    
+
     @include QLD-media($QLD-side-nav-breakpoint) {
         margin: 0;
     }
@@ -200,15 +245,12 @@ $QLD-side-nav-breakpoint: lg !default;
 .qld__side-nav .qld__sidenav__title {
     margin: 0;
     max-width: 100%;
-    
+
     a {
         @include QLD-fontgrid(sm);
         color: var(--QLD-color-light__heading);
-        @include QLD-space(
-            border-bottom,
-            solid 0.125unit var(--QLD-color-light__design-accent)
-        );
-        @include QLD-underline('light','noUnderline','default','noVisited');
+        @include QLD-space(border-bottom, solid 0.125unit var(--QLD-color-light__design-accent));
+        @include QLD-underline("light", "noUnderline", "default", "noVisited");
 
         @include QLD-media(md) {
             font-weight: bold;
@@ -221,256 +263,82 @@ $QLD-side-nav-breakpoint: lg !default;
     }
 }
 
-// Alternate colour variation
-
-.qld__body--alt .qld__side-nav {
-    background-color: var(--QLD-color-light__background--alt-shade);
-    .qld__accordion__title {
-        color: var(--QLD-color-light__heading);
-        text-decoration-color: var(--QLD-color-light__heading);
-        background-color: inherit;
-    }
-    
-    a:hover {
-        background: var(--QLD-color-light__background--alt);
-    }
-    
-    @include QLD-media($QLD-side-nav-breakpoint) {
-        background: transparent;
-        
-        a:hover {
-            background-color: var(--QLD-color-light__background--alt-shade);
-        }
-    }
-    
-    .qld__link-list {
-        li {
-            a,span {
-                @include QLD-space(
-                    border-top,
-                    solid 0.0625unit var(--QLD-color-light__border--alt)
-                );
-            }
-
-        }
-    }
-}
-
 // Dark colour variation
 .qld__body--dark .qld__side-nav {
-    background: var(--QLD-color-dark__background--shade);
-    &.qld__accordion {
-        border: 1px solid var(--QLD-color-dark__border);
-    }
-    .qld__accordion__title {
-        color: var(--QLD-color-dark__heading);
-        text-decoration-color: var(--QLD-color-dark__heading);
-        background-color: inherit;
-        &:after {
-            background-color: var(--QLD-color-dark__action--secondary);
-        }
-    }
-    
     .qld__sidenav__link {
         color: var(--QLD-color-dark__link);
-        @include QLD-underline('light','noUnderline');
-        &:hover {
-            background: var(--QLD-color-dark__background--shade);
-            color: var(--QLD-color-dark__link);
-            text-decoration-color: var(--QLD-color-dark__link);
-            &:visited {
-                color: var(--QLD-color-dark__link);
-                background-color: var(--QLD-color-dark__background--shade);
-                text-decoration: none;
-            }
-        }
-        &:visited {
-            color: var(--QLD-color-dark__link);
-            text-decoration: none;
-        }
-
-        &:focus {
-            color: var(--QLD-color-dark__link);
-            background-color: var(--QLD-color-dark__background--shade);
-            text-decoration-color: var(--QLD-color-dark__link);
-        }
-        
-        
-        @include QLD-focus("dark");
-    }
-    
-    .qld__side-nav__content {
-        .active > span {
-            color: var(--QLD-color-dark__text);
-        }
-        
-        ul ul ul a:before,
-        ul ul ul .active > span:before {
-            background-image: QLD-svguri(
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-                    '<path fill="#{ var(--QLD-color-dark__border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
-                    "</svg>"
-            );
-        }
-        
-        & > ul > li {
-            // border-bottom: 1px solid var(--QLD-color-dark__border);
-            
-            &:last-of-type{
-                border: none;
-            }
-        }
-    }
-    
-    .qld__sidenav__title a {
-        border-color: var(--QLD-color-dark__design-accent);
-        color: var(--QLD-color-dark__text);
-        @include QLD-underline('light','noUnderline','default','noVisited');
-    }
-    
-    @include QLD-media($QLD-side-nav-breakpoint) {
-        background: transparent;
-        
-        a:hover {
-            background-color: var(--QLD-color-dark__background--shade);
-        }
-        
-    }
-    
-    .qld__link-list {
-        @include QLD-space(
-            border-top,
-            solid 0.0625unit var(--QLD-color-dark__design-accent)
-        );
-        padding: 0;
-        margin: 0 !important;
-        
-        li {
-            margin: 0;
-        }
-        a,
-        span {
-            border-top-color: var(--QLD-color-dark__border)
-        }
-        
-        .qld__link-list {
-            @include QLD-space(border-top-width, 0unit);
-            li {
-                border-top-color: var(--QLD-color-dark__border);
-            }
-        }
+        @include QLD-underline("light", "noUnderline");
     }
 }
 
 // Dark alternative colour variation
-// Dark colour variation
-
 .qld__body--dark-alt .qld__side-nav {
-    background: var(--QLD-color-dark__background--alt-shade);
-    &.qld__accordion {
-        border: 1px solid var(--QLD-color-dark__border--alt);
-    }
-    .qld__accordion__title {
-        color: var(--QLD-color-dark__heading);
-        background-color: inherit;
-    }
-    
     .qld__sidenav__link {
         color: var(--QLD-color-dark__text);
-        @include QLD-underline('dark','noUnderline');
-        // &:hover {
-        //     background: var(--QLD-color-dark__background--alt);
+        @include QLD-underline("dark", "noUnderline");
+    }
+}
 
-        //     &:visited {
-        //         color: var(--QLD-color-dark__text);
-        //         text-decoration: none;
-        //     }
-        // }
+// Dark and dark-alt mutual styles
+.qld__body--dark,
+.qld__body--dark-alt {
+    .qld__side-nav {
+        .qld__accordion__title {
+            color: var(--QLD-color-dark__heading);
+            text-decoration-color: var(--QLD-color-dark__heading);
+            background-color: inherit;
 
-        &:hover {
-            background: var(--QLD-color-dark__background--shade);
-            color: var(--QLD-color-dark__link);
-            text-decoration-color: var(--QLD-color-dark__link);
-            &:visited {
-                color: var(--QLD-color-dark__link);
-                background-color: var(--QLD-color-dark__background--shade);
-                text-decoration: none;
+            &:after {
+                background-color: var(--QLD-color-dark__action--secondary);
             }
         }
-        &:visited {
-            color: var(--QLD-color-dark__link);
-            text-decoration: none;
+
+        .qld__side-nav__content {
+            .active > span {
+                color: var(--QLD-color-dark__text);
+            }
+
+            ul ul ul svg.qld__icon {
+                color: var(--QLD-color-dark__border--alt);
+                fill: var(--QLD-color-dark__border--alt);
+            }
         }
 
-        &:focus {
-            color: var(--QLD-color-dark__link);
-            background-color: var(--QLD-color-dark__background--shade);
-            text-decoration-color: var(--QLD-color-dark__link);
+        .qld__sidenav__link {
+            @include QLD-focus("dark");
+
+            &:hover {
+                color: var(--QLD-color-dark__link);
+                text-decoration-color: var(--QLD-color-dark__link);
+                &:visited {
+                    color: var(--QLD-color-dark__link);
+                    text-decoration: none;
+                }
+            }
+
+            &:visited {
+                color: var(--QLD-color-dark__link);
+                text-decoration: none;
+            }
+
+            &:focus {
+                background-color: var(--QLD-color-dark__background--shade);
+                text-decoration-color: var(--QLD-color-dark__link);
+            }
         }
-        
-        @include QLD-focus("dark");
-    }
-    
-    .qld__side-nav__content {
-        .active > span {
+
+        .qld__sidenav__title a {
+            @include QLD-underline("light", "noUnderline", "default", "noVisited");
+
+            border-color: var(--QLD-color-dark__design-accent);
             color: var(--QLD-color-dark__text);
-        }
-        
-        ul ul ul a:before,
-        ul ul ul .active > span:before {
-            background-image: QLD-svguri(
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-                    '<path fill="#{ var(--QLD-color-dark__border) }" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
-                    "</svg>"
-            );
-        }
-        
-        & > ul > li {
-            // border-color: var(--QLD-color-dark__border);
-        }
-    }
-    
-    .qld__sidenav__title a {
-        border-color: var(--QLD-color-dark__design-accent);
-        color: var(--QLD-color-dark__text)
-    }
-    
-    @include QLD-media($QLD-side-nav-breakpoint) {
-        background: transparent;
-        
-        a:hover {
-            background-color: var(--QLD-color-dark__background--alt-shade);
-        }
-    }
-    
-    .qld__link-list {
-        @include QLD-space(
-            border-top,
-            solid 0.0625unit var(--QLD-color-dark__design-accent)
-        );
-        padding: 0;
-        margin: 0 !important;
-        
-        li {
-            margin: 0;
-        }
-        
-        .qld__link-list {
-            @include QLD-space(border-top-width, 0unit);
-            li {
-                border-top-color: var(--QLD-color-dark__border--alt);
+
+            &:focus {
+                text-decoration-color: var(--QLD-color-dark__link);
             }
         }
     }
 }
-
-// Update Internal Navigation Colours based on wrapper class
-// qld__body--light
-// qld__body--dark
-// qld__body--alt
-// qld__body--dark-alt
-// white which is no class
-
 
 // Print styles
 @media print {
@@ -493,13 +361,6 @@ $QLD-side-nav-breakpoint: lg !default;
     }
 
     .qld__side-nav__content {
-
-        ul ul ul a:before {
-            background-image: QLD-svguri( '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">' +
-            '<path fill="#000" d="M2 10h12v1H2zM2 5h1v5H2z"/>' +
-            '</svg>') !important;
-        }
-
         & > ul > li {
             border-color: #000 !important;
         }
