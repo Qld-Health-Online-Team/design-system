@@ -17,7 +17,9 @@
 
             // Loop through each matching element and apply the style
             thirdLevelLinks.forEach((link) => {
-                link.insertAdjacentHTML("afterbegin", svgIcon);
+                if (!link.querySelector("svg")) {
+                    link.insertAdjacentHTML("afterbegin", svgIcon);
+                }
                 link.parentElement.style.borderTopColor = "transparent";
             });
         }
