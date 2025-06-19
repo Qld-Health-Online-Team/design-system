@@ -13,7 +13,7 @@
         if (svgPath) {
             const svgIcon = `<svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#tick"></use></svg>`;
 
-            const thirdLevelLinks = document.querySelectorAll("ul ul ul a");
+            const thirdLevelLinks = document.querySelectorAll("ul ul ul a, ul ul ul span");
 
             // Loop through each matching element and apply the style
             thirdLevelLinks.forEach((link) => {
