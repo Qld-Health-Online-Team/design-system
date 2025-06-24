@@ -146,7 +146,7 @@ export default {
                 dark: "Dark",
                 dark_alt: "Alternate Dark",
             },
-            options: ["", "light", "alt", "dark", "dark-alt"],
+            options: ["white", "light", "alt", "dark", "dark-alt"],
             description: "The background theme for the video player.",
         },
     },
