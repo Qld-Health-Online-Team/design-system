@@ -1,4 +1,4 @@
-export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, label, hintText, state, succcessMessage, errorMessage, defaultOption, options }) => {
+export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, isMultiple, label, hintText, state, succcessMessage, errorMessage, defaultOption, options }) => {
     let stateMessage = "";
     let stateClass = "";
 
@@ -45,7 +45,7 @@ export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, la
             <label for="${id}">${isRequired ? "<abbr title=required>*</abbr>" : ""}${label}</label>
             ${hintText ? `<span id="${id}-hint" class="qld__hint-text">${hintText}</span>` : ""}
             ${stateMessage}
-            <select id="${id}" class="qld__select-control ${extraClass} ${stateClass}" ${isDisabled ? "disabled" : ""} name="${id}" aria-describedby="${id}-hint ${id}-state-message">
+            <select id="${id}" class="qld__select-control ${extraClass} ${stateClass}" ${isDisabled ? "disabled" : ""} name="${id}" aria-describedby="${id}-hint ${id}-state-message" ${isMultiple ? "multiple" : ""}>
                 ${optionsMapped}
             </select>
         </fieldset>

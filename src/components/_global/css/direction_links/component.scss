@@ -2,184 +2,129 @@
 // Direction Links
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__direction-link,
-a.qld__direction-link{
+$icon-scale: 1;
+$icon-arrow-head-width: 0.6rem;
+$icon-arrow-stroke-width: 0.125rem;
+$icon-arrow-body-length: 1rem;
+$icon-gap-from-text: 1.75rem;
 
-	&--left{
-		&:before {
-			@include QLD-space( width, 1unit );
-			@include QLD-space( height, 1.5unit );
-			@include QLD-space( margin, 0 0.5unit 0 0.25unit );
-			content: '';
-			color: var(--QLD-color-light__action--secondary);
-			display: inline-block;
-			// background-repeat: no-repeat;
-			// background-size: contain;
-			// background-position: center;
-			vertical-align: text-top;
-			// background-image: QLD-svg-with-fill($QLD-icon-arrow-left, var(--QLD-color-light__action--secondary));
-			mask-image: QLD-svguri($QLD-icon-arrow-left);
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--QLD-color-light__action--secondary);
-		}
+a.qld__direction-link {
+    &--right,
+    &--left,
+    &--up,
+    &--down {
+        position: relative;
+        display: inline-block;
+        border-radius: $QLD-border-radius-xs;
 
-		&:disabled,
-		&[disabled] {
-			background-color: transparent;
-			border-color: transparent;
-			color: var(--QLD-color-light__text--lighter);
-			&::before{
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-left, var(--QLD-color-light__text--lighter));
-				background-color: var(--QLD-color-light__text--lighter);
-			}
-		}
-	}
+        &::before {
+            width: $icon-arrow-body-length;
+        }
 
-	&--right{
-		&:after {
-			@include QLD-space( width, 1unit );
-			@include QLD-space( height, 1.5unit );
-			@include QLD-space( margin, 0 0.25unit 0 0.5unit );
-			content: '';
-			color: var(--QLD-color-light__action--secondary);
-			display: inline-block;
-			// background-repeat: no-repeat;
-			// background-size: contain;
-			// background-position: center;
-			vertical-align: text-top;
-			// background-image: QLD-svg-with-fill($QLD-icon-arrow-right, var(--QLD-color-light__action--secondary));
-			mask-image: QLD-svguri($QLD-icon-arrow-right);
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--QLD-color-light__action--secondary);
-			
-		}
+        &::after {
+            width: $icon-arrow-head-width;
+            height: $icon-arrow-head-width;
+            border-right: $icon-arrow-stroke-width solid;
+        }
 
-		&:disabled,
-		&[disabled] {
-			background-color: transparent;
-			border-color: transparent;
-			color: var(--QLD-color-light__text--lighter);
-			&::after{
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-left, var(--QLD-color-light__text--lighter));
-				background-color: var(--QLD-color-light__text--lighter);
-			}
-		}
-	}
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            box-sizing: border-box;
+            border-bottom: $icon-arrow-stroke-width solid;
+            transition: border-color 0.3s ease;
+            border-color: var(--QLD-color-light__action--secondary);
 
-	&--up{
-		&:after {
-			@include QLD-space( width, 1unit );
-			@include QLD-space( height, 1.5unit );
-			@include QLD-space( margin, 0 0.25unit 0 0.5unit );
-			content: '';
-			color: var(--QLD-color-light__action--secondary);
-			display: inline-block;
-			// background-repeat: no-repeat;
-			// background-size: contain;
-			// background-position: center;
-			vertical-align: text-top;
-			// background-image: QLD-svg-with-fill($QLD-icon-arrow-up, var(--QLD-color-light__action--secondary));
-			mask-image: QLD-svguri($QLD-icon-arrow-up);
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--QLD-color-light__action--secondary);
-		}
+            .qld__body--dark &,
+            .qld__body--dark-alt & {
+                border-color: var(--QLD-color-dark__action--secondary);
+            }
+        }
+    }
 
-		&:disabled,
-		&[disabled] {
-			background-color: transparent;
-			border-color: transparent;
-			color: var(--QLD-color-light__text--lighter);
-			&::after{
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-left, var(--QLD-color-light__text--lighter));
-				background-color: var(--QLD-color-light__text--lighter);
-			}
-		}
-	}
+    &--right {
+        padding-right: $icon-gap-from-text;
 
-	&--down{
-		&:after {
-			@include QLD-space( width, 1unit );
-			@include QLD-space( height, 1.5unit );
-			@include QLD-space( margin, 0 0.25unit 0 0.5unit );
-			content: '';
-			color: var(--QLD-color-light__action--secondary);
-			display: inline-block;
-			// background-repeat: no-repeat;
-			// background-size: contain;
-			// background-position: center;
-			vertical-align: text-top;
-			// background-image: QLD-svg-with-fill($QLD-icon-arrow-down, var(--QLD-color-light__action--secondary));
-			mask-image: QLD-svguri($QLD-icon-arrow-down);
-			mask-repeat: no-repeat;
-			mask-position: center;
-			background-color: var(--QLD-color-light__action--secondary);
-		}
+        &::before {
+            top: 50%;
+            right: 0.3rem;
+            transform: scale($icon-scale);
+        }
 
-		&:disabled,
-		&[disabled] {
-			background-color: transparent;
-			border-color: transparent;
-			color: var(--QLD-color-light__text--lighter);
+        &::after {
+            transform: rotate(315deg) scale($icon-scale);
+            top: 0.5rem;
+            right: 0.3rem;
+        }
+    }
 
-			&::after{
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-down, var(--QLD-color-light__text--lighter));
-				background-color: var(--QLD-color-light__text--lighter);
-			}
-		}
-	}
+    &--left {
+        padding-left: $icon-gap-from-text;
 
-	.qld__body--dark &,
-	.qld__body--dark-alt &{
-		&--left{
-			&:before {
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-left, var(--QLD-color-dark__action--secondary));
-				background-color: var(--QLD-color-dark__action--secondary);
-			}
-		}
-		&--right{
-			&:after {
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-right, var(--QLD-color-dark__action--secondary));
-				background-color: var(--QLD-color-dark__action--secondary);
-			}
-		}
-		&--up{
-			&:after {
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-up, var(--QLD-color-dark__action--secondary));
-				background-color: var(--QLD-color-dark__action--secondary);
-			}
-		}
-		&--down{
-			&:after {
-				// background-image: QLD-svg-with-fill($QLD-icon-arrow-down, var(--QLD-color-dark__action--secondary));
-				background-color: var(--QLD-color-dark__action--secondary);
-			}
-		}
-	}
+        &::before {
+            top: 50%;
+            left: 0.3rem;
+            transform: scale($icon-scale);
+        }
 
+        &::after {
+            top: 0.5rem;
+            left: 0.3rem;
+            transform: rotate(135deg) scale($icon-scale);
+        }
+    }
+
+    &--up {
+        padding-right: $icon-gap-from-text;
+
+        &::before {
+            top: 13px;
+            right: 5px;
+            transform: rotate(90deg) scale($icon-scale);
+        }
+
+        &::after {
+            top: 6px;
+            right: 8.25px;
+            transform: rotate(225deg) scale($icon-scale);
+        }
+    }
+
+    &--down {
+        padding-right: $icon-gap-from-text;
+
+        &::before {
+            top: 11.5px;
+            right: 5px;
+            transform: rotate(90deg) scale($icon-scale);
+        }
+
+        &::after {
+            top: 11px;
+            right: 8.25px;
+            transform: rotate(45deg) scale($icon-scale);
+        }
+    }
 }
 
 // Print styles
 @media print {
-	.qld__direction-link {
-		color: #000 !important;
-	}
+    a.qld__direction-link,
+    .qld__body--dark a.qld__direction-link,
+    .qld__body--dark-alt a.qld__direction-link {
+        color: $QLD-color-neutral--black;
+        text-decoration-color: $QLD-color-neutral--black;
 
-	.qld__direction-link__arrow--right:after {
-		content: '→' !important;
-	}
-
-	.qld__direction-link__arrow--left:before {
-		content: '←' !important;
-	}
-
-	.qld__direction-link__arrow--up:after {
-		content: '↑' !important;
-	}
-
-	.qld__direction-link__arrow--down:after {
-		content: '↓' !important;
-	}
+        &--right,
+        &--left,
+        &--up,
+        &--down {
+            &::before,
+            &::after {
+                border-color: $QLD-color-neutral--black;
+            }
+        }
+    }
 }

@@ -7,6 +7,7 @@ const selectBoxArgs = {
     isFilled: false,
     isRequired: false,
     isDisabled: false,
+    isMultiple: false,
     label: "My select box",
     hintText: "My secret hint",
     state: "default",
@@ -48,6 +49,14 @@ export default {
             name: "is_disabled",
             control: "boolean",
             description: "Whether the select field has been disabled",
+            table: {
+                defaultValue: { summary: "false" },
+            },
+        },
+        isMultiple: {
+            name: "is_multiple",
+            control: "boolean",
+            description: "Whether the select field allows multiple selections",
             table: {
                 defaultValue: { summary: "false" },
             },
@@ -118,6 +127,9 @@ requiredVariant.tags = ["!dev"];
 export const disabledVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select7", isDisabled: true });
 disabledVariant.tags = ["!dev"];
 
+export const multipleVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select23", isMultiple: true });
+multipleVariant.tags = ["!dev"];
+
 export const size2charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select8", extraClass: "qld__field-width--2char" });
 size2charVariant.tags = ["!dev"];
 
@@ -178,6 +190,8 @@ export const allVariants = (args, theme) => {
             ${requiredVariant(args)}
             <h3>Disabled select box</h3>
             ${disabledVariant(args)}
+            <h3>Multiple select box</h3>
+            ${multipleVariant(args)}
             <h3>Width variants</h3>
             <h4>2 char</h4>
             ${size2charVariant(args)}
