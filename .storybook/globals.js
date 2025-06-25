@@ -3,13 +3,22 @@ export const viewports = {
     small: { name: "Small", styles: { width: "400px", height: "800px" } },
     medium: { name: "Medium", styles: { width: "699px", height: "800px" } },
     large: { name: "Large", styles: { width: "992px", height: "800px" } },
-    xlarge: { name: "Extra large", styles: { width: "1312px", height: "1000px" } },
-    xxlarge: { name: "Extra extra large", styles: { width: "1599px", height: "1000px" } },
-    mainNavBreakpoint: { name: "Main nav breakpoint", styles: { width: "992px", height: "800px" } },
+    xlarge: {
+        name: "Extra large",
+        styles: { width: "1312px", height: "1000px" },
+    },
+    xxlarge: {
+        name: "Extra extra large",
+        styles: { width: "1599px", height: "1000px" },
+    },
+    mainNavBreakpoint: {
+        name: "Main nav breakpoint",
+        styles: { width: "992px", height: "800px" },
+    },
 };
 
 export const themes = {
-    white: "qld__body",
+    white: "qld__body qld__grid",
     light: "qld__body qld__body--light qld__light",
     "light alt": "qld__body qld__body--alt qld__light-alt",
     dark: "qld__body qld__body--dark qld__dark",
@@ -42,6 +51,11 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=Zn3A2cka0rRnj1UP-0",
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395571&t=nEqRcloGJuj1X51X-0",
         ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
+    },
+    videoPlayer: {
+        design: "https://www.figma.com/design/twruQlAG4NzIQl1hgjK8HS/QH-QGDS-185--Video-Component-Update?node-id=2074-8711&p=f&t=7NFZrbjBSzKMVAcZ-0",
+        file: "https://www.figma.com/design/twruQlAG4NzIQl1hgjK8HS/QH-QGDS-185--Video-Component-Update?node-id=2074-8711&p=f&t=7NFZrbjBSzKMVAcZ-0",
+        ds: "https://www.designsystem.qld.gov.au/components",
     },
     directionLinks: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f",
