@@ -287,6 +287,14 @@ $QLD-header-md: 72px;
             .qld__main-nav__menu-heading {
                 color: var(--QLD-color-dark__heading);
             }
+
+            @include QLD-media(lg) {
+                .qld__main-nav__item.active .qld__main-nav__item-toggle {
+                    border-bottom: solid 8px var(--QLD-color-dark__background--shade);
+                    margin-bottom: -0.5rem;
+                }
+            }
+
             .qld__main-nav__toggle {
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
