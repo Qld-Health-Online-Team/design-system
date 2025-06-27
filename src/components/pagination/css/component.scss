@@ -182,10 +182,9 @@
                 &:focus {
                     @include QLD-focus( 'dark' );
                     color: var(--QLD-color-dark__link);
-                    background-color: var(--QLD-color-dark__action--primary-hover);
+                    background-color: var(--QLD-color-dark__action--primary);
                     // border-color: var(--QLD-color-dark__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--primary-hover);
-                    
                 }
             }
 
@@ -203,15 +202,21 @@
                 }
             }
 
-            .mid, .num {
+            &.mid, &.num {
                 a, button {
                     &:active,
                     &:focus {
-                        color: var(--QLD-color-light__link);
-                        background-color: var(--QLD-color-dark__action--secondary);
-                        // border-color: var(--QLD-color-dark__action--secondary);
-                        box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--secondary);
+                        color: var(--QLD-color-dark__link);
+                        background-color: transparent;
+                        // border: $QLD-border-width-default solid var(--QLD-color-light__action--secondary);
+                        // box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
+                        box-shadow: inset 0 0 0 1px var(--QLD-color-dark__border);
+                        outline: 3px solid var(--QLD-color-dark__focus);
                     }
+                }
+
+                &.active a:focus {
+                    background-color: var(--QLD-color-dark__action--primary);
                 }
             }
         }
@@ -222,16 +227,19 @@
             // border-color: var(--QLD-color-dark__border);
             box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__border);
             text-decoration: none;
-            &:hover{
-                color: var(--QLD-color-dark__link);
+
+            &:hover,
+            &:focus {
+                // color: var(--QLD-color-dark__link);
+                color: var(--QLD-color-dark__action--secondary-hover);
                 // border-color: var(--QLD-color-dark__action--secondary);
-                box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary);
-                outline: none;
+                // box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary);
+                outline: 3px solid var(--QLD-color-dark__focus);
                 text-decoration: none;
             }
         }
 
-        span{
+        span {
             color: var(--QLD-color-dark__link);
         }
     }
