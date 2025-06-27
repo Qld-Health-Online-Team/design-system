@@ -22,6 +22,13 @@
         pointer-events: none;
     }
 
+    // Removing chevron if the select style is of multi variant
+    &:has(> select[multiple]) {
+        &::after {
+            content: none;
+        }
+    }
+
     // Add spacing above qld__select if there is ever a success/error message
     .qld__input--success + &,
     .qld__input--error + & {
