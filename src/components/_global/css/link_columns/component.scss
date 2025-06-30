@@ -3,7 +3,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__link-columns {
-    // display: block;
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
@@ -12,23 +11,23 @@
     font-weight: bold;
     overflow: hidden;
 
-    * + &{
+    * + & {
         @include QLD-space(margin, 1.5unit 0);
     }
-    &:last-child{
+    &:last-child {
         @include QLD-space(margin-bottom, 0);
     }
 
-    > li{
-        @include QLD-space(padding,1unit .25unit 1unit .25unit );
+    > li {
+        @include QLD-space(padding, 1unit 0.25unit 1unit 0.25unit);
         box-shadow: 0 $QLD-border-width-thin 0 $QLD-color-neutral--lighter;
         display: flex;
         justify-content: space-between;
         position: relative;
         flex: 0 0 100%;
 
-        a{
-            @include QLD-underline('light','noUnderline');
+        a {
+            @include QLD-underline("light", "noUnderline");
             &:before {
                 content: "";
                 position: absolute;
@@ -39,32 +38,54 @@
             }
         }
 
-        &::after {
-            @include QLD-space(width, 1.25unit);
-            @include QLD-space(height, 1.25unit);
-            @include QLD-space( margin, 0 0.5unit 0 0.5unit );
-            content: "";
+        &::before {
+            @include QLD-space(margin, 0 0.5unit 0 0.5unit);
             flex: 0 0 auto;
-            transition: margin 0.2s ease;
-            mask-image: QLD-svguri($QLD-icon-arrow-right) ;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            background-color: var(--QLD-color-light__action--secondary);
-            
-            .ie8 &,
-            .lt-ie8 & {
-                content: " → ";
+            width: 1rem;
+            top: 50%;
+            right: 0.3rem;
+        }
+
+        &::after {
+            @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+            flex: 0 0 auto;
+            transform: rotate(315deg);
+            width: 0.6rem;
+            top: 1.5rem;
+            right: 0.3rem;
+            height: 0.6rem;
+            border-right: 0.125rem solid;
+        }
+
+        &:not(.qld__link-columns__all-link) {
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                box-sizing: border-box;
+                border-bottom: 0.125rem solid;
+                transition: border-color 0.3s ease;
+                border-color: var(--QLD-color-light__action--secondary);
+                transition: margin 0.2s ease;
+                z-index: 1;
+
+                .qld__body--dark &,
+                .qld__body--dark-alt & {
+                    border-color: var(--QLD-color-dark__action--secondary);
+                }
             }
         }
 
-        &:hover{
-            a{
+        &:hover {
+            a {
                 color: var(--QLD-color-light__link);
             }
 
-            &::after{
+            &::before,
+            &::after {
                 @include QLD-space(margin, 0 0 0 1unit);
-                background-color: var(--QLD-color-light__action--secondary-hover);
+                border-color: var(--QLD-color-light__action--secondary-hover);
             }
         }
 
@@ -74,22 +95,20 @@
             font-weight: bold;
             justify-content: flex-end;
             box-shadow: inset 0 0 - $QLD-border-width-thin 0 transparent;
-            flex: 0 0 100% !important;
 
-    
             &::after {
                 display: none;
             }
         }
     }
+
     @include QLD-media(lg) {
-        &.qld__link-columns--2-col{
+        &.qld__link-columns--2-col {
             @include QLD-space(column-gap, 2unit);
 
-            > li{
+            > li {
                 flex: 0 0 calc(50% - 16px);
                 align-self: flex-start;
-           
             }
 
             a {
@@ -101,10 +120,9 @@
             @include QLD-space(column-gap, 2unit);
             column-count: 3;
 
-            > li{
+            > li {
                 flex: 0 0 calc(33.22% - 22px);
                 align-self: flex-start;
-           
             }
 
             a {
@@ -112,13 +130,13 @@
             }
         }
     }
-    
-    .qld__body--light &{
-        > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
+
+    .qld__body--light & {
+        > li {
+            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
 
             &.qld__link-columns__all-link {
-                box-shadow:0 $QLD-border-width-thin 0 transparent;
+                box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
                 &::after {
                     display: none;
@@ -127,12 +145,12 @@
         }
     }
 
-    .qld__body--alt &{
-        > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-light__border--alt);
+    .qld__body--alt & {
+        > li {
+            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border--alt);
 
             &.qld__link-columns__all-link {
-                box-shadow:0 $QLD-border-width-thin 0 transparent;
+                box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
                 &::after {
                     display: none;
@@ -142,31 +160,21 @@
     }
 
     .qld__body--dark &,
-    .qld__main-nav--dark &{
-        > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark__border);
-            a{
-                @include QLD-underline('dark','noUnderline');
+    .qld__main-nav--dark & {
+        > li {
+            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border);
+            a {
+                @include QLD-underline("dark", "noUnderline");
             }
-            &:hover{
-                &::after{
-                    background-color: var(--QLD-color-dark__action--secondary-hover);
-                }
-
-                a{
-                    @include QLD-underline('dark','noUnderline');
+            &:hover {
+                a {
+                    @include QLD-underline("dark", "noUnderline");
                     color: var(--QLD-color-dark__link);
                 }
             }
 
-            &::after{
-                background-color: var(--QLD-color-dark__action--secondary);
-
-                
-            }
-
             &.qld__link-columns__all-link {
-                box-shadow:0 $QLD-border-width-thin 0 transparent;
+                box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
                 &::after {
                     display: none;
@@ -176,32 +184,23 @@
     }
 
     .qld__body--dark-alt &,
-    .qld__main-nav--dark-alt &{
-        > li{
-            box-shadow:0 $QLD-border-width-thin 0 var(--QLD-color-dark__border--alt);
+    .qld__main-nav--dark-alt & {
+        > li {
+            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border--alt);
 
-            a{
-                @include QLD-underline('dark','noUnderline');
+            a {
+                @include QLD-underline("dark", "noUnderline");
             }
 
-            &:hover{
-                &::after{
-                    background-color: var(--QLD-color-dark__action--secondary-hover);
-                }
-
-                a{
-                    @include QLD-underline('dark','noUnderline');
+            &:hover {
+                a {
+                    @include QLD-underline("dark", "noUnderline");
                     color: var(--QLD-color-dark__link);
                 }
             }
 
-            &::after{
-                background-color: var(--QLD-color-dark__action--secondary);
-                
-            }
-
             &.qld__link-columns__all-link {
-                box-shadow:0 $QLD-border-width-thin 0 transparent;
+                box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
                 &::after {
                     display: none;
@@ -211,12 +210,22 @@
     }
 }
 
+// Fixes the all-link issue
+.qld__body,
+.qld__card,
+.qld__banner,
+.qld__footer {
+    .qld__link-columns > li.qld__link-columns__all-link {
+        flex: 0 0 100%;
+    }
+}
+
 .qld__body {
     h1 + .qld__link-columns,
     h2 + .qld__link-columns,
     h3 + .qld__link-columns,
     h4 + .qld__link-columns,
-    h5 + .qld__link-columns  {
+    h5 + .qld__link-columns {
         @include QLD-space(margin-top, 1.5unit);
     }
 }
