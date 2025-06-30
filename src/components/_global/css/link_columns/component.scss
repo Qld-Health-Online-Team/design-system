@@ -71,7 +71,9 @@
                 z-index: 1;
 
                 .qld__body--dark &,
-                .qld__body--dark-alt & {
+                .qld__body--dark-alt &,
+                .qld__main-nav--dark &,
+                .qld__main-nav--dark-alt & {
                     border-color: var(--QLD-color-dark__action--secondary);
                 }
             }
@@ -86,6 +88,13 @@
             &::after {
                 @include QLD-space(margin, 0 0 0 1unit);
                 border-color: var(--QLD-color-light__action--secondary-hover);
+
+                .qld__body--dark &,
+                .qld__body--dark-alt &,
+                .qld__main-nav--dark &,
+                .qld__main-nav--dark-alt & {
+                    border-color: var(--QLD-color-dark__action--secondary-hover);
+                }
             }
         }
 
