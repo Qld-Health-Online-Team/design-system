@@ -177,7 +177,7 @@
                                                 {{#ifCond liveUrl 'contains' '?tag='}}
                                                     {{replace title '\|.*' ''}} | Topic | {{#with (split liveUrl '?tag=') as | tagUrl | }}{{#replaceMany "%27" "'"}} {{#replaceMany "_" " "}}{{capitaliseFirst tagUrl.[1]}}{{/replaceMany}} {{/replaceMany}}{{/with}}
                                                 {{else ifCond fileType '==' 'pdf'}}
-                                                    {{replace metaData.fileName '\|.*' ''}}
+                                                    {{replace listMetadata.fileName '\|.*' ''}}
                                                 {{else}}
                                                     {{replace title '\|.*' ''}}
                                                 {{/ifCond}}
