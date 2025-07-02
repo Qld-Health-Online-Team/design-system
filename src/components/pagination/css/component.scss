@@ -71,6 +71,7 @@
                     
                     &:hover{
                         span {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
                             text-decoration: underline;
                         }  
                     }
@@ -110,7 +111,7 @@
             a, button {
                 &:active,
                 &:focus {
-                    color: var(--QLD-color-light__link);
+                    // color: var(--QLD-color-light__link);
                     background-color: transparent;
                     // border: $QLD-border-width-default solid var(--QLD-color-light__action--secondary);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
@@ -135,18 +136,23 @@
             border: none;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 color: var(--QLD-color-light__link);
                 outline: none;
                 text-decoration: none;
                 box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
             }
-            &:visited{
+
+            &:visited {
                 color: var(--QLD-color-light__link);
             }
 
             &[rel] {
-                color: var(--QLD-color-light__action--primary);
+                color: var(--QLD-color-light__action--secondary);
+            }
+
+            &[rel]:hover {
+                color: var(--QLD-color-light__action--secondary-hover);
             }
         }
 
@@ -170,10 +176,12 @@
             &.active a,
             &.active  button {
                 background-color: var(--QLD-color-dark__action--primary);
+                box-shadow: inset 0 0 0 1px var(--QLD-color-dark__action--primary);
                 color: var(--QLD-color-dark__link--on-action);
 
-                &:hover{
+                &:hover {
                     background-color: var(--QLD-color-dark__action--primary-hover);
+                    color: var(--QLD-color-dark__link--on-action);
                     // border-color: var(--QLD-color-dark__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--primary-hover);
                 }
@@ -196,7 +204,9 @@
                     &:hover{
                         color: var(--QLD-color-dark__link);
                         box-shadow: none;
+
                         span {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
                             text-decoration: underline;
                         }
                     }
@@ -228,6 +238,14 @@
                 box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary);
                 outline: none;
                 text-decoration: none;
+            }
+
+            &[rel] {
+                color: var(--QLD-color-dark__action--secondary);
+            }
+
+            &[rel]:hover {
+                color: var(--QLD-color-dark__action--secondary-hover);
             }
         }
 
