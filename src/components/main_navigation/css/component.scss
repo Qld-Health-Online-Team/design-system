@@ -620,6 +620,10 @@ $QLD-header-md: 72px;
                 background-color: var(--QLD-color-dark__border);
             }
             .qld__main-nav__item {
+                &.active:hover .qld__main-nav__item-link {
+                    border-color: var(--QLD-color-dark__action--primary-hover);
+                }
+
                 a {
                     @include QLD-underline("dark", "noUnderline", "default", "noVisited");
                     color: var(--QLD-color-dark__text);
