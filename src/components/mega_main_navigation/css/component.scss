@@ -243,24 +243,18 @@
                 @include QLD-media(lg, "down") {
                     padding: 0;
                     box-shadow: none;
+
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
                 }
                 @include QLD-space(margin, 0);
-
-                &::after {
-                    display: none;
-                }
 
                 @include QLD-media(lg) {
                     display: inline-block;
                     width: 100%;
                     float: none;
-
-                    &::after {
-                        display: block;
-                        position: absolute;
-                        right: 0;
-                        @include QLD-space(top, 1unit);
-                    }
                 }
 
                 &:hover {
@@ -392,6 +386,10 @@
                     .qld__main-nav__sub-item-text {
                         color: var(--QLD-color-light__link);
                         border-bottom: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
+                    }
+
+                    &::before {
+                        top: 28px;
                     }
                 }
             }

@@ -62,4 +62,9 @@ export const figmaLinks = {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395560",
         ds: "https://www.designsystem.qld.gov.au/components/direction-links",
     },
+    linkColumns: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563",
+        ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+    },
 };
