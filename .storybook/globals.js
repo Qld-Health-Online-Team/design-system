@@ -67,4 +67,14 @@ export const figmaLinks = {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563",
         ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
     },
+    checkboxes: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395569",
+        ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
+    },
+    radioButtons: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
+        ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
+    },
 };
