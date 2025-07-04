@@ -11,8 +11,6 @@
         li {
             @include QLD-space(margin, .5unit .75unit .5unit 0);
 
-
-            &.ellipsis,
             &.first,
             &.last {
                 display: none;
@@ -62,8 +60,8 @@
 
             &.next,
             &.prev,
-            &.ellipsis{
-                a, button{
+            &.ellipsis {
+                a, button {
                     box-shadow: none;
                     @include QLD-media(lg) {
                         width: auto;
@@ -82,7 +80,7 @@
                     }
                 }
                 
-                span{
+                span {
                     @include QLD-sronly();
                     @include QLD-media(lg) {
                         position: relative;
