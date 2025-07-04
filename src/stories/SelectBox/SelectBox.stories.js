@@ -15,11 +15,11 @@ const selectBoxArgs = {
     errorMessage: "Error message",
     defaultOption: { value: "", label: "Please select" },
     options: [
-        { value: "dog", label: "Dog" },
-        { value: "cat", label: "Cat" },
-        { value: "hamster", label: "Hamster" },
-        { value: "parrot", label: "Parrot" },
-        { value: "duck", label: "Duck" },
+        { value: "option 1", label: "Option 1" },
+        { value: "option 2", label: "Option 2" },
+        { value: "option 3", label: "Option 3" },
+        { value: "option 4", label: "Option 4" },
+        { value: "option 5", label: "Option 5" },
     ],
 };
 
