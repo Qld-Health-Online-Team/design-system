@@ -1,4 +1,4 @@
-export const RadioButtons = ({ id, legend, isRequired, inError, errorMessage, inSuccess, successMessage, inputs, isSmall }) => {
+export const RadioButtons = ({ id, legend, hintText, isRequired, inError, errorMessage, inSuccess, successMessage, inputs, isSmall }) => {
     const getInputClasses = (input) => {
         if (input.inError) return "qld__input--error";
         else if (input.inSuccess) return "qld__input--valid";
@@ -21,6 +21,10 @@ export const RadioButtons = ({ id, legend, isRequired, inError, errorMessage, in
         } else return "";
     };
 
+    const getHintText = () => {
+        return hintText ? `<span class="qld__hint-text" id="qld__radio-buttons-hint-${id}">${hintText}</span>` : "";
+    };
+
     const inputsMapped = inputs
         ?.map((input) => {
             return `<div class="qld__control-input ${isSmall ? "qld__control-input--small" : ""}"><input type="radio" id="qld__radio-${input.id}" ${
@@ -31,7 +35,7 @@ export const RadioButtons = ({ id, legend, isRequired, inError, errorMessage, in
 
     return `        
         <fieldset class="qld__radio-buttons" role="radiogroup" aria-labelledby="qld__radio-buttons-legend-${id}" ${getFeedbackMessage() ? `aria-describedby="qld__radio-buttons-status-${id}"` : ""}>
-            <legend id="qld__radio-buttons-legend-${id}">${isRequired ? "<abbr title='required'>*</abbr>" : ""}${legend}</legend>${getFeedbackMessage()}${inputsMapped}
+            <legend id="qld__radio-buttons-legend-${id}">${isRequired ? "<abbr title='required'>*</abbr>" : ""}${legend}</legend>${getHintText()}${getFeedbackMessage()}${inputsMapped}
         </fieldset>
     `;
 };
