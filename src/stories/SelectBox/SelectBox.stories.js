@@ -8,18 +8,18 @@ const selectBoxArgs = {
     isRequired: false,
     isDisabled: false,
     isMultiple: false,
-    label: "My select box",
-    hintText: "My secret hint",
+    label: "Select label",
+    hintText: "Hint text",
     state: "default",
-    succcessMessage: "You're all good!",
-    errorMessage: "Error, try again",
-    defaultOption: { value: "", label: "You must select something" },
+    succcessMessage: "Success message",
+    errorMessage: "Error message",
+    defaultOption: { value: "", label: "Please select" },
     options: [
-        { value: "dog", label: "Dog" },
-        { value: "cat", label: "Cat" },
-        { value: "hamster", label: "Hamster" },
-        { value: "parrot", label: "Parrot" },
-        { value: "duck", label: "Duck" },
+        { value: "option 1", label: "Option 1" },
+        { value: "option 2", label: "Option 2" },
+        { value: "option 3", label: "Option 3" },
+        { value: "option 4", label: "Option 4" },
+        { value: "option 5", label: "Option 5" },
     ],
 };
 
@@ -112,10 +112,10 @@ export const Default = {
 export const defaultVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select2" });
 defaultVariant.tags = ["!dev"];
 
-export const successVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select3", state: "success", succcessMessage: "AMAZING!" });
+export const successVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select3", state: "success", succcessMessage: "Success message" });
 successVariant.tags = ["!dev"];
 
-export const errorVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select4", state: "error", errorMessage: "Oh no." });
+export const errorVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select4", state: "error", errorMessage: "Error message" });
 errorVariant.tags = ["!dev"];
 
 export const filledVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select5", isFilled: true });
