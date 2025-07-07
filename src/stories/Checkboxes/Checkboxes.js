@@ -1,4 +1,4 @@
-export const Checkboxes = ({ id, legend, isRequired, inError, errorMessage, inSuccess, successMessage, inputs, isSmall }) => {
+export const Checkboxes = ({ id, legend, hintText, isRequired, inError, errorMessage, inSuccess, successMessage, inputs, isSmall }) => {
     const getInputClasses = (input) => {
         if (input.inError) return "qld__input--error";
         else if (input.inSuccess) return "qld__input--valid";
@@ -21,6 +21,10 @@ export const Checkboxes = ({ id, legend, isRequired, inError, errorMessage, inSu
         } else return "";
     };
 
+    const getHintText = () => {
+        return hintText ? `<span class="qld__hint-text" id="qld__checkboxes-hint-${id}">${hintText}</span>` : "";
+    };
+
     const inputsMapped = inputs
         ?.map((input) => {
             return `<div class="qld__control-input ${isSmall ? "qld__control-input--small" : ""}"><input type="checkbox" id="qld__checkbox-${input.id}" ${
@@ -31,7 +35,7 @@ export const Checkboxes = ({ id, legend, isRequired, inError, errorMessage, inSu
 
     return `
         <fieldset class="qld__checkboxes" role="group" aria-labelledby="qld__checkboxes-legend-${id}" ${getFeedbackMessage() ? `aria-describedby="qld__checkboxes-status-${id}"` : ""}>
-            <legend id="qld__checkboxes-legend-${id}">${isRequired ? "<abbr title='required'>*</abbr>" : ""}${legend}</legend>${getFeedbackMessage()}${inputsMapped}
+            <legend id="qld__checkboxes-legend-${id}">${isRequired ? "<abbr title='required'>*</abbr>" : ""}${legend}</legend>${getHintText()}${getFeedbackMessage()}${inputsMapped}
         </fieldset>
     `;
 };
