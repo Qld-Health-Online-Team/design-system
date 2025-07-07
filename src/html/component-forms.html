@@ -64,7 +64,7 @@
                                 <fieldset class="qld__radio-buttons" role="radiogroup" aria-labelledby="qld__radio-buttons-legend-rb6">
                                     <legend id="qld__radio-buttons-legend-rb6">My legend</legend><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb61" name="qld__radio-rb6" checked="" value="qld__radio-rb61"><label for="qld__radio-rb61">cat</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb62" name="qld__radio-rb6" value="qld__radio-rb62"><label for="qld__radio-rb62">dog</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb63" name="qld__radio-rb6" checked="" value="qld__radio-rb63"><label for="qld__radio-rb63">horse</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb64" name="qld__radio-rb6" value="qld__radio-rb64"><label for="qld__radio-rb64">ram</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb65" name="qld__radio-rb6" checked="" value="qld__radio-rb65"><label for="qld__radio-rb65">goat</label></div>
                                 </fieldset>
-                            <h2>Width variants (squiz)</h2>
+                            <h2>Select width variants (squiz)</h2>
                             <fieldset class="sq-form-section" id="sq_form_section_402723">
                                 <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q402723_q1"><label class="sq-form-question-title" for="q402723_q1">qld__field-width--2char</label> <div class="sq-form-question-answer"><div class="qld__select"><select name="q402723:q1" id="q402723_q1" class="qld__text-input--block qld__field-width--2char"><option value="1" selected="selected">1</option></select></div></div>
                                 </div><div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q402723_q2"><label class="sq-form-question-title" for="q402723_q2">qld__field-width--3char</label> <div class="sq-form-question-answer"><div class="qld__select"><select name="q402723:q2" id="q402723_q2" class="qld__text-input--block qld__field-width--3char"><option value="df" selected="selected">sdf</option><option value="ds">ffs</option></select></div></div>
@@ -83,7 +83,7 @@
                                 </div><div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q402723_q15"><label class="sq-form-question-title" for="q402723_q15">qld__field-width--1-quarter</label> <div class="sq-form-question-answer"><div class="qld__select"><select name="q402723:q15" id="q402723_q15" class="qld__text-input--block qld__field-width--1-quarter"><option value="e" selected="selected">e</option></select></div></div>
                                 </div>
                             </fieldset>
-                            <h2>Width variants (html)</h2>
+                            <h2>Select width variants (html)</h2>
                             <fieldset>
                                 <div><label>qld__field-width--2char</label><div class="qld__select"><select class="qld__select-control qld__field-width--2char"><option value="1" selected="selected">1</option></select></div>
                                 </div><div><label>qld__field-width--3char</label><div class="qld__select"><select class="qld__select-control qld__field-width--3char"><option value="df" selected="selected">sdf</option><option value="ds">ffs</option></select></div>
@@ -409,10 +409,22 @@
                                         <option value="goldfish">Goldfish</option>
                                     </select>
                                 </fieldset>
+                                <fieldset>
+                                    <label for="pet-select">Select (html, multiple)</label>
+                                    <select id="pet-select" multiple>
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="dog">Dog</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="hamster">Hamster</option>
+                                        <option value="parrot">Parrot</option>
+                                        <option value="spider">Spider</option>
+                                        <option value="goldfish">Goldfish</option>
+                                    </select>
+                                </fieldset>
 
                                 <div class="sq-form-question sq-form-question-select "
                                     id="sq_form_field_wrapper_q49141_q18">
-                                    <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                    <label class="sq-form-question-title" for="q49141_q18">Select (matrix)</label>
                                     <div class="sq-form-question-answer">
                                         <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
                                             aria-invalid="false">
@@ -422,10 +434,22 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="sq-form-question sq-form-question-select "
+                                    id="sq_form_field_wrapper_q49141_q18">
+                                    <label class="sq-form-question-title" for="q49141_q18">Select (matrix, multiple)</label>
+                                    <div class="sq-form-question-answer">
+                                        <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                            aria-invalid="false" multiple>
+                                            <option value="1" selected="selected">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <hr>
                                 <fieldset class="qld__form-style-filled">
-                                    <label for="pet-select">Select</label>
+                                    <label for="pet-select">Select (html, filled)</label>
 
                                     <select class="qld__select-control qld__text-input--valid" id="pet-select">
                                         <option value="">--Please choose an option--</option>
@@ -440,7 +464,7 @@
 
                                 <div class="sq-form-question sq-form-question-select "
                                     id="sq_form_field_wrapper_q49141_q18">
-                                    <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                    <label class="sq-form-question-title" for="q49141_q18">Select (matrix, filled)</label>
                                     <div class="sq-form-question-answer">
                                         <select name="q49141:q18" id="q49141_q18"
                                             class="qld__select-control qld__text-input--valid" aria-invalid="false">
@@ -452,7 +476,7 @@
                                 </div>
                                 <hr>
                                 <fieldset>
-                                    <label for="pet-select">Select disabled</label>
+                                    <label for="pet-select">Select (html, disabled)</label>
 
                                     <select id="pet-select" disabled>
                                         <option value="">--Please choose an option--</option>
@@ -467,7 +491,7 @@
 
                                 <div class="sq-form-question sq-form-question-select "
                                     id="sq_form_field_wrapper_q49141_q18">
-                                    <label class="sq-form-question-title" for="q49141_q18">Select disabled</label>
+                                    <label class="sq-form-question-title" for="q49141_q18">Select (matrix, disabled)</label>
                                     <div class="sq-form-question-answer">
                                         <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
                                             aria-invalid="false" disabled>
@@ -1108,8 +1132,7 @@
                                     </div>
 
                                     <fieldset>
-                                        <label for="pet-select">Select</label>
-
+                                        <label for="pet-select">Select (html)</label>
                                         <select id="pet-select">
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
@@ -1120,10 +1143,22 @@
                                             <option value="goldfish">Goldfish</option>
                                         </select>
                                     </fieldset>
-
+                                    <fieldset>
+                                        <label for="pet-select">Select (html, multiple)</label>
+                                        <select id="pet-select" multiple>
+                                            <option value="">--Please choose an option--</option>
+                                            <option value="dog">Dog</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="hamster">Hamster</option>
+                                            <option value="parrot">Parrot</option>
+                                            <option value="spider">Spider</option>
+                                            <option value="goldfish">Goldfish</option>
+                                        </select>
+                                    </fieldset>
+    
                                     <div class="sq-form-question sq-form-question-select "
                                         id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                        <label class="sq-form-question-title" for="q49141_q18">Select (matrix)</label>
                                         <div class="sq-form-question-answer">
                                             <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
                                                 aria-invalid="false">
@@ -1133,9 +1168,23 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="sq-form-question sq-form-question-select "
+                                        id="sq_form_field_wrapper_q49141_q18">
+                                        <label class="sq-form-question-title" for="q49141_q18">Select (matrix, multiple)</label>
+                                        <div class="sq-form-question-answer">
+                                            <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
+                                                aria-invalid="false" multiple>
+                                                <option value="1" selected="selected">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
                                     <hr>
                                     <fieldset class="qld__form-style-filled">
-                                        <label for="pet-select">Select</label>
+                                        <label for="pet-select">Select (html, filled)</label>
+    
                                         <select class="qld__select-control qld__text-input--valid" id="pet-select">
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
@@ -1146,10 +1195,10 @@
                                             <option value="goldfish">Goldfish</option>
                                         </select>
                                     </fieldset>
-
+    
                                     <div class="sq-form-question sq-form-question-select "
                                         id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select</label>
+                                        <label class="sq-form-question-title" for="q49141_q18">Select (matrix, filled)</label>
                                         <div class="sq-form-question-answer">
                                             <select name="q49141:q18" id="q49141_q18"
                                                 class="qld__select-control qld__text-input--valid" aria-invalid="false">
@@ -1161,8 +1210,8 @@
                                     </div>
                                     <hr>
                                     <fieldset>
-                                        <label for="pet-select">Select disabled</label>
-
+                                        <label for="pet-select">Select (html, disabled)</label>
+    
                                         <select id="pet-select" disabled>
                                             <option value="">--Please choose an option--</option>
                                             <option value="dog">Dog</option>
@@ -1173,10 +1222,10 @@
                                             <option value="goldfish">Goldfish</option>
                                         </select>
                                     </fieldset>
-
+    
                                     <div class="sq-form-question sq-form-question-select "
                                         id="sq_form_field_wrapper_q49141_q18">
-                                        <label class="sq-form-question-title" for="q49141_q18">Select disabled</label>
+                                        <label class="sq-form-question-title" for="q49141_q18">Select (matrix, disabled)</label>
                                         <div class="sq-form-question-answer">
                                             <select name="q49141:q18" id="q49141_q18" class="sq-form-field"
                                                 aria-invalid="false" disabled>
