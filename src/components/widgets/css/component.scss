@@ -38,7 +38,7 @@
 // Back to top
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-@mixin BTT-arrow-colours($interact-colour, $visited-colour) {
+@mixin BTT-arrow-colours($interact-colour) {
     &:hover,
     &:focus,
     &:active {
@@ -47,25 +47,28 @@
             border-color: $interact-colour;
         }
     }
-
-    &:visited {
-        &::after,
-        &::before {
-            border-color: $visited-colour;
-        }
-    }
 }
 
 .qld__body {
     .qld__widgets__back_to_top > .qld__direction-link {
-        @include BTT-arrow-colours(var(--QLD-color-light__action--secondary-hover), var(--QLD-color-light__link--visited));
+        &:visited {
+            color: var(--QLD-color-light__link);
+            text-decoration: var(--QLD-color-light__underline);
+        }
+
+        @include BTT-arrow-colours(var(--QLD-color-light__action--secondary-hover));
     }
 }
 
 .qld__body.qld__body--dark,
 .qld__body.qld__body--dark-alt {
     .qld__widgets__back_to_top > .qld__direction-link {
-        @include BTT-arrow-colours(var(--QLD-color-dark__action--secondary-hover), var(--QLD-color-dark__link--visited));
+        &:visited {
+            color: var(--QLD-color-dark__link);
+            text-decoration: var(--QLD-color-dark__underline);
+        }
+
+        @include BTT-arrow-colours(var(--QLD-color-dark__action--secondary-hover));
     }
 }
 
