@@ -171,7 +171,8 @@
             }
         }
 
-        a.qld__card--clickable__link:focus {
+        a.qld__card--clickable__link:focus,
+        a.qld__card__footer-link:focus {
             outline: 3px solid var(--QLD-color-dark__focus);
         }
 
@@ -179,11 +180,12 @@
             color: var(--QLD-color-dark__action--secondary);
         }
 
-        .qld__card__footer-link{  
+        .qld__card__footer-link {
             color: var(--QLD-color-dark__link);
+
             span {
                 @include QLD-underline('dark');
-            }  
+            }
 
             &:visited{
                 span {
@@ -191,6 +193,7 @@
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
                 }
             }
+
             &:hover:visited {
                 span{
                     color: var(--QLD-color-dark__underline--hover-visited);
@@ -198,9 +201,9 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
-            &:hover{
 
-                .qld__card__footer-link-icon{
+            &:hover {
+                .qld__card__footer-link-icon {
                     color: var(--QLD-color-dark__action--secondary-hover);
                 }
             }
