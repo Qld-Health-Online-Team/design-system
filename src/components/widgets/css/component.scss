@@ -38,6 +38,37 @@
 // Back to top
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@mixin BTT-arrow-colours($interact-colour, $visited-colour) {
+    &:hover,
+    &:focus,
+    &:active {
+        &::after,
+        &::before {
+            border-color: $interact-colour;
+        }
+    }
+
+    &:visited {
+        &::after,
+        &::before {
+            border-color: $visited-colour;
+        }
+    }
+}
+
+.qld__body {
+    .qld__widgets__back_to_top > .qld__direction-link {
+        @include BTT-arrow-colours(var(--QLD-color-light__action--secondary-hover), var(--QLD-color-light__link--visited));
+    }
+}
+
+.qld__body.qld__body--dark,
+.qld__body.qld__body--dark-alt {
+    .qld__widgets__back_to_top > .qld__direction-link {
+        @include BTT-arrow-colours(var(--QLD-color-dark__action--secondary-hover), var(--QLD-color-dark__link--visited));
+    }
+}
+
 body a.qld__btn.qld__btn--floating.qld__btn--back-to-top {
     @include QLD-space(margin-top, 0.5unit);
     background-color: $QLD-color-neutral--lightest;
