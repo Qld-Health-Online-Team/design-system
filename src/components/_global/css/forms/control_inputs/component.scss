@@ -74,7 +74,7 @@ input[type="checkbox"],
     &.qld__input--valid:focus + label:before,
     &.qld__input--error:focus + label:before {
         box-shadow: none;
-        @include QLD-outline();
+        @include QLD-outline("light", false);
         outline-offset: 2px;
     }
 
@@ -136,7 +136,7 @@ input[type="checkbox"],
         &:focus + label:before,
         &.qld__input--valid:focus + label:before,
         &.qld__input--error:focus + label:before {
-            @include QLD-outline("dark");
+            @include QLD-outline("dark", false);
             box-shadow: none;
         }
 
@@ -242,7 +242,7 @@ input[type="radio"],
     &:focus + label:before,
     &.qld__input--error:focus + label:before,
     &.qld__input--valid:focus + label:before {
-        @include QLD-outline();
+        @include QLD-outline("light", false);
         box-shadow: none;
         outline-offset: 2px;
     }
@@ -301,7 +301,7 @@ input[type="radio"],
 
         // Focus
         &:focus + label:before {
-            @include QLD-outline("dark");
+            @include QLD-outline("dark", false);
             box-shadow: none;
         }
 

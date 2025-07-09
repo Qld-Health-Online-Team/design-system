@@ -18,6 +18,7 @@
         display: inline-block;
 
         &-trigger {
+            @include QLD-focus("light", false);
             display: inline-block;
             height: fit-content;
             cursor: pointer;
@@ -51,7 +52,8 @@
                 }
             }
 
-            &-icon {
+            &-icon[tabindex="0"],
+            &-icon:focus[tabindex="0"] {
                 border-radius: 50%;
 
                 .qld__icon {

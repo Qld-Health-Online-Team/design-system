@@ -424,9 +424,9 @@
 /**
  * QLD-focus - Add the outline to focus
  */
-@mixin QLD-focus($theme: "light") {
+@mixin QLD-focus($theme: "light", $rounded: true) {
     &:focus {
-        @include QLD-outline($theme);
+        @include QLD-outline($theme, $rounded);
     }
 
     // Remove Modzilla inner HTML dotted line. github.com/necolas/normalize.css/blob/master/normalize.css#L285
