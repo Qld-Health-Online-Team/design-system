@@ -18,11 +18,16 @@
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
-                    {{#if site.metadata.alertMessage.value}}
-                    <div class="qld__global-alert__message">
-                    <strong>{{site.metadata.alertTitle.value}}</strong> {{site.metadata.alertMessage.value}}    
-                    </div>
-                    {{/if}}
+                    {{#ifAny site.metadata.alertTitle.value site.metadata.alertMessage.value}}
+                        <div class="qld__global-alert__message">
+                            {{#if site.metadata.alertTitle.value}}
+                                <strong>{{site.metadata.alertTitle.value}}</strong>
+                            {{/if}}
+                            {{#if site.metadata.alertMessage.value}}
+                                {{site.metadata.alertMessage.value}} 
+                            {{/if}}
+                        </div>
+                    {{/ifAny}}
                     <div class="qld__global-alert__action">
                         <a href="{{site.metadata.alertLinkURL.value}}">
                             <span>{{site.metadata.alertLinkTitle.value}}</span>
@@ -58,11 +63,16 @@
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
-                    {{#if site.metadata.secondAlertMessage.value}}
-                    <div class="qld__global-alert__message">
-                    <strong>{{site.metadata.secondAlertTitle.value}}</strong> {{site.metadata.secondAlertMessage.value}}    
-                    </div>
-                    {{/if}}
+                    {{#ifAny site.metadata.secondAlertTitle.value site.metadata.secondAlertMessage.value}}
+                        <div class="qld__global-alert__message">
+                            {{#if site.metadata.secondAlertTitle.value}}
+                                <strong>{{site.metadata.secondAlertTitle.value}}</strong>
+                            {{/if}}
+                            {{#if site.metadata.secondAlertMessage.value}}
+                                {{site.metadata.secondAlertMessage.value}} 
+                            {{/if}}
+                        </div>
+                    {{/ifAny}}
                     <div class="qld__global-alert__action">
                         <a href="{{site.metadata.secondAlertLinkURL.value}}">
                             <span>{{site.metadata.secondAlertLinkTitle.value}}</span>
@@ -98,11 +108,16 @@
                     {{/ifCond}}
                 </div>
                 <div class="qld__global-alert__content">
-                    {{#if site.metadata.thirdAlertMessage.value}}
-                    <div class="qld__global-alert__message">
-                    <strong>{{site.metadata.thirdAlertTitle.value}}</strong> {{site.metadata.thirdAlertMessage.value}}    
-                    </div>
-                    {{/if}}
+                    {{#ifAny site.metadata.thirdAlertTitle.value site.metadata.thirdAlertMessage.value}}
+                        <div class="qld__global-alert__message">
+                            {{#if site.metadata.thirdAlertTitle.value}}
+                                <strong>{{site.metadata.thirdAlertTitle.value}}</strong>
+                            {{/if}}
+                            {{#if site.metadata.thirdAlertMessage.value}}
+                                {{site.metadata.thirdAlertMessage.value}} 
+                            {{/if}}
+                        </div>
+                    {{/ifAny}}
                     <div class="qld__global-alert__action">
                         <a href="{{site.metadata.thirdAlertLinkURL.value}}">
                             <span>{{site.metadata.thirdAlertLinkTitle.value}}</span>
