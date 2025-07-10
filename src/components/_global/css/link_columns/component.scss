@@ -28,7 +28,6 @@
 
         a {
             @include QLD-underline("light", "noUnderline");
-            padding-right: 2rem;
             &:before {
                 content: "";
                 position: absolute;
@@ -37,6 +36,11 @@
                 bottom: 0;
                 left: 0;
             }
+        }
+
+        // Add padding to prevent text going over the arrow
+        a:not(.qld__cta-link) {
+            padding-right: 2rem;
         }
 
         &::before {
