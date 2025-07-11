@@ -8,9 +8,10 @@
 
     let internalNavigation = {};
     window.addEventListener("DOMContentLoaded", function () {
-        const svgPath = document.querySelector(".qld__side-nav.qld__accordion").getAttribute("data-path");
+        const svgSelector = document.querySelector(".qld__side-nav.qld__accordion");
 
-        if (svgPath) {
+        if (svgSelector) {
+            const svgPath = svgSelector.getAttribute("data-path");
             const svgIcon = `<svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#tick"></use></svg>`;
 
             const thirdLevelLinks = document.querySelectorAll("ul ul ul a, ul ul ul span");
