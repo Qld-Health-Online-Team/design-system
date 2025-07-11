@@ -38,11 +38,16 @@
             }
         }
 
+        // Add padding to prevent text going over the arrow
+        a:not(.qld__cta-link) {
+            padding-right: 2rem;
+        }
+
         &::before {
             @include QLD-space(margin, 0 0.5unit 0 0.5unit);
             flex: 0 0 auto;
             width: 1rem;
-            top: 50%;
+            top: 28px;
             right: 0.3rem;
         }
 
