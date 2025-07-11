@@ -449,8 +449,12 @@
         }
     }
 
-    &--alt{
+    &--alt {
         background-color: var(--QLD-color-light__background--alt);
+
+        ::selection {
+            background-color: var(--QLD-color-dark__background);
+        }
 
         .qld__banner__content {
             color: var(--QLD-color-light__text);
@@ -475,8 +479,13 @@
         }
     }
 
-    &--dark{
+    &--dark {
         background-color: var(--QLD-color-dark__background);
+
+        ::selection {
+            background-color: var(--QLD-color-dark__text--lighter);
+            color: var(--QLD-color-light__text);
+        }
 
         .qld__banner__content {
             color: var(--QLD-color-dark__text);
