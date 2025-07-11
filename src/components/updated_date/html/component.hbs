@@ -79,12 +79,16 @@
 
 {{#ifCond current.data.metadata.displayLastUpdated.value "==" "no"}}
     {{#if site.metadata.siteBackToTopShow.value}}
-        <div class="qld__widgets__back_to_top">
-            <a
-                href="#content"
-                class="qld__direction-link qld__direction-link--up"
-                aria-label="Back to top"
-            >Back to top</a>
-        </div>
+        <section class="qld__body qld__pre-footer">
+            <div class="container-fluid">
+                <div class="qld__widgets__back_to_top">
+                    <a
+                        href="#content"
+                        class="qld__direction-link qld__direction-link--up"
+                        aria-label="Back to top"
+                    >Back to top</a>
+                </div>
+            </div>
+        </section>
     {{/if}}
 {{/ifCond}}
