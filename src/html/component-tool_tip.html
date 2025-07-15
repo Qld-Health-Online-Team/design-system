@@ -20,13 +20,19 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
+                <div class="container-fluid">
+                    ${require('../components/breadcrumbs/html/component.hbs')({
+                    "site":require('/src/data/site.json'),
+                    "current":require('/src/data/current.json'), })}
+                </div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -34,23 +40,56 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-4 col-lg-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                            "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-md-8 col-lg-9" id="content">
                             <h2>Tool Tip examples</h2>
                             <h3>Definition version</h3>
                             <br />
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-definition" data-target="tool-tip-1" role="button" aria-controls="tool-tip-content-1" tabindex="0">I am standalone</span>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-definition"
+                                data-target="tool-tip-1"
+                                role="button"
+                                aria-controls="tool-tip-content-1"
+                                tabindex="0"
+                                >I am standalone</span
+                            >
                             <p>
                                 I am a paragraph and
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-definition" data-target="tool-tip-2" role="button" aria-controls="tool-tip-content-2" tabindex="0">COVID-19</span>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-definition"
+                                    data-target="tool-tip-2"
+                                    role="button"
+                                    aria-controls="tool-tip-content-2"
+                                    tabindex="0"
+                                    >COVID-19</span
+                                >
                                 is very dangerous.
                             </p>
-                            <div class="qld__body qld__body--dark qld__dark" style="padding-left: 20px">
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-definition" data-target="tool-tip-3" role="button" aria-controls="tool-tip-content-3" tabindex="0">I am standalone</span>
+                            <div
+                                class="qld__body qld__body--dark qld__dark"
+                                style="padding-left: 20px"
+                            >
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-definition"
+                                    data-target="tool-tip-3"
+                                    role="button"
+                                    aria-controls="tool-tip-content-3"
+                                    tabindex="0"
+                                    >I am standalone</span
+                                >
                                 <p>
                                     I am a paragraph and
-                                    <span class="qld__tool-tip-trigger qld__tool-tip-trigger-definition" data-target="tool-tip-4" role="button" aria-controls="tool-tip-content-4" tabindex="0">COVID-19</span>
+                                    <span
+                                        class="qld__tool-tip-trigger qld__tool-tip-trigger-definition"
+                                        data-target="tool-tip-4"
+                                        role="button"
+                                        aria-controls="tool-tip-content-4"
+                                        tabindex="0"
+                                        >COVID-19</span
+                                    >
                                     is very dangerous.
                                 </p>
                             </div>
@@ -58,48 +97,155 @@
                             <h3>Icon version</h3>
                             <br />
 
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-5" role="button" aria-label="Show help" aria-controls="tool-tip-5" tabindex="0">
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-5"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-5"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#help"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-6" role="button" aria-label="Show help" aria-controls="tool-tip-6" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-6"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-6"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#help"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-7" role="button" aria-label="Show information" aria-controls="tool-tip-7" tabindex="0">
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-7"
+                                role="button"
+                                aria-label="Show information"
+                                aria-controls="tool-tip-7"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
 
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-8" role="button" aria-label="Show information" aria-controls="tool-tip-8" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-8"
+                                role="button"
+                                aria-label="Show information"
+                                aria-controls="tool-tip-8"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
 
-                            <div class="qld__body qld__body--dark qld__dark" style="padding-left: 20px">
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-9" role="button" aria-label="Show help" aria-controls="tool-tip-9" tabindex="0">
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                            <div
+                                class="qld__body qld__body--dark qld__dark"
+                                style="padding-left: 20px"
+                            >
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                    data-target="tool-tip-9"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-9"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-10" role="button" aria-label="Show help" aria-controls="tool-tip-10" tabindex="0">
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                    data-target="tool-tip-10"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-10"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-11" role="button" aria-label="Show help" aria-controls="tool-tip-11" tabindex="0">
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                    data-target="tool-tip-11"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-11"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
 
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-12" role="button" aria-label="Show help" aria-controls="tool-tip-12" tabindex="0">
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                    data-target="tool-tip-12"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-12"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
                             </div>
@@ -107,48 +253,155 @@
                             <h3>Button version</h3>
                             <br />
 
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-5" role="button" aria-label="Show help" aria-controls="tool-tip-5" tabindex="0">
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                data-target="tool-tip-5"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-5"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#copy"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-6" role="button" aria-label="Show help" aria-controls="tool-tip-6" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                data-target="tool-tip-6"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-6"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#copy"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-7" role="button" aria-label="Show information" aria-controls="tool-tip-7" tabindex="0">
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                data-target="tool-tip-7"
+                                role="button"
+                                aria-label="Show information"
+                                aria-controls="tool-tip-7"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#copy"
+                                    ></use>
                                 </svg>
                             </span>
 
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-8" role="button" aria-label="Show information" aria-controls="tool-tip-8" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                data-target="tool-tip-8"
+                                role="button"
+                                aria-label="Show information"
+                                aria-controls="tool-tip-8"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#copy"
+                                    ></use>
                                 </svg>
                             </span>
 
-                            <div class="qld__body qld__body--dark qld__dark" style="padding-left: 20px">
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-9" role="button" aria-label="Show help" aria-controls="tool-tip-9" tabindex="0">
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                            <div
+                                class="qld__body qld__body--dark qld__dark"
+                                style="padding-left: 20px"
+                            >
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                    data-target="tool-tip-9"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-9"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#copy"
+                                        ></use>
                                     </svg>
                                 </span>
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-10" role="button" aria-label="Show help" aria-controls="tool-tip-10" tabindex="0">
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                    data-target="tool-tip-10"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-10"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#copy"
+                                        ></use>
                                     </svg>
                                 </span>
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-11" role="button" aria-label="Show help" aria-controls="tool-tip-11" tabindex="0">
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                    data-target="tool-tip-11"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-11"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#copy"
+                                        ></use>
                                     </svg>
                                 </span>
 
-                                <span class="qld__tool-tip-trigger qld__tool-tip-trigger-button" data-target="tool-tip-12" role="button" aria-label="Show help" aria-controls="tool-tip-12" tabindex="0">
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#copy"></use>
+                                <span
+                                    class="qld__tool-tip-trigger qld__tool-tip-trigger-button"
+                                    data-target="tool-tip-12"
+                                    role="button"
+                                    aria-label="Show help"
+                                    aria-controls="tool-tip-12"
+                                    tabindex="0"
+                                >
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#copy"
+                                        ></use>
                                     </svg>
                                 </span>
                             </div>
@@ -156,140 +409,328 @@
                             <h3>Directional content</h3>
                             <br />
 
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-13" role="button" aria-label="Show help" aria-controls="tool-tip-13" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-13"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-13"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-14" role="button" aria-label="Show help" aria-controls="tool-tip-14" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-14"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-14"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-15" role="button" aria-label="Show help" aria-controls="tool-tip-15" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-15"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-15"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
-                            <span class="qld__tool-tip-trigger qld__tool-tip-trigger-icon" data-target="tool-tip-16" role="button" aria-label="Show help" aria-controls="tool-tip-16" tabindex="0">
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                            <span
+                                class="qld__tool-tip-trigger qld__tool-tip-trigger-icon"
+                                data-target="tool-tip-16"
+                                role="button"
+                                aria-label="Show help"
+                                aria-controls="tool-tip-16"
+                                tabindex="0"
+                            >
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
 
                             <div class="qld__tool-tip" id="tool-tip-1">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip1
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip1
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-2">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip2
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip2
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__dark">
                                 <div class="qld__tool-tip" id="tool-tip-3">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip3
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip3
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__tool-tip" id="tool-tip-4">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip4
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip4
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-5">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip5
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip5
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-6">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip6
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip6
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-7">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip7
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip7
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-8">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip8
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip8
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__dark">
                                 <div class="qld__tool-tip" id="tool-tip-9">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip9
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip9
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__tool-tip" id="tool-tip-10">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip10
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip10
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__tool-tip" id="tool-tip-11">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip11
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip11
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__tool-tip" id="tool-tip-12">
-                                    <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                        This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip12
+                                    <div
+                                        class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        This is the content of the tooltipThis
+                                        is the content of the tooltipThis is the
+                                        content of the tooltipThis is the
+                                        content of the tooltip12
                                     </div>
-                                    <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                    <div
+                                        class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                    ></div>
                                 </div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-13">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip13
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-top"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip13
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-14">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-right" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip14
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-right"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip14
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-15">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-bottom" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip15
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-bottom"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip15
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__tool-tip" id="tool-tip-16">
-                                <div class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-left" role="status">
-                                    This is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltipThis is the content of the tooltip16
+                                <div
+                                    class="qld__tool-tip-content qld__tool-tip-hidden qld__tool-tip-aligned-left"
+                                    role="status"
+                                >
+                                    This is the content of the tooltipThis is
+                                    the content of the tooltipThis is the
+                                    content of the tooltipThis is the content of
+                                    the tooltip16
                                 </div>
-                                <div class="qld__tool-tip-content-carat qld__tool-tip-hidden"></div>
+                                <div
+                                    class="qld__tool-tip-content-carat qld__tool-tip-hidden"
+                                ></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Page Footer Info -->
+            ${require('../components/page_footer_info/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
-
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
+        <div
+            class="footer-scripts"
+            id="footer_js"
+            style="display: none !important"
+        >
+            ${require('../components/_global/html/scripts.html')}
+        </div>
     </body>
 </html>

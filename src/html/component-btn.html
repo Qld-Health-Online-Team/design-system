@@ -39,55 +39,331 @@
                         status_changed_userid: "54",
                         thumbnail: "",
                         attributes: {
-                            name: { attrid: "685", type: "text", value: "Design System", is_contextable: true, use_default: true },
-                            not_found_page_cache_globally: { attrid: "686", type: "boolean", value: false, is_contextable: false, use_default: true },
-                            available_conditions: { attrid: "687", type: "serialise", value: [], is_contextable: false, use_default: true },
+                            name: {
+                                attrid: "685",
+                                type: "text",
+                                value: "Design System",
+                                is_contextable: true,
+                                use_default: true,
+                            },
+                            not_found_page_cache_globally: {
+                                attrid: "686",
+                                type: "boolean",
+                                value: false,
+                                is_contextable: false,
+                                use_default: true,
+                            },
+                            available_conditions: {
+                                attrid: "687",
+                                type: "serialise",
+                                value: [],
+                                is_contextable: false,
+                                use_default: true,
+                            },
                         },
                         metadata: {
-                            displayInPageNav: { value: "", fieldid: "808", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            inPageNav_heading: { value: "On this page", fieldid: "809", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                            inPageNav_headingType: { value: "h2", fieldid: "810", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            siteTitle: { value: "Queensland Health Design System", fieldid: "166", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                            siteLogo: { value: "169", fieldid: "127", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            siteFavicon: { value: "106", fieldid: "128", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            siteAppleTouch: { value: "106", fieldid: "129", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            sitePreHeaderLogo: { value: "170", fieldid: "171", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            sitePreHeaderText: { value: "digital.qld.gov.au", fieldid: "167", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                            sitePreHeaderURL: { value: "http://www.digital.qld.gov.au", fieldid: "168", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                            showHomeIcon: { value: "true", fieldid: "481", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            siteRepository: { value: "164", fieldid: "213", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            footerLinks: { value: '["186","194","198","458","676"]', fieldid: "715", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            footerCopyrightMessage: { value: "© The State of Queensland 2020", fieldid: "722", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                            footerCopyrightLink: { value: "206", fieldid: "723", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                            footerCTAHeading: { value: "Help us improve", fieldid: "724", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                            footerCTALead: { value: "We are always looking for ways to improve our website.", fieldid: "725", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                            footerCTALink: { value: "186", fieldid: "726", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
+                            displayInPageNav: {
+                                value: "",
+                                fieldid: "808",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            inPageNav_heading: {
+                                value: "On this page",
+                                fieldid: "809",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            inPageNav_headingType: {
+                                value: "h2",
+                                fieldid: "810",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            siteTitle: {
+                                value: "Queensland Health Design System",
+                                fieldid: "166",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            siteLogo: {
+                                value: "169",
+                                fieldid: "127",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            siteFavicon: {
+                                value: "106",
+                                fieldid: "128",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            siteAppleTouch: {
+                                value: "106",
+                                fieldid: "129",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            sitePreHeaderLogo: {
+                                value: "170",
+                                fieldid: "171",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            sitePreHeaderText: {
+                                value: "digital.qld.gov.au",
+                                fieldid: "167",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            sitePreHeaderURL: {
+                                value: "http://www.digital.qld.gov.au",
+                                fieldid: "168",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            showHomeIcon: {
+                                value: "true",
+                                fieldid: "481",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            siteRepository: {
+                                value: "164",
+                                fieldid: "213",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            footerLinks: {
+                                value: '["186","194","198","458","676"]',
+                                fieldid: "715",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            footerCopyrightMessage: {
+                                value: "© The State of Queensland 2020",
+                                fieldid: "722",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            footerCopyrightLink: {
+                                value: "206",
+                                fieldid: "723",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            footerCTAHeading: {
+                                value: "Help us improve",
+                                fieldid: "724",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            footerCTALead: {
+                                value: "We are always looking for ways to improve our website.",
+                                fieldid: "725",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            footerCTALink: {
+                                value: "186",
+                                fieldid: "726",
+                                type: "metadata_field_related_asset",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
                         },
                     },
                     metadata: {
-                        displayInPageNav: { value: "", fieldid: "808", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                        inPageNav_heading: { value: "On this page", fieldid: "809", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                        inPageNav_headingType: { value: "h2", fieldid: "810", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                        siteTitle: { value: "Queensland Health Design System", fieldid: "166", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                        siteLogo: { value: "169", fieldid: "127", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        siteFavicon: { value: "106", fieldid: "128", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        siteAppleTouch: { value: "106", fieldid: "129", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        sitePreHeaderLogo: { value: "170", fieldid: "171", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        sitePreHeaderText: { value: "digital.qld.gov.au", fieldid: "167", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                        sitePreHeaderURL: { value: "http://www.digital.qld.gov.au", fieldid: "168", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                        showHomeIcon: { value: "true", fieldid: "481", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                        siteRepository: { value: "164", fieldid: "213", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        footerLinks: { value: '["186","194","198","458","676"]', fieldid: "715", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        footerCopyrightMessage: { value: "© The State of Queensland 2020", fieldid: "722", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                        footerCopyrightLink: { value: "206", fieldid: "723", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
-                        footerCTAHeading: { value: "Help us improve", fieldid: "724", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                        footerCTALead: { value: "We are always looking for ways to improve our website.", fieldid: "725", type: "metadata_field_text", is_contextable: true, default_value: false, use_default: true },
-                        footerCTALink: { value: "186", fieldid: "726", type: "metadata_field_related_asset", is_contextable: true, default_value: false, use_default: true },
+                        displayInPageNav: {
+                            value: "",
+                            fieldid: "808",
+                            type: "metadata_field_select",
+                            is_contextable: true,
+                            default_value: true,
+                            use_default: true,
+                        },
+                        inPageNav_heading: {
+                            value: "On this page",
+                            fieldid: "809",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: true,
+                            use_default: true,
+                        },
+                        inPageNav_headingType: {
+                            value: "h2",
+                            fieldid: "810",
+                            type: "metadata_field_select",
+                            is_contextable: true,
+                            default_value: true,
+                            use_default: true,
+                        },
+                        siteTitle: {
+                            value: "Queensland Health Design System",
+                            fieldid: "166",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        siteLogo: {
+                            value: "169",
+                            fieldid: "127",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        siteFavicon: {
+                            value: "106",
+                            fieldid: "128",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        siteAppleTouch: {
+                            value: "106",
+                            fieldid: "129",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        sitePreHeaderLogo: {
+                            value: "170",
+                            fieldid: "171",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        sitePreHeaderText: {
+                            value: "digital.qld.gov.au",
+                            fieldid: "167",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        sitePreHeaderURL: {
+                            value: "http://www.digital.qld.gov.au",
+                            fieldid: "168",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        showHomeIcon: {
+                            value: "true",
+                            fieldid: "481",
+                            type: "metadata_field_select",
+                            is_contextable: true,
+                            default_value: true,
+                            use_default: true,
+                        },
+                        siteRepository: {
+                            value: "164",
+                            fieldid: "213",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        footerLinks: {
+                            value: '["186","194","198","458","676"]',
+                            fieldid: "715",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        footerCopyrightMessage: {
+                            value: "© The State of Queensland 2020",
+                            fieldid: "722",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: true,
+                            use_default: true,
+                        },
+                        footerCopyrightLink: {
+                            value: "206",
+                            fieldid: "723",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        footerCTAHeading: {
+                            value: "Help us improve",
+                            fieldid: "724",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        footerCTALead: {
+                            value: "We are always looking for ways to improve our website.",
+                            fieldid: "725",
+                            type: "metadata_field_text",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
+                        footerCTALink: {
+                            value: "186",
+                            fieldid: "726",
+                            type: "metadata_field_related_asset",
+                            is_contextable: true,
+                            default_value: false,
+                            use_default: true,
+                        },
                     },
                     children: [
                         { asset_name: "Get started", asset_assetid: "186" },
-                        { asset_name: "Brand guidelines", asset_assetid: "190" },
-                        { asset_name: "Content guidelines", asset_assetid: "194" },
+                        {
+                            asset_name: "Brand guidelines",
+                            asset_assetid: "190",
+                        },
+                        {
+                            asset_name: "Content guidelines",
+                            asset_assetid: "194",
+                        },
                         { asset_name: "Components", asset_assetid: "198" },
                         { asset_name: "Examples", asset_assetid: "202" },
                         { asset_name: "Support", asset_assetid: "206" },
@@ -114,36 +390,162 @@
                         status_changed_userid: "312",
                         thumbnail: "",
                         attributes: {
-                            name: { attrid: "631", type: "text", value: "Links", is_contextable: true, use_default: true },
-                            short_name: { attrid: "632", type: "text", value: "Links", is_contextable: true, use_default: true },
-                            available_conditions: { attrid: "633", type: "serialise", value: [], is_contextable: false, use_default: true },
-                            conditions: { attrid: "634", type: "serialise", value: [], is_contextable: true, use_default: true },
+                            name: {
+                                attrid: "631",
+                                type: "text",
+                                value: "Links",
+                                is_contextable: true,
+                                use_default: true,
+                            },
+                            short_name: {
+                                attrid: "632",
+                                type: "text",
+                                value: "Links",
+                                is_contextable: true,
+                                use_default: true,
+                            },
+                            available_conditions: {
+                                attrid: "633",
+                                type: "serialise",
+                                value: [],
+                                is_contextable: false,
+                                use_default: true,
+                            },
+                            conditions: {
+                                attrid: "634",
+                                type: "serialise",
+                                value: [],
+                                is_contextable: true,
+                                use_default: true,
+                            },
                         },
                         metadata: {
-                            description: { value: "", fieldid: "132", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                            pageType: { value: "landing", fieldid: "680", type: "metadata_field_select", is_contextable: true, default_value: false, use_default: true },
-                            displayBreadcrumbs: { value: "true", fieldid: "681", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            displayBanner: { value: "true", fieldid: "682", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            displayInPageNav: { value: "true", fieldid: "808", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
-                            inPageNav_heading: { value: "On this page", fieldid: "809", type: "metadata_field_text", is_contextable: true, default_value: true, use_default: true },
-                            inPageNav_headingType: { value: "h2", fieldid: "810", type: "metadata_field_select", is_contextable: true, default_value: true, use_default: true },
+                            description: {
+                                value: "",
+                                fieldid: "132",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            pageType: {
+                                value: "landing",
+                                fieldid: "680",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: false,
+                                use_default: true,
+                            },
+                            displayBreadcrumbs: {
+                                value: "true",
+                                fieldid: "681",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            displayBanner: {
+                                value: "true",
+                                fieldid: "682",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            displayInPageNav: {
+                                value: "true",
+                                fieldid: "808",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            inPageNav_heading: {
+                                value: "On this page",
+                                fieldid: "809",
+                                type: "metadata_field_text",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
+                            inPageNav_headingType: {
+                                value: "h2",
+                                fieldid: "810",
+                                type: "metadata_field_select",
+                                is_contextable: true,
+                                default_value: true,
+                                use_default: true,
+                            },
                         },
                     },
                     home: 0,
                     children: [
-                        { asset_assetid: "458", asset_url: "https://qhscb.squiz.cloud/components/accordion", asset_name: "Accordion", children: [] },
-                        { asset_assetid: "325", asset_url: "https://qhscb.squiz.cloud/components/callout", asset_name: "Callout", children: [] },
-                        { asset_assetid: "659", asset_url: "https://qhscb.squiz.cloud/components/card-listing", asset_name: "Card Listing", children: [] },
-                        { asset_assetid: "676", asset_url: "https://qhscb.squiz.cloud/components/links", asset_name: "Links", children: [] },
-                        { asset_assetid: "683", asset_url: "https://qhscb.squiz.cloud/components/search-box", asset_name: "Search Box", children: [] },
-                        { asset_assetid: "785", asset_url: "https://qhscb.squiz.cloud/components/page-alert", asset_name: "Page Alert", children: [] },
+                        {
+                            asset_assetid: "458",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/accordion",
+                            asset_name: "Accordion",
+                            children: [],
+                        },
+                        {
+                            asset_assetid: "325",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/callout",
+                            asset_name: "Callout",
+                            children: [],
+                        },
+                        {
+                            asset_assetid: "659",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/card-listing",
+                            asset_name: "Card Listing",
+                            children: [],
+                        },
+                        {
+                            asset_assetid: "676",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/links",
+                            asset_name: "Links",
+                            children: [],
+                        },
+                        {
+                            asset_assetid: "683",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/search-box",
+                            asset_name: "Search Box",
+                            children: [],
+                        },
+                        {
+                            asset_assetid: "785",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/page-alert",
+                            asset_name: "Page Alert",
+                            children: [],
+                        },
                     ],
                     lineage: [
-                        { asset_assetid: "136", asset_name: "Design System", asset_url: "https://qhscb.squiz.cloud" },
-                        { asset_assetid: "198", asset_name: "Components", asset_url: "https://qhscb.squiz.cloud/components" },
-                        { asset_assetid: "676", asset_name: "Links", asset_url: "https://qhscb.squiz.cloud/components/links" },
+                        {
+                            asset_assetid: "136",
+                            asset_name: "Design System",
+                            asset_url: "https://qhscb.squiz.cloud",
+                        },
+                        {
+                            asset_assetid: "198",
+                            asset_name: "Components",
+                            asset_url: "https://qhscb.squiz.cloud/components",
+                        },
+                        {
+                            asset_assetid: "676",
+                            asset_name: "Links",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/links",
+                        },
                     ],
-                    top: { asset_assetid: "198", asset_name: "Components", asset_url: "https://qhscb.squiz.cloud/components" },
+                    top: {
+                        asset_assetid: "198",
+                        asset_name: "Components",
+                        asset_url: "https://qhscb.squiz.cloud/components",
+                    },
                 },
             };
         </script>
@@ -151,13 +553,19 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
+                <div class="container-fluid">
+                    ${require('../components/breadcrumbs/html/component.hbs')({
+                    "site":require('/src/data/site.json'),
+                    "current":require('/src/data/current.json'), })}
+                </div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -165,7 +573,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                            "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
                             <h1>Buttons</h1>
@@ -176,11 +586,30 @@
                                 <div class="container-fluid">
                                     <h2>Default (Light)</h2>
                                     <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--secondary"
+                                        >secondary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--tertiary"
+                                        >tertiary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--toggle"
+                                    >
                                         toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
+                                        <svg
+                                            class="qld__icon qld__icon--sm"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <use
+                                                href="/mysource_files/img/QLD-icons.svg#chevron-down"
+                                            ></use>
+                                        </svg>
                                     </a>
                                 </div>
                             </div>
@@ -188,11 +617,30 @@
                                 <div class="container-fluid">
                                     <h2>Alternative</h2>
                                     <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--secondary"
+                                        >secondary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--tertiary"
+                                        >tertiary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--toggle"
+                                    >
                                         toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
+                                        <svg
+                                            class="qld__icon qld__icon--sm"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <use
+                                                href="/mysource_files/img/QLD-icons.svg#chevron-down"
+                                            ></use>
+                                        </svg>
                                     </a>
                                 </div>
                             </div>
@@ -200,11 +648,30 @@
                                 <div class="container-fluid">
                                     <h2>Dark</h2>
                                     <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--secondary"
+                                        >secondary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--tertiary"
+                                        >tertiary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--toggle"
+                                    >
                                         toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
+                                        <svg
+                                            class="qld__icon qld__icon--sm"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <use
+                                                href="/mysource_files/img/QLD-icons.svg#chevron-down"
+                                            ></use>
+                                        </svg>
                                     </a>
                                 </div>
                             </div>
@@ -212,11 +679,30 @@
                                 <div class="container-fluid">
                                     <h2>Dark Alternative</h2>
                                     <a href="#" class="qld__btn">primary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--secondary">secondary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--tertiary">tertiary btn</a>
-                                    <a href="#" class="qld__btn qld__btn--toggle">
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--secondary"
+                                        >secondary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--tertiary"
+                                        >tertiary btn</a
+                                    >
+                                    <a
+                                        href="#"
+                                        class="qld__btn qld__btn--toggle"
+                                    >
                                         toggle btn
-                                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/mysource_files/img/QLD-icons.svg#chevron-down"></use></svg>
+                                        <svg
+                                            class="qld__icon qld__icon--sm"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <use
+                                                href="/mysource_files/img/QLD-icons.svg#chevron-down"
+                                            ></use>
+                                        </svg>
                                     </a>
                                 </div>
                             </div>
@@ -224,15 +710,23 @@
                     </div>
                 </div>
             </div>
+            <!-- Page Footer Info -->
+            ${require('../components/page_footer_info/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
-
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
+        <div
+            class="footer-scripts"
+            id="footer_js"
+            style="display: none !important"
+        >
+            ${require('../components/_global/html/scripts.html')}
+        </div>
     </body>
 </html>
