@@ -20,13 +20,19 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
+                <div class="container-fluid">
+                    ${require('../components/breadcrumbs/html/component.hbs')({
+                    "site":require('/src/data/site.json'),
+                    "current":require('/src/data/current.json'), })}
+                </div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -34,24 +40,50 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-4 col-lg-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                            "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-md-8 col-lg-9" id="content">
                             <h2>Toggle Tip examples</h2>
                             <h3>Definition version</h3>
                             <br />
-                            <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-1" role="button" aria-expanded="false" aria-controls="toggle-tip-content-1" aria-haspopup="dialog" tabindex="0"
+                            <span
+                                class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                data-target="toggle-tip-1"
+                                role="button"
+                                aria-expanded="false"
+                                aria-controls="toggle-tip-content-1"
+                                aria-haspopup="dialog"
+                                tabindex="0"
                                 >I am standalone</span
                             >
                             <p>
                                 I am a paragraph and
-                                <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-2" role="button" aria-expanded="false" aria-controls="toggle-tip-content-2" aria-haspopup="dialog" tabindex="0"
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                    data-target="toggle-tip-2"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="toggle-tip-content-2"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
                                     >COVID-19</span
                                 >
                                 is very dangerous.
                             </p>
-                            <div class="qld__body qld__body--dark qld__dark" style="padding-left: 20px">
-                                <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-3" role="button" aria-expanded="false" aria-controls="toggle-tip-content-3" aria-haspopup="dialog" tabindex="0"
+                            <div
+                                class="qld__body qld__body--dark qld__dark"
+                                style="padding-left: 20px"
+                            >
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                    data-target="toggle-tip-3"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="toggle-tip-content-3"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
                                     >I am standalone</span
                                 >
                                 <p>
@@ -69,8 +101,18 @@
                                     is very dangerous.
                                 </p>
                             </div>
-                            <div class="qld__body qld__body--dark-alt qld__dark" style="padding-left: 20px">
-                                <span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" data-target="toggle-tip-5" role="button" aria-expanded="false" aria-controls="toggle-tip-content-5" aria-haspopup="dialog" tabindex="0"
+                            <div
+                                class="qld__body qld__body--dark-alt qld__dark"
+                                style="padding-left: 20px"
+                            >
+                                <span
+                                    class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition"
+                                    data-target="toggle-tip-5"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls="toggle-tip-content-5"
+                                    aria-haspopup="dialog"
+                                    tabindex="0"
                                     >I am standalone</span
                                 >
                                 <p>
@@ -102,8 +144,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#help"
+                                    ></use>
                                 </svg>
                             </span>
                             <span
@@ -116,8 +164,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#help"
+                                    ></use>
                                 </svg>
                             </span>
                             <span
@@ -130,8 +184,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--md"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
 
@@ -145,11 +205,20 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
-                            <div class="qld__body qld__body--dark qld__dark" style="padding-left: 20px">
+                            <div
+                                class="qld__body qld__body--dark qld__dark"
+                                style="padding-left: 20px"
+                            >
                                 <span
                                     class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
                                     data-target="toggle-tip-11"
@@ -160,8 +229,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
                                 <span
@@ -174,8 +249,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
                                 <span
@@ -188,8 +269,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
 
@@ -203,12 +290,21 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
                             </div>
-                            <div class="qld__body qld__body--dark-alt qld__dark" style="padding-left: 20px">
+                            <div
+                                class="qld__body qld__body--dark-alt qld__dark"
+                                style="padding-left: 20px"
+                            >
                                 <span
                                     class="qld__toggle-tip-trigger qld__toggle-tip-trigger-icon"
                                     data-target="toggle-tip-15"
@@ -219,8 +315,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
                                 <span
@@ -233,8 +335,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#help"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#help"
+                                        ></use>
                                     </svg>
                                 </span>
                                 <span
@@ -247,8 +355,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--md"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
 
@@ -262,8 +376,14 @@
                                     aria-haspopup="dialog"
                                     tabindex="0"
                                 >
-                                    <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                        <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                    <svg
+                                        class="qld__icon qld__icon--lg"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <use
+                                            href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                        ></use>
                                     </svg>
                                 </span>
                             </div>
@@ -281,8 +401,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
                             <span
@@ -295,8 +421,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
                             <span
@@ -309,8 +441,14 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
                             <span
@@ -323,248 +461,660 @@
                                 aria-haspopup="dialog"
                                 tabindex="0"
                             >
-                                <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="/mysource_files/img/QLD-icons.svg#alert-information"></use>
+                                <svg
+                                    class="qld__icon qld__icon--lg"
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <use
+                                        href="/mysource_files/img/QLD-icons.svg#alert-information"
+                                    ></use>
                                 </svg>
                             </span>
 
                             <div class="qld__toggle-tip" id="toggle-tip-1">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-2">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__dark">
                                 <div class="qld__toggle-tip" id="toggle-tip-3">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-4">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-5">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-6">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-7">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-8">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-9">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-10">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__dark">
                                 <div class="qld__toggle-tip" id="toggle-tip-11">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-12">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-13">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-14">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-15">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-16">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-17">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                                 <div class="qld__toggle-tip" id="toggle-tip-18">
-                                    <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                        <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                        This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
-                                        <div class="qld__toggle-tip-content-link">
-                                            <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                    <div
+                                        class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                        role="status"
+                                    >
+                                        <div
+                                            class="qld__toggle-tip-content-heading"
+                                        >
+                                            My headingMy headingMy headingMy
+                                            headingMy heading
+                                        </div>
+                                        This is the content of the toggletipThis
+                                        is the content of the toggletipThis is
+                                        the content of the toggletipThis is the
+                                        content of the toggletip
+                                        <div
+                                            class="qld__toggle-tip-content-link"
+                                        >
+                                            <a href="https://www.google.com"
+                                                >This is a linkThis is a
+                                                linkThis is a linkThis is a
+                                                linkThis is a link</a
+                                            >
                                         </div>
                                     </div>
-                                    <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                    <div
+                                        class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                    ></div>
                                 </div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-19">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-top"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-20">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-right" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-right"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-21">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-bottom" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-bottom"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                             <div class="qld__toggle-tip" id="toggle-tip-22">
-                                <div class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-left" role="status">
-                                    <div class="qld__toggle-tip-content-heading">My headingMy headingMy headingMy headingMy heading</div>
-                                    This is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletipThis is the content of the toggletip
+                                <div
+                                    class="qld__toggle-tip-content qld__toggle-tip-hidden qld__toggle-tip-aligned-left"
+                                    role="status"
+                                >
+                                    <div
+                                        class="qld__toggle-tip-content-heading"
+                                    >
+                                        My headingMy headingMy headingMy
+                                        headingMy heading
+                                    </div>
+                                    This is the content of the toggletipThis is
+                                    the content of the toggletipThis is the
+                                    content of the toggletipThis is the content
+                                    of the toggletip
                                     <div class="qld__toggle-tip-content-link">
-                                        <a href="https://www.google.com">This is a linkThis is a linkThis is a linkThis is a linkThis is a link</a>
+                                        <a href="https://www.google.com"
+                                            >This is a linkThis is a linkThis is
+                                            a linkThis is a linkThis is a
+                                            link</a
+                                        >
                                     </div>
                                 </div>
-                                <div class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"></div>
+                                <div
+                                    class="qld__toggle-tip-content-carat qld__toggle-tip-hidden"
+                                ></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Page Footer Info -->
+            ${require('../components/page_footer_info/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
-
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
+        <div
+            class="footer-scripts"
+            id="footer_js"
+            style="display: none !important"
+        >
+            ${require('../components/_global/html/scripts.html')}
+        </div>
     </body>
 </html>
