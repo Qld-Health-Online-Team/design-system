@@ -14,6 +14,7 @@
 
     <head>
         <title>Queensland Design System</title>
+
         ${require('../components/_global/html/head.html')}
         <script>
             var globals = {
@@ -481,37 +482,43 @@
                     children: [
                         {
                             asset_assetid: "458",
-                            asset_url: "https://qhscb.squiz.cloud/components/accordion",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/accordion",
                             asset_name: "Accordion",
                             children: [],
                         },
                         {
                             asset_assetid: "325",
-                            asset_url: "https://qhscb.squiz.cloud/components/callout",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/callout",
                             asset_name: "Callout",
                             children: [],
                         },
                         {
                             asset_assetid: "659",
-                            asset_url: "https://qhscb.squiz.cloud/components/card-listing",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/card-listing",
                             asset_name: "Card Listing",
                             children: [],
                         },
                         {
                             asset_assetid: "676",
-                            asset_url: "https://qhscb.squiz.cloud/components/links",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/links",
                             asset_name: "Links",
                             children: [],
                         },
                         {
                             asset_assetid: "683",
-                            asset_url: "https://qhscb.squiz.cloud/components/search-box",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/search-box",
                             asset_name: "Search Box",
                             children: [],
                         },
                         {
                             asset_assetid: "785",
-                            asset_url: "https://qhscb.squiz.cloud/components/page-alert",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/page-alert",
                             asset_name: "Page Alert",
                             children: [],
                         },
@@ -530,7 +537,8 @@
                         {
                             asset_assetid: "676",
                             asset_name: "Links",
-                            asset_url: "https://qhscb.squiz.cloud/components/links",
+                            asset_url:
+                                "https://qhscb.squiz.cloud/components/links",
                         },
                     ],
                     top: {
@@ -543,65 +551,62 @@
         </script>
     </head>
 
-    <body class="qld__grid vertical-nav">
+    <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/main_navigation/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
-            <!-- LEFT HAND NAVIGATION -->
-            ${require('../components/left_hand_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
-
-            <div class="qld__body--left-nav">
-                ${require('../components/banner_intermediate/html/component.hbs')({ "component":require('../components/banner_intermediate/js/manifest.json').component, "site":require('/src/data/site.json'),
-                "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-                <section class="qld__body qld__body--breadcrumb">
-                    <div class="container-fluid">
-                        <!-- {require('../components/breadcrumbs/html/component.hbs')({
-                            "data":require('../components/banner_home/js/manifest.json').data,
+            <section class="qld__body qld__body--breadcrumb">
+                <div class="container-fluid">
+                    ${require('../components/breadcrumbs/html/component.hbs')({
+                    "site":require('/src/data/site.json'),
+                    "current":require('/src/data/current.json'), })}
+                </div>
+            </section>
+            <!--CONTENT-->
+            <div class="qld__body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-4 col-xl-3">
+                            <!-- INTERNAL NAVIGATION -->
+                            ${require('../components/internal_navigation/html/component.hbs')({
+                            "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json') })}
+                        </div>
+                        <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
+                            ${require('../components/_global/html/component.hbs')({
+                            "manifest":require('../components/page_footer_info/js/manifest.json'),
+                            "component":require('!url-loader!../components/page_footer_info/html/component.hbs'),
+                            "component_output":require('../components/page_footer_info/html/component.hbs')({
+                            "data":require('../components/page_footer_info/js/manifest.json').data,
                             "site":require('/src/data/site.json'),
                             "current":require('/src/data/current.json'),
-                        })} -->
-                    </div>
-                </section>
-                <!--CONTENT-->
-                <!-- <div class="qld__body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xs-12" id="content"> -->
-
-                ${require('../components/body/html/component.hbs')({ "component":require('../components/body/js/manifest.json').component, "content":"Lorem Ipsum" })} ${require('../components/abstract/html/component.hbs')({
-                "component":require('../components/abstract/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-                ${require('../components/accordion/html/component.hbs')({ "component":require('../components/accordion/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'),
-                "content":"Lorem Ipsum" })} ${require('../components/callout/html/component.hbs')({ "component":require('../components/callout/js/manifest.json').component, "site":require('/src/data/site.json'),
-                "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/card_feature/html/component.hbs')({ "component":require('../components/card_feature/js/manifest.json').component,
-                "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/card_multi_action/html/component.hbs')({
-                "component":require('../components/card_multi_action/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-                ${require('../components/card_no_action/html/component.hbs')({ "component":require('../components/card_no_action/js/manifest.json').component, "site":require('/src/data/site.json'),
-                "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/card_single_action/html/component.hbs')({ "component":require('../components/card_single_action/js/manifest.json').component,
-                "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/code/html/component.hbs')({
-                "component":require('../components/code/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-                ${require('../components/horizontal_rule/html/component.hbs')({ "component":require('../components/horizontal_rule/js/manifest.json').component, "site":require('/src/data/site.json'),
-                "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/in_page_navigation/html/component.hbs')({ "component":require('../components/in_page_navigation/js/manifest.json').component,
-                "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })} ${require('../components/multi_column/html/component.hbs')({
-                "component":require('../components/multi_column/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-                ${require('../components/page_alert/html/component.hbs')({ "component":require('../components/page_alert/js/manifest.json').component, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'),
-                "content":"Lorem Ipsum" })} ${require('../components/tab/html/component.hbs')({ "component":require('../components/tab/js/manifest.json').component, "site":require('/src/data/site.json'),
-                "current":require('/src/data/current.json'), "content":"Lorem Ipsum" })}
-
-                <!-- </div>
-                                        
+                            "content":"Lorem Ipsum" }) })}
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
+            <!-- Page Footer Info -->
+            ${require('../components/page_footer_info/html/component.hbs')({
+            "site":require('/src/data/site.json'),
+            "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({
+        "site":require('/src/data/site.json') })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
+        <div
+            class="footer-scripts"
+            id="footer_js"
+            style="display: none !important"
+        >
+            ${require('../components/_global/html/scripts.html')}
+        </div>
     </body>
 </html>
