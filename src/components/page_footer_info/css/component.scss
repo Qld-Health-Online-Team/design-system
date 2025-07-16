@@ -22,3 +22,41 @@
         }
     }
 }
+
+@mixin QLD-BTT-arrow-colours($interact-colour) {
+    &:hover,
+    &:focus,
+    &:active {
+        &::after,
+        &::before {
+            border-color: $interact-colour;
+        }
+    }
+}
+
+.qld__body {
+    .qld__widgets__back_to_top > .qld__direction-link {
+        &:visited {
+            color: var(--QLD-color-light__link);
+            text-decoration: var(--QLD-color-light__underline);
+        }
+
+        @include QLD-BTT-arrow-colours(
+            var(--QLD-color-light__action--secondary-hover)
+        );
+    }
+}
+
+.qld__body.qld__body--dark,
+.qld__body.qld__body--dark-alt {
+    .qld__widgets__back_to_top > .qld__direction-link {
+        &:visited {
+            color: var(--QLD-color-dark__link);
+            text-decoration: var(--QLD-color-dark__underline);
+        }
+
+        @include QLD-BTT-arrow-colours(
+            var(--QLD-color-dark__action--secondary-hover)
+        );
+    }
+}
