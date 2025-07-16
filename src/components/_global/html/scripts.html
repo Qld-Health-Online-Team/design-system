@@ -1,29 +1,26 @@
 <script src="https://sdk.datastore.squiz.cloud/js/sdk-simulator.js"></script>
-<!-- <script src="https://sdk.datastore.squiz.cloud/js/sdk.js"></script> -->
 
 <script src="https://kit.fontawesome.com/fb2f2d4cd6.js" crossorigin="anonymous"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 
 <script src="externals/handlebars.min-v4.7.8.js"></script>
 <script src="externals/componentPreview.js"></script>
-<script src="externals/dsComponentLoader.js"></script>
 <script src="js/helpers.js"></script>
 <script>
     const serviceFinderData = new Datastore({
         // serviceURL: 'http://0.0.0.0:7001/hXL8Q1uq', // Matt
         //serviceURL: 'http://0.0.0.0:7001/afMhajMG', // Tom
-        serviceURL: 'http://0.0.0.0:7001/GbO0pTqv', // Julian
+        serviceURL: "http://0.0.0.0:7001/GbO0pTqv", // Julian
         //serviceURL: 'https://au-a14fc409.datastore.squiz.cloud',
-        jwtURL: 'http://0.0.0.0:7001/__JWT/issueToken'
+        jwtURL: "http://0.0.0.0:7001/__JWT/issueToken",
     });
 
-    serviceFinderData.setSetting('jwtPayload', {
-        "username": "jdoe",
-        "fullName": "John Doe",
-        "dsAdmin": false,
-        "hhsGroup": "sunshine-coast",
-        "isPublic": false,
-        "currentHHS": true
+    serviceFinderData.setSetting("jwtPayload", {
+        username: "jdoe",
+        fullName: "John Doe",
+        dsAdmin: false,
+        hhsGroup: "sunshine-coast",
+        isPublic: false,
+        currentHHS: true,
     });
 </script>
 
@@ -31,7 +28,3 @@
 
 <!-- Configure Default HHS -->
 <div id="qhealth__hhs" data-hhs="darling-downs"></div>
-
-<!-- <script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/thirdparty/typeahead-0.11.1/typeahead.bundle.min.js" async></script>
-<script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/thirdparty/handlebars-4.0.5/handlebars.min.js" async></script> -->
-<!-- <script type="text/javascript" src="https://qh-search.squiz.cloud/s/resources-global/js/funnelback.autocompletion-2.6.0.js" async></script> -->
