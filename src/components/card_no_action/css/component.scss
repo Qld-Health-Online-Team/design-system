@@ -13,6 +13,11 @@
     background: $QLD-color-neutral--white;
     overflow: hidden;
 
+    ::selection {
+        color: var(--QLD-color-dark__text);
+        background-color: var(--QLD-color-dark__background);
+    }
+
     & &__inner {
         @include QLD-space(padding, 1unit);
         display: flex;
@@ -273,6 +278,11 @@
         background-color: var(--QLD-color-light__background);
         color: var(--QLD-color-light__text);
 
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+        
         &.qld__card--icon {
             .qld__card__icon {
                 background-color: var(--QLD-color-light__background--shade);
@@ -285,6 +295,11 @@
         background-color: var(--QLD-color-light__background--alt);
         color: var(--QLD-color-light__text);
 
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+        
         &.qld__card--icon {
             .qld__card__icon {
                 background-color: var(--QLD-color-light__background--alt-shade);
@@ -296,6 +311,11 @@
     &.qld__card--dark {
         background-color: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
+
+        ::selection {
+            color: var(--QLD-color-light__text);
+            background-color: var(--QLD-color-light__background);
+        }
 
         .qld__responsive-media-img--bg {
             // outline: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
@@ -331,6 +351,11 @@
     &.qld__card--dark-alt {
         background-color: var(--QLD-color-dark__background--alt);
         color: var(--QLD-color-dark__text);
+
+        ::selection {
+            color: var(--QLD-color-light__text);
+            background-color: var(--QLD-color-light__background);
+        }
 
         .qld__responsive-media-img--bg {
             // outline: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
@@ -375,6 +400,11 @@
 .qld__banner--dark-alt,
 .qld__body--dark-alt {
     .qld__card {
+        ::selection {
+            color: var(--QLD-color-light__text);
+            background-color: var(--QLD-color-light__background);
+        }
+
         a.qld__card--clickable__link {
             @include QLD-underline("light");
             color: var(--QLD-color-light__link);
