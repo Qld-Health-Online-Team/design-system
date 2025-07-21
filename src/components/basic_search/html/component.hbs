@@ -122,14 +122,13 @@
             <div class="col-xs-12 col-md-12">
                 <div class="qld__search__info">
                     <div class="qld__search__info-query">
-                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' '!padrenull'}} for </span><span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’{{/ifCond}}</h2>
+                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' 'null'}} {{#ifCond resultsPage.question.query '!==' '!padrenull'}}for </span><span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’{{/ifCond}}{{/ifCond}}</h2>
                     </div>
                     <div class="qld__search__info-inner">
                         <div class="qld__search__info-summary">
                             <span class="qld__search__info-summary-text">Showing:</span> 
                             <span class="qld__search__info-summary-start-end">{{resultsPage.resultsSummary.currStart}} - {{resultsPage.resultsSummary.currEnd}} of</span>
-                            <span class="qld__search__info-summary-matching">{{resultsPage.resultsSummary.totalMatching}} results</span>
-                            
+                            <span class="qld__search__info-summary-matching">{{resultsPage.resultsSummary.totalMatching}} results</span>   
                         </div>
 
                         <div class="qld__search__sort">
