@@ -387,7 +387,6 @@ form {
 	 */
     ::selection {
         color: var(--QLD-color-dark__text);
-
         background-color: var(--QLD-color-dark__background);
         opacity: 0.99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
@@ -810,6 +809,11 @@ form {
     &.qld__body--light {
         background: var(--QLD-color-light__background);
 
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+
         hr {
             background-color: var(--QLD-color-light__border);
         }
@@ -832,6 +836,11 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light__background--alt);
 
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+        
         hr {
             background-color: var(--QLD-color-light__border--alt);
         }
@@ -857,8 +866,9 @@ form {
         color: var(--QLD-color-dark__text);
 
         ::selection {
-            color: var(--QLD-color-dark__background);
-            background-color: var(--QLD-color-dark__link);
+            color: var(--QLD-color-light__text);
+            background-color: var(--QLD-color-light__background);
+            opacity: 0.99;
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
 
@@ -924,6 +934,7 @@ form {
         ::selection {
             color: var(--QLD-color-dark__background);
             background-color: var(--QLD-color-dark__link);
+            opacity: 0.99;
             // Why RGBA 0.99? https://stackoverflow.com/a/7224621
         }
 
