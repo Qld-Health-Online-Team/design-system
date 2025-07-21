@@ -95,8 +95,13 @@ $QLD-header-md: 72px;
                 border: none;
 
                 &.active .qld__main-nav__item-toggle {
-                    margin-bottom: -0.5rem;
                     border-bottom: solid 8px #f5f5f5;
+                    font-weight: bold;
+                    margin-bottom: -0.5rem;
+
+                    &:focus {
+                        outline-offset: -3px;
+                    }
                 }
             }
 
@@ -292,6 +297,10 @@ $QLD-header-md: 72px;
                 .qld__main-nav__item.active .qld__main-nav__item-toggle {
                     border-bottom: solid 8px var(--QLD-color-dark__background--shade);
                     margin-bottom: -0.5rem;
+
+                    &:hover {
+                        border-bottom-color: red;
+                    }
                 }
             }
 
