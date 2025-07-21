@@ -62,6 +62,11 @@
         position: relative;
         z-index: 1;
 
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+
         @include QLD-space(padding-top, 0.75unit);
         @include QLD-space(padding-bottom, 0.75unit);
 
@@ -242,6 +247,11 @@
             background-color: var(--QLD-color-dark__background);
             color: var(--QLD-color-dark__text);
 
+            ::selection {
+                color: var(--QLD-color-light__text);
+                background-color: var(--QLD-color-light__background);
+            }
+
             .qld__header__pre-header-url {
                 color: var(--QLD-color-dark__link);
             }
@@ -292,6 +302,11 @@
             background-color: var(--QLD-color-dark__background--alt);
             color: var(--QLD-color-dark__text);
 
+            ::selection {
+                color: var(--QLD-color-light__text);
+                background-color: var(--QLD-color-light__background);
+            }
+
             .qld__header__pre-header-url {
                 color: var(--QLD-color-dark__link);
             }
@@ -340,6 +355,12 @@
 
     .qld__header__main {
         position: relative;
+
+        ::selection {
+            color: var(--QLD-color-dark__text);
+            background-color: var(--QLD-color-dark__background);
+        }
+
         .container-fluid {
             align-items: center;
             display: flex;
@@ -464,6 +485,11 @@
         &.qld__header__main--dark {
             background-color: var(--QLD-color-dark__background);
 
+            ::selection {
+                color: var(--QLD-color-light__text);
+                background-color: var(--QLD-color-light__background);
+            }
+
             .qld__header__site-name {
                 .qld__header__heading {
                     color: var(--QLD-color-dark__site-title);
@@ -504,6 +530,11 @@
         //Main header dark alt theme
         &.qld__header__main--dark-alt {
             background-color: var(--QLD-color-dark__background--alt);
+
+            ::selection {
+                color: var(--QLD-color-light__text);
+                background-color: var(--QLD-color-light__background);
+            }
 
             .qld__header__site-name {
                 .qld__header__heading {
