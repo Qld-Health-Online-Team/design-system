@@ -20,37 +20,23 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <!--CONTENT-->
-            ${require('../components/basic_search/html/component.hbs')({
-            "component":require('../components/basic_search/js/manifest.json').component,
-            "resultsPage":require('../components/basic_search/js/manifest.json').component.resultsPage,
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json'), })}
+            ${require('../components/basic_search/html/component.hbs')({ "component":require('../components/basic_search/js/manifest.json').component,
+            "resultsPage":require('../components/basic_search/js/manifest.json').component.resultsPage, "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}
             <!--END CONTENT-->
             <!-- Page Footer Info -->
-            ${require('../components/page_footer_info/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>

@@ -482,43 +482,37 @@
                     children: [
                         {
                             asset_assetid: "458",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/accordion",
+                            asset_url: "https://qhscb.squiz.cloud/components/accordion",
                             asset_name: "Accordion",
                             children: [],
                         },
                         {
                             asset_assetid: "325",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/callout",
+                            asset_url: "https://qhscb.squiz.cloud/components/callout",
                             asset_name: "Callout",
                             children: [],
                         },
                         {
                             asset_assetid: "659",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/card-listing",
+                            asset_url: "https://qhscb.squiz.cloud/components/card-listing",
                             asset_name: "Card Listing",
                             children: [],
                         },
                         {
                             asset_assetid: "676",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/links",
+                            asset_url: "https://qhscb.squiz.cloud/components/links",
                             asset_name: "Links",
                             children: [],
                         },
                         {
                             asset_assetid: "683",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/search-box",
+                            asset_url: "https://qhscb.squiz.cloud/components/search-box",
                             asset_name: "Search Box",
                             children: [],
                         },
                         {
                             asset_assetid: "785",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/page-alert",
+                            asset_url: "https://qhscb.squiz.cloud/components/page-alert",
                             asset_name: "Page Alert",
                             children: [],
                         },
@@ -537,8 +531,7 @@
                         {
                             asset_assetid: "676",
                             asset_name: "Links",
-                            asset_url:
-                                "https://qhscb.squiz.cloud/components/links",
+                            asset_url: "https://qhscb.squiz.cloud/components/links",
                         },
                     ],
                     top: {
@@ -553,19 +546,13 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
-                    "site":require('/src/data/site.json'),
-                    "current":require('/src/data/current.json'), })}
-                </div>
+                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -573,39 +560,24 @@
                     <div class="row">
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            ${require('../components/_global/html/component.hbs')({
-                            "manifest":require('../components/internal_navigation/js/manifest.json'),
-                            "component":require('!url-loader!../components/internal_navigation/html/component.hbs'),
-                            "component_output":require('../components/internal_navigation/html/component.hbs')({
-                            "data":require('../components/internal_navigation/js/manifest.json').data,
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json') }) })}
+                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/internal_navigation/js/manifest.json'),
+                            "component":require('!url-loader!../components/internal_navigation/html/component.hbs'), "component_output":require('../components/internal_navigation/html/component.hbs')({
+                            "data":require('../components/internal_navigation/js/manifest.json').data, "site":require('/src/data/site.json'), "current":require('/src/data/current.json') }) })}
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Page Footer Info -->
-            ${require('../components/page_footer_info/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>
