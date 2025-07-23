@@ -20,19 +20,13 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
-                    "site":require('/src/data/site.json'),
-                    "current":require('/src/data/current.json'), })}
-                </div>
+                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -40,43 +34,22 @@
                     <div class="row">
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            ${require('../components/_global/html/component.hbs')({
-                            "manifest":require('../components/card_no_action/js/manifest.json'),
-                            "component":require('!url-loader!../components/card_no_action/html/component.hbs'),
-                            "component_output":require('../components/card_no_action/html/component.hbs')({
-                            "component":require('../components/card_no_action/js/manifest.json').component,
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json'),
-                            "content":"Lorem Ipsum" }) })}
+                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/card_no_action/js/manifest.json'), "component":require('!url-loader!../components/card_no_action/html/component.hbs'),
+                            "component_output":require('../components/card_no_action/html/component.hbs')({ "component":require('../components/card_no_action/js/manifest.json').component, "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json'), "content":"Lorem Ipsum" }) })}
 
                             <h2>No action - base</h2>
-                            <ul
-                                class="qld__card-list qld__card-list--matchheight"
-                            >
+                            <ul class="qld__card-list qld__card-list--matchheight">
                                 <li class="col-xs-12 col-md-6 col-lg-3">
                                     <div class="qld__card">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Light
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Light</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,21 +59,9 @@
                                     <div class="qld__card qld__card--alt">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22725"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Alternative</h3>
+                                                    <p id="card-22725" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,21 +71,9 @@
                                     <div class="qld__card qld__card--dark">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,21 +83,9 @@
                                     <div class="qld__card qld__card--dark-alt">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark Alternative</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -157,35 +94,16 @@
                             </ul>
 
                             <h2>No action - image</h2>
-                            <ul
-                                class="qld__card-list qld__card-list--matchheight"
-                            >
+                            <ul class="qld__card-list qld__card-list--matchheight">
                                 <li class="col-xs-12 col-md-6 col-xs-12">
                                     <div class="qld__card qld__card--image">
-                                        <div
-                                            class="qld__responsive-media-img--bg"
-                                            style="
-                                                background-image: url('/mysource_files/img/card--content.png');
-                                            "
-                                        ></div>
+                                        <div class="qld__responsive-media-img--bg" style="background-image: url('/mysource_files/img/card--content.png')"></div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Light
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Light</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,33 +111,14 @@
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--alt qld__card--image"
-                                    >
-                                        <div
-                                            class="qld__responsive-media-img--bg"
-                                            style="
-                                                background-image: url('/mysource_files/img/card--content.png');
-                                            "
-                                        ></div>
+                                    <div class="qld__card qld__card--alt qld__card--image">
+                                        <div class="qld__responsive-media-img--bg" style="background-image: url('/mysource_files/img/card--content.png')"></div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22725"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Alternative</h3>
+                                                    <p id="card-22725" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -227,66 +126,28 @@
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark qld__card--image"
-                                    >
-                                        <div
-                                            class="qld__responsive-media-img--bg"
-                                            style="
-                                                background-image: url('/mysource_files/img/card--content.png');
-                                            "
-                                        ></div>
+                                    <div class="qld__card qld__card--dark qld__card--image">
+                                        <div class="qld__responsive-media-img--bg" style="background-image: url('/mysource_files/img/card--content.png')"></div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark-alt qld__card--image"
-                                    >
-                                        <div
-                                            class="qld__responsive-media-img--bg"
-                                            style="
-                                                background-image: url('/mysource_files/img/card--content.png');
-                                            "
-                                        ></div>
+                                    <div class="qld__card qld__card--dark-alt qld__card--image">
+                                        <div class="qld__responsive-media-img--bg" style="background-image: url('/mysource_files/img/card--content.png')"></div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark Alternative</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -295,37 +156,19 @@
                             </ul>
 
                             <h2>No action - footer</h2>
-                            <ul
-                                class="qld__card-list qld__card-list--matchheight"
-                            >
+                            <ul class="qld__card-list qld__card-list--matchheight">
                                 <li class="col-xs-12 col-md-6 col-xs-12">
                                     <div class="qld__card">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Light
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Light</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                >
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner">
                                                     <p>Footer content</p>
                                                 </div>
                                             </div>
@@ -336,30 +179,14 @@
                                     <div class="qld__card qld__card--alt">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Alternative</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                >
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner">
                                                     <p>Footer content</p>
                                                 </div>
                                             </div>
@@ -370,30 +197,14 @@
                                     <div class="qld__card qld__card--dark">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                >
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner">
                                                     <p>Footer content</p>
                                                 </div>
                                             </div>
@@ -404,30 +215,14 @@
                                     <div class="qld__card qld__card--dark-alt">
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark Alt
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark Alt</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                >
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner">
                                                     <p>Footer content</p>
                                                 </div>
                                             </div>
@@ -437,77 +232,39 @@
                             </ul>
 
                             <h2>No action - icon</h2>
-                            <ul
-                                class="qld__card-list qld__card-list--matchheight"
-                            >
+                            <ul class="qld__card-list qld__card-list--matchheight">
                                 <li class="col-xs-12 col-md-6 col-xs-12">
                                     <div class="qld__card qld__card--icon">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-question-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-question-circle" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Light
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Light</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                ></div>
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--alt qld__card--icon"
-                                    >
+                                    <div class="qld__card qld__card--alt qld__card--icon">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-stethoscope"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-stethoscope" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22725"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Alternative</h3>
+                                                    <p id="card-22725" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -515,66 +272,32 @@
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark qld__card--icon"
-                                    >
+                                    <div class="qld__card qld__card--dark qld__card--icon">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-heart"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-heart" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark-alt qld__card--icon"
-                                    >
+                                    <div class="qld__card qld__card--dark-alt qld__card--icon">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-heart"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-heart" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark Alternative</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -583,79 +306,39 @@
                             </ul>
 
                             <h2>No action -- icon left</h2>
-                            <ul
-                                class="qld__card-list qld__card-list--matchheight"
-                            >
+                            <ul class="qld__card-list qld__card-list--matchheight">
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--icon qld__card--icon-left"
-                                    >
+                                    <div class="qld__card qld__card--icon qld__card--icon-left">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-question-circle"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-question-circle" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Light
-                                                    </h3>
-                                                    <p
-                                                        id="card-22724"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Light</h3>
+                                                    <p id="card-22724" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                             <div class="qld__card__footer">
-                                                <hr
-                                                    class="qld__horizontal-rule"
-                                                />
-                                                <div
-                                                    class="qld__card__footer-inner"
-                                                ></div>
+                                                <hr class="qld__horizontal-rule" />
+                                                <div class="qld__card__footer-inner"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--alt qld__card--icon qld__card--icon-left"
-                                    >
+                                    <div class="qld__card qld__card--alt qld__card--icon qld__card--icon-left">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-stethoscope"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-stethoscope" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22725"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Alternative</h3>
+                                                    <p id="card-22725" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -663,66 +346,32 @@
                                 </li>
 
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark qld__card--icon qld__card--icon-left"
-                                    >
+                                    <div class="qld__card qld__card--dark qld__card--icon qld__card--icon-left">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-heart"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-heart" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="col-xs-12 col-md-6 col-xs-12">
-                                    <div
-                                        class="qld__card qld__card--dark-alt qld__card--icon qld__card--icon-left"
-                                    >
+                                    <div class="qld__card qld__card--dark-alt qld__card--icon qld__card--icon-left">
                                         <div class="qld__card__icon">
-                                            <i
-                                                class="fal fa-heart"
-                                                aria-hidden="true"
-                                            ></i>
+                                            <i class="fal fa-heart" aria-hidden="true"></i>
                                         </div>
 
                                         <div class="qld__card__inner">
                                             <div class="qld__card__content">
-                                                <div
-                                                    class="qld__card__content-inner"
-                                                >
-                                                    <h3
-                                                        class="qld__card__title"
-                                                    >
-                                                        Dark Alternative
-                                                    </h3>
-                                                    <p
-                                                        id="card-22726"
-                                                        class="qld__card__description"
-                                                    >
-                                                        Additional text about
-                                                        the card
-                                                    </p>
+                                                <div class="qld__card__content-inner">
+                                                    <h3 class="qld__card__title">Dark Alternative</h3>
+                                                    <p id="card-22726" class="qld__card__description">Additional text about the card</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -734,22 +383,13 @@
                 </div>
             </div>
             <!-- Page Footer Info -->
-            ${require('../components/prefooter/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>

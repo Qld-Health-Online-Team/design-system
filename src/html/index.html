@@ -19,11 +19,9 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
         <main class="main landing" role="main">
             <h1 class="sr-only">Index</h1>
@@ -43,89 +41,59 @@
                                     <a href="inner.html">Inner</a>
                                 </li>
                                 <li>
-                                    <a href="inner-with-nav.html"
-                                        >Inner page with Left Navigation</a
-                                    >
+                                    <a href="inner-with-nav.html">Inner page with Left Navigation</a>
                                 </li>
                                 <li>
                                     <a href="component-forms.html">Forms</a>
                                 </li>
                                 <li>
-                                    <a href="location_service_search.html"
-                                        >Location Service Search</a
-                                    >
+                                    <a href="location_service_search.html">Location Service Search</a>
                                 </li>
                                 <li>
-                                    <a href="location_service_details.html"
-                                        >Location Service Details</a
-                                    >
+                                    <a href="location_service_details.html">Location Service Details</a>
                                 </li>
                                 <li>
                                     News & Articles
                                     <ul>
                                         <li>
-                                            <a href="article_home.html"
-                                                >Article Home</a
-                                            >
+                                            <a href="article_home.html">Article Home</a>
                                         </li>
                                         <li>
-                                            <a href="article_index.html"
-                                                >Article Index</a
-                                            >
+                                            <a href="article_index.html">Article Index</a>
                                         </li>
                                         <li>
                                             <a href="article.html">Article</a>
                                         </li>
                                         <li>
-                                            <a href="news_feed.html"
-                                                >News Feed</a
-                                            >
+                                            <a href="news_feed.html">News Feed</a>
                                         </li>
                                         <li>
-                                            <a href="feature-article.html"
-                                                >Feature Article</a
-                                            >
+                                            <a href="feature-article.html">Feature Article</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="sf_service_finder.html"
-                                        >Service Finder</a
-                                    >
+                                    <a href="sf_service_finder.html">Service Finder</a>
                                     <ul>
                                         <li>
-                                            <a href="sf_services_a-z.html"
-                                                >Services A-Z</a
-                                            >
+                                            <a href="sf_services_a-z.html">Services A-Z</a>
                                         </li>
                                         <li>
-                                            <a href="sf_service_search.html"
-                                                >Service Search</a
-                                            >
+                                            <a href="sf_service_search.html">Service Search</a>
                                             <ul>
                                                 <li>
-                                                    <a
-                                                        href="sf_service_search_v2.html"
-                                                        >Service Search -- V2</a
-                                                    >
+                                                    <a href="sf_service_search_v2.html">Service Search -- V2</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="sf_service_page.html"
-                                                >Service Page</a
-                                            >
+                                            <a href="sf_service_page.html">Service Page</a>
                                         </li>
                                         <li>
-                                            <a
-                                                href="sf_service_location_page.html"
-                                                >Service Location Page</a
-                                            >
+                                            <a href="sf_service_location_page.html">Service Location Page</a>
                                         </li>
                                         <li>
-                                            <a href="sf_facility_page.html"
-                                                >Facility Page</a
-                                            >
+                                            <a href="sf_facility_page.html">Facility Page</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -133,19 +101,13 @@
                                     Service Finder - Admin
                                     <ul>
                                         <li>
-                                            <a href="sf_admin_list.html"
-                                                >List View</a
-                                            >
+                                            <a href="sf_admin_list.html">List View</a>
                                         </li>
                                         <li>
-                                            <a href="sf_admin_details.html"
-                                                >View Document</a
-                                            >
+                                            <a href="sf_admin_details.html">View Document</a>
                                         </li>
                                         <li>
-                                            <a href="sf_admin_form.html"
-                                                >Create/Update Form</a
-                                            >
+                                            <a href="sf_admin_form.html">Create/Update Form</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -155,22 +117,13 @@
                 </div>
             </section>
             <!-- Page Footer Info -->
-            ${require('../components/prefooter/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>

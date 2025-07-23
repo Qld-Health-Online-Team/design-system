@@ -20,19 +20,13 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
-                    "site":require('/src/data/site.json'),
-                    "current":require('/src/data/current.json'), })}
-                </div>
+                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -40,40 +34,24 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-4 col-lg-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-md-8 col-lg-9" id="content">
-                            ${require('../components/_global/html/component.hbs')({
-                            "manifest":require('../components/tab/js/manifest.json'),
-                            "component":require('!url-loader!../components/tab/html/component.hbs'),
-                            "component_output":require('../components/tab/html/component.hbs')({
-                            "component":require('../components/tab/js/manifest.json').component,
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json'),
-                            "content":"Lorem Ipsum" }) })}
+                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/tab/js/manifest.json'), "component":require('!url-loader!../components/tab/html/component.hbs'),
+                            "component_output":require('../components/tab/html/component.hbs')({ "component":require('../components/tab/js/manifest.json').component, "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json'), "content":"Lorem Ipsum" }) })}
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Page Footer Info -->
-            ${require('../components/prefooter/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>

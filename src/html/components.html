@@ -19,18 +19,12 @@
 
     <body class="qld__grid qld__form-style-filled">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
-                <div class="container-fluid">
-                    ${require('../components/breadcrumbs/html/component.hbs')({
-                    "site":require('/src/data/site.json'),
-                    "current":require('/src/data/current.json'), })}
-                </div>
+                <div class="container-fluid">${require('../components/breadcrumbs/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json'), })}</div>
             </section>
             <!--CONTENT-->
             <div class="qld__body">
@@ -38,9 +32,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-lg-4 col-xl-3">
                             <!-- INTERNAL NAVIGATION -->
-                            ${require('../components/internal_navigation/html/component.hbs')({
-                            "site":require('/src/data/site.json'),
-                            "current":require('/src/data/current.json') })}
+                            ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-9" id="content">
                             <!-- <h1>Components</h1>
@@ -50,1133 +42,288 @@
                             <section class="qld__body qld__body--dark">
                                 <div class="container-fluid">
                                     <!-- Page Contents Render -->
-                                    <form
-                                        id="form_email_99828"
-                                        enctype="multipart/form-data"
-                                        action="https://qhscb.squiz.cloud/QGDS-quithq/how-to-quit/get-help-from-quitline/request-a-quitline-event"
-                                        method="post"
-                                    >
-                                        <input
-                                            type="hidden"
-                                            name="SQ_FORM_99828_PAGE"
-                                            value="1"
-                                            class="sq-form-field"
-                                            id="SQ_FORM_99828_PAGE"
-                                        /><input
-                                            type="hidden"
-                                            name="form_email_99828_referral_url"
-                                            value=""
-                                        />
-                                        <p>
-                                            Complete this form to request
-                                            Quitline to attend your event.
-                                            Quitline will then contact you to
-                                            discuss your event further.
-                                        </p>
+                                    <form id="form_email_99828" enctype="multipart/form-data" action="https://qhscb.squiz.cloud/QGDS-quithq/how-to-quit/get-help-from-quitline/request-a-quitline-event" method="post">
+                                        <input type="hidden" name="SQ_FORM_99828_PAGE" value="1" class="sq-form-field" id="SQ_FORM_99828_PAGE" /><input type="hidden" name="form_email_99828_referral_url" value="" />
+                                        <p>Complete this form to request Quitline to attend your event. Quitline will then contact you to discuss your event further.</p>
                                         <p></p>
-                                        <fieldset
-                                            class="sq-form-section"
-                                            id="sq_form_section_99839"
-                                        >
-                                            <legend
-                                                class="sq-form-section-title"
-                                            >
-                                                Organisation
-                                            </legend>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99839_q1"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99839_q1"
-                                                    >Organisation name</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99839:q1"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99839_q1"
-                                                        class="sq-form-field"
-                                                    />
+                                        <fieldset class="sq-form-section" id="sq_form_section_99839">
+                                            <legend class="sq-form-section-title">Organisation</legend>
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99839_q1">
+                                                <label class="sq-form-question-title" for="q99839_q1">Organisation name</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99839:q1" value="" size="30" maxlength="300" id="q99839_q1" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99839_q2"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99839_q2"
-                                                    >Department</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99839:q2"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99839_q2"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99839_q2">
+                                                <label class="sq-form-question-title" for="q99839_q2">Department</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99839:q2" value="" size="30" maxlength="300" id="q99839_q2" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99839_q3"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99839_q3"
-                                                    >Contact name
-                                                    <abbr
-                                                        class="sq-form-required-field"
-                                                        title="required"
-                                                        >*</abbr
-                                                    ></label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99839:q3"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99839_q3"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99839_q3">
+                                                <label class="sq-form-question-title" for="q99839_q3">Contact name <abbr class="sq-form-required-field" title="required">*</abbr></label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99839:q3" value="" size="30" maxlength="300" id="q99839_q3" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-numeric"
-                                                id="sq_form_field_wrapper_q99839_q4"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99839_q4"
-                                                    >Contact number
-                                                    <abbr
-                                                        class="sq-form-required-field"
-                                                        title="required"
-                                                        >*</abbr
-                                                    ></label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99839:q4"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99839_q4"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-numeric" id="sq_form_field_wrapper_q99839_q4">
+                                                <label class="sq-form-question-title" for="q99839_q4">Contact number <abbr class="sq-form-required-field" title="required">*</abbr></label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99839:q4" value="" size="30" maxlength="300" id="q99839_q4" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-email-address"
-                                                id="sq_form_field_wrapper_q99839_q5"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99839_q5"
-                                                    >Contact email
-                                                    <abbr
-                                                        class="sq-form-required-field"
-                                                        title="required"
-                                                        >*</abbr
-                                                    ></label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99839:q5"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99839_q5"
-                                                        class="sq-form-field"
-                                                    />
-                                                    <div
-                                                        data-lastpass-icon-root="true"
-                                                        style="
-                                                            position: relative !important;
-                                                            height: 0px !important;
-                                                            width: 0px !important;
-                                                            float: left !important;
-                                                        "
-                                                    ></div>
+                                            <div class="sq-form-question sq-form-question-email-address" id="sq_form_field_wrapper_q99839_q5">
+                                                <label class="sq-form-question-title" for="q99839_q5">Contact email <abbr class="sq-form-required-field" title="required">*</abbr></label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99839:q5" value="" size="30" maxlength="300" id="q99839_q5" class="sq-form-field" />
+                                                    <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important"></div>
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <fieldset
-                                            class="sq-form-section"
-                                            id="sq_form_section_99840"
-                                        >
-                                            <legend
-                                                class="sq-form-section-title"
-                                            >
-                                                Event
-                                            </legend>
-                                            <div
-                                                class="sq-form-question sq-form-question-datetime"
-                                                id="sq_form_field_wrapper_q99840_q1"
-                                            >
+                                        <fieldset class="sq-form-section" id="sq_form_section_99840">
+                                            <legend class="sq-form-section-title">Event</legend>
+                                            <div class="sq-form-question sq-form-question-datetime" id="sq_form_field_wrapper_q99840_q1">
                                                 <fieldset>
-                                                    <legend
-                                                        class="sq-form-question-title"
-                                                    >
+                                                    <legend class="sq-form-question-title">
                                                         Event date
-                                                        <abbr
-                                                            class="sq-form-required-field"
-                                                            title="required"
-                                                            >*</abbr
-                                                        >
+                                                        <abbr class="sq-form-required-field" title="required">*</abbr>
                                                     </legend>
-                                                    <div
-                                                        class="sq-form-question-answer"
-                                                    >
-                                                        <script
-                                                            type="text/javascript"
-                                                        >
+                                                    <div class="sq-form-question-answer">
+                                                        <script type="text/javascript">
                                                             //<![CDATA[
-                                                            if (
-                                                                typeof adjustDate !=
-                                                                "function"
-                                                            ) {
+                                                            if (typeof adjustDate != "function") {
                                                                 // function to enable + and - keys on a field
-                                                                adjustDate =
-                                                                    function (
-                                                                        input,
-                                                                        evt
-                                                                    ) {
-                                                                        var key =
-                                                                            evt.keyCode;
-                                                                        var value =
-                                                                            parseInt(
-                                                                                input.value *
-                                                                                    1
-                                                                            );
-                                                                        if (
-                                                                            key ==
-                                                                                107 ||
-                                                                            key ==
-                                                                                109
-                                                                        ) {
-                                                                            value +=
-                                                                                key ==
-                                                                                109
-                                                                                    ? -1
-                                                                                    : 1;
-                                                                            if (
-                                                                                value !=
-                                                                                0
-                                                                            ) {
-                                                                                input.value =
-                                                                                    value;
-                                                                            }
-                                                                            event.returnValue = false;
-                                                                            event.cancelBubble = true;
-                                                                            return false;
+                                                                adjustDate = function (input, evt) {
+                                                                    var key = evt.keyCode;
+                                                                    var value = parseInt(input.value * 1);
+                                                                    if (key == 107 || key == 109) {
+                                                                        value += key == 109 ? -1 : 1;
+                                                                        if (value != 0) {
+                                                                            input.value = value;
                                                                         }
-                                                                    };
+                                                                        event.returnValue = false;
+                                                                        event.cancelBubble = true;
+                                                                        return false;
+                                                                    }
+                                                                };
                                                             }
                                                             //]]>
                                                         </script>
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="q99840_q1_show"
-                                                            value="dmy"
-                                                        /><label
-                                                            for="q99840_q1_value_d"
-                                                            >Day</label
-                                                        >
-                                                        <select
-                                                            name="q99840_q1_value[d]"
-                                                            id="q99840_q1_value_d"
-                                                            class="sq-form-field"
-                                                        >
-                                                            <option
-                                                                value="--"
-                                                            ></option>
-                                                            <option value="1">
-                                                                1
-                                                            </option>
-                                                            <option value="2">
-                                                                2
-                                                            </option>
-                                                            <option value="3">
-                                                                3
-                                                            </option>
-                                                            <option value="4">
-                                                                4
-                                                            </option>
-                                                            <option value="5">
-                                                                5
-                                                            </option>
-                                                            <option value="6">
-                                                                6
-                                                            </option>
-                                                            <option value="7">
-                                                                7
-                                                            </option>
-                                                            <option value="8">
-                                                                8
-                                                            </option>
-                                                            <option value="9">
-                                                                9
-                                                            </option>
-                                                            <option value="10">
-                                                                10
-                                                            </option>
-                                                            <option value="11">
-                                                                11
-                                                            </option>
-                                                            <option value="12">
-                                                                12
-                                                            </option>
-                                                            <option value="13">
-                                                                13
-                                                            </option>
-                                                            <option value="14">
-                                                                14
-                                                            </option>
-                                                            <option value="15">
-                                                                15
-                                                            </option>
-                                                            <option value="16">
-                                                                16
-                                                            </option>
-                                                            <option value="17">
-                                                                17
-                                                            </option>
-                                                            <option value="18">
-                                                                18
-                                                            </option>
-                                                            <option value="19">
-                                                                19
-                                                            </option>
-                                                            <option value="20">
-                                                                20
-                                                            </option>
-                                                            <option value="21">
-                                                                21
-                                                            </option>
-                                                            <option value="22">
-                                                                22
-                                                            </option>
-                                                            <option value="23">
-                                                                23
-                                                            </option>
-                                                            <option value="24">
-                                                                24
-                                                            </option>
-                                                            <option value="25">
-                                                                25
-                                                            </option>
-                                                            <option value="26">
-                                                                26
-                                                            </option>
-                                                            <option value="27">
-                                                                27
-                                                            </option>
-                                                            <option value="28">
-                                                                28
-                                                            </option>
-                                                            <option value="29">
-                                                                29
-                                                            </option>
-                                                            <option value="30">
-                                                                30
-                                                            </option>
-                                                            <option value="31">
-                                                                31
-                                                            </option>
+                                                        <input type="hidden" name="q99840_q1_show" value="dmy" /><label for="q99840_q1_value_d">Day</label>
+                                                        <select name="q99840_q1_value[d]" id="q99840_q1_value_d" class="sq-form-field">
+                                                            <option value="--"></option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                            <option value="13">13</option>
+                                                            <option value="14">14</option>
+                                                            <option value="15">15</option>
+                                                            <option value="16">16</option>
+                                                            <option value="17">17</option>
+                                                            <option value="18">18</option>
+                                                            <option value="19">19</option>
+                                                            <option value="20">20</option>
+                                                            <option value="21">21</option>
+                                                            <option value="22">22</option>
+                                                            <option value="23">23</option>
+                                                            <option value="24">24</option>
+                                                            <option value="25">25</option>
+                                                            <option value="26">26</option>
+                                                            <option value="27">27</option>
+                                                            <option value="28">28</option>
+                                                            <option value="29">29</option>
+                                                            <option value="30">30</option>
+                                                            <option value="31">31</option>
                                                         </select>
-                                                        <label
-                                                            for="q99840_q1_value_m"
-                                                            >Month</label
-                                                        >
-                                                        <select
-                                                            name="q99840_q1_value[m]"
-                                                            id="q99840_q1_value_m"
-                                                            class="sq-form-field"
-                                                        >
-                                                            <option
-                                                                value="--"
-                                                            ></option>
-                                                            <option value="1">
-                                                                Jan
-                                                            </option>
-                                                            <option value="2">
-                                                                Feb
-                                                            </option>
-                                                            <option value="3">
-                                                                Mar
-                                                            </option>
-                                                            <option value="4">
-                                                                Apr
-                                                            </option>
-                                                            <option value="5">
-                                                                May
-                                                            </option>
-                                                            <option value="6">
-                                                                Jun
-                                                            </option>
-                                                            <option value="7">
-                                                                Jul
-                                                            </option>
-                                                            <option value="8">
-                                                                Aug
-                                                            </option>
-                                                            <option value="9">
-                                                                Sep
-                                                            </option>
-                                                            <option value="10">
-                                                                Oct
-                                                            </option>
-                                                            <option value="11">
-                                                                Nov
-                                                            </option>
-                                                            <option value="12">
-                                                                Dec
-                                                            </option>
+                                                        <label for="q99840_q1_value_m">Month</label>
+                                                        <select name="q99840_q1_value[m]" id="q99840_q1_value_m" class="sq-form-field">
+                                                            <option value="--"></option>
+                                                            <option value="1">Jan</option>
+                                                            <option value="2">Feb</option>
+                                                            <option value="3">Mar</option>
+                                                            <option value="4">Apr</option>
+                                                            <option value="5">May</option>
+                                                            <option value="6">Jun</option>
+                                                            <option value="7">Jul</option>
+                                                            <option value="8">Aug</option>
+                                                            <option value="9">Sep</option>
+                                                            <option value="10">Oct</option>
+                                                            <option value="11">Nov</option>
+                                                            <option value="12">Dec</option>
                                                         </select>
-                                                        <label
-                                                            for="q99840_q1_value_y"
-                                                            >Year</label
-                                                        >
-                                                        <select
-                                                            name="q99840_q1_value[y]"
-                                                            id="q99840_q1_value_y"
-                                                            class="sq-form-field"
-                                                        >
-                                                            <option
-                                                                value="--"
-                                                            ></option>
-                                                            <option
-                                                                value="2022"
-                                                            >
-                                                                2022
-                                                            </option>
-                                                            <option
-                                                                value="2023"
-                                                            >
-                                                                2023
-                                                            </option>
-                                                            <option
-                                                                value="2024"
-                                                            >
-                                                                2024
-                                                            </option>
-                                                            <option
-                                                                value="2025"
-                                                            >
-                                                                2025
-                                                            </option>
-                                                            <option
-                                                                value="2026"
-                                                            >
-                                                                2026
-                                                            </option>
-                                                            <option
-                                                                value="2027"
-                                                            >
-                                                                2027
-                                                            </option>
-                                                            <option
-                                                                value="2028"
-                                                            >
-                                                                2028
-                                                            </option>
-                                                            <option
-                                                                value="2029"
-                                                            >
-                                                                2029
-                                                            </option>
-                                                            <option
-                                                                value="2030"
-                                                            >
-                                                                2030
-                                                            </option>
-                                                            <option
-                                                                value="2031"
-                                                            >
-                                                                2031
-                                                            </option>
-                                                            <option
-                                                                value="2032"
-                                                            >
-                                                                2032
-                                                            </option>
-                                                            <option
-                                                                value="2033"
-                                                            >
-                                                                2033
-                                                            </option>
-                                                            <option
-                                                                value="2034"
-                                                            >
-                                                                2034
-                                                            </option>
-                                                            <option
-                                                                value="2035"
-                                                            >
-                                                                2035
-                                                            </option>
-                                                            <option
-                                                                value="2036"
-                                                            >
-                                                                2036
-                                                            </option>
-                                                            <option
-                                                                value="2037"
-                                                            >
-                                                                2037
-                                                            </option>
-                                                            <option
-                                                                value="2038"
-                                                            >
-                                                                2038
-                                                            </option>
-                                                            <option
-                                                                value="2039"
-                                                            >
-                                                                2039
-                                                            </option>
-                                                            <option
-                                                                value="2040"
-                                                            >
-                                                                2040
-                                                            </option>
-                                                            <option
-                                                                value="2041"
-                                                            >
-                                                                2041
-                                                            </option>
-                                                            <option
-                                                                value="2042"
-                                                            >
-                                                                2042
-                                                            </option>
-                                                            <option
-                                                                value="2043"
-                                                            >
-                                                                2043
-                                                            </option>
-                                                            <option
-                                                                value="2044"
-                                                            >
-                                                                2044
-                                                            </option>
-                                                            <option
-                                                                value="2045"
-                                                            >
-                                                                2045
-                                                            </option>
-                                                            <option
-                                                                value="2046"
-                                                            >
-                                                                2046
-                                                            </option>
-                                                            <option
-                                                                value="2047"
-                                                            >
-                                                                2047
-                                                            </option>
-                                                            <option
-                                                                value="2048"
-                                                            >
-                                                                2048
-                                                            </option>
-                                                            <option
-                                                                value="2049"
-                                                            >
-                                                                2049
-                                                            </option>
-                                                            <option
-                                                                value="2050"
-                                                            >
-                                                                2050
-                                                            </option>
-                                                            <option
-                                                                value="2051"
-                                                            >
-                                                                2051
-                                                            </option>
-                                                            <option
-                                                                value="2052"
-                                                            >
-                                                                2052
-                                                            </option>
-                                                            <option
-                                                                value="2053"
-                                                            >
-                                                                2053
-                                                            </option>
-                                                            <option
-                                                                value="2054"
-                                                            >
-                                                                2054
-                                                            </option>
-                                                            <option
-                                                                value="2055"
-                                                            >
-                                                                2055
-                                                            </option>
-                                                            <option
-                                                                value="2056"
-                                                            >
-                                                                2056
-                                                            </option>
-                                                            <option
-                                                                value="2057"
-                                                            >
-                                                                2057
-                                                            </option>
-                                                            <option
-                                                                value="2058"
-                                                            >
-                                                                2058
-                                                            </option>
-                                                            <option
-                                                                value="2059"
-                                                            >
-                                                                2059
-                                                            </option>
-                                                            <option
-                                                                value="2060"
-                                                            >
-                                                                2060
-                                                            </option>
-                                                            <option
-                                                                value="2061"
-                                                            >
-                                                                2061
-                                                            </option>
-                                                            <option
-                                                                value="2062"
-                                                            >
-                                                                2062
-                                                            </option>
-                                                            <option
-                                                                value="2063"
-                                                            >
-                                                                2063
-                                                            </option>
-                                                            <option
-                                                                value="2064"
-                                                            >
-                                                                2064
-                                                            </option>
-                                                            <option
-                                                                value="2065"
-                                                            >
-                                                                2065
-                                                            </option>
-                                                            <option
-                                                                value="2066"
-                                                            >
-                                                                2066
-                                                            </option>
-                                                            <option
-                                                                value="2067"
-                                                            >
-                                                                2067
-                                                            </option>
-                                                            <option
-                                                                value="2068"
-                                                            >
-                                                                2068
-                                                            </option>
-                                                            <option
-                                                                value="2069"
-                                                            >
-                                                                2069
-                                                            </option>
-                                                            <option
-                                                                value="2070"
-                                                            >
-                                                                2070
-                                                            </option>
-                                                            <option
-                                                                value="2071"
-                                                            >
-                                                                2071
-                                                            </option>
-                                                            <option
-                                                                value="2072"
-                                                            >
-                                                                2072
-                                                            </option>
-                                                            <option
-                                                                value="2073"
-                                                            >
-                                                                2073
-                                                            </option>
-                                                            <option
-                                                                value="2074"
-                                                            >
-                                                                2074
-                                                            </option>
-                                                            <option
-                                                                value="2075"
-                                                            >
-                                                                2075
-                                                            </option>
-                                                            <option
-                                                                value="2076"
-                                                            >
-                                                                2076
-                                                            </option>
-                                                            <option
-                                                                value="2077"
-                                                            >
-                                                                2077
-                                                            </option>
-                                                            <option
-                                                                value="2078"
-                                                            >
-                                                                2078
-                                                            </option>
-                                                            <option
-                                                                value="2079"
-                                                            >
-                                                                2079
-                                                            </option>
-                                                            <option
-                                                                value="2080"
-                                                            >
-                                                                2080
-                                                            </option>
-                                                            <option
-                                                                value="2081"
-                                                            >
-                                                                2081
-                                                            </option>
-                                                            <option
-                                                                value="2082"
-                                                            >
-                                                                2082
-                                                            </option>
-                                                            <option
-                                                                value="2083"
-                                                            >
-                                                                2083
-                                                            </option>
-                                                            <option
-                                                                value="2084"
-                                                            >
-                                                                2084
-                                                            </option>
-                                                            <option
-                                                                value="2085"
-                                                            >
-                                                                2085
-                                                            </option>
-                                                            <option
-                                                                value="2086"
-                                                            >
-                                                                2086
-                                                            </option>
-                                                            <option
-                                                                value="2087"
-                                                            >
-                                                                2087
-                                                            </option>
-                                                            <option
-                                                                value="2088"
-                                                            >
-                                                                2088
-                                                            </option>
-                                                            <option
-                                                                value="2089"
-                                                            >
-                                                                2089
-                                                            </option>
-                                                            <option
-                                                                value="2090"
-                                                            >
-                                                                2090
-                                                            </option>
-                                                            <option
-                                                                value="2091"
-                                                            >
-                                                                2091
-                                                            </option>
-                                                            <option
-                                                                value="2092"
-                                                            >
-                                                                2092
-                                                            </option>
-                                                            <option
-                                                                value="2093"
-                                                            >
-                                                                2093
-                                                            </option>
-                                                            <option
-                                                                value="2094"
-                                                            >
-                                                                2094
-                                                            </option>
-                                                            <option
-                                                                value="2095"
-                                                            >
-                                                                2095
-                                                            </option>
-                                                            <option
-                                                                value="2096"
-                                                            >
-                                                                2096
-                                                            </option>
-                                                            <option
-                                                                value="2097"
-                                                            >
-                                                                2097
-                                                            </option>
-                                                            <option
-                                                                value="2098"
-                                                            >
-                                                                2098
-                                                            </option>
-                                                            <option
-                                                                value="2099"
-                                                            >
-                                                                2099
-                                                            </option>
+                                                        <label for="q99840_q1_value_y">Year</label>
+                                                        <select name="q99840_q1_value[y]" id="q99840_q1_value_y" class="sq-form-field">
+                                                            <option value="--"></option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                            <option value="2024">2024</option>
+                                                            <option value="2025">2025</option>
+                                                            <option value="2026">2026</option>
+                                                            <option value="2027">2027</option>
+                                                            <option value="2028">2028</option>
+                                                            <option value="2029">2029</option>
+                                                            <option value="2030">2030</option>
+                                                            <option value="2031">2031</option>
+                                                            <option value="2032">2032</option>
+                                                            <option value="2033">2033</option>
+                                                            <option value="2034">2034</option>
+                                                            <option value="2035">2035</option>
+                                                            <option value="2036">2036</option>
+                                                            <option value="2037">2037</option>
+                                                            <option value="2038">2038</option>
+                                                            <option value="2039">2039</option>
+                                                            <option value="2040">2040</option>
+                                                            <option value="2041">2041</option>
+                                                            <option value="2042">2042</option>
+                                                            <option value="2043">2043</option>
+                                                            <option value="2044">2044</option>
+                                                            <option value="2045">2045</option>
+                                                            <option value="2046">2046</option>
+                                                            <option value="2047">2047</option>
+                                                            <option value="2048">2048</option>
+                                                            <option value="2049">2049</option>
+                                                            <option value="2050">2050</option>
+                                                            <option value="2051">2051</option>
+                                                            <option value="2052">2052</option>
+                                                            <option value="2053">2053</option>
+                                                            <option value="2054">2054</option>
+                                                            <option value="2055">2055</option>
+                                                            <option value="2056">2056</option>
+                                                            <option value="2057">2057</option>
+                                                            <option value="2058">2058</option>
+                                                            <option value="2059">2059</option>
+                                                            <option value="2060">2060</option>
+                                                            <option value="2061">2061</option>
+                                                            <option value="2062">2062</option>
+                                                            <option value="2063">2063</option>
+                                                            <option value="2064">2064</option>
+                                                            <option value="2065">2065</option>
+                                                            <option value="2066">2066</option>
+                                                            <option value="2067">2067</option>
+                                                            <option value="2068">2068</option>
+                                                            <option value="2069">2069</option>
+                                                            <option value="2070">2070</option>
+                                                            <option value="2071">2071</option>
+                                                            <option value="2072">2072</option>
+                                                            <option value="2073">2073</option>
+                                                            <option value="2074">2074</option>
+                                                            <option value="2075">2075</option>
+                                                            <option value="2076">2076</option>
+                                                            <option value="2077">2077</option>
+                                                            <option value="2078">2078</option>
+                                                            <option value="2079">2079</option>
+                                                            <option value="2080">2080</option>
+                                                            <option value="2081">2081</option>
+                                                            <option value="2082">2082</option>
+                                                            <option value="2083">2083</option>
+                                                            <option value="2084">2084</option>
+                                                            <option value="2085">2085</option>
+                                                            <option value="2086">2086</option>
+                                                            <option value="2087">2087</option>
+                                                            <option value="2088">2088</option>
+                                                            <option value="2089">2089</option>
+                                                            <option value="2090">2090</option>
+                                                            <option value="2091">2091</option>
+                                                            <option value="2092">2092</option>
+                                                            <option value="2093">2093</option>
+                                                            <option value="2094">2094</option>
+                                                            <option value="2095">2095</option>
+                                                            <option value="2096">2096</option>
+                                                            <option value="2097">2097</option>
+                                                            <option value="2098">2098</option>
+                                                            <option value="2099">2099</option>
                                                         </select>
-                                                        <input
-                                                            type="hidden"
-                                                            name="q99840_q1_value[h]"
-                                                            value=""
-                                                        /><input
-                                                            type="hidden"
-                                                            name="q99840_q1_value[i]"
-                                                            value=""
-                                                        /><input
-                                                            type="hidden"
-                                                            name="q99840_q1_value[s]"
-                                                            value=""
-                                                        />
+                                                        <input type="hidden" name="q99840_q1_value[h]" value="" /><input type="hidden" name="q99840_q1_value[i]" value="" /><input type="hidden" name="q99840_q1_value[s]" value="" />
                                                     </div>
                                                 </fieldset>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q2"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q2"
-                                                    >Event duration</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q2"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        placeholder="e.g. From: 12pm to 3pm"
-                                                        id="q99840_q2"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q2">
+                                                <label class="sq-form-question-title" for="q99840_q2">Event duration</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q2" value="" size="30" maxlength="300" placeholder="e.g. From: 12pm to 3pm" id="q99840_q2" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q3"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q3"
-                                                    >Event name</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q3"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q3"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q3">
+                                                <label class="sq-form-question-title" for="q99840_q3">Event name</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q3" value="" size="30" maxlength="300" id="q99840_q3" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q4"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q4"
-                                                    >Tell us about your event
-                                                    and what you want to
-                                                    achieve.</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q4"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q4"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q4">
+                                                <label class="sq-form-question-title" for="q99840_q4">Tell us about your event and what you want to achieve.</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q4" value="" size="30" maxlength="300" id="q99840_q4" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q5"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q5"
-                                                    >Address of event</label
-                                                >
-                                                <em
-                                                    class="sq-form-question-note"
-                                                    >* Queensland events
-                                                    only.</em
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q5"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q5"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q5">
+                                                <label class="sq-form-question-title" for="q99840_q5">Address of event</label>
+                                                <em class="sq-form-question-note">* Queensland events only.</em>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q5" value="" size="30" maxlength="300" id="q99840_q5" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q6"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q6"
-                                                    >Contact name</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q6"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q6"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q6">
+                                                <label class="sq-form-question-title" for="q99840_q6">Contact name</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q6" value="" size="30" maxlength="300" id="q99840_q6" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-numeric"
-                                                id="sq_form_field_wrapper_q99840_q7"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q7"
-                                                    >Contact number</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q7"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q7"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-numeric" id="sq_form_field_wrapper_q99840_q7">
+                                                <label class="sq-form-question-title" for="q99840_q7">Contact number</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q7" value="" size="30" maxlength="300" id="q99840_q7" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q8"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q8"
-                                                    >Target audience</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q8"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q8"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q8">
+                                                <label class="sq-form-question-title" for="q99840_q8">Target audience</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q8" value="" size="30" maxlength="300" id="q99840_q8" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q9"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q9"
-                                                    >Number of people
-                                                    attending</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q9"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q9"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q9">
+                                                <label class="sq-form-question-title" for="q99840_q9">Number of people attending</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q9" value="" size="30" maxlength="300" id="q99840_q9" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q10"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q10"
-                                                    >Other services attending
-                                                    event</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q10"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q10"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q10">
+                                                <label class="sq-form-question-title" for="q99840_q10">Other services attending event</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q10" value="" size="30" maxlength="300" id="q99840_q10" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q11"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q11"
-                                                    >List of equipment
-                                                    provided</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q11"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        placeholder="e.g. chairs, table, marquee etc."
-                                                        id="q99840_q11"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q11">
+                                                <label class="sq-form-question-title" for="q99840_q11">List of equipment provided</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q11" value="" size="30" maxlength="300" placeholder="e.g. chairs, table, marquee etc." id="q99840_q11" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q12"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q12"
-                                                    >List of equipment Quitline
-                                                    is required to bring</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q12"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        id="q99840_q12"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q12">
+                                                <label class="sq-form-question-title" for="q99840_q12">List of equipment Quitline is required to bring</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q12" value="" size="30" maxlength="300" id="q99840_q12" class="sq-form-field" />
                                                 </div>
                                             </div>
-                                            <div
-                                                class="sq-form-question sq-form-question-text"
-                                                id="sq_form_field_wrapper_q99840_q13"
-                                            >
-                                                <label
-                                                    class="sq-form-question-title"
-                                                    for="q99840_q13"
-                                                    >Are you evaluating the
-                                                    event?</label
-                                                >
-                                                <div
-                                                    class="sq-form-question-answer"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        name="q99840:q13"
-                                                        value=""
-                                                        size="30"
-                                                        maxlength="300"
-                                                        placeholder="e.g. number of attendees"
-                                                        id="q99840_q13"
-                                                        class="sq-form-field"
-                                                    />
+                                            <div class="sq-form-question sq-form-question-text" id="sq_form_field_wrapper_q99840_q13">
+                                                <label class="sq-form-question-title" for="q99840_q13">Are you evaluating the event?</label>
+                                                <div class="sq-form-question-answer">
+                                                    <input type="text" name="q99840:q13" value="" size="30" maxlength="300" placeholder="e.g. number of attendees" id="q99840_q13" class="sq-form-field" />
                                                 </div>
                                             </div>
                                         </fieldset>
                                         <p></p>
                                         <p>
-                                            <input
-                                                type="submit"
-                                                name="form_email_99828_submit"
-                                                value="Submit"
-                                                class="sq-form-submit"
-                                                id="form_email_99828_submit"
-                                            />
+                                            <input type="submit" name="form_email_99828_submit" value="Submit" class="sq-form-submit" id="form_email_99828_submit" />
                                         </p>
                                     </form>
                                 </div>
@@ -1186,11 +333,7 @@
 
                             <section class="qld__body">
                                 <div class="container-fluid">
-                                    <p>
-                                        <strong style="padding-right: 12px"
-                                            >Last updated:</strong
-                                        >&nbsp;October 2022
-                                    </p>
+                                    <p><strong style="padding-right: 12px">Last updated:</strong>&nbsp;October 2022</p>
                                 </div>
                             </section>
                         </div>
@@ -1199,22 +342,13 @@
             </div>
             <!--END CONTENT-->
             <!-- Page Footer Info -->
-            ${require('../components/prefooter/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json') })}
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-        "site":require('/src/data/site.json') })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div
-            class="footer-scripts"
-            id="footer_js"
-            style="display: none !important"
-        >
-            {require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">{require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>
