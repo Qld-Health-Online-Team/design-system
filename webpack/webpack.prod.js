@@ -54,10 +54,6 @@ module.exports = (env) => {
                 helpersInput: "./src/helpers/Handlebars/*.js",
                 helpersOutput: "./src/helpers/Handlebars/*.js",
             }),
-            new JsonMergePlugin({
-                input: "./src/api/service_finder/schemas/*.json",
-                output: "./dist/api/service_finder/schemas.json",
-            }),
         ],
         optimization: {
             minimize: true,
