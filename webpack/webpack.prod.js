@@ -4,7 +4,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrecompilePlugin = require("./PrecompilePlugin");
-const JsonMergePlugin = require("./JsonMergePlugin");
+// const JsonMergePlugin = require("./JsonMergePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env) => {
