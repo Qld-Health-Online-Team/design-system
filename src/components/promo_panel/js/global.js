@@ -1,5 +1,5 @@
 (function () {
-    'use strict';
+    "use strict";
 
     /**
      * @module initPromoPanel
@@ -8,30 +8,31 @@
 
     /**
      * Initialise Promo Panel
-     * 
+     *
      * @memberof module:initPromoPanel
      */
-     initPromoPanel.init = function() {
+    initPromoPanel.init = function () {
+        let promoPanels = document.querySelectorAll(".qld__promo_panel");
 
-        if($('.qld__promo_panel').length > 0) {
-            $('section').each(function() {
-                if($(this).hasClass('qld__promo_panel') && !$(this).hasClass('qld__promo_panel--no-image')) {
-                    var next = $(this).next();
+        if (promoPanels.length > 0) {
+            document.querySelectorAll("section").forEach(function (section) {
+                if (section.classList.contains("qld__promo_panel") && !section.classList.contains("qld__promo_panel--no-image")) {
+                    let next = section.nextElementSibling;
 
-                    if($(this).next().is("data")) {
-                        next = $(this).next().next();
+                    if (next && next.tagName.toLowerCase() === "data") {
+                        next = next.nextElementSibling;
                     }
 
-                    if ($(next).hasClass("qld__body--alt")) {
-                        $(this).addClass("qld__body--alt-half");
+                    if (next && next.classList.contains("qld__body--alt")) {
+                        section.classList.add("qld__body--alt-half");
                     }
 
-                    if ($(next).hasClass("qld__body--dark")) {
-                        $(this).addClass("qld__body--dark-half");
+                    if (next && next.classList.contains("qld__body--dark")) {
+                        section.classList.add("qld__body--dark-half");
                     }
 
-                    if ($(next).hasClass("qld__body--alt-dark")) {
-                        $(this).addClass("qld__body--alt-dark-half");
+                    if (next && next.classList.contains("qld__body--alt-dark")) {
+                        section.classList.add("qld__body--alt-dark-half");
                     }
                 }
             });
@@ -40,6 +41,6 @@
 
     // Assign initPromoPanel to global QLD object of functions
     QLD.initPromoPanel = initPromoPanel;
-    
-    document.addEventListener('DOMContentLoaded', initPromoPanel.init);
-}());
+
+    document.addEventListener("DOMContentLoaded", initPromoPanel.init);
+})();
