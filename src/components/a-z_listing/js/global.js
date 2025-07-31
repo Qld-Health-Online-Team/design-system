@@ -31,7 +31,7 @@
                     var targetElement = document.querySelector(hash);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 20,
+                            top: targetElement.getBoundingClientRect().top + window.scrollY - 20,
                             behavior: "smooth",
                         });
                     }
@@ -65,17 +65,15 @@
                 var targetElement = document.querySelector(target.getAttribute("href"));
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 20,
+                        top: targetElement.getBoundingClientRect().top + window.scrollY - 20,
                         behavior: "smooth",
                     });
                 }
 
-                window.location.hash = target.getAttribute("href");
+                setTimeout(() => {
+                    window.location.hash = target.getAttribute("href");
+                }, 500);
             }
-        });
-
-        window.addEventListener("hashchange", function () {
-            checkIfAzSelected();
         });
 
         checkIfAzSelected();
