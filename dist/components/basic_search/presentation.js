@@ -387,7 +387,7 @@
     };
 
   return "                                                    "
-    + container.escapeExpression((lookupProperty(helpers,"replace")||(depth0 && lookupProperty(depth0,"replace"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"listMetadata") : depth0)) != null ? lookupProperty(stack1,"fileName") : stack1),"\\|.*","",{"name":"replace","hash":{},"data":data,"loc":{"start":{"line":179,"column":52},"end":{"line":179,"column":95}}}))
+    + container.escapeExpression((lookupProperty(helpers,"replace")||(depth0 && lookupProperty(depth0,"replace"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"listMetadata") : depth0)) != null ? lookupProperty(stack1,"fileName") : stack1)) != null ? lookupProperty(stack1,"0") : stack1),"\\|.*","",{"name":"replace","hash":{},"data":data,"loc":{"start":{"line":179,"column":52},"end":{"line":179,"column":99}}}))
     + "\n";
 },"66":function(container,depth0,helpers,partials,data) {
     var lookupProperty = container.lookupProperty || function(parent, propertyName) {
