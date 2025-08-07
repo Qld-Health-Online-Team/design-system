@@ -32,11 +32,6 @@ $QLD-header-md: 72px;
 
     // The content area that becomes the menu menu
     .qld__main-nav__menu {
-        ::selection {
-            color: var(--QLD-color-dark__text);
-            background-color: var(--QLD-color-dark__background);
-        }
-
         @include QLD-media(md) {
             display: none;
         }
@@ -298,11 +293,6 @@ $QLD-header-md: 72px;
         }
 
         &.qld__main-nav__menu--dark {
-            ::selection {
-                color: var(--QLD-color-light__text);
-                background-color: var(--QLD-color-light__background);
-            }
-
             background-color: var(--QLD-color-dark__background--shade);
 
             .qld__main-nav__header {
@@ -365,11 +355,6 @@ $QLD-header-md: 72px;
         }
 
         &.qld__main-nav__menu--dark-alt {
-            ::selection {
-                color: var(--QLD-color-light__text);
-                background-color: var(--QLD-color-light__background);
-            }
-
             background-color: var(--QLD-color-dark__background--alt-shade);
 
             .qld__main-nav__header {

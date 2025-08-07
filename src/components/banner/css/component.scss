@@ -20,11 +20,6 @@
         }
     }
 
-    ::selection {
-        color: var(--QLD-color-dark__text);
-        background-color: var(--QLD-color-dark__background);
-    }    
-
     & &__content {
         color: var(--QLD-color-light__text);
         position: relative;
@@ -99,11 +94,6 @@
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
-
-                ::selection {
-                    color: var(--QLD-color-light__text);
-                    background-color: var(--QLD-color-light__background);
-                }
             }
     
             &--light {
@@ -118,11 +108,6 @@
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
                 @include QLD-space(margin-top, 0.76unit);
-
-                ::selection {
-                    color: var(--QLD-color-dark__text);
-                    background-color: var(--QLD-color-dark__background);
-                }
             }
         }
 
@@ -448,11 +433,6 @@
 
     &--light{
         background-color: var(--QLD-color-light__background);
-
-        ::selection {
-            color: var(--QLD-color-dark__text);
-            background-color: var(--QLD-color-dark__background);
-        }
         
         .qld__banner__content {
             color: var(--QLD-color-light__text);
@@ -480,15 +460,6 @@
     &--alt {
         background-color: var(--QLD-color-light__background--alt);
 
-        ::selection {
-            color: var(--QLD-color-dark__text);
-            background-color: var(--QLD-color-dark__background);
-        }
-        
-        ::selection {
-            background-color: var(--QLD-color-dark__background);
-        }
-
         .qld__banner__content {
             color: var(--QLD-color-light__text);
 
@@ -514,11 +485,6 @@
 
     &--dark {
         background-color: var(--QLD-color-dark__background);
-
-        ::selection {
-            background-color: var(--QLD-color-dark__text--lighter);
-            color: var(--QLD-color-light__text);
-        }
 
         .qld__banner__content {
             color: var(--QLD-color-dark__text);
@@ -552,11 +518,6 @@
 
     &--dark-alt{
         background-color: var(--QLD-color-dark__background--alt);
-        
-        ::selection {
-            color: var(--QLD-color-light__text);
-            background-color: var(--QLD-color-light__background);
-        }
 
         .qld__banner__content {
             color: var(--QLD-color-dark__text);
