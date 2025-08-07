@@ -39,22 +39,19 @@ body {
     }
 }
 
+::selection,
+[class*="--light"]::selection,
+[class*="--alt"]::selection {
+    color: var(--QLD-color-dark__text) !important;
+    background-color: var(--QLD-color-dark__background) !important;
+    opacity: 0.99;
+}
+
 [class*="--dark-alt"],
 [class*="--dark"] {
     ::selection {
         color: var(--QLD-color-light__text) !important;
         background-color: var(--QLD-color-light__background) !important;
         opacity: 0.99;
-        // Why RGBA 0.99? https://stackoverflow.com/a/7224621
-    }
-}
-
-[class*="--light"],
-[class*="--alt"] {
-    ::selection {
-        color: var(--QLD-color-dark__text) !important;
-        background-color: var(--QLD-color-dark__background) !important;
-        opacity: 0.99;
-        // Why RGBA 0.99? https://stackoverflow.com/a/7224621
     }
 }
