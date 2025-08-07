@@ -8,11 +8,6 @@
     border-top: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
     background-color: $QLD-color-neutral--lightest;
     color: var(--QLD-color-light__text);
-    
-    ::selection {
-        color: var(--QLD-color-dark__text);
-        background-color: var(--QLD-color-dark__background);
-    }
 
     @include QLD-media(lg) {
         @include QLD-space(padding-top, 2unit);
@@ -374,11 +369,6 @@
         border-color: var(--QLD-color-dark__design-accent);
         background-color: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
-
-        ::selection {
-            color: var(--QLD-color-light__text);
-            background-color: var(--QLD-color-light__background);
-        }
 
         a {
             color: var(--QLD-color-dark__link);

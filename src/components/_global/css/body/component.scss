@@ -809,11 +809,6 @@ form {
     &.qld__body--light {
         background: var(--QLD-color-light__background);
 
-        ::selection {
-            color: var(--QLD-color-dark__text);
-            background-color: var(--QLD-color-dark__background);
-        }
-
         hr {
             background-color: var(--QLD-color-light__border);
         }
@@ -836,11 +831,6 @@ form {
     &.qld__body--alt {
         background: var(--QLD-color-light__background--alt);
 
-        ::selection {
-            color: var(--QLD-color-dark__text);
-            background-color: var(--QLD-color-dark__background);
-        }
-        
         hr {
             background-color: var(--QLD-color-light__border--alt);
         }
@@ -864,13 +854,6 @@ form {
     &.qld__footer--dark {
         background: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
-
-        ::selection {
-            color: var(--QLD-color-light__text);
-            background-color: var(--QLD-color-light__background);
-            opacity: 0.99;
-            // Why RGBA 0.99? https://stackoverflow.com/a/7224621
-        }
 
         // Decrease the opacity for certain elements
         img::selection,
@@ -930,13 +913,6 @@ form {
     &.qld__footer--dark-alt {
         background: var(--QLD-color-dark__background--alt);
         color: var(--QLD-color-dark__text);
-
-        ::selection {
-            color: var(--QLD-color-dark__background);
-            background-color: var(--QLD-color-dark__link);
-            opacity: 0.99;
-            // Why RGBA 0.99? https://stackoverflow.com/a/7224621
-        }
 
         // Decrease the opacity for certain elements
         img::selection,

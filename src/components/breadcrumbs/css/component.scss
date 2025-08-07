@@ -5,11 +5,6 @@
 .qld__breadcrumbs {
     width: 100%;
 
-    ::selection {
-        color: var(--QLD-color-dark__text);
-        background-color: var(--QLD-color-dark__background);
-    }
-
     * + & {
         @include QLD-space(margin-top, 1unit);
     }
@@ -135,14 +130,6 @@
             @include QLD-media(lg) {
                 display: inline-block;
             }
-        }
-    }
-
-    &--dark,
-    &--alt-dark {
-        ::selection {
-            color: var(--QLD-color-light__text);
-            background-color: var(--QLD-color-light__background);
         }
     }
 
