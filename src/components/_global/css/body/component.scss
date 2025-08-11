@@ -387,7 +387,6 @@ form {
 	 */
     ::selection {
         color: var(--QLD-color-dark__text);
-
         background-color: var(--QLD-color-dark__background);
         opacity: 0.99;
         // Why RGBA 0.99? https://stackoverflow.com/a/7224621
@@ -856,12 +855,6 @@ form {
         background: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
 
-        ::selection {
-            color: var(--QLD-color-dark__background);
-            background-color: var(--QLD-color-dark__link);
-            // Why RGBA 0.99? https://stackoverflow.com/a/7224621
-        }
-
         // Decrease the opacity for certain elements
         img::selection,
         video::selection,
@@ -920,12 +913,6 @@ form {
     &.qld__footer--dark-alt {
         background: var(--QLD-color-dark__background--alt);
         color: var(--QLD-color-dark__text);
-
-        ::selection {
-            color: var(--QLD-color-dark__background);
-            background-color: var(--QLD-color-dark__link);
-            // Why RGBA 0.99? https://stackoverflow.com/a/7224621
-        }
 
         // Decrease the opacity for certain elements
         img::selection,
