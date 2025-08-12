@@ -30,9 +30,12 @@
                             {{/if}}
                            {{#if footerCTAContact.value}}
                             <p class="qld__footer__cta-content">
-                                {{#if footerCTAContactIcon.value}}
-                                <i class="qld__footer__cta__icon {{footerCTAContactIcon.value}}"></i>
-                                {{/if}}
+                                {{#ifCond footerCTAContactIcon.value '==' 'phone'}}
+                                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#phone"></use></svg>
+                                {{/ifCond}}
+                                {{#ifCond footerCTAContactIcon.value '==' 'email'}}
+                                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Email"></use></svg>
+                                {{/ifCond}}
                                 {{{footerCTAContact.value}}}
                             </p>
                             {{/if}}
