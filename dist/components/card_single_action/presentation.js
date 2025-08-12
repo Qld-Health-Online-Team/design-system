@@ -482,7 +482,7 @@
         return undefined
     };
 
-  return "                                <div class=\"qld__card__footer\">\n                                    <hr class=\"qld__horizontal-rule\">\n                                    <div class=\"qld__card__footer-inner\">\n                                        "
+  return "                                <div class=\"qld__card__footer\">\n                                    <hr class=\"qld__horizontal-rule\" aria-hidden=\"true\">\n                                    <div class=\"qld__card__footer-inner\">\n                                        "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardFooterContent") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
     + "\n                                    </div>\n                                </div>\n";
 },"76":function(container,depth0,helpers,partials,data) {

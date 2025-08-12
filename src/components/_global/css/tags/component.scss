@@ -12,7 +12,7 @@
     border: 1px solid $QLD-color-neutral--lighter;
     border-radius: $QLD-border-radius-md;
     @include QLD-space(margin, 0);
-    @include QLD-focus();
+    @include QLD-focus("light", false);
     text-align: center;
     text-decoration: none;
     &-list--wrapper {
@@ -69,14 +69,14 @@
     .qld__card--dark .qld__card__footer & {
         border-color: var(--QLD-color-dark__border--alt);
         color: var(--QLD-color-dark__text--lighter);
-        @include QLD-focus("dark");
+        @include QLD-focus("dark", false);
     }
 
     .qld__body--dark-alt &,
     .qld__card--dark-alt .qld__card__footer & {
         border-color: var(--QLD-color-dark__border);
         color: var(--QLD-color-dark__text--lighter);
-        @include QLD-focus("dark");
+        @include QLD-focus("dark", false);
     }
 
     &.qld__tag--large {
@@ -363,12 +363,22 @@ a.qld__tag,
         @include QLD-space(margin, 0.5unit 0.5unit 0 0);
         display: inline-block;
 
-        .slick-slider .slick-slide & {
-            height: auto;
-        }
-
         > .qld__tag:focus {
             outline-offset: -1px;
+        }
+    }
+}
+
+.qld__body,
+.qld__card,
+.qld__banner,
+.qld__footer {
+    a.qld__tag:focus,
+    .qld__tag:focus[tabindex="0"] {
+        border-radius: $QLD-border-radius-md;
+
+        &.qld__tag--large {
+            border-radius: $QLD-border-radius-lg;
         }
     }
 }

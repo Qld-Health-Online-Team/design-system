@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// {{Left Hand Navigation}}
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__left-nav {
@@ -11,22 +11,19 @@
                 a {
                     text-decoration: none;
                     &:hover {
-                        @include QLD-underline('light','noUnderline','default','noVisited');
+                        @include QLD-underline("light", "noUnderline", "default", "noVisited");
                     }
                     &:focus {
                         box-shadow: inset 0px 0px 0px 3px var(--QLD-color-light__focus);
                         outline: none;
                     }
                 }
-
-                
             }
         }
     }
 }
 
 @include QLD-media(lg) {
-
     .vertical-nav main {
         display: flex;
     }
@@ -34,21 +31,12 @@
     .qld__body--left-nav {
         flex-grow: 1;
 
-
-
-        .qld__body:first-of-type{
-            // padding-top: 0;
-        }
-        
         > .qld__banner > .container-fluid,
         > .qld__body > .container-fluid,
         #content > .qld__body > .container-fluid {
-
-                padding-left: calc(48px + (100vw - 992px) *(72 - 48) / (1312 - 992));
-                @include QLD-space(padding-right, 3unit) ;
-            
+            padding-left: calc(48px + (100vw - 992px) * (72 - 48) / (1312 - 992));
+            @include QLD-space(padding-right, 3unit);
         }
-        // > .qld__body > .container-fluid > row{
     }
 
     .qld__left-nav {
@@ -64,7 +52,7 @@
             svg {
                 @include QLD-space(height, 1.5unit);
                 @include QLD-space(width, 1.5unit);
-                @include QLD-space(margin-right, .75unit);
+                @include QLD-space(margin-right, 0.75unit);
 
                 * {
                     fill: var(--QLD-color-light__action--secondary);
@@ -72,8 +60,8 @@
             }
         }
 
-        &__item-link:has(+ button){
-                @include QLD-space(max-width, 13.3unit);
+        &__item-link:has(+ button) {
+            @include QLD-space(max-width, 13.3unit);
         }
 
         &__item-text {
@@ -86,7 +74,6 @@
         }
 
         ul {
-            // @include QLD-space(padding, 3.25unit 0 0 0);
             padding-top: 0;
             padding-bottom: 0px;
 
@@ -96,11 +83,12 @@
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: space-between;
-                position: relative; 
+                position: relative;
                 margin: 0;
 
                 &.has-child {
-                    > a, > span {
+                    > a,
+                    > span {
                         width: calc(100% - 4rem);
                     }
                 }
@@ -119,7 +107,6 @@
                     > .qld__left-nav__item-link ~ .qld__accordion--closed {
                         background-color: $QLD-color-neutral--white;
                         color: var(--QLD-color-light__link);
-                        // color of the arrowed option
                         @include QLD-space(border-top-right-radius, 1unit);
 
                         &:hover {
@@ -148,7 +135,7 @@
                     background-color: var(--QLD-color-light__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover{
+                a.qld__left-nav__item-link:hover {
                     background-color: var(--QLD-color-light__background--alt);
                     color: var(--QLD-color-light__link);
 
@@ -168,7 +155,6 @@
                     color: var(--QLD-color-light__text);
                     position: relative;
                     flex-grow: 1;
-                    // max-width: 13.3rem;
 
                     &.qld__left-nav__item-link--close {
                         @include QLD-space(border-top-right-radius, 1unit);
@@ -201,16 +187,16 @@
                     border: none;
                     cursor: pointer;
                     @include QLD-space(border-radius, 50%);
-                    @include QLD-focus();
+                    @include QLD-focus("light", false);
 
                     padding: 0;
 
-                    &:hover{
+                    &:hover {
                         @include QLD-box-shadow(3);
                     }
 
                     &:after {
-                        content: ' ';
+                        content: " ";
                         position: absolute;
                         @include QLD-space(margin-top, -0.5unit); // Pull it up half of it's height
                         left: 0;
@@ -254,7 +240,7 @@
         }
 
         //Dark theme
-        &.qld__main-nav--dark{
+        &.qld__main-nav--dark {
             background-color: var(--QLD-color-dark__background--shade);
             border-color: var(--QLD-color-dark__border);
 
@@ -276,7 +262,7 @@
                     }
 
                     &:hover {
-                        @include QLD-underline('dark','noUnderline','default','noVisited');
+                        @include QLD-underline("dark", "noUnderline", "default", "noVisited");
                     }
                 }
 
@@ -298,7 +284,7 @@
                     background-color: var(--QLD-color-dark__background--alt);
                 }
 
-                a.qld__left-nav__item-link:hover{
+                a.qld__left-nav__item-link:hover {
                     background-color: var(--QLD-color-dark__background--alt);
 
                     .qld__left-nav__item-icon svg * {
@@ -312,7 +298,7 @@
 
                 .qld__left-nav__item-link {
                     color: var(--QLD-color-dark__text);
-                    
+
                     &.qld__left-nav__item-link--open {
                         background-color: var(--QLD-color-dark__background);
                         color: var(--QLD-color-dark__link);
@@ -339,16 +325,13 @@
     }
 }
 
-
-
 @include QLD-media(xl) {
     .qld__body--left-nav {
         > .qld__banner > .container-fluid,
         > .qld__body > .container-fluid,
-        #content > .qld__body > .container-fluid{
-
-            @include QLD-space(margin-left, 0unit); 
-            padding-left: calc(72px + (100vw - 1312px) *(128 - 72) / (1600 - 1312));
+        #content > .qld__body > .container-fluid {
+            @include QLD-space(margin-left, 0unit);
+            padding-left: calc(72px + (100vw - 1312px) * (128 - 72) / (1600 - 1312));
         }
     }
 }
@@ -357,9 +340,8 @@
     .qld__body--left-nav {
         > .qld__banner > .container-fluid,
         > .qld__body > .container-fluid,
-        #content > .qld__body > .container-fluid{
-            @include QLD-space(padding-left, 8unit); 
+        #content > .qld__body > .container-fluid {
+            @include QLD-space(padding-left, 8unit);
         }
     }
-    
 }

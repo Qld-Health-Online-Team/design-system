@@ -11,7 +11,6 @@
         li {
             @include QLD-space(margin, .5unit .75unit .5unit 0);
 
-
             &.ellipsis,
             &.first,
             &.last {
@@ -30,7 +29,6 @@
             &.active a,
             &.active button {
                 background-color: var(--QLD-color-light__action--primary);
-                // border-color: var(--QLD-color-light__action--primary);
                 box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-light__action--primary);
                 color: var(--QLD-color-light__link--on-action);
                 font-weight: bold;
@@ -39,7 +37,6 @@
                 &:hover{
                     background-color: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
-                    // border-color: var(--QLD-color-light__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--primary-hover);
                     @include QLD-box-shadow(1);
                 }
@@ -48,7 +45,6 @@
                 &:focus {
                     background-color: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
-                    // border-color: var(--QLD-color-light__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-light__action--primary-hover);
                     outline: 3px solid var(--QLD-color-light__focus);
                     outline-offset: 2px;
@@ -69,10 +65,9 @@
                         width: auto;
                     }
                     
-                    &:hover{
-                        span {
-                            text-decoration: underline;
-                        }  
+                    &:hover span {
+                        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                        text-decoration: underline;
                     }
 
                     &:active,
@@ -110,9 +105,7 @@
             a, button {
                 &:active,
                 &:focus {
-                    color: var(--QLD-color-light__link);
                     background-color: transparent;
-                    // border: $QLD-border-width-default solid var(--QLD-color-light__action--secondary);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
                 }
             }
@@ -135,18 +128,23 @@
             border: none;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 color: var(--QLD-color-light__link);
                 outline: none;
                 text-decoration: none;
                 box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--secondary);
             }
-            &:visited{
+
+            &:visited {
                 color: var(--QLD-color-light__link);
             }
 
             &[rel] {
-                color: var(--QLD-color-light__action--primary);
+                color: var(--QLD-color-light__action--secondary);
+            }
+
+            &[rel]:hover {
+                color: var(--QLD-color-light__action--secondary-hover);
             }
         }
 
@@ -160,80 +158,129 @@
         }
     }
 
-    .qld__body--dark & {
-
-        li{
+    .qld__body--dark & ul.qld__search-pagination__list {
+        li {
             & button {
                 outline: 3px solid var(--QLD-color-light__focus);
                 outline-offset: 2px;
             }
+
             &.active a,
-            &.active  button {
+            &.active button {
                 background-color: var(--QLD-color-dark__action--primary);
+                box-shadow: inset 0 0 0 1px var(--QLD-color-dark__action--primary);
                 color: var(--QLD-color-dark__link--on-action);
 
-                &:hover{
+                &:hover {
                     background-color: var(--QLD-color-dark__action--primary-hover);
-                    // border-color: var(--QLD-color-dark__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--primary-hover);
+                    color: var(--QLD-color-dark__link--on-action);
                 }
 
                 &:active,
                 &:focus {
-                    @include QLD-focus( 'dark' );
-                    color: var(--QLD-color-dark__link);
+                    @include QLD-focus('dark');
                     background-color: var(--QLD-color-dark__action--primary-hover);
-                    // border-color: var(--QLD-color-dark__action--primary-hover);
-                    box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--primary-hover);
-                    
+                    box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--primary-hover) !important;
+                    color: var(--QLD-color-dark__link--on-action);
                 }
             }
 
             &.next,
             &.prev,
             &.ellipsis{
-                a, button{
+                a, button {
+                    box-shadow: none;
+
                     &:hover{
-                        color: var(--QLD-color-dark__link);
                         box-shadow: none;
+                        color: var(--QLD-color-dark__link);
+
                         span {
+                            text-decoration-thickness: var(--QLD-underline__thickness-thick);
                             text-decoration: underline;
                         }
                     }
                 }
             }
 
-            .mid, .num {
-                a, button {
+            &.mid,
+            &.num,
+            &.last,
+            &.first {
+                a,
+                button {
                     &:active,
                     &:focus {
-                        color: var(--QLD-color-light__link);
-                        background-color: var(--QLD-color-dark__action--secondary);
-                        // border-color: var(--QLD-color-dark__action--secondary);
-                        box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--secondary);
+                        color: var(--QLD-color-dark__link);
+                        box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary-hover);
+                    }
+
+                    &:visited {
+                        color: var(--QLD-color-dark__link);
                     }
                 }
             }
-        }
 
-        a,
-        button {
-            background-color: var(--QLD-color-dark__background);
-            // border-color: var(--QLD-color-dark__border);
-            box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__border);
-            text-decoration: none;
-            &:hover{
-                color: var(--QLD-color-dark__link);
-                // border-color: var(--QLD-color-dark__action--secondary);
-                box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary);
-                outline: none;
-                text-decoration: none;
+            &.active a:focus,
+            &.active button:focus {
+                color: var(--QLD-color-dark__link--on-action);
+            }
+
+            &.active a:visited,
+            &.active button:visited {
+                color: var(--QLD-color-dark__link--on-action);
             }
         }
 
-        span{
+        &:not(.prev, .next) a,
+        &:not(.prev, .next) button {
+            box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__border--alt);
+        }
+
+        li.prev,
+        li.next {
+            a,
+            button {
+                text-decoration: none;
+
+                span {
+                    color: var(--QLD-color-dark__link);
+                    text-decoration: underline;
+                    text-decoration-color: var(--QLD-color-dark__underline);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thin);
+                }
+                
+                &:focus span,
+                &:hover span {
+                    text-decoration-color: var(--QLD-color-dark__link);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
+                }
+            }
+        }
+        
+        a,
+        button {
+            background-color: transparent;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--QLD-color-dark__link);
+                box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-dark__action--secondary-hover);
+                text-decoration: none;
+            }
+
+            &[rel] {
+                color: var(--QLD-color-dark__action--secondary);
+            }
+
+            &[rel]:hover {
+                color: var(--QLD-color-dark__action--secondary-hover);
+            }
+        }
+
+        span {
             color: var(--QLD-color-dark__link);
         }
     }
-        
 }
