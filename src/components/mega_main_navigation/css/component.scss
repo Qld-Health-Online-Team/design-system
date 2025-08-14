@@ -17,7 +17,6 @@
             border: none;
             cursor: pointer;
             @include QLD-space(border-radius, 50%);
-            @include QLD-focus("light", false);
 
             padding: 0;
             color: var(--QLD-color-light__text);
@@ -174,8 +173,6 @@
 
         a.qld__main-nav__sub-heading {
             display: none;
-
-            width: 85%;
 
             @include QLD-media(lg) {
                 display: inline-flex;
@@ -377,15 +374,16 @@
                 &.qld__main-nav__item--has-desc {
                     box-shadow: none;
                     padding: 0;
-                    .qld__main-nav__sub-item-text {
-                        @include QLD-media(lg) {
+
+                    @include QLD-media(lg) {
+                        .qld__main-nav__sub-item-text {
                             @include QLD-space(padding, 1unit 0);
                         }
-                    }
 
-                    .qld__main-nav__sub-item-text {
-                        color: var(--QLD-color-light__link);
-                        border-bottom: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
+                        a {
+                            color: var(--QLD-color-light__link);
+                            border-bottom: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
+                        }
                     }
 
                     &::before {
@@ -498,6 +496,7 @@
                             }
 
                             &:hover {
+                                border-color: var(--QLD-color-dark__action--primary-hover);
                                 background-color: var(--QLD-color-dark__background);
                             }
                         }
@@ -515,6 +514,10 @@
                         .qld__main-nav__sub-item-text {
                             color: var(--QLD-color-dark__link);
                         }
+
+                        &.qld__main-nav__item--has-desc a {
+                            border-bottom-color: var(--QLD-color-dark__border);
+                        }
                     }
                 }
                 .qld__main-nav__sub-footer {
@@ -525,6 +528,7 @@
                         color: var(--QLD-color-dark__link);
 
                         &:hover {
+                            border-color: var(--QLD-color-dark__action--primary-hover);
                             background-color: var(--QLD-color-dark__background);
                         }
                     }
