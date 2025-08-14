@@ -405,28 +405,27 @@
  *
  * @return {string}          - The code
  */
-@mixin QLD-outline($theme: "light", $rounded: true) {
+@mixin QLD-outline($theme: "light", $rounded: true, $offset: 2px) {
     @if $theme == "dark" {
         outline: 3px solid var(--QLD-color-dark__focus);
     } @else {
         outline: 3px solid var(--QLD-color-light__focus);
-
-        // Only add the offset if it's the default style
-        outline-offset: 2px;
     }
 
     // Apply radius if rounded is true
     @if $rounded {
         border-radius: $QLD-border-radius-xs;
     }
+
+    outline-offset: $offset;
 }
 
 /**
  * QLD-focus - Add the outline to focus
  */
-@mixin QLD-focus($theme: "light", $rounded: true) {
+@mixin QLD-focus($theme: "light", $rounded: true, $offset: 2px) {
     &:focus {
-        @include QLD-outline($theme, $rounded);
+        @include QLD-outline($theme, $rounded, $offset);
     }
 
     // Remove Modzilla inner HTML dotted line. github.com/necolas/normalize.css/blob/master/normalize.css#L285

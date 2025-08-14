@@ -192,7 +192,7 @@
             cursor: pointer;
             align-items: center;
             color: var(--QLD-color-light__link);
-            @include QLD-focus();
+            @include QLD-focus("light", false, -3px);
             border-left: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
 
             &:hover {
@@ -269,6 +269,7 @@
             }
 
             .qld__header__toggle-main-nav {
+                @include QLD-focus("dark", false, -3px);
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
 
@@ -319,6 +320,7 @@
             }
 
             .qld__header__toggle-main-nav {
+                @include QLD-focus("dark", false, -3px);
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
 
