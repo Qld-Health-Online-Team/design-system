@@ -5,16 +5,21 @@
 
     ctaLinks.init = function () {
         document.querySelectorAll(".qld__cta-link.qld__cta-link--view-all").forEach((ctaLink) => {
-            // First check that the select is not already wrapped
+            const viewAllIconWrapperClass = "qld__cta-link--view-all-icon--wrapper";
+
+            // First check that the cta is not already wrapped
+            if (ctaLink.querySelector("." + viewAllIconWrapperClass)) return;
+
+            // Remove and store text content
             const ctaLinkText = ctaLink.textContent;
             ctaLink.textContent = "";
 
             // Create wrapper span for the text
             const wrapper = document.createElement("span");
-            wrapper.classList.add("qld__cta-link--view-all--wrapper");
+            wrapper.classList.add(viewAllIconWrapperClass);
             wrapper.textContent = ctaLinkText;
 
-            // // Insert wrapper BEFORE the select
+            // Insert wrapper
             ctaLink.appendChild(wrapper);
         });
     };

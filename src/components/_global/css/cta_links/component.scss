@@ -96,7 +96,7 @@ a.qld__cta-link.qld__cta-link--view-all {
     position: relative;
     @include QLD-space(padding-right, 2.5rem);
 
-    .qld__cta-link--view-all--wrapper {
+    .qld__cta-link--view-all-icon--wrapper {
         display: block;
         min-height: 32px;
         line-height: 32px;
@@ -104,7 +104,7 @@ a.qld__cta-link.qld__cta-link--view-all {
 
     &::before,
     &::after,
-    .qld__cta-link--view-all--wrapper::before {
+    .qld__cta-link--view-all-icon--wrapper::before {
         // TODO: Remove this mask-image override after work is done for regular cta links.
         mask-image: none;
         @include QLD-space(margin, 0 0.5unit 0 0.5unit);
@@ -141,7 +141,7 @@ a.qld__cta-link.qld__cta-link--view-all {
         border-right: 0.125rem solid var(--QLD-color-light__action--secondary);
     }
 
-    > .qld__cta-link--view-all--wrapper::before {
+    > .qld__cta-link--view-all-icon--wrapper::before {
         border: 2px solid var(--QLD-color-light__action--secondary);
         width: 1.5rem;
         height: 1.5rem;
@@ -154,7 +154,7 @@ a.qld__cta-link.qld__cta-link--view-all {
     &:focus {
         &::before,
         &::after,
-        .qld__cta-link--view-all--wrapper::before {
+        .qld__cta-link--view-all-icon--wrapper::before {
             @include QLD-space(margin, 0 0 0 1unit);
             border-color: var(--QLD-color-light__action--secondary-hover);
             background-color: transparent;
