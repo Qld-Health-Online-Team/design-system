@@ -483,7 +483,6 @@ $QLD-header-md: 72px;
         cursor: pointer;
         align-items: center;
         color: var(--QLD-color-light__link);
-        @include QLD-focus("light", false);
         border-left: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
 
         &:hover {
@@ -577,6 +576,13 @@ $QLD-header-md: 72px;
         @include QLD-media(lg) {
             @include QLD-space(padding-bottom, 0unit);
         }
+
+        // Reset the padding on list items in mobile as there is no arrow to obscure
+        li > a {
+            @include QLD-media(lg, "down") {
+                padding-right: 0;
+            }
+        }
     }
 
     .qld__main-nav__cta-wrapper .qld__link-list {
@@ -641,6 +647,71 @@ $QLD-header-md: 72px;
 
             .qld__icon {
                 color: var(--QLD-color-dark__action--secondary);
+            }
+        }
+    }
+
+    // Focus styles
+    .qld__main-nav__menu {
+        .qld__main-nav__menu-inner {
+            .qld__main-nav__item-link {
+                @include QLD-focus("light", false, -2px);
+                border-radius: 0;
+
+                @include QLD-media(lg, "down") {
+                    @include QLD-focus("light", false, -3px);
+                }
+            }
+
+            .qld__main-nav__item-title:has(button.qld__main-nav__item-toggle) .qld__main-nav__item-link {
+                border-top-right-radius: 1rem;
+            }
+
+            .qld__main-nav__item-toggle {
+                @include QLD-focus("light", false, -2px);
+
+                @include QLD-media(lg, "down") {
+                    @include QLD-focus("light", false, 2px);
+                }
+            }
+
+            .qld__main-nav__toggle {
+                @include QLD-focus("dark", false, -3px);
+            }
+
+            .qld__main-nav__cta-wrapper {
+                .qld__main-nav__item-link {
+                    @include QLD-focus("dark", false, -3px);
+                }
+            }
+        }
+        .qld__main-nav__menu-sub-inner {
+            li > a,
+            div.qld__main-nav__sub-footer a {
+                @include QLD-media(lg, "down") {
+                    @include QLD-focus("light", false, -3px);
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+
+    // Dark mode focus styles
+    &.qld__main-nav--dark,
+    &.qld__main-nav--dark--alt {
+        .qld__main-nav__menu-inner {
+            .qld__main-nav__item-link,
+            .qld__main-nav__item-toggle {
+                &:focus {
+                    outline-color: var(--QLD-color-dark__focus);
+                }
+            }
+        }
+        .qld__link-list {
+            a:focus,
+            li > a:focus,
+            div.qld__main-nav__sub-footer a:focus {
+                outline-color: var(--QLD-color-dark__focus);
             }
         }
     }
