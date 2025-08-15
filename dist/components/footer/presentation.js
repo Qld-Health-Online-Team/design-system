@@ -88,7 +88,7 @@
         return undefined
     };
 
-  return "                                <svg class=\"qld__icon\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "                                <svg class=\"qld__icon qld__icon--lead\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#phone\"></use></svg>\r\n";
 },"11":function(container,depth0,helpers,partials,data) {
@@ -99,7 +99,7 @@
         return undefined
     };
 
-  return "                                <svg class=\"qld__icon\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+  return "                                <svg class=\"qld__icon qld__icon--lead\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#Email\"></use></svg>\r\n";
 },"13":function(container,depth0,helpers,partials,data) {
@@ -317,7 +317,7 @@
         return undefined
     };
 
-  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" ><use href=\""
+  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#Facebook\"></use></svg>\r\n";
 },"42":function(container,depth0,helpers,partials,data) {
@@ -328,7 +328,7 @@
         return undefined
     };
 
-  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" ><use href=\""
+  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#LinkedIn\"></use></svg>\r\n";
 },"44":function(container,depth0,helpers,partials,data) {
@@ -339,7 +339,7 @@
         return undefined
     };
 
-  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" ><use href=\""
+  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#YouTube\"></use></svg>\r\n";
 },"46":function(container,depth0,helpers,partials,data) {
@@ -350,7 +350,7 @@
         return undefined
     };
 
-  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" ><use href=\""
+  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#Instagram\"></use></svg>\r\n";
 },"48":function(container,depth0,helpers,partials,data) {
@@ -361,7 +361,7 @@
         return undefined
     };
 
-  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" ><use href=\""
+  return "                                    <svg class=\"qld__icon qld__icon--md\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#X\"></use></svg>\r\n";
 },"50":function(container,depth0,helpers,partials,data) {
