@@ -30,9 +30,12 @@
                             {{/if}}
                            {{#if footerCTAContact.value}}
                             <p class="qld__footer__cta-content">
-                                {{#if footerCTAContactIcon.value}}
-                                <i class="qld__footer__cta__icon {{footerCTAContactIcon.value}}"></i>
-                                {{/if}}
+                                {{#ifCond footerCTAContactIcon.value '==' 'phone'}}
+                                <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#phone"></use></svg>
+                                {{/ifCond}}
+                                {{#ifCond footerCTAContactIcon.value '==' 'email'}}
+                                <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Email"></use></svg>
+                                {{/ifCond}}
                                 {{{footerCTAContact.value}}}
                             </p>
                             {{/if}}
@@ -113,19 +116,19 @@
                             <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'asset_url^urlencode')}}">
                             {{/ifCond}}
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'facebook'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#Facebook"></use></svg>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Facebook"></use></svg>
                                 {{/ifCond}}
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'linkedin'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#LinkedIn"></use></svg>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#LinkedIn"></use></svg>
                                 {{/ifCond}}
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'youtube'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#YouTube"></use></svg>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#YouTube"></use></svg>
                                 {{/ifCond}}
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'instagram'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#Instagram"></use></svg>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Instagram"></use></svg>
                                 {{/ifCond}}
                                 {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'twitter'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#X"></use></svg>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#X"></use></svg>
                                 {{/ifCond}}
                                 <span class="qld__footer__social__label">{{lookup this 'asset_short_name^escapequotes'}}</span>
                             </a>
