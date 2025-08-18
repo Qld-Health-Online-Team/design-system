@@ -74,7 +74,7 @@
             align-items: center;
 
             a {
-                display: inline-block;
+                display: inline-flex;
                 border-radius: $QLD-border-radius-xs;
                 @include QLD-space("margin-left", 1.25unit);
                 text-decoration: none;
@@ -85,6 +85,7 @@
 
                 .qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
+                    @include QLD-space("margin-left", 0.5unit);
                 }
 
                 text-underline-offset: var(--QLD-underline__offset);
@@ -100,6 +101,16 @@
                         text-decoration-color: var(--QLD-color-dark__underline--hover);
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     }
+                }
+            }
+        }
+
+        &-right {
+            button.qld__code-copy--button:hover {
+                span {
+                    text-decoration: underline;
+                    text-underline-offset: var(--QLD-underline__offset);
+                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
                 }
             }
         }
