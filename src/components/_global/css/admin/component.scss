@@ -5,7 +5,6 @@
 // Content:
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // CONTAINER STYLES
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -15,33 +14,28 @@
         @include QLD-space(padding-top, 2unit);
         background: var(--QLD-color-dark__background--alt-shade);
         a {
-            color:var(--QLD-color-dark__text);
+            color: var(--QLD-color-dark__text);
         }
     }
 
     .qld__admin_action_header {
         @include QLD-media(md) {
-            display:flex;
-            justify-content:space-between;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
 
             .qld__btn {
-                display:block;
+                display: block;
             }
         }
     }
 
-    .dataTables_wrapper .dataTables_length select {
-        padding-right: 30px;
-        background-size: 10px;
-        background-position: right 10px center;
-    }
-    
-    .qld__table .qld__table__cell.qld__admin_row-actions, table .qld__table__cell.qld__admin_row-actions {
+    .qld__table .qld__table__cell.qld__admin_row-actions,
+    table .qld__table__cell.qld__admin_row-actions {
         text-align: right;
         .qld__btn {
             margin: 3px 0;
-            font-size:0.8em;
+            font-size: 0.8em;
             height: 26px;
             width: 26px;
             padding: 0;
@@ -60,21 +54,21 @@
             }
         }
         .qld__btn--error {
-            background-color:$QLD-color-status__error;
-            border-color:$QLD-color-status__error;
-            color:var(--QLD-color-dark__text);
+            background-color: $QLD-color-status__error;
+            border-color: $QLD-color-status__error;
+            color: var(--QLD-color-dark__text);
         }
     }
 }
 
 .qld__grid .row.qld__admin_row {
-    margin-left:0;
-    margin-right:0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .qld__service_finder_admin_form {
     textarea {
-        min-width:50%;
+        min-width: 50%;
         display: block !important;
         position: absolute;
         opacity: 0;
@@ -104,10 +98,11 @@
                 margin-left: pxToRem(16);
                 cursor: pointer;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     opacity: 0.5;
                 }
-                
+
                 svg {
                     height: pxToRem(13);
                     width: pxToRem(13);
@@ -116,7 +111,7 @@
         }
 
         &.multiple {
-            input[type=text] {
+            input[type="text"] {
                 position: absolute;
                 opacity: 0;
                 height: 0;
@@ -133,7 +128,8 @@
             max-height: pxToRem(48);
             margin-left: pxToRem(7);
 
-            &:hover,&:focus {
+            &:hover,
+            &:focus {
                 background: #dee0e2;
             }
 

@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 100%;
     border-radius: $QLD-border-radius-sm;
-	border:$QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+    border: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
     position: relative;
     color: var(--QLD-color-light__text);
     background: $QLD-color-neutral--white;
@@ -28,7 +28,7 @@
         }
     }
 
-    & &__content{
+    & &__content {
         word-break: break-word;
     }
 
@@ -36,12 +36,12 @@
         color: var(--QLD-color-light__heading);
         @include QLD-space(font-size, 1.25unit);
         line-height: 1.4;
-        @include QLD-space(margin, 0unit); 
+        @include QLD-space(margin, 0unit);
     }
 
-    & &__inner &__description{
+    & &__inner &__description {
         @include QLD-fontgrid(xs);
-        @include QLD-space(margin-top, .75unit);
+        @include QLD-space(margin-top, 0.75unit);
 
         @include QLD-media(md) {
             @include QLD-fontgrid(sm);
@@ -87,7 +87,7 @@
         }
     }
 
-    .qld__card__image-tag{
+    .qld__card__image-tag {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -99,30 +99,30 @@
         overflow: hidden;
 
         &--title,
-        &--length{
+        &--length {
             background-color: var(--QLD-color-light__action--primary);
-            @include QLD-space(padding, .625unit);
+            @include QLD-space(padding, 0.625unit);
 
-            i{
+            i {
                 @include QLD-space(font-size, 1.25unit);
-                @include QLD-space(margin-right, .375unit);
+                @include QLD-space(margin-right, 0.375unit);
                 vertical-align: text-top;
-
             }
         }
     }
 
     a.qld__card--clickable__link {
         color: var(--QLD-color-light__link);
-        @include QLD-underline('light');
+        @include QLD-underline("light");
         // @include QLD-underline('light','noUnderline','buttonText','noVisited');
 
-        &:visited, &:hover:visited {
+        &:visited,
+        &:hover:visited {
             color: var(--QLD-color-light__link--visited);
         }
 
         //make hit area entire card
-        
+
         &:after {
             content: "";
             position: absolute;
@@ -159,7 +159,6 @@
         .qld__card__footer-link-icon {
             @include QLD-space(margin-right, 0.5unit);
         }
-
     }
 
     &.qld__card--icon {
@@ -173,7 +172,7 @@
                 @include QLD-space(padding-top, 1.25unit);
             }
 
-            .qld__card__title{
+            .qld__card__title {
                 @include QLD-space(font-size, 1.25unit);
                 line-height: 1.4;
             }
@@ -191,7 +190,7 @@
             @include QLD-space(margin, 1unit 1unit 0 1unit);
 
             @include QLD-media(md) {
-                @include QLD-space(margin, 1.25unit 1.25unit 0 1.25unit); 
+                @include QLD-space(margin, 1.25unit 1.25unit 0 1.25unit);
                 @include QLD-space(width, 6unit);
                 @include QLD-space(height, 6unit);
             }
@@ -201,14 +200,15 @@
                 @include QLD-space(width, 8unit);
                 @include QLD-space(height, 8unit);
             }
-    
-            svg, i {
+
+            svg,
+            i {
                 @include QLD-space(font-size, 2.813unit);
                 @include QLD-space(line-height, 6unit);
-                display: flex; 
+                display: flex;
                 align-self: center;
-                @include QLD-space(margin-bottom, -.25unit);
-    
+                @include QLD-space(margin-bottom, -0.25unit);
+
                 @include QLD-media(lg) {
                     @include QLD-space(font-size, 3.75unit);
                     @include QLD-space(line-height, 8unit);
@@ -225,7 +225,7 @@
             text-align: left;
             flex: 1 0 0%;
             justify-content: center;
-            
+
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 1.25unit);
             }
@@ -247,7 +247,8 @@
                 @include QLD-space(margin, 1.25unit 0 1.25unit 1.5unit);
             }
 
-            svg, i {
+            svg,
+            i {
                 @include QLD-space(font-size, 2.25unit);
                 @include QLD-space(line-height, 4unit);
             }
@@ -255,8 +256,8 @@
     }
 
     &.qld__card--image {
-        .qld__card__inner{
-            @include QLD-space(padding-top, .75unit);
+        .qld__card__inner {
+            @include QLD-space(padding-top, 0.75unit);
 
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 1unit);
@@ -264,7 +265,6 @@
             @include QLD-media(lg) {
                 @include QLD-space(padding-top, 1.25unit);
             }
-
         }
     }
 
@@ -273,8 +273,8 @@
         background-color: var(--QLD-color-light__background);
         color: var(--QLD-color-light__text);
 
-        &.qld__card--icon{
-            .qld__card__icon{
+        &.qld__card--icon {
+            .qld__card__icon {
                 background-color: var(--QLD-color-light__background--shade);
             }
         }
@@ -285,15 +285,15 @@
         background-color: var(--QLD-color-light__background--alt);
         color: var(--QLD-color-light__text);
 
-        &.qld__card--icon{
-            .qld__card__icon{
+        &.qld__card--icon {
+            .qld__card__icon {
                 background-color: var(--QLD-color-light__background--alt-shade);
             }
         }
     }
 
     //Dark theme
-    &.qld__card--dark{
+    &.qld__card--dark {
         background-color: var(--QLD-color-dark__background);
         color: var(--QLD-color-dark__text);
 
@@ -308,23 +308,23 @@
             color: var(--QLD-color-dark__heading);
         }
 
-        .qld__card__icon{
+        .qld__card__icon {
             background-color: var(--QLD-color-dark__background--shade);
 
             i,
-            svg{
-                color:  var(--QLD-color-dark__heading);
+            svg {
+                color: var(--QLD-color-dark__heading);
             }
         }
 
-        .qld__card__image-tag{
+        .qld__card__image-tag {
             color: var(--QLD-color-dark__link--on-action);
 
             &--title,
-            &--length{
+            &--length {
                 background-color: var(--QLD-color-dark__action--primary);
             }
-        }   
+        }
     }
 
     //Dark Alt theme
@@ -343,84 +343,88 @@
             color: var(--QLD-color-dark__heading);
         }
 
-        .qld__card__icon{
+        .qld__card__icon {
             background-color: var(--QLD-color-dark__background--alt-shade);
 
             i,
-            svg{
+            svg {
                 color: var(--QLD-color-dark__heading);
             }
         }
 
-        .qld__card__image-tag{
+        .qld__card__image-tag {
             color: var(--QLD-color-dark__link--on-action);
 
             &--title,
-            &--length{
+            &--length {
                 background-color: var(--QLD-color-dark__action--primary);
             }
-        }         
+        }
     }
 
     .qld__body--dark &,
     .qld__body--dark-alt &,
     .qld__banner--dark &,
-    .qld__banner--dark-alt &{
+    .qld__banner--dark-alt & {
         border-color: var(--QLD-color-dark__border--alt);
     }
-
 }
 
-
-.qld__body--dark, .qld__banner--dark, .qld__banner--dark-alt, .qld__body--dark-alt {
-    .qld__card{
+.qld__body--dark,
+.qld__banner--dark,
+.qld__banner--dark-alt,
+.qld__body--dark-alt {
+    .qld__card {
         a.qld__card--clickable__link {
-            @include QLD-underline('light');
+            @include QLD-underline("light");
             color: var(--QLD-color-light__link);
 
-            &:visited, &:hover:visited {
+            &:visited,
+            &:hover:visited {
                 color: var(--QLD-color-light__link--visited);
             }
-    
+
             // &:focus {
             //     outline: none;
             // }
         }
 
-        &.qld__card--dark, &.qld__card--dark-alt{
-            a.qld__card--clickable__link{
-                @include QLD-underline('dark');
+        &.qld__card--dark,
+        &.qld__card--dark-alt {
+            a.qld__card--clickable__link {
+                @include QLD-underline("dark");
                 color: var(--QLD-color-dark__link);
 
-                &:visited, &:hover:visited {
+                &:visited,
+                &:hover:visited {
                     color: var(--QLD-color-dark__link--visited);
                 }
-        
+
                 // &:focus {
                 //     outline: none;
                 // }
-    
             }
         }
     }
-} 
+}
 
-.qld__body, .qld__body--alt {
-    .qld__card{
+.qld__body,
+.qld__body--alt {
+    .qld__card {
         a.qld__card--clickable__link {
             color: var(--QLD-color-light__link);
-            @include QLD-underline('light');
+            @include QLD-underline("light");
         }
 
-        &.qld__card--dark, &.qld__card--dark-alt{
-            a.qld__card--clickable__link{
+        &.qld__card--dark,
+        &.qld__card--dark-alt {
+            a.qld__card--clickable__link {
                 color: var(--QLD-color-dark__link);
-                @include QLD-underline('dark');
-    
+                @include QLD-underline("dark");
             }
         }
     }
-} 
+}
 
 // Card listing match height
 .qld__body .qld__card-list,
@@ -432,7 +436,7 @@
     width: 100%;
 
     @include QLD-media(md) {
-        margin: 0 .25rem;
+        margin: 0 0.25rem;
     }
     @include QLD-media(lg) {
         margin: 0;
@@ -450,8 +454,8 @@
         @include QLD-space(padding-right, 1unit);
         @include QLD-space(margin-top, 1.5unit);
         @include QLD-media(md) {
-            @include QLD-space(padding-left, .75unit);
-            @include QLD-space(padding-right, .75unit);
+            @include QLD-space(padding-left, 0.75unit);
+            @include QLD-space(padding-right, 0.75unit);
         }
         @include QLD-media(lg) {
             @include QLD-space(margin-top, 2unit);
@@ -466,16 +470,16 @@
     @include QLD-media(md) {
         .col-md-6:nth-of-type(-n + 2) {
             @include QLD-space(margin-top, 0unit);
-        } 
+        }
     }
     @include QLD-media(lg) {
         .col-lg-4:nth-of-type(-n + 3) {
             @include QLD-space(margin-top, 0unit);
-        } 
-        .col-lg-3:nth-of-type(-n + 4){
+        }
+        .col-lg-3:nth-of-type(-n + 4) {
             @include QLD-space(margin-top, 0unit);
         }
-        .col-lg-6:nth-of-type(-n + 2){
+        .col-lg-6:nth-of-type(-n + 2) {
             @include QLD-space(margin-top, 0unit);
         }
     }
@@ -508,10 +512,6 @@
         @include QLD-space(padding-right, 1unit);
         @include QLD-space(margin-top, 2unit);
 
-        .qld__slick-controls {
-            order: 1;
-        }
-        
         a {
             order: 0;
         }
@@ -520,50 +520,45 @@
             justify-content: center;
         }
     }
-
-
-
 }
 
 // .qld__card--wrapper{
-    .qld__card-intro{
-        @include QLD-space(padding-bottom, 1.5unit);
-    }
+.qld__card-intro {
+    @include QLD-space(padding-bottom, 1.5unit);
+}
 // }
 
-
 //Card list background image and pattern
-.qld__card--wrapper{
-    &.qld__card--wrapper-bg-image{
+.qld__card--wrapper {
+    &.qld__card--wrapper-bg-image {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
     }
-    &.qld__card--wrapper-bg-pattern{
+    &.qld__card--wrapper-bg-pattern {
         background-repeat: repeat;
         background-position: left top;
-
     }
 }
 
 // Checks if two card components are adjacent and same background to reduce padding
-.qld__body.qld__card--wrapper{
+.qld__body.qld__card--wrapper {
     + .qld__body.qld__card--wrapper,
-    + data + .qld__body.qld__card--wrapper{ 
-        @include QLD-space(margin-top, -1unit );
+    + data + .qld__body.qld__card--wrapper {
+        @include QLD-space(margin-top, -1unit);
 
-        .qld__card-intro{
-            @include QLD-space(padding-bottom, 1.5unit );
+        .qld__card-intro {
+            @include QLD-space(padding-bottom, 1.5unit);
 
             &.qld__card-intro--no-top-p {
-                padding-top: 0; 
+                padding-top: 0;
             }
         }
         @include QLD-media(md) {
-            @include QLD-space(margin-top, -.5unit );
+            @include QLD-space(margin-top, -0.5unit);
         }
         @include QLD-media(lg) {
-            @include QLD-space(margin-top, -2unit );
+            @include QLD-space(margin-top, -2unit);
         }
 
         &.qld__body--light,
@@ -571,132 +566,107 @@
         &.qld__body--dark,
         &.qld__body--dark-alt,
         &.qld__card--wrapper-bg-pattern,
-        &.qld__card--wrapper-bg-image{
+        &.qld__card--wrapper-bg-image {
             @include QLD-space(margin-top, 0unit);
         }
-        
     }
-    + .qld__body:not(.qld__card--wrapper){
+    + .qld__body:not(.qld__card--wrapper) {
         @include QLD-space(padding-top, 2.5unit !important);
         @include QLD-media(lg) {
             @include QLD-space(padding-top, 4unit !important);
         }
     }
-    &.qld__body--alt{
+    &.qld__body--alt {
         + .qld__body.qld__card--wrapper,
-        + data + .qld__body.qld__card--wrapper{
-            @include QLD-space(margin-top, 0unit );
-        
-            &.qld__body--alt{
-                @include QLD-space(margin-top, -1unit );
+        + data + .qld__body.qld__card--wrapper {
+            @include QLD-space(margin-top, 0unit);
+
+            &.qld__body--alt {
+                @include QLD-space(margin-top, -1unit);
                 @include QLD-media(md) {
-                    @include QLD-space(margin-top, -.5unit );
+                    @include QLD-space(margin-top, -0.5unit);
                 }
                 @include QLD-media(lg) {
-                    @include QLD-space(margin-top, -2unit );
+                    @include QLD-space(margin-top, -2unit);
                 }
                 &.qld__card--wrapper-bg-pattern,
-                &.qld__card--wrapper-bg-image{
+                &.qld__card--wrapper-bg-image {
                     @include QLD-space(margin-top, 0unit);
                 }
             }
         }
     }
-    &.qld__body--dark{
+    &.qld__body--dark {
         + .qld__body.qld__card--wrapper,
-        + data + .qld__body.qld__card--wrapper{
-            @include QLD-space(margin-top, 0unit );
-        
-            &.qld__body--dark{
-                @include QLD-space(margin-top, -1unit );
+        + data + .qld__body.qld__card--wrapper {
+            @include QLD-space(margin-top, 0unit);
+
+            &.qld__body--dark {
+                @include QLD-space(margin-top, -1unit);
                 @include QLD-media(md) {
-                    @include QLD-space(margin-top, -.5unit );
+                    @include QLD-space(margin-top, -0.5unit);
                 }
                 @include QLD-media(lg) {
-                    @include QLD-space(margin-top, -2unit );
+                    @include QLD-space(margin-top, -2unit);
                 }
                 &.qld__card--wrapper-bg-pattern,
-                &.qld__card--wrapper-bg-image{
+                &.qld__card--wrapper-bg-image {
                     @include QLD-space(margin-top, 0unit);
                 }
             }
         }
     }
-    &.qld__body--dark-alt{
+    &.qld__body--dark-alt {
         + .qld__body.qld__card--wrapper,
-        + data + .qld__body.qld__card--wrapper{
-            @include QLD-space(margin-top, 0unit );
-        
-            &.qld__body--dark-alt{
-                @include QLD-space(margin-top, -1unit );
+        + data + .qld__body.qld__card--wrapper {
+            @include QLD-space(margin-top, 0unit);
+
+            &.qld__body--dark-alt {
+                @include QLD-space(margin-top, -1unit);
                 @include QLD-media(md) {
-                    @include QLD-space(margin-top, -.5unit );
+                    @include QLD-space(margin-top, -0.5unit);
                 }
                 @include QLD-media(lg) {
-                    @include QLD-space(margin-top, -2unit );
+                    @include QLD-space(margin-top, -2unit);
                 }
                 &.qld__card--wrapper-bg-pattern,
-                &.qld__card--wrapper-bg-image{
+                &.qld__card--wrapper-bg-image {
                     @include QLD-space(margin-top, 0unit);
                 }
             }
         }
     }
     &.qld__card--wrapper-bg-pattern,
-    &.qld__card--wrapper-bg-image{
+    &.qld__card--wrapper-bg-image {
         @include QLD-space(padding-top, 2.5unit !important);
         @include QLD-media(lg) {
             @include QLD-space(padding-top, 4unit !important);
         }
     }
-
 }
 .qld__body.qld__card--wrapper.qld__card--wrapper-bg-pattern,
-.qld__body.qld__card--wrapper.qld__card--wrapper-bg-image{
+.qld__body.qld__card--wrapper.qld__card--wrapper-bg-image {
     + .qld__body.qld__card--wrapper,
     + data + .qld__body.qld__card--wrapper,
     + .qld__body.qld__card--wrapper,
-    + data + .qld__body.qld__card--wrapper{ 
+    + data + .qld__body.qld__card--wrapper {
         @include QLD-space(padding-top, 2.5unit !important);
         @include QLD-media(lg) {
-                    @include QLD-space(padding-top, 4unit !important);
-                }
+            @include QLD-space(padding-top, 4unit !important);
+        }
     }
-    
 }
-.qld__body--alt.qld__card--wrapper{
+.qld__body--alt.qld__card--wrapper {
     + .qld__body--alt.qld__card--wrapper,
-    + data + .qld__body--alt.qld__card--wrapper{
+    + data + .qld__body--alt.qld__card--wrapper {
         @include QLD-space(margin-top, -1unit);
         @include QLD-media(lg) {
             @include QLD-space(margin-top, -2unit);
         }
         &.qld__body,
         &.qld__body--dark,
-        &.qld__body--dark-alt{
+        &.qld__body--dark-alt {
             @include QLD-space(margin-top, 0unit);
-        }
-    }
-}
-
-//Slick slider
-.qld__card--slider{
-
-    .qld__card-list__footer{
-        justify-content: space-between;
-        align-items: centre;
-        @include QLD-space(margin-top, 1.5unit);
-
-        .qld__slick-controls{
-            @include QLD-media(lg) {
-                flex: 1;
-                @include QLD-space(margin-right, -6.875unit);
-            }
-        }
-
-        .qld__cta-link{
-            display: flex;
-            align-items: center;
         }
     }
 }
