@@ -548,7 +548,7 @@
         <!--noindex-->
         ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+        ${require('../components/main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!-- MAIN BODY -->
         <main class="main" role="main">
             <section class="qld__body qld__body--breadcrumb">
@@ -563,9 +563,9 @@
                             ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/accordion/js/manifest.json'), "callback": "QLD.accordion.init",
-                            "component":require('!url-loader!../components/accordion/html/component.hbs'), "component_output":require('../components/accordion/html/component.hbs')({ "component":
-                            require('../components/accordion/js/manifest.json').component, "content":"Lorem Ipsum" }) })}
+                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/prefooter/js/manifest.json'), "component":require('!url-loader!../components/prefooter/html/component.hbs'),
+                            "component_output":require('../components/prefooter/html/component.hbs')({ "data":require('../components/prefooter/js/manifest.json').data, "site":require('/src/data/site.json'),
+                            "current":require('/src/data/current.json'), "content":"Lorem Ipsum" }) })}
                         </div>
                     </div>
                 </div>

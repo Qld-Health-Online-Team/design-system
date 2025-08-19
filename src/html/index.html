@@ -19,17 +19,13 @@
 
     <body class="qld__grid">
         <!--noindex-->
-        ${require('../components/header/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
+        ${require('../components/header/html/component.hbs')({ "site":require('/src/data/site.json') })}
         <!--endnoindex-->
-        ${require('../components/mega_main_navigation/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
-        
+        ${require('../components/mega_main_navigation/html/component.hbs')({ "site":require('/src/data/site.json') })}
+
         <main class="main landing" role="main">
             <h1 class="sr-only">Index</h1>
-            <section class="qld__body qld__body--full-width ">
+            <section class="qld__body qld__body--full-width">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6">
@@ -86,7 +82,7 @@
                                             <a href="sf_service_search.html">Service Search</a>
                                             <ul>
                                                 <li>
-                                                    <a href="sf_service_search_v2.html">Service Search -- V2</a>  
+                                                    <a href="sf_service_search_v2.html">Service Search -- V2</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -120,23 +116,14 @@
                     </div>
                 </div>
             </section>
-            
+            <!-- Page Footer Info -->
+            ${require('../components/prefooter/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
         </main>
         <!-- END MAIN BODY -->
 
-        <!-- WIDGETS -->
-        ${require('../components/widgets/html/component.hbs')({
-            "site":require('/src/data/site.json'),
-            "current":require('/src/data/current.json')
-        })}
-        
         <!-- FOOTER-->
-        ${require('../components/footer/html/component.hbs')({
-            "site":require('/src/data/site.json')
-        })}
+        ${require('../components/footer/html/component.hbs')({ "site":require('/src/data/site.json') })}
 
-        <div class="footer-scripts" id="footer_js" style="display: none !important;">
-            ${require('../components/_global/html/scripts.html')}
-        </div>
+        <div class="footer-scripts" id="footer_js" style="display: none !important">${require('../components/_global/html/scripts.html')}</div>
     </body>
 </html>

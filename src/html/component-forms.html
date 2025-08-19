@@ -1456,14 +1456,13 @@
                         </div>
                     </div>
                 </div>
+                            <!-- Page Footer Info -->
+            ${require('../components/prefooter/html/component.hbs')({
+                "site":require('/src/data/site.json'),
+                "current":require('/src/data/current.json') })}
     </main>
     <!-- END MAIN BODY -->
 
-    <!-- WIDGETS -->
-    ${require('../components/widgets/html/component.hbs')({
-    "site":require('/src/data/site.json'),
-    "current":require('/src/data/current.json')
-    })}
 
     <!-- FOOTER-->
     ${require('../components/footer/html/component.hbs')({
