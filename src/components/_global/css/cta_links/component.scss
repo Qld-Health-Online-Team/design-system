@@ -120,13 +120,6 @@ a.qld__cta-link.qld__cta-link--view-all {
         right: 0.5rem;
         background-color: transparent;
 
-        @include QLD-media("lg", "down") {
-            @include QLD-space(margin, 0.85unit 19.25unit 0 0);
-        }
-        @include QLD-media("md", "down") {
-            @include QLD-space(margin, 0.85unit 13unit 0 0);
-        }
-
         .qld__body--dark &,
         .qld__body--dark-alt &,
         .qld__main-nav--dark &,
@@ -166,18 +159,45 @@ a.qld__cta-link.qld__cta-link--view-all {
             border-color: var(--QLD-color-light__action--secondary-hover);
             background-color: transparent;
 
-            @include QLD-media("lg", "down") {
-                @include QLD-space(margin, 0.85unit 19unit 0 0);
-            }
-            @include QLD-media("md", "down") {
-                @include QLD-space(margin, 0.85unit 12.75unit 0 0);
-            }
-
             .qld__body--dark &,
             .qld__body--dark-alt &,
             .qld__main-nav--dark &,
             .qld__main-nav--dark-alt & {
                 border-color: var(--QLD-color-dark__action--secondary-hover);
+            }
+        }
+    }
+
+    // CTA view all link within menus
+    .qld__main-nav &,
+    .qld__main-nav--mega & {
+        @include QLD-media("lg", "down") {
+            &::before,
+            &::after,
+            .qld__cta-link--view-all-icon--wrapper::before {
+                left: 0;
+                @include QLD-space(margin, 0.85unit 0 0 5unit);
+            }
+            &::before {
+                margin-left: 5.3rem;
+            }
+            &::after {
+                margin-left: 5.55rem;
+            }
+
+            &:hover,
+            &:focus {
+                &::before,
+                &::after,
+                .qld__cta-link--view-all-icon--wrapper::before {
+                    @include QLD-space(margin, 0.85unit 0 0 5.25unit);
+                }
+                &::before {
+                    margin-left: 5.55rem;
+                }
+                &::after {
+                    margin-left: 5.8rem;
+                }
             }
         }
     }
