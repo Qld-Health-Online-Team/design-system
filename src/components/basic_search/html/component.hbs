@@ -303,7 +303,17 @@
                                     {{#ifCond collection 'contains' '__service-locations'}}
                                         {{#if listMetadata.building}}{{{listMetadata.building}}}, {{/if}}{{#if listMetadata.physicalAddressStreet}}{{{listMetadata.physicalAddressStreet}}}{{/if}}{{#if listMetadata.physicalAddressSuburb}}, {{{listMetadata.physicalAddressSuburb}}}{{/if}}{{#if listMetadata.physicalAddressPostcode}}, {{{listMetadata.physicalAddressPostcode}}}{{/if}}
                                     {{else}}
-                                        {{#if listMetadata.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
+                                        {{!-- {{#if listMetadata.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}} --}}
+                                        
+                                        {{#if listMetadata.d}}
+                                            {{#each listMetadata.d}}
+                                                {{#if @first}}
+                                                <span class="qld__search__result-date">
+                                                    {{formatDate this 'j F Y'}} —
+                                                </span>
+                                                {{/if}}
+                                            {{/each}}
+                                            {{/if}}
                                         {{{charMax summary '160'}}}
                                     {{/ifCond}}
                                 {{/ifCond}}
