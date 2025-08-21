@@ -369,6 +369,9 @@
                 QLD.accordion.Toggle(button);
             });
         });
+
+        // Finds all the menu related icons in main nav, mega nav, and header.
+        QLD.utils.updateSvgIconPath(".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use");
     });
 
 }());
