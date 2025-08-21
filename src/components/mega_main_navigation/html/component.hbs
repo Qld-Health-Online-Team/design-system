@@ -115,9 +115,9 @@
                         {{#if site.metadata.mainNavCtaOne.value}}
                             <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}active{{/ifCond}}">
                                 <div class="qld__main-nav__item-title">
-                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaOne.value}}" >
+                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaOne.value}}">
                                         {{#if site.metadata.mainNavCtaOneIcon.value}}
-                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaOneIcon.value}}"></i>
+                                            <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{site.metadata.mainNavCtaOneIcon.value}}"></use></svg>
                                         {{/if}}
                                         <span class="qld__main-nav__item-text" data-name="{{site.metadata.mainNavCtaOneText.value}}">{{{site.metadata.mainNavCtaOneText.value}}}</span>
                                     </a>
@@ -127,9 +127,9 @@
                             {{#if site.metadata.mainNavCtaTwo.value}}
                             <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}active{{/ifCond}}">
                                 <div class="qld__main-nav__item-title">
-                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaTwo.value}}" >
+                                    <a class="qld__main-nav__item-link" {{#ifCond site.metadata.mainNavCtaTwo.value '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{site.metadata.mainNavCtaTwo.value}}">
                                         {{#if site.metadata.mainNavCtaTwoIcon.value}}
-                                            <i class="qld__icon qld__icon--sm {{site.metadata.mainNavCtaTwoIcon.value}}"></i>
+                                            <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{site.metadata.mainNavCtaTwoIcon.value}}"></use></svg>
                                         {{/if}}
                                         <span class="qld__main-nav__item-text" data-name="{{site.metadata.mainNavCtaTwoText.value}}">{{{site.metadata.mainNavCtaTwoText.value}}}</span>
                                     </a>
