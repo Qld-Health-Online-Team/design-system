@@ -320,7 +320,7 @@
 
                 &:hover {
                     border-color: var(--QLD-color-light__action--primary);
-                    background-color: $QLD-color-neutral--white;
+                    background-color: var(--QLD-color-dark__background);
 
                     @include QLD-media(lg) {
                         background-color: transparent;
@@ -502,16 +502,15 @@
                             &:hover {
                                 border-color: var(--QLD-color-dark__action--primary-hover);
                                 background-color: var(--QLD-color-dark__background);
+                                border-color: var(--QLD-color-dark__action--primary-hover);
                             }
                         }
 
                         &.active {
-                            a {
-                                color: var(--QLD-color-dark__heading);
-                            }
-
+                            a,
                             span {
                                 color: var(--QLD-color-dark__heading);
+                                border-color: var(--QLD-color-dark__border);
                             }
                         }
 
@@ -534,6 +533,7 @@
                         &:hover {
                             border-color: var(--QLD-color-dark__action--primary-hover);
                             background-color: var(--QLD-color-dark__background);
+                            border-color: var(--QLD-color-dark__action--primary-hover);
                         }
                     }
                 }
