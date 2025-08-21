@@ -313,7 +313,7 @@
 
                         // Remove the "extended_" prefix from the iconName if it's a health icon
                         if (isHealthIcon) {
-                            iconName = iconName.replace(/extended/gi, "");
+                            iconName = iconName.replace(/extended_/gi, "");
                         }
 
                         // Recreate the href path for the SVG
