@@ -162,8 +162,6 @@
         a {
             color: var(--QLD-color-dark__text);
             display: flex;
-
-            @include QLD-focus();
         }
 
         .qld__header__main-nav-controls {
@@ -237,9 +235,11 @@
         }
 
         //Dark theme
-        &.qld__header__pre-header--dark {
+        &.qld__header__pre-header--dark,
+        &.qld__header__pre-header--dark-alt {
             background-color: var(--QLD-color-dark__background);
             color: var(--QLD-color-dark__text);
+            @include QLD-focus("dark");
 
             .qld__header__pre-header-url {
                 color: var(--QLD-color-dark__link);
@@ -271,6 +271,7 @@
                 @include QLD-focus("dark", false, -3px);
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
+                @include QLD-focus("dark");
 
                 svg {
                     color: var(--QLD-color-dark__action--secondary);
