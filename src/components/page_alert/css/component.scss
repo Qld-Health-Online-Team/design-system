@@ -106,6 +106,67 @@
     }
 }
 
+/**
+* This section can be removed in the future once all WYSIWYG codes are updated to use SVG instead of pseudo. 
+*/
+.qld__page-alerts:not(.qld__page-alerts--svg) {
+    &::before {
+        content: " ";
+        @include QLD-space(width, 1.25unit);
+        @include QLD-space(height, 1.25unit);
+        display: inline-block;
+        vertical-align: text-top;
+        mask-image: QLD-svguri($QLD-icon-info);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        background-color: $QLD-color-neutral--white;
+        position: absolute;
+        @include QLD-space(left, -1.5unit);
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /**
+	* Page alert success
+	*/
+    &.qld__page-alerts--success {
+        border-color: $QLD-color-status__success;
+
+        &::before {
+            background-color: $QLD-color-neutral--white;
+            mask-image: QLD-svguri($QLD-icon-success);
+        }
+    }
+
+    /**
+	* Page alert warning.
+	*/
+    &.qld__page-alerts--warning {
+        border-color: $QLD-color-status__caution;
+
+        &::before {
+            background-color: $QLD-color-neutral--black;
+            mask-image: QLD-svguri($QLD-icon-warning);
+        }
+    }
+
+    /**
+	* Page alert error.
+	*/
+    &.qld__page-alerts--error {
+        border-color: $QLD-color-status__error;
+
+        &::before {
+            background-color: $QLD-color-neutral--white;
+            mask-image: QLD-svguri($QLD-icon-error);
+        }
+    }
+}
+
+/**
+* Remove up to here
+*/
+
 .qld__body #content > * + .qld__page-alerts {
     @include QLD-space(margin-top, 2unit);
 }
