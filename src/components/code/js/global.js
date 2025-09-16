@@ -61,12 +61,23 @@
                 const target = parent.querySelector("code");
                 target.style.height = "120px";
 
+                // Create <svg>
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute("class", "qld__icon qld__icon--sm");
+                svg.setAttribute("aria-hidden", "true");
+                svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+                // Create <use>
+                const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+                use.setAttributeNS(null, "href", `${svgPath}#chevron-up`);
+
                 showToggleButton.addEventListener("click", function () {
-                    if (this.innerText.indexOf("more") > -1) {
-                        this.innerHTML = `Show less<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#chevron-up"></use></svg>`;
-                    } else {
-                        this.innerHTML = `Show more<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#chevron-up"></use></svg>`;
-                    }
+                    // Update button text
+                    showToggleButton.innerText = this.innerText.indexOf("more") > -1 ? "Show less" : "Show more";
+
+                    // Append <use> to <svg>
+                    svg.appendChild(use);
+                    showToggleButton.appendChild(svg);
 
                     QLD.animate.Toggle({
                         element: target,

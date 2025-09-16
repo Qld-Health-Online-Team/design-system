@@ -12,14 +12,24 @@
 
         if (svgSelector) {
             const svgPath = svgSelector.getAttribute("data-path");
-            const svgIcon = `<svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#tick"></use></svg>`;
-
             const thirdLevelLinks = document.querySelectorAll("ul ul ul a, ul ul ul span");
 
             // Loop through each matching element and apply the style
             thirdLevelLinks.forEach((link) => {
                 if (!link.querySelector("svg")) {
-                    link.insertAdjacentHTML("afterbegin", svgIcon);
+                    // Create <svg>
+                    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    svg.setAttribute("class", "qld__icon");
+                    svg.setAttribute("aria-hidden", "true");
+                    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+                    // Create <use>
+                    const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+                    use.setAttributeNS(null, "href", `${svgPath}#tick`);
+
+                    // Append <use> to <svg>
+                    svg.appendChild(use);
+                    link.insertBefore(svg, link.firstChild);
                 }
                 link.parentElement.style.borderTopColor = "transparent";
             });
