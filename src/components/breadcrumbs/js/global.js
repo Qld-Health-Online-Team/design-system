@@ -24,7 +24,8 @@
             }
 
             if (resized) {
-                bannerBreadCrumb.querySelector("ol.qld__link-list").innerHTML = originalBreadCrumbUl.innerHTML;
+                const originalList = originalBreadCrumbUl.cloneNode(true);
+                bannerBreadCrumb.querySelector("ol.qld__link-list").replaceChildren(...originalList.children);
             }
 
             const breadCrumbsUl = bannerBreadCrumb.querySelector("ol.qld__link-list");
@@ -65,7 +66,19 @@
         button.setAttribute("aria-expanded", "false");
 
         if (svgPath) {
-            button.innerHTML = `<svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${svgPath}#more-horizontal"></use></svg>`;
+            // Create <svg>
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", "qld__icon qld__icon--lg");
+            svg.setAttribute("aria-hidden", "true");
+            svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+            // Create <use>
+            const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+            use.setAttributeNS(null, "href", `${svgPath}#more-horizontal`);
+
+            // Append <use> to <svg>
+            svg.appendChild(use);
+            button.appendChild(svg);
         }
 
         overFlowWrapper.appendChild(button);
@@ -106,8 +119,8 @@
         breadCrumbsUlLis[breadCrumbsUlLis.length - 1].style.overflow = "hidden";
     }
 
-    function appendOverflow(breadCrumbsUlLis, overflowMenu, breadcrumbUL) {
-        breadCrumbsUlLis[1].innerHTML = "";
+    function appendOverflow(breadCrumbsUlLis, overflowMenu) {
+        breadCrumbsUlLis[1].replaceChildren();
         breadCrumbsUlLis[1].className = "qld__overflow_menu--breadcrumbs";
         breadCrumbsUlLis[1].appendChild(overflowMenu);
         breadCrumbsUlLis[1].style.display = "flex";
