@@ -62,7 +62,7 @@
             searchToggle.setAttribute("aria-expanded", true);
             searchToggle.classList.remove("qld__main-nav__toggle-search--open");
             searchToggle.classList.add("qld__main-nav__toggle-search--close");
-            searchToggle.querySelector(".qld__main-nav__toggle-text").textContent = "Closed";
+            searchToggle.querySelector(".qld__main-nav__toggle-text").textContent = "Close";
             target.style.display = "block";
 
             // Wait for display: block, and then add class to open smoothly
