@@ -6,7 +6,7 @@
         return undefined
     };
 
-  return "<div class=\"qld__[component_name]\">\r\n    <span>Hello, [component_name]!</span>\r\n    <p>"
+  return "<div class=\"qld__[component_name]\">\n    <span>Hello, [component_name]!</span>\n    <p>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"field1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</p>\r\n</div>";
+    + "</p>\n</div>";
 },"useData":true}
