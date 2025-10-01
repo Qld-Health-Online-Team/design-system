@@ -176,13 +176,21 @@ a.qld__cta-link.qld__cta-link--view-all {
             &::after,
             .qld__cta-link--view-all-icon--wrapper::before {
                 left: 0;
-                @include QLD-space(margin, 0.85unit 0 0 5unit);
+                @include QLD-space(margin, 0.65unit 0 0 5unit);
             }
             &::before {
-                margin-left: 5.3rem;
+                top: 13.5px;
+                width: 0.5rem;
+                margin-left: 5.475rem;
             }
             &::after {
+                top: 0.66rem;
                 margin-left: 5.55rem;
+            }
+            .qld__cta-link--view-all-icon--wrapper::before {
+                left: 2px;
+                width: 1.4rem;
+                height: 1.4rem;
             }
 
             &:hover,
@@ -190,10 +198,10 @@ a.qld__cta-link.qld__cta-link--view-all {
                 &::before,
                 &::after,
                 .qld__cta-link--view-all-icon--wrapper::before {
-                    @include QLD-space(margin, 0.85unit 0 0 5.25unit);
+                    @include QLD-space(margin, 0.65unit 0 0 5.25unit);
                 }
                 &::before {
-                    margin-left: 5.55rem;
+                    margin-left: 5.75rem;
                 }
                 &::after {
                     margin-left: 5.8rem;
