@@ -65,7 +65,10 @@
     };
 
     /**
-     * When a tab is clicked, activateTab is fired to activate it
+     * When a tab is clicked, activateTab is fired to activate it.
+     * Always retrieve the closest tab button to ensure the event is
+     * triggered on the correct element as we reference specific data
+     * attributes on the button.
      * 
      * @memberof module:tabs
      * @instance
@@ -74,7 +77,7 @@
      * @param {Document.event} event 
      */
     function clickEventListener(event) {
-        var tab = event.target;
+        var tab = event.target.closest('[role="tab"]');
         activateTab(tab, false);
     };
 
@@ -217,6 +220,7 @@
      */
     function activateTab(tab, setFocus) {
         setFocus = setFocus || true;
+
         // Deactivate all other tabs
         deactivatetabs(tab);
 
