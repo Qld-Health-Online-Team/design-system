@@ -413,6 +413,11 @@
                     @include QLD-space(line-height, 1.5unit);
                 }
 
+                @include QLD-media(lg, "down") {
+                    padding-top: 0.6rem;
+                    padding-bottom: 0.7rem;
+                }
+
                 &:hover {
                     color: var(--QLD-color-light__link);
                     border-color: var(--QLD-color-light__action--primary);
@@ -424,7 +429,7 @@
                 }
 
                 &.qld__cta-link--view-all {
-                    padding-right: 2.5rem;
+                    @include QLD-space(padding-right, 2.5rem);
                 }
             }
         }
