@@ -152,7 +152,7 @@
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_assetid") : depths[1]), depth0))
     + "\">\r\n                                                            <span class=\"qld__main-nav__sub-item-text qld__display-lg\">"
     + ((stack1 = alias1((depths[1] != null ? lookupProperty(depths[1],"asset_name") : depths[1]), depth0)) != null ? stack1 : "")
-    + "</span>\r\n                                                            <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "</span>\r\n                                                            <svg class=\"qld__icon qld__icon--lg\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#arrow-right\"></use></svg>\r\n                                                        </a>\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"mainNavPageDescLevelOne"))) && lookupProperty(stack1,"value")),"==","true",{"name":"ifCond","hash":{},"fn":container.program(25, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":63,"column":56},"end":{"line":67,"column":67}}})) != null ? stack1 : "")
