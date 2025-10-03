@@ -42,9 +42,9 @@
         text-align: left;
 
         span {
-            display: inline-block;
+            display: flex;
 
-            i {
+            svg.qld__icon {
                 margin-right: 8px;
                 color: var(--QLD-color-light__action--secondary);
             }
@@ -69,11 +69,16 @@
             text-decoration-color: var(--QLD-color-light__link--on-action);
             outline: none;
 
-            span i {
+            span svg.qld__icon {
                 color: var(--QLD-color-light__link--on-action);
                 text-decoration: none;
                 display: inline-block;
             }
+        }
+
+        // Ensure the active tab has the correct border radius.
+        &.active[role="tab"]:focus {
+            border-radius: 4px 4px 0px 0px;
         }
 
         /**
@@ -99,7 +104,7 @@
             z-index: 1;
             text-decoration: none;
 
-            span i {
+            span svg.qld__icon {
                 color: var(--QLD-color-light__heading);
             }
 
@@ -245,7 +250,7 @@
                 color: var(--QLD-color-dark__link);
                 background: var(--QLD-color-dark__background--shade);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
 
@@ -265,7 +270,7 @@
                         background-color: var(--QLD-color-dark__design-accent);
                     }
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-dark__heading);
                         text-decoration: none;
                         display: inline-block;
@@ -280,7 +285,7 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-decoration-color: var(--QLD-color-dark__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-dark__link--on-action);
                         text-decoration: none;
                         display: inline-block;
@@ -321,7 +326,7 @@
                 color: var(--QLD-color-dark__link);
                 background: var(--QLD-color-dark__background--alt-shade);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
 
@@ -341,7 +346,7 @@
                         background-color: var(--QLD-color-dark__design-accent);
                     }
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-dark__heading);
                         text-decoration: none;
                         display: inline-block;
@@ -363,7 +368,7 @@
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
                     text-decoration-color: var(--QLD-color-dark__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-dark__link--on-action);
                         text-decoration: none;
                         display: inline-block;
@@ -506,7 +511,7 @@
                 background: var(--QLD-color-light__background--shade);
                 color: var(--QLD--color-light__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-light__action--secondary);
                 }
 
@@ -515,7 +520,7 @@
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__link--on-action);
                     }
                 }
@@ -547,7 +552,7 @@
                 background: var(--QLD-color-light__background--alt-shade);
                 color: var(--QLD--color-light__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-light__action--secondary);
                 }
 
@@ -556,7 +561,7 @@
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__link--on-action);
                     }
                 }
@@ -588,7 +593,7 @@
                 background: var(--QLD-color-dark__background--shade);
                 color: var(--QLD-color-dark__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
             }
@@ -598,7 +603,7 @@
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__link--on-action);
                 }
             }
@@ -628,7 +633,7 @@
                 background: var(--QLD-color-dark__background--alt-shade);
                 color: var(--QLD-color-dark__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
             }
@@ -638,7 +643,7 @@
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__link--on-action);
                 }
             }
@@ -668,7 +673,7 @@
                 background: var(--QLD-color-light__background--shade);
                 color: var(--QLD--color-light__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-light__action--secondary);
                 }
 
@@ -677,7 +682,7 @@
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__link--on-action);
                     }
                 }
@@ -713,7 +718,7 @@
                 background: var(--QLD-color-light__background--alt-shade);
                 color: var(--QLD-color-light__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-light__action--secondary);
                 }
 
@@ -722,7 +727,7 @@
                     color: var(--QLD-color-light__link--on-action);
                     text-decoration-color: var(--QLD--color-light__link--on-action);
 
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__link--on-action);
                     }
                 }
@@ -757,7 +762,7 @@
                 background: var(--QLD-color-dark__background--shade);
                 color: var(--QLD-color-dark__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
                 &[tabindex="-1"]:focus,
@@ -771,7 +776,7 @@
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__link--on-action);
                 }
             }
@@ -809,7 +814,7 @@
                 background: var(--QLD-color-dark__background--alt-shade);
                 color: var(--QLD-color-dark__link);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
                 &[tabindex="-1"]:focus,
@@ -823,7 +828,7 @@
                 color: var(--QLD-color-dark__link--on-action);
                 text-decoration-color: var(--QLD--color-dark__link--on-action);
 
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__link--on-action);
                 }
             }
@@ -863,7 +868,7 @@
 
         &-container {
             .qld__tab-button {
-                span i {
+                span svg.qld__icon {
                     color: var(--QLD-color-dark__action--secondary);
                 }
 
@@ -876,14 +881,14 @@
                         background: var(--QLD-color-dark__action--primary-hover);
                         text-decoration-color: var(--QLD-color-dark__link--on-action);
 
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-dark__link--on-action);
                         }
                     }
                 }
 
                 &.active {
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__heading);
                     }
                 }
@@ -895,7 +900,7 @@
                         background: var(--QLD-color-light__background--shade);
                         color: var(--QLD-color-light__link);
 
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-light__action--secondary);
                         }
 
@@ -904,14 +909,14 @@
                             color: var(--QLD-color-light__link--on-action);
                             text-decoration-color: var(--QLD-color-light__link--on-action);
 
-                            span i {
+                            span svg.qld__icon {
                                 color: var(--QLD-color-dark__heading);
                             }
                         }
                     }
 
                     &.active {
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-light__heading);
                         }
                     }
@@ -924,7 +929,7 @@
                         background: var(--QLD-color-light__background--alt-shade);
                         color: var(--QLD-color-light__link);
 
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-light__action--secondary);
                         }
 
@@ -933,14 +938,14 @@
                             color: var(--QLD-color-light__link--on-action);
                             text-decoration-color: var(--QLD-color-light__link--on-action);
 
-                            span i {
+                            span svg.qld__icon {
                                 color: var(--QLD-color-dark__heading);
                             }
                         }
                     }
 
                     &.active {
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-light__heading);
                         }
                     }
@@ -959,7 +964,7 @@
             &--dark,
             &--dark-alt {
                 .qld__tab-button {
-                    span i {
+                    span svg.qld__icon {
                         color: var(--QLD-color-light__action--secondary);
                     }
 
@@ -977,13 +982,13 @@
                         color: var(--QLD-color-light__link--on-action);
                         text-decoration-color: var(--QLD-color-light__link--on-action);
 
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-dark__heading);
                         }
                     }
 
                     &.active {
-                        span i {
+                        span svg.qld__icon {
                             color: var(--QLD-color-dark__heading);
                         }
                     }
