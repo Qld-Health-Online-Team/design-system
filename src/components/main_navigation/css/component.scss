@@ -602,12 +602,14 @@ $QLD-header-md: 72px;
                 background-color: var(--QLD-color-dark__border);
             }
             .qld__main-nav__item {
+                .qld__main-nav__item-link,
                 a {
                     @include QLD-underline("dark", "noUnderline", "default", "noVisited");
                     color: var(--QLD-color-dark__text);
                 }
             }
 
+            a,
             .qld__main-nav__item-link {
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__design-accent);
@@ -619,6 +621,10 @@ $QLD-header-md: 72px;
                     .qld__icon {
                         color: var(--QLD-color-dark__action--secondary-hover);
                     }
+                }
+
+                &::selection {
+                    background-color: var(--QLD-color-dark__background);
                 }
             }
 
