@@ -44,14 +44,10 @@ body {
 [class*="--alt"]::selection {
     color: var(--QLD-color-dark__text) !important;
     background-color: var(--QLD-color-dark__background) !important;
-    opacity: 0.99;
 }
 
-[class*="--dark-alt"],
-[class*="--dark"] {
-    ::selection {
-        color: var(--QLD-color-light__text) !important;
-        background-color: var(--QLD-color-light__background) !important;
-        opacity: 0.99;
-    }
+[class*="--dark-alt"]::selection,
+[class*="--dark"]::selection {
+    color: var(--QLD-color-light__text) !important;
+    background-color: var(--QLD-color-light__background) !important;
 }
