@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story } from "@storybook/blocks";
+import * as BackToTopStories from "./BackToTop.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta title="Components/BackToTop" of={BackToTopStories} />
+
+# BackToTop
+
+A floating button that scrolls the user to the top of the page.
+
+<Canvas>
+    <Story of={BackToTopStories.Default} />
+</Canvas>
+
+## Design resources
+
+-   <a
+        className="figma-link"
+        href={figmaLinks.backToTop.design}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component design view (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.backToTop.file}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component file (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.backToTop.ds}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Design System website
+    </a>
