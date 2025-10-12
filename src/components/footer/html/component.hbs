@@ -28,16 +28,19 @@
                                 {{footerCTALead.value}}
                             </p>
                             {{/if}}
-                           {{#if footerCTAContact.value}}
-                            <p class="qld__footer__cta-content">
-                                {{#ifCond footerCTAContactIcon.value '==' 'phone'}}
-                                <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#phone"></use></svg>
-                                {{/ifCond}}
-                                {{#ifCond footerCTAContactIcon.value '==' 'email'}}
-                                <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Email"></use></svg>
-                                {{/ifCond}}
-                                {{{footerCTAContact.value}}}
-                            </p>
+                           {{#if footerCTAContactPhone.value}}
+                                <p class="qld__footer__cta-content">
+                                    <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#phone"></use></svg>
+                                    <strong>Phone: </strong>
+                                    {{#if footerCTAContactPhoneLink.value}}<a href="{{footerCTAContactPhoneLink.value}}" target="_blank">{{footerCTAContactPhone.value}}</a>{{else}}{{footerCTAContactPhone.value}}{{/if}}
+                                </p>
+                            {{/if}}
+                           {{#if footerCTAContactEmail.value}}
+                                <p class="qld__footer__cta-content">
+                                    <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#Email"></use></svg>
+                                    <strong>Email: </strong>
+                                    {{#if footerCTAContactEmailLink.value}}<a href="{{footerCTAContactEmailLink.value}}" target="_blank">{{footerCTAContactEmail.value}}</a>{{else}}{{footerCTAContactEmail.value}}{{/if}}
+                                </p>
                             {{/if}}
                         </div>
                         <div class="col-xs-12 col-sm-4 col-lg-12">
