@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// Tabs
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__tab {
@@ -33,7 +33,8 @@
         font-size: 1rem;
         color: var(--QLD-color-light__link);
         cursor: pointer;
-        border-radius: 4px 4px 0px 0px;
+        border-top-left-radius: $QLD-border-radius-xs;
+        border-top-right-radius: $QLD-border-radius-xs;
         display: flex;
         justify-content: flex-end;
         flex-direction: column;
@@ -43,6 +44,7 @@
 
         span {
             max-height: 24px;
+            white-space: nowrap;
 
             svg.qld__icon {
                 margin-bottom: 4px;
@@ -58,7 +60,8 @@
             position: relative;
             bottom: 0px;
             background-color: transparent;
-            border-radius: 4px 4px 0px 0px;
+            border-top-left-radius: $QLD-border-radius-xs;
+            border-top-right-radius: $QLD-border-radius-xs;
         }
 
         &:not(.active):hover {
@@ -79,7 +82,8 @@
 
         // Ensure the active tab has the correct border radius.
         &.active[role="tab"]:focus {
-            border-radius: 4px 4px 0px 0px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         /**
@@ -419,6 +423,11 @@
         > section.qld__body > .container-fluid {
             padding-left: 0px;
             padding-right: 0px;
+        }
+
+        &:focus {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
         }
     }
 }
