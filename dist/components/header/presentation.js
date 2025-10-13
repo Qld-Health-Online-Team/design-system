@@ -188,7 +188,16 @@
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteLogo") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" width=\"170\" height=\"56\" aria-label=\"Queensland Government logo\"/>\r\n";
 },"27":function(container,depth0,helpers,partials,data) {
-    return "                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"170\" height=\"56\" role=\"img\" aria-label=\"Queensland Government logo\"><use href=\"/mysource_files/img/qgov-coa.svg#logo\"></use></svg>\r\n";
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"170\" height=\"56\" role=\"img\" aria-label=\"Queensland Government logo\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"siteHeaderDefaultLogo"))) && lookupProperty(stack1,"value")), depth0))
+    + "#logo\"></use></svg>\r\n";
 },"29":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
