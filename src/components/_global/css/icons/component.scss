@@ -2,38 +2,38 @@
 // Icons
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-svg.qld__icon{
+svg.qld__icon {
     height: 1em;
     width: 1em;
     display: inline-block;
     align-self: center;
     vertical-align: middle;
 
-    &--xs{
+    &--xs {
         font-size: $QLD-icon-size__xs;
     }
 
-    &--sm{
+    &--sm {
         font-size: $QLD-icon-size__sm;
     }
 
-    &--md{
+    &--md {
         font-size: $QLD-icon-size__md;
     }
 
-    &--lg{
+    &--lg {
         font-size: $QLD-icon-size__lg;
     }
 
-    &--xl{
+    &--xl {
         font-size: $QLD-icon-size__xl;
     }
 
-    &--xxl{
+    &--xxl {
         font-size: $QLD-icon-size__xxl;
     }
 
-    &--feature-lg{
+    &--feature-lg {
         font-size: $QLD-icon-size__feature;
         border-radius: 50%;
         background-color: $QLD-color-neutral--lightest;
@@ -62,26 +62,32 @@ svg.qld__icon{
     &--trail {
         @include QLD-space(margin-left, 0.5unit);
     }
+
+    // Force new svg icons to revert to default color in high contrast mode
+    @media (prefers-contrast: more) {
+        color: revert !important;
+        fill: revert !important;
+    }
 }
 
-i.qld__icon{
+i.qld__icon {
     font-size: $QLD-icon-size__xs;
 
-    &--sm{
+    &--sm {
         font-size: $QLD-icon-size__sm;
     }
-    &--md{
+    &--md {
         font-size: $QLD-icon-size__md;
     }
-    &--lg{
+    &--lg {
         font-size: $QLD-icon-size__lg;
     }
 
-    &--xl{
+    &--xl {
         font-size: $QLD-font-size__feature;
     }
 
-    &--feature-lg{
+    &--feature-lg {
         font-size: $QLD-font-size__feature-lg;
     }
 
@@ -98,20 +104,19 @@ i.qld__icon{
 .qld__header__main,
 .qld__body,
 .qld__footer,
-.qld__banner{
-
-    .qld__icon{
+.qld__banner {
+    .qld__icon {
         color: var(--QLD-color-light__heading);
         fill: var(--QLD-color-light__heading);
     }
 
-    a .qld__icon{
+    a .qld__icon {
         color: var(--QLD-color-light__action--secondary);
         fill: var(--QLD-color-light__action--secondary);
     }
 
-    a:hover{
-        .qld__icon{
+    a:hover {
+        .qld__icon {
             color: var(--QLD-color-light__action--secondary-hover);
             fill: var(--QLD-color-light__action--secondary-hover);
         }
@@ -120,38 +125,35 @@ i.qld__icon{
     &.qld__header__pre-header--dark-alt,
     &.qld__header__pre-header--dark,
     &.qld__body--dark,
-	&.qld__body--dark-alt,
-	&.qld__banner--dark,
-	&.qld__banner--dark-alt,
-	&.qld__header__main--dark,
-	&.qld__header__main--dark-alt,
-	&.qld__footer--dark,
-	&.qld__footer--dark-alt{
-
-        .qld__icon{
+    &.qld__body--dark-alt,
+    &.qld__banner--dark,
+    &.qld__banner--dark-alt,
+    &.qld__header__main--dark,
+    &.qld__header__main--dark-alt,
+    &.qld__footer--dark,
+    &.qld__footer--dark-alt {
+        .qld__icon {
             color: var(--QLD-color-dark__heading);
             fill: var(--QLD-color-dark__heading);
         }
 
-        a .qld__icon{
+        a .qld__icon {
             color: var(--QLD-color-dark__action--secondary);
             fill: var(--QLD-color-dark__action--secondary);
         }
 
-        a:hover{
-            .qld__icon{
+        a:hover {
+            .qld__icon {
                 color: var(--QLD-color-dark__action--secondary-hover);
                 fill: var(--QLD-color-dark__action--secondary-hover);
             }
         }
-    }    
+    }
 }
-    
-
 
 //Font awesome fix to remove underline when link is on hover
-.fa-light{
-    &::before{
+.fa-light {
+    &::before {
         display: inline-block;
     }
 }
