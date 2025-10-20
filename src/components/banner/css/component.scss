@@ -23,10 +23,10 @@
     & &__content {
         color: var(--QLD-color-light__text);
         position: relative;
-        
+
         @include QLD-space(padding-top, 2unit);
         @include QLD-space(padding-bottom, 2unit);
-    
+
         @include QLD-media(lg) {
             display: flex;
             flex-direction: column;
@@ -42,9 +42,6 @@
 
         h1 {
             color: var(--QLD-color-light__heading);
-            // line-height: 40px;
-            // font-weight: bold;
-            // @include QLD-space(font-size, 2unit);
             @include QLD-space(margin, 0);
 
             @include QLD-media(md) {
@@ -63,46 +60,38 @@
         .qld__banner__heading {
             @include QLD-space(font-size, 1.75unit);
             @include QLD-space(line-height, 2.25unit);
-            // @include QLD-space(padding, 0.5unit 1unit);
-            // border-left: 4px solid var(--QLD-color-light__design-accent);
             display: inline-block;
             margin: 0;
             border-left: 0px;
             padding: 0px;
-    
+
             @include QLD-media(lg) {
                 @include QLD-space(font-size, 2.5unit);
                 line-height: 52px;
             }
-    
-            &__wrapper {
-                // display: flex;
-                // flex-direction: column;
-                // align-items: flex-start;
 
+            &__wrapper {
                 display: block;
-                @include QLD-space(padding, .5unit 1.25unit);
+                @include QLD-space(padding, 0.5unit 1.25unit);
             }
-    
+
             &--dark {
                 display: inline;
                 background-color: var(--QLD-color-dark__background);
                 color: var(--QLD-color-dark__heading);
-                // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-                box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background), -8px 0px 0 6px var(--QLD-color-dark__background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
+                box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background), -8px 0px 0 6px var(--QLD-color-dark__background), -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
             }
-    
+
             &--light {
                 display: table;
                 background-color: $QLD-color-neutral--white;
                 color: var(--QLD-color-light__text);
                 font-weight: 300;
-                // box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);  
-                box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-light__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
                 -webkit-box-decoration-break: clone;
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
@@ -114,13 +103,12 @@
         .qld__banner__content--body.qld__abstract {
             @include QLD-space(margin-top, 1unit);
             @include QLD-space(margin-bottom, 0unit);
-    
+
             @include QLD-media(lg) {
                 @include QLD-space(margin-top, 1.5unit);
                 @include QLD-space(font-size, 1.5unit);
                 @include QLD-space(line-height, 2unit);
             }
-    
         }
         .qld__banner__content--cta {
             display: flex;
@@ -130,32 +118,29 @@
             @include QLD-media(sm) {
                 flex-direction: row;
             }
-            li{
+            li {
                 @include QLD-space(margin, 0unit);
                 @include QLD-media(sm) {
-                    &:first-of-type{
+                    &:first-of-type {
                         @include QLD-space(margin-right, 2unit);
                     }
                 }
-                
             }
-            a{
+            a {
                 @include QLD-space(margin, 1unit 0unit 0unit 0unit);
             }
-            .qld__btn{
+            .qld__btn {
                 width: 100%;
 
                 @include QLD-media(sm) {
                     width: auto;
                 }
             }
-           
+
             @include QLD-media(lg) {
                 flex-direction: row;
             }
         }
-
-        
     }
 
     &__main {
@@ -168,11 +153,10 @@
 
     &__sub-heading {
         font-weight: 300;
-        // display: inline-block;
         display: block;
     }
 
-    //Base hero image 
+    //Base hero image
     .qld__banner__hero {
         background-color: var(--QLD-color-light__background--shade);
         padding: 0;
@@ -183,31 +167,28 @@
             position: absolute;
             left: 50%;
             height: 100%;
-
         }
         @include QLD-media(lg) {
             left: 58.33%;
             @include QLD-space(padding-left, 1.25unit);
         }
-        
-        &.qld__banner__hero--scale{
 
+        &.qld__banner__hero--scale {
             @include QLD-media(md) {
                 @include QLD-space(padding-left, 1unit);
                 @include QLD-space(padding-right, 1unit);
                 @include QLD-space(padding-top, 1unit);
                 @include QLD-space(padding-bottom, 1unit);
             }
-            .qld__banner__image{
+            .qld__banner__image {
                 background-size: contain;
-                &.qld__banner__image--background{
+                &.qld__banner__image--background {
                     background-size: cover;
                 }
                 @include QLD-media(md) {
-                    background-position: right center;
+                    background-position: center;
                 }
             }
-            
         }
 
         &.qld__banner__hero--fix-right {
@@ -250,7 +231,7 @@
         background-repeat: no-repeat;
         padding-bottom: 56.25%; // 16:9 ratio
 
-        &--background{
+        &--background {
             @include QLD-space(padding, 0unit);
             @include QLD-space(height, 10unit);
         }
@@ -258,7 +239,6 @@
         @include QLD-media(md) {
             padding-bottom: 0;
             height: 100%;
-            
         }
 
         @include QLD-media(md) {
@@ -266,20 +246,18 @@
             @include QLD-space(left, 0);
         }
 
-
-        &.qld__banner__image--mobile-hide{
+        &.qld__banner__image--mobile-hide {
             display: none;
             @include QLD-media(md) {
                 display: block;
             }
         }
 
-        &.qld__banner__image--desktop-hide{
+        &.qld__banner__image--desktop-hide {
             @include QLD-media(md) {
                 display: none;
             }
         }
-        
 
         &.qld__banner__image--sm {
             @include QLD-media(md) {
@@ -295,7 +273,7 @@
             }
         }
 
-        +.qld__banner__content .qld__banner__heading__wrapper {
+        + .qld__banner__content .qld__banner__heading__wrapper {
             @include QLD-space(margin-top, -3unit);
 
             @include QLD-media(md) {
@@ -305,11 +283,11 @@
     }
 
     //with breadcrumbs
-    &.qld__banner--breadcrumbs{
-        .qld__banner__content{
+    &.qld__banner--breadcrumbs {
+        .qld__banner__content {
             @include QLD-space(padding-top, 0unit);
             @include QLD-space(padding-bottom, 2unit);
-    
+
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 1.5unit);
                 @include QLD-space(padding-bottom, 2unit);
@@ -322,8 +300,8 @@
     }
 
     //With Hero image
-    &.qld__banner--has-hero{
-        .qld__banner__content{
+    &.qld__banner--has-hero {
+        .qld__banner__content {
             @include QLD-space(padding-top, 1unit);
             @include QLD-media(md) {
                 @include QLD-space(padding-top, 2unit);
@@ -334,9 +312,9 @@
             }
         }
 
-        .qld__banner__content .qld__banner__heading__wrapper{
+        .qld__banner__content .qld__banner__heading__wrapper {
             @include QLD-space(margin-top, -4unit);
-            
+
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
             }
@@ -345,16 +323,16 @@
 
     //Hero image right aligned to page
     &.qld__banner--hero-right {
-        .qld__banner__wrapper{
+        .qld__banner__wrapper {
             position: initial;
         }
-        .qld__banner__hero{
+        .qld__banner__hero {
             @include QLD-space(padding, 0unit);
             @include QLD-media(xl) {
                 left: 56.7%;
             }
         }
-        .qld__banner__image{
+        .qld__banner__image {
             @include QLD-media(md) {
                 width: 50vw;
                 max-width: 50vw;
@@ -371,7 +349,7 @@
                 left: 11vw;
             }
 
-            @media (min-width: 1600px){
+            @media (min-width: 1600px) {
                 max-width: 34vw;
                 width: 34vw;
                 left: 10vw;
@@ -380,10 +358,10 @@
     }
 
     //Base search
-    &.qld__banner--search{
+    &.qld__banner--search {
         overflow: visible;
 
-        .qld__banner__content{
+        .qld__banner__content {
             @include QLD-space(padding-bottom, 1unit);
 
             @include QLD-media(md) {
@@ -395,7 +373,7 @@
             }
         }
 
-        .qld__banner__search{
+        .qld__banner__search {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -410,9 +388,9 @@
             }
         }
     }
-    
-    &.qld__banner--search.qld__banner--breadcrumbs{
-        .qld__banner__content{
+
+    &.qld__banner--search.qld__banner--breadcrumbs {
+        .qld__banner__content {
             @include QLD-media(md) {
                 padding-bottom: 1.5rem;
             }
@@ -425,13 +403,13 @@
     .qld__banner__breadcrumbs--desktop {
         @include QLD-media(md) {
             @include QLD-space(margin-bottom, 1.5unit);
-            ~*:last-child {
+            ~ *:last-child {
                 @include QLD-space(margin-bottom, auto);
             }
         }
     }
 
-    &--light{
+    &--light {
         background-color: var(--QLD-color-light__background);
         
         .qld__banner__content {
@@ -441,8 +419,8 @@
                 color: var(--QLD-color-light__heading);
             }
 
-            .qld__banner__heading{
-                &--light{
+            .qld__banner__heading {
+                &--light {
                     background-color: var(--QLD-color-light__background);
                 }
             }
@@ -450,7 +428,7 @@
 
         .qld__banner__hero {
             background-color: var(--QLD-color-light__background);
-    
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -467,8 +445,8 @@
                 color: var(--QLD-color-light__heading);
             }
 
-            .qld__banner__heading{
-                &--light{
+            .qld__banner__heading {
+                &--light {
                     background-color: $QLD-color-neutral--white;
                 }
             }
@@ -476,7 +454,7 @@
 
         .qld__banner__hero {
             background-color: var(--QLD-color-light__background--alt-shade);
-    
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -492,31 +470,29 @@
             h1 {
                 color: var(--QLD-color-dark__heading);
             }
-            .qld__banner__heading{
-                // border-left: 4px solid var(--QLD-color-dark__design-accent);
-
+            .qld__banner__heading {
                 &--dark {
                     background-color: var(--QLD-color-dark__background--shade);
-                    box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3);
+                    box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
                 }
-        
+
                 &--light {
                     background-color: $QLD-color-neutral--white;
-                    box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, .3); 
+                    box-shadow: 8px 0px 0 6px $QLD-color-neutral--white, -8px 0px 0 6px $QLD-color-neutral--white, -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
                 }
             }
         }
 
         .qld__banner__hero {
             background-color: var(--QLD-color-dark__background--shade);
-            
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
         }
     }
 
-    &--dark-alt{
+    &--dark-alt {
         background-color: var(--QLD-color-dark__background--alt);
 
         .qld__banner__content {
@@ -525,12 +501,11 @@
             h1 {
                 color: var(--QLD-color-dark__heading);
             }
-            .qld__banner__heading{
-
+            .qld__banner__heading {
                 &--dark {
                     background-color: var(--QLD-color-dark__background);
                 }
-                &--light{
+                &--light {
                     background-color: $QLD-color-neutral--white;
                 }
             }
@@ -538,7 +513,7 @@
 
         .qld__banner__hero {
             background-color: var(--QLD-color-dark__background--alt-shade);
-            
+
             @include QLD-media(md) {
                 background-color: transparent;
             }
@@ -553,11 +528,8 @@
     position: relative;
 }
 
-
-
 //Not sure if needed
 .qld__banner {
-    
     &--padded {
         @include QLD-space(padding-bottom, 2.5unit);
         @include QLD-media(md) {
@@ -565,72 +537,4 @@
             @include QLD-space(padding-bottom, 3unit);
         }
     }
-
-    
-
-
-    // &.qld__banner--search {
-    //     @include QLD-space(padding-bottom, 0);
-    //     position: relative;
-    //     overflow: visible;
-
-    //     +.qld__body {
-    //         @include QLD-space(padding-top, 2unit);
-
-    //         @include QLD-media(lg) {
-    //             @include QLD-space(padding-top, 4unit);
-    //         }
-    //     }
-
-    //     &:before {
-    //         content: '';
-    //         background-color: var(--QLD-color-light__background);
-    //         width: 100vw;
-    //         height: 1.5rem;
-    //         position: absolute;
-    //         bottom: 0;
-    //         left: 0;
-
-    //         @include QLD-media(lg) {
-    //             left: calc(50% - 50vw);
-    //             height: 2.25rem;
-    //         }
-    //     }
-
-    //     .qld__search {
-    //         @include QLD-space(margin, 1.5unit auto 0 auto);
-    //         border-radius: 4px;
-    //         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    //         position: relative;
-    //         width: 100%;
-
-    //         @include QLD-media(lg) {
-    //             @include QLD-space(margin-top, 2unit);
-    //             max-width: 83.3333%;
-    //         }
-
-    //         .qld__text-input {
-    //             border-color: var(--QLD-color-light__action--primary);
-
-    //             @include QLD-media(lg) {
-    //                 @include QLD-space(height, 4.5unit);
-    //             }
-    //         }
-
-    //         .qld__search__btn {
-    //             @include QLD-media(lg) {
-    //                 width: 124px;
-    //             }
-    //         }
-
-    //         .qld__btn {
-    //             @include QLD-media(lg) {
-    //                 @include QLD-space(height, 4.5unit);
-    //                 font-size: 1.5rem;
-    //             }
-    //         }
-    //     }
-        
-    // }
-
 }
