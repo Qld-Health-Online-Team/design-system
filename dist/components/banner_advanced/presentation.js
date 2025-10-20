@@ -229,7 +229,7 @@
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_image_sm") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(59, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":91,"column":16},"end":{"line":101,"column":23}}})) != null ? stack1 : "")
     + "                </div>\r\n";
 },"48":function(container,depth0,helpers,partials,data) {
-    return "qld__banner__hero--scale col-md-6 col-lg-5 col-xl-4";
+    return "qld__banner__hero--scale col-md-6 col-lg-5 col-xl-5";
 },"50":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
