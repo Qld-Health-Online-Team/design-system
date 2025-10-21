@@ -96,12 +96,20 @@
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
-                @include QLD-space(margin-top, 0.76unit);
+
+                // Adjust margin for the subheading to align with main heading
+                @include QLD-space(margin-top, 0.6unit);
+                @include QLD-media(md) {
+                    @include QLD-space(margin-top, 0.47unit);
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, 0.76unit);
+                }
             }
         }
 
         .qld__banner__content--body.qld__abstract {
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.25unit);
             @include QLD-space(margin-bottom, 0unit);
 
             @include QLD-media(lg) {
@@ -315,8 +323,14 @@
         .qld__banner__content .qld__banner__heading__wrapper {
             @include QLD-space(margin-top, -4unit);
 
+            // Adjust line heights for headings so letters are not cut
+            line-height: 44px;
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
+                line-height: 48px;
+            }
+            @include QLD-media(lg) {
+                line-height: 60px;
             }
         }
     }
