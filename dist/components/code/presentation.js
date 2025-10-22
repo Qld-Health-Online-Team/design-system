@@ -98,7 +98,7 @@
         return undefined
     };
 
-  return "                <div class=\"qld__code-preview-colours\">\r\n                    <span class=\"qld__code-preview-colours-label\">Theme</span>\r\n                    <ul>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
+  return "                <div class=\"qld__code-preview-colours\">\r\n                    <span class=\"qld__code-preview-colours-label\">Palette</span>\r\n                    <ul>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__default-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
@@ -128,7 +128,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" value=\"qld__body--dark-alt\">\r\n                            <label for=\"qld__code-preview-colours__dark-alt-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\"> Dark-alt</label>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n";
+    + "\">Dark-alt</label>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n";
 },"17":function(container,depth0,helpers,partials,data) {
     return " style=\"border-radius: 0 12px 0 0;\" ";
 },"19":function(container,depth0,helpers,partials,data) {
