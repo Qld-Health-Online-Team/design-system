@@ -83,7 +83,7 @@
         return undefined
     };
 
-  return "            <div class=\"qld__code-preview\">\r\n                <span class=\"qld__code-preview-tab\">Example</span>\r\n"
+  return "            <div class=\"qld__code-preview\">\r\n                <span class=\"qld__code-preview-tab\">Vanilla example</span>\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"show_theme_colors") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),"==","true",{"name":"ifCond","hash":{},"fn":container.program(15, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":47,"column":16},"end":{"line":73,"column":27}}})) != null ? stack1 : "")
     + "                <div class=\"qld__code-preview-body qld__body\" "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"show_theme_colors") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),"==","false",{"name":"ifCond","hash":{},"fn":container.program(17, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":74,"column":62},"end":{"line":74,"column":157}}})) != null ? stack1 : "")
@@ -104,7 +104,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" value=\"\" checked>\r\n                            <label for=\"qld__code-preview-colours__default-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
-    + "\">White</label>\r\n                        </li>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
+    + "\">Default</label>\r\n                        </li>\r\n                        <li>\r\n                            <input type=\"radio\" name=\"qld__code-preview-colours-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
     + "\" id=\"qld__code-preview-colours__light-"
     + alias2(alias1(((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"assetid") : stack1), depth0))
