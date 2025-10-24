@@ -161,6 +161,11 @@ $QLD-header-md: 72px;
             @include QLD-fontgrid(sm, heading);
             height: 100%;
 
+            // Selector ensures the hover only applies when the item is not open
+            &:has(.qld__main-nav__item-toggle):not(:has(.qld__main-nav__item-link--open)):hover {
+                background-color: var(--QLD-color-light__background--alt);
+            }
+
             > a.qld__main-nav__item-link.qld__main-nav__item-link--open {
                 color: var(--QLD-color-light__heading);
             }
