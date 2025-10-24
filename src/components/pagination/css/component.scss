@@ -13,9 +13,14 @@
 
             &.first,
             &.last {
+                display: block;
+            }
+
+            &.first + .ellipsis + .mid,
+            &.mid.active + .mid + .mid {
                 display: none;
 
-                @include QLD-media(md) {
+                @include QLD-media(lg) {
                     display: block;
                 }
             }
