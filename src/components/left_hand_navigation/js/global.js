@@ -13,12 +13,13 @@ const navLinkClass = "qld__left-nav__item-link";
 export default function initLeftHandNav(document = document) {
     // Add toggle event listeners to accordion buttons
     var itemToggles = document.querySelectorAll("." + navLinkToggleClass);
-    itemToggles.forEach((button) => button.addEventListener("click", () => handleClick(button)));
 
     // On init, check for falsly triggered accordions and correct them
     itemToggles.forEach((button) => {
         checkAccordions(button);
     });
+    // Loop through all toggles and add click event listener
+    itemToggles.forEach((button) => button.addEventListener("click", () => handleClick(button)));
 }
 
 function checkAccordions(button) {
