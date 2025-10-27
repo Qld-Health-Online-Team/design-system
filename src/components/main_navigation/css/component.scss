@@ -279,6 +279,11 @@ $QLD-header-md: 72px;
             .qld__main-nav__menu-heading {
                 color: var(--QLD-color-dark__heading);
             }
+
+            .qld__icon {
+                color: var(--QLD-color-dark__action--secondary);
+            }
+
             .qld__main-nav__toggle {
                 color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
@@ -600,6 +605,7 @@ $QLD-header-md: 72px;
         .qld__link-list {
             background-color: var(--QLD-color-dark__background--shade);
         }
+
         .qld__main-nav__menu {
             .qld__main-nav__item-title a.qld__main-nav__item-link.qld__main-nav__item-link--open {
                 color: var(--QLD-color-dark__heading);
@@ -650,8 +656,10 @@ $QLD-header-md: 72px;
                 }
             }
 
-            .qld__icon {
-                color: var(--QLD-color-dark__action--secondary);
+            &:not(.qld__main-nav__menu--dark) {
+                .qld__main-nav__item-home .qld__icon {
+                    color: var(--QLD-color-dark__action--secondary);
+                }
             }
         }
     }
@@ -706,9 +714,18 @@ $QLD-header-md: 72px;
         }
     }
 
-    // Dark mode focus styles
+    // Dark and dark-alt modes
     &.qld__main-nav--dark,
     &.qld__main-nav--dark--alt {
+        // Menu item title
+        & .qld__main-nav__item-title {
+            // Selector ensures the hover only applies when the item is not open
+            &:has(.qld__main-nav__item-toggle):not(:has(.qld__main-nav__item-link--open)):hover {
+                background-color: var(--QLD-color-dark__background--shade);
+            }
+        }
+
+        // Focus styles
         .qld__main-nav__menu-inner {
             .qld__main-nav__item-link,
             .qld__main-nav__item-toggle {
