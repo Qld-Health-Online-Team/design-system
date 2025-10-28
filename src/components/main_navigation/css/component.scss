@@ -57,7 +57,6 @@ $QLD-header-md: 72px;
             position: fixed;
             top: 0;
             bottom: 0;
-            // right: 0;
             right: -1 * $QLD-main-nav-width;
             width: $QLD-main-nav-width;
             z-index: $QLD-main-nav-z-index;
@@ -298,15 +297,10 @@ $QLD-header-md: 72px;
             }
 
             .qld__main-nav__toggle {
-                color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border);
 
                 &:hover {
                     background-color: var(--QLD-color-dark__background--shade);
-
-                    .qld__icon {
-                        color: var(--QLD-color-dark__action--secondary-hover);
-                    }
                 }
             }
 
@@ -320,16 +314,8 @@ $QLD-header-md: 72px;
                 }
 
                 .qld__main-nav__item--cta {
-                    .qld__main-nav__item-link {
-                        color: var(--QLD-color-dark__link);
-
-                        &:hover {
-                            background-color: var(--QLD-color-dark__background);
-
-                            .qld__icon {
-                                color: var(--QLD-color-dark__action--secondary-hover);
-                            }
-                        }
+                    .qld__main-nav__item-link:hover {
+                        background-color: var(--QLD-color-dark__background);
                     }
                 }
             }
@@ -346,15 +332,10 @@ $QLD-header-md: 72px;
             }
 
             .qld__main-nav__toggle {
-                color: var(--QLD-color-dark__link);
                 border-color: var(--QLD-color-dark__border--alt);
 
                 &:hover {
                     background-color: var(--QLD-color-dark__background--alt-shade);
-
-                    .qld__icon {
-                        color: var(--QLD-color-dark__action--secondary-hover);
-                    }
                 }
             }
 
@@ -368,16 +349,8 @@ $QLD-header-md: 72px;
                 }
 
                 .qld__main-nav__item--cta {
-                    .qld__main-nav__item-link {
-                        color: var(--QLD-color-dark__link);
-
-                        &:hover {
-                            background-color: var(--QLD-color-dark__background--alt);
-
-                            .qld__icon {
-                                color: var(--QLD-color-dark__action--secondary-hover);
-                            }
-                        }
+                    .qld__main-nav__item-link:hover {
+                        background-color: var(--QLD-color-dark__background--alt);
                     }
                 }
             }
@@ -459,7 +432,6 @@ $QLD-header-md: 72px;
     & &__menu-heading {
         @include QLD-fontgrid(xs);
         @include QLD-space(margin, 0unit 1unit);
-        // @include QLD-space(padding, 1unit 0unit);
         font-weight: normal;
         color: var(--QLD-color-light__heading);
 
@@ -752,7 +724,11 @@ $QLD-header-md: 72px;
         .qld__main-nav__header {
             &.qld__main-nav__header--dark,
             &.qld__main-nav__header--dark-alt {
-                .qld__main-nav__toggle {
+                button.qld__main-nav__toggle {
+                    @include QLD-focus("dark", false, -3px);
+
+                    color: var(--QLD-color-dark__link);
+
                     &--open,
                     &--close {
                         &:active {
@@ -763,9 +739,12 @@ $QLD-header-md: 72px;
                     .qld__icon {
                         color: var(--QLD-color-dark__action--secondary);
                     }
-                }
-                button.qld__main-nav__toggle {
-                    @include QLD-focus("dark", false, -3px);
+
+                    &:hover {
+                        .qld__icon {
+                            color: var(--QLD-color-dark__action--secondary-hover);
+                        }
+                    }
                 }
             }
         }
@@ -802,8 +781,16 @@ $QLD-header-md: 72px;
                     @include QLD-underline("dark", "noUnderline", "default", "noVisited");
                     @include QLD-focus("dark", false, -3px);
 
+                    color: var(--QLD-color-dark__link);
+
                     .qld__icon {
                         color: var(--QLD-color-dark__action--secondary);
+                    }
+
+                    &:hover {
+                        .qld__icon {
+                            color: var(--QLD-color-dark__action--secondary-hover);
+                        }
                     }
                 }
             }
