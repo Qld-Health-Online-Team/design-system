@@ -9,12 +9,13 @@ const targetId = searchToggle.getAttribute("aria-controls");
 const target = document.getElementById(targetId);
 const focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
 const focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
-// const isExpanded = searchToggle.getAttribute("aria-expanded");
 const searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
 // Hold state of the header (open vs close)
 let isHeaderOpen = false;
 // Global events object
 let headerSearchEvents = {};
+// Breakpoint for mobile mode
+const mobileBreakpoint = 992;
 
 export default function initHeader(document = document) {
     // Add action so the search works only if JS is enabled
@@ -33,9 +34,9 @@ export default function initHeader(document = document) {
 
     // We want to ensure the search input is visible on desktop at all times
     window.addEventListener("resize", () => {
-        if (window.innerWidth >= 992 && !isHeaderOpen) {
+        if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
             openHeader();
-        } else if (window.innerWidth < 992 && isHeaderOpen) {
+        } else if (window.innerWidth < mobileBreakpoint && isHeaderOpen) {
             closeHeader();
         }
     });
@@ -94,7 +95,7 @@ function openHeader() {
 
         // Close header search on click outside
         headerSearchEvents.background = addEvent(document, "click", function () {
-            if (!target.contains(event.target)) {
+            if (!target.contains(event.target) && window.innerWidth < mobileBreakpoint) {
                 toggleHeaderSearch();
             }
         });
