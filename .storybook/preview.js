@@ -5,7 +5,6 @@ import { viewports, themes, themeColours } from "./globals.js";
 
 /** @type { import('@storybook/html').Preview } */
 const preview = {
-    tags: ["autodocs"],
     parameters: {
         controls: {
             matchers: {
@@ -35,26 +34,26 @@ const preview = {
             },
         },
         backgrounds: {
-            default: "white",
+            default: "White",
             values: [
                 {
-                    name: "white",
+                    name: "White",
                     value: themeColours["white"],
                 },
                 {
-                    name: "light",
+                    name: "Light",
                     value: themeColours["light"],
                 },
                 {
-                    name: "light alt",
+                    name: "Light Alternate",
                     value: themeColours["light alt"],
                 },
                 {
-                    name: "dark",
+                    name: "Dark",
                     value: themeColours["dark"],
                 },
                 {
-                    name: "dark alt",
+                    name: "Dark Alternate",
                     value: themeColours["dark alt"],
                 },
             ],
@@ -69,19 +68,16 @@ const preview = {
     },
     decorators: [
         (storyFn, context) => {
-            const theme = context.globals.theme || "white";
-            const themeClass = themes[theme] || "qld__body";
-
+            // Get the theme key from the background, to use within the decorator
+            const themeKey = Object.keys(themeColours).find((key) => themeColours[key] === context.globals.backgrounds?.value);
             const wrapper = document.createElement("div");
-            wrapper.className = themeClass;
-
+            wrapper.className = themes[themeKey] || themes["white"];
             const story = storyFn();
             if (typeof story === "string") {
                 wrapper.innerHTML = story;
             } else if (story instanceof HTMLElement) {
                 wrapper.appendChild(story);
             }
-
             return wrapper;
         },
     ],

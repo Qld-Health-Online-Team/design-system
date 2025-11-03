@@ -37,6 +37,11 @@ export const figmaLinks = {
     masterDoc: {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23529-440999&t=y8LMLpCtTxOgtHpT-0",
     },
+    ctaLink: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=cifVNWBzJL4yUQOx-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395565&t=cifVNWBzJL4yUQOx-0",
+        ds: "https://www.designsystem.qld.gov.au/components/call-to-action-cta",
+    },
     inPageAlert: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=y8LMLpCtTxOgtHpT-0",
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395551&t=h9SPYdoJV6KCygCT-0",
