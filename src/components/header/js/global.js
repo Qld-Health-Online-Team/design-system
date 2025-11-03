@@ -7,7 +7,12 @@ const searchToggle = document.querySelector(".qld__main-nav__toggle-search");
 const searchForm = document.querySelector(".qld__header__search .qld__search-form");
 const targetId = searchToggle.getAttribute("aria-controls");
 const target = document.getElementById(targetId);
-
+const focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
+const focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
+// const isExpanded = searchToggle.getAttribute("aria-expanded");
+const searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
+// Hold state of the header (open vs close)
+let isHeaderOpen = false;
 // Global events object
 let headerSearchEvents = {};
 
@@ -28,10 +33,10 @@ export default function initHeader(document = document) {
 
     // We want to ensure the search input is visible on desktop at all times
     window.addEventListener("resize", () => {
-        const width = window.innerWidth;
-
-        if (width >= 992 && target.style.display === "none") {
-            target.style.display = "block";
+        if (window.innerWidth >= 992 && !isHeaderOpen) {
+            openHeader();
+        } else if (window.innerWidth < 992 && isHeaderOpen) {
+            closeHeader();
         }
     });
 }
@@ -65,83 +70,88 @@ function checkHoneypot() {
  * @private
  */
 function toggleHeaderSearch() {
-    const focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
-    const focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
-    const isExpanded = searchToggle.getAttribute("aria-expanded");
-    const searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
-
     // Open menu
-    if (isExpanded === "false") {
-        searchToggle.setAttribute("aria-expanded", true);
-        searchToggle.classList.remove("qld__main-nav__toggle-search--open");
-        searchToggle.classList.add("qld__main-nav__toggle-search--close");
-        searchToggleText.textContent = "Close";
-        target.style.display = "block";
+    if (!isHeaderOpen) {
+        openHeader();
+        // Close menu
+    } else {
+        closeHeader();
+    }
+}
 
-        // Wait for display: block, and then add class to open smoothly
-        setTimeout(function () {
-            target.classList.add("qld__main-nav__search--open");
-            target.querySelector(".qld__text-input").focus();
+function openHeader() {
+    isHeaderOpen = true;
+    searchToggle.setAttribute("aria-expanded", true);
+    searchToggle.classList.remove("qld__main-nav__toggle-search--open");
+    searchToggle.classList.add("qld__main-nav__toggle-search--close");
+    searchToggleText.textContent = "Close";
+    target.style.display = "block";
 
-            // Close header search on click outside
-            headerSearchEvents.background = addEvent(document, "click", function () {
-                if (!target.contains(event.target)) {
-                    toggleHeaderSearch();
-                }
-            });
-        }, 0);
+    // Wait for display: block, and then add class to open smoothly
+    setTimeout(function () {
+        target.classList.add("qld__main-nav__search--open");
+        target.querySelector(".qld__text-input").focus();
 
-        // Focus trap enabled
-        focustrapTop.setAttribute("tabindex", 0);
-        focustrapBottom.setAttribute("tabindex", 0);
-
-        // Add focus listeners
-        headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
-            target.querySelector("button").focus();
-        });
-        headerSearchEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
-            target.querySelector("input").focus();
-        });
-
-        // Close header search if burger menu opened
-        const menuToggle = document.querySelector('button[aria-controls="main-nav"]');
-        if (menuToggle) {
-            headerSearchEvents.menu = addEvent(menuToggle, "click", function () {
-                toggleHeaderSearch();
-            });
-        }
-
-        // Add key listener
-        headerSearchEvents.escKey = addEvent(document, "keydown", function (event) {
-            // Check the menu is open and visible and the escape key is pressed
-            if (event.key === "Escape") {
+        // Close header search on click outside
+        headerSearchEvents.background = addEvent(document, "click", function () {
+            if (!target.contains(event.target)) {
                 toggleHeaderSearch();
             }
         });
+    }, 0);
 
-        // Close menu
-    } else {
-        searchToggle.setAttribute("aria-expanded", false);
-        searchToggle.classList.remove("qld__main-nav__toggle-search--close");
-        searchToggle.classList.add("qld__main-nav__toggle-search--open");
-        searchToggleText.textContent = "Search";
-        searchToggle.focus();
-        target.classList.remove("qld__main-nav__search--open");
-        target.style.display = "none";
+    // Focus trap enabled
+    focustrapTop.setAttribute("tabindex", 0);
+    focustrapBottom.setAttribute("tabindex", 0);
 
-        // Remove the focus trap
-        focustrapTop.removeAttribute("tabindex");
-        focustrapBottom.removeAttribute("tabindex");
+    // Add focus listeners
+    headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
+        target.querySelector("button").focus();
+    });
 
-        // Remove the event listeners
-        removeEvent(headerSearchEvents.focusTop);
-        removeEvent(headerSearchEvents.focusBottom);
-        removeEvent(headerSearchEvents.background);
-        removeEvent(headerSearchEvents.menu);
-        removeEvent(headerSearchEvents.escKey);
-        // Clear events object
-        headerSearchEvents = {};
+    headerSearchEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
+        target.querySelector("input").focus();
+    });
+
+    // Close header search if burger menu opened
+    const menuToggle = document.querySelector('button[aria-controls="main-nav"]');
+    if (menuToggle) {
+        headerSearchEvents.menu = addEvent(menuToggle, "click", function () {
+            toggleHeaderSearch();
+        });
     }
+
+    // Add key listener
+    headerSearchEvents.escKey = addEvent(document, "keydown", function (event) {
+        // Check the menu is open and visible and the escape key is pressed
+        if (event.key === "Escape") {
+            toggleHeaderSearch();
+        }
+    });
+}
+
+function closeHeader() {
+    isHeaderOpen = false;
+    searchToggle.setAttribute("aria-expanded", false);
+    searchToggle.classList.remove("qld__main-nav__toggle-search--close");
+    searchToggle.classList.add("qld__main-nav__toggle-search--open");
+    searchToggleText.textContent = "Search";
+    searchToggle.focus();
+    target.classList.remove("qld__main-nav__search--open");
+    target.style.display = "none";
+
+    // Remove the focus trap
+    focustrapTop.removeAttribute("tabindex");
+    focustrapBottom.removeAttribute("tabindex");
+
+    // Remove the event listeners
+    removeEvent(headerSearchEvents.focusTop);
+    removeEvent(headerSearchEvents.focusBottom);
+    removeEvent(headerSearchEvents.background);
+    removeEvent(headerSearchEvents.menu);
+    removeEvent(headerSearchEvents.escKey);
+    // Clear events object
+    headerSearchEvents = {};
 }
 
 /**
