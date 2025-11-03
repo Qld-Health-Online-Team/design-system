@@ -36,6 +36,8 @@ export default function initHeader(document = document) {
     window.addEventListener("resize", () => {
         if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
             openHeader();
+            // Disable focus trap as it's not needed on desktop
+            disableFocusTrap();
         } else if (window.innerWidth < mobileBreakpoint && isHeaderOpen) {
             closeHeader();
         }
@@ -101,18 +103,7 @@ function openHeader() {
         });
     }, 0);
 
-    // Focus trap enabled
-    focustrapTop.setAttribute("tabindex", 0);
-    focustrapBottom.setAttribute("tabindex", 0);
-
-    // Add focus listeners
-    headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
-        target.querySelector("button").focus();
-    });
-
-    headerSearchEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
-        target.querySelector("input").focus();
-    });
+    enableFocusTrap();
 
     // Close header search if burger menu opened
     const menuToggle = document.querySelector('button[aria-controls="main-nav"]');
@@ -141,18 +132,37 @@ function closeHeader() {
     target.classList.remove("qld__main-nav__search--open");
     target.style.display = "none";
 
-    // Remove the focus trap
-    focustrapTop.removeAttribute("tabindex");
-    focustrapBottom.removeAttribute("tabindex");
+    disableFocusTrap();
 
     // Remove the event listeners
-    removeEvent(headerSearchEvents.focusTop);
-    removeEvent(headerSearchEvents.focusBottom);
     removeEvent(headerSearchEvents.background);
     removeEvent(headerSearchEvents.menu);
     removeEvent(headerSearchEvents.escKey);
     // Clear events object
     headerSearchEvents = {};
+}
+// Enable trap enabled
+function enableFocusTrap() {
+    focustrapTop.setAttribute("tabindex", 0);
+    focustrapBottom.setAttribute("tabindex", 0);
+
+    // Add focus listeners
+    headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
+        target.querySelector("button").focus();
+    });
+
+    headerSearchEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
+        target.querySelector("input").focus();
+    });
+}
+// Remove the focus trap
+function disableFocusTrap() {
+    focustrapTop.removeAttribute("tabindex");
+    focustrapBottom.removeAttribute("tabindex");
+
+    // Remove focus listeners
+    removeEvent(headerSearchEvents.focusTop);
+    removeEvent(headerSearchEvents.focusBottom);
 }
 
 /**
