@@ -1,14 +1,13 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// Overflow Menu
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__banner:has(.qld__overflow_menu_wrapper) {
     overflow: visible;
 }
 
-.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper, 
+.qld__overflow_menu--breadcrumbs .qld__overflow_menu_wrapper,
 .qld__overflow_menu_wrapper {
-
     button.qld__btn.qld__btn--toggle {
         display: inline-flex;
         align-items: center;
@@ -27,14 +26,16 @@
             color: var(--QLD-color-light__link);
         }
 
-        &:hover, &.qld__accordion--open {
+        &:hover,
+        &.qld__accordion--open {
             background-color: $QLD-color-neutral--black__opacity-10;
             svg {
                 color: var(--QLD-color-light__action--secondary);
             }
         }
 
-        &:focus, &:hover:focus {
+        &:focus,
+        &:hover:focus {
             background-color: $QLD-color-neutral--black__opacity-10;
             box-shadow: none;
         }
@@ -51,7 +52,7 @@
         z-index: 9999;
         &.qld__accordion--open {
             display: block;
-            border-bottom: $QLD-border-width-thick solid $QLD-color-light__design-accent;
+            border-bottom: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
             border-radius: $QLD-border-radius-xs;
             height: auto;
         }
@@ -62,7 +63,6 @@
         }
 
         &_list {
-
             list-style-type: none;
             padding: 0;
             margin: 0;
@@ -118,65 +118,46 @@
     .qld__body--dark &,
     .qld__body--dark-alt &,
     .qld__breadcrumbs--dark & {
-
         button.qld__btn.qld__btn--toggle {
             background-color: transparent;
-            
+
             svg {
                 color: var(--QLD-color-dark__link);
             }
-    
-            &:hover, &.qld__accordion--open {
+
+            &:hover,
+            &.qld__accordion--open {
                 background-color: $QLD-color-neutral--black__opacity-10;
-                
+
                 svg {
                     color: var(--QLD-color-dark__action--secondary);
                 }
             }
-    
-            &:focus, &:hover:focus {
+
+            &:focus,
+            &:hover:focus {
                 background-color: $QLD-color-neutral--black__opacity-10;
-                // box-shadow: none;
             }
-            
         }
 
         .qld__overflow_menu {
-
-            &.qld__accordion--open {}
-
-            &.qld__accordion--closed {}
-
             &_list {
-
                 &-item {
-
                     &-link {
-
-
-                        &:visited {}
-
-                        &:hover,
-                        &:hover:visited {}
-
                         &:focus {
                             outline: 3px solid var(--QLD-color-light__focus);
                         }
-
-                        &:active {}
-
-
                     }
 
                     &-link {
                         color: var(--QLD-color-light__text);
                         background-color: $QLD-color-neutral--lightest;
                         text-decoration: none;
-    
+
                         &:visited {
                             color: var(--QLD-color-light__text);
                         }
-    
+
                         &:hover,
                         &:hover:visited {
                             color: var(--QLD-color-light__link);
@@ -184,22 +165,20 @@
                             text-decoration-color: var(--QLD-color-light__link);
                             background-color: $QLD-color-neutral--lighter;
                         }
-    
+
                         &:focus {
                             outline: 3px solid var(--QLD-color-light__focus);
                             outline-offset: -3px !important;
                         }
-    
+
                         &:active {
                             color: var(--QLD-color-light__text);
                             background-color: $QLD-color-neutral--white;
                             text-decoration: none;
                         }
-
                     }
                 }
             }
         }
-
     }
 }
