@@ -112,7 +112,7 @@
 
   return "                                <p class=\"qld__footer__cta-content\">\r\n                                    <svg class=\"qld__icon qld__icon--lead\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#Email\"></use></svg>\r\n                                    <strong>Email: </strong>\r\n                                    "
+    + "#email\"></use></svg>\r\n                                    <strong>Email: </strong>\r\n                                    "
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"footerCTAContactEmailLink") : depth0)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(14, data, 0),"inverse":container.program(16, data, 0),"data":data,"loc":{"start":{"line":42,"column":36},"end":{"line":42,"column":218}}})) != null ? stack1 : "")
     + "\r\n                                </p>\r\n";
 },"14":function(container,depth0,helpers,partials,data) {
