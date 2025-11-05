@@ -660,6 +660,11 @@ $QLD-header-md: 72px;
 
                 @include QLD-media(lg, "down") {
                     @include QLD-focus("light", false, -3px);
+
+                    // Ensure the outline looks "full" compared to other tabs
+                    &:focus {
+                        z-index: 1;
+                    }
                 }
             }
 
