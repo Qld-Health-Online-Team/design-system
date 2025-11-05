@@ -77,6 +77,30 @@ export const disabledVariant = (ctaLinkArgs) =>
     });
 disabledVariant.tags = ["!dev"];
 
+export const linkedListExample = (ctaLinkArgs) => {
+    return `
+        <ul class="qld__link-list qld__margin-t-li--lg">
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Sign up",
+                href: "javascript:void(0);",
+                target: "",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "View all",
+                href: "javascript:void(0);",
+                target: "",
+                isViewAll: true,
+            })}</li>
+        </ul>
+    `;
+};
+linkedListExample.parameters = {
+    controls: { disable: true },
+    actions: { disable: true },
+};
+
 export const allVariants = (args, theme) => {
     return `
         <div class="${theme}" style="padding: 2rem;">
