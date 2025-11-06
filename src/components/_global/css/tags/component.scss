@@ -19,14 +19,12 @@
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        padding-top: 20px;
         padding-top: 1.25rem;
         @include QLD-media(md) {
             flex-direction: row;
             align-items: center;
         }
         @include QLD-media(lg) {
-            padding-top: 24px;
             padding-top: 1.5rem;
         }
     }
@@ -34,14 +32,10 @@
         font-weight: bold;
         display: block;
         white-space: nowrap;
-        padding-right: 16px;
         padding-right: 1rem;
-        padding-bottom: 8px;
         padding-bottom: 0.5rem;
         @include QLD-media(md) {
-            padding-top: 4px;
             padding-top: 0.25rem;
-            padding-bottom: 0px;
             padding-bottom: 0rem;
             -ms-flex-item-align: center;
             align-self: center;
@@ -214,7 +208,7 @@ a.qld__tag,
     background-color: transparent;
     @include QLD-fontgrid(sm);
     @include QLD-space(font-size, 1unit);
-    @include QLD-space(padding, 0.5unit 1unit);
+    @include QLD-space(padding, 0.5unit 0.65unit 0.5unit 1unit);
     border-radius: $QLD-border-radius-lg;
     text-decoration: none;
     @include QLD-underline("light", "noUnderline", "default");
@@ -231,7 +225,7 @@ a.qld__tag,
     }
 
     .qld__tag--filter-close {
-        @include QLD-space(margin-left, 0.5unit);
+        @include QLD-space(margin-left, 0.6unit);
         background-color: transparent;
         border: none;
         height: 1.25rem;
@@ -255,10 +249,7 @@ a.qld__tag,
             }
         }
 
-        &:focus {
-            outline: 3px solid var(--QLD-color-light__focus);
-            outline-offset: 2px;
-        }
+        @include QLD-focus("light", false, 8.5px);
     }
 
     .qld__body--light &,
