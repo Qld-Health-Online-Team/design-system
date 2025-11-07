@@ -17,7 +17,7 @@ export default {
     parameters: {
         design: {
             type: "figma",
-            url: figmaLinks.tags.design,
+            url: figmaLinks.backToTop.design,
         },
     },
 };
