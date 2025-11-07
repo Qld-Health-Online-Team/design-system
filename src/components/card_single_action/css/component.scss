@@ -7,8 +7,23 @@
 
     // If any element inside the card receives focus, add a focus ring around the wrapper card div
     &:focus-within {
+        // Can't use qld-focus mixin here
         outline: 3px solid var(--QLD-color-light__focus);
         outline-offset: 2px;
+
+        // Focus style change within dark ancestor
+        .qld__body--dark &,
+        .qld__body--dark-alt &,
+        .qld__card--dark &,
+        .qld__card--dark-alt &,
+        .qld__banner--dark &,
+        .qld__banner--dark-alt &,
+        .qld__footer--dark &,
+        .qld__footer--dark-alt &,
+        .qld__dark &,
+        .qld__dark-alt & {
+            outline-color: var(--QLD-color-dark__focus);
+        }
     }
 
     &:hover {
