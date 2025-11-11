@@ -234,7 +234,7 @@
             }
         }
 
-        //Dark theme
+        // Dark themes
         &.qld__header__pre-header--dark,
         &.qld__header__pre-header--dark-alt {
             background-color: var(--QLD-color-dark__background);
@@ -257,6 +257,7 @@
                 color: var(--QLD-color-dark__link);
 
                 &:hover {
+                    color: var(--QLD-color-dark__link);
                     .qld__header__cta-link-icon {
                         color: var(--QLD-color-dark__action--secondary-hover);
                     }
@@ -286,52 +287,13 @@
             }
         }
 
-        //Dark alt theme
+        // Dark alt specific theme
         &.qld__header__pre-header--dark-alt {
             background-color: var(--QLD-color-dark__background--alt);
-            color: var(--QLD-color-dark__text);
-
-            .qld__header__pre-header-url {
-                color: var(--QLD-color-dark__link);
-            }
-
-            .qld__header__pre-header-url--mobile {
-                color: var(--QLD-color-dark__link);
-            }
-
-            a {
-                @include QLD-underline("dark", "noUnderline", "default", "noVisited");
-            }
-
-            .qld__header__cta-link {
-                color: var(--QLD-color-dark__link);
-
-                &:hover {
-                    .qld__header__cta-link-icon {
-                        color: var(--QLD-color-dark__action--secondary-hover);
-                    }
-                }
-            }
-
-            .qld__header__cta-link-icon {
-                color: var(--QLD-color-dark__action--secondary);
-            }
 
             .qld__header__toggle-main-nav {
-                @include QLD-focus("dark", false, -3px);
-                color: var(--QLD-color-dark__link);
-                border-color: var(--QLD-color-dark__border);
-
-                svg {
-                    color: var(--QLD-color-dark__action--secondary);
-                }
-
                 &:hover {
                     background-color: var(--QLD-color-dark__background--alt-shade);
-
-                    svg {
-                        color: var(--QLD-color-dark__action--secondary-hover);
-                    }
                 }
             }
         }
@@ -471,6 +433,13 @@
                 }
             }
 
+            .qld__header__brand-image {
+                @include QLD-media(lg) {
+                    border-color: var(--QLD-color-dark__design-accent);
+                    color: var(--QLD-color-dark__text);
+                }
+            }
+
             a {
                 &:hover {
                     color: var(--QLD-color-dark__link);
@@ -482,6 +451,10 @@
                         color: var(--QLD-color-dark__link);
                     }
                 }
+            }
+
+            .qld__header__search .qld__display-lg {
+                color: var(--QLD-color-dark__heading);
             }
 
             .qld__header__brand-image {
@@ -498,10 +471,6 @@
 
             .qld__header__search {
                 background-color: var(--QLD-color-dark__background);
-
-                .qld__display-lg {
-                    color: var(--QLD-color-dark__heading);
-                }
             }
         }
 
@@ -511,10 +480,6 @@
 
             .qld__header__search {
                 background-color: var(--QLD-color-dark__background--alt);
-
-                .qld__display-lg {
-                    color: var(--QLD-color-dark__heading);
-                }
             }
         }
     }

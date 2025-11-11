@@ -44,7 +44,7 @@
                 {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
                     {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                         {{#if this}}
-                            {{#inArray @root.current.lineage 'asset_assetid' ../this.asset_assetid}}
+                            {{#inArray this 'asset_assetid' @root.current.data.assetid}}
                                 <button class="qld__left-nav__item-toggle qld__accordion--open" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-selected="true" aria-label="Toggle navigation, {{{../asset_short_name}}}">
                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                                 </button>
@@ -74,7 +74,7 @@
                                 {{/ifCond}}
                                 </li>
                             {{/each}}
-                            </ul>  
+                            </ul>
                         {{/if}}
                     {{/arrayWith}}
                 {{/ifCond}}

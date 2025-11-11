@@ -131,7 +131,8 @@
                     }
                 }
 
-                &:hover {
+                // Hover over the full nav link only if the children are not expanded
+                &:not(:has(.qld__left-nav__item-link--open)):hover {
                     background-color: var(--QLD-color-light__background--alt);
                 }
 
