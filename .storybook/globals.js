@@ -82,4 +82,9 @@ export const figmaLinks = {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
         ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
     },
+    backToTop: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=0jAqcs3ccQUE8FHh-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=SuTGfoccLj3mysvx-0",
+        ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
+    },
 };

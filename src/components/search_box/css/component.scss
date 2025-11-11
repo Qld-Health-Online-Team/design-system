@@ -10,6 +10,48 @@
         input.qld__text-input,
         .qld__search-form__btn button {
             height: pxToRem(52);
+
+            &.qld__btn.qld__btn--search:focus {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+
+        // Search icon
+        @include QLD-media("lg") {
+            // Search icon overlay on search
+            .qld__search-form__inner-icon {
+                position: absolute;
+                left: 1rem;
+                z-index: 1;
+                color: $QLD-color-light__text--lighter;
+            }
+
+            // Dark theme styling on parent components
+            .qld__header__main--dark &,
+            .qld__header__main--dark-alt &,
+            .qld__banner--dark &,
+            .qld__banner--dark-alt & {
+                > .qld__search-form__inner-icon {
+                    color: $QLD-color-neutral--white;
+                }
+
+                &:has(input.qld__text-input:is(:active, :focus)) .qld__search-form__inner-icon {
+                    color: $QLD-color-light__text--lighter;
+                }
+            }
+
+            // Push the input cursor to the right when search icon is present
+            > input.qld__text-input {
+                padding-left: 3rem;
+            }
+        }
+
+        // Search icon - hide icon on small screens
+        @include QLD-media("lg", "down") {
+            .qld__search-form__inner-icon {
+                display: none;
+            }
         }
     }
 
