@@ -457,9 +457,16 @@
             .qld__header__search .qld__display-lg {
                 color: var(--QLD-color-dark__heading);
             }
+
+            .qld__header__brand-image {
+                @include QLD-media(lg) {
+                    border-color: var(--QLD-color-dark__design-accent);
+                    color: $QLD-color-neutral--white;
+                }
+            }
         }
 
-        // Main header dark only theme
+        // Main header dark specific
         &.qld__header__main--dark {
             background-color: var(--QLD-color-dark__background);
 
@@ -468,7 +475,7 @@
             }
         }
 
-        // Main header dark alt only theme
+        // Main header dark alt specific
         &.qld__header__main--dark-alt {
             background-color: var(--QLD-color-dark__background--alt);
 
