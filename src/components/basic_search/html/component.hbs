@@ -157,19 +157,19 @@
                                     {{#ifCond collection 'contains' 'service-finder'}}
                                         {{#ifCond collection 'contains' '__service-locations'}}
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{metaData.servicewebpath}}">
+                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{listMetadata.servicewebpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
                                         {{else ifCond collection 'contains' '__facilities'}}
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfFacilitiesUrl.value}}/{{metaData.webpath}}">
+                                                <a href="{{@root.site.metadata.sfFacilitiesUrl.value}}/{{listMetadata.webpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
                                         {{else}} 
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{metaData.webpath}}">
+                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{listMetadata.webpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
