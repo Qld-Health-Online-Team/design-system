@@ -37,6 +37,11 @@ export const figmaLinks = {
     masterDoc: {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23529-440999&t=y8LMLpCtTxOgtHpT-0",
     },
+    ctaLink: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=cifVNWBzJL4yUQOx-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395565&t=cifVNWBzJL4yUQOx-0",
+        ds: "https://www.designsystem.qld.gov.au/components/call-to-action-cta",
+    },
     inPageAlert: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=y8LMLpCtTxOgtHpT-0",
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395551&t=h9SPYdoJV6KCygCT-0",
@@ -66,5 +71,20 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f",
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563",
         ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+    },
+    checkboxes: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395569",
+        ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
+    },
+    radioButtons: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
+        ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
+    },
+    backToTop: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=0jAqcs3ccQUE8FHh-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=SuTGfoccLj3mysvx-0",
+        ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
     },
 };

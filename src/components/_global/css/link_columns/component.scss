@@ -26,7 +26,7 @@
         position: relative;
         flex: 0 0 100%;
 
-        a {
+        a:not(.qld__cta-link) {
             @include QLD-underline("light", "noUnderline");
             &:before {
                 content: "";
@@ -85,7 +85,7 @@
         }
 
         &:hover {
-            a {
+            a:not(:visited) {
                 color: var(--QLD-color-light__link);
             }
 

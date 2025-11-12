@@ -51,64 +51,64 @@
         
         <div class="qld__tab-container{{#if metadata.theme.value}} qld__tab-container--{{metadata.theme.value}}{{/if}} qld__tab-container__fixed" id="tab-{{assetid}}">
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-left" aria-hidden="true" aria-label="Scroll tab buttons left" tabindex="-1">
-                <svg class="qld__icon qld__icon--xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
+                <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
             </button>
             <button class="qld__tab-nav__item-scroll tab-overflow-nav-button-right" aria-hidden="true" aria-label="Scroll tab buttons right" tabindex="-1">
-                <svg class="qld__icon qld__icon--xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
+                <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
             </button>
             <div class="qld__tabs" role="tablist">
                     {{#ifCond metadata.type.value '==' 'wysiwyg'}}
                         {{#if metadata.title_1.value}}
-                            <button role="tab" class="qld__tab-button active" data-tab="tab1-{{assetid}}" aria-selected="true" aria-controls="tab1-{{assetid}}-content" tabindex="0" id="tab1-{{assetid}}-button"><span>{{#if metadata.icon_1.value}}<i class="{{metadata.icon_1.value}}"></i>{{/if}}{{metadata.title_1.value}}</span></button>
+                            <button role="tab" class="qld__tab-button active" data-tab="tab1-{{assetid}}" aria-selected="true" aria-controls="tab1-{{assetid}}-content" tabindex="0" id="tab1-{{assetid}}-button"><span>{{#if metadata.icon_1.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_1.value}}"></use></svg>{{/if}}{{metadata.title_1.value}}</span></button>
                         {{/if}}
                         {{#ifCond metadata.tab_num.value '>=' '2'}}
                             {{#if metadata.title_2.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab2-{{assetid}}" aria-selected="false" aria-controls="tab2-{{assetid}}-content" tabindex="-1" id="tab2-{{assetid}}-button"><span>{{#if metadata.icon_2.value}}<i class="{{metadata.icon_2.value}}"></i>{{/if}}{{metadata.title_2.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab2-{{assetid}}" aria-selected="false" aria-controls="tab2-{{assetid}}-content" tabindex="-1" id="tab2-{{assetid}}-button"><span>{{#if metadata.icon_2.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_2.value}}"></use></svg>{{/if}}{{metadata.title_2.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '3'}}
                             {{#if metadata.title_3.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab3-{{assetid}}" aria-selected="false" aria-controls="tab3-{{assetid}}-content" tabindex="-1" id="tab3-{{assetid}}-button"><span>{{#if metadata.icon_3.value}}<i class="{{metadata.icon_3.value}}"></i>{{/if}}{{metadata.title_3.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab3-{{assetid}}" aria-selected="false" aria-controls="tab3-{{assetid}}-content" tabindex="-1" id="tab3-{{assetid}}-button"><span>{{#if metadata.icon_3.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_3.value}}"></use></svg>{{/if}}{{metadata.title_3.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '4'}}
                             {{#if metadata.title_4.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab4-{{assetid}}" aria-selected="false" aria-controls="tab4-{{assetid}}-content" tabindex="-1" id="tab4-{{assetid}}-button"><span>{{#if metadata.icon_4.value}}<i class="{{metadata.icon_4.value}}"></i>{{/if}}{{metadata.title_4.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab4-{{assetid}}" aria-selected="false" aria-controls="tab4-{{assetid}}-content" tabindex="-1" id="tab4-{{assetid}}-button"><span>{{#if metadata.icon_4.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_4.value}}"></use></svg>{{/if}}{{metadata.title_4.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '5'}}
                             {{#if metadata.title_5.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab5-{{assetid}}" aria-selected="false" aria-controls="tab5-{{assetid}}-content" tabindex="-1" id="tab5-{{assetid}}-button"><span>{{#if metadata.icon_5.value}}<i class="{{metadata.icon_5.value}}"></i>{{/if}}{{metadata.title_5.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab5-{{assetid}}" aria-selected="false" aria-controls="tab5-{{assetid}}-content" tabindex="-1" id="tab5-{{assetid}}-button"><span>{{#if metadata.icon_5.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_5.value}}"></use></svg>{{/if}}{{metadata.title_5.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '6'}}
                             {{#if metadata.title_6.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab6-{{assetid}}" aria-selected="false" aria-controls="tab6-{{assetid}}-content" tabindex="-1" id="tab6-{{assetid}}-button"><span>{{#if metadata.icon_6.value}}<i class="{{metadata.icon_6.value}}"></i>{{/if}}{{metadata.title_6.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab6-{{assetid}}" aria-selected="false" aria-controls="tab6-{{assetid}}-content" tabindex="-1" id="tab6-{{assetid}}-button"><span>{{#if metadata.icon_6.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_6.value}}"></use></svg>{{/if}}{{metadata.title_6.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '7'}}
                             {{#if metadata.title_7.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab7-{{assetid}}" aria-selected="false" aria-controls="tab7-{{assetid}}-content" tabindex="-1" id="tab7-{{assetid}}-button"><span>{{#if metadata.icon_7.value}}<i class="{{metadata.icon_7.value}}"></i>{{/if}}{{metadata.title_7.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab7-{{assetid}}" aria-selected="false" aria-controls="tab7-{{assetid}}-content" tabindex="-1" id="tab7-{{assetid}}-button"><span>{{#if metadata.icon_7.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_7.value}}"></use></svg>{{/if}}{{metadata.title_7.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '8'}}
                             {{#if metadata.title_8.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab8-{{assetid}}" aria-selected="false" aria-controls="tab8-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_8.value}}<i class="{{metadata.icon_8.value}}"></i>{{/if}}{{metadata.title_8.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab8-{{assetid}}" aria-selected="false" aria-controls="tab8-{{assetid}}-content" tabindex="-1" id="tab8-{{assetid}}-button"><span>{{#if metadata.icon_8.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_8.value}}"></use></svg>{{/if}}{{metadata.title_8.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '9'}}
                             {{#if metadata.title_9.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab9-{{assetid}}" aria-selected="false" aria-controls="tab9-{{assetid}}-content" tabindex="-1" id="tab9-{{assetid}}-button"><span>{{#if metadata.icon_9.value}}<i class="{{metadata.icon_9.value}}"></i>{{/if}}{{metadata.title_9.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab9-{{assetid}}" aria-selected="false" aria-controls="tab9-{{assetid}}-content" tabindex="-1" id="tab9-{{assetid}}-button"><span>{{#if metadata.icon_9.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_9.value}}"></use></svg>{{/if}}{{metadata.title_9.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                         {{#ifCond metadata.tab_num.value '>=' '10'}}
                             {{#if metadata.title_10.value}}
-                                <button role="tab" class="qld__tab-button" data-tab="tab10-{{assetid}}" aria-selected="false" aria-controls="tab10-{{assetid}}-content" tabindex="-1" id="tab10-{{assetid}}-button"><span>{{#if metadata.icon_10.value}}<i class="{{metadata.icon_10.value}}"></i>{{/if}}{{metadata.title_10.value}}</span></button>
+                                <button role="tab" class="qld__tab-button" data-tab="tab10-{{assetid}}" aria-selected="false" aria-controls="tab10-{{assetid}}-content" tabindex="-1" id="tab10-{{assetid}}-button"><span>{{#if metadata.icon_10.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.icon_10.value}}"></use></svg>{{/if}}{{metadata.title_10.value}}</span></button>
                             {{/if}}
                         {{/ifCond}}
                     {{else}}
                         {{#each ../component.assets}}
-                            <button role="tab" class="qld__tab-button {{#ifCond @key '==' 0}}active{{/ifCond}}" data-tab="tab{{@key}}-{{this.assetid}}" aria-selected="{{#ifCond @key '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{@key}}-{{this.assetid}}-content" tabindex="{{#ifCond @key '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{@key}}-button"><span>{{#if this.metadata.tabIcon.value}}<i class="{{this.metadata.tabIcon.value}}"></i>{{/if}}{{this.name}}</span></button>
+                            <button role="tab" class="qld__tab-button {{#ifCond @key '==' 0}}active{{/ifCond}}" data-tab="tab{{@key}}-{{this.assetid}}" aria-selected="{{#ifCond @key '==' 0}}true{{else}}false{{/ifCond}}" aria-controls="tab{{@key}}-{{this.assetid}}-content" tabindex="{{#ifCond @key '==' 0}}0{{else}}-1{{/ifCond}}" id="tab{{@key}}-button"><span>{{#if this.metadata.tabIcon.value}}<svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{this.metadata.tabIcon.value}}"></use></svg>{{/if}}{{this.name}}</span></button>
                         {{/each}}
                     {{/ifCond}}
             </div>

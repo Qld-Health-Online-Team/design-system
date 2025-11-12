@@ -1,7 +1,7 @@
 
 {{#with component.data.metadata}}
     {{#if code.value}}
-    <section class="qld__body">
+    <section class="qld__body" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
         <div class="container-fluid">
         {{#ifCond code_snippet_type.value '==' 'singleline'}}
             {{#ifCond show_code.value '==' 'true'}}
@@ -16,10 +16,12 @@
                             <code class="qld__code-body">{{code.value}}</code>
                             <button class="qld__btn qld__code-copy--button" type="button">
                                 <div class="clean">
-                                    <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                                    <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#copy"></use></svg>
+                                    <span class="qld__code-copy--button-text">Copy</span>
                                 </div>
                                 <div class="dirty">
-                                    <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#status-success"></use></svg>
+                                    <span class="qld__code-copy--button-text">Copied</span>
                                 </div>
                                 <div class="qld__code-tooltip">
                                     <span class="clean">Copy</span>
@@ -41,14 +43,14 @@
         <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}">
             {{#ifCond show_preview.value '==' 'true'}}
             <div class="qld__code-preview">
-                <span class="qld__code-preview-tab">Example</span>
+                <span class="qld__code-preview-tab">Vanilla example</span>
                 {{#ifCond show_theme_colors.value '==' 'true'}}
                 <div class="qld__code-preview-colours">
-                    <span class="qld__code-preview-colours-label">Theme</span>
+                    <span class="qld__code-preview-colours-label">Palette</span>
                     <ul>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__default-{{../component.data.assetid}}" value="" checked>
-                            <label for="qld__code-preview-colours__default-{{../component.data.assetid}}">White</label>
+                            <label for="qld__code-preview-colours__default-{{../component.data.assetid}}">Default</label>
                         </li>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__light-{{../component.data.assetid}}" value="qld__body--light">
@@ -64,7 +66,7 @@
                         </li>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}" value="qld__body--dark-alt">
-                            <label for="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}"> Dark-alt</label>
+                            <label for="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}">Dark-alt</label>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +79,10 @@
             {{#ifCond show_code.value '==' 'true'}}
             {{#ifCond show_more_button.value '==' 'true'}}
             <div class="qld__code-toggle">
-                <button class="qld__code-toggle-button" type="button">Show more<i class="fa-regular fa-chevron-up"></i></button>
+                <button class="qld__code-toggle-button" type="button">
+                    Show more
+                    <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
+                </button>
             </div>
             {{/ifCond}}
             {{/ifCond}}
@@ -86,13 +91,22 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">Github<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">
+                            <span>Github</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">Figma<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">
+                            <span>Figma</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">{{action_link_title.value}}<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">
+                            <span>{{action_link_title.value}}</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                 </div>
             </div>
@@ -100,27 +114,45 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">Github<i class="fa-regular fa-arrow-up-right-from-square" ></i></a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">
+                            <span>Github</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">Figma<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">
+                            <span>Figma</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">{{action_link_title.value}}<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">
+                            <span>{{action_link_title.value}}</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                 </div>
             </div>
-            {{else if figma_link.value}}
+            {{else if action_link_title.value}}
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">Github<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">
+                            <span>Github</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">Figma<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">
+                            <span>Figma</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">{{action_link_title.value}}<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">
+                            <span>{{action_link_title.value}}</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                 </div>
             </div>
@@ -129,23 +161,34 @@
             <div class="qld__code-header">
                 <div class="qld__code-header-left">
                     {{#if github_link.value}}
-                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">Github<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{github_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Github, opens in new tab">
+                            <span>Github</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if figma_link.value}}
-                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">Figma<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{figma_link.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit Figma, opens in new tab">
+                            <span>Figma</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                     {{#if action_link_title.value}}
-                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">{{action_link_title.value}}<i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{action_link_address.value}}" class="qld__code-header-link" target="_blank" aria-label="Visit {{action_link_title.value}}, opens in new tab">
+                            <span>{{action_link_title.value}}</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#external-link"></use></svg>
+                        </a>
                     {{/if}}
                 </div>
                 {{#ifCond show_code.value '==' 'true'}}
                 <div class="qld__code-header-right">
                     <button class="qld__btn qld__code-copy--button" type="button">
                         <div class="clean">
-                            <i class="fa-light fa-copy"></i><span class="qld__code-copy--button-text">Copy</span>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#copy"></use></svg>
+                            <span class="qld__code-copy--button-text">Copy</span>
                         </div>
                         <div class="dirty">
-                            <i class="fa-solid fa-circle-check"></i><span class="qld__code-copy--button-text">Copied</span>
+                            <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#status-success"></use></svg>
+                            <span class="qld__code-copy--button-text">Copied</span>
                         </div>
                         <div class="qld__code-tooltip">
                             <span class="clean">Copy</span>

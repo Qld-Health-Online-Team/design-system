@@ -1,34 +1,57 @@
 /**
  * The left hand nav module
- * 
+ *
  * @module leftHandNav
  */
- (function () {
-    'use strict';
 
+const navLinkToggleClass = "qld__left-nav__item-toggle";
+const accordionClosedClass = "qld__accordion--closed";
+const accordionOpenClass = "qld__accordion--open";
+const accordionChildClass = "qld__accordion__body";
+const navLinkClass = "qld__left-nav__item-link";
 
-    window.addEventListener('DOMContentLoaded', function () {
+export default function initLeftHandNav(document = document) {
+    // Add toggle event listeners to accordion buttons
+    var itemToggles = document.querySelectorAll("." + navLinkToggleClass);
 
-         // Add toggle event listeners to accordion buttons
-        var itemToggles = document.querySelectorAll('.qld__left-nav__item-toggle');
-        itemToggles.forEach(function(button) {
-            button.addEventListener('click', function () {
-
-                if(button.className.split(' ').indexOf('qld__accordion--closed')>=0){
-                    button.classList.replace('qld__accordion--closed','qld__accordion--open');
-                    button.parentNode.querySelector('.qld__left-nav__item-link').classList.add('qld__left-nav__item-link--open');
-                    
-                    button.parentNode.querySelector('.qld__accordion__body').classList.replace('qld__accordion--closed','qld__accordion--open');
-
-                } else{
-                    button.classList.replace('qld__accordion--open','qld__accordion--closed');
-                    button.parentNode.querySelector('.qld__left-nav__item-link').classList.remove('qld__left-nav__item-link--open');
-                    button.parentNode.querySelector('.qld__accordion__body').classList.replace('qld__accordion--open','qld__accordion--closed');
-
-                }
-
-            });
-        });
+    // On init, check for falsly triggered accordions and correct them
+    itemToggles.forEach((button) => {
+        checkAccordions(button);
     });
+    // Loop through all toggles and add click event listener
+    itemToggles.forEach((button) => button.addEventListener("click", () => handleClick(button)));
+}
 
-}());
+function checkAccordions(button) {
+    if (button.parentNode.querySelector("." + navLinkClass).classList.contains(navLinkClass + "--open")) {
+        openNavLink(button);
+    } else {
+        closeNavLink(button);
+    }
+}
+
+function openNavLink(button) {
+    // Open the chevron icon
+    button.classList.replace(accordionClosedClass, accordionOpenClass);
+    // Open the nav link element
+    button.parentNode.querySelector("." + navLinkClass).classList.add(navLinkClass + "--open");
+    // Open the child element
+    button.parentNode.querySelector("." + accordionChildClass).classList.replace(accordionClosedClass, accordionOpenClass);
+}
+
+function closeNavLink(button) {
+    // Close the chevron icon
+    button.classList.replace(accordionOpenClass, accordionClosedClass);
+    // Close the nav link element
+    button.parentNode.querySelector("." + navLinkClass).classList.remove(navLinkClass + "--open");
+    // Close the child element
+    button.parentNode.querySelector("." + accordionChildClass).classList.replace(accordionOpenClass, accordionClosedClass);
+}
+
+function handleClick(button) {
+    if (button.classList.contains(accordionClosedClass)) {
+        openNavLink(button);
+    } else {
+        closeNavLink(button);
+    }
+}

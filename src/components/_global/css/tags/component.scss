@@ -19,14 +19,12 @@
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        padding-top: 20px;
         padding-top: 1.25rem;
         @include QLD-media(md) {
             flex-direction: row;
             align-items: center;
         }
         @include QLD-media(lg) {
-            padding-top: 24px;
             padding-top: 1.5rem;
         }
     }
@@ -34,14 +32,10 @@
         font-weight: bold;
         display: block;
         white-space: nowrap;
-        padding-right: 16px;
         padding-right: 1rem;
-        padding-bottom: 8px;
         padding-bottom: 0.5rem;
         @include QLD-media(md) {
-            padding-top: 4px;
             padding-top: 0.25rem;
-            padding-bottom: 0px;
             padding-bottom: 0rem;
             -ms-flex-item-align: center;
             align-self: center;
@@ -214,9 +208,9 @@ a.qld__tag,
     background-color: transparent;
     @include QLD-fontgrid(sm);
     @include QLD-space(font-size, 1unit);
-    @include QLD-space(padding, 0.5unit 1unit);
+    @include QLD-space(padding, 0 0 0 1unit);
     border-radius: $QLD-border-radius-lg;
-    text-decoration: none;
+    text-decoration: none !important; // Ensure no decoration at all for this variant
     @include QLD-underline("light", "noUnderline", "default");
     display: flex;
     align-items: center;
@@ -227,38 +221,39 @@ a.qld__tag,
         color: var(--QLD-color-light__text);
         background-color: transparent;
         border-color: $QLD-color-neutral--lighter;
-        text-decoration: none;
     }
 
     .qld__tag--filter-close {
-        @include QLD-space(margin-left, 0.5unit);
+        @include QLD-space(margin-left, 0.1unit);
+
         background-color: transparent;
         border: none;
-        height: 1.25rem;
-        width: 1.25rem;
+        height: 2.5rem;
+        width: 2.5rem;
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 0;
         border-radius: 50%;
+        cursor: pointer;
 
-        > svg {
-            cursor: pointer;
-            padding: 3px;
-            border: 1px solid var(--QLD-color-light__action--secondary);
-            border-radius: 100%;
-            color: var(--QLD-color-light__action--secondary);
-
-            &:hover {
+        &:hover,
+        &:focus {
+            > svg.qld__icon {
                 background-color: var(--QLD-color-light__action--secondary-hover);
                 border-color: var(--QLD-color-light__action--secondary-hover);
                 color: $QLD-color-neutral--white;
             }
         }
 
-        &:focus {
-            outline: 3px solid var(--QLD-color-light__focus);
-            outline-offset: 2px;
+        > svg.qld__icon {
+            padding: 3px;
+            border: 1px solid var(--QLD-color-light__action--secondary);
+            border-radius: 100%;
+            color: var(--QLD-color-light__action--secondary);
         }
+
+        @include QLD-focus("light", false, -2px);
     }
 
     .qld__body--light &,
@@ -299,11 +294,14 @@ a.qld__tag,
         }
 
         .qld__tag--filter-close {
-            > svg {
+            > svg.qld__icon {
                 border-color: var(--QLD-color-dark__action--secondary);
                 color: var(--QLD-color-dark__action--secondary);
+            }
 
-                &:hover {
+            &:hover,
+            &:focus {
+                > svg.qld__icon {
                     background-color: var(--QLD-color-dark__action--secondary-hover);
                     border-color: var(--QLD-color-dark__action--secondary-hover);
                     color: var(--QLD-color-dark__background);
@@ -330,11 +328,14 @@ a.qld__tag,
         }
 
         .qld__tag--filter-close {
-            > svg {
+            > svg.qld__icon {
                 border-color: var(--QLD-color-dark__action--secondary);
                 color: var(--QLD-color-dark__action--secondary);
+            }
 
-                &:hover {
+            &:hover,
+            &:focus {
+                > svg.qld__icon {
                     background-color: var(--QLD-color-dark__action--secondary-hover);
                     border-color: var(--QLD-color-dark__action--secondary-hover);
                     color: var(--QLD-color-dark__background--alt);

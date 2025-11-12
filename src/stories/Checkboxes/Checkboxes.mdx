@@ -1,0 +1,45 @@
+import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
+import * as checkboxesStories from "./Checkboxes.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={checkboxesStories} />
+
+# Checkboxes
+
+## Overview
+
+These components help users select one or more items from multiple options.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+### Valid and invalid states
+
+Add a border around the control inputs to indicate valid or invalid selections.
+
+<Story of={checkboxesStories.successVariant} />
+
+<br />
+
+<Story of={checkboxesStories.errorVariant} />
+
+### Disabled control inputs
+
+Disabled control inputs can be used to indicate inputs that are no longer valid or have expired.
+
+<Story of={checkboxesStories.disabledVariant} />
+
+## Design resources
+
+-   <a className="figma-link" href={figmaLinks.checkboxes.design} target="_blank" rel="noopener noreferrer">
+        Component design view (Figma)
+    </a>
+-   <a className="figma-link" href={figmaLinks.checkboxes.file} target="_blank" rel="noopener noreferrer">
+        Component file (Figma)
+    </a>
+-   <a className="figma-link" href={figmaLinks.checkboxes.ds} target="_blank" rel="noopener noreferrer">
+        Design System website
+    </a>

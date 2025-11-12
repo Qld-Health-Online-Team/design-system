@@ -92,27 +92,120 @@ a.qld__cta-link {
 
 .qld__cta-link.qld__cta-link--view-all,
 a.qld__cta-link.qld__cta-link--view-all {
-    &:after {
-        mask-image: QLD-svguri($QLD-icon-arrow-view-all);
-        background-color: var(--QLD-color-light__action--secondary);
+    display: inline-block;
+    position: relative;
+    @include QLD-space(padding-right, 2.5rem);
+
+    .qld__cta-link--view-all-icon--wrapper {
+        display: block;
+        min-height: 32px;
+        line-height: 32px;
     }
 
-    &:hover {
-        &:after {
-            background-color: var(--QLD-color-light__action--secondary-hover);
+    &::before,
+    &::after,
+    .qld__cta-link--view-all-icon--wrapper::before {
+        // TODO: Remove this mask-image override after work is done for regular cta links.
+        mask-image: none;
+        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+        content: "";
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        border-bottom: 0.125rem solid;
+        transition: border-color 0.3s ease;
+        border-color: var(--QLD-color-light__action--secondary);
+        transition: margin 0.2s ease;
+        z-index: 1;
+        right: 0.5rem;
+        background-color: transparent;
+
+        .qld__body--dark &,
+        .qld__body--dark-alt &,
+        .qld__main-nav--dark &,
+        .qld__main-nav--dark-alt & {
+            border-color: var(--QLD-color-dark__action--secondary);
         }
     }
 
-    .qld__body--dark &,
-    .qld__body--dark-alt &,
-    .qld__main-nav--dark & {
-        &:after {
-            background-color: var(--QLD-color-dark__action--secondary);
-        }
+    &::before {
+        width: 0.7rem;
+        top: 14.5px;
+    }
 
-        &:hover {
-            &:after {
-                background-color: var(--QLD-color-dark__action--secondary-hover);
+    &::after {
+        transform: rotate(315deg);
+        width: 0.5rem;
+        top: 0.72rem;
+        height: 0.5rem;
+        border-right: 0.125rem solid var(--QLD-color-light__action--secondary);
+    }
+
+    > .qld__cta-link--view-all-icon--wrapper::before {
+        border: 2px solid var(--QLD-color-light__action--secondary);
+        width: 1.5rem;
+        height: 1.5rem;
+        top: 3.5px;
+        right: 1px;
+        border-radius: 50%;
+    }
+
+    &:hover,
+    &:focus {
+        &::before,
+        &::after,
+        .qld__cta-link--view-all-icon--wrapper::before {
+            @include QLD-space(margin, 0 0 0 1unit);
+            border-color: var(--QLD-color-light__action--secondary-hover);
+            background-color: transparent;
+
+            .qld__body--dark &,
+            .qld__body--dark-alt &,
+            .qld__main-nav--dark &,
+            .qld__main-nav--dark-alt & {
+                border-color: var(--QLD-color-dark__action--secondary-hover);
+            }
+        }
+    }
+
+    // CTA view all link within menus
+    .qld__main-nav &,
+    .qld__main-nav--mega & {
+        @include QLD-media("lg", "down") {
+            &::before,
+            &::after,
+            .qld__cta-link--view-all-icon--wrapper::before {
+                left: 0;
+                @include QLD-space(margin, 0.65unit 0 0 5unit);
+            }
+            &::before {
+                top: 13.5px;
+                width: 0.5rem;
+                margin-left: 5.475rem;
+            }
+            &::after {
+                top: 0.66rem;
+                margin-left: 5.55rem;
+            }
+            .qld__cta-link--view-all-icon--wrapper::before {
+                left: 2px;
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+
+            &:hover,
+            &:focus {
+                &::before,
+                &::after,
+                .qld__cta-link--view-all-icon--wrapper::before {
+                    @include QLD-space(margin, 0.65unit 0 0 5.25unit);
+                }
+                &::before {
+                    margin-left: 5.75rem;
+                }
+                &::after {
+                    margin-left: 5.8rem;
+                }
             }
         }
     }

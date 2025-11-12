@@ -405,28 +405,27 @@
  *
  * @return {string}          - The code
  */
-@mixin QLD-outline($theme: "light", $rounded: true) {
+@mixin QLD-outline($theme: "light", $rounded: true, $offset: 2px) {
     @if $theme == "dark" {
         outline: 3px solid var(--QLD-color-dark__focus);
     } @else {
         outline: 3px solid var(--QLD-color-light__focus);
-
-        // Only add the offset if it's the default style
-        outline-offset: 2px;
     }
 
     // Apply radius if rounded is true
     @if $rounded {
         border-radius: $QLD-border-radius-xs;
     }
+
+    outline-offset: $offset;
 }
 
 /**
  * QLD-focus - Add the outline to focus
  */
-@mixin QLD-focus($theme: "light", $rounded: true) {
+@mixin QLD-focus($theme: "light", $rounded: true, $offset: 2px) {
     &:focus {
-        @include QLD-outline($theme, $rounded);
+        @include QLD-outline($theme, $rounded, $offset);
     }
 
     // Remove Modzilla inner HTML dotted line. github.com/necolas/normalize.css/blob/master/normalize.css#L285
@@ -556,43 +555,6 @@
     }
     // Mixin output
     $output: $output;
-}
-
-/**
- * QLD-getControlShape Mixin for setting a background image SVG for a control input
- *
- * @param  {keywords} $kind   -  Either one of the following keywords: checkbox, radio
- * @param  {keywords} $part   -  Either one of the following keywords: foreground, background
- * @param  {string} $color1   -  String representing the hex code of the first fill color
- * @param  {string} $color2   -  String representing the hex code of the second fill color
- *
- * @return {string}           - The code; background image containing the encoded SVG
-*/
-@mixin QLD-getControlShape($kind, $part, $color1: transparent, $color2: transparent) {
-    $start: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">';
-    $end: "</svg>";
-
-    $checkbox-background: '<path fill="#{ $color1 }" d="M0,0h32v32H0V0z"/><path fill="#{ $color2 }" d="M2,2h28v28H2V2z"/>';
-    $checkbox-foreground: '<path fill="#{ $color1 }" d="M25.6,11.4c0.2-0.2,0.2-0.5,0-0.7l-2.3-2.3c-0.2-0.2-0.5-0.2-0.7,0L14,17l-3.6-3.6c-0.2-0.2-0.5-0.2-0.7,0l-2.3,2.3 c-0.2,0.2-0.2,0.5,0,0.7l6.3,6.3c0.2,0.2,0.5,0.2,0.7,0L25.6,11.4L25.6,11.4z"/>';
-
-    $radio-background: '<circle fill="#{ $color1 }" cx="16" cy="16" r="16"/><circle fill="#{ $color2 }" cx="16" cy="16" r="14"/>';
-    $radio-foreground: '<circle fill="#{ $color1 }" cx="16" cy="16" r="12"/>';
-
-    @if ($kind == "checkbox" and $part == "background") {
-        background-image: QLD-svguri($start + $checkbox-background + $end);
-    }
-
-    @if ($kind == "checkbox" and $part == "foreground") {
-        background-image: QLD-svguri($start + $checkbox-foreground + $end);
-    }
-
-    @if ($kind == "radio" and $part == "background") {
-        background-image: QLD-svguri($start + $radio-background + $end);
-    }
-
-    @if ($kind == "radio" and $part == "foreground") {
-        background-image: QLD-svguri($start + $radio-foreground + $end);
-    }
 }
 
 /**
