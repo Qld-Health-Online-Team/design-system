@@ -5,11 +5,17 @@
 // Search toggle button
 const searchToggle = document.querySelector(".qld__main-nav__toggle-search");
 const searchForm = document.querySelector(".qld__header__search .qld__search-form");
-const targetId = searchToggle.getAttribute("aria-controls");
-const target = document.getElementById(targetId);
-const focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
-const focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
-const searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
+let searchToggleText, targetId, target, focustrapTop, focustrapBottom;
+if (searchToggle) {
+    searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
+    targetId = searchToggle.getAttribute("aria-controls");
+    target = document.getElementById(targetId);
+    if (target) {
+        focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
+        focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
+    }
+}
+
 // Hold state of the header (open vs close)
 let isHeaderOpen = false;
 // Global events object
