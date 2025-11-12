@@ -8,14 +8,17 @@
             ">
                 <div class="qld__main-nav__menu-inner">
                     <div class="qld__main-nav__focus-trap-top"></div>
-                    <div class="qld__main-nav__header">
+                    <div class="qld__main-nav__header
+                    {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark'}}qld__main-nav__header--dark{{/ifCond}}
+                    {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark-alt'}}qld__main-nav__header--dark-alt{{/ifCond}}
+                    ">
                         <h2 class="qld__main-nav__menu-heading" tabindex="-1">Menu</h2>
                         <button aria-controls="main-nav" class="qld__main-nav__toggle qld__main-nav__toggle--close">
                             <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#close"></use></svg>
                             <span class="qld__main-nav__toggle-text">Close</span>
                         </button>
                     </div>
-                    <ul class="qld__link-list qld__link-list--flex">
+                    <ul class="qld__link-list qld__link-list--flex {{#ifCond site.metadata.mainNavStyle.value '==' 'qld__main-nav--dark'}}qld__main-nav__body--dark{{/ifCond}}">
                         {{#if site.metadata.mainNavHomeIconShow.value}}
                         <li class="{{#if current.home}}active{{/if}} qld__main-nav__item">
                             <div class="qld__main-nav__item-title">
@@ -45,7 +48,10 @@
                         {{/ifCond}}
                     {{/ifCond}}
                     {{#ifCond site.metadata.mainNavCtaOne.value '||' site.metadata.mainNavCtaTwo.value}}
-                    <div class="qld__main-nav__cta-wrapper">
+                    <div class="qld__main-nav__cta-wrapper
+                    {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark'}}qld__main-nav__cta-wrapper--dark{{/ifCond}}
+                    {{#ifCond site.metadata.sitePreHeaderTheme.value '==' 'qld__header__pre-header--dark-alt'}}qld__main-nav__cta-wrapper--dark-alt{{/ifCond}}
+                    ">
                         <ul class="qld__link-list qld__link-list--flex">
                         {{#if site.metadata.mainNavCtaOne.value}}
                             <li class="qld__main-nav__item qld__main-nav__item--cta {{#ifCond site.metadata.mainNavCtaOne.value '==' ../current.data.assetid}}active{{/ifCond}}">
