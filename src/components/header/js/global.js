@@ -41,11 +41,11 @@ export default function initHeader(document = document) {
     // We want to ensure the search input is visible on desktop at all times
     window.addEventListener("resize", () => {
         if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
-            openHeader();
+            openHeader(false);
             // Disable focus trap as it's not needed on desktop
             disableFocusTrap();
         } else if (window.innerWidth < mobileBreakpoint && isHeaderOpen) {
-            closeHeader();
+            closeHeader(false);
         }
     });
 }
@@ -88,7 +88,7 @@ function toggleHeaderSearch() {
     }
 }
 
-function openHeader() {
+function openHeader(requireFocusChange = true) {
     isHeaderOpen = true;
     searchToggle.setAttribute("aria-expanded", true);
     searchToggle.classList.remove("qld__main-nav__toggle-search--open");
@@ -99,7 +99,9 @@ function openHeader() {
     // Wait for display: block, and then add class to open smoothly
     setTimeout(function () {
         target.classList.add("qld__main-nav__search--open");
-        target.querySelector(".qld__text-input").focus();
+        if (requireFocusChange) {
+            target.querySelector(".qld__text-input").focus();
+        }
 
         // Close header search on click outside
         headerSearchEvents.background = addEvent(document, "click", function () {
@@ -128,13 +130,15 @@ function openHeader() {
     });
 }
 
-function closeHeader() {
+function closeHeader(requireFocusChange = true) {
     isHeaderOpen = false;
     searchToggle.setAttribute("aria-expanded", false);
     searchToggle.classList.remove("qld__main-nav__toggle-search--close");
     searchToggle.classList.add("qld__main-nav__toggle-search--open");
     searchToggleText.textContent = "Search";
-    searchToggle.focus();
+    if (requireFocusChange) {
+        searchToggle.focus();
+    }
     target.classList.remove("qld__main-nav__search--open");
     target.style.display = "none";
 
