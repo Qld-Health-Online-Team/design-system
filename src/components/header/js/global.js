@@ -22,6 +22,8 @@ let isHeaderOpen = false;
 let headerSearchEvents = {};
 // Breakpoint for mobile mode
 const mobileBreakpoint = 992;
+// Hold width value to detect resize
+let lastWidth = window.innerWidth;
 
 export default function initHeader(document = document) {
     // Add action so the search works only if JS is enabled
@@ -40,6 +42,11 @@ export default function initHeader(document = document) {
 
     // We want to ensure the search input is visible on desktop at all times
     window.addEventListener("resize", () => {
+        const currentWidth = window.innerWidth;
+        // Ignore resize events that do not change the viewport size. Required for Android devices
+        if (currentWidth === lastWidth) return;
+        else lastWidth = currentWidth;
+
         if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
             openHeader(false);
             // Disable focus trap as it's not needed on desktop
@@ -225,5 +232,5 @@ function addEvent(element, event, rawHandler) {
  * @param {event} token     The event to remove
  */
 function removeEvent(token) {
-    token.element.removeEventListener(token.event, token.handler);
+    if (token && token.element) token.element.removeEventListener(token.event, token.handler);
 }
