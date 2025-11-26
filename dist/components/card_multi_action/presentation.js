@@ -492,7 +492,16 @@
     + alias1(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\n                                        </p>\n";
 },"73":function(container,depth0,helpers,partials,data) {
-    return "                                    <div class=\"qld__card__arrow\"></div>\n";
+    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "                                        <svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__card--arrow-icon qld__icon qld__icon--md\"><use href=\""
+    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + "#arrow-right\"></use></svg>\n";
 },"75":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {

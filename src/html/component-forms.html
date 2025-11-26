@@ -58,7 +58,13 @@
                         </div>
                         <div class="qld__body qld__form">
                             <div class="container-fluid">
-                            <h2>Select width variants (squiz)</h2>
+                                <fieldset class="qld__checkboxes" role="group" aria-labelledby="qld__checkboxes-legend-cb6">
+                                    <legend id="qld__checkboxes-legend-cb6"><abbr title="required">*</abbr>My legend</legend><div class="qld__control-input qld__control-input--small"><input type="checkbox" id="qld__checkbox-cb61" name="qld__checkbox-cb6" checked=""><label for="qld__checkbox-cb61">cat</label></div><div class="qld__control-input qld__control-input--small"><input type="checkbox" id="qld__checkbox-cb62" name="qld__checkbox-cb6"><label for="qld__checkbox-cb62">dog</label></div><div class="qld__control-input qld__control-input--small"><input type="checkbox" id="qld__checkbox-cb63" name="qld__checkbox-cb6" checked=""><label for="qld__checkbox-cb63">horse</label></div><div class="qld__control-input qld__control-input--small"><input type="checkbox" id="qld__checkbox-cb64" name="qld__checkbox-cb6"><label for="qld__checkbox-cb64">ram</label></div><div class="qld__control-input qld__control-input--small"><input type="checkbox" id="qld__checkbox-cb65" name="qld__checkbox-cb6" checked=""><label for="qld__checkbox-cb65">goat</label></div>
+                                </fieldset>
+                                <fieldset class="qld__radio-buttons" role="radiogroup" aria-labelledby="qld__radio-buttons-legend-rb6">
+                                    <legend id="qld__radio-buttons-legend-rb6">My legend</legend><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb61" name="qld__radio-rb6" checked="" value="qld__radio-rb61"><label for="qld__radio-rb61">cat</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb62" name="qld__radio-rb6" value="qld__radio-rb62"><label for="qld__radio-rb62">dog</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb63" name="qld__radio-rb6" checked="" value="qld__radio-rb63"><label for="qld__radio-rb63">horse</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb64" name="qld__radio-rb6" value="qld__radio-rb64"><label for="qld__radio-rb64">ram</label></div><div class="qld__control-input qld__control-input--small"><input type="radio" id="qld__radio-rb65" name="qld__radio-rb6" checked="" value="qld__radio-rb65"><label for="qld__radio-rb65">goat</label></div>
+                                </fieldset>
+                            <h2>Width variants (squiz)</h2>
                             <fieldset class="sq-form-section" id="sq_form_section_402723">
                                 <div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q402723_q1"><label class="sq-form-question-title" for="q402723_q1">qld__field-width--2char</label> <div class="sq-form-question-answer"><div class="qld__select"><select name="q402723:q1" id="q402723_q1" class="qld__text-input--block qld__field-width--2char"><option value="1" selected="selected">1</option></select></div></div>
                                 </div><div class="sq-form-question sq-form-question-select " id="sq_form_field_wrapper_q402723_q2"><label class="sq-form-question-title" for="q402723_q2">qld__field-width--3char</label> <div class="sq-form-question-answer"><div class="qld__select"><select name="q402723:q2" id="q402723_q2" class="qld__text-input--block qld__field-width--3char"><option value="df" selected="selected">sdf</option><option value="ds">ffs</option></select></div></div>
@@ -255,11 +261,8 @@
                                     </div>
                                 </fieldset>
 
-
-
-
-                                <fieldset>
-                                    <legend>Checkbox</legend>
+                                <fieldset class="qld__checkbox-group" role="group" aria-labelledby="checkbox-group-legend">
+                                    <legend id="checkbox-group-legend">Checkbox</legend>
 
                                     <div>
                                         <input type="checkbox" id="check-one" name="check-one" checked>
@@ -275,11 +278,11 @@
                                 <div class="sq-form-question sq-form-question-tickbox-list "
                                     id="sq_form_field_wrapper_q49141_q17">
                                     <fieldset>
-                                        <legend class="sq-form-question-title">checkbox - Matrix output</legend>
+                                        <legend class="sq-form-question-title">Checkbox - Matrix output</legend>
                                         <div class="sq-form-question-answer">
                                             <ul>
                                                 <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0"
-                                                        value="0" class="sq-form-field"> <label
+                                                        value="0" class="sq-form-field" checked> <label
                                                         for="q49141_q17_0">One</label></li>
                                                 <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1"
                                                         value="1" class="sq-form-field"> <label
@@ -289,9 +292,38 @@
                                     </fieldset>
                                 </div>
 
-
                                 <fieldset>
-                                    <legend>Option / radio</legend>
+                                    <legend>Checkbox (disabled)</legend>
+                                    <div>
+                                        <input type="checkbox" id="check-one-disabled" name="check-one-disabled" checked disabled>
+                                        <label for="check-one-disabled">One</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="check-two-disabled" name="check-two-disabled" disabled>
+                                        <label for="check-two-disabled">Two</label>
+                                    </div>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-tickbox-list "
+                                    id="sq_form_field_wrapper_q49141_q17">
+                                    <fieldset>
+                                        <legend class="sq-form-question-title">Checkbox - Matrix output (disabled)</legend>
+                                        <div class="sq-form-question-answer">
+                                            <ul>
+                                                <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0_disabled"
+                                                        value="0" class="sq-form-field" checked disabled> <label
+                                                        for="q49141_q17_0_disabled">One</label></li>
+                                                <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1_disabled"
+                                                        value="1" class="sq-form-field" disabled> <label
+                                                        for="q49141_q17_1_disabled">Two</label></li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+
+                                <fieldset class="qld__radio-group" role="radiogroup" aria-labelledby="radio-group-legend">
+                                    <legend id="radio-group-legend">Option / radio</legend>
 
                                     <div>
                                         <input type="radio" id="radio-one" name="radio" value="radio-one" checked>
@@ -312,12 +344,12 @@
                                 <div class="sq-form-question sq-form-question-option-list "
                                     id="sq_form_field_wrapper_q49141_q15">
                                     <fieldset>
-                                        <legend class="sq-form-question-title">Option / radio - Matrix output <abbr
+                                        <legend class="sq-form-question-title">Option / radio - Matrix output<abbr
                                                 class="sq-form-required-field" title="required">*</abbr></legend>
                                         <div class="sq-form-question-answer">
                                             <ul>
                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_0" value="0"
-                                                        required="" class="sq-form-field"> <label
+                                                        required="" class="sq-form-field" checked> <label
                                                         for="q49141_q15_0">Yes</label></li>
                                                 <li><input type="radio" name="q49141:q15" id="q49141_q15_1" value="1"
                                                         required="" class="sq-form-field"> <label
@@ -328,7 +360,45 @@
                                 </div>
 
                                 <fieldset>
-                                    <label for="pet-select">Select (html)</label>
+                                    <legend>Option / radio (disabled)</legend>
+
+                                    <div>
+                                        <input type="radio" id="radio-one-disabled" name="radio" value="radio-one-disabled" checked disabled>
+                                        <label for="radio-one-disabled">One</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="radio-two-disabled" name="radio" value="radio-two-disabled" disabled>
+                                        <label for="radio-two-disabled">Two</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="radio-three-disabled" name="radio" value="radio-three-disabled" disabled>
+                                        <label for="radio-three-disabled">Three</label>
+                                    </div>
+                                </fieldset>
+
+                                <div class="sq-form-question sq-form-question-option-list "
+                                    id="sq_form_field_wrapper_q49141_q15">
+                                    <fieldset>
+                                        <legend class="sq-form-question-title">Option / radio - Matrix output (disabled)<abbr
+                                                class="sq-form-required-field" title="required">*</abbr></legend>
+                                        <div class="sq-form-question-answer">
+                                            <ul>
+                                                <li><input type="radio" name="q49141:q15" id="q49141_q15_0_disabled" value="0"
+                                                        required="" class="sq-form-field" checked disabled> <label
+                                                        for="q49141_q15_0_disabled">Yes</label></li>
+                                                <li><input type="radio" name="q49141:q15" id="q49141_q15_1_disabled" value="1"
+                                                        required="" class="sq-form-field" disabled> <label
+                                                        for="q49141_q15_1_disabled">No</label></li>
+                                            </ul>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <fieldset>
+                                    <label for="pet-select">Select</label>
+
                                     <select id="pet-select">
                                         <option value="">--Please choose an option--</option>
                                         <option value="dog">Dog</option>
@@ -586,7 +656,7 @@
 
                                                         <!-- Radio option 2-->
                                                         <div class="qld__control-input qld__control-input--block">
-                                                            <input class="qld__control-input__input" type="radio"
+                                                            <input class="qld__control-input__input qld__input--valid" type="radio"
                                                                 name="2-radio-ex" id="2-rb-phone" role="radio">
                                                             <label class="qld__control-input__text"
                                                                 for="2-rb-phone">Phone</label>
@@ -594,7 +664,7 @@
 
                                                         <!-- Radio option 3-->
                                                         <div class="qld__control-input qld__control-input--block">
-                                                            <input class="qld__control-input__input" type="radio"
+                                                            <input class="qld__control-input__input qld__input--valid" type="radio"
                                                                 name="2-radio-ex" id="2-rb-tablet" role="radio">
                                                             <label class="qld__control-input__text"
                                                                 for="2-rb-tablet">Tablet</label>
@@ -637,7 +707,7 @@
                                                         <!-- Radio option 1-->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-laptop"
+                                                                type="radio" name="dark-1--radio-ex" id="3-rb-laptop"
                                                                 role="radio">
                                                             <label class="qld__control-input__text"
                                                                 for="3-rb-laptop">Laptop</label>
@@ -646,7 +716,7 @@
                                                         <!-- Radio option 2-->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-phone"
+                                                                type="radio" name="dark-1--radio-ex" id="3-rb-phone"
                                                                 role="radio">
                                                             <label class="qld__control-input__text"
                                                                 for="3-rb-phone">Phone</label>
@@ -655,7 +725,7 @@
                                                         <!-- Radio option 3-->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="radio" name="dark-1--radio-ex" id="dark-1-rb-tablet"
+                                                                type="radio" name="dark-1--radio-ex" id="3-rb-tablet"
                                                                 role="radio">
                                                             <label class="qld__control-input__text"
                                                                 for="3-rb-tablet">Tablet</label>
@@ -931,50 +1001,78 @@
                                         <legend>Checkbox</legend>
 
                                         <div>
-                                            <input type="checkbox" id="check-one" name="check-one" checked>
-                                            <label for="check-one">One</label>
+                                            <input type="checkbox" id="check-one1" name="check-one1" checked>
+                                            <label for="check-one1">One</label>
                                         </div>
 
                                         <div>
-                                            <input type="checkbox" id="check-two" name="check-two">
-                                            <label for="check-two">Two</label>
+                                            <input type="checkbox" id="check-two2" name="check-two2">
+                                            <label for="check-two2">Two</label>
                                         </div>
                                     </fieldset>
 
                                     <div class="sq-form-question sq-form-question-tickbox-list "
                                         id="sq_form_field_wrapper_q49141_q17">
                                         <fieldset>
-                                            <legend class="sq-form-question-title">checkbox - Matrix output</legend>
+                                            <legend class="sq-form-question-title">Checkbox - Matrix output</legend>
                                             <div class="sq-form-question-answer">
                                                 <ul>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0"
-                                                            value="0" class="sq-form-field"> <label
-                                                            for="q49141_q17_0">One</label></li>
-                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1"
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_00"
+                                                            value="0" class="sq-form-field" checked> <label
+                                                            for="q49141_q17_00">One</label></li>
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_11"
                                                             value="1" class="sq-form-field"> <label
-                                                            for="q49141_q17_1">Two</label></li>
+                                                            for="q49141_q17_11">Two</label></li>
                                                 </ul>
                                             </div>
                                         </fieldset>
                                     </div>
 
+                                    <fieldset>
+                                        <legend>Checkbox (disabled)</legend>
+                                        <div>
+                                            <input type="checkbox" id="check-one-dark-disabled" name="check-one-dark-disabled" checked disabled>
+                                            <label for="check-one-dark-disabled">One</label>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" id="check-two-dark-disabled" name="check-two-dark-disabled" disabled>
+                                            <label for="check-two-dark-disabled">Two</label>
+                                        </div>
+                                    </fieldset>
+    
+                                    <div class="sq-form-question sq-form-question-tickbox-list "
+                                        id="sq_form_field_wrapper_q49141_q17">
+                                        <fieldset>
+                                            <legend class="sq-form-question-title">Checkbox - Matrix output (disabled)</legend>
+                                            <div class="sq-form-question-answer">
+                                                <ul>
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_0_dark_disabled"
+                                                            value="0" class="sq-form-field" checked disabled> <label
+                                                            for="q49141_q17_0_dark_disabled">One</label></li>
+                                                    <li><input type="checkbox" name="q49141:q17[]" id="q49141_q17_1_dark_disabled"
+                                                            value="1" class="sq-form-field" disabled> <label
+                                                            for="q49141_q17_1_dark_disabled">Two</label></li>
+                                                </ul>
+                                            </div>
+                                        </fieldset>
+                                    </div>
 
                                     <fieldset>
                                         <legend>Option / radio</legend>
 
                                         <div>
-                                            <input type="radio" id="radio-one" name="radio" value="radio-one" checked>
-                                            <label for="radio-one">One</label>
+                                            <input type="radio" id="radio-one1" name="radio" value="radio-one1" checked>
+                                            <label for="radio-one1">One</label>
                                         </div>
 
                                         <div>
-                                            <input type="radio" id="radio-two" name="radio" value="radio-two">
-                                            <label for="radio-two">Two</label>
+                                            <input type="radio" id="radio-two2" name="radio" value="radio-two2">
+                                            <label for="radio-two2">Two</label>
                                         </div>
 
                                         <div>
-                                            <input type="radio" id="radio-three" name="radio" value="radio-three">
-                                            <label for="radio-three">Three</label>
+                                            <input type="radio" id="radio-three3" name="radio" value="radio-three3">
+                                            <label for="radio-three3">Three</label>
                                         </div>
                                     </fieldset>
 
@@ -985,12 +1083,49 @@
                                                     class="sq-form-required-field" title="required">*</abbr></legend>
                                             <div class="sq-form-question-answer">
                                                 <ul>
-                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_0"
-                                                            value="0" required="" class="sq-form-field"> <label
-                                                            for="q49141_q15_0">Yes</label></li>
-                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_1"
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_00"
+                                                            value="0" required="" class="sq-form-field" checked> <label
+                                                            for="q49141_q15_00">Yes</label></li>
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_11"
                                                             value="1" required="" class="sq-form-field"> <label
-                                                            for="q49141_q15_1">No</label></li>
+                                                            for="q49141_q15_11">No</label></li>
+                                                </ul>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <fieldset>
+                                        <legend>Option / radio (disabled)</legend>
+    
+                                        <div>
+                                            <input type="radio" id="radio-one-dark-disabled" name="radio" value="radio-one-dark-disabled" checked disabled>
+                                            <label for="radio-one-dark-disabled">One</label>
+                                        </div>
+    
+                                        <div>
+                                            <input type="radio" id="radio-two-dark-disabled" name="radio" value="radio-two-dark-disabled" disabled>
+                                            <label for="radio-two-dark-disabled">Two</label>
+                                        </div>
+    
+                                        <div>
+                                            <input type="radio" id="radio-three-dark-disabled" name="radio" value="radio-three-dark-disabled" disabled>
+                                            <label for="radio-three-dark-disabled">Three</label>
+                                        </div>
+                                    </fieldset>
+    
+                                    <div class="sq-form-question sq-form-question-option-list "
+                                        id="sq_form_field_wrapper_q49141_q15">
+                                        <fieldset>
+                                            <legend class="sq-form-question-title">Option / radio - Matrix output (disabled)<abbr
+                                                    class="sq-form-required-field" title="required">*</abbr></legend>
+                                            <div class="sq-form-question-answer">
+                                                <ul>
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_0_dark_disabled" value="0"
+                                                            required="" class="sq-form-field" checked disabled> <label
+                                                            for="q49141_q15_0_dark_disabled">Yes</label></li>
+                                                    <li><input type="radio" name="q49141:q15" id="q49141_q15_1_dark_disabled" value="1"
+                                                            required="" class="sq-form-field" disabled> <label
+                                                            for="q49141_q15_1_dark_disabled">No</label></li>
                                                 </ul>
                                             </div>
                                         </fieldset>
@@ -1131,28 +1266,28 @@
                                                         <!-- Checkbox 1 with label and error class -->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="checkbox" name="checkbox-example" id="Phone-1"
+                                                                type="checkbox" name="checkbox-example" id="Phone-11"
                                                                 aria-describedby="text-field-error">
                                                             <label class="qld__control-input__text"
-                                                                for="Phone-1">Phone</label>
+                                                                for="Phone-11">Phone</label>
                                                         </div>
 
                                                         <!-- Checkbox 2 with label and error class -->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="checkbox" name="checkbox-example" id="Email-2"
+                                                                type="checkbox" name="checkbox-example" id="Email-22"
                                                                 aria-describedby="text-field-error">
                                                             <label class="qld__control-input__text"
-                                                                for="Email-2">Email</label>
+                                                                for="Email-22">Email</label>
                                                         </div>
 
                                                         <!-- Checkbox 3 with label and error class -->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--error"
-                                                                type="checkbox" name="checkbox-example" id="Mail-3"
+                                                                type="checkbox" name="checkbox-example" id="Mail-33"
                                                                 aria-describedby="text-field-error">
                                                             <label class="qld__control-input__text"
-                                                                for="Mail-3">Mail</label>
+                                                                for="Mail-33">Mail</label>
                                                         </div>
 
                                                     </div>
@@ -1184,28 +1319,28 @@
                                                         <!-- Checkbox 1 with label and success class -->
                                                         <div class="qld__control-input qld__control-input--block">
                                                             <input class="qld__control-input__input qld__input--valid"
-                                                                type="checkbox" name="checkbox-example-dark-1" id="checkbox-example-dark-1"
+                                                                type="checkbox" name="checkbox-example-dark-1" id="checkbox-example-dark-11"
                                                                 aria-describedby="text-field-success">
                                                             <label class="qld__control-input__text"
-                                                                for="checkbox-example-dark-1">Answer 1</label>
+                                                                for="checkbox-example-dark-11">Answer 1</label>
                                                         </div>
 
                                                         <!-- Checkbox 2 with label -->
                                                         <div class="qld__control-input qld__control-input--block">
-                                                            <input class="qld__control-input__input" type="checkbox"
-                                                                name="checkbox-example" id="Answer-2"
+                                                            <input class="qld__control-input__input qld__input--valid" type="checkbox"
+                                                                name="checkbox-example" id="checkbox-example-dark-22"
                                                                 aria-describedby="text-field-success">
                                                             <label class="qld__control-input__text"
-                                                                for="Answer-2">Answer 2</label>
+                                                                for="checkbox-example-dark-22">Answer 2</label>
                                                         </div>
 
                                                         <!-- Checkbox 3 with label -->
                                                         <div class="qld__control-input qld__control-input--block">
-                                                            <input class="qld__control-input__input" type="checkbox"
-                                                                name="checkbox-example" id="Answer-3"
+                                                            <input class="qld__control-input__input qld__input--valid" type="checkbox"
+                                                                name="checkbox-example" id="checkbox-example-dark-33"
                                                                 aria-describedby="text-field-success">
                                                             <label class="qld__control-input__text"
-                                                                for="Answer-3">Answer 3</label>
+                                                                for="checkbox-example-dark-33">Answer 3</label>
                                                         </div>
 
                                                     </div>
@@ -1247,26 +1382,26 @@
                                                             <div class="qld__control-input qld__control-input--block">
                                                                 <input
                                                                     class="qld__control-input__input qld__input--valid"
-                                                                    type="radio" name="2-radio-ex" id="2-rb-laptop"
+                                                                    type="radio" name="2-radio-ex" id="2-rb-laptop2"
                                                                     role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="2-rb-laptop">Laptop</label>
+                                                                    for="2-rb-laptop2">Laptop</label>
                                                             </div>
 
                                                             <!-- Radio option 2-->
                                                             <div class="qld__control-input qld__control-input--block">
-                                                                <input class="qld__control-input__input" type="radio"
-                                                                    name="2-radio-ex" id="2-rb-phone" role="radio">
+                                                                <input class="qld__control-input__input qld__input--valid" type="radio"
+                                                                    name="2-radio-ex" id="2-rb-phone2" role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="2-rb-phone">Phone</label>
+                                                                    for="2-rb-phone2">Phone</label>
                                                             </div>
 
                                                             <!-- Radio option 3-->
                                                             <div class="qld__control-input qld__control-input--block">
-                                                                <input class="qld__control-input__input" type="radio"
-                                                                    name="2-radio-ex" id="2-rb-tablet" role="radio">
+                                                                <input class="qld__control-input__input qld__input--valid" type="radio"
+                                                                    name="2-radio-ex" id="2-rb-tablet2" role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="2-rb-tablet">Tablet</label>
+                                                                    for="2-rb-tablet2">Tablet</label>
                                                             </div>
 
                                                         </div>
@@ -1308,30 +1443,30 @@
                                                             <div class="qld__control-input qld__control-input--block">
                                                                 <input
                                                                     class="qld__control-input__input qld__input--error"
-                                                                    type="radio" name="3-radio-ex" id="3-rb-laptop"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-laptop3"
                                                                     role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="3-rb-laptop">Laptop</label>
+                                                                    for="3-rb-laptop3">Laptop</label>
                                                             </div>
 
                                                             <!-- Radio option 2-->
                                                             <div class="qld__control-input qld__control-input--block">
                                                                 <input
                                                                     class="qld__control-input__input qld__input--error"
-                                                                    type="radio" name="3-radio-ex" id="3-rb-phone"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-phone3"
                                                                     role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="3-rb-phone">Phone</label>
+                                                                    for="3-rb-phone3">Phone</label>
                                                             </div>
 
                                                             <!-- Radio option 3-->
                                                             <div class="qld__control-input qld__control-input--block">
                                                                 <input
                                                                     class="qld__control-input__input qld__input--error"
-                                                                    type="radio" name="3-radio-ex" id="3-rb-tablet"
+                                                                    type="radio" name="3-radio-ex" id="3-rb-tablet3"
                                                                     role="radio">
                                                                 <label class="qld__control-input__text"
-                                                                    for="3-rb-tablet">Tablet</label>
+                                                                    for="3-rb-tablet3">Tablet</label>
                                                             </div>
 
                                                         </div>
@@ -1456,14 +1591,13 @@
                         </div>
                     </div>
                 </div>
+                            <!-- Page Footer Info -->
+            ${require('../components/prefooter/html/component.hbs')({
+                "site":require('/src/data/site.json'),
+                "current":require('/src/data/current.json') })}
     </main>
     <!-- END MAIN BODY -->
 
-    <!-- WIDGETS -->
-    ${require('../components/widgets/html/component.hbs')({
-    "site":require('/src/data/site.json'),
-    "current":require('/src/data/current.json')
-    })}
 
     <!-- FOOTER-->
     ${require('../components/footer/html/component.hbs')({
