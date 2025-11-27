@@ -43,14 +43,14 @@
         <div class="qld__code multiline {{#ifCond show_more_button.value '==' 'true'}}show_less{{/ifCond}} {{#ifCond show_preview.value '==' 'true'}}with-preview{{/ifCond}}">
             {{#ifCond show_preview.value '==' 'true'}}
             <div class="qld__code-preview">
-                <span class="qld__code-preview-tab">Example</span>
+                <span class="qld__code-preview-tab">Vanilla example</span>
                 {{#ifCond show_theme_colors.value '==' 'true'}}
                 <div class="qld__code-preview-colours">
-                    <span class="qld__code-preview-colours-label">Theme</span>
+                    <span class="qld__code-preview-colours-label">Palette</span>
                     <ul>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__default-{{../component.data.assetid}}" value="" checked>
-                            <label for="qld__code-preview-colours__default-{{../component.data.assetid}}">White</label>
+                            <label for="qld__code-preview-colours__default-{{../component.data.assetid}}">Default</label>
                         </li>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__light-{{../component.data.assetid}}" value="qld__body--light">
@@ -66,7 +66,7 @@
                         </li>
                         <li>
                             <input type="radio" name="qld__code-preview-colours-{{../component.data.assetid}}" id="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}" value="qld__body--dark-alt">
-                            <label for="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}"> Dark-alt</label>
+                            <label for="qld__code-preview-colours__dark-alt-{{../component.data.assetid}}">Dark-alt</label>
                         </li>
                     </ul>
                 </div>

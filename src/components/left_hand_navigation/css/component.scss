@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{Left Hand Navigation}}
+// Left Hand Navigation
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__left-nav {
@@ -54,9 +54,8 @@
                 @include QLD-space(width, 1.5unit);
                 @include QLD-space(margin-right, 0.75unit);
 
-                * {
-                    fill: var(--QLD-color-light__action--secondary);
-                }
+                color: var(--QLD-color-light__action--secondary);
+                fill: var(--QLD-color-light__action--secondary);
             }
         }
 
@@ -94,9 +93,9 @@
                 }
 
                 &.active {
-                    > .qld__left-nav__item-link .qld__left-nav__item-icon svg * {
+                    > .qld__left-nav__item-link .qld__left-nav__item-icon svg {
+                        color: var(--QLD-color-light__heading);
                         fill: var(--QLD-color-light__heading);
-                        stroke-width: 10px;
                     }
 
                     > .qld__left-nav__item-link .qld__left-nav__item-text {
@@ -113,7 +112,8 @@
                             background-color: $QLD-color-neutral--white;
                         }
 
-                        .qld__left-nav__item-icon svg * {
+                        .qld__left-nav__item-icon svg {
+                            color: var(--QLD-color-light__link);
                             fill: var(--QLD-color-light__link);
                         }
                     }
@@ -131,7 +131,8 @@
                     }
                 }
 
-                &:hover {
+                // Hover over the full nav link only if the children are not expanded
+                &:not(:has(.qld__left-nav__item-link--open)):hover {
                     background-color: var(--QLD-color-light__background--alt);
                 }
 
@@ -139,13 +140,20 @@
                     background-color: var(--QLD-color-light__background--alt);
                     color: var(--QLD-color-light__link);
 
-                    .qld__left-nav__item-icon svg * {
+                    .qld__left-nav__item-icon svg {
+                        color: var(--QLD-color-light__action--primary-hover);
                         fill: var(--QLD-color-light__action--primary-hover);
                     }
 
                     &:after {
                         background-color: var(--QLD-color-light__action--primary-hover);
                     }
+                }
+
+                // Override hover styles for nested lists
+                ul li:hover,
+                ul a.qld__left-nav__item-link:hover {
+                    background-color: transparent;
                 }
 
                 .qld__left-nav__item-link {
@@ -170,7 +178,8 @@
                             background-color: $QLD-color-neutral--white;
                         }
 
-                        .qld__left-nav__item-icon svg * {
+                        .qld__left-nav__item-icon svg {
+                            color: var(--QLD-color-light__link);
                             fill: var(--QLD-color-light__link);
                         }
                     }
@@ -195,31 +204,21 @@
                         @include QLD-box-shadow(3);
                     }
 
-                    &:after {
-                        content: " ";
+                    svg {
                         position: absolute;
                         @include QLD-space(margin-top, -0.5unit); // Pull it up half of it's height
+                        @include QLD-space(border-radius, 50%);
                         left: 0;
                         right: 0;
                         top: 0;
                         bottom: 0;
                         margin: auto;
-                        @include QLD-space(height, 2unit);
-                        @include QLD-space(width, 2unit);
-                        @include QLD-space(border-radius, 50%);
-                        background-color: var(--QLD-color-light__background);
-                        mask-image: QLD-svguri($QLD-icon-chevron-up);
-                        mask-size: 1rem;
-                        mask-repeat: no-repeat;
-                        mask-position: center;
-                        background-color: var(--QLD-color-light__action--secondary);
-                        background-repeat: no-repeat;
-                        background-position: center;
-                        @include QLD-space(background-size, 1unit);
                         transition: transform 0.25s ease-in;
+                        color: var(--QLD-color-light__action--secondary);
+                        fill: var(--QLD-color-light__action--secondary);
                     }
 
-                    &.qld__accordion--closed:after {
+                    &.qld__accordion--closed svg {
                         transform: rotate(-180deg);
                     }
                 }
@@ -244,7 +243,8 @@
             background-color: var(--QLD-color-dark__background--shade);
             border-color: var(--QLD-color-dark__border);
 
-            .qld__left-nav__item-icon svg * {
+            .qld__left-nav__item-icon svg {
+                color: var(--QLD-color-dark__action--secondary);
                 fill: var(--QLD-color-dark__action--secondary);
             }
 
@@ -267,7 +267,8 @@
                 }
 
                 &.active {
-                    .qld__left-nav__item-icon svg * {
+                    .qld__left-nav__item-icon svg {
+                        color: var(--QLD-color-dark__heading);
                         fill: var(--QLD-color-dark__heading);
                     }
 
@@ -287,7 +288,8 @@
                 a.qld__left-nav__item-link:hover {
                     background-color: var(--QLD-color-dark__background--alt);
 
-                    .qld__left-nav__item-icon svg * {
+                    .qld__left-nav__item-icon svg {
+                        color: var(--QLD-color-dark__action--primary-hover);
                         fill: var(--QLD-color-dark__action--primary-hover);
                     }
 
@@ -307,7 +309,8 @@
                             background-color: var(--QLD-color-dark__background);
                         }
 
-                        .qld__left-nav__item-icon svg * {
+                        .qld__left-nav__item-icon svg {
+                            color: var(--QLD-color-dark__link);
                             fill: var(--QLD-color-dark__link);
                         }
                     }
