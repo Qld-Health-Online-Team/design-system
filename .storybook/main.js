@@ -1,9 +1,10 @@
-/** @type { import('@storybook/html-webpack5').StorybookConfig } */
+/** @type { import('@storybook/html-vite').StorybookConfig } */
+
 const config = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-    addons: ["@storybook/addon-webpack5-compiler-swc", "@storybook/addon-essentials", "@storybook/addon-interactions", "@storybook/addon-a11y", "@storybook/addon-viewport", "@storybook/addon-themes", "@storybook/addon-designs"],
+    addons: ["@storybook/addon-a11y", "@storybook/addon-themes", "@storybook/addon-designs", "@storybook/addon-docs"],
     framework: {
-        name: "@storybook/html-webpack5",
+        name: "@storybook/html-vite",
         options: {},
     },
     staticDirs: ["../dist/mysource_files/img", "./core-assets", "./assets"],
