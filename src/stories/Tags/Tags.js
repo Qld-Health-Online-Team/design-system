@@ -21,7 +21,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
         case "filter":
             tagListContent = `
                 <li>
-                    <div class="qld__tag qld__tag--filter" tabindex="-1">
+                    <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
                             <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/QLD-icons.svg#close"></use></svg>
@@ -30,7 +30,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     </div>
                 </li>
                 <li>
-                    <div class="qld__tag qld__tag--filter" tabindex="-1">
+                    <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
                             <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/QLD-icons.svg#close"></use></svg>
@@ -39,7 +39,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     </div>
                 </li>
                 <li>
-                    <div class="qld__tag qld__tag--filter" tabindex="-1">
+                    <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
                             <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="/QLD-icons.svg#close"></use></svg>
