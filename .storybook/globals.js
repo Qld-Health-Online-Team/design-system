@@ -18,11 +18,11 @@ export const viewports = {
 };
 
 export const themes = {
-    white: "qld__body qld__grid",
-    light: "qld__body qld__body--light qld__light",
-    "light alt": "qld__body qld__body--alt qld__light-alt",
-    dark: "qld__body qld__body--dark qld__dark",
-    "dark alt": "qld__body qld__body--dark-alt qld__dark-alt",
+    white: "js qld__body qld__grid",
+    light: "js qld__body qld__body--light qld__light",
+    "light alt": "js qld__body qld__body--alt qld__light-alt",
+    dark: "js qld__body qld__body--dark qld__dark",
+    "dark alt": "js qld__body qld__body--dark-alt qld__dark-alt",
 };
 
 export const themeColours = {
@@ -37,54 +37,48 @@ export const figmaLinks = {
     masterDoc: {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23529-440999&t=y8LMLpCtTxOgtHpT-0",
     },
-    ctaLink: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=cifVNWBzJL4yUQOx-0",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395565&t=cifVNWBzJL4yUQOx-0",
-        ds: "https://www.designsystem.qld.gov.au/components/call-to-action-cta",
-    },
-    inPageAlert: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=y8LMLpCtTxOgtHpT-0",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395551&t=h9SPYdoJV6KCygCT-0",
-        ds: "https://www.designsystem.qld.gov.au/components/alerts-in-page",
-    },
-    tags: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97596&p=f&t=y8LMLpCtTxOgtHpT-0",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395550&t=y8LMLpCtTxOgtHpT-0",
-        ds: "https://www.designsystem.qld.gov.au/components/tags",
-    },
-    selectBox: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=Zn3A2cka0rRnj1UP-0",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395571&t=nEqRcloGJuj1X51X-0",
-        ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
-    },
-    videoPlayer: {
-        design: "https://www.figma.com/design/twruQlAG4NzIQl1hgjK8HS/QH-QGDS-185--Video-Component-Update?node-id=2074-8711&p=f&t=7NFZrbjBSzKMVAcZ-0",
-        file: "https://www.figma.com/design/twruQlAG4NzIQl1hgjK8HS/QH-QGDS-185--Video-Component-Update?node-id=2074-8711&p=f&t=7NFZrbjBSzKMVAcZ-0",
-        ds: "https://www.designsystem.qld.gov.au/components",
-    },
-    directionLinks: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395560",
-        ds: "https://www.designsystem.qld.gov.au/components/direction-links",
-    },
-    linkColumns: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395563",
-        ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+    backToTop: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321317&p=f&t=A5RGn3vQ6cEyXHw7-0",
+        ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
     },
     checkboxes: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395569",
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
     },
+    ctaLink: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/call-to-action-cta",
+    },
+    directionLinks: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/direction-links",
+    },
+    inPageAlert: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/alerts-in-page",
+    },
+    linkColumns: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+    },
+    promoPanel: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=ub7vIB4rUQNZ6zzo-0",
+        ds: "https://www.designsystem.qld.gov.au/components/promotional-panel",
+    },
     radioButtons: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f&t=kHfUZsyKYuDkprji-0",
         ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
     },
-    backToTop: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=0jAqcs3ccQUE8FHh-0",
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395564&t=SuTGfoccLj3mysvx-0",
-        ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
+    selectBox: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
+    },
+    tags: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97596&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components/tags",
+    },
+    videoPlayer: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0",
+        ds: "https://www.designsystem.qld.gov.au/components",
     },
 };

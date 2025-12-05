@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 import Template from "../../components/video_player/html/component.hbs?raw";
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import { figmaLinks } from "../../../.storybook/globals";
 
 const videoPlayerArgs = {
     videoType: "vimeo",
@@ -10,31 +10,15 @@ const videoPlayerArgs = {
     videoId: "1001805640?h=414b9bb286",
     videoSize: "fill_grid",
     videoDuration: "2:30",
-    videoCaption:
-        "Living in Brisbane offers a vibrant city life with beautiful weather, diverse culture, stunning parks, and a thriving food scene",
-    transcriptOptions: "link",
+    videoCaption: "Living in Brisbane offers a vibrant city life with beautiful weather, diverse culture, stunning parks, and a thriving food scene",
+    transcriptOptions: "accordion",
     transcriptLink: "https://example.com/transcript",
     transcriptText: "Full transcript available here.",
     videoDescription:
         "<h2>Optional Heading</h2><p>psum vulputate faucibus commodo laoreet tincidunt amet suspendisse urna. Turpis elementum eget dis senectus in enim varius aliquam. Vel amet odio nibh at sollicitudin. Nullam condimentum lectus.</p>",
 };
 
-const renderVideoPlayer = ({
-    videoType,
-    videoLayout,
-    stackOptions,
-    videoAlignItems,
-    videoId,
-    videoSize,
-    videoDuration,
-    videoCaption,
-    transcriptOptions,
-    transcriptLink,
-    transcriptText,
-    videoDescription,
-    bodyBackground,
-    ...args
-}) => {
+const renderVideoPlayer = ({ videoType, videoLayout, stackOptions, videoAlignItems, videoId, videoSize, videoDuration, videoCaption, transcriptOptions, transcriptLink, transcriptText, videoDescription, bodyBackground, ...args }) => {
     return Handlebars.compile(Template)({
         component: {
             data: {
@@ -66,8 +50,7 @@ export default {
         videoType: {
             control: { type: "radio" },
             options: ["youtube", "vimeo"],
-            description:
-                "The platform hosting the video. Choose between YouTube or Vimeo.",
+            description: "The platform hosting the video. Choose between YouTube or Vimeo.",
         },
         videoLayout: {
             control: { type: "radio" },
@@ -78,20 +61,17 @@ export default {
             control: { type: "radio" },
             options: ["left_aligned", "centered"],
             if: { arg: "videoLayout", eq: "stack" },
-            description:
-                "Alignment of stacked elements. Only applicable when the layout is set to 'stack'.",
+            description: "Alignment of stacked elements. Only applicable when the layout is set to 'stack'.",
         },
         videoAlignItems: {
             control: { type: "radio" },
             options: ["top", "centered_vertically"],
             if: { arg: "videoLayout", neq: "stack" },
-            description:
-                "Vertical alignment of the video when not using a 'stack' layout.",
+            description: "Vertical alignment of the video when not using a 'stack' layout.",
         },
         videoId: {
             control: "text",
-            description:
-                "Unique identifier for the video. This can be a YouTube or Vimeo video ID.",
+            description: "Unique identifier for the video. This can be a YouTube or Vimeo video ID.",
         },
         videoSize: {
             control: { type: "radio" },
@@ -101,8 +81,7 @@ export default {
         },
         videoDuration: {
             control: "text",
-            description:
-                "The duration of the video in a readable format, e.g., '2:30'.",
+            description: "The duration of the video in a readable format, e.g., '2:30'.",
         },
         videoCaption: {
             control: "text",
@@ -117,25 +96,21 @@ export default {
                 },
             },
             options: ["link", "accordion"],
-            description:
-                "How the transcript is presented—either as a link or within an accordion.",
+            description: "How the transcript is presented—either as a link or within an accordion.",
         },
         transcriptLink: {
             control: { type: "text" },
             if: { arg: "transcriptOptions", eq: "link" },
-            description:
-                "The URL for the transcript link. Required if 'transcriptOptions' is set to 'link'.",
+            description: "The URL for the transcript link. Required if 'transcriptOptions' is set to 'link'.",
         },
         transcriptText: {
             control: { type: "text" },
             if: { arg: "transcriptOptions", eq: "accordion" },
-            description:
-                "The full transcript text. Required if 'transcriptOptions' is set to 'accordion'.",
+            description: "The full transcript text. Required if 'transcriptOptions' is set to 'accordion'.",
         },
         videoDescription: {
             control: "text",
-            description:
-                "An optional description providing additional details about the video content.",
+            description: "An optional description providing additional details about the video content.",
         },
         bodyBackground: {
             control: { type: "radio" },
@@ -150,7 +125,6 @@ export default {
             description: "The background theme for the video player.",
         },
     },
-
     args: { ...videoPlayerArgs },
     parameters: {
         design: {
@@ -166,16 +140,15 @@ export const Default = {
     },
 };
 
-export const defaultVariant = (videoPlayerArgs) =>
-    renderVideoPlayer({ ...videoPlayerArgs, videoType: "vimeo" });
+export const defaultVariant = (videoPlayerArgs) => renderVideoPlayer({ ...videoPlayerArgs, videoType: "vimeo" });
 defaultVariant.tags = ["!dev"];
 
-export const Light = {
+export const light = {
     args: {
         ...videoPlayerArgs,
         bodyBackground: "light",
     },
-    render: (args) => renderVideoPlayer(args, themes["light"]),
+    render: (args) => renderVideoPlayer(args),
 };
 
 export const lightAlt = {
@@ -183,7 +156,7 @@ export const lightAlt = {
         ...videoPlayerArgs,
         bodyBackground: "alt",
     },
-    render: (args) => renderVideoPlayer(args, themes["light alt"]),
+    render: (args) => renderVideoPlayer(args),
 };
 
 export const dark = {
@@ -191,7 +164,7 @@ export const dark = {
         ...videoPlayerArgs,
         bodyBackground: "dark",
     },
-    render: (args) => renderVideoPlayer(args, themes["dark"]),
+    render: (args) => renderVideoPlayer(args),
 };
 
 export const darkAlt = {
@@ -199,5 +172,5 @@ export const darkAlt = {
         ...videoPlayerArgs,
         bodyBackground: "dark-alt",
     },
-    render: (args) => renderVideoPlayer(args, themes["dark alt"]),
+    render: (args) => renderVideoPlayer(args),
 };
