@@ -1,9 +1,8 @@
-import "./core-assets/handlebar-helpers.js";
-import "./core-assets/main.js";
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import "./assets/index.js"; // Storybook assets import
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { viewports, themes, themeColours } from "./globals.js";
 
-/** @type { import('@storybook/html').Preview } */
+/** @type { import('@storybook/html-vite').Preview } */
 const preview = {
     parameters: {
         controls: {
@@ -23,7 +22,7 @@ const preview = {
             },
         },
         viewport: {
-            viewports: {
+            options: {
                 ...viewports,
                 ...INITIAL_VIEWPORTS,
             },
@@ -34,29 +33,28 @@ const preview = {
             },
         },
         backgrounds: {
-            default: "White",
-            values: [
-                {
+            options: {
+                white: {
                     name: "White",
                     value: themeColours["white"],
                 },
-                {
+                light: {
                     name: "Light",
                     value: themeColours["light"],
                 },
-                {
+                light_alternate: {
                     name: "Light Alternate",
                     value: themeColours["light alt"],
                 },
-                {
+                dark: {
                     name: "Dark",
                     value: themeColours["dark"],
                 },
-                {
+                dark_alternate: {
                     name: "Dark Alternate",
                     value: themeColours["dark alt"],
                 },
-            ],
+            },
         },
     },
     args: {
