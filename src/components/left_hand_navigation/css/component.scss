@@ -281,12 +281,14 @@
                     background-color: var(--QLD-color-dark__design-accent);
                 }
 
-                &:hover {
+                // Hover over the full nav link only if the children are not expanded
+                &:not(:has(.qld__left-nav__item-link--open)):hover {
                     background-color: var(--QLD-color-dark__background--alt);
                 }
 
                 a.qld__left-nav__item-link:hover {
                     background-color: var(--QLD-color-dark__background--alt);
+                    color: var(--QLD-color-dark__link);
 
                     .qld__left-nav__item-icon svg {
                         color: var(--QLD-color-dark__action--primary-hover);
@@ -314,6 +316,10 @@
                             fill: var(--QLD-color-dark__link);
                         }
                     }
+                }
+
+                .qld__left-nav__item-toggle {
+                    @include QLD-focus("dark", false);
                 }
 
                 ul {
