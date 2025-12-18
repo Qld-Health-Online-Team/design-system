@@ -582,7 +582,7 @@ form {
 
         > dt {
             @include QLD-space(margin-top, 1.5unit);
-            font-weight: bold;
+            font-weight: $QLD-font-weight-bold;
 
             &:first-of-type {
                 margin-top: 0;
@@ -769,7 +769,7 @@ form {
     .qld__block-quote {
         @include QLD-fontgrid(md, small);
         color: var(--QLD-color-light__heading);
-        font-weight: 600;
+        font-weight: $QLD-font-weight-semibold;
 
         .qld__quote-source {
             @include QLD-fontgrid(xs, small);
@@ -798,7 +798,7 @@ form {
 
     .qld__caption {
         @include QLD-fontgrid(xs);
-        font-weight: 400;
+        font-weight: $QLD-font-weight-regular;
         color: var(--QLD-color-light__text--lighter);
     }
     *:not([type="hidden"]) {

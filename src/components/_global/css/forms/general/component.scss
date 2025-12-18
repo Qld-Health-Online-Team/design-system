@@ -17,7 +17,7 @@
 legend.sq-form-section-title {
     @include QLD-space(padding-top, 2unit);
     @include QLD-fontgrid(lg, heading);
-    font-weight: bold;
+    font-weight: $QLD-font-weight-bold;
     color: var(--QLD-color-light__heading);
 
     + * {
@@ -34,7 +34,7 @@ legend,
 legend.sq-form-question-title {
     margin-bottom: 0;
     padding: 0;
-    font-weight: 600;
+    font-weight: $QLD-font-weight-semibold;
 }
 
 //Label
@@ -42,7 +42,7 @@ legend.sq-form-question-title {
 label {
     color: var(--QLD-color-light__text);
     display: block;
-    font-weight: 600;
+    font-weight: $QLD-font-weight-semibold;
     line-height: 1.5rem;
 
     @include QLD-media(lg) {
@@ -70,7 +70,7 @@ label {
         font-size: 0.875rem;
         display: inline-block;
         margin-left: 0.25rem;
-        font-weight: 400;
+        font-weight: $QLD-font-weight-regular;
     }
 
     & + .qld__select,
@@ -283,7 +283,7 @@ span.qld__input--success {
 p.qld__input--error,
 span.qld__input--error p.sq-form-error {
     font-family: $QLD-font;
-    font-weight: bold;
+    font-weight: $QLD-font-weight-bold;
     @include QLD-fontgrid(sm, default);
     color: $QLD-color-status__error;
     display: block;

@@ -2,7 +2,7 @@
 // Multi action card
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.qld__card.qld__card__multi-action{
+.qld__card.qld__card__multi-action {
     @include QLD-box-shadow(2);
 
     @include QLD-media(lg) {
@@ -11,19 +11,19 @@
 
     //Card Icon
     &.qld__card--icon {
-        .qld__card__icon{
+        .qld__card__icon {
             i,
-            svg{
+            svg {
                 color: var(--QLD-color-light__action--secondary);
             }
-        }  
-        &:hover{
-            .qld__card__icon{
+        }
+        &:hover {
+            .qld__card__icon {
                 i,
-                svg{
+                svg {
                     color: var(--QLD-color-light__action--secondary-hover);
                 }
-            }    
+            }
         }
     }
 
@@ -80,73 +80,71 @@
         }
     }
 
-    .qld__card__footer-inner{
+    .qld__card__footer-inner {
         display: flex;
         flex-direction: column;
 
-        .qld__link-list{
+        .qld__link-list {
             @include QLD-space(padding, 0unit);
 
-            li{
+            li {
                 @include QLD-space(margin, 1unit 0 0 0);
-                @include QLD-space(padding,  0);
+                @include QLD-space(padding, 0);
 
-                &:first-of-type{
+                &:first-of-type {
                     @include QLD-space(margin-top, 0);
                 }
             }
         }
-        .qld__tag-list{
-            @include QLD-space(margin, -.50unit 0unit 0unit 0unit);
-
+        .qld__tag-list {
+            @include QLD-space(margin, -0.5unit 0unit 0unit 0unit);
         }
     }
 
-    .qld__card__footer-link-icon{
+    .qld__card__footer-link-icon {
         @include QLD-space(font-size, 1.25unit);
-        @include QLD-space(margin-right, .5unit);
+        @include QLD-space(margin-right, 0.5unit);
         color: var(--QLD-color-light__action--secondary);
         vertical-align: middle;
         width: 24px;
         text-decoration: none;
     }
 
-    .qld__card__footer-link{
+    .qld__card__footer-link {
         color: var(--QLD-color-light__link);
         @include QLD-space(font-size, 1unit);
-        font-weight: bold;
+        font-weight: $QLD-font-weight-bold;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         text-decoration: none;
-        
-        span {
-            @include QLD-underline('light');
 
+        span {
+            @include QLD-underline("light");
         }
 
-        &:visited{
+        &:visited {
             span {
                 color: var(--QLD-color-light__underline--hover-visited);
                 text-decoration-color: var(--QLD-color-light__underline--visited);
             }
         }
         &:hover:visited {
-            span{
+            span {
                 color: var(--QLD-color-light__underline--hover-visited);
                 text-decoration-color: var(--QLD-color-light__underline--hover-visited);
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
         }
-        &:hover{
+        &:hover {
             color: var(--QLD-color-light__link);
             text-decoration: none;
-            span{
+            span {
                 text-decoration-thickness: var(--QLD-underline__thickness-thick);
             }
-            
-            .qld__card__footer-link-icon{
+
+            .qld__card__footer-link-icon {
                 color: var(--QLD-color-light__action--secondary-hover);
             }
         }
@@ -154,22 +152,21 @@
 
     &.qld__card--dark,
     &.qld__card--dark-alt {
-
         //Card Icon
         &.qld__card--icon {
-            .qld__card__icon{
+            .qld__card__icon {
                 i,
-                svg{
+                svg {
                     color: var(--QLD-color-dark__action--secondary);
                 }
-            }  
-            &:hover{
-                .qld__card__icon{
+            }
+            &:hover {
+                .qld__card__icon {
                     i,
-                    svg{
+                    svg {
                         color: var(--QLD-color-dark__action--secondary-hover);
                     }
-                }    
+                }
             }
         }
 
@@ -178,7 +175,7 @@
             outline: 3px solid var(--QLD-color-dark__focus);
         }
 
-        .qld__card__footer-link-icon{
+        .qld__card__footer-link-icon {
             color: var(--QLD-color-dark__action--secondary);
         }
 
@@ -186,10 +183,10 @@
             color: var(--QLD-color-dark__link);
 
             span {
-                @include QLD-underline('dark');
+                @include QLD-underline("dark");
             }
 
-            &:visited{
+            &:visited {
                 span {
                     color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-color: var(--QLD-color-dark__underline--visited);
@@ -197,7 +194,7 @@
             }
 
             &:hover:visited {
-                span{
+                span {
                     color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
                     text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -213,7 +210,7 @@
     }
 }
 
-.qld__card.qld__card__multi-action.qld__card__multi-action--feature{
+.qld__card.qld__card__multi-action.qld__card__multi-action--feature {
     @include QLD-media(md) {
         flex-direction: row;
         @include QLD-space(min-height, 18.75unit);
@@ -222,8 +219,7 @@
         @include QLD-space(min-height, 27.5unit);
     }
 
-    .qld__card__image-link{
-        
+    .qld__card__image-link {
         @include QLD-media(md) {
             flex: 1;
             @include QLD-space(padding-bottom, 0unit);
@@ -234,7 +230,7 @@
         }
     }
 
-    .qld__card__inner{
+    .qld__card__inner {
         @include QLD-space(padding, 1.5unit);
         @include QLD-media(md) {
             @include QLD-space(padding, 1.25unit);
@@ -251,26 +247,21 @@
         }
     }
 
-    .qld__card__footer{
+    .qld__card__footer {
         justify-content: initial;
     }
 
-    &.qld__card__multi-action--image-right{
-            
-            
+    &.qld__card__multi-action--image-right {
         @include QLD-media(md) {
             flex-direction: row-reverse;
         }
         @include QLD-media(lg) {
-            
         }
-        
-        .qld__responsive-media-img--bg{
+
+        .qld__responsive-media-img--bg {
             border-radius: 0;
-
         }
-        .qld__card__inner{
-
+        .qld__card__inner {
             .qld__card__title {
                 @include QLD-space(font-size, 1.25unit);
                 line-height: 1.4;
@@ -278,6 +269,3 @@
         }
     }
 }
-
-
-

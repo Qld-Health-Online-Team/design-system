@@ -6,7 +6,7 @@
     position: relative;
     display: none;
 
-    &--content-centre{
+    &--content-centre {
         text-align: center;
     }
 
@@ -24,7 +24,7 @@
         z-index: 1;
     }
 
-    &__inner{
+    &__inner {
         min-width: 17.5rem;
         max-width: 17.5rem;
         position: fixed;
@@ -50,7 +50,7 @@
         }
     }
 
-    .qld__modal__header{
+    .qld__modal__header {
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -58,23 +58,23 @@
         gap: 1rem;
         line-height: 1.5rem;
 
-        .qld__modal__header-heading{
-            font-weight: bold;
+        .qld__modal__header-heading {
+            font-weight: $QLD-font-weight-bold;
             margin-top: 0;
             color: var(--QLD-color-light__heading);
             word-break: break-all;
         }
 
-        & &-icon{
+        & &-icon {
             flex: 1 0 auto;
         }
 
-        .qld__btn.qld__btn--close{
+        .qld__btn.qld__btn--close {
             flex: 1 0 auto;
         }
     }
 
-    &__close-btn{
+    &__close-btn {
         min-width: auto;
         padding: 0;
         position: absolute;
@@ -86,26 +86,24 @@
         background-color: $QLD-color-neutral--lightest;
         border-color: $QLD-color-neutral--lightest;
 
-        &:hover{
+        &:hover {
             background: var(--QLD-color-light__background--alt-shade);
             border-color: var(--QLD-color-light__background--alt-shade);
         }
 
-        i{
+        i {
             color: $QLD-color-neutral--black;
         }
     }
 
-    &__content{
+    &__content {
         margin-top: 1.5rem;
         word-break: break-all;
     }
 
-
-
-
     //TO be removed once service finder is updated START
-    &.qld__services-modal__set-location, &.qld__services-modal__update-location {
+    &.qld__services-modal__set-location,
+    &.qld__services-modal__update-location {
         .qld__modal__body {
             min-width: pxToRem(360);
 
@@ -115,9 +113,9 @@
         }
     }
 
-    &__body__content{
-        @include QLD-space(padding, 1.5unit  0);
-        
+    &__body__content {
+        @include QLD-space(padding, 1.5unit 0);
+
         ul li a {
             text-decoration: none;
             color: var(--QLD-color-light__link--on-action);
@@ -126,10 +124,9 @@
                 background-color: var(--QLD-color-light__action--primary-hover);
             }
         }
-
     }
-   
-	.qld__modal__body {
+
+    .qld__modal__body {
         min-width: pxToRem(360);
         max-width: pxToRem(654);
         position: fixed;
@@ -150,7 +147,6 @@
         .qld__modal__body__header {
             display: flex;
             justify-content: space-between;
-            
         }
         .qld__modal__close {
             position: absolute;
@@ -168,7 +164,7 @@
                 color: var(--QLD-color-light__text);
                 font-size: 1.5rem;
             }
-            &:hover{
+            &:hover {
                 // background-color: var(--QLD-color-light__action--primary-hover);
                 svg,
                 i {
@@ -176,7 +172,6 @@
                 }
             }
         }
-
     }
 
     &.qld__modal--small {
@@ -194,5 +189,4 @@
         }
     }
     //TO be removed once service finder is updated FINISH
-
 }
