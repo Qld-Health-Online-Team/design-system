@@ -90,7 +90,7 @@
                         overflow: hidden;
                         user-select: none;
                         pointer-events: none;
-                        font-weight: bold;
+                        font-weight: $QLD-font-weight-bold;
                     }
                 }
 
@@ -301,7 +301,7 @@
                     @include QLD-media(lg) {
                         padding: 0;
                         border-bottom: none;
-                        font-weight: bold;
+                        font-weight: $QLD-font-weight-bold;
                     }
 
                     .qld__icon {
@@ -339,7 +339,7 @@
                 .qld__main-nav__item-desc {
                     color: var(--QLD-color-light__text--lighter);
                     @include QLD-fontgrid(xs);
-                    font-weight: normal;
+                    font-weight: $QLD-font-weight-regular;
                 }
 
                 &.active {
@@ -347,7 +347,7 @@
                         color: var(--QLD-color-light__heading);
                         width: 100%;
                         display: block;
-                        font-weight: bold;
+                        font-weight: $QLD-font-weight-bold;
                         border-left: solid 4px transparent;
 
                         @include QLD-media(lg) {
@@ -366,7 +366,7 @@
                 }
 
                 &:not(.active) {
-                    font-weight: normal;
+                    font-weight: $QLD-font-weight-regular;
                 }
 
                 &.qld__main-nav__item--has-desc {
