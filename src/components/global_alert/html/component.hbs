@@ -2,7 +2,7 @@
     <div 
     role="region" 
     aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}" 
-    class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}">
+    class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}{{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'Yes'}} qld__global-alert-with-vertical-nav{{/ifCond}}">
  
         <div class="container-fluid">
             <div class="qld__global-alert__main">
