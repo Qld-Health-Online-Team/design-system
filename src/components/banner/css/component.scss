@@ -12,14 +12,6 @@
     padding: 0;
     position: relative;
 
-    &:not(.qld__banner__advanced):not(.qld__banner__basic) {
-        .qld__banner.qld__banner__content {
-            @include QLD-media(lg) {
-                width: 90%;
-            }
-        }
-    }
-
     & &__content {
         color: var(--QLD-color-light__text);
         position: relative;
@@ -182,12 +174,6 @@
         }
 
         &.qld__banner__hero--scale {
-            @include QLD-media(md) {
-                @include QLD-space(padding-left, 1unit);
-                @include QLD-space(padding-right, 1unit);
-                @include QLD-space(padding-top, 1unit);
-                @include QLD-space(padding-bottom, 1unit);
-            }
             .qld__banner__image {
                 background-size: contain;
                 &.qld__banner__image--background {
@@ -323,6 +309,8 @@
         .qld__banner__content .qld__banner__heading__wrapper {
             @include QLD-space(margin-top, -4unit);
 
+            // Adjust line heights for headings so letters are not cut
+            line-height: 44px;
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
                 line-height: 48px;
@@ -430,12 +418,6 @@
             h1 {
                 color: var(--QLD-color-light__heading);
             }
-
-            .qld__banner__heading {
-                &--light {
-                    background-color: var(--QLD-color-light__background);
-                }
-            }
         }
 
         .qld__banner__hero {
@@ -483,8 +465,6 @@
                 color: var(--QLD-color-dark__heading);
             }
             .qld__banner__heading {
-                // border-left: 4px solid var(--QLD-color-dark__design-accent);
-
                 &--dark {
                     background-color: var(--QLD-color-dark__background--shade);
                     box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
