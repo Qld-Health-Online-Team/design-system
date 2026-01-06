@@ -6,6 +6,11 @@ import { viewports, themes, themeColours } from "./globals.js";
 /** @type { import('@storybook/html').Preview } */
 const preview = {
     parameters: {
+        options: {
+            storySort: {
+                order: ["Layout", "Components"],
+            },
+        },
         controls: {
             matchers: {
                 color: /(background|color)$/i,
