@@ -10,7 +10,13 @@ export default {
     argTypes: {
         defaultBannerContainedBanner: {
             control: { type: "radio" },
-            options: ["no", "qld__banner_contained"],
+            options: ["No", "Yes - light", "Yes - Dark"],
+            mapping: {
+                No: "No",
+                "Yes - light": "qld__banner_contained",
+                "Yes - Dark":
+                    "qld__banner_contained qld__banner_contained--dark",
+            },
             description: "Layout for displaying the contained banner if used.",
         },
         imageContainedLayoutBackground: {
@@ -35,10 +41,12 @@ export default {
         },
         sitePreHeaderTheme: {
             control: { type: "radio" },
-            options: [
-                "qld__header__pre-header--dark",
-                "qld__header__pre-header--dark-alt",
-            ],
+            options: ["Light", "Dark", "Dark Alternative"],
+            mapping: {
+                Light: "",
+                Dark: "qld__header__pre-header--dark",
+                "Dark Alternative": "qld__header__pre-header--dark-alt",
+            },
             description: "Pre header colour theme.",
         },
         sitePreHeaderURL: {
@@ -95,7 +103,12 @@ export default {
         },
         siteHeaderMainTheme: {
             control: { type: "radio" },
-            options: ["qld__header__main--dark", "qld__header__main--dark-alt"],
+            options: ["Light", "Dark", "Dark Alternative"],
+            mapping: {
+                Light: "",
+                Dark: "qld__header__main--dark",
+                "Dark Alternative": "qld__header__main--dark-alt",
+            },
             description: "Main header colour theme.",
         },
     },
@@ -120,32 +133,21 @@ export const Default = {
  */
 export const white = {
     args: { ...headerArgs },
-    render: (args) =>
-        `<div class="${themes.white}" style="padding: 2rem;">${Header(
-            args
-        )}</div>`,
+    render: (args) => `<div class="${themes.white}">${Header(args)}</div>`,
 };
 
 export const light = {
     args: { ...headerArgs },
-    render: (args) =>
-        `<div class="${themes.light}" style="padding: 2rem;">${Header(
-            args
-        )}</div>`,
+    render: (args) => `<div class="${themes.light}">${Header(args)}</div>`,
 };
 
 export const dark = {
     args: { ...headerArgs },
-    render: (args) =>
-        `<div class="${themes.dark}" style="padding: 2rem;">${Header(
-            args
-        )}</div>`,
+    render: (args) => `<div class="${themes.dark}">${Header(args)}</div>`,
 };
 
 export const darkAlt = {
     args: { ...headerArgs },
     render: (args) =>
-        `<div class="${themes["dark alt"]}" style="padding: 2rem;">${Header(
-            args
-        )}</div>`,
+        `<div class="${themes["dark alt"]}">${Header(args)}</div>`,
 };
