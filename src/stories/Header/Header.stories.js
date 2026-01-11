@@ -1,12 +1,10 @@
-import { Header, headerArgs } from "./Header";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { renderHeader, headerArgs } from "./Header.js";
+import { figmaLinks } from "../../../.storybook/globals";
 
-/**
- * Storybook default export
- */
 export default {
     title: "Layout/Header",
-    render: (args) => Header(args), // use the wrapper from Header.js
+    render: renderHeader,
+    args: { ...headerArgs },
     argTypes: {
         defaultBannerContainedBanner: {
             control: { type: "radio" },
@@ -19,25 +17,15 @@ export default {
             },
             description: "Layout for displaying the contained banner if used.",
         },
-        imageContainedLayoutBackground: {
-            control: "text",
-            description: "Background image URL for contained banner (if used).",
-        },
-        containedBannerImageTexturePosition: {
+        siteHeaderMainTheme: {
             control: { type: "radio" },
-            options: ["top left", "top center", "top right"],
-            description: "Position of the contained banner background image.",
-        },
-        containedBannerImageTextureSize: {
-            control: { type: "radio" },
-            options: ["auto", "cover"],
-            description: "Size of the contained banner background image.",
-        },
-        containedBannerImageTextureRepeat: {
-            control: { type: "radio" },
-            options: ["no-repeat", "repeat"],
-            description:
-                "Repeat behavior of the contained banner background image.",
+            options: ["Light", "Dark", "Dark Alternative"],
+            mapping: {
+                Light: "",
+                Dark: "qld__header__main--dark",
+                "Dark Alternative": "qld__header__main--dark-alt",
+            },
+            description: "Main header colour theme.",
         },
         sitePreHeaderTheme: {
             control: { type: "radio" },
@@ -49,71 +37,42 @@ export default {
             },
             description: "Pre header colour theme.",
         },
-        sitePreHeaderURL: {
-            control: "text",
-            description: "URL for the pre header link.",
-        },
-        sitePreHeaderText: {
-            control: "text",
-            description: "Text for the pre header link.",
-        },
-        sitePreHeaderLogo: {
-            control: "text",
-            description: "URL for the pre header logo image.",
-        },
-        mainNavCtaOne: {
-            control: "text",
-            description: "Text for first CTA in main nav.",
-        },
-        mainNavCtaOneIcon: {
-            control: "select",
-            options: ["log-in", "location", "arrow-up", "arrow-down"],
-            description: "Icon for first CTA in main nav.",
-        },
-        mainNavCtaOneText: {
-            control: "text",
-            description: "URL for first CTA in main nav.",
-        },
-        mainNavCtaTwo: {
-            control: "text",
-            description: "Text for second CTA in main nav.",
-        },
-        mainNavCtaTwoIcon: {
-            control: "select",
-            options: ["log-in", "location", "arrow-up", "arrow-down"],
-            description: "Icon for second CTA in main nav.",
-        },
-        mainNavCtaTwoText: {
-            control: "text",
-            description: "URL for second CTA in main nav.",
-        },
         siteShowLogo: {
-            control: { type: "radio" },
+            control: "radio",
             options: ["yes", "no"],
-            description: "Toggle to show/hide main logo.",
+            description: "Show the Queensland Government logo",
         },
-        siteTitle: { control: "text", description: "Text for the site title." },
-        siteSubline: {
-            control: "text",
-            description: "Text for the site subline.",
-        },
-        siteSearchUrl: {
-            control: "text",
-            description: "URL for the site search results page.",
-        },
-        siteHeaderMainTheme: {
-            control: { type: "radio" },
-            options: ["Light", "Dark", "Dark Alternative"],
+        containedBannerImageTexturePosition: {
+            control: { type: "select" },
+            options: ["Top Left", "Top Center", "Top Right"],
             mapping: {
-                Light: "",
-                Dark: "qld__header__main--dark",
-                "Dark Alternative": "qld__header__main--dark-alt",
+                "Top Left": "top left",
+                "Top Center": "top center",
+                "Top Right": "top right",
             },
-            description: "Main header colour theme.",
+            description: "Position of the texture image within the banner.",
+        },
+        containedBannerImageTextureSize: {
+            control: { type: "select" },
+            options: ["Auto", "Cover"],
+            mapping: {
+                Auto: "auto",
+                Cover: "cover",
+            },
+            description: "Size of the texture image within the banner.",
+        },
+        containedBannerImageTextureRepeat: {
+            control: { type: "select" },
+            options: ["No Repeat", "Repeat"],
+            mapping: {
+                "No Repeat": "no-repeat",
+                Repeat: "repeat",
+            },
+            description: "Repeat style of the texture image within the banner.",
         },
     },
-    args: { ...headerArgs },
     parameters: {
+        layout: "fullscreen",
         design: {
             type: "figma",
             url: figmaLinks.header.design,
@@ -121,33 +80,21 @@ export default {
     },
 };
 
-/**
- * Default story
- */
-export const Default = {
-    args: { ...headerArgs },
-};
+// Default story
+export const Default = { args: { ...headerArgs } };
 
-/**
- * Theme variants (like LinkColumns)
- */
-export const white = {
-    args: { ...headerArgs },
-    render: (args) => `<div class="${themes.white}">${Header(args)}</div>`,
-};
+// Variants
+export const LightHeader = (args) =>
+    renderHeader({ ...args, siteHeaderMainTheme: "" });
+LightHeader.args = { ...headerArgs };
 
-export const light = {
-    args: { ...headerArgs },
-    render: (args) => `<div class="${themes.light}">${Header(args)}</div>`,
-};
+export const DarkHeader = (args) =>
+    renderHeader({ ...args, siteHeaderMainTheme: "qld__header__main--dark" });
+DarkHeader.args = { ...headerArgs };
 
-export const dark = {
-    args: { ...headerArgs },
-    render: (args) => `<div class="${themes.dark}">${Header(args)}</div>`,
-};
-
-export const darkAlt = {
-    args: { ...headerArgs },
-    render: (args) =>
-        `<div class="${themes["dark alt"]}">${Header(args)}</div>`,
-};
+export const DarkAltHeader = (args) =>
+    renderHeader({
+        ...args,
+        siteHeaderMainTheme: "qld__header__main--dark-alt",
+    });
+DarkAltHeader.args = { ...headerArgs };

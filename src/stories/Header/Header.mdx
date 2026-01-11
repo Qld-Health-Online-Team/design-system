@@ -1,12 +1,64 @@
-import {
-    Meta,
-    Primary,
-    Controls,
-    Story,
-    Source,
-    Design,
-} from "@storybook/blocks";
+import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories";
 import { figmaLinks } from "../../../.storybook/globals";
 
 <Meta of={HeaderStories} />
+
+# Header
+
+## Overview
+
+The Header component provides the global branding and primary navigation for Queensland Government websites.
+
+It is typically the first element on the page and is responsible for:
+
+-   Displaying Queensland Government branding
+-   Showing the site title and optional subline
+-   Providing access to global search
+-   Displaying primary call-to-action links
+-   Supporting multiple visual themes
+
+The Header is a **layout-level component** and is intended to be used once per page, usually within a page template.
+
+---
+
+## Anatomy
+
+The Header can include the following areas:
+
+-   **Pre-header**  
+    Displays Queensland Government branding and optional links.
+
+-   **Branding**  
+    Site logo, title, and subline.
+
+-   **Search**  
+    Global search entry point (visual only in Storybook).
+
+-   **Primary actions (CTAs)**  
+    Optional call-to-action links displayed on the right.
+
+-   **Theme variants**  
+    Supports light, dark, and dark-alt themes.
+
+---
+
+## Default Header
+
+<Primary />
+
+---
+
+## Variants
+
+<Story of={HeaderStories.LightHeader} name="Light Header" />
+
+<Story of={HeaderStories.DarkHeader} name="Dark Header" />
+
+<Story of={HeaderStories.DarkAltHeader} name="Dark Alt Header" />
+
+---
+
+## Props
+
+<Controls />
