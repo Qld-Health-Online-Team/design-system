@@ -61,6 +61,10 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
     },
+    pagination: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321779&p=f&t=wdrRF6qJa1fuzxWP-0",
+        ds: "https://www.designsystem.qld.gov.au/components/pagination",
+    },
     promoPanel: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=ub7vIB4rUQNZ6zzo-0",
         ds: "https://www.designsystem.qld.gov.au/components/promotional-panel",

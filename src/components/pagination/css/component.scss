@@ -9,7 +9,7 @@
         flex-wrap: wrap;
 
         li {
-            @include QLD-space(margin, .5unit .75unit .5unit 0);
+            @include QLD-space(margin, 0.5unit 0.75unit 0.5unit 0);
 
             &.ellipsis,
             &.first,
@@ -33,8 +33,7 @@
                 color: var(--QLD-color-light__link--on-action);
                 font-weight: bold;
 
-
-                &:hover{
+                &:hover {
                     background-color: var(--QLD-color-light__action--primary-hover);
                     color: var(--QLD-color-light__link--on-action);
                     box-shadow: inset 0 0 0 $QLD-border-width-default var(--QLD-color-light__action--primary-hover);
@@ -52,19 +51,20 @@
             }
 
             &.next,
-            &.prev{
-                @include QLD-underline('light','noUnderline');
+            &.prev {
+                @include QLD-underline("light", "noUnderline");
             }
 
             &.next,
             &.prev,
-            &.ellipsis{
-                a, button{
+            &.ellipsis {
+                a,
+                button {
                     box-shadow: none;
                     @include QLD-media(lg) {
                         width: auto;
                     }
-                    
+
                     &:hover span {
                         text-decoration-thickness: var(--QLD-underline__thickness-thick);
                         text-decoration: underline;
@@ -75,8 +75,8 @@
                         text-decoration: underline;
                     }
                 }
-                
-                span{
+
+                span {
                     @include QLD-sronly();
                     @include QLD-media(lg) {
                         position: relative;
@@ -88,21 +88,23 @@
             }
 
             @include QLD-media(lg) {
-                &.next span{
-                    @include QLD-space(margin-right, .5unit);
+                &.next span {
+                    @include QLD-space(margin-right, 0.5unit);
                 }
-                &.prev span{
-                    @include QLD-space(margin-left, .5unit);
+                &.prev span {
+                    @include QLD-space(margin-left, 0.5unit);
                 }
             }
 
-            &.ellipsis svg{
+            &.ellipsis svg {
                 vertical-align: middle;
             }
         }
 
-        .mid, .num {
-            a, button {
+        .mid,
+        .num {
+            a,
+            button {
                 &:active,
                 &:focus {
                     background-color: transparent;
@@ -111,7 +113,8 @@
             }
         }
 
-        a, button {
+        a,
+        button {
             text-decoration: none;
             @include QLD-space(height, 2unit);
             @include QLD-space(min-width, 2unit);
@@ -120,7 +123,6 @@
             background-color: transparent;
             border-radius: $QLD-border-radius-xs;
             color: var(--QLD-color-light__link);
-            background-color: $QLD-color-neutral--white;
             display: inline-flex;
             justify-content: center;
             @include QLD-space(line-height, 1.25unit);
@@ -158,7 +160,8 @@
         }
     }
 
-    .qld__body--dark & ul.qld__search-pagination__list {
+    .qld__body--dark & ul.qld__search-pagination__list,
+    .qld__body--dark-alt & ul.qld__search-pagination__list {
         li {
             & button {
                 outline: 3px solid var(--QLD-color-light__focus);
@@ -179,7 +182,7 @@
 
                 &:active,
                 &:focus {
-                    @include QLD-focus('dark');
+                    @include QLD-focus("dark");
                     background-color: var(--QLD-color-dark__action--primary-hover);
                     box-shadow: inset 0 0 0 $QLD-border-width-thin var(--QLD-color-dark__action--primary-hover) !important;
                     color: var(--QLD-color-dark__link--on-action);
@@ -188,11 +191,12 @@
 
             &.next,
             &.prev,
-            &.ellipsis{
-                a, button {
+            &.ellipsis {
+                a,
+                button {
                     box-shadow: none;
 
-                    &:hover{
+                    &:hover {
                         box-shadow: none;
                         color: var(--QLD-color-dark__link);
 
@@ -250,7 +254,7 @@
                     text-decoration-color: var(--QLD-color-dark__underline);
                     text-decoration-thickness: var(--QLD-underline__thickness-thin);
                 }
-                
+
                 &:focus span,
                 &:hover span {
                     text-decoration-color: var(--QLD-color-dark__link);
@@ -258,7 +262,7 @@
                 }
             }
         }
-        
+
         a,
         button {
             background-color: transparent;
