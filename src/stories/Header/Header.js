@@ -1,10 +1,14 @@
 import Handlebars from "handlebars";
 import Template from "../../components/header/html/component.hbs?raw";
 import { cleanStorybookUrls } from "../../../.storybook/helper-functions";
+import { renderNavbar, navbarArgs } from "../Navbar/Navbar";
 
 // Render function for Storybook / pages
 export const renderHeader = (args) => {
-    const html = Handlebars.compile(Template)({
+    const navbarHTML = renderNavbar(navbarArgs);
+
+    const template = Handlebars.compile(Template);
+    const headerHTML = template({
         site: {
             metadata: {
                 defaultBannerContainedBanner: {
@@ -56,7 +60,9 @@ export const renderHeader = (args) => {
     });
     // return cleanStorybookUrls(html);
 
-    return cleanStorybookUrls(html).replace(/\sdisabled="true"/g, "");
+    const combinedHTML = headerHTML + navbarHTML;
+
+    return cleanStorybookUrls(combinedHTML).replace(/\sdisabled="true"/g, "");
 };
 
 // Default args you can reuse anywhere

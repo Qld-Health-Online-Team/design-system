@@ -908,16 +908,9 @@ Handlebars.registerHelper('urldecode', function (url) {
 Handlebars.registerHelper('urlencode', function (url) {
     return encodeURIComponent(url || '');
 }); 
-Handlebars.registerHelper('withinObject', function(obj,key,options) {
-
-    var within = Object.keys(obj).some(function() {
-        return obj[key] !== "";
-    });
-
-
-    if(within) {
-        return options.fn(this); 
+Handlebars.registerHelper('withinObject', function (obj, key, options) {
+    if (obj && obj[key] && obj[key].length > 0) {
+        return options.fn(this);
     }
-
     return options.inverse(this);
 }); 
