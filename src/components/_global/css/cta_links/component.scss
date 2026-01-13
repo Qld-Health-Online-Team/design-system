@@ -5,7 +5,7 @@
 .qld__cta-link,
 a.qld__cta-link {
     @include QLD-fontgrid(md);
-    font-weight: bold;
+    font-weight: $QLD-font-weight-semibold;
     color: var(--QLD-color-light__link);
     z-index: 1;
 
@@ -44,7 +44,7 @@ a.qld__cta-link {
 
         &:disabled,
         &[disabled] {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
             &::after {
                 @include QLD-space(margin, 0 0.5unit 0 0.5unit);
             }
