@@ -178,7 +178,7 @@
                     <!--@@ CTA Buttons @@-->
                     {{#ifCond metadata.cta_type.value '==' 'buttons'}}
                         {{#ifAny metadata.cta_button_primary_text.value metadata.cta_button_secondary_text.value}}
-                        <ul class="qld__banner__content--cta qld__link-list">
+                        <ul class="qld__banner__content--cta qld__link-list qld__display-flex qld__flex-wrap">
                            
                             {{#if metadata.cta_button_primary_text.value}}
                                 <li>
