@@ -127,7 +127,6 @@
             background-color: transparent;
             border-radius: $QLD-border-radius-xs;
             color: var(--QLD-color-light__link);
-            background-color: $QLD-color-neutral--white;
             display: inline-flex;
             justify-content: center;
             @include QLD-space(line-height, 1.25unit);
@@ -165,7 +164,8 @@
         }
     }
 
-    .qld__body--dark & ul.qld__search-pagination__list {
+    .qld__body--dark & ul.qld__search-pagination__list,
+    .qld__body--dark-alt & ul.qld__search-pagination__list {
         li {
             & button {
                 outline: 3px solid var(--QLD-color-light__focus);
