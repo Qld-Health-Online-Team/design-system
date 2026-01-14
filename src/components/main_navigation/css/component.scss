@@ -1,6 +1,6 @@
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// // Main Navigation
-// //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Main Navigation
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $QLD-main-nav-breakpoint: md !default;
 $QLD-main-nav-width: 320px !default;
@@ -95,7 +95,7 @@ $QLD-header-md: 72px;
             }
 
             &.active .qld__main-nav__item-link {
-                font-weight: bold;
+                font-weight: $QLD-font-weight-semibold;
                 color: var(--QLD-color-light__heading);
                 border-left-color: transparent;
 
@@ -228,7 +228,7 @@ $QLD-header-md: 72px;
                 color: var(--QLD-color-light__text);
                 background-color: $QLD-color-neutral--white;
                 border-left-color: $QLD-color-neutral--lightest;
-                font-weight: bold;
+                font-weight: $QLD-font-weight-semibold;
 
                 .qld__main-nav__item-icon {
                     stroke-width: 10px;
@@ -264,7 +264,7 @@ $QLD-header-md: 72px;
                 overflow: hidden;
                 user-select: none;
                 pointer-events: none;
-                font-weight: bold;
+                font-weight: $QLD-font-weight-semibold;
             }
         }
 
@@ -414,7 +414,7 @@ $QLD-header-md: 72px;
     & &__menu-heading {
         @include QLD-fontgrid(xs);
         @include QLD-space(margin, 0unit 1unit);
-        font-weight: normal;
+        font-weight: $QLD-font-weight-regular;
         color: var(--QLD-color-light__heading);
 
         @include QLD-media(md) {
@@ -747,6 +747,15 @@ $QLD-header-md: 72px;
 
         // CTA wrapper
         .qld__main-nav__cta-wrapper {
+            &.qld__main-nav__cta-wrapper--light {
+                .qld__main-nav__item-link {
+                    color: var(--QLD-color-light__link);
+
+                    &:hover {
+                        text-decoration-color: var(--QLD-color-light__underline--hover);
+                    }
+                }
+            }
             &.qld__main-nav__cta-wrapper--dark,
             &.qld__main-nav__cta-wrapper--dark-alt {
                 .qld__link-list .qld__main-nav__item .qld__main-nav__item-title a.qld__main-nav__item-link:hover {

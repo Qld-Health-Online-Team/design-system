@@ -34,9 +34,9 @@
     .qld__display-lg,
     .qld__display-md,
     .qld__display-sm,
-    .qld__display-xs{
+    .qld__display-xs {
         font-family: $QLD-font;
-        font-weight: 600;
+        font-weight: $QLD-font-weight-semibold;
         margin: 0;
         color: var(--QLD-color-light__heading);
     }
@@ -63,8 +63,8 @@
         .qld__display-lg,
         .qld__display-md,
         .qld__display-sm,
-        .qld__display-xs{
-           color: var(--QLD-color-dark__heading);
+        .qld__display-xs {
+            color: var(--QLD-color-dark__heading);
         }
     }
 
@@ -75,7 +75,7 @@
     * Also ref. https://github.com/govau/design-system-components/issues/282
     */
 
-    h1{
+    h1 {
         @include QLD-fontgrid(xl, heading);
 
         @include QLD-media(lg) {
@@ -83,8 +83,8 @@
         }
     }
 
-    h2{
-        @include QLD-space(font-size, 1.75unit); 
+    h2 {
+        @include QLD-space(font-size, 1.75unit);
         @include QLD-space(line-height, 2.25unit);
 
         @include QLD-media(lg) {
@@ -92,85 +92,84 @@
         }
     }
 
-    h3{
+    h3 {
         @include QLD-fontgrid(lg, heading);
     }
 
-    h4{
+    h4 {
         @include QLD-fontgrid(md, heading);
     }
 
-    h5{
+    h5 {
         @include QLD-fontgrid(sm, heading);
     }
 
-    h6{
+    h6 {
         @include QLD-fontgrid(xs, heading);
     }
 
-    .qld__display-xxxl{
+    .qld__display-xxxl {
         font-size: $QLD-font-size-mobile-xxxl;
-    
+
         @include QLD-media(lg) {
             font-size: $QLD-font-size-desktop-xxxl;
         }
     }
-    
-    .qld__display-xxl{
+
+    .qld__display-xxl {
         font-size: $QLD-font-size-mobile-xxl;
-    
+
         @include QLD-media(lg) {
             font-size: $QLD-font-size-desktop-xxl;
         }
     }
-    
-    .qld__display-xl{
+
+    .qld__display-xl {
         font-size: $QLD-font-size-mobile-xl;
-    
+
         @include QLD-media(lg) {
             font-size: $QLD-font-size-desktop-xl;
         }
     }
-    
-    .qld__display-lg{
+
+    .qld__display-lg {
         font-size: $QLD-font-size-mobile-lg;
-    
+
         @include QLD-media(lg) {
             font-size: $QLD-font-size-desktop-lg;
         }
     }
-    
-    .qld__display-md{
+
+    .qld__display-md {
         font-size: $QLD-font-size-mobile-md;
-    
+
         @include QLD-media(lg) {
-            font-size: $QLD-font-size-desktop-md; 
+            font-size: $QLD-font-size-desktop-md;
         }
     }
-    
-    .qld__display-sm{
+
+    .qld__display-sm {
         font-size: $QLD-font-size-mobile-sm;
-    
+
         @include QLD-media(lg) {
             font-size: $QLD-font-size-desktop-sm;
         }
     }
-    
-    .qld__display-xs{
-       font-size: $QLD-font-size-mobile-xs;
-    
-       @include QLD-media(lg) {
-        font-size: $QLD-font-size-desktop-xs;
+
+    .qld__display-xs {
+        font-size: $QLD-font-size-mobile-xs;
+
+        @include QLD-media(lg) {
+            font-size: $QLD-font-size-desktop-xs;
         }
-    
     }
 
     /**
     * Default margin-top
     */
 
-    *:not([type="hidden"]){
-        + .qld__display-xxxl{
+    *:not([type="hidden"]) {
+        + .qld__display-xxxl {
             @include QLD-space(margin-top, 2.5unit);
 
             @include QLD-media(lg) {
@@ -187,7 +186,7 @@
         }
 
         + h1,
-        + .qld__display-xl{
+        + .qld__display-xl {
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
@@ -196,7 +195,7 @@
         }
 
         + .qld__display-lg,
-        + h2{
+        + h2 {
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
@@ -205,7 +204,7 @@
         }
 
         + .qld__display-md,
-        + h3{
+        + h3 {
             @include QLD-space(margin-top, 2unit);
 
             @include QLD-media(lg) {
@@ -214,7 +213,7 @@
         }
 
         + .qld__display-sm,
-        + h4{
+        + h4 {
             @include QLD-space(margin-top, 1.25unit);
 
             @include QLD-media(lg) {
@@ -224,7 +223,7 @@
 
         + .qld__display-xs,
         + h5,
-        + h6{
+        + h6 {
             @include QLD-space(margin-top, 1.25unit);
 
             @include QLD-media(lg) {
@@ -233,4 +232,3 @@
         }
     }
 }
-

@@ -7,45 +7,43 @@
     @include QLD-space(padding-left, 1.5unit);
     border-left: $QLD-border-width-thick solid var(--QLD-color-light__link);
 
-    & &__heading{
+    & &__heading {
         @include QLD-fontgrid(sm, heading);
     }
-    
+
     * + & {
         @include QLD-space(margin-top, 2.3125unit);
     }
-    a{
-        @include QLD-underline('light','underline','default','noVisited');
+    a {
+        @include QLD-underline("light", "underline", "default", "noVisited");
     }
-    
+
     .qld__body & > ul,
     .qld__body & > ol {
         @include QLD-space(margin-top, 0.75unit);
         list-style-type: none;
         padding: 0;
-        
+
         li {
             margin: 0;
         }
-        
+
         * + li {
             margin-left: 0;
         }
-        li + li{
+        li + li {
             @include QLD-space(margin-top, 0.5unit);
         }
     }
-    
+
     .qld__body--dark &,
-    .qld__body--dark-alt &{
+    .qld__body--dark-alt & {
         border-color: var(--QLD-color-dark__action--primary);
-        a{
-            @include QLD-underline('dark','underline','default','noVisited');
+        a {
+            @include QLD-underline("dark", "underline", "default", "noVisited");
         }
     }
-    
 }
-
 
 .qld__inpage-nav-section {
     position: relative;
@@ -57,7 +55,7 @@
     @include QLD-space(top, 0.25unit);
     position: absolute;
     right: 0;
-    font-weight: normal;
+    font-weight: $QLD-font-weight-regular;
 }
 
 // Print styles

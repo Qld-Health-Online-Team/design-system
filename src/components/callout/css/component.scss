@@ -10,13 +10,13 @@
     word-wrap: break-word;
     @include QLD-space(max-width, $QLD-font-maxwidth);
 
-    & &__heading{
+    & &__heading {
         margin: 0;
         color: var(--QLD-color-light__heading);
 
         &.qld__callout__heading--sronly {
             @include QLD-sronly();
-    
+
             & + * {
                 margin-top: 0;
             }
@@ -24,47 +24,47 @@
     }
 
     p {
-	    margin: 0;
-	}
+        margin: 0;
+    }
 
-    a{
+    a {
         color: var(--QLD-color-light__link);
     }
 
     * + p {
-	    @include QLD-space( margin-top, 1unit );
-	}
+        @include QLD-space(margin-top, 1unit);
+    }
 
-    #content > &{
-        @include QLD-space( margin-top, 0unit );
+    #content > & {
+        @include QLD-space(margin-top, 0unit);
     }
 
     * + & {
-	    @include QLD-space( margin-top, 1.5unit );
+        @include QLD-space(margin-top, 1.5unit);
         @include QLD-media(lg) {
-            @include QLD-space( margin-top, 2unit );
+            @include QLD-space(margin-top, 2unit);
         }
-	}
+    }
 
     // Visual treatment for paragraphs following callout
-	& + p {
-	    @include QLD-space( margin-top, 2unit );
-	}
+    & + p {
+        @include QLD-space(margin-top, 2unit);
+    }
 
     //Event callout
-    &--calendar-event{
+    &--calendar-event {
         .qld__callout--calendar-event__lede {
-            @include QLD-fontgrid( sm, nospace );
+            @include QLD-fontgrid(sm, nospace);
             margin: 0;
         }
 
         .qld__callout--calendar-event__time,
         .qld__callout--calendar-event__name {
-            @include QLD-fontgrid( xl, heading );
+            @include QLD-fontgrid(xl, heading);
         }
 
         .qld__callout--calendar-event__time {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
         }
 
         .qld__callout--calendar-event__lede,
@@ -76,21 +76,20 @@
         * + .qld__callout--calendar-event__time,
         * + .qld__callout--calendar-event__name,
         * + .qld__callout--calendar-event__lede {
-            @include QLD-space( margin-top, 0.5unit ); // overrides body, to allow for var. text markup.
+            @include QLD-space(margin-top, 0.5unit); // overrides body, to allow for var. text markup.
         }
-
     }
 
     &--light,
     .qld__body--light & {
         border-left-color: var(--QLD-color-light__design-accent);
-	    background-color: var(--QLD-color-light__background--shade);
-	}
+        background-color: var(--QLD-color-light__background--shade);
+    }
     &--alt,
     .qld__body--alt & {
         border-left-color: var(--QLD-color-light__design-accent);
-	    background-color: var(--QLD-color-light__background--alt-shade);
-	}
+        background-color: var(--QLD-color-light__background--alt-shade);
+    }
 
     &--dark,
     .qld__body--dark & {
@@ -98,19 +97,19 @@
         background-color: var(--QLD-color-dark__background--shade);
         border-left-color: var(--QLD-color-dark__design-accent);
 
-        .qld__callout__heading{
+        .qld__callout__heading {
             color: var(--QLD-color-dark__heading);
         }
 
-        a{
+        a {
             color: var(--QLD-color-dark__link);
 
-            &:hover{
+            &:hover {
                 color: var(--QLD-color-dark__text);
             }
         }
 
-        &.qld__callout--calendar-event{
+        &.qld__callout--calendar-event {
             .qld__callout--calendar-event__lede {
                 color: var(--QLD-color-dark__text);
             }
@@ -120,37 +119,35 @@
     &--dark-alt,
     .qld__body--dark-alt & {
         color: var(--QLD-color-dark__text);
-	    background-color: var(--QLD-color-dark__background--alt-shade);
+        background-color: var(--QLD-color-dark__background--alt-shade);
         border-left-color: var(--QLD-color-dark__design-accent);
 
-        .qld__callout__heading{
+        .qld__callout__heading {
             color: var(--QLD-color-dark__heading);
         }
 
-        a{
+        a {
             color: var(--QLD-color-dark__link);
 
-            &:hover{
+            &:hover {
                 color: var(--QLD-color-dark__text);
             }
         }
 
-        &.qld__callout--calendar-event{
+        &.qld__callout--calendar-event {
             .qld__callout--calendar-event__lede {
                 color: var(--QLD-color-dark__text);
             }
         }
     }
-
-
 }
 
 // Print styles
 @media print {
-	.qld__callout {
-        @include QLD-space( border-left-width, 1unit !important );
+    .qld__callout {
+        @include QLD-space(border-left-width, 1unit !important);
         border: 1px solid #000 !important;
         color: #000 !important;
         background-color: transparent !important;
-	}
+    }
 }

@@ -1,44 +1,41 @@
-<div class="qld__body qld__body--dark">
-    <nav class="hidden-print qld__search-pagination" aria-label="pagination">
-        <h2 class="sr-only">Pagination</h2>
-        <ul class="qld__search-pagination__list">
-            {{#each pagination}}
-                {{#ifCond linkType '===' 'last'}}
-                    <li class="ellipsis">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
-                    </li>
-                {{/ifCond}}
-
-                
-                    {{#ifCond linkType '===' 'prev'}}
-                    <li class="prev">
-                        <a href="{{url}}" rel="prev" aria-label="Previous page of results" class="qld__search-pagination_link">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-left"></use></svg>
-                            <span>Back</span>
-                        </a>
-                    {{/ifCond}}
-                    
-                    {{#if label}}
-                    <li class="{{linkType}}{{#if isCurrent}} active{{/if}}">
-                        <a class="qld__search-pagination_link" href="{{url}}" aria-current="page">{{label}}</a>
-                    </li>
-                    {{/if}}
-
-                    {{#ifCond linkType '===' 'next'}}
-                    <li class="next">
-                        <a href="{{url}}" rel="next" aria-label="Next page of results" class="qld__search-pagination_link">
-                        <span>Next</span>
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
-                        </a>
-                    {{/ifCond}}
+<nav class="text-center hidden-print qld__search-pagination" aria-label="pagination">
+    <h2 class="sr-only">Pagination</h2> 
+    <ul class="qld__search-pagination__list">
+        {{#each pagination}}
+            {{#ifCond linkType '===' 'last'}}
+                <li class="ellipsis">
+                    <svg class="qld__icon qld__icon--lg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
                 </li>
-            
-                {{#ifCond linkType '===' 'first'}}
-                    <li class="ellipsis">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--lg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
-                    </li>
-                {{/ifCond}}
-            {{/each}}
-        </ul>
-    </nav>
-</div>
+            {{/ifCond}}
+
+            {{#ifCond linkType '===' 'prev'}}
+            <li class="prev">
+                <a href="{{{url}}}" rel="prev" aria-label="Previous page of results">
+                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-left"></use></svg>
+                    <span>Back</span>
+                </a>
+            {{/ifCond}}
+                
+            {{#if label}}
+            <li class="{{linkType}}{{#if isCurrent}} active{{/if}}">
+                <a href="{{{url}}}"{{#if isCurrent}} aria-current="page"{{/if}}>{{label}}</a>
+            </li>
+            {{/if}}
+
+            {{#ifCond linkType '===' 'next'}}
+            <li class="next">
+                <a href="{{{url}}}" rel="next" aria-label="Next page of results">
+                    <span>Next</span>
+                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
+                </a>
+            </li>
+            {{/ifCond}}
+        
+            {{#ifCond linkType '===' 'first'}}
+                <li class="ellipsis">
+                    <svg class="qld__icon qld__icon--sm" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#more-horizontal"></use></svg>
+                </li>
+            {{/ifCond}}
+        {{/each}}
+    </ul>
+</nav>
