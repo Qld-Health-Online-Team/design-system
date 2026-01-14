@@ -7,14 +7,13 @@
 // - globals
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 .qld__caption {
     font-style: normal;
     color: var(--QLD-color-light__text--lighter);
     font-size: 14px;
     font-size: 0.87rem;
     line-height: 1.6;
-    font-weight: 400;
+    font-weight: $QLD-font-weight-regular;
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
@@ -32,7 +31,7 @@ table {
     caption {
         @include QLD-fontgrid(md, heading);
         line-height: 1.6;
-        font-weight: bold;
+        font-weight: $QLD-font-weight-semibold;
         text-align: left;
         display: table-caption;
         @include QLD-space(padding, 0.75unit);
@@ -63,7 +62,7 @@ table {
         padding: 1.25rem 0.75rem 1.25rem 0.75rem;
         box-shadow: inset 0 0 -$QLD-border-width-default 0 var(--QLD-color-light__design-accent);
         color: var(--QLD-color-light__heading);
-        font-weight: bold;
+        font-weight: $QLD-font-weight-semibold;
         @include QLD-fontgrid(sm, heading);
         line-height: 1.5;
         &.qld__table__cell--numeric {
@@ -111,7 +110,6 @@ table {
     @for $i from 1 through 10 {
         &.qld__table__col-#{$i}-num {
             tr {
-
                 td:nth-child(#{$i}),
                 th:nth-child(#{$i}):not([colspan]) {
                     text-align: right;
@@ -147,7 +145,7 @@ table {
 
         td {
             box-shadow: none;
-            font-weight: 600;
+            font-weight: $QLD-font-weight-semibold;
             &:first-of-type {
                 border-radius: 0 0 $QLD-border-radius-sm 0;
             }
@@ -190,7 +188,6 @@ table {
 
     .qld__body--dark &,
     .qld__body--dark-alt & {
-
         .qld__table__head,
         thead {
             tr {
@@ -276,10 +273,8 @@ table {
     }
 
     &.qld__table--striped {
-
         .qld__table__body,
         tbody {
-
             .qld__table__row:nth-last-child(odd),
             tr:nth-last-child(odd) {
                 background-color: $QLD-color-neutral--lightest;
@@ -288,10 +283,8 @@ table {
 
         .qld__body--dark &,
         .qld__body--dark-alt & {
-
             .qld__table__body,
             tbody {
-
                 .qld__table__row:nth-last-child(odd),
                 tr:nth-last-child(odd) {
                     background-color: var(--QLD-color-dark__background--shade);
@@ -301,9 +294,11 @@ table {
     }
 }
 
-.qld__table, .qld__table--scroll, .qld__table--contained {
+.qld__table,
+.qld__table--scroll,
+.qld__table--contained {
     &:not(:first-child) {
-      @include QLD-space( margin-top, 1.5unit);
+        @include QLD-space(margin-top, 1.5unit);
     }
 }
 
@@ -337,7 +332,7 @@ table {
             min-height: 78px;
             /* 78px height so it can cater for additional information detailing table order under the caption text */
 
-            &+thead {
+            & + thead {
                 top: 78px;
             }
         }
@@ -359,7 +354,6 @@ table {
         }
     }
 
-
     .qld__body--dark &,
     .qld__body--dark-alt & {
         border: 1px solid var(--QLD-color-dark__border);
@@ -373,14 +367,15 @@ table {
     }
 }
 
-.qld__table__wrapper { //applies to the container above the table.
+.qld__table__wrapper {
+    //applies to the container above the table.
     overflow-x: auto;
 }
 
 @media print {
     .qld__table--scroll {
         max-height: none;
-    }    
+    }
 }
 
 // .qld__table {
@@ -433,7 +428,6 @@ table {
 //         }
 //     }
 
-
 //     .qld__table__cell {
 //         @include QLD-space( padding, 0.75unit);
 //         text-align: left;
@@ -468,7 +462,7 @@ table {
 //     .qld__body--dark &{
 //         .qld__table__head{
 //             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark__design-accent));
-//         } 
+//         }
 
 //         .qld__table__header,
 //         .qld__table__cell{
@@ -485,7 +479,7 @@ table {
 //     .qld__body--dark-alt &{
 //         .qld__table__head{
 //             @include QLD-space( 'border-bottom', 0.25unit solid var(--QLD-color-dark__design-accent));
-//         } 
+//         }
 
 //         .qld__table__header,
 //         .qld__table__cell{
@@ -499,4 +493,3 @@ table {
 //         }
 //     }
 // }
-

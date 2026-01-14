@@ -14,7 +14,7 @@ input[type="checkbox"],
         vertical-align: bottom;
         @include QLD-space(line-height, 2unit);
         @include QLD-space(padding-left, 2.5unit);
-        font-weight: 400;
+        font-weight: $QLD-font-weight-regular;
 
         &:before {
             @include QLD-space(width, 2unit);
@@ -176,7 +176,7 @@ input[type="radio"],
     @extend .sr-only;
 
     + label {
-        font-weight: 400;
+        font-weight: $QLD-font-weight-regular;
         cursor: pointer;
         position: relative;
         @include QLD-space(line-height, 2unit);
