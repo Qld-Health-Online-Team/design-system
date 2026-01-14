@@ -2,16 +2,16 @@
 export const validateInternalSvgPath = (path) => {
     let shouldValidate = true;
 
-    // Only allow simple path characters and .svg extension
-    if (!/^\/[a-z0-9/_-]+\.svg$/i.test(path)) {
-        console.error(`The SVG path is invalid: ${path}`);
-        return false;
-    }
-
     // Ensure same-origin
     const url = new URL(path, window.location.origin);
     if (url.origin !== window.location.origin) {
-        console.error(`The SVG path comes from a different origin: ${path}`);
+        console.error(`The SVG path comes from a different origin: ${url.origin} but expected ${window.location.origin}`);
+        return false;
+    }
+
+    // Only allow simple path characters and .svg extension
+    if (!/^\/[a-z0-9/_-]+\.svg$/i.test(url.pathname)) {
+        console.error(`The SVG path is invalid: ${url.pathname}`);
         return false;
     }
 
