@@ -76,7 +76,7 @@
             {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}
                 <!--@@ Hero image @@-->
                 <div class="qld__banner__hero col-xs-12  
-                {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'scale'}}qld__banner__hero--scale col-md-6 col-lg-5 col-xl-4{{/ifCond}}
+                {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'scale'}}qld__banner__hero--scale col-md-6 col-lg-5 col-xl-5{{/ifCond}}
                 {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'crop'}}
                     {{#ifCond metadata.hero_image_alignment.value '==' 'grid'}}col-md-6 col-lg-5{{else}}col-md-7 col-lg-5 col-xl-4{{/ifCond}}
                 {{/ifCond}}">
@@ -178,7 +178,7 @@
                     <!--@@ CTA Buttons @@-->
                     {{#ifCond metadata.cta_type.value '==' 'buttons'}}
                         {{#ifAny metadata.cta_button_primary_text.value metadata.cta_button_secondary_text.value}}
-                        <ul class="qld__banner__content--cta qld__link-list">
+                        <ul class="qld__banner__content--cta qld__link-list qld__display-flex qld__flex-wrap">
                            
                             {{#if metadata.cta_button_primary_text.value}}
                                 <li>

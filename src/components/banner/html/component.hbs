@@ -1,13 +1,11 @@
 <section class="qld__banner 
-
+    {{#ifCond site.metadata.defaultBannerColour.value '==' 'light'}}qld__banner--light{{/ifCond}}
     {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}}
-
     {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__banner--dark{{/ifCond}}
-
     {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}}
+
     {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}qld__banner--breadcrumbs{{/ifCond}}
     "
-
     {{#ifCond site.metadata.defaultBannerType.value '==' 'texture'}}
     style="background-image: url(./?a={{site.metadata.defaultBannerTexture.value}});"
     {{/ifCond}}

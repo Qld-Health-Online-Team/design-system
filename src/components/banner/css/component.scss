@@ -88,12 +88,20 @@
                 -ms-box-decoration-break: clone;
                 -o-box-decoration-break: clone;
                 box-decoration-break: clone;
-                @include QLD-space(margin-top, 0.76unit);
+
+                // Adjust margin for the subheading to align with main heading
+                @include QLD-space(margin-top, 0.6unit);
+                @include QLD-media(md) {
+                    @include QLD-space(margin-top, 0.47unit);
+                }
+                @include QLD-media(lg) {
+                    @include QLD-space(margin-top, 0.76unit);
+                }
             }
         }
 
         .qld__banner__content--body.qld__abstract {
-            @include QLD-space(margin-top, 1unit);
+            @include QLD-space(margin-top, 1.25unit);
             @include QLD-space(margin-bottom, 0unit);
 
             @include QLD-media(lg) {
@@ -166,19 +174,13 @@
         }
 
         &.qld__banner__hero--scale {
-            @include QLD-media(md) {
-                @include QLD-space(padding-left, 1unit);
-                @include QLD-space(padding-right, 1unit);
-                @include QLD-space(padding-top, 1unit);
-                @include QLD-space(padding-bottom, 1unit);
-            }
             .qld__banner__image {
                 background-size: contain;
                 &.qld__banner__image--background {
                     background-size: cover;
                 }
                 @include QLD-media(md) {
-                    background-position: right center;
+                    background-position: center;
                 }
             }
         }
@@ -307,8 +309,14 @@
         .qld__banner__content .qld__banner__heading__wrapper {
             @include QLD-space(margin-top, -4unit);
 
+            // Adjust line heights for headings so letters are not cut
+            line-height: 44px;
             @include QLD-media(md) {
                 @include QLD-space(margin-top, 0);
+                line-height: 48px;
+            }
+            @include QLD-media(lg) {
+                line-height: 60px;
             }
         }
     }
@@ -410,12 +418,6 @@
             h1 {
                 color: var(--QLD-color-light__heading);
             }
-
-            .qld__banner__heading {
-                &--light {
-                    background-color: var(--QLD-color-light__background);
-                }
-            }
         }
 
         .qld__banner__hero {
@@ -463,8 +465,6 @@
                 color: var(--QLD-color-dark__heading);
             }
             .qld__banner__heading {
-                // border-left: 4px solid var(--QLD-color-dark__design-accent);
-
                 &--dark {
                     background-color: var(--QLD-color-dark__background--shade);
                     box-shadow: 8px 0px 0 6px var(--QLD-color-dark__background--shade), -8px 0px 0 6px var(--QLD-color-dark__background--shade), -12px 0px 0 6px var(--QLD-color-dark__design-accent), 0px 4px 16px rgba(0, 0, 0, 0.3);
