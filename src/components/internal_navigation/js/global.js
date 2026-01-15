@@ -1,4 +1,4 @@
-import { validateInternalSvgPath } from "../../../helpers/global-helpers.js";
+import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-helpers.js";
 
 /**
  * @module internalNavigation
@@ -24,7 +24,7 @@ export default function initInternalNavigation(document = document) {
                 const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
                 // Attempt to validate SVG path before using it
                 if (validateInternalSvgPath(svgPath)) {
-                    use.setAttributeNS(null, "href", `${svgPath}#tick`);
+                    use.setAttributeNS(null, "href", buildIconPath(svgPath, "tick").toString());
                 }
 
                 // Append <use> to <svg>

@@ -1,4 +1,4 @@
-import { validateInternalSvgPath } from "../../../helpers/global-helpers.js";
+import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-helpers.js";
 
 (function () {
     "use strict";
@@ -78,7 +78,7 @@ import { validateInternalSvgPath } from "../../../helpers/global-helpers.js";
             const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
             // Attempt to validate SVG path before using it
             if (validateInternalSvgPath(svgPath)) {
-                use.setAttributeNS(null, "href", `${svgPath}#more-horizontal`);
+                use.setAttributeNS(null, "href", buildIconPath(svgPath, "more-horizontal").toString());
             }
 
             // Append <use> to <svg>
