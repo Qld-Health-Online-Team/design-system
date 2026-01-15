@@ -9,11 +9,17 @@
                     </div>
                     <div class="qld__promo-panel__container-content">
                         <div class="qld__promo-panel__container-inner">
-                            {{#if metadata.icon.value}}
-                            <div class="qld__promo-panel__container-icon">
-                                <i class="qld__promo-panel__icon {{metadata.icon.value}}"></i>
-                            </div>
-                            {{/if}}
+                            {{!-- TODO: Remove the icon metadata once all instances have been updated to use promo_panel_icon --}}
+                            {{#ifCond metadata.icon.value '||' metadata.promo_panel_icon.value}}
+                                <div class="qld__promo-panel__container-icon">
+                                    {{#if metadata.promo_panel_icon.value}}
+                                        <svg class="qld__icon qld__promo-panel__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{metadata.promo_panel_icon.value}}"></use></svg>
+                                    {{else}}
+                                        <i class="qld__promo-panel__icon {{metadata.icon.value}}"></i>
+                                    {{/if}}
+                                </div>
+                            {{/ifCond}}
+                            
                             {{#if metadata.title.value}}
                             <h2 class="qld__display-xl">{{metadata.title.value}}</h2>
                             {{/if}}

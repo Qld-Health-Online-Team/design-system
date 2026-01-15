@@ -39,11 +39,11 @@
         }
 
         &-summary-text {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
             color: var(--QLD-color-light__heading);
         }
         &-summary-matching {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
         }
     }
 
@@ -60,7 +60,7 @@
         }
 
         &-text {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
             color: var(--QLD-color-light__heading);
             @include QLD-space(padding-right, 0.75unit);
             white-space: nowrap;
@@ -86,7 +86,7 @@
         }
 
         &-title {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
             display: block;
             white-space: nowrap;
             @include QLD-space(padding-right, 1unit);
@@ -146,6 +146,11 @@
 
                 @include QLD-media(lg) {
                     flex-direction: row-reverse;
+                }
+
+                svg.qld__icon {
+                    width: 24px;
+                    height: 24px;
                 }
             }
             .qld__tag {
@@ -208,10 +213,7 @@
         @include QLD-space(padding-bottom, 1.5unit);
         @include QLD-space(padding-left, 2unit);
         @include QLD-space(padding-right, 2unit);
-        @include QLD-space(
-            border-top,
-            solid 0.25unit var(--QLD-color-light__design-accent)
-        );
+        @include QLD-space(border-top, solid 0.25unit var(--QLD-color-light__design-accent));
 
         &-title {
             @include QLD-space(font-size, 1.25unit);
@@ -221,7 +223,7 @@
                 text-transform: capitalize;
             }
             &-query {
-                font-weight: bold;
+                font-weight: $QLD-font-weight-semibold;
             }
         }
     }
@@ -233,12 +235,9 @@
         @include QLD-space(padding-bottom, 1.5unit);
         @include QLD-space(padding-left, 2unit);
         @include QLD-space(padding-right, 2unit);
-        @include QLD-space(
-            border-top,
-            solid 0.25unit var(--QLD-color-light__design-accent)
-        );
+        @include QLD-space(border-top, solid 0.25unit var(--QLD-color-light__design-accent));
         &-text {
-            font-weight: bold;
+            font-weight: $QLD-font-weight-semibold;
         }
     }
 }

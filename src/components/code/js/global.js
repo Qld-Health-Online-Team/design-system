@@ -1,3 +1,5 @@
+import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-helpers.js";
+
 (function () {
     /**
      * @module code
@@ -69,7 +71,10 @@
 
                 // Create <use>
                 const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-                use.setAttributeNS(null, "href", `${svgPath}#chevron-up`);
+                // Attempt to validate SVG path before using it
+                if (validateInternalSvgPath(svgPath)) {
+                    use.setAttributeNS(null, "href", buildIconPath(svgPath, "chevron-up").toString());
+                }
 
                 showToggleButton.addEventListener("click", function () {
                     // Update button text

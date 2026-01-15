@@ -101,7 +101,7 @@
             border-radius: $QLD-border-radius-xs;
             font-size: #{map-get($QLD-fontsize-map, xs)}px;
             line-height: 1.25rem;
-            font-weight: 400;
+            font-weight: $QLD-font-weight-regular;
             background-color: $QLD-color-neutral--darkest;
             color: var(--QLD-color-dark__text);
             box-shadow: $QLD-box-shaddow-level-two;
@@ -109,7 +109,7 @@
             &-heading {
                 margin-bottom: 1rem;
                 color: var(--QLD-color-dark__heading);
-                font-weight: 600;
+                font-weight: $QLD-font-weight-semibold;
                 line-height: 1rem;
             }
 
@@ -144,7 +144,7 @@
                 z-index: 8;
                 top: 0;
                 left: 0;
-                border: #{map-get($QLD-space-map, 1)}px solid transparent;
+                border: 0.25rem solid transparent;
                 border-bottom-color: $QLD-color-neutral--darkest;
             }
         }

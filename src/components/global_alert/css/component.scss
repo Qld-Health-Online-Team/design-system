@@ -60,10 +60,6 @@
         .qld__icon,
         .qld__icon:hover {
             color: $QLD-color-neutral--white;
-
-            @media (prefers-contrast: more) {
-                color: revert;
-            }
         }
     }
 
@@ -100,10 +96,6 @@
         .qld__icon,
         .qld__icon:hover {
             color: $QLD-color-neutral--darkest;
-
-            @media (prefers-contrast: more) {
-                color: revert;
-            }
         }
     }
 
@@ -143,10 +135,13 @@
         .qld__icon,
         .qld__icon:hover {
             color: $QLD-color-neutral--darkest;
+        }
+    }
 
-            @media (prefers-contrast: more) {
-                color: revert;
-            }
+    // Situation where vertical navigation is enabled
+    &.qld__global-alert-with-vertical-nav {
+        div.container-fluid {
+            max-width: 100%;
         }
     }
 
@@ -170,7 +165,7 @@
 
     .qld__global-alert__message {
         strong {
-            font-weight: 600;
+            font-weight: $QLD-font-weight-semibold;
         }
     }
 
@@ -187,7 +182,7 @@
 
     .qld__global-alert__action {
         flex-shrink: 0;
-        font-weight: 600;
+        font-weight: $QLD-font-weight-semibold;
         margin-top: 0.75rem;
         &:first-child {
             margin: 0;
@@ -226,7 +221,6 @@
         position: relative;
         line-height: 1;
         display: flex;
-        // align-items: center;
         text-align: center;
         justify-content: center;
 

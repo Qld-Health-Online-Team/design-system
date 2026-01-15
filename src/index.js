@@ -1,14 +1,10 @@
-import initHeader from "./components/header/js/global.js";
-import initLeftHandNav from "./components/left_hand_navigation/js/global.js";
-
 // JS
-require("prismjs");
+import initComponents from "./component-loader.js";
+import "../src/helpers/global-helpers.js";
+import "prismjs";
 
 // Adding ES module initialisation for components
-document.addEventListener("DOMContentLoaded", () => {
-    initHeader(document);
-    initLeftHandNav(document);
-});
+initComponents();
 
 // CSS
 import "./styles/global.scss";
