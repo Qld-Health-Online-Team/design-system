@@ -284,7 +284,7 @@
          * @param {*} name
          */
         getParamaterByName: function (name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            name = name.replace(/[\[]/g, "\\[").replace(/[\]]/g, "\\]");
             var regexS = "[\\?&]" + name + "=([^&#]*)";
             var regex = new RegExp(regexS);
             var results = regex.exec(window.location.href);

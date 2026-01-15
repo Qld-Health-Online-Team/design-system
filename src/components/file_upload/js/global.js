@@ -19,16 +19,17 @@
 
         fileTemplate.classList.add("qld__form-file");
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-                            <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
-                                <span class="qld__loading_spinner-wheel"></span>
-                            </div>
-                        </div>
-                        <div class="qld__form-file-info">
-                            <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-                            <span class="qld__form-file-info-status">Uploading...</span>
-                        </div></div>
-                        <div class="qld__form-file-actions"></div>`;
+        // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
+        // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
+        //                     <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
+        //                         <span class="qld__loading_spinner-wheel"></span>
+        //                     </div>
+        //                 </div>
+        //                 <div class="qld__form-file-info">
+        //                     <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
+        //                     <span class="qld__form-file-info-status">Uploading...</span>
+        //                 </div></div>
+        //                 <div class="qld__form-file-actions"></div>`;
         return fileTemplate;
     };
 
@@ -50,22 +51,23 @@
 
         fileTemplate.classList.add("qld__form-file", "qld__form-file--success");
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-                                        <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#${fileType !== "" ? fileType.iconClass : ""}"></use></svg>
-                                    </div>
-                                    <div class="qld__form-file-info">
-                                        <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-                                        <span class="qld__form-file-info-status">
-                                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-success"></use></svg>
-                                            Upload successful${fileSize !== null ? `, ${fileSize}KB` : ""}
-                                        </span>
-                                    </div></div>
-                                    <div class="qld__form-file-actions">
-                                        <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-                                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
-                                            <span class="qld__form-file-delete-btn-remove">Remove</span>
-                                        </button>
-                                    </div>`;
+        // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
+        // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
+        //                                 <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#${fileType !== "" ? fileType.iconClass : ""}"></use></svg>
+        //                             </div>
+        //                             <div class="qld__form-file-info">
+        //                                 <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
+        //                                 <span class="qld__form-file-info-status">
+        //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-success"></use></svg>
+        //                                     Upload successful${fileSize !== null ? `, ${fileSize}KB` : ""}
+        //                                 </span>
+        //                             </div></div>
+        //                             <div class="qld__form-file-actions">
+        //                                 <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
+        //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
+        //                                     <span class="qld__form-file-delete-btn-remove">Remove</span>
+        //                                 </button>
+        //                             </div>`;
 
         return fileTemplate;
     };
@@ -82,22 +84,23 @@
         console.log("error:", file.name);
         fileTemplate.classList.add("qld__form-file", "qld__form-file--error");
 
-        fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-                                        <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#document-error"></use></svg>
-                                    </div>
-                                    <div class="qld__form-file-info">
-                                        <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-                                        <span class="qld__form-file-info-status">
-                                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-error"></use></svg>
-                                            ${error}
-                                        </span>
-                                    </div></div>
-                                    <div class="qld__form-file-actions">
-                                        <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-                                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
-                                            <span class="qld__form-file-delete-btn-remove">Remove</span>
-                                        </button>
-                                    </div>`;
+        // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
+        // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
+        //                                 <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#document-error"></use></svg>
+        //                             </div>
+        //                             <div class="qld__form-file-info">
+        //                                 <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
+        //                                 <span class="qld__form-file-info-status">
+        //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-error"></use></svg>
+        //                                     ${error}
+        //                                 </span>
+        //                             </div></div>
+        //                             <div class="qld__form-file-actions">
+        //                                 <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
+        //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
+        //                                     <span class="qld__form-file-delete-btn-remove">Remove</span>
+        //                                 </button>
+        //                             </div>`;
 
         return fileTemplate;
     };
@@ -269,7 +272,7 @@
                         return value.trim() !== "";
                     }
                 },
-                "This field is required."
+                "This field is required.",
             );
         }
 

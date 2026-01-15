@@ -1,3 +1,5 @@
+import { validateInternalSvgPath } from "../../../helpers/global-helpers.js";
+
 (function () {
     "use strict";
 
@@ -74,7 +76,10 @@
 
             // Create <use>
             const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-            use.setAttributeNS(null, "href", `${svgPath}#more-horizontal`);
+            // Attempt to validate SVG path before using it
+            if (validateInternalSvgPath(svgPath)) {
+                use.setAttributeNS(null, "href", `${svgPath}#more-horizontal`);
+            }
 
             // Append <use> to <svg>
             svg.appendChild(use);
