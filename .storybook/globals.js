@@ -88,8 +88,13 @@ export const figmaLinks = {
         ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
     },
     header: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f",
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
-        ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
+        ds: "https://www.designsystem.qld.gov.au/components/header",
+    },
+    navbar: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",
+        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23167-395570",
+        ds: "https://www.designsystem.qld.gov.au/components/navigation-horizontal",
     },
 };

@@ -10,7 +10,7 @@ export const navbarArgs = {
     sitePreHeaderTheme: "",
     mainNavDesktopHide: "no",
     mainNavMegaMenuShow: "true",
-    mainNavPageDescLevelTwo: "false",
+    mainNavPageDescLevelTwo: "true",
     mainNavHomeIconShow: true,
 
     mainNavCtaOne: "https://www.designsystem.qld.gov.au/",

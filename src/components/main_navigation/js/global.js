@@ -251,16 +251,28 @@
                         if (menuHeading) {
                             menuHeading.focus();
                         }
-                        openButton.setAttribute("aria-expanded", true);
-                        closeButton.setAttribute("aria-expanded", true);
+                        if (openButton)
+                            openButton.setAttribute("aria-expanded", true);
+                        if (closeButton)
+                            closeButton.setAttribute("aria-expanded", true);
 
-                        // Focus trap enabled
-                        focustrapTop.setAttribute("tabindex", 0);
-                        focustrapBottom.setAttribute("tabindex", 0);
+                        if (focustrapTop)
+                            focustrapTop.setAttribute("tabindex", 0);
+                        if (focustrapBottom)
+                            focustrapBottom.setAttribute("tabindex", 0);
 
-                        // header.setAttribute('aria-hidden', true);
-                        body.setAttribute("aria-hidden", true);
-                        footer.setAttribute("aria-hidden", true);
+                        if (body) body.setAttribute("aria-hidden", true);
+                        if (footer) footer.setAttribute("aria-hidden", true);
+                        // openButton.setAttribute("aria-expanded", true);
+                        // closeButton.setAttribute("aria-expanded", true);
+
+                        // // Focus trap enabled
+                        // focustrapTop.setAttribute("tabindex", 0);
+                        // focustrapBottom.setAttribute("tabindex", 0);
+
+                        // // header.setAttribute('aria-hidden', true);
+                        // body.setAttribute("aria-hidden", true);
+                        // footer.setAttribute("aria-hidden", true);
 
                         // Add event listeners
                         mobileNavEvents.focusTop = addEvent(
@@ -313,17 +325,20 @@
                         }
                     } else {
                         // Move the focus back to the menu button
-                        closeButton.focus();
-                        openButton.setAttribute("aria-expanded", false);
-                        closeButton.setAttribute("aria-expanded", false);
+                        if (closeButton) closeButton.focus();
+                        if (openButton)
+                            openButton.setAttribute("aria-expanded", false);
+                        if (closeButton)
+                            closeButton.setAttribute("aria-expanded", false);
 
-                        // Remove the focus trap
-                        focustrapTop.removeAttribute("tabindex");
-                        focustrapBottom.removeAttribute("tabindex");
+                        if (focustrapTop)
+                            focustrapTop.removeAttribute("tabindex");
+                        if (focustrapBottom)
+                            focustrapBottom.removeAttribute("tabindex");
 
-                        header.removeAttribute("aria-hidden");
-                        body.removeAttribute("aria-hidden");
-                        footer.removeAttribute("aria-hidden");
+                        if (header) header.removeAttribute("aria-hidden");
+                        if (body) body.removeAttribute("aria-hidden");
+                        if (footer) footer.removeAttribute("aria-hidden");
 
                         // Remove the event listeners
                         removeEvent(mobileNavEvents.focusTop);

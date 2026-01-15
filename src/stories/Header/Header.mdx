@@ -1,4 +1,11 @@
-import { Meta, Primary, Controls, Story, Source } from "@storybook/blocks";
+import {
+    Meta,
+    Primary,
+    Controls,
+    Story,
+    Source,
+    Design,
+} from "@storybook/blocks";
 import * as HeaderStories from "./Header.stories";
 import { figmaLinks } from "../../../.storybook/globals";
 
@@ -8,57 +15,69 @@ import { figmaLinks } from "../../../.storybook/globals";
 
 ## Overview
 
-The Header component provides the global branding and primary navigation for Queensland Government websites.
+The Header provides the global branding and primary navigation for Queensland Government websites.
+It is typically the first element on the page and helps users understand where they are and how to move around the site.
 
-It is typically the first element on the page and is responsible for:
+The Header is responsible for:
 
--   Displaying Queensland Government branding
--   Showing the site title and optional subline
--   Providing access to global search
--   Displaying primary call-to-action links
--   Supporting multiple visual themes
-
-The Header is a **layout-level component** and is intended to be used once per page, usually within a page template.
-
----
-
-## Anatomy
-
-The Header can include the following areas:
-
--   **Pre-header**  
-    Displays Queensland Government branding and optional links.
-
--   **Branding**  
-    Site logo, title, and subline.
-
--   **Search**  
-    Global search entry point (visual only in Storybook).
-
--   **Primary actions (CTAs)**  
-    Optional call-to-action links displayed on the right.
-
--   **Theme variants**  
-    Supports light, dark, and dark-alt themes.
-
----
-
-## Default Header
+<ul>
+    <li>Displaying Queensland Government branding</li>
+    <li>Showing the site title and optional subline</li>
+    <li>Providing access to global search</li>
+    <li>Displaying primary call-to-action links</li>
+    <li>Supporting multiple visual themes</li>
+</ul>
 
 <Primary />
-
----
-
-## Variants
-
-<Story of={HeaderStories.LightHeader} name="Light Header" />
-
-<Story of={HeaderStories.DarkHeader} name="Dark Header" />
-
-<Story of={HeaderStories.DarkAltHeader} name="Dark Alt Header" />
-
----
 
 ## Props
 
 <Controls />
+
+## Light Header
+
+The light header is the default appearance and should be used on pages with a light background.
+It provides strong contrast while maintaining a clean and minimal look.
+
+<Story of={HeaderStories.LightHeader} />
+
+## Dark Header
+
+The dark header is suitable for use on pages with dark or high-contrast themes.
+It helps create a clear visual hierarchy and supports accessibility requirements.
+
+<Story of={HeaderStories.DarkHeader} />
+
+## Dark Alt Header
+
+The dark alt header is an alternative dark theme option.
+It can be used where additional contrast or visual distinction is required.
+
+<Story of={HeaderStories.DarkAltHeader} />
+
+## Design resources
+
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.design}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component design view (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.file}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component file (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.ds}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Design System website
+    </a>

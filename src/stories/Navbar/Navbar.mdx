@@ -1,5 +1,15 @@
-import { Meta, Primary, Controls } from "@storybook/blocks";
+import {
+    Meta,
+    Primary,
+    Controls,
+    Story,
+    Source,
+    Design,
+} from "@storybook/blocks";
 import * as NavbarStories from "./Navbar.stories";
+import { renderNavbar } from "./Navbar";
+import { navbarArgs } from "./Navbar.stories";
+import { figmaLinks } from "../../../.storybook/globals";
 
 <Meta of={NavbarStories} />
 
@@ -7,9 +17,13 @@ import * as NavbarStories from "./Navbar.stories";
 
 ## Overview
 
-The Navbar provides the primary site navigation, supporting standard links,
-CTAs, and optional mega-menu layouts. It adapts across breakpoints and supports
-light and dark themes.
+The main navigation component is intended to be used as the primary means of navigation around the website. It typically accommodates the top level of the information architecture.
+
+The main navigation component is designed to work closely with the header component and collapses down to a conventional open/close menu button on smaller devices.
+
+Another important aspect of the primary navigation is the mega-menu. The mega-menu is an optional addition to the primary navigation. It offers a curated list of level 2 child pages for any of the links in the primary navigation bar.
+
+Horizontal navigation is limited to two colours either light or dark.
 
 <Primary />
 
@@ -19,9 +33,27 @@ light and dark themes.
 
 ## Design resources
 
--   <a href="https://www.figma.com" target="_blank">
-        Component design (Figma)
+-   <a
+        className="figma-link"
+        href={figmaLinks.navbar.design}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component design view (Figma)
     </a>
--   <a href="https://www.designsystem.qld.gov.au" target="_blank">
+-   <a
+        className="figma-link"
+        href={figmaLinks.navbar.file}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component file (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.navbar.ds}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         Design System website
     </a>

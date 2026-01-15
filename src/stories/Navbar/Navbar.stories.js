@@ -9,12 +9,13 @@ export default {
     argTypes: {
         mainNavStyle: {
             control: "radio",
-            options: ["", "qld__main-nav--dark"],
+            options: ["Light", "Dark"],
+            mapping: {
+                Light: "",
+                Dark: "qld__main-nav--dark",
+            },
         },
-        sitePreHeaderTheme: {
-            control: "radio",
-            options: ["", "qld__header__pre-header--dark"],
-        },
+
         mainNavMegaMenuShow: {
             control: "radio",
             options: ["true", "false"],
@@ -25,6 +26,19 @@ export default {
         mainNavHomeIconShow: {
             control: "boolean",
         },
+        mainNavDesktopHide: {
+            control: "boolean",
+        },
+
+        // Hide these controls
+        mainNavCtaOneIcon: { table: { disable: true } },
+        mainNavCtaOneText: { table: { disable: true } },
+        mainNavCtaOne: { table: { disable: true } },
+        mainNavCtaTwo: { table: { disable: true } },
+        mainNavCtaTwoText: { table: { disable: true } },
+        mainNavCtaTwoIcon: { table: { disable: true } },
+        coreSiteIcons: { table: { disable: true } },
+        sitePreHeaderTheme: { table: { disable: true } },
     },
 
     parameters: {
@@ -49,4 +63,17 @@ export const Default = {
             return Story();
         },
     ],
+};
+
+// Variants
+export const LightNavbar = {
+    args: { ...navbarArgs, mainNavStyle: "" },
+    render: (args) => `<div class="qld__grid">${renderNavbar(args)}</div>`,
+    name: "Light",
+};
+
+export const DarkNavbar = {
+    args: { ...navbarArgs, mainNavStyle: "qld__main-nav--dark" },
+    render: (args) => `<div class="qld__grid">${renderNavbar(args)}</div>`,
+    name: "Dark",
 };
