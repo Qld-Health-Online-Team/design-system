@@ -5,6 +5,11 @@ import { viewports, themes, themeColours } from "./globals.js";
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
     parameters: {
+        options: {
+            storySort: {
+                order: ["Layout", "Components"],
+            },
+        },
         controls: {
             matchers: {
                 color: /(background|color)$/i,
@@ -66,8 +71,15 @@ const preview = {
     },
     decorators: [
         (storyFn, context) => {
+            // Skip wrapper for Navbar story
+            if (context.kind === "Components/Navbar") {
+                return storyFn();
+            }
             // Get the theme key from the background, to use within the decorator
-            const themeKey = Object.keys(themeColours).find((key) => themeColours[key] === context.globals.backgrounds?.value);
+            const themeKey = Object.keys(themeColours).find(
+                (key) =>
+                    themeColours[key] === context.globals.backgrounds?.value
+            );
             const wrapper = document.createElement("div");
             wrapper.className = themes[themeKey] || themes["white"];
             const story = storyFn();
