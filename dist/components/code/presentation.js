@@ -183,7 +183,7 @@
 
   return "                        <a href=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"github_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__code-header-link\" target=\"_blank\" aria-label=\"Visit Github, opens in new tab\">\n                            <span>Github</span>\n                            <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "\" class=\"qld__code-header-link\" rel=\"noopener noreferrer\" target=\"_blank\" aria-label=\"Visit Github, opens in new tab\">\n                            <span>Github</span>\n                            <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#external-link\"></use></svg>\n                        </a>\n";
 },"26":function(container,depth0,helpers,partials,data) {
@@ -196,7 +196,7 @@
 
   return "                        <a href=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"figma_link") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__code-header-link\" target=\"_blank\" aria-label=\"Visit Figma, opens in new tab\">\n                            <span>Figma</span>\n                            <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
+    + "\" class=\"qld__code-header-link\" rel=\"noopener noreferrer\" target=\"_blank\" aria-label=\"Visit Figma, opens in new tab\">\n                            <span>Figma</span>\n                            <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#external-link\"></use></svg>\n                        </a>\n";
 },"28":function(container,depth0,helpers,partials,data) {
@@ -209,7 +209,7 @@
 
   return "                        <a href=\""
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_address") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\" class=\"qld__code-header-link\" target=\"_blank\" aria-label=\"Visit "
+    + "\" class=\"qld__code-header-link\" rel=\"noopener noreferrer\" target=\"_blank\" aria-label=\"Visit "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ", opens in new tab\">\n                            <span>"
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"action_link_title") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
