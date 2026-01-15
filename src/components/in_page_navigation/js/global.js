@@ -1,4 +1,4 @@
-import { removeMetaCharacters } from "../../../helpers/global-helpers.js";
+import { normaliseIdentifier } from "../../../helpers/global-helpers.js";
 
 /**
  * @module inPageNavigation
@@ -30,7 +30,7 @@ export default function initInPageNavigation(document = document) {
         headings.forEach((heading) => {
             const title = heading.innerText;
             // Create sanitized ID from heading text
-            const id = "section__" + removeMetaCharacters(title.toLowerCase());
+            const id = "section__" + normaliseIdentifier(title.toLowerCase());
             heading.setAttribute("id", id);
             heading.setAttribute("tabindex", -1);
 
