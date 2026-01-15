@@ -9,6 +9,7 @@
                     </div>
                     <div class="qld__promo-panel__container-content">
                         <div class="qld__promo-panel__container-inner">
+                            {{!-- TODO: Remove the icon metadata once all instances have been updated to use promo_panel_icon --}}
                             {{#ifCond metadata.icon.value '||' metadata.promo_panel_icon.value}}
                                 <div class="qld__promo-panel__container-icon">
                                     {{#if metadata.promo_panel_icon.value}}
