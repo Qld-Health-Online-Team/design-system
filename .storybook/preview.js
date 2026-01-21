@@ -56,9 +56,16 @@ const preview = {
                 },
             },
         },
+        options: {
+            storySort: {
+                // Force SB to load Introduction page first
+                order: ["Introduction"],
+            },
+        },
     },
     args: {
-        site: { metadata: { coreSiteIcons: { value: "/QLD-icons.svg" } } },
+        // Ensure GitHub hosted page uses correct icon path
+        site: { metadata: { coreSiteIcons: { value: window.location.origin === "https://qld-health-online-team.github.io" ? "/design-system/QLD-icons.svg" : "/QLD-icons.svg" } } },
     },
     argTypes: {
         // Remove the site metadata from the controls
