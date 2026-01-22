@@ -131,6 +131,22 @@ import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-
         breadCrumbsUlLis[1].style.display = "flex";
     }
 
+    // Function to remove excess breadcrumb chevrons in situations where breadcrumbs are hidden using JS
+    function checkChevrons() {
+        const component = document.querySelector(".qld__breadcrumbs .qld__link-list");
+        // Find the visible breadcrumb children
+        const children = Array.from(component.children).filter((child) => getComputedStyle(child).display !== "none");
+
+        // Remove excess breadcrumb chevrons
+        let wasPreviouslySVG = false;
+        children.forEach((child) => {
+            if (child.tagName === "svg") {
+                if (wasPreviouslySVG) child.remove();
+                else wasPreviouslySVG = true;
+            } else wasPreviouslySVG = false;
+        });
+    }
+
     breadcrumb.init = function () {
         if (getTheElements()) {
             const { breadCrumbsUl } = getTheElements();
@@ -196,6 +212,8 @@ import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-
 
                 truncateLastLi(breadCrumbsUlLis, breadCrumbsUl);
             }
+
+            checkChevrons();
         }
     };
 
