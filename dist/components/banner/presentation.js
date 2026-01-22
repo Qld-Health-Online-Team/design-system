@@ -137,7 +137,7 @@
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"defaultBannerColour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark-alternate",{"name":"ifCond","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":65,"column":16},"end":{"line":65,"column":122}}})) != null ? stack1 : "")
     + " \r\n                qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop\"\r\n                aria-label=\"breadcrumb\" data-path=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "\">\r\n                    <ol class=\"qld__link-list qld__link-list--inline\">\r\n"
+    + "\">\r\n                    <ol class=\"qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline\">\r\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"lineage") : stack1),{"name":"each","hash":{},"fn":container.program(30, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":69,"column":24},"end":{"line":76,"column":33}}})) != null ? stack1 : "")
     + "                    </ol>\r\n                </nav>\r\n";
 },"30":function(container,depth0,helpers,partials,data) {
