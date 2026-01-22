@@ -66,7 +66,7 @@
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                         {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
                         qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
-                            <ol class="qld__link-list qld__link-list--inline">
+                            <ol class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
                                 {{#each current.lineage}}   
                                 {{#ifCond asset_type_code '!=' 'folder'}}      
                                     <li {{#if @last}}aria-current="page"{{/if}} class="qld__breadcrumbs__item">
