@@ -133,7 +133,7 @@ import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-
 
     // Function to remove excess breadcrumb chevrons in situations where breadcrumbs are hidden using JS
     function checkChevrons() {
-        const component = document.querySelector(".qld__breadcrumbs .qld__link-list");
+        const component = document.querySelector(".qld__breadcrumbs .qld__link-list.qld__breadcrumbs__list--desktop");
         // Find the visible breadcrumb children
         const children = Array.from(component.children).filter((child) => getComputedStyle(child).display !== "none");
 
