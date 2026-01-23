@@ -94,7 +94,8 @@ $QLD-header-md: 72px;
                 border: none;
             }
 
-            &.active .qld__main-nav__item-link {
+            &.active .qld__main-nav__item-link,
+            &.active .qld__main-nav__item-toggle {
                 font-weight: $QLD-font-weight-semibold;
                 color: var(--QLD-color-light__heading);
                 border-left-color: transparent;
@@ -580,7 +581,8 @@ $QLD-header-md: 72px;
                 }
             }
 
-            .qld__main-nav__item.active .qld__main-nav__item-link {
+            .qld__main-nav__item.active .qld__main-nav__item-link,
+            .qld__main-nav__item.active .qld__main-nav__item-toggle {
                 color: var(--QLD-color-dark__heading);
 
                 @include QLD-media(lg) {
