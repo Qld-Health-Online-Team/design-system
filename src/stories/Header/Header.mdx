@@ -1,0 +1,83 @@
+import {
+    Meta,
+    Primary,
+    Controls,
+    Story,
+    Source,
+    Design,
+} from "@storybook/blocks";
+import * as HeaderStories from "./Header.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={HeaderStories} />
+
+# Header
+
+## Overview
+
+The Header provides the global branding and primary navigation for Queensland Government websites.
+It is typically the first element on the page and helps users understand where they are and how to move around the site.
+
+The Header is responsible for:
+
+<ul>
+    <li>Displaying Queensland Government branding</li>
+    <li>Showing the site title and optional subline</li>
+    <li>Providing access to global search</li>
+    <li>Displaying primary call-to-action links</li>
+    <li>Supporting multiple visual themes</li>
+</ul>
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Light Header
+
+The light header is the default appearance and should be used on pages with a light background.
+It provides strong contrast while maintaining a clean and minimal look.
+
+<Story of={HeaderStories.LightHeader} />
+
+## Dark Header
+
+The dark header is suitable for use on pages with dark or high-contrast themes.
+It helps create a clear visual hierarchy and supports accessibility requirements.
+
+<Story of={HeaderStories.DarkHeader} />
+
+## Dark Alt Header
+
+The dark alt header is an alternative dark theme option.
+It can be used where additional contrast or visual distinction is required.
+
+<Story of={HeaderStories.DarkAltHeader} />
+
+## Design resources
+
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.design}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component design view (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.file}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Component file (Figma)
+    </a>
+-   <a
+        className="figma-link"
+        href={figmaLinks.header.ds}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Design System website
+    </a>
