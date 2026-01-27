@@ -134,11 +134,7 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...videoPlayerArgs,
-    },
-};
+export const Default = {};
 
 export const defaultVariant = (videoPlayerArgs) => renderVideoPlayer({ ...videoPlayerArgs, videoType: "vimeo" });
 defaultVariant.tags = ["!dev"];

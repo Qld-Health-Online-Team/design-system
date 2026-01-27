@@ -1,5 +1,6 @@
 import { RadioButtons } from "./RadioButtons";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const radioButtonsArgs = {
     id: "rb1",
@@ -47,16 +48,12 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...radioButtonsArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (radioButtonsArgs) => RadioButtons({ ...radioButtonsArgs });
+export const defaultVariant = () => RadioButtons({ ...radioButtonsArgs });
 defaultVariant.tags = ["!dev"];
 
-export const disabledVariant = (radioButtonsArgs) =>
+export const disabledVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb2",
@@ -70,7 +67,7 @@ export const disabledVariant = (radioButtonsArgs) =>
     });
 disabledVariant.tags = ["!dev"];
 
-export const errorVariant = (radioButtonsArgs) =>
+export const errorVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb3",
@@ -88,7 +85,7 @@ export const errorVariant = (radioButtonsArgs) =>
     });
 errorVariant.tags = ["!dev"];
 
-export const successVariant = (radioButtonsArgs) =>
+export const successVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb4",
@@ -106,7 +103,7 @@ export const successVariant = (radioButtonsArgs) =>
     });
 successVariant.tags = ["!dev"];
 
-export const requiredVariant = (radioButtonsArgs) =>
+export const requiredVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb5",
@@ -121,7 +118,7 @@ export const requiredVariant = (radioButtonsArgs) =>
     });
 requiredVariant.tags = ["!dev"];
 
-export const smallVariant = (radioButtonsArgs) =>
+export const smallVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb6",
@@ -136,7 +133,7 @@ export const smallVariant = (radioButtonsArgs) =>
     });
 smallVariant.tags = ["!dev"];
 
-export const hintTextVariant = (radioButtonsArgs) =>
+export const hintTextVariant = () =>
     RadioButtons({
         ...radioButtonsArgs,
         id: "rb7",
@@ -151,59 +148,52 @@ export const hintTextVariant = (radioButtonsArgs) =>
     });
 hintTextVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Default radio buttons</h3>
-            ${defaultVariant(args)}
-            <h3>Disabled radio buttons</h3>
-            ${disabledVariant(args)}
-            <h3>Error radio buttons</h3>
-            ${errorVariant(args)}
-            <h3>Success radio buttons</h3>
-            ${successVariant(args)}
-            <h3>Required radio buttons</h3>
-            ${requiredVariant(args)}
-            <h3>Small radio buttons</h3>
-            ${smallVariant(args)}
-            <h3>Hint text radio buttons</h3>
-            ${hintTextVariant(args)}
-        </div>
+        <h3>Default radio buttons</h3>
+        ${defaultVariant()}
+        <h3>Disabled radio buttons</h3>
+        ${disabledVariant()}
+        <h3>Error radio buttons</h3>
+        ${errorVariant()}
+        <h3>Success radio buttons</h3>
+        ${successVariant()}
+        <h3>Required radio buttons</h3>
+        ${requiredVariant()}
+        <h3>Small radio buttons</h3>
+        ${smallVariant()}
+        <h3>Hint text radio buttons</h3>
+        ${hintTextVariant()}
     `;
 };
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: radioButtonsArgs,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: radioButtonsArgs,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: radioButtonsArgs,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: radioButtonsArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: radioButtonsArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };
