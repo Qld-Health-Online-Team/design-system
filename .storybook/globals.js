@@ -41,6 +41,10 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321317&p=f&t=A5RGn3vQ6cEyXHw7-0",
         ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
     },
+    breadcrumbs: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0",
+        ds: "https://www.designsystem.qld.gov.au/components/breadcrumbs",
+    },
     checkboxes: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
@@ -84,5 +88,9 @@ export const figmaLinks = {
     videoPlayer: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components",
+    },
+    footer: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97582&p=f&t=xM7nOPN0NPouiFDO-0",
+        ds: "https://www.designsystem.qld.gov.au/components/footer",
     },
 };

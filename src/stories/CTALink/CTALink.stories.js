@@ -1,5 +1,6 @@
 import { CTALink } from "./CTALink";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const ctaLinkArgs = {
     id: "cta-link-1",
@@ -54,11 +55,7 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...ctaLinkArgs,
-    },
-};
+export const Default = {};
 
 export const defaultVariant = (ctaLinkArgs) => CTALink({ ...ctaLinkArgs });
 defaultVariant.tags = ["!dev"];
@@ -101,51 +98,43 @@ linkedListExample.parameters = {
     actions: { disable: true },
 };
 
-export const allVariants = (args, theme) => {
+const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Default</h3>
-            ${defaultVariant(args)}
-            <h3>View all</h3>
-            ${viewAllVariant(args)}
-            <h3>Disabled</h3>
-            ${disabledVariant(args)}
-        </div>
+        <h3>Default</h3>
+        ${defaultVariant(ctaLinkArgs)}
+        <h3>View all</h3>
+        ${viewAllVariant(ctaLinkArgs)}
+        <h3>Disabled</h3>
+        ${disabledVariant(ctaLinkArgs)}
     `;
 };
-allVariants.tags = ["!dev"];
 
 export const white = {
-    args: ctaLinkArgs,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: ctaLinkArgs,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: ctaLinkArgs,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: ctaLinkArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: ctaLinkArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };

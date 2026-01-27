@@ -1,5 +1,6 @@
 import { SelectBox } from "./SelectBox";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const selectBoxArgs = {
     id: "select1",
@@ -103,127 +104,121 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...selectBoxArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select2" });
+export const defaultVariant = () => SelectBox({ ...selectBoxArgs, id: "select2" });
 defaultVariant.tags = ["!dev"];
 
-export const successVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select3", state: "success", succcessMessage: "Success message" });
+export const successVariant = () => SelectBox({ ...selectBoxArgs, id: "select3", state: "success", succcessMessage: "Success message" });
 successVariant.tags = ["!dev"];
 
-export const errorVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select4", state: "error", errorMessage: "Error message" });
+export const errorVariant = () => SelectBox({ ...selectBoxArgs, id: "select4", state: "error", errorMessage: "Error message" });
 errorVariant.tags = ["!dev"];
 
-export const filledVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select5", isFilled: true });
+export const filledVariant = () => SelectBox({ ...selectBoxArgs, id: "select5", isFilled: true });
 filledVariant.tags = ["!dev"];
 
-export const requiredVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select6", isRequired: true });
+export const requiredVariant = () => SelectBox({ ...selectBoxArgs, id: "select6", isRequired: true });
 requiredVariant.tags = ["!dev"];
 
-export const disabledVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select7", isDisabled: true });
+export const disabledVariant = () => SelectBox({ ...selectBoxArgs, id: "select7", isDisabled: true });
 disabledVariant.tags = ["!dev"];
 
-export const multipleVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select23", isMultiple: true });
+export const multipleVariant = () => SelectBox({ ...selectBoxArgs, id: "select23", isMultiple: true });
 multipleVariant.tags = ["!dev"];
 
-export const size2charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select8", extraClass: "qld__field-width--2char" });
+export const size2charVariant = () => SelectBox({ ...selectBoxArgs, id: "select8", extraClass: "qld__field-width--2char" });
 size2charVariant.tags = ["!dev"];
 
-export const size3charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select9", extraClass: "qld__field-width--3char" });
+export const size3charVariant = () => SelectBox({ ...selectBoxArgs, id: "select9", extraClass: "qld__field-width--3char" });
 size3charVariant.tags = ["!dev"];
 
-export const size4charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select10", extraClass: "qld__field-width--4char" });
+export const size4charVariant = () => SelectBox({ ...selectBoxArgs, id: "select10", extraClass: "qld__field-width--4char" });
 size4charVariant.tags = ["!dev"];
 
-export const size5charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select11", extraClass: "qld__field-width--5char" });
+export const size5charVariant = () => SelectBox({ ...selectBoxArgs, id: "select11", extraClass: "qld__field-width--5char" });
 size5charVariant.tags = ["!dev"];
 
-export const size10charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select12", extraClass: "qld__field-width--10char" });
+export const size10charVariant = () => SelectBox({ ...selectBoxArgs, id: "select12", extraClass: "qld__field-width--10char" });
 size10charVariant.tags = ["!dev"];
 
-export const size20charVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select13", extraClass: "qld__field-width--20char" });
+export const size20charVariant = () => SelectBox({ ...selectBoxArgs, id: "select13", extraClass: "qld__field-width--20char" });
 size20charVariant.tags = ["!dev"];
 
-export const sizeXSVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select14", extraClass: "qld__field-width--xs" });
+export const sizeXSVariant = () => SelectBox({ ...selectBoxArgs, id: "select14", extraClass: "qld__field-width--xs" });
 sizeXSVariant.tags = ["!dev"];
 
-export const sizeSMVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select15", extraClass: "qld__field-width--sm" });
+export const sizeSMVariant = () => SelectBox({ ...selectBoxArgs, id: "select15", extraClass: "qld__field-width--sm" });
 sizeSMVariant.tags = ["!dev"];
 
-export const sizeMDVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select16", extraClass: "qld__field-width--md" });
+export const sizeMDVariant = () => SelectBox({ ...selectBoxArgs, id: "select16", extraClass: "qld__field-width--md" });
 sizeMDVariant.tags = ["!dev"];
 
-export const sizeLGVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select17", extraClass: "qld__field-width--lg" });
+export const sizeLGVariant = () => SelectBox({ ...selectBoxArgs, id: "select17", extraClass: "qld__field-width--lg" });
 sizeLGVariant.tags = ["!dev"];
 
-export const sizeXLVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select18", extraClass: "qld__field-width--xl" });
+export const sizeXLVariant = () => SelectBox({ ...selectBoxArgs, id: "select18", extraClass: "qld__field-width--xl" });
 sizeXLVariant.tags = ["!dev"];
 
-export const sizeFullVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select19", extraClass: "qld__field-width--full" });
+export const sizeFullVariant = () => SelectBox({ ...selectBoxArgs, id: "select19", extraClass: "qld__field-width--full" });
 sizeFullVariant.tags = ["!dev"];
 
-export const size3QuartersVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select20", extraClass: "qld__field-width--3-quarters" });
+export const size3QuartersVariant = () => SelectBox({ ...selectBoxArgs, id: "select20", extraClass: "qld__field-width--3-quarters" });
 size3QuartersVariant.tags = ["!dev"];
 
-export const sizeHalfVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select21", extraClass: "qld__field-width--half" });
+export const sizeHalfVariant = () => SelectBox({ ...selectBoxArgs, id: "select21", extraClass: "qld__field-width--half" });
 sizeHalfVariant.tags = ["!dev"];
 
-export const size1QuarterVariant = (selectBoxArgs) => SelectBox({ ...selectBoxArgs, id: "select22", extraClass: "qld__field-width--1-quarter" });
+export const size1QuarterVariant = () => SelectBox({ ...selectBoxArgs, id: "select22", extraClass: "qld__field-width--1-quarter" });
 size1QuarterVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Default select box</h3>
-            ${defaultVariant(args)}
-            <h3>Success select box</h3>
-            ${successVariant(args)}
-            <h3>Error select box</h3>
-            ${errorVariant(args)}
-            <h3>Filled select box</h3>
-            ${filledVariant(args)}
-            <h3>Required select box</h3>
-            ${requiredVariant(args)}
-            <h3>Disabled select box</h3>
-            ${disabledVariant(args)}
-            <h3>Multiple select box</h3>
-            ${multipleVariant(args)}
-            <h3>Width variants</h3>
-            <h4>2 char</h4>
-            ${size2charVariant(args)}
-            <h4>3 char</h4>
-            ${size3charVariant(args)}
-            <h4>4 char</h4>
-            ${size4charVariant(args)}
-            <h4>5 char</h4>
-            ${size5charVariant(args)}
-            <h4>10 char</h4>
-            ${size10charVariant(args)}
-            <h4>20 char</h4>
-            ${size20charVariant(args)}
-            <h4>XS</h4>
-            ${sizeXSVariant(args)}
-            <h4>SM</h4>
-            ${sizeSMVariant(args)}
-            <h4>MD</h4>
-            ${sizeMDVariant(args)}
-            <h4>LG</h4>
-            ${sizeLGVariant(args)}
-            <h4>XL</h4>
-            ${sizeXLVariant(args)}
-            <h4>Full</h4>
-            ${sizeFullVariant(args)}
-            <h4>3 Quarters</h4>
-            ${size3QuartersVariant(args)}
-            <h4>Half</h4>
-            ${sizeHalfVariant(args)}
-            <h4>1 Quarter</h4>
-            ${size1QuarterVariant(args)}
-        </div>
+        <h3>Default select box</h3>
+        ${defaultVariant()}
+        <h3>Success select box</h3>
+        ${successVariant()}
+        <h3>Error select box</h3>
+        ${errorVariant()}
+        <h3>Filled select box</h3>
+        ${filledVariant()}
+        <h3>Required select box</h3>
+        ${requiredVariant()}
+        <h3>Disabled select box</h3>
+        ${disabledVariant()}
+        <h3>Multiple select box</h3>
+        ${multipleVariant()}
+        <h3>Width variants</h3>
+        <h4>2 char</h4>
+        ${size2charVariant()}
+        <h4>3 char</h4>
+        ${size3charVariant()}
+        <h4>4 char</h4>
+        ${size4charVariant()}
+        <h4>5 char</h4>
+        ${size5charVariant()}
+        <h4>10 char</h4>
+        ${size10charVariant()}
+        <h4>20 char</h4>
+        ${size20charVariant()}
+        <h4>XS</h4>
+        ${sizeXSVariant()}
+        <h4>SM</h4>
+        ${sizeSMVariant()}
+        <h4>MD</h4>
+        ${sizeMDVariant()}
+        <h4>LG</h4>
+        ${sizeLGVariant()}
+        <h4>XL</h4>
+        ${sizeXLVariant()}
+        <h4>Full</h4>
+        ${sizeFullVariant()}
+        <h4>3 Quarters</h4>
+        ${size3QuartersVariant()}
+        <h4>Half</h4>
+        ${sizeHalfVariant()}
+        <h4>1 Quarter</h4>
+        ${size1QuarterVariant()}
     `;
 };
 const allVariantsArgTypes = {
@@ -241,41 +236,36 @@ const allVariantsArgTypes = {
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: selectBoxArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: selectBoxArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: selectBoxArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: selectBoxArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: selectBoxArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };

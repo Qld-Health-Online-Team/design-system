@@ -1,6 +1,7 @@
 import Handlebars from "handlebars";
 import Template from "../../components/pagination/html/component.hbs?raw";
 import { figmaLinks, themes } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const renderPagination = ({ data, ...args }) =>
     Handlebars.compile(Template)({
@@ -210,33 +211,25 @@ export const Default = {};
 
 export const light = {
     render: (args) => {
-        return `<div class="${themes["light"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["light"], renderPagination(args));
     },
 };
 
 export const lightAlt = {
     render: (args) => {
-        return `<div class="${themes["light alt"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["light alt"], renderPagination(args));
     },
 };
 
 export const dark = {
     render: (args) => {
-        return `<div class="${themes["dark"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["dark"], renderPagination(args));
     },
 };
 
 export const darkAlt = {
     render: (args) => {
-        return `<div class="${themes["dark alt"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["dark alt"], renderPagination(args));
     },
 };
 
