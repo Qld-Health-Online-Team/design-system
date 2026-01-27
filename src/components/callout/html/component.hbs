@@ -1,7 +1,7 @@
 {{#with component.data}}
 <section class="qld__callout--wrapper qld__body {{metadata.body_background.value}}" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}callout-{{assetid}}{{/if}}">
     <div class="container-fluid">
-        <div class="qld__callout {{metadata.type.value}} {{metadata.theme.value}} {{metadata.background.value}} ">  
+        <div class="qld__callout {{metadata.type.value}} {{metadata.background.value}}">  
                 {{#ifCond metadata.type.value '==' ''}}
                     {{#if metadata.heading.value}}
                     <h3 class="qld__callout__heading {{metadata.heading_visible.value}}">
