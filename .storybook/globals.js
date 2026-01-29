@@ -45,6 +45,10 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0",
         ds: "https://www.designsystem.qld.gov.au/components/breadcrumbs",
     },
+    callout: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98115&p=f&t=3aGzWYalpb1UXS73-0",
+        ds: "https://www.designsystem.qld.gov.au/components/callout",
+    },
     checkboxes: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
@@ -64,6 +68,10 @@ export const figmaLinks = {
     linkColumns: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+    },
+    loadingSpinner: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=49314-16705&p=f&t=N6vEZVb73vuDEtRO-0",
+        ds: "https://www.designsystem.qld.gov.au/components/loading-spinner",
     },
     pagination: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321779&p=f&t=wdrRF6qJa1fuzxWP-0",
