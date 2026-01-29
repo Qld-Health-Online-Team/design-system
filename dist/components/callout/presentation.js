@@ -13,10 +13,8 @@
     + "\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"qld__callout "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + " "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + " \">  \r\n"
+    + "\">  \r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||container.hooks.helperMissing).call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","",{"name":"ifCond","hash":{},"fn":container.program(6, data, 0),"inverse":container.program(9, data, 0),"data":data,"loc":{"start":{"line":5,"column":16},"end":{"line":24,"column":27}}})) != null ? stack1 : "")
     + "        </div>\r\n    </div>\r\n</section>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
