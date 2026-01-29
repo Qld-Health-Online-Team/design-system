@@ -1,5 +1,6 @@
 import { Tags } from "./Tags";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const tagsArgs = {
     type: "default",
@@ -55,45 +56,39 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...tagsArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "default" });
+export const defaultVariant = () => Tags({ ...tagsArgs, type: "default" });
 defaultVariant.tags = ["!dev"];
-export const defaultVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "default", isLargeTag: true });
+export const defaultVariantLarge = () => Tags({ ...tagsArgs, type: "default", isLargeTag: true });
 defaultVariantLarge.tags = ["!dev"];
 
-export const actionVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "action" });
+export const actionVariant = () => Tags({ ...tagsArgs, type: "action" });
 actionVariant.tags = ["!dev"];
-export const actionVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "action", isLargeTag: true });
+export const actionVariantLarge = () => Tags({ ...tagsArgs, type: "action", isLargeTag: true });
 actionVariantLarge.tags = ["!dev"];
 
-export const infoVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "info" });
+export const infoVariant = () => Tags({ ...tagsArgs, type: "info" });
 infoVariant.tags = ["!dev"];
-export const infoVariantLarge = (tagsArgs) => Tags({ ...tagsArgs, type: "info", isLargeTag: true });
+export const infoVariantLarge = () => Tags({ ...tagsArgs, type: "info", isLargeTag: true });
 infoVariantLarge.tags = ["!dev"];
 
-export const filterVariant = (tagsArgs) => Tags({ ...tagsArgs, type: "filter" });
+export const filterVariant = () => Tags({ ...tagsArgs, type: "filter" });
 filterVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Default tags</h3>
-            ${defaultVariant(args)}
-            ${defaultVariantLarge(args)}
-            <h3>Action tags</h3>
-            ${actionVariant(args)}
-            ${actionVariantLarge(args)}
-            <h3>Info tags</h3>
-            ${infoVariant(args)}
-            ${infoVariantLarge(args)}
-            <h3>Filter tags</h3>
-            ${filterVariant(args)}
-        </div>
+        <h3>Default tags</h3>
+        ${defaultVariant()}
+        ${defaultVariantLarge()}
+        <h3>Action tags</h3>
+        ${actionVariant()}
+        ${actionVariantLarge()}
+        <h3>Info tags</h3>
+        ${infoVariant()}
+        ${infoVariantLarge()}
+        <h3>Filter tags</h3>
+        ${filterVariant()}
     `;
 };
 const allVariantsArgTypes = {
@@ -111,41 +106,36 @@ const allVariantsArgTypes = {
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: tagsArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: tagsArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: tagsArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: tagsArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: tagsArgs,
     argTypes: allVariantsArgTypes,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };

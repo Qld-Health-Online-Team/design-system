@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 import Template from "../../components/promo_panel/html/component.hbs?raw";
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import { figmaLinks } from "../../../.storybook/globals";
 
 const renderPromoPanel = ({ id, type, title, abstract, body, promoImage, bodyBackground, imageAlignment, promoPanelIcon, linkType, ctaLinkTitle, ctaLink, primaryLinkTitle, primaryLink, secondaryLinkTitle, secondaryLink, ...args }) => {
     const html = Handlebars.compile(Template)({
@@ -139,13 +139,9 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...promoPanelArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (promoPanelArgs) => renderPromoPanel({ ...promoPanelArgs, bodyBackground: "" });
+export const defaultVariant = () => renderPromoPanel({ ...promoPanelArgs, bodyBackground: "" });
 defaultVariant.tags = ["!dev"];
 
 export const largeText = {
@@ -178,6 +174,16 @@ export const fullImage = {
     },
 };
 
+export const white = {
+    args: {
+        ...promoPanelArgs,
+        bodyBackground: "",
+    },
+    render: (args) => {
+        return renderPromoPanel(args);
+    },
+};
+
 export const light = {
     args: {
         ...promoPanelArgs,
@@ -204,7 +210,7 @@ export const dark = {
         bodyBackground: "qld__body--dark",
     },
     render: (args) => {
-        return renderPromoPanel(args, themes["dark"]);
+        return renderPromoPanel(args);
     },
 };
 

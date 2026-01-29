@@ -1,7 +1,8 @@
 import { LinkColumns } from "./LinkColumns";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions";
 
-const LinkColumnsArgs = {
+const linkColumnsArgs = {
     ariaLabel: "related links",
     columns: 1,
     data: [
@@ -62,7 +63,7 @@ export default {
         hasViewAll: { control: "boolean", description: "Whether to show the 'View all' link" },
         viewAllHref: { control: "text", description: "The link the 'View all' button will navigate to", if: { arg: "hasViewAll", eq: true } },
     },
-    args: { ...LinkColumnsArgs },
+    args: { ...linkColumnsArgs },
     parameters: {
         design: {
             type: "figma",
@@ -71,70 +72,59 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...LinkColumnsArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (linkColumnsArgs) => LinkColumns({ ...linkColumnsArgs });
+export const defaultVariant = () => LinkColumns({ ...linkColumnsArgs });
 defaultVariant.tags = ["!dev"];
-export const columns1Variant = (linkColumnsArgs) => LinkColumns({ ...linkColumnsArgs, columns: 1 });
+export const columns1Variant = () => LinkColumns({ ...linkColumnsArgs, columns: 1 });
 columns1Variant.tags = ["!dev"];
-export const columns2Variant = (linkColumnsArgs) => LinkColumns({ ...linkColumnsArgs, columns: 2 });
+export const columns2Variant = () => LinkColumns({ ...linkColumnsArgs, columns: 2 });
 columns2Variant.tags = ["!dev"];
-export const columns3Variant = (linkColumnsArgs) => LinkColumns({ ...linkColumnsArgs, columns: 3 });
+export const columns3Variant = () => LinkColumns({ ...linkColumnsArgs, columns: 3 });
 columns3Variant.tags = ["!dev"];
-export const noViewAllVariant = (linkColumnsArgs) => LinkColumns({ ...linkColumnsArgs, columns: 3, hasViewAll: false });
+export const noViewAllVariant = () => LinkColumns({ ...linkColumnsArgs, columns: 3, hasViewAll: false });
 noViewAllVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Link columns (1)</h3>
-            ${columns1Variant(args)}
-            <h3>Link columns (2)</h3>
-            ${columns2Variant(args)}
-            <h3>Link columns (3)</h3>
-            ${columns3Variant(args)}
-            <h3>Link columns without view all</h3>
-            ${noViewAllVariant(args)}
-        </div>
+        <h3>Link columns (1)</h3>
+        ${columns1Variant()}
+        <h3>Link columns (2)</h3>
+        ${columns2Variant()}
+        <h3>Link columns (3)</h3>
+        ${columns3Variant()}
+        <h3>Link columns without view all</h3>
+        ${noViewAllVariant()}
     `;
 };
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: LinkColumnsArgs,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: LinkColumnsArgs,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: LinkColumnsArgs,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: LinkColumnsArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: LinkColumnsArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };

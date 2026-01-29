@@ -18,6 +18,7 @@
             {{#with (itemAt current.lineage -2)}}
             {{#ifCond asset_type_code '!=' 'folder'}}  
             <div class="qld__breadcrumbs__item">
+                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
                 <a href="{{asset_url}}" class="qld__breadcrumbs__link">
                     {{#ifCond asset_is_site_asset '==' '1'}}
                         Home
@@ -25,7 +26,7 @@
                         {{renderSpecialChar asset_short_name}}
                     {{/ifCond}}
                 </a>    
-            </li>
+            </div>
             {{/ifCond}}
             {{/with}}
         </div>
@@ -43,6 +44,7 @@
                         {{#with (itemAt ../current.lineage -2)}}
                         {{#ifCond asset_type_code '!=' 'folder'}} 
                             <div class="qld__breadcrumbs__item">
+                                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
                                 <a href="{{asset_url}}" class="qld__breadcrumbs__link">
                                     {{#ifCond asset_is_site_asset '==' '1'}}
                                         Home
@@ -56,16 +58,20 @@
                     </div>
                 </nav>
             {{/ifCond}}
+            <!--@@ Breadcrumbs - Desktop @@-->
             {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
                 <nav class="qld__breadcrumbs 
                 {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
                 {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
                 qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop"
                 aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
-                    <ol class="qld__link-list qld__link-list--inline">
+                    <ol class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
                         {{#each current.lineage}} 
                             {{#ifCond asset_type_code '!=' 'folder'}}          
                                 <li {{#if @last}}aria-current="page"{{/if}} class="qld__breadcrumbs__item">{{#if @last}}{{renderSpecialChar asset_short_name}}{{else}}<a href="{{asset_url}}" class="qld__breadcrumbs__link">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>{{/if}}</li>
+                                {{#unless @last}}
+                                    <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
+                                {{/unless}}
                             {{/ifCond}}
                         {{/each}}
                     </ol>

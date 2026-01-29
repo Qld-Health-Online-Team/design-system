@@ -1,5 +1,6 @@
 import { DirectionLinks } from "./DirectionLinks";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const directionLinksArgs = {
     text: "my link",
@@ -39,68 +40,57 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...directionLinksArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (directionLinksArgs) => DirectionLinks({ ...directionLinksArgs, direction: "right" });
+export const defaultVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "right" });
 defaultVariant.tags = ["!dev"];
-export const leftVariant = (directionLinksArgs) => DirectionLinks({ ...directionLinksArgs, direction: "left" });
+export const leftVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "left" });
 leftVariant.tags = ["!dev"];
-export const upVariant = (directionLinksArgs) => DirectionLinks({ ...directionLinksArgs, direction: "up" });
+export const upVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "up" });
 upVariant.tags = ["!dev"];
-export const downVariant = (directionLinksArgs) => DirectionLinks({ ...directionLinksArgs, direction: "down" });
+export const downVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "down" });
 downVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Direction link left</h3>
-            ${leftVariant(args)}
-            <h3>Direction link right</h3>
-            ${defaultVariant(args)}
-            <h3>Direction link up</h3>
-            ${upVariant(args)}
-            <h3>Direction link down</h3>
-            ${downVariant(args)}
-        </div>
+        <h3>Direction link left</h3>
+        ${leftVariant()}
+        <h3>Direction link right</h3>
+        ${defaultVariant()}
+        <h3>Direction link up</h3>
+        ${upVariant()}
+        <h3>Direction link down</h3>
+        ${downVariant()}
     `;
 };
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: directionLinksArgs,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: directionLinksArgs,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: directionLinksArgs,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: directionLinksArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: directionLinksArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };
