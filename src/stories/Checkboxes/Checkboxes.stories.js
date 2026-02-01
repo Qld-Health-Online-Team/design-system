@@ -1,5 +1,6 @@
 import { Checkboxes } from "./Checkboxes";
 import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const checkboxesArgs = {
     id: "cb1",
@@ -47,16 +48,12 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...checkboxesArgs,
-    },
-};
+export const Default = {};
 
-export const defaultVariant = (checkboxesArgs) => Checkboxes({ ...checkboxesArgs });
+export const defaultVariant = () => Checkboxes({ ...checkboxesArgs });
 defaultVariant.tags = ["!dev"];
 
-export const disabledVariant = (checkboxesArgs) =>
+export const disabledVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         id: "cb2",
@@ -70,7 +67,7 @@ export const disabledVariant = (checkboxesArgs) =>
     });
 disabledVariant.tags = ["!dev"];
 
-export const errorVariant = (checkboxesArgs) =>
+export const errorVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         id: "cb3",
@@ -88,7 +85,7 @@ export const errorVariant = (checkboxesArgs) =>
     });
 errorVariant.tags = ["!dev"];
 
-export const successVariant = (checkboxesArgs) =>
+export const successVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         id: "cb4",
@@ -106,7 +103,7 @@ export const successVariant = (checkboxesArgs) =>
     });
 successVariant.tags = ["!dev"];
 
-export const requiredVariant = (checkboxesArgs) =>
+export const requiredVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         id: "cb5",
@@ -121,7 +118,7 @@ export const requiredVariant = (checkboxesArgs) =>
     });
 requiredVariant.tags = ["!dev"];
 
-export const smallVariant = (checkboxesArgs) =>
+export const smallVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         id: "cb6",
@@ -136,7 +133,7 @@ export const smallVariant = (checkboxesArgs) =>
     });
 smallVariant.tags = ["!dev"];
 
-export const hintTextVariant = (checkboxesArgs) =>
+export const hintTextVariant = () =>
     Checkboxes({
         ...checkboxesArgs,
         hintText: "Select all that apply",
@@ -151,59 +148,52 @@ export const hintTextVariant = (checkboxesArgs) =>
     });
 hintTextVariant.tags = ["!dev"];
 
-export const allVariants = (args, theme) => {
+export const allVariants = () => {
     return `
-        <div class="${theme}" style="padding: 2rem;">
-            <h3>Default checkboxes</h3>
-            ${defaultVariant(args)}
-            <h3>Disabled checkboxes</h3>
-            ${disabledVariant(args)}
-            <h3>Error checkboxes</h3>
-            ${errorVariant(args)}
-            <h3>Success checkboxes</h3>
-            ${successVariant(args)}
-            <h3>Required checkboxes</h3>
-            ${requiredVariant(args)}
-            <h3>Small checkboxes</h3>
-            ${smallVariant(args)}
-            <h3>Hint text checkboxes</h3>
-            ${hintTextVariant(args)}
-        </div>
+        <h3>Default checkboxes</h3>
+        ${defaultVariant()}
+        <h3>Disabled checkboxes</h3>
+        ${disabledVariant()}
+        <h3>Error checkboxes</h3>
+        ${errorVariant()}
+        <h3>Success checkboxes</h3>
+        ${successVariant()}
+        <h3>Required checkboxes</h3>
+        ${requiredVariant()}
+        <h3>Small checkboxes</h3>
+        ${smallVariant()}
+        <h3>Hint text checkboxes</h3>
+        ${hintTextVariant()}
     `;
 };
 allVariants.tags = ["!dev"];
 
 export const white = {
-    args: checkboxesArgs,
-    render: (args) => {
-        return allVariants(args, themes["white"]);
+    render: () => {
+        return themeWrapper(themes["white"], allVariants());
     },
 };
 
 export const light = {
-    args: checkboxesArgs,
-    render: (args) => {
-        return allVariants(args, themes["light"]);
+    render: () => {
+        return themeWrapper(themes["light"], allVariants());
     },
 };
 
 export const lightAlt = {
-    args: checkboxesArgs,
-    render: (args) => {
-        return allVariants(args, themes["light alt"]);
+    render: () => {
+        return themeWrapper(themes["light alt"], allVariants());
     },
 };
 
 export const dark = {
-    args: checkboxesArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark"]);
+    render: () => {
+        return themeWrapper(themes["dark"], allVariants());
     },
 };
 
 export const darkAlt = {
-    args: checkboxesArgs,
-    render: (args) => {
-        return allVariants(args, themes["dark alt"]);
+    render: () => {
+        return themeWrapper(themes["dark alt"], allVariants());
     },
 };
