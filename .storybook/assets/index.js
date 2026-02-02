@@ -1,6 +1,5 @@
 // Storybook index file to import storybook related assets
 import "../core-assets/handlebar-helpers.js";
-import "../core-assets/main.js";
 import initAnimate from "./animate-js.js";
 import initAccordion from "./accordion-js.js";
 import { initBreadcrumbs, getTheElements } from "./breadcrumbs-js.js";
