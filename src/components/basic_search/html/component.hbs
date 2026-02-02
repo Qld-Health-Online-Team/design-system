@@ -119,14 +119,13 @@
             <div class="col-xs-12 col-md-12">
                 <div class="qld__search__info">
                     <div class="qld__search__info-query">
-                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' '!padrenull'}} for </span><span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’{{/ifCond}}</h2>
+                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' ''}} for <span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’</span>{{/ifCond}}</h2>
                     </div>
                     <div class="qld__search__info-inner">
                         <div class="qld__search__info-summary">
                             <span class="qld__search__info-summary-text">Showing:</span> 
                             <span class="qld__search__info-summary-start-end">{{resultsPage.resultsSummary.currStart}} - {{resultsPage.resultsSummary.currEnd}} of</span>
-                            <span class="qld__search__info-summary-matching">{{resultsPage.resultsSummary.totalMatching}} results</span>
-                            
+                            <span class="qld__search__info-summary-matching">{{resultsPage.resultsSummary.totalMatching}} results</span>   
                         </div>
 
                         <div class="qld__search__sort">
@@ -151,19 +150,19 @@
                                     {{#ifCond collection 'contains' 'service-finder'}}
                                         {{#ifCond collection 'contains' '__service-locations'}}
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{metaData.servicewebpath}}">
+                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{listMetadata.servicewebpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
                                         {{else ifCond collection 'contains' '__facilities'}}
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfFacilitiesUrl.value}}/{{metaData.webpath}}">
+                                                <a href="{{@root.site.metadata.sfFacilitiesUrl.value}}/{{listMetadata.webpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
                                         {{else}} 
                                             <h3 class="qld__display-md">
-                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{metaData.webpath}}">
+                                                <a href="{{@root.site.metadata.sfHomeUrl.value}}/{{listMetadata.webpath}}">
                                                     Healthcare services | {{{title}}}
                                                 </a>
                                             </h3>
@@ -174,17 +173,17 @@
                                                 {{#ifCond liveUrl 'contains' '?tag='}}
                                                     {{replace title '\|.*' ''}} | Topic | {{#with (split liveUrl '?tag=') as | tagUrl | }}{{#replaceMany "%27" "'"}} {{#replaceMany "_" " "}}{{capitaliseFirst tagUrl.[1]}}{{/replaceMany}} {{/replaceMany}}{{/with}}
                                                 {{else ifCond fileType '==' 'pdf'}}
-                                                    {{replace metaData.fileName '\|.*' ''}}
+                                                    {{replace listMetadata.fileName.[0] '\|.*' ''}}
                                                 {{else}}
                                                     {{replace title '\|.*' ''}}
                                                 {{/ifCond}}
                                             </a>
                                         </h3>
                                     {{/ifCond}}
-                                    {{#if metaData.assetLineage}}
+                                    {{#if listMetadata.assetLineage}}
                                     <div class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
-                                            {{#each (split metaData.assetLineage "+")}}
+                                            {{#each (split listMetadata.assetLineage "+")}}
                                                 <li>{{this}}</li>
                                             {{/each}}       
                                         </ul>
@@ -218,20 +217,20 @@
                                     {{/ifCond}}
                                 </div> 
                                 <div class="qld__search__result-type">
-                                {{#if metaData.articleType}}
-                                    {{#ifCond metaData.articleType '==' 'news'}}
+                                {{#if listMetadata.articleType}}
+                                    {{#ifCond listMetadata.articleType '==' 'news'}}
                                         <span class="qld__search__result-type-name">
                                             <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#article"></use></svg>
                                             News
                                         </span>
                                         {{/ifCond}}
-                                    {{#ifCond metaData.articleType '==' 'feature-article'}}
+                                    {{#ifCond listMetadata.articleType '==' 'feature-article'}}
                                         <span class="qld__search__result-type-name">
                                             <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#announcement"></use></svg>
                                             Feature Article
                                         </span>
                                         {{/ifCond}}
-                                    {{#ifCond metaData.articleType '==' 'podcast-series'}}
+                                    {{#ifCond listMetadata.articleType '==' 'podcast-series'}}
                                         <span class="qld__search__result-type-name">
                                             <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" ><use href="{{@root.site.metadata.coreSiteIcons.value}}#podcast"></use></svg>
                                             Podcast
