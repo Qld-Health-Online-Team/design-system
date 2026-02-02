@@ -4,47 +4,64 @@
 
 .qld__cta-link,
 a.qld__cta-link {
+    position: relative;
+    display: inline-block;
     @include QLD-fontgrid(md);
+    @include QLD-space(padding-right, 2.5rem);
     font-weight: $QLD-font-weight-semibold;
     color: var(--QLD-color-light__link);
     z-index: 1;
 
-    .qld__icon {
-        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-        transition: margin 0.2s ease;
-        color: var(--QLD-color-light__action--secondary);
-        vertical-align: text-bottom;
+    &::before {
+        @include QLD-space(width, 1unit);
+        top: 50%;
+        right: 0.3rem;
     }
 
-    &:after {
-        content: " ";
-        @include QLD-space(width, 1.25unit);
-        @include QLD-space(height, 1.5unit);
-        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-        transition: margin 0.2s ease;
-        display: inline-block;
-        vertical-align: text-top;
-        mask-image: QLD-svguri($QLD-icon-arrow-right);
-        mask-repeat: no-repeat;
-        mask-position: center;
-        background-color: var(--QLD-color-light__action--secondary);
+    &::after {
+        @include QLD-space(width, 0.6rem);
+        @include QLD-space(height, 0.6rem);
+        border-right: 0.125rem solid;
+        transform: rotate(315deg);
+        top: 0.77rem;
+        right: 0.3rem;
+    }
 
-        .ie8 &,
-        .lt-ie8 & {
-            content: " > ";
+    &::before,
+    &::after {
+        content: "";
+        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        border-bottom: 0.125rem solid;
+        transition: border-color 0.3s ease;
+        transition: margin 0.2s ease;
+        border-color: var(--QLD-color-light__action--secondary);
+
+        .qld__body--dark &,
+        .qld__body--dark-alt & {
+            border-color: var(--QLD-color-dark__action--secondary);
         }
     }
 
     &:hover,
     &:focus {
-        &:after {
-            background-color: var(--QLD-color-light__action--secondary-hover);
+        &::before,
+        &::after {
             @include QLD-space(margin, 0 0 0 1unit);
+            border-color: var(--QLD-color-light__action--secondary-hover);
         }
 
         &:disabled,
         &[disabled] {
             font-weight: $QLD-font-weight-semibold;
+
+            &:visited {
+                color: var(--QLD-color-light__text--lighter);
+            }
+
+            &::before,
             &::after {
                 @include QLD-space(margin, 0 0.5unit 0 0.5unit);
             }
@@ -56,8 +73,9 @@ a.qld__cta-link {
         cursor: not-allowed;
         color: var(--QLD-color-light__text--lighter);
 
+        &::before,
         &::after {
-            background-color: var(--QLD-color-light__text--lighter);
+            border-color: var(--QLD-color-light__text--lighter);
         }
     }
 
@@ -65,26 +83,28 @@ a.qld__cta-link {
     .qld__body--dark-alt &,
     .qld__main-nav--dark & {
         color: var(--QLD-color-dark__link);
-
         @include QLD-focus(dark);
 
-        &:after {
-            background-color: var(--QLD-color-dark__action--secondary);
-        }
-
-        &:hover {
-            &:after {
-                background-color: var(--QLD-color-dark__action--secondary-hover);
+        &:hover,
+        &:focus {
+            &::before,
+            &::after {
+                border-color: var(--QLD-color-dark__action--secondary-hover);
             }
         }
 
         &:disabled,
         &[disabled] {
-            cursor: not-allowed;
             color: var(--QLD-color-dark__text--lighter);
 
-            &:after {
-                background-color: var(--QLD-color-dark__text--lighter);
+            &:visited,
+            &:visited:hover {
+                color: var(--QLD-color-dark__text--lighter);
+            }
+
+            &::before,
+            &::after {
+                border-color: var(--QLD-color-dark__text--lighter);
             }
         }
     }
@@ -92,10 +112,6 @@ a.qld__cta-link {
 
 .qld__cta-link.qld__cta-link--view-all,
 a.qld__cta-link.qld__cta-link--view-all {
-    display: inline-block;
-    position: relative;
-    @include QLD-space(padding-right, 2.5rem);
-
     .qld__cta-link--view-all-icon--wrapper {
         display: block;
         min-height: 32px;
@@ -105,8 +121,6 @@ a.qld__cta-link.qld__cta-link--view-all {
     &::before,
     &::after,
     .qld__cta-link--view-all-icon--wrapper::before {
-        // TODO: Remove this mask-image override after work is done for regular cta links.
-        mask-image: none;
         @include QLD-space(margin, 0 0.5unit 0 0.5unit);
         content: "";
         position: absolute;
@@ -216,7 +230,7 @@ a.qld__cta-link.qld__cta-link--view-all {
     .qld__cta-link {
         color: #000 !important;
 
-        &:after {
+        &::after {
             background-image: none !important;
             content: " > " !important;
             border: none !important;

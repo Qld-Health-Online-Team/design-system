@@ -1,6 +1,22 @@
-import "./assets/index.js"; // Storybook assets import
+import "./assets/index.js"; // Storybook JS import
+import "./assets/index.scss"; // Storybook styles import
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { viewports, themes, themeColours } from "./globals.js";
+import { getSvgPath } from "./helper-functions.js";
+
+const iconsIds = fetch(getSvgPath())
+    .then((res) => res.text())
+    .then((svgText) => {
+        // Parse the text as XML
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
+
+        // Select all <symbol> elements
+        const symbols = svgDoc.querySelectorAll("symbol");
+
+        // Map their IDs
+        return Array.from(symbols).map((sym) => sym.id);
+    });
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
@@ -70,11 +86,13 @@ const preview = {
     },
     args: {
         // Ensure GitHub hosted page uses correct icon path
-        site: { metadata: { coreSiteIcons: { value: window.location.origin === "https://qld-health-online-team.github.io" ? "/design-system/QLD-icons.svg" : "/QLD-icons.svg" } } },
+        site: { metadata: { coreSiteIcons: { value: getSvgPath() } } },
+        iconIDs: await iconsIds,
     },
     argTypes: {
         // Remove the site metadata from the controls
         site: { table: { disable: true } },
+        iconIDs: { table: { disable: true } },
     },
     decorators: [
         (storyFn, context) => {
@@ -83,10 +101,7 @@ const preview = {
                 return storyFn();
             }
             // Get the theme key from the background, to use within the decorator
-            const themeKey = Object.keys(themeColours).find(
-                (key) =>
-                    themeColours[key] === context.globals.backgrounds?.value
-            );
+            const themeKey = Object.keys(themeColours).find((key) => themeColours[key] === context.globals.backgrounds?.value);
             const wrapper = document.createElement("div");
             wrapper.className = themes[themeKey] || themes["white"];
             const story = storyFn();
