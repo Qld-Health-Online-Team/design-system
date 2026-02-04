@@ -95,8 +95,8 @@ Handlebars.registerHelper('columnWidth', function(target_col, data) {
     // Return bootstrap column class
     return 'col-xs-12 col-lg-' + width;
 }); 
-Handlebars.registerHelper('contains', function(string, contains, options) {
-    if(string.indexOf(contains) !== -1) {
+Handlebars.registerHelper('contains', function (string, contains, options) {
+    if (typeof string === "string" && string.indexOf(contains) !== -1) {
         return options.fn(this);
     }
 
