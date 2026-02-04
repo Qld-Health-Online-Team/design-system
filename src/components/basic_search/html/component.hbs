@@ -94,7 +94,7 @@
                         <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="{{site.metadata.siteSearchUrl.value}}">
                             <div class="qld__search-form__inner">
                                 <svg class="qld__icon qld__icon--sm qld__search-form__inner-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#search"></use></svg>
-                                <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" disabled="true" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{resultsPage.question.query}}{{/ifCond}}">
+                                <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" disabled="true" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}}{{resultsPage.question.query}}{{/contains}}{{/ifCond}}">
                                 <input type="text" id="name" name="name" autocomplete="off" tabindex="-1" class="qld__text-input--validation">
                                 <div class="qld__search-form__btn">
                                     <button class="qld__btn qld__btn--search" type="button" aria-label="Search" disabled="true">
@@ -119,7 +119,7 @@
             <div class="col-xs-12 col-md-12">
                 <div class="qld__search__info">
                     <div class="qld__search__info-query">
-                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' ''}} for <span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’</span>{{/ifCond}}</h2>
+                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' ''}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}} for <span class="qld__search__info-query-term">‘{{resultsPage.question.query}}’</span>{{/contains}}{{/ifCond}}</h2>
                     </div>
                     <div class="qld__search__info-inner">
                         <div class="qld__search__info-summary">
@@ -290,12 +290,12 @@
                             </div>
                             <p class="qld__search__result-summary">
                                 {{#ifCond collection 'contains' '__facilities'}}
-                                    {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
+                                    {{#if listMetadata.building}}{{{listMetadata.building}}}, {{/if}}{{#if listMetadata.physicalAddressStreet}}{{{listMetadata.physicalAddressStreet}}}{{/if}}{{#if listMetadata.physicalAddressSuburb}}, {{{listMetadata.physicalAddressSuburb}}}{{/if}}{{#if listMetadata.physicalAddressPostcode}}, {{{listMetadata.physicalAddressPostcode}}}{{/if}}
                                 {{else}}
                                     {{#ifCond collection 'contains' '__service-locations'}}
-                                        {{#if metaData.building}}{{{metaData.building}}}, {{/if}}{{#if metaData.physicalAddressStreet}}{{{metaData.physicalAddressStreet}}}{{/if}}{{#if metaData.physicalAddressSuburb}}, {{{metaData.physicalAddressSuburb}}}{{/if}}{{#if metaData.physicalAddressPostcode}}, {{{metaData.physicalAddressPostcode}}}{{/if}}
+                                        {{#if listMetadata.building}}{{{listMetadata.building}}}, {{/if}}{{#if listMetadata.physicalAddressStreet}}{{{listMetadata.physicalAddressStreet}}}{{/if}}{{#if listMetadata.physicalAddressSuburb}}, {{{listMetadata.physicalAddressSuburb}}}{{/if}}{{#if listMetadata.physicalAddressPostcode}}, {{{listMetadata.physicalAddressPostcode}}}{{/if}}
                                     {{else}}
-                                        {{#if metaData.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
+                                        {{#if listMetadata.d}}<span class="qld__search__result-date">{{formatDate listMetadata.d.[0] 'j F Y'}} —</span>{{/if}}
                                         {{{charMax summary '160'}}}
                                     {{/ifCond}}
                                 {{/ifCond}}
