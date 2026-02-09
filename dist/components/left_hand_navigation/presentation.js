@@ -146,7 +146,7 @@
 
   return "                                <button class=\"qld__left-nav__item-toggle qld__accordion--open\" aria-controls=\"internal-nav-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_assetid") : depths[1]), depth0))
-    + "\" aria-expanded=\"true\" aria-selected=\"true\" aria-label=\"Toggle navigation, "
+    + "\" aria-expanded=\"true\" aria-label=\"Toggle navigation, "
     + ((stack1 = alias1((depths[1] != null ? lookupProperty(depths[1],"asset_short_name") : depths[1]), depth0)) != null ? stack1 : "")
     + "\">\r\n                                    <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
@@ -163,7 +163,7 @@
 
   return "                                <button class=\"qld__left-nav__item-toggle qld__accordion--closed\" aria-controls=\"internal-nav-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_assetid") : depths[1]), depth0))
-    + "\" aria-expanded=\"false\" aria-selected=\"false\" aria-label=\"Toggle navigation, "
+    + "\" aria-expanded=\"false\" aria-label=\"Toggle navigation, "
     + ((stack1 = alias1((depths[1] != null ? lookupProperty(depths[1],"asset_short_name") : depths[1]), depth0)) != null ? stack1 : "")
     + "\">\r\n                                    <svg class=\"qld__icon qld__icon--sm\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\"><use href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))

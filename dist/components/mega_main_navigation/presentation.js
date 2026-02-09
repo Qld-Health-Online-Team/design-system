@@ -117,7 +117,7 @@
 
   return "                                                    <button class=\"qld__main-nav__item-toggle qld__accordion--closed\" aria-controls=\"mega-nav-"
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_assetid") : depths[1]), depth0))
-    + "\" aria-expanded=\"false\" aria-selected=\"false\" aria-label=\"Toggle navigation, "
+    + "\" aria-expanded=\"false\" aria-label=\"Toggle navigation, "
     + alias2(alias1((depths[1] != null ? lookupProperty(depths[1],"asset_short_name") : depths[1]), depth0))
     + "\"  ><span class=\"qld__main-nav__item-toggle-text\" data-name=\""
     + ((stack1 = alias1((depths[1] != null ? lookupProperty(depths[1],"asset_short_name") : depths[1]), depth0)) != null ? stack1 : "")
