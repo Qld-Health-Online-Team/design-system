@@ -12,7 +12,7 @@ const ctaLinkArgs = {
 };
 
 export default {
-    title: "Components/CTA Link",
+    title: "Components/Call to action (CTA)",
     render: (args) => CTALink(args),
     argTypes: {
         id: { control: "text", description: "The unique identifier of the component" },
