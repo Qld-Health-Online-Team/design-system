@@ -44,7 +44,7 @@ const renderVideoPlayer = ({ videoType, videoLayout, stackOptions, videoAlignIte
 };
 
 export default {
-    title: "Components/Video Player",
+    title: "3. Components/Video Player",
     render: renderVideoPlayer,
     argTypes: {
         videoType: {

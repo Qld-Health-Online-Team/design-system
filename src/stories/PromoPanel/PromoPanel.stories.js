@@ -61,7 +61,7 @@ const promoPanelArgs = {
 };
 
 export default {
-    title: "Components/Promo Panel",
+    title: "3. Components/Promo Panel",
     render: renderPromoPanel,
     argTypes: {
         id: { description: "The unique identifier of the component.", control: "text" },

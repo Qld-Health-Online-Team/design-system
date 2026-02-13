@@ -2,7 +2,7 @@ import { renderHeader, headerArgs } from "./Header.js";
 import { figmaLinks } from "../../../.storybook/globals";
 
 export default {
-    title: "Layout/Header",
+    title: "2. Layout/Header",
     render: renderHeader,
     args: { ...headerArgs },
     argTypes: {
@@ -12,8 +12,7 @@ export default {
             mapping: {
                 No: "No",
                 "Yes - light": "qld__banner_contained",
-                "Yes - Dark":
-                    "qld__banner_contained qld__banner_contained--dark",
+                "Yes - Dark": "qld__banner_contained qld__banner_contained--dark",
             },
             description: "Layout for displaying the contained banner if used.",
         },
@@ -213,8 +212,7 @@ export default {
                 "extended_bed",
                 "extended_current-location",
             ],
-            description:
-                "Icon class for the first call to action button in the main navigation (if used). E.g., 'icon-email'.",
+            description: "Icon class for the first call to action button in the main navigation (if used). E.g., 'icon-email'.",
         },
         mainNavCtaTwoIcon: {
             control: "select",
@@ -359,8 +357,7 @@ export default {
                 "extended_bed",
                 "extended_current-location",
             ],
-            description:
-                "Icon class for the second call to action button in the main navigation (if used). E.g., 'icon-email'.",
+            description: "Icon class for the second call to action button in the main navigation (if used). E.g., 'icon-email'.",
         },
     },
     parameters: {
@@ -381,12 +378,10 @@ export const Default = {
 };
 
 // Variants
-export const LightHeader = (args) =>
-    renderHeader({ ...args, siteHeaderMainTheme: "" });
+export const LightHeader = (args) => renderHeader({ ...args, siteHeaderMainTheme: "" });
 LightHeader.args = { ...headerArgs };
 
-export const DarkHeader = (args) =>
-    renderHeader({ ...args, siteHeaderMainTheme: "qld__header__main--dark" });
+export const DarkHeader = (args) => renderHeader({ ...args, siteHeaderMainTheme: "qld__header__main--dark" });
 DarkHeader.args = { ...headerArgs };
 
 export const DarkAltHeader = (args) =>

@@ -1,15 +1,15 @@
 import { DirectionLinks } from "./DirectionLinks";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const directionLinksArgs = {
     text: "my link",
     direction: "right",
-    href: "https://www.google.com",
+    href: dummyLink,
 };
 
 export default {
-    title: "Components/Direction Links",
+    title: "3. Components/Direction Links",
     render: (args) => DirectionLinks(args),
     argTypes: {
         text: { control: "text", description: "The text displayed as the link" },

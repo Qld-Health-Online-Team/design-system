@@ -2,7 +2,7 @@ import { renderNavbar, navbarArgs } from "./Navbar";
 import { figmaLinks } from "../../../.storybook/globals";
 
 export default {
-    title: "Components/Navbar",
+    title: "3. Components/Navbar",
     render: renderNavbar,
     args: { ...navbarArgs },
 
