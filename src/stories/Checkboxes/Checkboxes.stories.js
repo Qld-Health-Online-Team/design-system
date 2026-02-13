@@ -22,7 +22,7 @@ const checkboxesArgs = {
 };
 
 export default {
-    title: "Components/Checkboxes",
+    title: "3. Components/Checkboxes",
     render: (args) => Checkboxes(args),
     argTypes: {
         id: { control: "text", description: "The id for this component" },
