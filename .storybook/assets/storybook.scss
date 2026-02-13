@@ -24,3 +24,26 @@
         }
     }
 }
+
+.iconography-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .iconography-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--QLD-color-light__heading);
+        border-radius: 8px;
+        gap: 1rem;
+        margin: 1rem;
+        padding: 2rem 1rem;
+        width: 12rem;
+
+        .qld__dark &,
+        .qld__dark-alt & {
+            border-color: white;
+        }
+    }
+}

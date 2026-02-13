@@ -1,5 +1,6 @@
 import "./assets/index.js"; // Storybook JS import
-import "./assets/index.scss"; // Storybook styles import
+import "./assets/index.scss"; // Storybook styles import from core
+import "./assets/storybook.scss"; // Storybook specific styles
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { viewports, themes, themeColours } from "./globals.js";
 import { getSvgPath } from "./helper-functions.js";
@@ -21,11 +22,6 @@ const iconsIds = fetch(getSvgPath())
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
     parameters: {
-        options: {
-            storySort: {
-                order: ["Layout", "Components"],
-            },
-        },
         controls: {
             matchers: {
                 color: /(background|color)$/i,
@@ -80,7 +76,7 @@ const preview = {
         options: {
             storySort: {
                 // Force SB to load Introduction page first
-                order: ["Introduction"],
+                order: ["Introduction", "1. Core Styles", "2. Layout", "3. Components"],
             },
         },
     },

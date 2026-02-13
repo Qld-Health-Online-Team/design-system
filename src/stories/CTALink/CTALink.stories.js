@@ -1,18 +1,18 @@
 import { CTALink } from "./CTALink";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const ctaLinkArgs = {
     id: "cta-link-1",
     text: "CTA Link",
-    href: "https://www.google.com.au",
+    href: dummyLink,
     target: "_blank",
     isViewAll: false,
     isDisabled: false,
 };
 
 export default {
-    title: "Components/CTA Link",
+    title: "3. Components/Call to action (CTA)",
     render: (args) => CTALink(args),
     argTypes: {
         id: { control: "text", description: "The unique identifier of the component" },

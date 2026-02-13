@@ -23,7 +23,7 @@ const loadingSpinnerArgs = {
 };
 
 export default {
-    title: "Components/Loading Spinner",
+    title: "3. Components/Loading Spinner",
     render: renderLoadingSpinner,
     argTypes: {
         backgroundColour: {
