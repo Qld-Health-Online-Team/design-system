@@ -11,7 +11,7 @@ const tagsArgs = {
 };
 
 export default {
-    title: "Components/Tags",
+    title: "3. Components/Tags",
     render: (args) => Tags(args),
     argTypes: {
         type: {

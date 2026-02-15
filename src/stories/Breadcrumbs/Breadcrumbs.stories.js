@@ -46,7 +46,7 @@ const breadcrumbsArgsLong = {
 };
 
 export default {
-    title: "Components/Breadcrumbs",
+    title: "3. Components/Breadcrumbs",
     render: renderBreadcrumbs,
     argTypes: {
         displayBreadcrumbs: {

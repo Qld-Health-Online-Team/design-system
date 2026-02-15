@@ -15,18 +15,15 @@ const footerArgs = {
     footerSiteTitle: "Queensland Government",
     footerCTAHeading: "Get in touch",
     footerCTALink: [{ asset_short_name: "Contact Us", asset_url: "/about" }],
-    footerCTALead:
-        "Get in touch for enquiries, feedback, complaints and compliments.",
+    footerCTALead: "Get in touch for enquiries, feedback, complaints and compliments.",
     footerLogo: {
-        asset_url:
-            "https://www.designsystem.qld.gov.au/__data/assets/file/0029/454259/coa-delivering-for-qld-mono-blue-mini-lockup.svg",
+        asset_url: "https://www.designsystem.qld.gov.au/__data/assets/file/0029/454259/coa-delivering-for-qld-mono-blue-mini-lockup.svg",
     },
 
     footerLinks: [
         {
             asset_short_name: "Copyright",
-            asset_url:
-                "https://www.health.qld.gov.au/global/copyright-statement",
+            asset_url: "https://www.health.qld.gov.au/global/copyright-statement",
         },
         {
             asset_short_name: "Disclaimer",
@@ -38,8 +35,7 @@ const footerArgs = {
         },
         {
             asset_short_name: "Right to information",
-            asset_url:
-                "https://www.health.qld.gov.au/system-governance/contact-us/access-info",
+            asset_url: "https://www.health.qld.gov.au/system-governance/contact-us/access-info",
         },
     ],
     footerSocialLinksHeading: "Follow Us",
@@ -70,12 +66,10 @@ const footerArgs = {
     footerCTAContactEmail: "email@qld.gov.au",
     footerCTAContactEmailLink: "mailto:email@qld.gov.au",
     footerAcknowledgementsHeading: "Acknowledgement of Country",
-    footerAcknowledgements:
-        "Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.",
+    footerAcknowledgements: "Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.",
     footerLogoLink: "https://www.qld.gov.au",
     footerStyle: "", // Default style
-    footerCopyrightMessage:
-        "© The State of Queensland 1995-2024 (Organisation) Queensland Government.",
+    footerCopyrightMessage: "© The State of Queensland 1995-2024 (Organisation) Queensland Government.",
     footerCopyrightLink: [
         {
             asset_short_name: "Queensland Government",
@@ -96,28 +90,17 @@ const renderFooter = (args) => {
             footerStyle: { value: footerStyle },
             footerMetaMetadata: {
                 value: JSON.stringify({
-                    footerCTALink: rest.footerCTALink?.[0]
-                        ? formatLinks(rest.footerCTALink)[0]
-                        : null,
+                    footerCTALink: rest.footerCTALink?.[0] ? formatLinks(rest.footerCTALink)[0] : null,
                     footerLinks: formatLinks(rest.footerLinks),
-                    footerLogo: rest.footerLogo
-                        ? formatLinks([rest.footerLogo])[0]
-                        : null,
+                    footerLogo: rest.footerLogo ? formatLinks([rest.footerLogo])[0] : null,
 
-                    footerSocialLinks: formatLinks(rest.footerSocialLinks).map(
-                        (link, i) => ({
-                            ...link,
-                            icon: rest.footerSocialLinks[i].icon,
-                        }),
-                    ),
-                    footerOptionalExtraLinksHeading:
-                        rest.footerOptionalExtraLinksHeading,
-                    footerOptionalSecondLinksList: formatLinks(
-                        rest.footerOptionalSecondLinksList,
-                    ),
-                    footerCopyrightLink: rest.footerCopyrightLink?.[0]
-                        ? formatLinks(rest.footerCopyrightLink)[0]
-                        : null,
+                    footerSocialLinks: formatLinks(rest.footerSocialLinks).map((link, i) => ({
+                        ...link,
+                        icon: rest.footerSocialLinks[i].icon,
+                    })),
+                    footerOptionalExtraLinksHeading: rest.footerOptionalExtraLinksHeading,
+                    footerOptionalSecondLinksList: formatLinks(rest.footerOptionalSecondLinksList),
+                    footerCopyrightLink: rest.footerCopyrightLink?.[0] ? formatLinks(rest.footerCopyrightLink)[0] : null,
                 }),
             },
             footerSocialLinksHeading: { value: rest.footerSocialLinksHeading },
@@ -144,17 +127,12 @@ const renderFooter = (args) => {
 
 // ✅ CSF metadata
 export default {
-    title: "Layout/Footer",
+    title: "2. Layout/Footer",
     render: renderFooter,
     argTypes: {
         footerStyle: {
             control: "select",
-            options: [
-                "",
-                "qld__footer--alt",
-                "qld__footer--dark",
-                "qld__footer--dark-alt",
-            ],
+            options: ["", "qld__footer--alt", "qld__footer--dark", "qld__footer--dark-alt"],
             labels: {
                 "": "Light",
                 "qld__footer--alt": "Alternative",
@@ -189,8 +167,7 @@ export const Dark = {
         ...footerArgs,
         footerStyle: "qld__footer--dark",
         footerLogo: {
-            asset_url:
-                "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
+            asset_url: "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
         },
     },
 };
@@ -199,8 +176,7 @@ export const DarkAlt = {
         ...footerArgs,
         footerStyle: "qld__footer--dark-alt",
         footerLogo: {
-            asset_url:
-                "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
+            asset_url: "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
         },
     },
 };

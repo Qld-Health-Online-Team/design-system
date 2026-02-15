@@ -1,5 +1,5 @@
 import { LinkColumns } from "./LinkColumns";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const linkColumnsArgs = {
@@ -8,39 +8,39 @@ const linkColumnsArgs = {
     data: [
         {
             text: "Link 1",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 2",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 3",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 4",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 5",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 6",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
         {
             text: "Link 7",
-            href: "https://www.google.com",
+            href: dummyLink,
         },
     ],
     hasViewAll: true,
-    viewAllHref: "https://www.google.com",
+    viewAllHref: dummyLink,
 };
 
 export default {
-    title: "Components/Link Columns",
+    title: "3. Components/Link Columns",
     render: (args) => LinkColumns(args),
     argTypes: {
         ariaLabel: { control: "text", description: "The aria " },

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const filesToCopy = ["main.css", "main.css.map", "js/main.js", "js/main.js.map", "js/helpers.js"];
+const filesToCopy = ["js/helpers.js"];
 const srcDir = path.resolve("dist");
 const destDir = path.resolve(".storybook/core-assets");
 

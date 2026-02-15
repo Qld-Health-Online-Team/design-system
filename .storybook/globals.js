@@ -33,6 +33,11 @@ export const themeColours = {
     "dark alt": "var(--QLD-color-dark__background--alt)",
 };
 
+export const dummyText =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+export const dummyLink = "https://www.google.com";
+
 export const figmaLinks = {
     masterDoc: {
         file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23529-440999&t=y8LMLpCtTxOgtHpT-0",
@@ -44,6 +49,10 @@ export const figmaLinks = {
     breadcrumbs: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0",
         ds: "https://www.designsystem.qld.gov.au/components/breadcrumbs",
+    },
+    button: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98058&p=f&t=pMQreNNlQuuKMxlD-0",
+        ds: "https://www.designsystem.qld.gov.au/components/button",
     },
     callout: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98115&p=f&t=3aGzWYalpb1UXS73-0",
@@ -61,9 +70,20 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/direction-links",
     },
+    globalAlert: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97590&p=f&t=DWJ5IM0EPnQV6Sui-0",
+        ds: "https://www.designsystem.qld.gov.au/components/global-alert",
+    },
+    iconography: {
+        ds: "https://www.designsystem.qld.gov.au/styles/iconography",
+    },
     inPageAlert: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/alerts-in-page",
+    },
+    inPageNavigation: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=7905-252906&p=f&t=HnUAp2BI742820Qk-0",
+        ds: "https://www.designsystem.qld.gov.au/components/in-page-navigation",
     },
     linkColumns: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0",
@@ -89,9 +109,17 @@ export const figmaLinks = {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
     },
+    tabs: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=25951-236134&p=f&t=pMQreNNlQuuKMxlD-0",
+        ds: "https://www.designsystem.qld.gov.au/components/tabs",
+    },
     tags: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97596&p=f&t=WmKMIp3MbkVrYkUf-0",
         ds: "https://www.designsystem.qld.gov.au/components/tags",
+    },
+    textInput: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97997&p=f&t=yRd2EKrtkEkPbBDT-0",
+        ds: "https://www.designsystem.qld.gov.au/components/text-input",
     },
     videoPlayer: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0",
@@ -100,6 +128,10 @@ export const figmaLinks = {
     header: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",
         ds: "https://www.designsystem.qld.gov.au/components/header",
+    },
+    horizontalRule: {
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97954&p=f&t=avPgpU6waAIMt5Tt-0",
+        ds: "https://www.designsystem.qld.gov.au/components/horizontal-rule",
     },
     navbar: {
         design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",

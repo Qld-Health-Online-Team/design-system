@@ -39,7 +39,7 @@ const calloutArgs = {
 };
 
 export default {
-    title: "Components/Callout",
+    title: "3. Components/Callout",
     render: renderCallout,
     argTypes: {
         assetId: { description: "The ID of the asset.", control: "text" },
