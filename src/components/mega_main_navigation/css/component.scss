@@ -358,6 +358,7 @@
                     span {
                         color: var(--QLD-color-light__heading);
                         border-left: solid 4px transparent;
+                        font-weight: $QLD-font-weight-bold;
 
                         @include QLD-media(lg) {
                             border-left: none;
@@ -405,6 +406,7 @@
                 @include QLD-space(font-size, 0.875unit);
                 @include QLD-space(line-height, 1.5unit);
                 border-left: solid $QLD-border-width-thick var(--QLD-color-light__background--alt);
+                color: var(--QLD-color-light__link);
 
                 @include QLD-media(lg) {
                     color: var(--QLD-color-light__link);
@@ -425,10 +427,6 @@
                     color: var(--QLD-color-light__link);
                     border-color: var(--QLD-color-light__action--primary);
                     background-color: $QLD-color-neutral--white;
-                }
-
-                &:visited {
-                    color: var(--QLD-color-light__link);
                 }
 
                 &.qld__cta-link--view-all {

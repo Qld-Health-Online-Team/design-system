@@ -117,18 +117,16 @@ $QLD-header-md: 72px;
 
             // Mobile - If a child item has an active class, revert parent link styling
             @include QLD-media(lg, "down") {
-                &.active:has(li.active) {
-                    .qld__main-nav__item-title {
-                        .qld__main-nav__item-link,
-                        .qld__main-nav__item-link--open,
-                        .qld__main-nav__item-toggle {
-                            font-weight: $QLD-font-weight-regular;
-                            color: var(--QLD-color-light__link);
-                        }
+                &.active:has(li.active) .qld__main-nav__item-title {
+                    .qld__main-nav__item-link,
+                    .qld__main-nav__item-link--open,
+                    .qld__main-nav__item-toggle {
+                        font-weight: $QLD-font-weight-regular;
+                        color: var(--QLD-color-light__link);
+                    }
 
-                        .qld__main-nav__item-link--desktop-hide {
-                            color: var(--QLD-color-light__text);
-                        }
+                    .qld__main-nav__item-link--desktop-hide {
+                        color: var(--QLD-color-light__text);
                     }
                 }
             }
