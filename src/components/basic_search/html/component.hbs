@@ -183,9 +183,11 @@
                                     {{#if listMetadata.assetLineage}}
                                     <div class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
-                                            {{#each (split listMetadata.assetLineage "+")}}
-                                                <li>{{this}}</li>
-                                            {{/each}}       
+                                            {{#each listMetadata.assetLineage}}
+                                                {{#each (split this "+")}}
+                                                    <li>{{this}}</li>
+                                                {{/each}}
+                                            {{/each}}      
                                         </ul>
                                     </div>
                                     {{/if}}
