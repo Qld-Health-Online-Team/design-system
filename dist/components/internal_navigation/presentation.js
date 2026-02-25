@@ -155,7 +155,7 @@
 
   return "<div class=\"qld__side-nav qld__accordion\" data-path=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "\">\n    <button class=\"qld__side-nav__toggle qld__accordion__title qld__accordion--closed\" aria-controls=\"nav-default\" aria-expanded=\"false\" aria-selected=\"false\" >\n    In "
+    + "\">\n    <button class=\"qld__side-nav__toggle qld__accordion__title qld__accordion--closed\" aria-controls=\"nav-default\" aria-expanded=\"false\">\n    In "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_name") : stack1), depth0)) != null ? stack1 : "")
     + "\n    </button>\n    <nav aria-label=\"side navigation\" id=\"nav-default\" class=\"qld__side-nav__content qld__accordion--closed qld__accordion__body\"> \n        <h2 class=\"qld__sidenav__title\">\n            <a class=\"qld__sidenav__link\" href=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_url") : stack1), depth0))
