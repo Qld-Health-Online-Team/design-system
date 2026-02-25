@@ -191,6 +191,9 @@
                                             {{#each listMetadata.assetLineage}}
                                                 {{#each (split this "+")}}
                                                     <li>{{this}}</li>
+                                                    {{#unless @last}}
+                                                        <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
+                                                    {{/unless}}
                                                 {{/each}}
                                             {{/each}}      
                                         </ul>
@@ -200,7 +203,9 @@
                                     <div class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
                                             <li>Services</li>
+                                            <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
                                             <li>{{itemAt (split title '-') '0' }}</li>
+                                            <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
                                             <li>{{{title}}}</li>
                                         </ul>
                                     </div>
@@ -209,7 +214,9 @@
                                     <div class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
                                             <li>Services</li>
+                                            <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
                                             <li>Locations</li>
+                                            <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
                                             <li>{{{title}}}</li>
                                         </ul>
                                     </div>
@@ -218,6 +225,7 @@
                                     <div class="qld__breadcrumbs qld__search__result-breadcrumbs" aria-label="breadcrumb">
                                         <ul class="qld__link-list qld__link-list--inline">
                                             <li>Services</li>
+                                            <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
                                             <li>{{{title}}}</li>
                                         </ul>
                                     </div>
