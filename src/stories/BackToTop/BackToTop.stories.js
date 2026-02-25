@@ -6,7 +6,7 @@ const backtotopArgs = {
 };
 
 export default {
-    title: "Components/BackToTop",
+    title: "3. Components/BackToTop",
     render: (args) => BackToTop(args), // calls the function
     argTypes: {
         text: { control: "text", description: "Back to top" },

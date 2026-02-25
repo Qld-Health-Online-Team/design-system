@@ -1,0 +1,36 @@
+import { Meta, Primary, Story, Controls } from "@storybook/addon-docs/blocks";
+import * as FooterStories from "./Footer.stories";
+import { figmaLinks } from "../../../.storybook/globals";
+
+<Meta of={FooterStories} />
+
+# Footer
+
+## Overview
+
+Footers are a common element of web design that appear at the bottom of a webpage. They're used to provide users with additional information that may be helpful or relevant to their needs.
+
+---
+
+<Primary />
+
+---
+
+## Props
+
+<Controls of={FooterStories.Default} />
+
+---
+
+## Design resources
+
+-   <a
+        href={figmaLinks.footer.design}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Figma design view
+    </a>
+-   <a href={figmaLinks.footer.ds} target="_blank" rel="noopener noreferrer">
+        Design System website
+    </a>

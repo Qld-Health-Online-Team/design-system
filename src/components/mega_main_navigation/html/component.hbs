@@ -45,7 +45,7 @@
                                             {{#ifCond asset_assetid '==' ../current.data.assetid}}aria-current="page"{{/ifCond}} href="./?a={{asset_assetid}}">{{{asset_short_name}}}</a>
                                             {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                                                 {{#if this}}
-                                                    <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{{../asset_short_name}}}">{{{../asset_short_name}}}</span>
+                                                    <button class="qld__main-nav__item-toggle qld__accordion--closed" aria-controls="mega-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-label="Toggle navigation, {{../asset_short_name}}"  ><span class="qld__main-nav__item-toggle-text" data-name="{{{../asset_short_name}}}">{{{../asset_short_name}}}</span>
                                                         <svg class="qld__icon qld__icon--xs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                                                     </button>
                                                 {{/if}}

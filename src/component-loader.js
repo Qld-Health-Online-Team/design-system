@@ -7,11 +7,13 @@ import initPromoPanel from "./components/promo_panel/js/global.js";
 import initVideoPlayer from "./components/video_player/js/global.js";
 
 // Global components
+import initCtaLinks from "./components/_global/js/cta_links/global.js";
 import initSelectBoxes from "./components/_global/js/select_boxes/global.js";
 
 // Adding ES module initialisation for components
 export default function initComponents() {
     document.addEventListener("DOMContentLoaded", () => {
+        initCtaLinks(document);
         initHeader(document);
         initInPageNavigation(document);
         initInternalNavigation(document);

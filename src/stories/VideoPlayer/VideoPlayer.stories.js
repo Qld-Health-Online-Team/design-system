@@ -44,7 +44,7 @@ const renderVideoPlayer = ({ videoType, videoLayout, stackOptions, videoAlignIte
 };
 
 export default {
-    title: "Components/Video Player",
+    title: "3. Components/Video Player",
     render: renderVideoPlayer,
     argTypes: {
         videoType: {
@@ -134,11 +134,7 @@ export default {
     },
 };
 
-export const Default = {
-    args: {
-        ...videoPlayerArgs,
-    },
-};
+export const Default = {};
 
 export const defaultVariant = (videoPlayerArgs) => renderVideoPlayer({ ...videoPlayerArgs, videoType: "vimeo" });
 defaultVariant.tags = ["!dev"];

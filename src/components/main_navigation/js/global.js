@@ -47,7 +47,13 @@
         if (element.classList) {
             element.classList.remove(className);
         } else {
-            element.className = element.className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+            element.className = element.className.replace(
+                new RegExp(
+                    "(^|\\b)" + className.split(" ").join("|") + "(\\b|$)",
+                    "gi"
+                ),
+                " "
+            );
         }
     }
 
@@ -150,7 +156,11 @@
      * @param  {object} property - property to return value
      */
     function getStyle(element, property) {
-        return (typeof getComputedStyle !== "undefined" ? getComputedStyle(element, null) : element.currentStyle)[property]; // avoid getPropertyValue altogether
+        return (
+            typeof getComputedStyle !== "undefined"
+                ? getComputedStyle(element, null)
+                : element.currentStyle
+        )[property]; // avoid getPropertyValue altogether
     }
 
     /**
@@ -190,10 +200,15 @@
         var closeButton = target.querySelector(".qld__main-nav__toggle--close");
         var openButton = document.querySelector(".qld__main-nav__toggle--open");
         var focustrapTop = menu.querySelector(".qld__main-nav__focus-trap-top");
-        var focustrapBottom = menu.querySelector(".qld__main-nav__focus-trap-bottom");
-        var menuHeading = document.querySelector(".qld__main-nav__menu-heading");
+        var focustrapBottom = menu.querySelector(
+            ".qld__main-nav__focus-trap-bottom"
+        );
+        var menuHeading = document.querySelector(
+            ".qld__main-nav__menu-heading"
+        );
         var focusContent = menu.querySelectorAll("a, .qld__main-nav__toggle");
-        var closed = target.className.indexOf("qld__main-nav__content--open") === -1;
+        var closed =
+            target.className.indexOf("qld__main-nav__content--open") === -1;
         var header = document.querySelector(".qld__header");
         var body = document.querySelector(".main");
         var footer = document.querySelector(".qld__footer");
@@ -233,61 +248,97 @@
                 postfunction: function () {
                     if (state === "opening") {
                         // Move the focus to the close button
-                        menuHeading.focus();
-                        openButton.setAttribute("aria-expanded", true);
-                        closeButton.setAttribute("aria-expanded", true);
+                        if (menuHeading) {
+                            menuHeading.focus();
+                        }
+                        if (openButton)
+                            openButton.setAttribute("aria-expanded", true);
+                        if (closeButton)
+                            closeButton.setAttribute("aria-expanded", true);
 
-                        // Focus trap enabled
-                        focustrapTop.setAttribute("tabindex", 0);
-                        focustrapBottom.setAttribute("tabindex", 0);
+                        if (focustrapTop)
+                            focustrapTop.setAttribute("tabindex", 0);
+                        if (focustrapBottom)
+                            focustrapBottom.setAttribute("tabindex", 0);
 
-                        // header.setAttribute('aria-hidden', true);
-                        body.setAttribute("aria-hidden", true);
-                        footer.setAttribute("aria-hidden", true);
+                        if (body) body.setAttribute("aria-hidden", true);
+                        if (footer) footer.setAttribute("aria-hidden", true);
+                        // openButton.setAttribute("aria-expanded", true);
+                        // closeButton.setAttribute("aria-expanded", true);
+
+                        // // Focus trap enabled
+                        // focustrapTop.setAttribute("tabindex", 0);
+                        // focustrapBottom.setAttribute("tabindex", 0);
+
+                        // // header.setAttribute('aria-hidden', true);
+                        // body.setAttribute("aria-hidden", true);
+                        // footer.setAttribute("aria-hidden", true);
 
                         // Add event listeners
-                        mobileNavEvents.focusTop = addEvent(focustrapTop, "focus", function () {
-                            focusContent[focusContent.length - 1].focus();
-                        });
+                        mobileNavEvents.focusTop = addEvent(
+                            focustrapTop,
+                            "focus",
+                            function () {
+                                focusContent[focusContent.length - 1].focus();
+                            }
+                        );
 
-                        mobileNavEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
-                            focusContent[0].focus();
-                        });
+                        mobileNavEvents.focusBottom = addEvent(
+                            focustrapBottom,
+                            "focus",
+                            function () {
+                                focusContent[0].focus();
+                            }
+                        );
 
                         // Add key listener
-                        mobileNavEvents.escKey = addEvent(document, "keyup", function () {
-                            var event = event || window.event;
-                            var overlayOpen = getStyle(overlay, "display");
+                        mobileNavEvents.escKey = addEvent(
+                            document,
+                            "keyup",
+                            function () {
+                                var event = event || window.event;
+                                var overlayOpen = getStyle(overlay, "display");
 
-                            // Check the menu is open and visible and the escape key is pressed
-                            if (event.keyCode === 27 && overlayOpen === "block") {
-                                mobileNav.Toggle(element, speed, callbacks);
+                                // Check the menu is open and visible and the escape key is pressed
+                                if (
+                                    event.keyCode === 27 &&
+                                    overlayOpen === "block"
+                                ) {
+                                    mobileNav.Toggle(element, speed, callbacks);
+                                }
                             }
-                        });
+                        );
 
                         if (typeof callbacks.afterOpen === "function") {
                             callbacks.afterOpen();
                         }
 
                         // Adjust the size of the cta wrapper in mobile view
-                        const mobileMenuWidth = document.querySelector(".qld__main-nav__menu-inner").offsetWidth;
-                        let ctaWrapper = document.querySelector(".qld__main-nav__cta-wrapper");
+                        const mobileMenuWidth = document.querySelector(
+                            ".qld__main-nav__menu-inner"
+                        ).offsetWidth;
+                        let ctaWrapper = document.querySelector(
+                            ".qld__main-nav__cta-wrapper"
+                        );
                         if (mobileMenuWidth && ctaWrapper) {
                             ctaWrapper.style.width = mobileMenuWidth + "px";
                         }
                     } else {
                         // Move the focus back to the menu button
-                        closeButton.focus();
-                        openButton.setAttribute("aria-expanded", false);
-                        closeButton.setAttribute("aria-expanded", false);
+                        if (closeButton) closeButton.focus();
+                        if (openButton)
+                            openButton.setAttribute("aria-expanded", false);
+                        if (closeButton)
+                            closeButton.setAttribute("aria-expanded", false);
 
-                        // Remove the focus trap
-                        focustrapTop.removeAttribute("tabindex");
-                        focustrapBottom.removeAttribute("tabindex");
+                        if (focustrapTop)
+                            focustrapTop.removeAttribute("tabindex");
+                        if (focustrapBottom)
+                            focustrapBottom.removeAttribute("tabindex");
 
-                        header.removeAttribute("aria-hidden");
-                        body.removeAttribute("aria-hidden");
-                        footer.removeAttribute("aria-hidden");
+                        if (header) header.removeAttribute("aria-hidden");
+                        if (body) body.removeAttribute("aria-hidden");
+                        if (footer) footer.removeAttribute("aria-hidden");
 
                         // Remove the event listeners
                         removeEvent(mobileNavEvents.focusTop);
@@ -303,7 +354,12 @@
 
                     // Toggle classes
                     toggleClasses(target, state);
-                    toggleClasses(document.body, state, "qld__main-nav__scroll--unlocked", "qld__main-nav__scroll--locked");
+                    toggleClasses(
+                        document.body,
+                        state,
+                        "qld__main-nav__scroll--unlocked",
+                        "qld__main-nav__scroll--locked"
+                    );
 
                     // Reset inline styles
                     menu.style.display = "";
@@ -320,7 +376,9 @@
 
     window.addEventListener("DOMContentLoaded", function () {
         // Add toggle event to open mobile nav
-        var navToggles = document.querySelectorAll('*[aria-controls="main-nav"]');
+        var navToggles = document.querySelectorAll(
+            '*[aria-controls="main-nav"]'
+        );
         navToggles.forEach(function (button) {
             button.addEventListener("click", function () {
                 mobileNav.Toggle(button);
@@ -328,19 +386,37 @@
         });
 
         // Add toggle event listeners to accordion buttons
-        var itemToggles = document.querySelectorAll(".qld__main-nav__item-toggle");
+        var itemToggles = document.querySelectorAll(
+            ".qld__main-nav__item-toggle"
+        );
         itemToggles.forEach(function (button) {
             button.addEventListener("click", function () {
-                if (button.className.split(" ").indexOf("qld__accordion--closed") >= 0) {
-                    button.parentNode.querySelector(".qld__main-nav__item-link").classList.add("qld__main-nav__item-link--open");
+                if (
+                    button.className
+                        .split(" ")
+                        .indexOf("qld__accordion--closed") >= 0
+                ) {
+                    button.parentNode
+                        .querySelector(".qld__main-nav__item-link")
+                        .classList.add("qld__main-nav__item-link--open");
                     itemToggles.forEach(function (item) {
-                        if (item.className.split(" ").indexOf("qld__accordion--open") >= 0) {
-                            item.parentNode.querySelector(".qld__main-nav__item-link").classList.remove("qld__main-nav__item-link--open");
+                        if (
+                            item.className
+                                .split(" ")
+                                .indexOf("qld__accordion--open") >= 0
+                        ) {
+                            item.parentNode
+                                .querySelector(".qld__main-nav__item-link")
+                                .classList.remove(
+                                    "qld__main-nav__item-link--open"
+                                );
                             QLD.accordion.Close(item);
                         }
                     });
                 } else {
-                    button.parentNode.querySelector(".qld__main-nav__item-link").classList.remove("qld__main-nav__item-link--open");
+                    button.parentNode
+                        .querySelector(".qld__main-nav__item-link")
+                        .classList.remove("qld__main-nav__item-link--open");
                 }
 
                 QLD.accordion.Toggle(button);
@@ -348,6 +424,8 @@
         });
 
         // Finds all the menu related icons in main nav, mega nav, and header.
-        QLD.utils.updateSvgIconPath(".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use");
+        QLD.utils.updateSvgIconPath(
+            ".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use"
+        );
     });
 })();

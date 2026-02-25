@@ -45,12 +45,12 @@
                     {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
                         {{#if this}}
                             {{#inArray this 'asset_assetid' @root.current.data.assetid}}
-                                <button class="qld__left-nav__item-toggle qld__accordion--open" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-selected="true" aria-label="Toggle navigation, {{{../asset_short_name}}}">
+                                <button class="qld__left-nav__item-toggle qld__accordion--open" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-label="Toggle navigation, {{{../asset_short_name}}}">
                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                                 </button>
                                 <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--open qld__accordion__body">
                             {{else}}
-                                <button class="qld__left-nav__item-toggle qld__accordion--closed" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-selected="false" aria-label="Toggle navigation, {{{../asset_short_name}}}">
+                                <button class="qld__left-nav__item-toggle qld__accordion--closed" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-label="Toggle navigation, {{{../asset_short_name}}}">
                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
                                 </button>
                                 <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--closed qld__accordion__body">

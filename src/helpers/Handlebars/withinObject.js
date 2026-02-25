@@ -1,13 +1,6 @@
-module.exports = function(obj,key,options) {
-
-    var within = Object.keys(obj).some(function() {
-        return obj[key] !== "";
-    });
-
-
-    if(within) {
-        return options.fn(this); 
+module.exports = function (obj, key, options) {
+    if (obj && obj[key] && obj[key].length > 0) {
+        return options.fn(this);
     }
-
     return options.inverse(this);
 };

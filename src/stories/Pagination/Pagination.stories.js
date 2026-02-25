@@ -1,6 +1,7 @@
 import Handlebars from "handlebars";
 import Template from "../../components/pagination/html/component.hbs?raw";
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import { figmaLinks, themes, dummyLink } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const renderPagination = ({ data, ...args }) =>
     Handlebars.compile(Template)({
@@ -16,40 +17,40 @@ const paginationData = [
         label: 1,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 2,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 3,
         isCurrent: true,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 4,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 5,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 8,
         linkType: "last",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         linkType: "next",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
 ];
 
@@ -61,23 +62,23 @@ const paginationDataShort = [
         label: 1,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 2,
         isCurrent: true,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 3,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         linkType: "next",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
 ];
 
@@ -89,35 +90,35 @@ const paginationDataLong = [
         label: 1,
         isCurrent: false,
         linkType: "first",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 6,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 7,
         isCurrent: true,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 8,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 15,
         isCurrent: false,
         linkType: "last",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         linkType: "next",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
 ];
 
@@ -129,31 +130,31 @@ const paginationDataPreviousOnly = [
         label: 1,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 2,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 3,
         isCurrent: true,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 4,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 5,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
 ];
 
@@ -162,40 +163,40 @@ const paginationDataNextOnly = [
         label: 1,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 2,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 3,
         isCurrent: true,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 4,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         label: 5,
         isCurrent: false,
         linkType: "num",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
     {
         linkType: "next",
-        url: "https://www.google.com/",
+        url: dummyLink,
     },
 ];
 
 export default {
-    title: "Components/Pagination",
+    title: "3. Components/Pagination",
     render: renderPagination,
     args: { data: paginationData },
     parameters: {
@@ -210,33 +211,25 @@ export const Default = {};
 
 export const light = {
     render: (args) => {
-        return `<div class="${themes["light"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["light"], renderPagination(args));
     },
 };
 
 export const lightAlt = {
     render: (args) => {
-        return `<div class="${themes["light alt"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["light alt"], renderPagination(args));
     },
 };
 
 export const dark = {
     render: (args) => {
-        return `<div class="${themes["dark"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["dark"], renderPagination(args));
     },
 };
 
 export const darkAlt = {
     render: (args) => {
-        return `<div class="${themes["dark alt"]}">
-            ${renderPagination(args)}
-        </div>`;
+        return themeWrapper(themes["dark alt"], renderPagination(args));
     },
 };
 

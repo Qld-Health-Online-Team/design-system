@@ -27,7 +27,7 @@ const inPageAlertArgs = {
 };
 
 export default {
-    title: "Components/In-page Alert",
+    title: "3. Components/In-page Alert",
     render: renderInPageAlert,
     argTypes: {
         id: { control: "text" },
