@@ -114,6 +114,33 @@ $QLD-header-md: 72px;
                     color: var(--QLD-color-light__heading);
                 }
             }
+
+            // Mobile - If a child item has an active class, revert parent link styling
+            @include QLD-media(lg, "down") {
+                &.active:has(li.active) .qld__main-nav__item-title {
+                    .qld__main-nav__item-link,
+                    .qld__main-nav__item-link--open,
+                    .qld__main-nav__item-toggle {
+                        font-weight: $QLD-font-weight-regular;
+                        color: var(--QLD-color-light__link);
+                    }
+
+                    .qld__main-nav__item-link--desktop-hide {
+                        color: var(--QLD-color-light__text);
+                    }
+                }
+            }
+
+            // Desktop - If a child item has an active class, revert font-weight
+            @include QLD-media(lg) {
+                &.active:has(li.active) .qld__main-nav__item-title {
+                    .qld__main-nav__item-link,
+                    .qld__main-nav__item-link--open,
+                    .qld__main-nav__item-toggle {
+                        font-weight: $QLD-font-weight-regular;
+                    }
+                }
+            }
         }
 
         & .qld__main-nav__cta-wrapper {
@@ -587,6 +614,13 @@ $QLD-header-md: 72px;
 
                 @include QLD-media(lg) {
                     border-color: var(--QLD-color-dark__background--shade);
+                }
+            }
+
+            // Mobile - If a child item has an active class, revert colour
+            @include QLD-media(lg, "down") {
+                .qld__main-nav__item.active:has(li.active) .qld__main-nav__item-title .qld__main-nav__item-link--desktop-hide {
+                    color: var(--QLD-color-dark__text);
                 }
             }
 
