@@ -2,7 +2,7 @@
 
 #storybook-docs {
     /* Reset the styling of the radio buttons */
-    .docblock-argstable input[type="radio"] {
+    .docblock-argstable .docblock-argstable-body input[type="radio"] {
         border: initial;
         clip: auto;
         height: auto;
@@ -10,6 +10,13 @@
         padding: initial;
         position: static;
         width: auto;
+    }
+
+    /* Remove the default chevron down in SB select elements */
+    .docblock-argstable .docblock-argstable-body .css-1x3be6s {
+        > svg {
+            display: none;
+        }
     }
 }
 

@@ -5,30 +5,18 @@ import { renderNavbar, navbarArgs } from "../Navbar/Navbar";
 
 // Render function for Storybook / pages
 export const renderHeader = (args) => {
-    const navbarHTML = renderNavbar(navbarArgs);
+    const navbarHTML = renderNavbar({ ...navbarArgs, ...args });
 
     const template = Handlebars.compile(Template);
     const headerHTML = template({
         site: {
             metadata: {
-                defaultBannerContainedBanner: {
-                    value: args.defaultBannerContainedBanner,
-                },
-                imageContainedLayoutBackground: {
-                    value: args.imageContainedLayoutBackground,
-                },
-                imageContainedLayoutTexture: {
-                    value: args.imageContainedLayoutTexture,
-                },
-                containedBannerImageTexturePosition: {
-                    value: args.containedBannerImageTexturePosition,
-                },
-                containedBannerImageTextureSize: {
-                    value: args.containedBannerImageTextureSize,
-                },
-                containedBannerImageTextureRepeat: {
-                    value: args.containedBannerImageTextureRepeat,
-                },
+                defaultBannerContainedBanner: { value: args.defaultBannerContainedBanner },
+                imageContainedLayoutBackground: { value: args.imageContainedLayoutBackground },
+                imageContainedLayoutTexture: { value: args.imageContainedLayoutTexture },
+                containedBannerImageTexturePosition: { value: args.containedBannerImageTexturePosition },
+                containedBannerImageTextureSize: { value: args.containedBannerImageTextureSize },
+                containedBannerImageTextureRepeat: { value: args.containedBannerImageTextureRepeat },
                 sitePreHeaderURL: { value: args.sitePreHeaderURL },
                 sitePreHeaderTheme: { value: args.sitePreHeaderTheme },
                 sitePreHeaderText: { value: args.sitePreHeaderText },
@@ -39,9 +27,7 @@ export const renderHeader = (args) => {
 
                 siteShowLogo: { value: args.siteShowLogo },
                 siteLogoSecondary: { value: args.siteLogoSecondary },
-                siteLogoSecondaryMobile: {
-                    value: args.siteLogoSecondaryMobile,
-                },
+                siteLogoSecondaryMobile: { value: args.siteLogoSecondaryMobile },
                 siteTitle: { value: args.siteTitle },
                 siteSubline: { value: args.siteSubline },
                 siteSearchAsset: { value: args.siteSearchAsset },
@@ -53,7 +39,7 @@ export const renderHeader = (args) => {
                 mainNavCtaTwoText: { value: args.mainNavCtaTwoText },
                 mainNavCtaTwoIcon: { value: args.mainNavCtaTwoIcon },
                 siteHeaderMainTheme: { value: args.siteHeaderMainTheme },
-                coreSiteIcons: { value: args.coreSiteIcons },
+                coreSiteIcons: { value: args.site.metadata.coreSiteIcons.value },
             },
             data: { assetid: "123" }, // fallback asset ID
         },
@@ -74,12 +60,11 @@ export const headerArgs = {
     containedBannerImageTextureSize: "auto",
     containedBannerImageTextureRepeat: "",
     sitePreHeaderURL: "https://www.qld.gov.au",
-    sitePreHeaderTheme: "qld__pre-header--light",
+    sitePreHeaderTheme: "",
     sitePreHeaderText: "Queensland Government",
-    siteHeaderDefaultLogo: "/qgov-coa.svg",
-    sitePreHeaderLogo:
-        "https://www.childrens.health.qld.gov.au/__data/assets/file/0020/163334/CoA-Black-Mobile.svg",
-    siteLogoUrl: "hhttps://www.qld.gov.au/",
+    siteHeaderDefaultLogo: "qgov-coa.svg",
+    sitePreHeaderLogo: "https://www.childrens.health.qld.gov.au/__data/assets/file/0020/163334/CoA-Black-Mobile.svg",
+    siteLogoUrl: "https://www.qld.gov.au/",
     siteLogo: "",
     siteShowLogo: "yes",
     siteLogoSecondary: "",
@@ -95,5 +80,4 @@ export const headerArgs = {
     mainNavCtaTwoText: "Contact",
     mainNavCtaTwoIcon: "location",
     siteHeaderMainTheme: "",
-    coreSiteIcons: "/QLD-icons.svg",
 };
