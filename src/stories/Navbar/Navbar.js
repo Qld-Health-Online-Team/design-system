@@ -21,8 +21,6 @@ export const navbarArgs = {
     mainNavCtaTwoText: "Contact",
     mainNavCtaTwoIcon: "location",
 
-    coreSiteIcons: "/QLD-icons.svg",
-
     // Add this to show the "View all" link
     mainNavViewAllShow: "true",
 };
@@ -102,7 +100,7 @@ export const renderNavbar = (args) => {
                 mainNavCtaTwoText: { value: args.mainNavCtaTwoText },
                 mainNavCtaTwoIcon: { value: args.mainNavCtaTwoIcon },
 
-                coreSiteIcons: { value: args.coreSiteIcons },
+                coreSiteIcons: { value: args.site.metadata.coreSiteIcons.value },
 
                 mainNavViewAllShow: { value: args.mainNavViewAllShow },
             },
