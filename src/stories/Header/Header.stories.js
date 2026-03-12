@@ -17,29 +17,39 @@ export default {
             description: "Layout for displaying the contained banner if used.",
         },
         siteHeaderMainTheme: {
-            control: { type: "radio" },
-            options: ["Light", "Dark", "Dark Alternative"],
-            mapping: {
-                Light: "",
-                Dark: "qld__header__main--dark",
-                "Dark Alternative": "qld__header__main--dark-alt",
+            control: {
+                type: "radio",
+                labels: {
+                    "": "Light",
+                    "qld__header__main--dark": "Dark",
+                    "qld__header__main--dark-alt": "Dark Alternative",
+                },
             },
+            options: ["", "qld__header__main--dark", "qld__header__main--dark-alt"],
             description: "Main header colour theme.",
         },
         sitePreHeaderTheme: {
-            control: { type: "radio" },
-            options: ["Light", "Dark", "Dark Alternative"],
-            mapping: {
-                Light: "",
-                Dark: "qld__header__pre-header--dark",
-                "Dark Alternative": "qld__header__pre-header--dark-alt",
+            control: {
+                type: "radio",
+                labels: {
+                    "": "Light",
+                    "qld__header__pre-header--dark": "Dark",
+                    "qld__header__pre-header--dark-alt": "Dark Alternative",
+                },
             },
+            options: ["", "qld__header__pre-header--dark", "qld__header__pre-header--dark-alt"],
             description: "Pre header colour theme.",
         },
         siteShowLogo: {
-            control: "radio",
+            control: {
+                type: "radio",
+                labels: {
+                    yes: "Yes",
+                    no: "No",
+                },
+            },
             options: ["yes", "no"],
-            description: "Show the Queensland Government logo",
+            description: "Whether the Queensland Government logo is displayed.",
         },
         containedBannerImageTexturePosition: {
             control: { type: "select" },

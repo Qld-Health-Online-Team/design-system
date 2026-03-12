@@ -21,7 +21,7 @@ export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, is
             stateMessage = `
                 <span id="${id}-state-message" class="qld__input--success">
                     <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                        <use href="/QLD-icons.svg#status-success"></use>
+                        <use href="QLD-icons.svg#status-success"></use>
                     </svg>
                     <span>${succcessMessage}</span>
                 </span>`;
@@ -31,7 +31,7 @@ export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, is
             stateMessage = `
                 <span id="${id}-state-message" class="qld__input--error">
                     <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                        <use href="/QLD-icons.svg#status-error"></use>
+                        <use href="QLD-icons.svg#status-error"></use>
                     </svg>
                     <span>${errorMessage}</span>
                 </span>`;
