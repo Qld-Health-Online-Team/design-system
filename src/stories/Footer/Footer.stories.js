@@ -118,7 +118,7 @@ const renderFooter = (args) => {
             footerAcknowledgements: { value: rest.footerAcknowledgements },
             footerCopyrightMessage: { value: rest.footerCopyrightMessage },
             footerLogoLink: { value: rest.footerLogoLink },
-            coreSiteIcons: { value: "/QLD-icons.svg" },
+            coreSiteIcons: { value: args.site.metadata.coreSiteIcons.value },
         },
     };
 
