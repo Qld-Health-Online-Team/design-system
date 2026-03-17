@@ -3,7 +3,9 @@ export const validateInternalSvgPath = (path) => {
     // Local testing, chromatic, and github builds are safe
     const allowedOrigins = ["http://localhost:8080", "http://localhost:6006", "chromatic.com", "https://qld-health-online-team.github.io"];
     // Skip validation
-    if (allowedOrigins.includes(window.location.origin)) return true;
+    if (allowedOrigins.some((origin) => window.location.origin.includes(origin))) {
+        return true;
+    }
 
     let shouldValidate = true;
 
