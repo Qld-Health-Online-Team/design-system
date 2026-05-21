@@ -37,7 +37,7 @@ export default function initInPageNavigation(document = document) {
 
             const title = heading.innerText;
             // Create sanitized ID from heading text
-            const id = existingId ? `${normaliseIdentifier(existingId.toLowerCase())}-${index}` : "section__" + normaliseIdentifier(title.toLowerCase());
+            const id = existingId ? `${normaliseIdentifier(existingId.toLowerCase())}-${index}` : `section__${normaliseIdentifier(title.toLowerCase())}-${index}`;
             heading.setAttribute("id", id);
             heading.setAttribute("tabindex", -1);
 
