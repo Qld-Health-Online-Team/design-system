@@ -82,7 +82,7 @@ export const figmaLinks = {
         ds: "https://www.designsystem.qld.gov.au/components/alerts-in-page",
     },
     inPageNavigation: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=7905-252906&p=f&t=HnUAp2BI742820Qk-0",
+        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=7905-252906&p=f&t=Tb6VtPPWrZ7Na35f-0",
         ds: "https://www.designsystem.qld.gov.au/components/in-page-navigation",
     },
     linkColumns: {
