@@ -1,5 +1,6 @@
 /** @type { import('@storybook/html-vite').StorybookConfig } */
 import sassGlobImports from "vite-plugin-sass-glob-import";
+import squizHbsPlugin from "../vite-plugin-squiz-hbs.js"
 
 const config = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -10,6 +11,7 @@ const config = {
     },
     async viteFinal(config) {
         config.plugins.push(sassGlobImports());
+        config.plugins.push(squizHbsPlugin())
         return config;
     },
     staticDirs: ["../dist/mysource_files/img", "./core-assets", "./assets"],
