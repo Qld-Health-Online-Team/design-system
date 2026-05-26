@@ -142,10 +142,15 @@
         var key = e.keyCode;
         var navItem = link.closest(".qld__main-nav__item");
         var menu = link.closest(".qld__main-nav__menu-sub");
+        var button = navItem.querySelector(".qld__main-nav__item-title > button")
+        var anchor = navItem.querySelector(".qld__main-nav__item-title > a")
+        var focusTarget = anchor.offsetParent !== null ? anchor : button;
 
         // ESC or UP ARROW
         if (key === 27 || key == 38) {
-            navItem.querySelector(".qld__main-nav__item-title > a").focus();
+            focusTarget.focus();
+            toggleMenu(e);
+            QLD.accordion.Toggle(button);
         }
 
         // If TAB key is pressed only (not SHIFT + TAB)
@@ -154,6 +159,7 @@
                 var menuHasFocus = menu.contains(document.activeElement) ? true : false;
                 if (!menuHasFocus) {
                     toggleMenu(e);
+                    QLD.accordion.Toggle(button)
                 }
             }, 20);
         }
