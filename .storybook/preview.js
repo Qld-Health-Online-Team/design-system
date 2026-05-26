@@ -97,7 +97,7 @@ const preview = {
                 return storyFn();
             }
             // Get the theme key from the background, to use within the decorator
-            const themeKey = Object.keys(themeColours).find((key) => themeColours[key] === context.globals.backgrounds?.value);
+            const themeKey = Object.keys(themeColours).find((key) => key === context.globals.backgrounds?.value);
             const wrapper = document.createElement("div");
             wrapper.className = themes[themeKey] || themes["white"];
             const story = storyFn();

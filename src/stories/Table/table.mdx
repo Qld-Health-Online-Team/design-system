@@ -1,0 +1,74 @@
+import { Canvas, Meta, Controls, Story } from "@storybook/addon-docs/blocks";
+import * as TableStories from "./table.stories";
+
+<Meta of={TableStories} />
+
+# Table
+
+Tables are available in light and dark styles. They can be borderless or contained and can have the option for vertical
+and horizontal scrolling.
+
+## Borderless
+
+When seeking to integrate and expand the information that accompanies a text, a borderless table can prove advantageous.
+It imparts a sense of continuity and cohesion, making the data feel more seamlessly integrated with the surrounding text.
+
+<Canvas of={TableStories.Borderless} />
+
+### Props
+
+<Controls of={TableStories.Borderless} />
+
+## Contained
+
+A contained table style features visible borders around the table, its rows, and columns, creating a clear and
+well-defined structure. The borders help separate data and improve readability by emphasising individual cells.
+
+
+<Canvas of={TableStories.Contained} />
+
+## Vertical Scrolling
+
+A scrollable table is ideal for dense data. Tables that are extremely long can have vertical scroll turned on via the
+vertical scroll class. On desktop these tables will scroll vertically after 1000px and on mobile they will scroll
+ vertically after 640px.
+
+<Canvas of={TableStories.VerticalScrolling} />
+
+## Custom Widths
+
+You can apply custom widths based on the expected length of the data within a corresponding column by applying a utility
+class to the `<th>` elements.
+
+By default tables are fluid and scale to the full width of the page, however a table can set to a desired width using
+the [grid](https://www.designsystem.qld.gov.au/styles/layout-foundations) system and then use the `qld__table__wrapper` which will turn on horizontal scrolling on smaller devices.
+
+```html
+15% col width: <th class="qld__table__header--width-15">
+20% col width: <th class="qld__table__header--width-20">
+25% col width: <th class="qld__table__header--width-25">
+33% col width: <th class="qld__table__header--width-33">
+40% col width: <th class="qld__table__header--width-40">
+50% col width: <th class="qld__table__header--width-50">
+75% col width: <th class="qld__table__header--width-75">
+```
+
+<Canvas of={TableStories.CustomWidths} />
+
+## Striped / Banded
+
+For data tables with more rows, use the striped alternative. Styling even and odd rows in a different way can be
+helpful to people who have reading difficulties or who enlarge text. It acts as a visual guide. Highlighting the cell
+(and row/column) on mouseover and keyboard focus to support people to see where they are.
+
+<Canvas of={TableStories.Striped} />
+
+## Multilevel Headings
+
+Tables with multiple headers may also need to have a caption to identify them and a summary to describe the layout of
+the table, see [Caption & Summary](https://www.w3.org/WAI/tutorials/tables/caption-summary). In many cases, it is worth
+considering restructuring the information in such tables
+to make them less complex for all readers.
+
+<Canvas of={TableStories.MultilevelHeadings} />
+
