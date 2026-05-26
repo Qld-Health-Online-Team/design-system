@@ -12,12 +12,16 @@
          */
         init: function () {
             // Top level items
-            var topNavItems = document.querySelectorAll(".qld__main-nav__item-title > a");
+            var topNavItems = document.querySelectorAll(".qld__main-nav__item");
             topNavItems.forEach(function (item) {
-                item.addEventListener("keydown", handleTopNavKeydown);
-                item.addEventListener("focusin", toggleMenu);
-                item.addEventListener("focusout", handleTopNavFocusout);
-            });
+                var toggleBtn = item.querySelector(".qld__main-nav__item-title > button")
+                var anchor = item.querySelector(".qld__main-nav__item-title > a")
+                var el = anchor.offsetParent !== null ? anchor : toggleBtn;
+                if (!el) return;
+                el.addEventListener("keydown", handleTopNavKeydown);
+                el.addEventListener("focusin", toggleMenu);
+                el.addEventListener("focusout", handleTopNavFocusout);
+            })
 
             // Mega menu items
             var menuItems = document.querySelectorAll(".qld__main-nav__menu-sub a");
@@ -43,6 +47,7 @@
         // ESC or UP ARROW
         if (key === 27 || key == 38) {
             toggleMenu(e);
+            QLD.accordion.Toggle(e.target)
         }
     }
 
