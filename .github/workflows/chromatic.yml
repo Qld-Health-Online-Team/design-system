@@ -2,7 +2,18 @@ name: "Chromatic"
 
 on:
   workflow_dispatch:
+  push:
+    branches: [master, 'release/**']
   pull_request:
+    types: [opened, reopened, ready_for_review]
+    branches: [master, 'release/**']
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   chromatic:
@@ -22,3 +33,5 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
+          exitZeroOnChanges: true
