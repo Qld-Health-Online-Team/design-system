@@ -12,12 +12,16 @@
          */
         init: function () {
             // Top level items
-            var topNavItems = document.querySelectorAll(".qld__main-nav__item-title > a");
+            var topNavItems = document.querySelectorAll(".qld__main-nav__item");
             topNavItems.forEach(function (item) {
-                item.addEventListener("keydown", handleTopNavKeydown);
-                item.addEventListener("focusin", toggleMenu);
-                item.addEventListener("focusout", handleTopNavFocusout);
-            });
+                var toggleBtn = item.querySelector(".qld__main-nav__item-title > button")
+                var anchor = item.querySelector(".qld__main-nav__item-title > a")
+                var el = anchor.offsetParent !== null ? anchor : toggleBtn;
+                if (!el) return;
+                el.addEventListener("keydown", handleTopNavKeydown);
+                el.addEventListener("focusin", toggleMenu);
+                el.addEventListener("focusout", handleTopNavFocusout);
+            })
 
             // Mega menu items
             var menuItems = document.querySelectorAll(".qld__main-nav__menu-sub a");
@@ -43,6 +47,7 @@
         // ESC or UP ARROW
         if (key === 27 || key == 38) {
             toggleMenu(e);
+            QLD.accordion.Toggle(e.target)
         }
     }
 
@@ -142,10 +147,15 @@
         var key = e.keyCode;
         var navItem = link.closest(".qld__main-nav__item");
         var menu = link.closest(".qld__main-nav__menu-sub");
+        var button = navItem.querySelector(".qld__main-nav__item-title > button")
+        var anchor = navItem.querySelector(".qld__main-nav__item-title > a")
+        var focusTarget = anchor.offsetParent !== null ? anchor : button;
 
         // ESC or UP ARROW
         if (key === 27 || key == 38) {
-            navItem.querySelector(".qld__main-nav__item-title > a").focus();
+            focusTarget.focus();
+            toggleMenu(e);
+            QLD.accordion.Toggle(button);
         }
 
         // If TAB key is pressed only (not SHIFT + TAB)
@@ -154,6 +164,7 @@
                 var menuHasFocus = menu.contains(document.activeElement) ? true : false;
                 if (!menuHasFocus) {
                     toggleMenu(e);
+                    QLD.accordion.Toggle(button)
                 }
             }, 20);
         }
