@@ -1,7 +1,6 @@
 import Handlebars from "handlebars";
 import Template from "../../components/in_page_navigation/html/component.hbs?raw";
-import { figmaLinks, themes, dummyText } from "../../../.storybook/globals";
-import { themeWrapper } from "../../../.storybook/helper-functions";
+import { figmaLinks, dummyText } from "../../../.storybook/globals";
 
 const renderInPageNavigation = ({ heading, headingType, ...args }) =>
     Handlebars.compile(Template)({
@@ -62,11 +61,6 @@ export default {
             }
             let dummyHeadings = ``;
 
-            // Add a note to storybook users that colour themes don't yet work
-            if (context.args.inPageNavWarning) {
-                dummyHeadings += `<p style="font-weight: bold; font-size: 28px;">Note: In-page navigation has not been calibrated for theme usage as it is self contained in it's own 'qld__body' class. To be addressed in component service.</p>`;
-            }
-
             dummyHeadings += `<br><div><h2 id="${context.args.ids[0]}">H2 Overview</h2><p>${dummyText}</div><br>`;
             dummyHeadings += `<br><div><h3 id="${context.args.ids[1]}">H3 Overview</h3><p>${dummyText}</div><br>`;
             dummyHeadings += `<br><div><h4 id="${context.args.ids[2]}">H4 Overview</h4><p>${dummyText}</div><br>`;
@@ -93,35 +87,10 @@ export const headingLevel4 = { args: { headingType: "h4" } };
 export const headingLevel5 = { args: { headingType: "h5" } };
 export const headingLevel6 = { args: { headingType: "h6" } };
 export const customIdentifiers = {
-    args: { ids: ["class-1", "class-2", "class-3", "class-4", "class-5", "class-6", "class-7", "class-8", "class-9", "class-10", "class-11", "class-12", "class-13", "class-14", "class-15"] },
+    args: { ids: ["id-1", "id-2", "id-3", "id-4", "id-5", "id-6", "id-7", "id-8", "id-9", "id-10", "id-11", "id-12", "id-13", "id-14", "id-15"] },
 };
 export const duplicateIdentifiers = {
     args: {
-        ids: ["same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class", "same-class"],
-    },
-};
-export const white = {
-    render: (args) => {
-        return themeWrapper(themes["white"], renderInPageNavigation({ ...args }));
-    },
-};
-export const light = {
-    render: (args) => {
-        return themeWrapper(themes["light"], renderInPageNavigation({ ...args, inPageNavWarning: true }));
-    },
-};
-export const lightAlt = {
-    render: (args) => {
-        return themeWrapper(themes["light alt"], renderInPageNavigation({ ...args, inPageNavWarning: true }));
-    },
-};
-export const dark = {
-    render: (args) => {
-        return themeWrapper(themes["dark"], renderInPageNavigation({ ...args, inPageNavWarning: true }));
-    },
-};
-export const darkAlt = {
-    render: (args) => {
-        return themeWrapper(themes["dark alt"], renderInPageNavigation({ ...args, inPageNavWarning: true }));
+        ids: ["same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id", "same-id"],
     },
 };
