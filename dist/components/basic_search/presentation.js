@@ -251,9 +251,9 @@
         return undefined
     };
 
-  return " for <span class=\"qld__search__info-query-term\">‘"
+  return " for <span class=\"qld__search__info-query-term\">'"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1), depth0))
-    + "’</span>";
+    + "'</span>";
 },"53":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -796,7 +796,7 @@
     + container.escapeExpression((lookupProperty(helpers,"formatDate")||(depth0 && lookupProperty(depth0,"formatDate"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"listMetadata") : depth0)) != null ? lookupProperty(stack1,"d") : stack1)) != null ? lookupProperty(stack1,"0") : stack1),"j F Y",{"name":"formatDate","hash":{},"data":data,"loc":{"start":{"line":313,"column":101},"end":{"line":313,"column":142}}}))
     + " —</span>";
 },"125":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -804,12 +804,12 @@
     };
 
   return "                <div class=\"qld__search__results qld__search__results--no-results\">\r\n                    <div class=\"qld__abstract\">\r\n                        Did you mean <a href=\""
-    + container.escapeExpression(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
-    + "\">‘"
-    + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"text") : stack1), depth0)) != null ? stack1 : "")
-    + "’</a>\r\n                    </div>\r\n                    <h2 class=\"qld__display-lg\"><span>Our search for </span><span class=\"qld__search__info-query-term\">‘"
-    + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"question") : depth0)) != null ? lookupProperty(stack1,"query") : stack1), depth0)) != null ? stack1 : "")
-    + "’</span> didn't return any results.</h2>\r\n                    <p class=\"qld__abstract\">You could try:</p>\r\n                    <ul class=\"qld__search-link-list qld__link-list\">\r\n                        <li>Check the spelling of your keywords.</li>\r\n                        <li>Searching again using other words</li>\r\n                        <li>Using fewer keywords.</li>\r\n                    </ul>\r\n                </div>\r\n";
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
+    + "\">'"
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"text") : stack1), depth0))
+    + "'</a>\r\n                    </div>\r\n                    <h2 class=\"qld__display-lg\"><span>Our search for </span><span class=\"qld__search__info-query-term\">'"
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"question") : depth0)) != null ? lookupProperty(stack1,"query") : stack1), depth0))
+    + "'</span> didn't return any results.</h2>\r\n                    <p class=\"qld__abstract\">You could try:</p>\r\n                    <ul class=\"qld__search-link-list qld__link-list\">\r\n                        <li>Check the spelling of your keywords.</li>\r\n                        <li>Searching again using other words</li>\r\n                        <li>Using fewer keywords.</li>\r\n                    </ul>\r\n                </div>\r\n";
 },"127":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
