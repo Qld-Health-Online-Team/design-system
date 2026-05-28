@@ -10,9 +10,9 @@
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":36},"end":{"line":2,"column":130}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"layout") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","landscape",{"name":"ifCond","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":130},"end":{"line":2,"column":223}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"layout") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","icon_only",{"name":"ifCond","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":223},"end":{"line":2,"column":316}}})) != null ? stack1 : "")
-    + "\" role=\"status\">\n        <span class=\"qld__loading_spinner-wheel\"></span>\n        <div class=\"qld__loading_spinner-label qld__display-md\">"
+    + "\" role=\"status\">\r\n        <span class=\"qld__loading_spinner-wheel\"></span>\r\n        <div class=\"qld__loading_spinner-label qld__display-md\">"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"label") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</div>\n    </div>\n";
+    + "</div>\r\n    </div>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
     return " qld__loading_spinner--dark";
 },"4":function(container,depth0,helpers,partials,data) {
