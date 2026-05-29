@@ -1,26 +1,19 @@
-import Handlebars from "handlebars";
-import Template from "../../components/loading_spinner/html/component.hbs?raw";
+import Template from "../../components/loading_spinner/html/component.hbs";
 import { figmaLinks } from "../../../.storybook/globals";
 
-const renderLoadingSpinner = ({ backgroundColour, layout, label, ...args }) =>
-    Handlebars.compile(Template)({
+const renderLoadingSpinner = ({backgroundColour, layout, label, ...args}) =>
+    Template({
         component: {
             data: {
                 metadata: {
-                    background_colour: { value: backgroundColour },
-                    layout: { value: layout },
-                    label: { value: label },
+                    background_colour: {value: backgroundColour},
+                    layout: {value: layout},
+                    label: {value: label},
                 },
             },
         },
         ...args,
     });
-
-const loadingSpinnerArgs = {
-    backgroundColour: "",
-    layout: "",
-    label: "Loading...",
-};
 
 export default {
     title: "3. Components/Loading Spinner",
@@ -49,9 +42,13 @@ export default {
             },
             options: ["", "landscape", "icon_only"],
         },
-        label: { description: "The label underneath the spinner.", control: "text" },
+        label: {description: "The label underneath the spinner.", control: "text"},
     },
-    args: loadingSpinnerArgs,
+    args: {
+        backgroundColour: "",
+        layout: "",
+        label: "Loading...",
+    },
     parameters: {
         design: {
             type: "figma",
@@ -63,19 +60,13 @@ export default {
 export const Default = {};
 
 export const landscape = {
-    render: () => {
-        return renderLoadingSpinner({ ...loadingSpinnerArgs, layout: "landscape" });
-    },
+    args: {layout: "landscape"}
 };
 
 export const iconOnly = {
-    render: () => {
-        return renderLoadingSpinner({ ...loadingSpinnerArgs, layout: "icon_only" });
-    },
+    args: {layout: "icon_only"}
 };
 
 export const dark = {
-    render: () => {
-        return renderLoadingSpinner({ ...loadingSpinnerArgs, backgroundColour: "dark" });
-    },
+    args: {backgroundColour: "dark"}
 };

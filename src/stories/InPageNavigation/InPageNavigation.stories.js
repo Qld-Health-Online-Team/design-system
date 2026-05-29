@@ -1,24 +1,18 @@
-import Handlebars from "handlebars";
-import Template from "../../components/in_page_navigation/html/component.hbs?raw";
+import Template from "../../components/in_page_navigation/html/component.hbs";
 import { figmaLinks, dummyText } from "../../../.storybook/globals";
 
-const renderInPageNavigation = ({ heading, headingType, ...args }) =>
-    Handlebars.compile(Template)({
+const renderInPageNavigation = ({heading, headingType, ...args}) =>
+    Template({
         component: {
             data: {
                 metadata: {
-                    heading: { value: heading },
-                    headingType: { value: headingType },
+                    heading: {value: heading},
+                    headingType: {value: headingType},
                 },
             },
         },
         ...args,
     });
-
-const inPageNavigationArgs = {
-    heading: "On this page",
-    headingType: "h2",
-};
 
 export default {
     title: "3. Components/In-page Navigation",
@@ -26,7 +20,7 @@ export default {
     argTypes: {
         heading: {
             description: "The title of the in-page navigation.",
-            control: { type: "text" },
+            control: {type: "text"},
         },
         headingType: {
             description: "The type of the heading the in-page navigation will scan for.",
@@ -42,11 +36,14 @@ export default {
             },
             options: ["h2", "h3", "h4", "h5", "h6"],
             table: {
-                defaultValue: { summary: "h2" },
+                defaultValue: {summary: "h2"},
             },
         },
     },
-    args: inPageNavigationArgs,
+    args: {
+        heading: "On this page",
+        headingType: "h2",
+    },
     parameters: {
         design: {
             type: "figma",
@@ -55,7 +52,8 @@ export default {
     },
     decorators: [
         (Story, context) => {
-            // Default IDs for headings. Simulates the publisher not adding custom ID's to the page headings which is a common scenario
+            // Default IDs for headings. Simulates the publisher not adding custom ID's to the page headings which is a
+            // common scenario
             if (!context.args.ids) {
                 context.args.ids = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
             }
@@ -82,12 +80,12 @@ export default {
 };
 
 export const Default = {};
-export const headingLevel3 = { args: { headingType: "h3" } };
-export const headingLevel4 = { args: { headingType: "h4" } };
-export const headingLevel5 = { args: { headingType: "h5" } };
-export const headingLevel6 = { args: { headingType: "h6" } };
+export const headingLevel3 = {args: {headingType: "h3"}};
+export const headingLevel4 = {args: {headingType: "h4"}};
+export const headingLevel5 = {args: {headingType: "h5"}};
+export const headingLevel6 = {args: {headingType: "h6"}};
 export const customIdentifiers = {
-    args: { ids: ["id-1", "id-2", "id-3", "id-4", "id-5", "id-6", "id-7", "id-8", "id-9", "id-10", "id-11", "id-12", "id-13", "id-14", "id-15"] },
+    args: {ids: ["id-1", "id-2", "id-3", "id-4", "id-5", "id-6", "id-7", "id-8", "id-9", "id-10", "id-11", "id-12", "id-13", "id-14", "id-15"]},
 };
 export const duplicateIdentifiers = {
     args: {
