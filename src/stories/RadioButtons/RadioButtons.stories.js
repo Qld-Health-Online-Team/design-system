@@ -23,7 +23,7 @@ const radioButtonsArgs = {
 
 export default {
     title: "3. Components/Radio Buttons",
-    render: (args) => RadioButtons(args),
+    render: RadioButtons,
     argTypes: {
         id: { control: "text", description: "The id for this component" },
         legend: { control: "text", description: "The legend of the radio button group" },
