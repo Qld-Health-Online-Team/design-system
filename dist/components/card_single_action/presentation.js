@@ -72,7 +72,7 @@
     };
 
   return ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.program(25, data, 0),"data":data,"loc":{"start":{"line":8,"column":8},"end":{"line":52,"column":15}}})) != null ? stack1 : "")
-    + "        \n";
+    + "        \r\n";
 },"12":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -81,13 +81,13 @@
         return undefined
     };
 
-  return "        <div class=\"row\">\n\n            <div class=\"qld__card-intro col-xs-12 "
+  return "        <div class=\"row\">\r\n\r\n            <div class=\"qld__card-intro col-xs-12 "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\n                \n"
+    + "\">\r\n                \r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||container.hooks.helperMissing).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading_level") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","h5",{"name":"ifCond","hash":{},"fn":container.program(13, data, 0),"inverse":container.program(15, data, 0),"data":data,"loc":{"start":{"line":13,"column":16},"end":{"line":21,"column":27}}})) != null ? stack1 : "")
-    + "\n"
+    + "\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":23,"column":16},"end":{"line":25,"column":23}}})) != null ? stack1 : "")
-    + "\n            </div>\n        </div>\n";
+    + "\r\n            </div>\r\n        </div>\r\n";
 },"13":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -98,7 +98,7 @@
 
   return "                    <h5>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h5>\n";
+    + "</h5>\r\n";
 },"15":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -118,7 +118,7 @@
 
   return "                    <h4>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\n";
+    + "</h4>\r\n";
 },"18":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -138,7 +138,7 @@
 
   return "                    <h3>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h3>\n";
+    + "</h3>\r\n";
 },"21":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -149,7 +149,7 @@
 
   return "                    <h2>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h2>\n                ";
+    + "</h2>\r\n                ";
 },"23":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -160,7 +160,7 @@
 
   return "                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n";
+    + "\r\n";
 },"25":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -178,13 +178,13 @@
         return undefined
     };
 
-  return "            <div class=\"row\">\n\n                <div class=\"qld__card-intro col-xs-12 "
+  return "            <div class=\"row\">\r\n\r\n                <div class=\"qld__card-intro col-xs-12 "
     + container.escapeExpression(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\n                    \n"
+    + "\">\r\n                    \r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(27, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":35,"column":20},"end":{"line":45,"column":27}}})) != null ? stack1 : "")
-    + "\n                    "
+    + "\r\n                    "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n\n                </div>\n            </div>\n";
+    + "\r\n\r\n                </div>\r\n            </div>\r\n";
 },"27":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -204,7 +204,7 @@
 
   return "                            <h5>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h5>\n";
+    + "</h5>\r\n";
 },"30":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -224,7 +224,7 @@
 
   return "                            <h4>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\n";
+    + "</h4>\r\n";
 },"33":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -244,7 +244,7 @@
 
   return "                            <h3>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h3>\n";
+    + "</h3>\r\n";
 },"36":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -255,7 +255,7 @@
 
   return "                            <h2>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h2>\n                        ";
+    + "</h2>\r\n                        ";
 },"38":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -264,7 +264,7 @@
         return undefined
     };
 
-  return "\n"
+  return "\r\n"
     + ((stack1 = (lookupProperty(helpers,"isPage")||(depth0 && lookupProperty(depth0,"isPage"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"type_code") : depth0),{"name":"isPage","hash":{},"fn":container.program(39, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":60,"column":20},"end":{"line":142,"column":31}}})) != null ? stack1 : "");
 },"39":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {}), alias4=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -276,7 +276,7 @@
 
   return "                    <li class=\"col-xs-12 "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"col_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\">\n                        \n                        <div class=\"qld__card qld__card__action "
+    + "\">\r\n                        \r\n                        <div class=\"qld__card qld__card__action "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"show_arrow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","true",{"name":"ifCond","hash":{},"fn":container.program(40, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":67,"column":64},"end":{"line":67,"column":158}}})) != null ? stack1 : "")
     + " "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"card_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","icon",{"name":"ifCond","hash":{},"fn":container.program(42, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":67,"column":159},"end":{"line":67,"column":251}}})) != null ? stack1 : "")
@@ -286,18 +286,18 @@
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"background") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + " "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"icon_align") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","left",{"name":"ifCond","hash":{},"fn":container.program(46, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":67,"column":395},"end":{"line":67,"column":493}}})) != null ? stack1 : "")
-    + "\" >\n\n"
+    + "\" >\r\n\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"card_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","icon",{"name":"ifCond","hash":{},"fn":container.program(48, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":69,"column":28},"end":{"line":71,"column":39}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"card_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","image",{"name":"ifCond","hash":{},"fn":container.program(50, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":72,"column":28},"end":{"line":74,"column":39}}})) != null ? stack1 : "")
-    + "\n                            <div class=\"qld__card__inner\">\n                                <div class=\"qld__card__content\">\n                                    <div class=\"qld__card__content-inner\">\n"
+    + "\r\n                            <div class=\"qld__card__inner\">\r\n                                <div class=\"qld__card__content\">\r\n                                    <div class=\"qld__card__content-inner\">\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"card_heading_level") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","h6",{"name":"ifCond","hash":{},"fn":container.program(53, data, 0, blockParams, depths),"inverse":container.program(59, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":79,"column":40},"end":{"line":119,"column":51}}})) != null ? stack1 : "")
-    + "                                        \n"
+    + "                                        \r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(70, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":121,"column":40},"end":{"line":125,"column":47}}})) != null ? stack1 : "")
-    + "                                    </div>\n"
+    + "                                    </div>\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"show_arrow") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","true",{"name":"ifCond","hash":{},"fn":container.program(72, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":127,"column":36},"end":{"line":129,"column":47}}})) != null ? stack1 : "")
-    + "                                </div>\n"
+    + "                                </div>\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardDisplayFooter") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","true",{"name":"ifCond","hash":{},"fn":container.program(74, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":131,"column":32},"end":{"line":138,"column":43}}})) != null ? stack1 : "")
-    + "                            </div>\n                        </div>\n                    </li>\n";
+    + "                            </div>\r\n                        </div>\r\n                    </li>\r\n";
 },"40":function(container,depth0,helpers,partials,data) {
     return "qld__card--arrow";
 },"42":function(container,depth0,helpers,partials,data) {
@@ -316,7 +316,7 @@
 
   return "                                <div class=\"qld__card__icon\"><i class=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"></i></div>\n";
+    + "\"></i></div>\r\n";
 },"50":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -329,7 +329,7 @@
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"thumbnail") || (depth0 != null ? lookupProperty(depth0,"thumbnail") : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"thumbnail","hash":{},"data":data,"loc":{"start":{"line":73,"column":106},"end":{"line":73,"column":119}}}) : helper)))
     + "');\" "
     + ((stack1 = (lookupProperty(helpers,"getThumbnailAlt")||(depth0 && lookupProperty(depth0,"getThumbnailAlt"))||alias2).call(alias1,((stack1 = (depths[1] != null ? lookupProperty(depths[1],"component") : depths[1])) != null ? lookupProperty(stack1,"childrenThumbnails") : stack1),(data && lookupProperty(data,"index")),(depth0 != null ? lookupProperty(depth0,"short_name") : depth0),{"name":"getThumbnailAlt","hash":{},"fn":container.program(51, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":73,"column":124},"end":{"line":73,"column":214}}})) != null ? stack1 : "")
-    + "></div>          \n";
+    + "></div>          \r\n";
 },"51":function(container,depth0,helpers,partials,data) {
     return "";
 },"53":function(container,depth0,helpers,partials,data) {
@@ -340,9 +340,9 @@
         return undefined
     };
 
-  return "                                            <h6 class=\"qld__card__title\">\n"
+  return "                                            <h6 class=\"qld__card__title\">\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(54, data, 0),"inverse":container.program(57, data, 0),"data":data,"loc":{"start":{"line":81,"column":44},"end":{"line":85,"column":51}}})) != null ? stack1 : "")
-    + "                                            </h6>\n";
+    + "                                            </h6>\r\n";
 },"54":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -359,7 +359,7 @@
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">"
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":82,"column":229},"end":{"line":82,"column":237}}}) : helper)))
-    + "</a>   \n";
+    + "</a>   \r\n";
 },"55":function(container,depth0,helpers,partials,data) {
     var helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -387,7 +387,7 @@
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":84,"column":201},"end":{"line":84,"column":212}}}) : helper)))
     + "\">"
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":84,"column":214},"end":{"line":84,"column":222}}}) : helper)))
-    + "</a>\n";
+    + "</a>\r\n";
 },"59":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -405,9 +405,9 @@
         return undefined
     };
 
-  return "                                            <h5 class=\"qld__card__title\">\n"
+  return "                                            <h5 class=\"qld__card__title\">\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(54, data, 0),"inverse":container.program(57, data, 0),"data":data,"loc":{"start":{"line":89,"column":44},"end":{"line":93,"column":51}}})) != null ? stack1 : "")
-    + "                                            </h5>\n";
+    + "                                            </h5>\r\n";
 },"62":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -425,9 +425,9 @@
         return undefined
     };
 
-  return "                                            <h4 class=\"qld__card__title\">\n"
+  return "                                            <h4 class=\"qld__card__title\">\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(54, data, 0),"inverse":container.program(57, data, 0),"data":data,"loc":{"start":{"line":97,"column":44},"end":{"line":101,"column":51}}})) != null ? stack1 : "")
-    + "                                            </h4>\n";
+    + "                                            </h4>\r\n";
 },"65":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -445,9 +445,9 @@
         return undefined
     };
 
-  return "                                            <h2 class=\"qld__card__title\">\n"
+  return "                                            <h2 class=\"qld__card__title\">\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(54, data, 0),"inverse":container.program(57, data, 0),"data":data,"loc":{"start":{"line":105,"column":44},"end":{"line":109,"column":51}}})) != null ? stack1 : "")
-    + "                                            </h2>  \n";
+    + "                                            </h2>  \r\n";
 },"68":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -456,9 +456,9 @@
         return undefined
     };
 
-  return "                                            <h3 class=\"qld__card__title\">\n"
+  return "                                            <h3 class=\"qld__card__title\">\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(54, data, 0),"inverse":container.program(57, data, 0),"data":data,"loc":{"start":{"line":113,"column":44},"end":{"line":117,"column":51}}})) != null ? stack1 : "")
-    + "                                            </h3>\n                                        ";
+    + "                                            </h3>\r\n                                        ";
 },"70":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -469,9 +469,9 @@
 
   return "                                        <p id=\"card-"
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":122,"column":52},"end":{"line":122,"column":63}}}) : helper)))
-    + "\" class=\"qld__card__description\">\n                                            "
+    + "\" class=\"qld__card__description\">\r\n                                            "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"shortDescription") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n                                        </p>\n";
+    + "\r\n                                        </p>\r\n";
 },"72":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -482,7 +482,7 @@
 
   return "                                        <svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" class=\"qld__card--arrow-icon qld__icon qld__icon--md\"><use href=\""
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#arrow-right\"></use></svg>\n";
+    + "#arrow-right\"></use></svg>\r\n";
 },"74":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -491,9 +491,9 @@
         return undefined
     };
 
-  return "                                <div class=\"qld__card__footer\">\n                                    <hr class=\"qld__horizontal-rule\" aria-hidden=\"true\">\n                                    <div class=\"qld__card__footer-inner\">\n                                        "
+  return "                                <div class=\"qld__card__footer\">\r\n                                    <hr class=\"qld__horizontal-rule\" aria-hidden=\"true\">\r\n                                    <div class=\"qld__card__footer-inner\">\r\n                                        "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardFooterContent") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n                                    </div>\n                                </div>\n";
+    + "\r\n                                    </div>\r\n                                </div>\r\n";
 },"76":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -511,11 +511,11 @@
         return undefined
     };
 
-  return "            <div class=\"row\">\n                <div class=\"qld__card-list__footer col-xs-12\">\n                    <a class=\"qld__card-list__all-link qld__cta-link qld__cta-link--view-all\" href=\"./?a="
+  return "            <div class=\"row\">\r\n                <div class=\"qld__card-list__footer col-xs-12\">\r\n                    <a class=\"qld__card-list__all-link qld__cta-link qld__cta-link--view-all\" href=\"./?a="
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"all_link") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\">"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"all_link_name") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</a>\n                </div>\n            </div>\n";
+    + "</a>\r\n                </div>\r\n            </div>\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : (container.nullContext || {}), alias4=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -530,15 +530,15 @@
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"body_background_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\" id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.program(3, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":1,"column":155},"end":{"line":1,"column":297}}})) != null ? stack1 : "")
-    + "\"\n    "
+    + "\"\r\n    "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"body_background_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","qld__card--wrapper-bg-image",{"name":"ifCond","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":307}}})) != null ? stack1 : "")
-    + "\n    "
+    + "\r\n    "
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias4).call(alias3,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"body_background_type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","qld__card--wrapper-bg-pattern",{"name":"ifCond","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":315}}})) != null ? stack1 : "")
-    + " >\n\n    <div class=\"container-fluid\">\n        \n"
+    + " >\r\n\r\n    <div class=\"container-fluid\">\r\n        \r\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1),{"name":"with","hash":{},"fn":container.program(11, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":4},"end":{"line":54,"column":13}}})) != null ? stack1 : "")
-    + "\n        <div class=\"row\">\n            <ul class=\"qld__card-list qld__card-list--matchheight\">\n"
+    + "\r\n        <div class=\"row\">\r\n            <ul class=\"qld__card-list qld__card-list--matchheight\">\r\n"
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"children") : stack1),{"name":"each","hash":{},"fn":container.program(38, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":58,"column":16},"end":{"line":143,"column":25}}})) != null ? stack1 : "")
-    + "            </ul>\n        </div>\n"
+    + "            </ul>\r\n        </div>\r\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1),{"name":"with","hash":{},"fn":container.program(76, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":146,"column":8},"end":{"line":154,"column":17}}})) != null ? stack1 : "")
-    + "\n\n    </div>\n\n    \n</section>\n";
+    + "\r\n\r\n    </div>\r\n\r\n    \r\n</section>\r\n";
 },"useData":true,"useDepths":true}
