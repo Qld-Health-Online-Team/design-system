@@ -1,0 +1,26 @@
+import { Canvas, Meta, Primary, Controls, Story } from "@storybook/addon-docs/blocks";
+import * as AZListingStories from "./a-z_listing.stories";
+
+<Meta of={AZListingStories} />
+
+# A-Z Listing
+
+## Overview
+
+The A-Z listing component groups a set of links alphabetically by their first letter, displaying each group under a letter heading so users can scan and find content quickly.
+
+It is typically used for index or directory pages where a long list of items benefits from being broken into alphabetical sections.
+
+<Canvas of={AZListingStories.Default} />
+
+<Primary />
+
+## Props
+
+<Controls of={AZListingStories.Default} />
+
+## Empty state
+
+When no items are supplied, the component renders without any letter groups.
+
+<Story of={AZListingStories.Empty} />

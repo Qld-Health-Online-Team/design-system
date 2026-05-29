@@ -9,6 +9,8 @@
  *  - Focusout (toggle button or submenu): close submenu unless focus stays within
  */
 
+import {accordion} from "../../accordion/js/global.js";
+
 /** Selector matching all interactive elements that can receive focus. */
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -18,9 +20,10 @@ export function initMegaMenu() {
     const navItems = Array.from(navItemEls).map((item) => {
         const navItemTitle = item.querySelector(".qld__main-nav__item-title");
         if (!navItemTitle) return null;
+        const toggleBtnEl = navItemTitle.querySelector("button");
         return {
             linkEl: navItemTitle.querySelector("a"),
-            toggleBtnEl: navItemTitle.querySelector("button"),
+            toggleBtnEl,
             subMenuEl: item.querySelector(".qld__main-nav__menu-sub"),
             clickingInsideSubMenu: false,
             handlers: {},
@@ -30,23 +33,25 @@ export function initMegaMenu() {
     // Single shared mouseup listener to reset the clickingInsideSubMenu flag
     // across all items. Registered once rather than once per item.
     document.addEventListener("mouseup", () => {
-        navItems.forEach((item) => { item.clickingInsideSubMenu = false; });
+        navItems.forEach((item) => {
+            item.clickingInsideSubMenu = false;
+        });
     });
 
     navItems.forEach((item) => {
-        const { toggleBtnEl, subMenuEl } = item;
+        const {toggleBtnEl, subMenuEl} = item;
         item.handlers.click = handleToggleBtnClick(item, navItems);
         toggleBtnEl?.addEventListener("click", item.handlers.click);
 
-        // Mousedown inside the submenu sets a flag used by handleFocusOut to
-        // avoid closing the menu when clicking non-focusable whitespace.
-        subMenuEl?.addEventListener("mousedown", () => { item.clickingInsideSubMenu = true; });
+        subMenuEl?.addEventListener("mousedown", () => {
+            item.clickingInsideSubMenu = true;
+        });
     });
 }
 
 function handleToggleBtnClick(item, navItems) {
     return () => {
-        const { toggleBtnEl } = item;
+        const {toggleBtnEl} = item;
         if (isSubMenuOpen(toggleBtnEl)) {
             closeSubMenu(item);
         } else {
@@ -61,8 +66,8 @@ function handleToggleBtnClick(item, navItems) {
  * Listeners are stored on item.handlers so they can be removed on close.
  */
 function openSubMenu(item) {
-    const { linkEl, toggleBtnEl, subMenuEl } = item;
-    QLD.accordion.Open(toggleBtnEl);
+    const {linkEl, toggleBtnEl, subMenuEl} = item;
+    accordion.Open(toggleBtnEl);
     syncNavItemLinkClass(linkEl, true);
 
     item.handlers.documentEscape = handleDocumentEscape(item);
@@ -83,8 +88,8 @@ function openSubMenu(item) {
  * Closes the submenu and removes all associated event listeners registered in openSubMenu.
  */
 function closeSubMenu(item) {
-    const { linkEl, toggleBtnEl, subMenuEl } = item;
-    QLD.accordion.Close(toggleBtnEl);
+    const {linkEl, toggleBtnEl, subMenuEl} = item;
+    accordion.Close(toggleBtnEl);
     syncNavItemLinkClass(linkEl, false);
 
     document.removeEventListener("keydown", item.handlers.documentEscape, true);
@@ -106,7 +111,7 @@ function handleDocumentEscape(item) {
 
 function handleOutsideClick(item) {
     return (e) => {
-        const { toggleBtnEl, subMenuEl } = item;
+        const {toggleBtnEl, subMenuEl} = item;
         if (toggleBtnEl?.contains(e.target)) return;
         if (subMenuEl?.contains(e.target)) return;
         closeSubMenu(item);
@@ -137,7 +142,7 @@ function handleFocusOut(item) {
         // is null when clicking non-focusable whitespace, so we track mousedown instead.
         if (item.clickingInsideSubMenu) return;
 
-        const { toggleBtnEl, subMenuEl } = item;
+        const {toggleBtnEl, subMenuEl} = item;
         const focusMovingTo = e.relatedTarget;
         if (subMenuEl?.contains(focusMovingTo)) return;
         if (toggleBtnEl?.contains(focusMovingTo)) return;
