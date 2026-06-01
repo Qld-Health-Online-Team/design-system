@@ -1,5 +1,5 @@
 import { LinkColumns } from "./LinkColumns";
-import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
+import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const linkColumnsArgs = {
@@ -43,7 +43,7 @@ export default {
     title: "3. Components/Link Columns",
     render: LinkColumns,
     argTypes: {
-        ariaLabel: {control: "text", description: "The aria "},
+        ariaLabel: { control: "text", description: "The aria " },
         columns: {
             control: {
                 type: "radio",
@@ -56,51 +56,46 @@ export default {
             options: [1, 2, 3],
             description: "The number of columns formatted in the link columns",
             table: {
-                defaultValue: {summary: 1},
+                defaultValue: { summary: 1 },
             },
         },
-        data: {control: "array", description: "The link the user will be taken to on click"},
-        hasViewAll: {control: "boolean", description: "Whether to show the 'View all' link"},
+        data: { control: "array", description: "The link the user will be taken to on click" },
+        hasViewAll: { control: "boolean", description: "Whether to show the 'View all' link" },
         viewAllHref: {
             control: "text",
             description: "The link the 'View all' button will navigate to",
-            if: {arg: "hasViewAll", eq: true}
+            if: { arg: "hasViewAll", eq: true },
         },
     },
-    args: {...linkColumnsArgs},
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.linkColumns.design,
-        },
-    },
+    args: { ...linkColumnsArgs },
+    parameters: storyParams("linkColumns"),
 };
 
-const renderVariant = (variant) => LinkColumns({...linkColumnsArgs, ...variant.args});
+const renderVariant = (variant) => LinkColumns({ ...linkColumnsArgs, ...variant.args });
 
 export const Default = {};
 
 export const defaultVariant = {
-    tags: ["!dev"]
-}
+    tags: ["!dev"],
+};
 
 export const columns1Variant = {
-    args: {columns: 1},
-    tags: ["!dev"]
-}
+    args: { columns: 1 },
+    tags: ["!dev"],
+};
 
 export const columns2Variant = {
-    args: {columns: 2},
-    tags: ["!dev"]
-}
+    args: { columns: 2 },
+    tags: ["!dev"],
+};
 export const columns3Variant = {
-    args: {columns: 3},
-    tags: ["!dev"]
-}
+    args: { columns: 3 },
+    tags: ["!dev"],
+};
 export const noViewAllVariant = {
-    args: {columns: 3, hasViewAll: false},
-    tags: ["!dev"]
-}
+    args: { columns: 3, hasViewAll: false },
+    tags: ["!dev"],
+};
 
 export const allVariants = () => {
     return `

@@ -1,5 +1,5 @@
 import { RadioButtons } from "./RadioButtons";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const radioButtonsArgs = {
@@ -40,12 +40,7 @@ export default {
         isSmall: { control: "boolean", description: "If the radio buttons should use it's smaller variant" },
     },
     args: { ...radioButtonsArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.radioButtons.design,
-        },
-    },
+    parameters: storyParams("radioButtons"),
 };
 
 export const Default = {};

@@ -1,5 +1,5 @@
 import { Tags } from "./Tags";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const tagsArgs = {
@@ -48,12 +48,7 @@ export default {
         },
     },
     args: { ...tagsArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.tags.design,
-        },
-    },
+    parameters: storyParams("tags"),
 };
 
 export const Default = {};

@@ -1,5 +1,5 @@
 import { Checkboxes } from "./Checkboxes";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const checkboxesArgs = {
@@ -40,12 +40,7 @@ export default {
         isSmall: { control: "boolean", description: "If the check box should use it's smaller variant" },
     },
     args: { ...checkboxesArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.checkboxes.design,
-        },
-    },
+    parameters: storyParams("checkboxes"),
 };
 
 export const Default = {};

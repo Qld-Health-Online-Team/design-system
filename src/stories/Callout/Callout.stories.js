@@ -1,35 +1,22 @@
 import Template from "../../components/callout/html/component.hbs";
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import { storyParams, themes } from "../../../.storybook/globals";
 
-const renderCallout = ({
-    assetId,
-    idField,
-    bodyBackground,
-    type,
-    background,
-    heading,
-    headingVisible,
-    body,
-    calendarIntro,
-    calendarDate,
-    calendarName,
-    ...args
-}) =>
+const renderCallout = ({ assetId, idField, bodyBackground, type, background, heading, headingVisible, body, calendarIntro, calendarDate, calendarName, ...args }) =>
     Template({
         component: {
             assetid: assetId,
             data: {
                 metadata: {
-                    id_field: {value: idField},
-                    body_background: {value: bodyBackground},
-                    type: {value: type},
-                    background: {value: background},
-                    heading: {value: heading},
-                    heading_visible: {value: headingVisible},
-                    body: {value: body},
-                    calendar_intro: {value: calendarIntro},
-                    calendar_date: {value: calendarDate},
-                    calendar_name: {value: calendarName},
+                    id_field: { value: idField },
+                    body_background: { value: bodyBackground },
+                    type: { value: type },
+                    background: { value: background },
+                    heading: { value: heading },
+                    heading_visible: { value: headingVisible },
+                    body: { value: body },
+                    calendar_intro: { value: calendarIntro },
+                    calendar_date: { value: calendarDate },
+                    calendar_name: { value: calendarName },
                 },
             },
         },
@@ -40,8 +27,8 @@ const meta = {
     title: "3. Components/Callout",
     render: renderCallout,
     argTypes: {
-        assetId: {description: "The ID of the asset.", control: "text"},
-        idField: {description: "The ID of the field.", control: "text"},
+        assetId: { description: "The ID of the asset.", control: "text" },
+        idField: { description: "The ID of the field.", control: "text" },
         bodyBackground: {
             description: "The background colour of the callout body.",
             control: {
@@ -81,7 +68,7 @@ const meta = {
             },
             options: ["", "qld__callout--light", "qld__callout--alt", "qld__callout--dark", "qld__callout--dark-alt"],
         },
-        heading: {description: "The heading of the callout.", control: "text"},
+        heading: { description: "The heading of the callout.", control: "text" },
         headingVisible: {
             description: "Whether the heading is visible.",
             control: {
@@ -93,10 +80,10 @@ const meta = {
             },
             options: ["", "qld__callout__heading--sronly"],
         },
-        body: {description: "The body of the callout.", control: "text"},
-        calendarIntro: {description: "The calendar introduction of the callout.", control: "text"},
-        calendarDate: {description: "The calendar date of the callout.", control: "text"},
-        calendarName: {description: "The calendar name of the callout.", control: "text"},
+        body: { description: "The body of the callout.", control: "text" },
+        calendarIntro: { description: "The calendar introduction of the callout.", control: "text" },
+        calendarDate: { description: "The calendar date of the callout.", control: "text" },
+        calendarName: { description: "The calendar name of the callout.", control: "text" },
     },
     args: {
         assetId: "Callout-123",
@@ -111,12 +98,7 @@ const meta = {
         calendarDate: "Sunday 1 January 2026",
         calendarName: "New Year's Day",
     },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.callout.design,
-        },
-    },
+    parameters: storyParams("callout"),
 };
 
 export default meta;
@@ -127,9 +109,9 @@ export const allVariants = (theme, background) => {
     return `
         <div class="${theme}" style="padding: 2rem;">
             <h3>Callout</h3>
-            ${renderCallout({...meta.args, bodyBackground: background})}
+            ${renderCallout({ ...meta.args, bodyBackground: background })}
             <h3>Calendar Event</h3>
-            ${renderCallout({...meta.args, type: "qld__callout--calendar-event", bodyBackground: background})}
+            ${renderCallout({ ...meta.args, type: "qld__callout--calendar-event", bodyBackground: background })}
         </div>
     `;
 };
@@ -137,16 +119,16 @@ allVariants.tags = ["!dev"];
 
 export const noTitle = {
     args: {
-        headingVisible: "qld__callout__heading--sronly"
+        headingVisible: "qld__callout__heading--sronly",
     },
 };
 
 export const noBody = {
-    args: {body: ""}
+    args: { body: "" },
 };
 
 export const calendar = {
-    args: {type: "qld__callout--calendar-event"}
+    args: { type: "qld__callout--calendar-event" },
 };
 
 export const white = {

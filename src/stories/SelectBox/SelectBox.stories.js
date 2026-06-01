@@ -1,5 +1,5 @@
 import { SelectBox } from "./SelectBox";
-import { themes, figmaLinks } from "../../../.storybook/globals";
+import { themes, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const selectBoxArgs = {
@@ -96,12 +96,7 @@ export default {
         },
     },
     args: { ...selectBoxArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.selectBox.design,
-        },
-    },
+    parameters: storyParams("selectBox"),
 };
 
 export const Default = {};
