@@ -68,12 +68,6 @@ export const Default = {
         // Plain wrapper with nothing else
         return `<div class="qld__grid">${renderNavbar(args)}</div>`;
     },
-    decorators: [
-        (Story) => {
-            // Simply return the story HTML without the global theme wrapper
-            return Story();
-        },
-    ],
 };
 
 // Variants

@@ -1,5 +1,4 @@
-import Handlebars from "handlebars";
-import Template from "../../components/header/html/component.hbs?raw";
+import Template from "../../components/header/html/component.hbs";
 import { cleanStorybookUrls } from "../../../.storybook/helper-functions";
 import { renderNavbar, navbarArgs } from "../Navbar/Navbar";
 
@@ -7,8 +6,7 @@ import { renderNavbar, navbarArgs } from "../Navbar/Navbar";
 export const renderHeader = (args) => {
     const navbarHTML = renderNavbar({ ...navbarArgs, ...args });
 
-    const template = Handlebars.compile(Template);
-    const headerHTML = template({
+    const headerHTML = Template({
         site: {
             metadata: {
                 defaultBannerContainedBanner: { value: args.defaultBannerContainedBanner },
