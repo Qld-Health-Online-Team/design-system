@@ -99,7 +99,7 @@
                         <form role="search" aria-label="sitewide" class="qld__search-form" id="search-form-global-basic" action="{{site.metadata.siteSearchUrl.value}}">
                             <div class="qld__search-form__inner">
                                 <svg class="qld__icon qld__icon--sm qld__search-form__inner-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#search"></use></svg>
-                                <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" disabled="true" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}}{{rawEncoded resultsPage.question.query}}{{/contains}}{{/ifCond}}">
+                                <input type="search" id="search-input-global-basic-query" name="query" class="qld__text-input data-hj-allow" aria-expanded="false" autocomplete="off" disabled="true" value="{{#ifCond resultsPage.question.query '!==' '!padrenull'}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}}{{renderEncoded resultsPage.question.query}}{{/contains}}{{/ifCond}}">
                                 <input type="text" id="name" name="name" autocomplete="off" tabindex="-1" class="qld__text-input--validation">
                                 <div class="qld__search-form__btn">
                                     <button class="qld__btn qld__btn--search" type="button" aria-label="Search" disabled="true">
@@ -124,7 +124,7 @@
             <div class="col-xs-12 col-md-12">
                 <div class="qld__search__info">
                     <div class="qld__search__info-query">
-                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' ''}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}} for <span class="qld__search__info-query-term">'{{rawEncoded resultsPage.question.query}}'</span>{{/contains}}{{/ifCond}}</h2>
+                        <h2 class="qld__display-lg">Results{{#ifCond resultsPage.question.query '!==' ''}}{{#contains resultsPage.question.query 'hhsid:'}}{{else}} for <span class="qld__search__info-query-term">'{{renderEncoded resultsPage.question.query}}'</span>{{/contains}}{{/ifCond}}</h2>
                     </div>
                     <div class="qld__search__info-inner">
                         <div class="qld__search__info-summary">
@@ -327,7 +327,7 @@
                     <div class="qld__abstract">
                         Did you mean <a href="{{spell.url}}">'{{spell.text}}'</a>
                     </div>
-                    <h2 class="qld__display-lg"><span>Our search for </span><span class="qld__search__info-query-term">'{{question.query}}'</span> didn't return any results.</h2>
+                    <h2 class="qld__display-lg"><span>Our search for </span><span class="qld__search__info-query-term">'{{renderEncoded resultsPage.question.query}}'</span> didn't return any results.</h2>
                     <p class="qld__abstract">You could try:</p>
                     <ul class="qld__search-link-list qld__link-list">
                         <li>Check the spelling of your keywords.</li>
