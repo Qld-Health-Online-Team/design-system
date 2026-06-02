@@ -67,6 +67,7 @@ export const componentLinks = {
         figma: `${figmaBase}?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
     footer: { ds: `${dsBase}/components/footer`, figma: `${figmaBase}?node-id=5990-97582&p=f&t=xM7nOPN0NPouiFDO-0` },
+    forms: { ds: `${dsBase}/components/forms` },
     globalAlert: {
         ds: `${dsBase}/components/global-alert`,
         figma: `${figmaBase}?node-id=5990-97590&p=f&t=DWJ5IM0EPnQV6Sui-0`,

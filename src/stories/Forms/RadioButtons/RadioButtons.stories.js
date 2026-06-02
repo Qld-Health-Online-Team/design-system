@@ -1,6 +1,6 @@
 import { RadioButtons } from "./RadioButtons";
-import { themes, storyParams } from "../../../.storybook/globals";
-import { themeWrapper } from "../../../.storybook/helper-functions.js";
+import { themes, storyParams } from "../../../../.storybook/globals";
+import { themeWrapper } from "../../../../.storybook/helper-functions.js";
 
 const radioButtonsArgs = {
     id: "rb1",
@@ -22,7 +22,7 @@ const radioButtonsArgs = {
 };
 
 export default {
-    title: "3. Components/Radio Buttons",
+    title: "3. Components/Forms/Radio Buttons",
     render: RadioButtons,
     argTypes: {
         id: { control: "text", description: "The id for this component" },

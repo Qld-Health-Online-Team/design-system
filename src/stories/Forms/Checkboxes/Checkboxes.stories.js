@@ -1,6 +1,6 @@
 import { Checkboxes } from "./Checkboxes";
-import { themes, storyParams } from "../../../.storybook/globals";
-import { themeWrapper } from "../../../.storybook/helper-functions";
+import { themes, storyParams } from "../../../../.storybook/globals";
+import { themeWrapper } from "../../../../.storybook/helper-functions";
 
 const checkboxesArgs = {
     id: "cb1",
@@ -22,7 +22,7 @@ const checkboxesArgs = {
 };
 
 export default {
-    title: "3. Components/Checkboxes",
+    title: "3. Components/Forms/Checkboxes",
     render: (args) => Checkboxes(args),
     argTypes: {
         id: { control: "text", description: "The id for this component" },

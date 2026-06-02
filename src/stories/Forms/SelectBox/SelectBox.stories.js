@@ -1,6 +1,6 @@
 import { SelectBox } from "./SelectBox";
-import { themes, storyParams } from "../../../.storybook/globals";
-import { themeWrapper } from "../../../.storybook/helper-functions.js";
+import { themes, storyParams } from "../../../../.storybook/globals";
+import { themeWrapper } from "../../../../.storybook/helper-functions.js";
 
 const selectBoxArgs = {
     id: "select1",
@@ -25,7 +25,7 @@ const selectBoxArgs = {
 };
 
 export default {
-    title: "3. Components/Select Box",
+    title: "3. Components/Forms/Select Box",
     render: SelectBox,
     argTypes: {
         id: { control: "text", description: "The id for this component" },
