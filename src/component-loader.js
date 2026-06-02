@@ -6,6 +6,7 @@ import initLeftHandNav from "./components/left_hand_navigation/js/global.js";
 import initPromoPanel from "./components/promo_panel/js/global.js";
 import initVideoPlayer from "./components/video_player/js/global.js";
 import {initMegaMenu} from "./components/mega_main_navigation/js/global"
+import { initGlobalAlert } from "./components/global_alert/js/global.js";
 
 // Global components
 import initCtaLinks from "./components/_global/js/cta_links/global.js";
@@ -23,5 +24,6 @@ export default function initComponents() {
         initPromoPanel(document);
         initSelectBoxes(document);
         initVideoPlayer(document);
+        initGlobalAlert();
     });
 }
