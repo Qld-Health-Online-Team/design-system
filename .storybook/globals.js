@@ -54,6 +54,10 @@ export const componentLinks = {
     },
     button: { ds: `${dsBase}/components/button`, figma: `${figmaBase}?node-id=5990-98058&p=f&t=pMQreNNlQuuKMxlD-0` },
     callout: { ds: `${dsBase}/components/callout`, figma: `${figmaBase}?node-id=5990-98115&p=f&t=3aGzWYalpb1UXS73-0` },
+    card: {
+        ds: `${dsBase}/components/card`,
+        figma: `${figmaBase}?node-id=120360-98159&t=SzNNrsljtXa1LjkF-0`,
+    },
     checkboxes: {
         ds: `${dsBase}/components/checkbox`,
         figma: `${figmaBase}?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0`,
