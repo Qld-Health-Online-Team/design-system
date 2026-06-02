@@ -54,6 +54,7 @@ function render(args) {
 const sampleChildren = [
     {
         asset_assetid: "10",
+        asset_name: 'Default Example',
         asset_short_name: "Services",
         asset_metadata_shortDescription: "Find a service near you.",
         children: [
@@ -66,24 +67,28 @@ const sampleChildren = [
                 asset_url: "#",
             },
             {
+                asset_metadata_showInMegaNav: "true",
                 asset_assetid: "11",
                 asset_short_name: "Hospitals",
                 asset_url: "#",
                 asset_metadata_shortDescription: "Public hospital locations."
             },
             {
+                asset_metadata_showInMegaNav: "true",
                 asset_assetid: "12",
                 asset_short_name: "Community health",
                 asset_url: "#",
                 asset_metadata_shortDescription: "Local clinics and outreach."
             },
             {
+                asset_metadata_showInMegaNav: "true",
                 asset_assetid: "13",
                 asset_short_name: "Mental health",
                 asset_url: "#",
                 asset_metadata_shortDescription: "Support and crisis services."
             },
             {
+                asset_metadata_showInMegaNav: "true",
                 asset_assetid: "14",
                 asset_short_name: "Aged care",
                 asset_url: "#",
