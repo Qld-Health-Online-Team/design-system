@@ -12,7 +12,7 @@ const tagsArgs = {
 
 export default {
     title: "3. Components/Tags",
-    render: (args) => Tags(args),
+    render: Tags,
     argTypes: {
         type: {
             control: {
