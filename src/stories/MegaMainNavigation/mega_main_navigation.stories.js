@@ -54,7 +54,7 @@ function render(args) {
 const sampleChildren = [
     {
         asset_assetid: "10",
-        asset_name: 'Default Example',
+        asset_name: 'Services',
         asset_short_name: "Services",
         asset_metadata_shortDescription: "Find a service near you.",
         children: [
@@ -100,6 +100,7 @@ const sampleChildren = [
     },
     {
         asset_assetid: "20",
+        asset_name: 'Conditions & treatments',
         asset_short_name: "Conditions & treatments",
         asset_metadata_shortDescription: "Information about health conditions.",
         children: [
@@ -111,10 +112,20 @@ const sampleChildren = [
                 asset_short_name: "Conditions & treatments",
                 asset_url: "#",
             },
-            {asset_assetid: "21", asset_short_name: "Heart health", asset_url: "#"},
-            {asset_assetid: "22", asset_short_name: "Diabetes", asset_url: "#"},
-            {asset_assetid: "23", asset_short_name: "Cancer", asset_url: "#"},
-            {asset_assetid: "24", asset_short_name: "Immunisation", asset_url: "#"},
+            {
+                asset_metadata_showInMegaNav: "true",
+                asset_assetid: "21",
+                asset_short_name: "Heart health",
+                asset_url: "#"
+            },
+            {asset_metadata_showInMegaNav: "true", asset_assetid: "22", asset_short_name: "Diabetes", asset_url: "#"},
+            {asset_metadata_showInMegaNav: "true", asset_assetid: "23", asset_short_name: "Cancer", asset_url: "#"},
+            {
+                asset_metadata_showInMegaNav: "true",
+                asset_assetid: "24",
+                asset_short_name: "Immunisation",
+                asset_url: "#"
+            },
         ],
     },
     {
@@ -200,7 +211,7 @@ export const Default = {
     // parent. Give the docs Canvas room for an opened panel.
     parameters: {
         docs: {
-            story: { height: "550px" },
+            story: {height: "550px"},
         },
     },
 };
