@@ -8,6 +8,7 @@ import MegaMainNavMeta from "./mega_main_navigation.stories.js";
 const meta = {
     ...MegaMainNavMeta,
     title: "3. Components/Mega Main Navigation/Accessibility",
+    tags: ["!autodocs"],
     parameters: {
         ...MegaMainNavMeta.parameters,
         chromatic: { disableSnapshot: true },
