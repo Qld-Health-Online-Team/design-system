@@ -1,176 +1,167 @@
-(function () {
-    /**
-     * The mega menu module
-     *
-     * @module megaMenu
-     */
-    var megaMenu = {
-        /**
-         * Initialise the mega menu listeners for keyboard navigation
-         *
-         * @memberof module:megaMenu
-         */
-        init: function () {
-            // Top level items
-            var topNavItems = document.querySelectorAll(".qld__main-nav__item");
-            topNavItems.forEach(function (item) {
-                var toggleBtn = item.querySelector(".qld__main-nav__item-title > button")
-                var anchor = item.querySelector(".qld__main-nav__item-title > a")
-                var el = anchor.offsetParent !== null ? anchor : toggleBtn;
-                if (!el) return;
-                el.addEventListener("keydown", handleTopNavKeydown);
-                el.addEventListener("focusin", toggleMenu);
-                el.addEventListener("focusout", handleTopNavFocusout);
-            })
+/**
+ * Mega main navigation keyboard and interaction behaviour.
+ *
+ * Each nav item with a submenu supports:
+ *  - Click toggle button: open/close submenu
+ *  - ESC (anywhere in document): close submenu, prevent sidebar from also closing
+ *  - Click outside: close submenu
+ *  - Arrow Up/Down: move focus between submenu items
+ *  - Focusout (toggle button or submenu): close submenu unless focus stays within
+ */
 
-            // Mega menu items
-            var menuItems = document.querySelectorAll(".qld__main-nav__menu-sub a");
-            menuItems.forEach(function (item) {
-                item.addEventListener("keydown", handleMenuKeypress);
-            });
-        },
-    };
+import {accordion} from "../../accordion/js/global.js";
 
-    /**
-     * Handle keydown on top level nav item to close the menu
-     * if ESCAPE or UP key are pressed
-     *
-     * @memberof module:megaMenu
-     * @instance
-     * @private
-     *
-     * @param {Document.event} e
-     */
-    function handleTopNavKeydown(e) {
-        var key = e.keyCode;
+/** Selector matching all interactive elements that can receive focus. */
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-        // ESC or UP ARROW
-        if (key === 27 || key == 38) {
-            toggleMenu(e);
-            QLD.accordion.Toggle(e.target)
-        }
-    }
+export function initMegaMenu() {
+    const navItemEls = document.querySelectorAll(".qld__main-nav__item");
 
-    /**
-     * Handle focusout of top level nav items.
-     * Close the menu, unless we have tabbed within
-     *
-     * @memberof module:megaMenu
-     * @instance
-     * @private
-     *
-     * @param {Document.event} e
-     */
-    function handleTopNavFocusout(e) {
-        var link = e.target;
-        var navItem = link.closest(".qld__main-nav__item");
-        var expanded = navItem.classList.contains("expanded") ? true : false;
-        var menu = navItem.querySelector(".qld__main-nav__menu-sub");
+    const navItems = Array.from(navItemEls).map((item) => {
+        const navItemTitle = item.querySelector(".qld__main-nav__item-title");
+        if (!navItemTitle) return null;
+        const toggleBtnEl = navItemTitle.querySelector("button");
+        return {
+            linkEl: navItemTitle.querySelector("a"),
+            toggleBtnEl,
+            subMenuEl: item.querySelector(".qld__main-nav__menu-sub"),
+            clickingInsideSubMenu: false,
+            handlers: {},
+        };
+    }).filter(Boolean);
 
-        // Short delay to ensure we are on the new active element
-        // Close the menu, unless we have tabbed within
-        setTimeout(function () {
-            let menuHasFocus;
-            if (menu) {
-                menuHasFocus = menu.contains(document.activeElement) ? true : false;
-            }
-            if (!menuHasFocus && expanded) {
-                toggleMenu(e);
-            }
-        }, 20);
-    }
-
-    /**
-     * Toggle the mega menu open/closed
-     *
-     * @memberof module:megaMenu
-     * @instance
-     * @private
-     *
-     * @param {Document.event} e
-     */
-    function toggleMenu(e) {
-        var link = e.target;
-        var navItem = link.closest(".qld__main-nav__item");
-        var expanded = navItem.classList.contains("expanded") ? true : false;
-
-        if (!expanded) {
-            navItem.classList.add("expanded");
-            setTimeout(function () {
-                document.addEventListener("click", handleBackgroundClick);
-            }, 30);
-        } else {
-            navItem.classList.remove("expanded");
-            document.removeEventListener("click", handleBackgroundClick);
-        }
-    }
-
-    /**
-     * Close the mega menu if the user clicks outside of it while opened
-     *
-     * @memberof module:megaMenu
-     * @instance
-     * @private
-     *
-     * @param {Document.event} e
-     */
-    function handleBackgroundClick(e) {
-        var target = e.target;
-        var nav = document.querySelector(".qld__main-nav__menu-inner");
-
-        // If clicked outside nav
-        if (!nav.contains(target)) {
-            // Close any expanded menu(s)
-            document.querySelectorAll(".qld__main-nav__item.expanded").forEach(function (item) {
-                item.classList.remove("expanded");
-            });
-
-            // Remove listener
-            document.removeEventListener("click", handleBackgroundClick);
-        }
-    }
-
-    /**
-     * Handle keypress for item within mega menu.
-     * Close the menu on press of ESCAPE or UP
-     * After TAB press, check if focus is still within menu,
-     * and close if it's not
-     *
-     * @memberof module:megaMenu
-     * @instance
-     * @private
-     *
-     * @param {Document.event} e
-     */
-    function handleMenuKeypress(e) {
-        var link = e.target;
-        var key = e.keyCode;
-        var navItem = link.closest(".qld__main-nav__item");
-        var menu = link.closest(".qld__main-nav__menu-sub");
-        var button = navItem.querySelector(".qld__main-nav__item-title > button")
-        var anchor = navItem.querySelector(".qld__main-nav__item-title > a")
-        var focusTarget = anchor.offsetParent !== null ? anchor : button;
-
-        // ESC or UP ARROW
-        if (key === 27 || key == 38) {
-            focusTarget.focus();
-            toggleMenu(e);
-            QLD.accordion.Toggle(button);
-        }
-
-        // If TAB key is pressed only (not SHIFT + TAB)
-        if (key === 9 && !e.shiftKey) {
-            setTimeout(function () {
-                var menuHasFocus = menu.contains(document.activeElement) ? true : false;
-                if (!menuHasFocus) {
-                    toggleMenu(e);
-                    QLD.accordion.Toggle(button)
-                }
-            }, 20);
-        }
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {
-        megaMenu.init();
+    // Single shared mouseup listener to reset the clickingInsideSubMenu flag
+    // across all items. Registered once rather than once per item.
+    document.addEventListener("mouseup", () => {
+        navItems.forEach((item) => {
+            item.clickingInsideSubMenu = false;
+        });
     });
-})();
+
+    navItems.forEach((item) => {
+        const {toggleBtnEl, subMenuEl} = item;
+        item.handlers.click = handleToggleBtnClick(item, navItems);
+        toggleBtnEl?.addEventListener("click", item.handlers.click);
+
+        subMenuEl?.addEventListener("mousedown", () => {
+            item.clickingInsideSubMenu = true;
+        });
+    });
+}
+
+function handleToggleBtnClick(item, navItems) {
+    return () => {
+        const {toggleBtnEl} = item;
+        if (isSubMenuOpen(toggleBtnEl)) {
+            closeSubMenu(item);
+        } else {
+            closeAllSubMenus(navItems, item);
+            openSubMenu(item);
+        }
+    };
+}
+
+/**
+ * Opens the submenu and registers all associated event listeners.
+ * Listeners are stored on item.handlers so they can be removed on close.
+ */
+function openSubMenu(item) {
+    const {linkEl, toggleBtnEl, subMenuEl} = item;
+    accordion.Open(toggleBtnEl);
+    syncNavItemLinkClass(linkEl, true);
+
+    item.handlers.documentEscape = handleDocumentEscape(item);
+    item.handlers.outsideClick = handleOutsideClick(item);
+    item.handlers.focusOut = handleFocusOut(item);
+    item.handlers.subMenuKeyDown = handleSubMenuKeyDown(item);
+
+    // Capture phase ensures this fires before the sidebar's bubble-phase keydown
+    // listener, so ESC closes the submenu first without also closing the sidebar.
+    document.addEventListener("keydown", item.handlers.documentEscape, true);
+    document.addEventListener("click", item.handlers.outsideClick);
+    subMenuEl?.addEventListener("focusout", item.handlers.focusOut);
+    subMenuEl?.addEventListener("keydown", item.handlers.subMenuKeyDown);
+    toggleBtnEl?.addEventListener("focusout", item.handlers.focusOut);
+}
+
+/**
+ * Closes the submenu and removes all associated event listeners registered in openSubMenu.
+ */
+function closeSubMenu(item) {
+    const {linkEl, toggleBtnEl, subMenuEl} = item;
+    accordion.Close(toggleBtnEl);
+    syncNavItemLinkClass(linkEl, false);
+
+    document.removeEventListener("keydown", item.handlers.documentEscape, true);
+    document.removeEventListener("click", item.handlers.outsideClick);
+    subMenuEl?.removeEventListener("focusout", item.handlers.focusOut);
+    subMenuEl?.removeEventListener("keydown", item.handlers.subMenuKeyDown);
+    toggleBtnEl?.removeEventListener("focusout", item.handlers.focusOut);
+}
+
+function handleDocumentEscape(item) {
+    return (e) => {
+        if (e.key !== "Escape") return;
+        // Prevent the sidebar's keydown listener from also firing on this keypress.
+        e.stopImmediatePropagation();
+        closeSubMenu(item);
+        item.toggleBtnEl?.focus();
+    };
+}
+
+function handleOutsideClick(item) {
+    return (e) => {
+        const {toggleBtnEl, subMenuEl} = item;
+        if (toggleBtnEl?.contains(e.target)) return;
+        if (subMenuEl?.contains(e.target)) return;
+        closeSubMenu(item);
+    };
+}
+
+function handleSubMenuKeyDown(item) {
+    return (e) => {
+        if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+        e.preventDefault();
+
+        const focusableItems = Array.from(item.subMenuEl.querySelectorAll(FOCUSABLE_SELECTOR));
+        const currentIndex = focusableItems.indexOf(e.target);
+
+        if (e.key === "ArrowDown") {
+            focusableItems[currentIndex + 1]?.focus();
+        } else {
+            focusableItems[currentIndex - 1]?.focus();
+        }
+    };
+}
+
+function handleFocusOut(item) {
+    return (e) => {
+        // Keep menu open if the window lost focus (e.g. user switched app).
+        if (!document.hasFocus()) return;
+        // Keep menu open if the user is clicking within the submenu — relatedTarget
+        // is null when clicking non-focusable whitespace, so we track mousedown instead.
+        if (item.clickingInsideSubMenu) return;
+
+        const {toggleBtnEl, subMenuEl} = item;
+        const focusMovingTo = e.relatedTarget;
+        if (subMenuEl?.contains(focusMovingTo)) return;
+        if (toggleBtnEl?.contains(focusMovingTo)) return;
+        closeSubMenu(item);
+    };
+}
+
+function isSubMenuOpen(toggleBtnEl) {
+    return toggleBtnEl.getAttribute("aria-expanded") === "true";
+}
+
+function syncNavItemLinkClass(linkEl, isOpen) {
+    linkEl?.classList.toggle("qld__main-nav__item-link--open", isOpen);
+}
+
+function closeAllSubMenus(navItems, currentItem) {
+    navItems.forEach((item) => {
+        if (item === currentItem) return;
+        if (!item.toggleBtnEl) return;
+        if (isSubMenuOpen(item.toggleBtnEl)) closeSubMenu(item);
+    });
+}

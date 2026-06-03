@@ -294,7 +294,7 @@
                         // Add key listener
                         mobileNavEvents.escKey = addEvent(
                             document,
-                            "keyup",
+                            "keydown",
                             function () {
                                 var event = event || window.event;
                                 var overlayOpen = getStyle(overlay, "display");
@@ -382,44 +382,6 @@
         navToggles.forEach(function (button) {
             button.addEventListener("click", function () {
                 mobileNav.Toggle(button);
-            });
-        });
-
-        // Add toggle event listeners to accordion buttons
-        var itemToggles = document.querySelectorAll(
-            ".qld__main-nav__item-toggle"
-        );
-        itemToggles.forEach(function (button) {
-            button.addEventListener("click", function () {
-                if (
-                    button.className
-                        .split(" ")
-                        .indexOf("qld__accordion--closed") >= 0
-                ) {
-                    button.parentNode
-                        .querySelector(".qld__main-nav__item-link")
-                        .classList.add("qld__main-nav__item-link--open");
-                    itemToggles.forEach(function (item) {
-                        if (
-                            item.className
-                                .split(" ")
-                                .indexOf("qld__accordion--open") >= 0
-                        ) {
-                            item.parentNode
-                                .querySelector(".qld__main-nav__item-link")
-                                .classList.remove(
-                                    "qld__main-nav__item-link--open"
-                                );
-                            QLD.accordion.Close(item);
-                        }
-                    });
-                } else {
-                    button.parentNode
-                        .querySelector(".qld__main-nav__item-link")
-                        .classList.remove("qld__main-nav__item-link--open");
-                }
-
-                QLD.accordion.Toggle(button);
             });
         });
 
