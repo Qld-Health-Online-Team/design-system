@@ -115,8 +115,13 @@
         );
 
         if (content.classList.contains(toggleTipVisibleClass)) {
+          const triggerId = lastTriggeredToggleTip.id;
           closeAllToggleTips();
-          lastTriggeredToggleTip.focus();
+          document
+            .querySelector(
+              `${toggleTipTriggerQueryClass}[data-target="${triggerId}"]`,
+            )
+            ?.focus();
         }
       }
     });
