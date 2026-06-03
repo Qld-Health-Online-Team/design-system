@@ -8,22 +8,34 @@ export default {
 
     argTypes: {
         mainNavStyle: {
-            control: "radio",
-            options: ["Light", "Dark"],
-            mapping: {
-                Light: "",
-                Dark: "qld__main-nav--dark",
+            description: "Whether component is light or dark themed.",
+            control: {
+                type: "radio",
+                labels: {
+                    "": "Light",
+                    "qld__main-nav--dark": "Dark",
+                },
             },
+            options: ["", "qld__main-nav--dark"],
+            default: "",
         },
-
         mainNavMegaMenuShow: {
-            control: "radio",
+            description: "Whether the mega menu is displayed.",
+            control: {
+                type: "radio",
+                labels: {
+                    true: "Yes",
+                    false: "No",
+                },
+            },
             options: ["true", "false"],
+            default: "true",
         },
         mainNavPageDescLevelTwo: {
             control: "boolean",
         },
         mainNavHomeIconShow: {
+            description: "Whether the home icon is displayed.",
             control: "boolean",
         },
         mainNavDesktopHide: {
@@ -37,7 +49,6 @@ export default {
         mainNavCtaTwo: { table: { disable: true } },
         mainNavCtaTwoText: { table: { disable: true } },
         mainNavCtaTwoIcon: { table: { disable: true } },
-        coreSiteIcons: { table: { disable: true } },
         sitePreHeaderTheme: { table: { disable: true } },
     },
 
