@@ -1,5 +1,6 @@
 import Template from "../../components/card_feature/html/component.hbs";
 import { storyParams } from "../../../.storybook/globals";
+import ToowoombaIMage from "./Toowoomba-web.jpeg";
 
 const mockSite = {
     metadata: { coreSiteIcons: { value: "/QLD-icons.svg" } },
@@ -49,7 +50,13 @@ function buildData(args) {
 }
 
 function render(args) {
-    return Template(buildData(args));
+    const container = document.createElement("div");
+    container.innerHTML = Template(buildData(args));
+    const img = container.querySelector(".qld__responsive-media-img--bg");
+    if (img?.style.backgroundImage) {
+        img.style.backgroundImage = `url(${ToowoombaIMage})`;
+    }
+    return container;
 }
 
 const meta = {
