@@ -1,5 +1,5 @@
 import Template from "../../components/footer/html/component.hbs";
-import { figmaLinks } from "../../../.storybook/globals";
+import { storyParams } from "../../../.storybook/globals";
 
 // Helper to format links for Handlebars
 const formatLinks = (links) =>
@@ -154,7 +154,7 @@ export default {
         },
     },
     args: footerArgs,
-    parameters: { design: { type: "figma", url: figmaLinks.footer.design } },
+    parameters: storyParams("footer"),
 };
 
 // Named exports for stories

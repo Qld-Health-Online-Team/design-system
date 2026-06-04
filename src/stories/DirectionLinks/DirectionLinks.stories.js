@@ -1,5 +1,5 @@
 import { DirectionLinks } from "./DirectionLinks";
-import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
+import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const directionLinksArgs = {
@@ -12,7 +12,6 @@ export default {
     title: "3. Components/Direction Links",
     render: (args) => DirectionLinks(args),
     argTypes: {
-        text: { control: "text", description: "The text displayed as the link" },
         direction: {
             control: {
                 type: "radio",
@@ -32,12 +31,7 @@ export default {
         text: { control: "text", description: "The link the user will be taken to on click" },
     },
     args: { ...directionLinksArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.directionLinks.design,
-        },
-    },
+    parameters: storyParams("directionLinks"),
 };
 
 export const Default = {};

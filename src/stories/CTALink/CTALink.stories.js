@@ -1,5 +1,5 @@
 import { CTALink } from "./CTALink";
-import { themes, figmaLinks, dummyLink } from "../../../.storybook/globals";
+import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const ctaLinkArgs = {
@@ -47,12 +47,7 @@ export default {
         },
     },
     args: { ...ctaLinkArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.ctaLink.design,
-        },
-    },
+    parameters: storyParams("ctaLink"),
 };
 
 export const Default = {};
