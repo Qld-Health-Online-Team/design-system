@@ -57,9 +57,6 @@ export default {
 
 export const Default = {};
 
-export const defaultVariant = (ctaLinkArgs) => CTALink({ ...ctaLinkArgs });
-defaultVariant.tags = ["!dev"];
-
 export const viewAllVariant = (ctaLinkArgs) =>
     CTALink({
         ...ctaLinkArgs,
@@ -76,20 +73,69 @@ disabledVariant.tags = ["!dev"];
 
 export const linkedListExample = (ctaLinkArgs) => {
     return `
-        <ul class="qld__link-list qld__margin-t-li--lg">
+        <ul aria-label="Related links" class="qld__link-columns qld__link-columns--2-col">
             <li>${CTALink({
                 ...ctaLinkArgs,
-                text: "Sign up",
-                href: "javascript:void(0);",
-                target: "",
+                text: "Contact us",
             })}</li>
             <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "About us",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Products",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "FAQ",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Terms and conditions",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Privacy policy",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Blog",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Careers",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Press",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Resources",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Partners",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Events",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Community",
+            })}</li>
+            <li>${CTALink({
+                ...ctaLinkArgs,
+                text: "Sitemap",
+            })}</li>
+            <li class="qld__link-columns__all-link">${CTALink({
                 ...ctaLinkArgs,
                 text: "View all",
-                href: "javascript:void(0);",
-                target: "",
                 isViewAll: true,
-            })}</li>
+            })}
+            </li>
         </ul>
     `;
 };
@@ -98,43 +144,54 @@ linkedListExample.parameters = {
     actions: { disable: true },
 };
 
-const allVariants = () => {
+export const longCtaLinkExample = (ctaLinkArgs) => {
+    return `
+        <div style="width: 300px;">
+            ${CTALink({
+                ...ctaLinkArgs,
+                text: "Super super long link super long link super long link super long link",
+            })}
+        </div>
+    `;
+};
+
+const allVariants = (args) => {
     return `
         <h3>Default</h3>
-        ${defaultVariant(ctaLinkArgs)}
+        ${CTALink(args)}
         <h3>View all</h3>
-        ${viewAllVariant(ctaLinkArgs)}
+        ${viewAllVariant(args)}
         <h3>Disabled</h3>
-        ${disabledVariant(ctaLinkArgs)}
+        ${disabledVariant(args)}
     `;
 };
 
 export const white = {
-    render: () => {
-        return themeWrapper(themes["white"], allVariants());
+    render: (args) => {
+        return themeWrapper(themes["white"], allVariants(args));
     },
 };
 
 export const light = {
-    render: () => {
-        return themeWrapper(themes["light"], allVariants());
+    render: (args) => {
+        return themeWrapper(themes["light"], allVariants(args));
     },
 };
 
 export const lightAlt = {
-    render: () => {
-        return themeWrapper(themes["light alt"], allVariants());
+    render: (args) => {
+        return themeWrapper(themes["light alt"], allVariants(args));
     },
 };
 
 export const dark = {
-    render: () => {
-        return themeWrapper(themes["dark"], allVariants());
+    render: (args) => {
+        return themeWrapper(themes["dark"], allVariants(args));
     },
 };
 
 export const darkAlt = {
-    render: () => {
-        return themeWrapper(themes["dark alt"], allVariants());
+    render: (args) => {
+        return themeWrapper(themes["dark alt"], allVariants(args));
     },
 };
