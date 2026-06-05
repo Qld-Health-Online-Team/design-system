@@ -310,9 +310,9 @@ const accordion = {};
      *
      * @param  {string}  elements - The DOM node/s to toggle
      * @param  {integer} speed    - The speed in ms for the animation
-     *
+     * @param  {Document | HTMLElement}  root     - The root element to search for the target element
      */
-    accordion.Open = function (elements, speed) {
+    accordion.Open = function (elements, speed, root = document) {
 
         // stop event propagation
         try {
@@ -328,7 +328,7 @@ const accordion = {};
 
             var element = elements[i];
             var targetId = element.getAttribute('aria-controls');
-            var target = document.getElementById(targetId);
+            var target = root.querySelector(`[id="${targetId}"]`);
 
             // let’s find out if this accordion is still closed
             var height = 0;
@@ -353,9 +353,9 @@ const accordion = {};
                     category: 'accordion',
                     action: 'close',
                     label: targetId
-                });            
+                });
             }
-            
+
             (function (target, speed, element) {
                 window.QLD.animate.Run({
                     element: target,
@@ -379,9 +379,9 @@ const accordion = {};
      *
      * @param  {string}  elements - The DOM node/s to toggle
      * @param  {integer} speed    - The speed in ms for the animation
-     *
+     * @param  {Document | HTMLElement}  root     - The root element to search for the target element
      */
-    accordion.Close = function (elements, speed) {
+    accordion.Close = function (elements, speed, root = document) {
 
         // stop event propagation
         try {
@@ -397,7 +397,7 @@ const accordion = {};
 
             var element = elements[i];
             var targetId = element.getAttribute('aria-controls');
-            var target = document.getElementById(targetId);
+            var target = root.querySelector(`[id="${targetId}"]`);
 
             toggleClasses(element, 'closing');
             setAriaRoles(element, target, 'closing');
