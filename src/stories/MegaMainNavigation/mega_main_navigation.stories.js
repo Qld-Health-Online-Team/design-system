@@ -2,6 +2,7 @@ import Template from "../../components/mega_main_navigation/html/component.hbs";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global.js";
 import { within, userEvent, expect } from "storybook/test";
 import { storyParams } from "../../../.storybook/globals";
+import { initComponents } from "../../../.storybook/decorators";
 
 function render(args) {
     const { site, children, currentAssetid, showMegaMenu, showHomeIcon, showPageDescLevelOne, showPageDescLevelTwo, showViewAll, preHeaderTheme, navStyle, ctaOneText, ctaOneIcon, ctaTwoText, ctaTwoIcon } = args;
@@ -140,10 +141,25 @@ const sampleChildren = [
     },
 ];
 
+const storyDocs = storyParams("navbar");
+
 const meta = {
     title: "3. Components/Mega Main Navigation",
     render,
-    parameters: storyParams("navbar"),
+    decorators: [initComponents([initMegaMenu])],
+    parameters: {
+        ...storyDocs,
+        docs: {
+            ...storyDocs.docs,
+            story: {
+                ...storyDocs.docs.story,
+                // The open mega-menu panel is position:absolute (see
+                // mega_main_navigation/css/component.scss:154) so it doesn't expand its
+                // parent. Give the docs Canvas room for an opened panel.
+                height: "620px",
+            },
+        },
+    },
     argTypes: {
         showMegaMenu: { name: "Mega menu enabled", control: "boolean" },
         showHomeIcon: { name: "Show home icon", control: "boolean" },
@@ -189,16 +205,7 @@ export default meta;
  * The default light-theme nav with the mega menu enabled, home icon, two CTAs,
  * and a single level of inline descriptions inside the open panel.
  */
-export const Default = {
-    // The open mega-menu panel is position:absolute (see
-    // mega_main_navigation/css/component.scss:154) so it doesn't expand its
-    // parent. Give the docs Canvas room for an opened panel.
-    parameters: {
-        docs: {
-            story: { height: "550px" },
-        },
-    },
-};
+export const Default = {};
 
 /**
  * Dark nav style paired with the dark pre-header theme. Use when the rest of
