@@ -1,5 +1,6 @@
 import Template from "../../components/banner_advanced/html/component.hbs";
 import { storyParams } from "../../../.storybook/globals";
+import ToowoombaImage from "../Cards/Toowoomba-web.jpeg";
 
 const mockLineage = [
     { asset_url: "#", asset_short_name: "Home", asset_type_code: "page", asset_is_site_asset: "1" },
@@ -49,8 +50,8 @@ function buildData(args) {
                     cta_button_primary_link: { value: "#" },
                     cta_button_secondary_text: { value: args.ctaSecondaryText },
                     cta_button_secondary_link: { value: "#" },
-                    cta_link_list_card_background: { value: "alternate" },
-                    cta_icon_tile_background: { value: "dark-alternate" },
+                    cta_link_list_card_background: { value: "" },
+                    cta_icon_tile_background: { value: args.ctaIconTileBackground },
                     cta_icon_tiles_label: { value: args.ctaIconTilesLabel },
                     root_node: { value: args.ctaType !== "buttons" ? "123" : "" },
                 },
@@ -65,11 +66,24 @@ function buildData(args) {
 }
 
 function render(args) {
-    return Template(buildData(args));
+    const container = document.createElement("div");
+    container.innerHTML = Template(buildData(args));
+
+    // The template hardcodes a './?a=' hero image URL that won't resolve in
+    // Storybook, so swap in the bundled image directly on the hero element.
+    // (The '--background' image is the mobile background for image-type banners.)
+    if (args.heroImage) {
+        const hero = container.querySelector(".qld__banner__image:not(.qld__banner__image--background)");
+        if (hero) {
+            hero.style.backgroundImage = `url(${ToowoombaImage})`;
+        }
+    }
+
+    return container;
 }
 
 const meta = {
-    title: "3. Components/Banner Advanced",
+    title: "3. Components/Banner/Advanced",
     render,
     argTypes: {
         headingPrimary: {
@@ -146,10 +160,22 @@ const meta = {
             description: "Accessible label for the icon tile nav (icon-tiles CTA only).",
             control: { type: "text" },
         },
+        ctaIconTileBackground: {
+            description: "Background colour of the icon tiles (icon-tiles CTA only).",
+            control: {
+                type: "select",
+                labels: {
+                    "": "White",
+                    alternate: "Alternate",
+                    dark: "Dark",
+                    "dark-alternate": "Dark Alternate",
+                },
+            },
+            options: ["", "alternate", "dark", "dark-alternate"],
+        },
     },
     args: {
         headingPrimary: "Banner Advanced",
-        headingSecondary: "Subtitle",
         showHeadingBackground: true,
         abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         backgroundColour: "dark",
@@ -163,16 +189,17 @@ const meta = {
         ctaPrimaryText: "Primary action",
         ctaSecondaryText: "Secondary action",
         ctaIconTilesLabel: "Quick links",
+        ctaIconTileBackground: "dark-alternate",
     },
     parameters: storyParams("banner"),
 };
 
 export default meta;
 
-export const Default = {};
-
-export const WithBreadcrumbs = {
-    args: { showBreadcrumbs: true },
+export const Default = {
+    args: {
+        showBreadcrumbs: true,
+    }
 };
 
 export const WithHeroImage = {
@@ -202,13 +229,6 @@ export const WithIconTiles = {
     args: {
         ctaType: "icon-tiles",
         ctaIconTilesLabel: "Services",
-        heroImage: "",
-    },
-};
-
-export const LightTheme = {
-    args: {
-        backgroundColour: "light",
         heroImage: "",
     },
 };
