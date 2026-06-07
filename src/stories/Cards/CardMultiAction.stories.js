@@ -61,7 +61,7 @@ function buildData(args) {
                     card_type: { value: args.cardType },
                     background: { value: args.cardBackground },
                     card_heading_level: { value: "h3" },
-                    icon_align: { value: "" },
+                    icon_align: { value: args.iconAlign },
                     show_arrow: { value: args.showArrow ? "true" : "false" },
                     intro_heading: { value: args.introHeading },
                     intro_heading_level: { value: "h2" },
@@ -81,11 +81,14 @@ function buildData(args) {
 
 function render(args) {
     const container = document.createElement("div");
+    // Render inside #content so the design system's section padding applies
+    // to the body background (it only targets `#content .qld__body` / `form`).
+    container.id = "content";
     container.innerHTML = Template(buildData(args));
-    container.querySelectorAll(".qld__responsive-media-img--bg").forEach((img, i) => {
-        if (img.style.backgroundImage) {
-            img.style.backgroundImage = `url(${ToowoombaImage})`;
-        }
+    // Image slots only render for image-type cards, so always swap in the bundled
+    // image — this avoids a missing image if the source URL fails to load.
+    container.querySelectorAll(".qld__responsive-media-img--bg").forEach((img) => {
+        img.style.backgroundImage = `url(${ToowoombaImage})`;
     });
     return container;
 }
@@ -101,25 +104,53 @@ const meta = {
         },
         colWidth: {
             description: "Column width per card.",
-            control: { type: "select" },
-            options: ["col-xs-12", "col-md-6 col-lg-6", "col-md-6 col-lg-4", "col-md-6 col-lg-3"],
-            labels: {
-                "col-xs-12": "One column",
-                "col-md-6 col-lg-6": "Two columns",
-                "col-md-6 col-lg-4": "Three columns",
-                "col-md-6 col-lg-3": "Four columns",
+            control: {
+                type: "select",
+                labels: {
+                    "col-xs-12": "One column",
+                    "col-md-6 col-lg-6": "Two columns",
+                    "col-md-6 col-lg-4": "Three columns",
+                    "col-md-6 col-lg-3": "Four columns",
+                },
             },
+            options: ["col-xs-12", "col-md-6 col-lg-6", "col-md-6 col-lg-4", "col-md-6 col-lg-3"],
         },
         showArrow: { description: "Show directional arrow on each card.", control: { type: "boolean" } },
         cardBackground: {
             description: "Card background colour.",
-            control: { type: "select" },
+            control: {
+                type: "select",
+                labels: {
+                    "": "White",
+                    "qld__card--light": "Light",
+                    "qld__card--alt": "Alternate",
+                    "qld__card--dark": "Dark",
+                    "qld__card--dark-alt": "Dark Alternate",
+                },
+            },
             options: ["", "qld__card--light", "qld__card--alt", "qld__card--dark", "qld__card--dark-alt"],
         },
         bodyBackground: {
-            description: "Section background colour.",
-            control: { type: "select" },
+            description: "Background colour of the section behind the cards.",
+            control: {
+                type: "select",
+                labels: {
+                    "": "White",
+                    "qld__body--light": "Light",
+                    "qld__body--alt": "Alternate",
+                    "qld__body--dark": "Dark",
+                    "qld__body--dark-alt": "Dark Alternate",
+                },
+            },
             options: ["", "qld__body--light", "qld__body--alt", "qld__body--dark", "qld__body--dark-alt"],
+        },
+        iconAlign: {
+            description: "Alignment of the icon (when card type is icon).",
+            control: {
+                type: "radio",
+                labels: { "": "Stacked", left: "Leading" },
+            },
+            options: ["", "left"],
         },
         introHeading: { description: "Optional section heading above the cards.", control: { type: "text" } },
         showViewAll: { description: "Show a 'View all' link below the cards.", control: { type: "boolean" } },
@@ -129,7 +160,8 @@ const meta = {
         colWidth: "col-md-6 col-lg-4",
         showArrow: true,
         cardBackground: "",
-        bodyBackground: "qld__body--light",
+        bodyBackground: "",
+        iconAlign: "",
         introHeading: "",
         showViewAll: false,
         children: sampleChildren,
@@ -141,8 +173,12 @@ export default meta;
 
 export const Default = {};
 
-export const WithIcons = {
-    args: { cardType: "icon" },
+export const StackedIcon = {
+    args: { cardType: "icon", iconAlign: "" },
+};
+
+export const LeadingIcon = {
+    args: { cardType: "icon", iconAlign: "left" },
 };
 
 export const WithImages = {
@@ -155,6 +191,10 @@ export const TwoColumns = {
 
 export const WithSectionHeading = {
     args: { introHeading: "Related services", showViewAll: true },
+};
+
+export const AlternateBackground = {
+    args: { bodyBackground: "qld__body--alt", cardBackground: "qld__card--alt" },
 };
 
 export const DarkBackground = {

@@ -24,7 +24,6 @@ function buildData(args) {
                     all_link_name: { value: "" },
                     show_icon_image: { value: args.cardType },
                     card_icon: { value: args.cardIcon },
-                    card_image: { value: args.cardImage },
                     card_image_right: { value: args.imageAlignment },
                     show_arrow: { value: args.showArrow ? "true" : "false" },
                     background: { value: args.cardBackground },
@@ -51,9 +50,14 @@ function buildData(args) {
 
 function render(args) {
     const container = document.createElement("div");
+    // Render inside #content so the design system's section padding applies
+    // to the body background (it only targets `#content .qld__body` / `form`).
+    container.id = "content";
     container.innerHTML = Template(buildData(args));
+    // The image slot only renders for image-type cards, so always swap in the
+    // bundled image — this avoids a missing image if the source URL fails to load.
     const img = container.querySelector(".qld__responsive-media-img--bg");
-    if (img?.style.backgroundImage) {
+    if (img) {
         img.style.backgroundImage = `url(${ToowoombaIMage})`;
     }
     return container;
@@ -72,7 +76,6 @@ const meta = {
             options: ["none", "icon", "image"],
         },
         cardIcon: { description: "Icon class (when card type is icon).", control: { type: "text" } },
-        cardImage: { description: "Image URL (when card type is image).", control: { type: "text" } },
         imageAlignment: {
             description: "Aligns the feature image left or right of the content.",
             control: { type: "radio" },
@@ -82,12 +85,30 @@ const meta = {
         showFooter: { description: "Show footer with CTA links.", control: { type: "boolean" } },
         cardBackground: {
             description: "Card background colour.",
-            control: { type: "select" },
+            control: {
+                type: "select",
+                labels: {
+                    "": "White",
+                    "qld__card--light": "Light",
+                    "qld__card--alt": "Alternate",
+                    "qld__card--dark": "Dark",
+                    "qld__card--dark-alt": "Dark Alternate",
+                },
+            },
             options: ["", "qld__card--light", "qld__card--alt", "qld__card--dark", "qld__card--dark-alt"],
         },
         bodyBackground: {
-            description: "Section background colour.",
-            control: { type: "select" },
+            description: "Background colour of the section behind the card.",
+            control: {
+                type: "select",
+                labels: {
+                    "": "White",
+                    "qld__body--light": "Light",
+                    "qld__body--alt": "Alternate",
+                    "qld__body--dark": "Dark",
+                    "qld__body--dark-alt": "Dark Alternate",
+                },
+            },
             options: ["", "qld__body--light", "qld__body--alt", "qld__body--dark", "qld__body--dark-alt"],
         },
         introHeading: { description: "Optional section heading above the card.", control: { type: "text" } },
@@ -99,12 +120,11 @@ const meta = {
         bodyText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         cardType: "none",
         cardIcon: "fal fa-heart",
-        cardImage: "https://placehold.co/782x440",
         imageAlignment: "",
         showArrow: true,
         showFooter: false,
         cardBackground: "",
-        bodyBackground: "qld__body--light",
+        bodyBackground: "",
         introHeading: "",
         introBody: "",
     },
@@ -115,8 +135,8 @@ export default meta;
 
 export const Default = {};
 
-export const WithIcon = {
-    args: { cardType: "icon", cardIcon: "fal fa-heart" },
+export const StackedIcon = {
+    args: { cardType: "icon", cardIcon: "fal fa-heart", showArrow: false },
 };
 
 export const WithImage = {
@@ -133,6 +153,10 @@ export const FeatureImageRight = {
 
 export const WithFooter = {
     args: { showFooter: true },
+};
+
+export const AlternateBackground = {
+    args: { bodyBackground: "qld__body--alt", cardBackground: "qld__card--alt" },
 };
 
 export const DarkBackground = {
