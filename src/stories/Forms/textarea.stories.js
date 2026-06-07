@@ -1,12 +1,12 @@
 import { storyParams } from "../../../.storybook/globals";
 
-function renderTextInput({ label, hint, placeholder, required, optional, state, filled, disabled }) {
-    const inputStateClass = state === "valid" ? " qld__text-input--valid" : state === "error" ? " qld__text-input--error" : "";
+function renderTextarea({ label, hint, placeholder, required, optional, state, filled, disabled, rows }) {
+    const stateClass = state === "valid" ? " qld__text-input--valid" : state === "error" ? " qld__text-input--error" : "";
     const wrapperAttrs = filled ? ' class="qld__form-style-filled"' : "";
 
-    const labelHtml = `<label for="text-input" class="qld__label">` + (required ? `<abbr title="required">*</abbr> ` : "") + label + (optional ? ` <span class="qld__label--optional">(Optional)</span>` : "") + `</label>`;
+    const labelHtml = `<label for="textarea" class="qld__label">` + (required ? `<abbr title="required">*</abbr> ` : "") + label + (optional ? ` <span class="qld__label--optional">(Optional)</span>` : "") + `</label>`;
 
-    const hintHtml = hint ? `\n    <span class="qld__hint-text" id="text-input-hint">${hint}</span>` : "";
+    const hintHtml = hint ? `\n    <span class="qld__hint-text" id="textarea-hint">${hint}</span>` : "";
     const feedbackHtml = state === "valid" ? `\n    <span class="qld__input--success">Looks good</span>` : state === "error" ? `\n    <span class="qld__input--error">This field is required</span>` : "";
 
     return (
@@ -14,27 +14,26 @@ function renderTextInput({ label, hint, placeholder, required, optional, state, 
         `    ${labelHtml}` +
         hintHtml +
         feedbackHtml +
-        `\n    <input\n` +
-        `        type="text"\n` +
-        `        id="text-input"\n` +
-        `        class="qld__text-input qld__text-input--block${inputStateClass}"\n` +
+        `\n    <textarea\n` +
+        `        id="textarea"\n` +
+        `        name="textarea"\n` +
+        `        rows="${rows}"\n` +
+        `        class="qld__text-input qld__text-input--block${stateClass}"\n` +
         (required ? `        aria-required="true"\n` : "") +
-        (hint ? `        aria-describedby="text-input-hint"\n` : "") +
+        (hint ? `        aria-describedby="textarea-hint"\n` : "") +
         (placeholder ? `        placeholder="${placeholder}"\n` : "") +
         (disabled ? `        disabled\n` : "") +
-        `    >\n` +
+        `    ></textarea>\n` +
         `</div>`
     );
 }
 
-// ── Meta ────────────────────────────────────────────────────────────────────
-
 const meta = {
-    title: "3. Components/Forms/Text Input",
-    render: renderTextInput,
+    title: "3. Components/Forms/Textarea",
+    render: renderTextarea,
     argTypes: {
         label: {
-            description: "Label text for the input.",
+            description: "Label text for the textarea.",
             control: { type: "text" },
         },
         hint: {
@@ -42,7 +41,7 @@ const meta = {
             control: { type: "text" },
         },
         placeholder: {
-            description: "Placeholder text inside the input.",
+            description: "Placeholder text inside the textarea.",
             control: { type: "text" },
         },
         required: {
@@ -54,7 +53,7 @@ const meta = {
             control: { type: "boolean" },
         },
         state: {
-            description: "Validation state of the input.",
+            description: "Validation state of the textarea.",
             control: { type: "radio" },
             options: ["", "valid", "error"],
         },
@@ -63,19 +62,24 @@ const meta = {
             control: { type: "boolean" },
         },
         disabled: {
-            description: "Disables the input.",
+            description: "Disables the textarea.",
             control: { type: "boolean" },
+        },
+        rows: {
+            description: "Number of visible text rows.",
+            control: { type: "number" },
         },
     },
     args: {
-        label: "Text field label",
-        hint: "",
+        label: "Tell us your story",
+        hint: "Maximum 300 characters",
         placeholder: "Placeholder text",
         required: false,
         optional: false,
         state: "",
         filled: false,
         disabled: false,
+        rows: 5,
     },
     parameters: {
         ...storyParams("textInput"),
@@ -85,14 +89,11 @@ const meta = {
 
 export default meta;
 
-// ── Stories ─────────────────────────────────────────────────────────────────
-
 export const Default = {};
 
 export const Required = {
     args: {
         required: true,
-        hint: "Hint text",
         placeholder: "",
     },
 };
@@ -100,7 +101,6 @@ export const Required = {
 export const Optional = {
     args: {
         optional: true,
-        hint: "Hint text",
         placeholder: "",
     },
 };
@@ -108,7 +108,6 @@ export const Optional = {
 export const Success = {
     args: {
         state: "valid",
-        hint: "Hint text",
         placeholder: "",
     },
 };
@@ -117,7 +116,6 @@ export const SuccessFilled = {
     args: {
         state: "valid",
         filled: true,
-        hint: "Hint text",
         placeholder: "",
     },
 };

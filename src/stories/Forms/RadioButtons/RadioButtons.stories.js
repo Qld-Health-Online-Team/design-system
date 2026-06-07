@@ -22,7 +22,7 @@ const radioButtonsArgs = {
 };
 
 export default {
-    title: "3. Components/Forms/Radio Buttons",
+    title: "3. Components/Forms/Radio",
     render: RadioButtons,
     argTypes: {
         id: { control: "text", description: "The id for this component" },
