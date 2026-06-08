@@ -25,7 +25,7 @@ const selectBoxArgs = {
 };
 
 export default {
-    title: "3. Components/Forms/Select Box",
+    title: "3. Components/Forms/Select",
     render: SelectBox,
     argTypes: {
         id: { control: "text", description: "The id for this component" },

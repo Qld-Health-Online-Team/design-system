@@ -60,9 +60,9 @@ const meta = {
         },
     },
     args: {
-        pageTitle: "Page title",
-        bannerColour: "",
-        showBreadcrumbs: false,
+        pageTitle: "Default Banner",
+        bannerColour: "alternate",
+        showBreadcrumbs: true,
     },
     parameters: storyParams("banner"),
 };
@@ -71,6 +71,6 @@ export default meta;
 
 export const Default = {};
 
-export const WithBreadcrumbs = {
-    args: { showBreadcrumbs: true },
+export const WithoutBreadcrumbs = {
+    args: { showBreadcrumbs: false },
 };

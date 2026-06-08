@@ -1,5 +1,6 @@
 import Template from "../../components/banner_basic/html/component.hbs";
 import { storyParams } from "../../../.storybook/globals";
+import bannerTexture from "../../assets/img/banner-bg.png";
 
 const mockLineage = [
     { asset_url: "#", asset_short_name: "Home", asset_type_code: "page", asset_is_site_asset: "1" },
@@ -15,8 +16,9 @@ const mockSite = {
     },
 };
 
-function buildData(args) {
-    return {
+function render(args) {
+    const container = document.createElement("div");
+    container.innerHTML = Template({
         component: {
             data: {
                 assetid: "123",
@@ -37,15 +39,23 @@ function buildData(args) {
             lineage: args.showBreadcrumbs ? mockLineage : [],
         },
         site: mockSite,
-    };
-}
+    });
 
-function render(args) {
-    return Template(buildData(args));
+    // The template hardcodes a './?a=' texture URL (from site metadata) that won't
+    // resolve in Storybook, so swap in the bundled texture image directly on the
+    // banner element. Inline style overrides the template's #banner-{id} rule.
+    if (args.backgroundType === "texture") {
+        const banner = container.querySelector(".qld__banner");
+        if (banner) {
+            banner.style.backgroundImage = `url(${bannerTexture})`;
+        }
+    }
+
+    return container;
 }
 
 const meta = {
-    title: "3. Components/Banner Basic",
+    title: "3. Components/Banner/Basic",
     render,
     argTypes: {
         headingPrimary: {
@@ -81,11 +91,11 @@ const meta = {
         },
     },
     args: {
-        headingPrimary: "Page title",
-        abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        backgroundColour: "",
-        backgroundType: "colour",
-        showBreadcrumbs: false,
+        headingPrimary: "Basic Banner",
+        abstract: "Banner basic abstract text",
+        backgroundColour: "dark",
+        backgroundType: "texture",
+        showBreadcrumbs: true,
     },
     parameters: storyParams("banner"),
 };
@@ -93,15 +103,3 @@ const meta = {
 export default meta;
 
 export const Default = {};
-
-export const WithBreadcrumbs = {
-    args: { showBreadcrumbs: true },
-};
-
-export const LightTheme = {
-    args: { backgroundColour: "light" },
-};
-
-export const DarkTheme = {
-    args: { backgroundColour: "dark" },
-};

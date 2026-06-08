@@ -36,7 +36,9 @@ function renderForm({ filled, showErrors }) {
         `<form${style} novalidate>` +
         `<div class="container-fluid">` +
         `<h2>Personal details</h2>` +
-        `<div class="row">` +
+        // align-items: flex-end keeps both inputs aligned when an error message
+        // pushes one field's input down (the message renders above the input).
+        `<div class="row" style="align-items: flex-end;">` +
         `<div class="col-xs-12 col-md-6">` +
         renderTextInput({ id: "first-name", label: "First name", required: true, state: firstNameState }) +
         `</div>` +
@@ -138,9 +140,8 @@ function renderForm({ filled, showErrors }) {
                 },
             ],
         }) +
-        `<div>` +
+        `<div style="margin-top: 2rem">` +
         `<button type="submit" class="qld__btn qld__btn--primary">Submit</button>` +
-        `<button type="button" class="qld__btn qld__btn--secondary">Cancel</button>` +
         `</div>` +
         `</div>` +
         `</form>`
