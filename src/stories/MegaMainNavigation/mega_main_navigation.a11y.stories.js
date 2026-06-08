@@ -74,7 +74,7 @@ export const ArrowKeyNavigation = {
         await userEvent.click(toggle);
         await expect(toggle).toHaveAttribute("aria-expanded", "true");
 
-        // Wait until the submenu is visible (display cleared by accordion.Open).
+        // Wait until the submenu is visible (display cleared by collapsible.open).
         const subMenu = canvasElement.querySelector("#mega-nav-20");
         await waitFor(() => {
             if (subMenu.style.display === "none") throw new Error("submenu still hidden");

@@ -563,7 +563,7 @@
                             ${require('../components/internal_navigation/html/component.hbs')({ "site":require('/src/data/site.json'), "current":require('/src/data/current.json') })}
                         </div>
                         <div class="col-xs-12 col-lg-8 col-xl-8" id="content">
-                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/accordion/js/manifest.json'), "callback": "QLD.accordion.init",
+                            ${require('../components/_global/html/component.hbs')({ "manifest":require('../components/accordion/js/manifest.json'), "callback": "QLD.accordion.initAccordion",
                             "component":require('!url-loader!../components/accordion/html/component.hbs'), "component_output":require('../components/accordion/html/component.hbs')({ "component":
                             require('../components/accordion/js/manifest.json').component, "content":"Lorem Ipsum" }) })}
                         </div>

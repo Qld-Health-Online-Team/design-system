@@ -61,3 +61,10 @@ export const buildIconPath = (path, icon) => {
 export const normaliseIdentifier = (string) => {
     return string.replace(/[^a-z0-9]+/g, "");
 };
+
+// Whether an element's aria-expanded attribute is currently "true"
+export const isExpanded = (element) => element.getAttribute("aria-expanded") === "true";
+
+// Set an element's aria-expanded attribute from a boolean
+export const setExpanded = (element, expanded) =>
+    element.setAttribute("aria-expanded", expanded ? "true" : "false");

@@ -1,4 +1,5 @@
 import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-helpers.js";
+import { initOverflowMenu } from "../../overflow_menu/js/global.js";
 
 (function () {
     "use strict";
@@ -221,12 +222,12 @@ import { validateInternalSvgPath, buildIconPath } from "../../../helpers/global-
 
     window.addEventListener("DOMContentLoaded", function () {
         QLD.breadcrumb.init();
-        QLD.accordion.init("overflow");
+        initOverflowMenu();
     });
 
     window.addEventListener("resize", function () {
         getTheElements(true);
         QLD.breadcrumb.init();
-        QLD.accordion.init("overflow");
+        initOverflowMenu();
     });
 })();

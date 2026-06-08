@@ -3,6 +3,8 @@
  *
  * @module mobileNav
  */
+import { setExpanded } from "../../../helpers/global-helpers.js";
+
 (function () {
     var mobileNav = {};
     var mobileNavEvents = {};
@@ -252,9 +254,9 @@
                             menuHeading.focus();
                         }
                         if (openButton)
-                            openButton.setAttribute("aria-expanded", true);
+                            setExpanded(openButton, true);
                         if (closeButton)
-                            closeButton.setAttribute("aria-expanded", true);
+                            setExpanded(closeButton, true);
 
                         if (focustrapTop)
                             focustrapTop.setAttribute("tabindex", 0);
@@ -327,9 +329,9 @@
                         // Move the focus back to the menu button
                         if (closeButton) closeButton.focus();
                         if (openButton)
-                            openButton.setAttribute("aria-expanded", false);
+                            setExpanded(openButton, false);
                         if (closeButton)
-                            closeButton.setAttribute("aria-expanded", false);
+                            setExpanded(closeButton, false);
 
                         if (focustrapTop)
                             focustrapTop.removeAttribute("tabindex");

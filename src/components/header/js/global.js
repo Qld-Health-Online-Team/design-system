@@ -2,6 +2,8 @@
  * @module header
  */
 
+import { setExpanded } from "../../../helpers/global-helpers.js";
+
 // Search toggle button
 const searchToggle = document.querySelector(".qld__main-nav__toggle-search");
 const searchForm = document.querySelector(".qld__header__search .qld__search-form");
@@ -97,7 +99,7 @@ function toggleHeaderSearch() {
 
 function openHeader(requireFocusChange = true) {
     isHeaderOpen = true;
-    searchToggle.setAttribute("aria-expanded", true);
+    setExpanded(searchToggle, true);
     searchToggle.classList.remove("qld__main-nav__toggle-search--open");
     searchToggle.classList.add("qld__main-nav__toggle-search--close");
     searchToggleText.textContent = "Close";
@@ -139,7 +141,7 @@ function openHeader(requireFocusChange = true) {
 
 function closeHeader(requireFocusChange = true) {
     isHeaderOpen = false;
-    searchToggle.setAttribute("aria-expanded", false);
+    setExpanded(searchToggle, false);
     searchToggle.classList.remove("qld__main-nav__toggle-search--close");
     searchToggle.classList.add("qld__main-nav__toggle-search--open");
     searchToggleText.textContent = "Search";
