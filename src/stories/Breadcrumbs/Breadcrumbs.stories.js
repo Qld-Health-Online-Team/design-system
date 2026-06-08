@@ -1,13 +1,13 @@
 import Template from "../../components/breadcrumbs/html/component.hbs";
-import {figmaLinks, themes} from "../../../.storybook/globals";
-import {themeWrapper} from "../../../.storybook/helper-functions.js";
+import { storyParams, themes } from "../../../.storybook/globals";
+import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
-function render({displayBreadcrumbs, lineage, ...args}) {
+function render({ displayBreadcrumbs, lineage, ...args }) {
     return Template({
         current: {
             data: {
                 metadata: {
-                    displayBreadcrumbs: {value: displayBreadcrumbs},
+                    displayBreadcrumbs: { value: displayBreadcrumbs },
                 },
             },
             lineage: lineage,
@@ -19,29 +19,29 @@ function render({displayBreadcrumbs, lineage, ...args}) {
 const breadcrumbsArgs = {
     displayBreadcrumbs: "true",
     lineage: [
-        {asset_type_code: "page", asset_short_name: "Home", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Design system", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Library", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Components", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Breadcrumbs", asset_is_site_asset: "2"},
+        { asset_type_code: "page", asset_short_name: "Home", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Design system", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Library", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Components", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Breadcrumbs", asset_is_site_asset: "2" },
     ],
 };
 
 const breadcrumbsArgsLong = {
     displayBreadcrumbs: "true",
     lineage: [
-        {asset_type_code: "page", asset_short_name: "Home", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Design system", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Library", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Components", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Breadcrumbs", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
-        {asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2"},
+        { asset_type_code: "page", asset_short_name: "Home", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Design system", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Library", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Components", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Breadcrumbs", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
+        { asset_type_code: "page", asset_short_name: "Page", asset_is_site_asset: "2" },
     ],
 };
 
@@ -62,13 +62,8 @@ export default {
             default: "true",
         },
     },
-    args: {...breadcrumbsArgs},
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.breadcrumbs.design,
-        },
-    },
+    args: { ...breadcrumbsArgs },
+    parameters: storyParams("breadcrumbs"),
 };
 
 export const Default = {};

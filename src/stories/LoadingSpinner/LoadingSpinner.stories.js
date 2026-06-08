@@ -1,14 +1,14 @@
 import Template from "../../components/loading_spinner/html/component.hbs";
-import { figmaLinks } from "../../../.storybook/globals";
+import { storyParams } from "../../../.storybook/globals";
 
-const renderLoadingSpinner = ({backgroundColour, layout, label, ...args}) =>
+const renderLoadingSpinner = ({ backgroundColour, layout, label, ...args }) =>
     Template({
         component: {
             data: {
                 metadata: {
-                    background_colour: {value: backgroundColour},
-                    layout: {value: layout},
-                    label: {value: label},
+                    background_colour: { value: backgroundColour },
+                    layout: { value: layout },
+                    label: { value: label },
                 },
             },
         },
@@ -42,31 +42,26 @@ export default {
             },
             options: ["", "landscape", "icon_only"],
         },
-        label: {description: "The label underneath the spinner.", control: "text"},
+        label: { description: "The label underneath the spinner.", control: "text" },
     },
     args: {
         backgroundColour: "",
         layout: "",
         label: "Loading...",
     },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.loadingSpinner.design,
-        },
-    },
+    parameters: storyParams("loadingSpinner"),
 };
 
 export const Default = {};
 
 export const landscape = {
-    args: {layout: "landscape"}
+    args: { layout: "landscape" },
 };
 
 export const iconOnly = {
-    args: {layout: "icon_only"}
+    args: { layout: "icon_only" },
 };
 
 export const dark = {
-    args: {backgroundColour: "dark"}
+    args: { backgroundColour: "dark" },
 };

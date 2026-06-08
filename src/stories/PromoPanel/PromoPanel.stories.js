@@ -1,45 +1,27 @@
 import Template from "../../components/promo_panel/html/component.hbs";
-import { figmaLinks } from "../../../.storybook/globals";
+import { storyParams } from "../../../.storybook/globals";
 
-const renderPromoPanel = ({
-    id,
-    type,
-    title,
-    abstract,
-    body,
-    promoImage,
-    bodyBackground,
-    imageAlignment,
-    promoPanelIcon,
-    linkType,
-    ctaLinkTitle,
-    ctaLink,
-    primaryLinkTitle,
-    primaryLink,
-    secondaryLinkTitle,
-    secondaryLink,
-    ...args
-}) => {
+const renderPromoPanel = ({ id, type, title, abstract, body, promoImage, bodyBackground, imageAlignment, promoPanelIcon, linkType, ctaLinkTitle, ctaLink, primaryLinkTitle, primaryLink, secondaryLinkTitle, secondaryLink, ...args }) => {
     const html = Template({
         component: {
             data: {
                 metadata: {
-                    id_field: {value: id},
-                    type: {value: type},
-                    title: {value: title},
-                    abstract: {value: abstract},
-                    body: {value: body},
-                    promo_image: {value: promoImage},
-                    body_background: {value: bodyBackground},
-                    image_alignment: {value: imageAlignment},
-                    promo_panel_icon: {value: promoPanelIcon},
-                    link_type: {value: linkType},
-                    cta_link_title: {value: ctaLinkTitle},
-                    cta_link: {value: ctaLink},
-                    primary_link_title: {value: primaryLinkTitle},
-                    primary_link: {value: primaryLink},
-                    secondary_link_title: {value: secondaryLinkTitle},
-                    secondary_link: {value: secondaryLink},
+                    id_field: { value: id },
+                    type: { value: type },
+                    title: { value: title },
+                    abstract: { value: abstract },
+                    body: { value: body },
+                    promo_image: { value: promoImage },
+                    body_background: { value: bodyBackground },
+                    image_alignment: { value: imageAlignment },
+                    promo_panel_icon: { value: promoPanelIcon },
+                    link_type: { value: linkType },
+                    cta_link_title: { value: ctaLinkTitle },
+                    cta_link: { value: ctaLink },
+                    primary_link_title: { value: primaryLinkTitle },
+                    primary_link: { value: primaryLink },
+                    secondary_link_title: { value: secondaryLinkTitle },
+                    secondary_link: { value: secondaryLink },
                 },
             },
         },
@@ -81,7 +63,7 @@ export default {
     title: "3. Components/Promo Panel",
     render: renderPromoPanel,
     argTypes: {
-        id: {description: "The unique identifier of the component.", control: "text"},
+        id: { description: "The unique identifier of the component.", control: "text" },
         type: {
             description: "The style of the component.",
             control: {
@@ -96,10 +78,10 @@ export default {
             options: ["", "qld__body--large-text", "qld__body--contained", "qld__body--full-image"],
             default: "",
         },
-        title: {description: "The title of the component", control: "text"},
-        abstract: {description: "The abstract of the component.", control: "text"},
-        body: {description: "The body text.", control: "text"},
-        promoImage: {description: "The image on this component.", control: "text"},
+        title: { description: "The title of the component", control: "text" },
+        abstract: { description: "The abstract of the component.", control: "text" },
+        body: { description: "The body text.", control: "text" },
+        promoImage: { description: "The image on this component.", control: "text" },
         bodyBackground: {
             description: "The colour theme of the component.",
             control: {
@@ -127,7 +109,7 @@ export default {
             options: ["qld__promo-panel--image-left", "qld__promo-panel--image-right"],
             default: "qld__promo-panel--image-left",
         },
-        promoPanelIcon: {description: "The icon displayed", control: "text"},
+        promoPanelIcon: { description: "The icon displayed", control: "text" },
         linkType: {
             description: "Whether the link should be of type CTA or Button.",
             control: {
@@ -140,28 +122,23 @@ export default {
             options: ["cta", "button"],
             default: "cta",
         },
-        ctaLinkTitle: {description: "CTA link title.", control: "text"},
-        ctaLink: {description: "CTA link link.", control: "text"},
-        primaryLinkTitle: {description: "Primary button title.", control: "text"},
-        primaryLink: {description: "Primary button link.", control: "text"},
-        secondaryLinkTitle: {description: "Secondary button title.", control: "text"},
-        secondaryLink: {description: "Secondary button link.", control: "text"},
+        ctaLinkTitle: { description: "CTA link title.", control: "text" },
+        ctaLink: { description: "CTA link link.", control: "text" },
+        primaryLinkTitle: { description: "Primary button title.", control: "text" },
+        primaryLink: { description: "Primary button link.", control: "text" },
+        secondaryLinkTitle: { description: "Secondary button title.", control: "text" },
+        secondaryLink: { description: "Secondary button link.", control: "text" },
     },
-    args: {...promoPanelArgs},
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.promoPanel.design,
-        },
-    },
+    args: { ...promoPanelArgs },
+    parameters: storyParams("promoPanel"),
 };
 
 export const Default = {};
 
 export const defaultVariant = {
-    args: {bodyBackground: ""},
-    tags: ["!dev"]
-}
+    args: { bodyBackground: "" },
+    tags: ["!dev"],
+};
 
 export const largeText = {
     args: {

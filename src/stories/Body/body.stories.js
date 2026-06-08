@@ -1,21 +1,23 @@
 import Template from "../../components/body/html/component.hbs";
-import {dummyText} from '../../../.storybook/globals'
+import { dummyText, storyParams } from "../../../.storybook/globals";
 
-function render({id, bodyWidth, background}) {
+function render({ id, bodyWidth, background }) {
     return Template({
         component: {
             data: {
                 assetid: "123",
                 metadata: {
-                    background: {value: background},
-                    body_width: {value: bodyWidth},
-                    id_field: {value: id},
+                    background: { value: background },
+                    body_width: { value: bodyWidth },
+                    id_field: { value: id },
                 },
             },
         },
         content: dummyText,
-    })
+    });
 }
+
+const parameters = storyParams("body");
 
 const meta = {
     title: "3. Components/Body",
@@ -24,7 +26,7 @@ const meta = {
         id: {
             name: "id_field",
             description: "Optional anchor ID applied to the wrapping section. Falls back to body-{assetid} when empty.",
-            control: {type: "text"},
+            control: { type: "text" },
         },
         bodyWidth: {
             name: "body_width",
@@ -37,7 +39,7 @@ const meta = {
                     "qld__body--full-width": "Full-width",
                 },
             },
-            table: {defaultValue: {summary: "Full-width"}},
+            table: { defaultValue: { summary: "Full-width" } },
         },
         background: {
             name: "background",
@@ -53,7 +55,7 @@ const meta = {
                     "qld__body--dark-alt": "Dark Alternate",
                 },
             },
-            table: {defaultValue: {summary: "White"}},
+            table: { defaultValue: { summary: "White" } },
         },
     },
     args: {
@@ -61,17 +63,32 @@ const meta = {
         bodyWidth: "qld__body--full-width",
         background: "",
     },
+    parameters: {
+        ...parameters,
+        docs: {
+            ...parameters.docs,
+            description: {
+                component:
+                    "The Body component is a section wrapper that holds a region of page content. It applies " +
+                    "the `qld__body` styling and lets authors set a background theme and control the width of the " +
+                    "content area.\n" +
+                    "\n" +
+                    "It is the primary content container used to build a page, and can be stacked to create sections " +
+                    "with alternating backgrounds.",
+            },
+        },
+    },
 };
 export default meta;
 
 export const Default = {};
 
-export const White = {args: {background: ""}};
+export const White = { args: { background: "" } };
 
-export const Light = {args: {background: "qld__body--light"}};
+export const Light = { args: { background: "qld__body--light" } };
 
-export const Dark = {args: {background: "qld__body--dark"}};
+export const Dark = { args: { background: "qld__body--dark" } };
 
-export const Alternate = {args: {background: "qld__body--alt"}};
+export const Alternate = { args: { background: "qld__body--alt" } };
 
-export const DarkAlternate = {args: {background: "qld__body--dark-alt"}};
+export const DarkAlternate = { args: { background: "qld__body--dark-alt" } };

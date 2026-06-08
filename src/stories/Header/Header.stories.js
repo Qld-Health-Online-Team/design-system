@@ -1,9 +1,13 @@
 import { renderHeader, headerArgs } from "./Header.js";
-import { figmaLinks } from "../../../.storybook/globals";
+import { storyParams } from "../../../.storybook/globals";
 
 export default {
     title: "2. Layout/Header",
     render: renderHeader,
+    parameters: {
+        layout: "fullscreen",
+        ...storyParams("header"),
+    },
     args: { ...headerArgs },
     argTypes: {
         defaultBannerContainedBanner: {
@@ -358,13 +362,6 @@ export default {
                 "extended_current-location",
             ],
             description: "Icon class for the second call to action button in the main navigation (if used). E.g., 'icon-email'.",
-        },
-    },
-    parameters: {
-        layout: "fullscreen",
-        design: {
-            type: "figma",
-            url: figmaLinks.header.design,
         },
     },
 };
