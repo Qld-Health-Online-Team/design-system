@@ -1,9 +1,9 @@
 import Template from "../../components/card_single_action/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
 
 const mockSite = {
-    metadata: { coreSiteIcons: { value: "/QLD-icons.svg" } },
+    metadata: { coreSiteIcons: { value: iconSpritePath } },
 };
 
 function makeChild(id, name, description = "", icon = "fal fa-heart", url = "#", footerContent = "") {
