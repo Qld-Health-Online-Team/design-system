@@ -11,6 +11,9 @@ on:
       - '**/*.md'
       - 'docs/**'
 
+permissions:
+  contents: read
+
 concurrency:
   group: chromatic-${{ github.ref }}
   cancel-in-progress: true
