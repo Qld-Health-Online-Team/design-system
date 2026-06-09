@@ -1,5 +1,4 @@
-import Handlebars from "handlebars";
-import Template from "../../components/mega_main_navigation/html/component.hbs?raw";
+import Template from "../../components/mega_main_navigation/html/component.hbs";
 import { cleanStorybookUrls } from "../../../.storybook/helper-functions";
 
 /**
@@ -78,9 +77,7 @@ const current = {
  * Render helper
  */
 export const renderNavbar = (args) => {
-    const template = Handlebars.compile(Template);
-
-    const html = template({
+    const html = Template({
         site: {
             metadata: {
                 mainNavStyle: { value: args.mainNavStyle },

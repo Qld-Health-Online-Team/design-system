@@ -1,6 +1,5 @@
-import Handlebars from "handlebars";
-import Template from "../../components/video_player/html/component.hbs?raw";
-import { figmaLinks } from "../../../.storybook/globals";
+import Template from "../../components/video_player/html/component.hbs";
+import { storyParams } from "../../../.storybook/globals";
 
 const videoPlayerArgs = {
     videoType: "vimeo",
@@ -19,7 +18,7 @@ const videoPlayerArgs = {
 };
 
 const renderVideoPlayer = ({ videoType, videoLayout, stackOptions, videoAlignItems, videoId, videoSize, videoDuration, videoCaption, transcriptOptions, transcriptLink, transcriptText, videoDescription, bodyBackground, ...args }) => {
-    return Handlebars.compile(Template)({
+    return Template({
         component: {
             data: {
                 metadata: {
@@ -126,47 +125,36 @@ export default {
         },
     },
     args: { ...videoPlayerArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.videoPlayer.design,
-        },
-    },
+    parameters: storyParams("videoPlayer"),
 };
 
 export const Default = {};
 
-export const defaultVariant = (videoPlayerArgs) => renderVideoPlayer({ ...videoPlayerArgs, videoType: "vimeo" });
-defaultVariant.tags = ["!dev"];
+export const defaultVariant = {
+    args: { videoType: "vimeo" },
+    tags: ["!dev"],
+};
 
 export const light = {
     args: {
-        ...videoPlayerArgs,
         bodyBackground: "light",
     },
-    render: (args) => renderVideoPlayer(args),
 };
 
 export const lightAlt = {
     args: {
-        ...videoPlayerArgs,
         bodyBackground: "alt",
     },
-    render: (args) => renderVideoPlayer(args),
 };
 
 export const dark = {
     args: {
-        ...videoPlayerArgs,
         bodyBackground: "dark",
     },
-    render: (args) => renderVideoPlayer(args),
 };
 
 export const darkAlt = {
     args: {
-        ...videoPlayerArgs,
         bodyBackground: "dark-alt",
     },
-    render: (args) => renderVideoPlayer(args),
 };

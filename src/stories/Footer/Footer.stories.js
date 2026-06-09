@@ -1,6 +1,5 @@
-import Handlebars from "handlebars";
-import Template from "../../components/footer/html/component.hbs?raw";
-import { figmaLinks } from "../../../.storybook/globals";
+import Template from "../../components/footer/html/component.hbs";
+import { storyParams } from "../../../.storybook/globals";
 
 // Helper to format links for Handlebars
 const formatLinks = (links) =>
@@ -122,7 +121,7 @@ const renderFooter = (args) => {
         },
     };
 
-    return Handlebars.compile(Template)({ site });
+    return Template({ site });
 };
 
 // ✅ CSF metadata
@@ -155,16 +154,15 @@ export default {
         },
     },
     args: footerArgs,
-    parameters: { design: { type: "figma", url: figmaLinks.footer.design } },
+    parameters: storyParams("footer"),
 };
 
 // Named exports for stories
-export const Default = { args: { ...footerArgs } };
-export const Light = { args: { ...footerArgs, footerStyle: "" } };
-export const Alt = { args: { ...footerArgs, footerStyle: "qld__footer--alt" } };
+export const Default = {};
+export const Light = { args: { footerStyle: "" } };
+export const Alt = { args: { footerStyle: "qld__footer--alt" } };
 export const Dark = {
     args: {
-        ...footerArgs,
         footerStyle: "qld__footer--dark",
         footerLogo: {
             asset_url: "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
@@ -173,7 +171,6 @@ export const Dark = {
 };
 export const DarkAlt = {
     args: {
-        ...footerArgs,
         footerStyle: "qld__footer--dark-alt",
         footerLogo: {
             asset_url: "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
@@ -183,7 +180,6 @@ export const DarkAlt = {
 
 export const FooterWithoutOptionalLinks = {
     args: {
-        ...footerArgs,
         footerSiteTitle: "Site Title",
         footerSocialLinks: [],
         footerOptionalSecondLinksList: [],
@@ -192,9 +188,7 @@ export const FooterWithoutOptionalLinks = {
 
 export const FooterWithoutQueenslandCoatOfArms = {
     args: {
-        ...footerArgs,
         footerSiteTitle: "Site Title",
-
         footerOptionalSecondLinksList: [
             { asset_short_name: "Custom Link 1", asset_url: "/privacy" },
             { asset_short_name: "Custom Link 2", asset_url: "/terms" },

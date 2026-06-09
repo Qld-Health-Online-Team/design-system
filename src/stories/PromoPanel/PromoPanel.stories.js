@@ -1,9 +1,8 @@
-import Handlebars from "handlebars";
-import Template from "../../components/promo_panel/html/component.hbs?raw";
-import { figmaLinks } from "../../../.storybook/globals";
+import Template from "../../components/promo_panel/html/component.hbs";
+import { storyParams } from "../../../.storybook/globals";
 
 const renderPromoPanel = ({ id, type, title, abstract, body, promoImage, bodyBackground, imageAlignment, promoPanelIcon, linkType, ctaLinkTitle, ctaLink, primaryLinkTitle, primaryLink, secondaryLinkTitle, secondaryLink, ...args }) => {
-    const html = Handlebars.compile(Template)({
+    const html = Template({
         component: {
             data: {
                 metadata: {
@@ -131,95 +130,60 @@ export default {
         secondaryLink: { description: "Secondary button link.", control: "text" },
     },
     args: { ...promoPanelArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.promoPanel.design,
-        },
-    },
+    parameters: storyParams("promoPanel"),
 };
 
 export const Default = {};
 
-export const defaultVariant = () => renderPromoPanel({ ...promoPanelArgs, bodyBackground: "" });
-defaultVariant.tags = ["!dev"];
+export const defaultVariant = {
+    args: { bodyBackground: "" },
+    tags: ["!dev"],
+};
 
 export const largeText = {
     args: {
-        ...promoPanelArgs,
         type: "qld__body--large-text",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const contained = {
     args: {
-        ...promoPanelArgs,
         type: "qld__body--contained",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const fullImage = {
     args: {
-        ...promoPanelArgs,
         type: "qld__body--full-image",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const white = {
     args: {
-        ...promoPanelArgs,
         bodyBackground: "",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const light = {
     args: {
-        ...promoPanelArgs,
         bodyBackground: "qld__body--light",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const lightAlt = {
     args: {
-        ...promoPanelArgs,
         bodyBackground: "qld__body--alt",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const dark = {
     args: {
-        ...promoPanelArgs,
         bodyBackground: "qld__body--dark",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };
 
 export const darkAlt = {
     args: {
-        ...promoPanelArgs,
         bodyBackground: "qld__body--dark-alt",
-    },
-    render: (args) => {
-        return renderPromoPanel(args);
     },
 };

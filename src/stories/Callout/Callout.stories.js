@@ -1,9 +1,8 @@
-import Handlebars from "handlebars";
-import Template from "../../components/callout/html/component.hbs?raw";
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import Template from "../../components/callout/html/component.hbs";
+import { storyParams, themes } from "../../../.storybook/globals";
 
 const renderCallout = ({ assetId, idField, bodyBackground, type, background, heading, headingVisible, body, calendarIntro, calendarDate, calendarName, ...args }) =>
-    Handlebars.compile(Template)({
+    Template({
         component: {
             assetid: assetId,
             data: {
@@ -24,21 +23,7 @@ const renderCallout = ({ assetId, idField, bodyBackground, type, background, hea
         ...args,
     });
 
-const calloutArgs = {
-    assetId: "Callout-123",
-    idField: "Callout-123",
-    bodyBackground: "",
-    type: "",
-    background: "",
-    heading: "Title of the callout",
-    headingVisible: "",
-    body: "Description of the callout. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo, ac ipsum consequat, enim consequat viverra ut eu feugiat. Sed vitae scelerisque aliquet mauris malesuada.",
-    calendarIntro: "The next public holiday is:",
-    calendarDate: "Sunday 1 January 2026",
-    calendarName: "New Year's Day",
-};
-
-export default {
+const meta = {
     title: "3. Components/Callout",
     render: renderCallout,
     argTypes: {
@@ -100,14 +85,23 @@ export default {
         calendarDate: { description: "The calendar date of the callout.", control: "text" },
         calendarName: { description: "The calendar name of the callout.", control: "text" },
     },
-    args: calloutArgs,
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.callout.design,
-        },
+    args: {
+        assetId: "Callout-123",
+        idField: "Callout-123",
+        bodyBackground: "",
+        type: "",
+        background: "",
+        heading: "Title of the callout",
+        headingVisible: "",
+        body: "Description of the callout. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo, ac ipsum consequat, enim consequat viverra ut eu feugiat. Sed vitae scelerisque aliquet mauris malesuada.",
+        calendarIntro: "The next public holiday is:",
+        calendarDate: "Sunday 1 January 2026",
+        calendarName: "New Year's Day",
     },
+    parameters: storyParams("callout"),
 };
+
+export default meta;
 
 export const Default = {};
 
@@ -115,30 +109,26 @@ export const allVariants = (theme, background) => {
     return `
         <div class="${theme}" style="padding: 2rem;">
             <h3>Callout</h3>
-            ${renderCallout({ ...calloutArgs, bodyBackground: background })}
+            ${renderCallout({ ...meta.args, bodyBackground: background })}
             <h3>Calendar Event</h3>
-            ${renderCallout({ ...calloutArgs, type: "qld__callout--calendar-event", bodyBackground: background })}
+            ${renderCallout({ ...meta.args, type: "qld__callout--calendar-event", bodyBackground: background })}
         </div>
     `;
 };
 allVariants.tags = ["!dev"];
 
 export const noTitle = {
-    render: () => {
-        return renderCallout({ ...calloutArgs, headingVisible: "qld__callout__heading--sronly" });
+    args: {
+        headingVisible: "qld__callout__heading--sronly",
     },
 };
 
 export const noBody = {
-    render: () => {
-        return renderCallout({ ...calloutArgs, body: "" });
-    },
+    args: { body: "" },
 };
 
 export const calendar = {
-    render: () => {
-        return renderCallout({ ...calloutArgs, type: "qld__callout--calendar-event" });
-    },
+    args: { type: "qld__callout--calendar-event" },
 };
 
 export const white = {

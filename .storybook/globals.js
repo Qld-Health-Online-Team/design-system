@@ -38,107 +38,117 @@ export const dummyText =
 
 export const dummyLink = "https://www.google.com";
 
-export const figmaLinks = {
-    masterDoc: {
-        file: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23529-440999&t=y8LMLpCtTxOgtHpT-0",
-    },
+const dsBase = "https://www.designsystem.qld.gov.au";
+const figmaBase = "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit";
+
+export const componentLinks = {
+    accordion: { ds: `${dsBase}/components/accordion` },
     backToTop: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321317&p=f&t=A5RGn3vQ6cEyXHw7-0",
-        ds: "https://www.designsystem.qld.gov.au/components/back-to-top",
+        ds: `${dsBase}/patterns/back-to-top`,
+        figma: `${figmaBase}?node-id=135268-27564&t=Gk55sISVPoJM2wm4-0`,
     },
+    banner: { ds: `${dsBase}/components/banner`, figma: `${figmaBase}?node-id=120353-65175&t=Lne25vgTT2xUkJcD-0` },
     breadcrumbs: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0",
-        ds: "https://www.designsystem.qld.gov.au/components/breadcrumbs",
+        ds: `${dsBase}/components/breadcrumbs`,
+        figma: `${figmaBase}?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0`,
     },
-    button: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98058&p=f&t=pMQreNNlQuuKMxlD-0",
-        ds: "https://www.designsystem.qld.gov.au/components/button",
-    },
-    callout: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98115&p=f&t=3aGzWYalpb1UXS73-0",
-        ds: "https://www.designsystem.qld.gov.au/components/callout",
+    button: { ds: `${dsBase}/components/button`, figma: `${figmaBase}?node-id=5990-98058&p=f&t=pMQreNNlQuuKMxlD-0` },
+    callout: { ds: `${dsBase}/components/callout`, figma: `${figmaBase}?node-id=5990-98115&p=f&t=3aGzWYalpb1UXS73-0` },
+    card: {
+        ds: `${dsBase}/components/card`,
+        figma: `${figmaBase}?node-id=120360-98159&t=SzNNrsljtXa1LjkF-0`,
     },
     checkboxes: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/checkboxes",
+        ds: `${dsBase}/components/checkbox`,
+        figma: `${figmaBase}?node-id=11056-321348&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
     ctaLink: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321367&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/call-to-action-cta",
+        ds: `${dsBase}/components/call-to-action-cta`,
+        figma: `${figmaBase}?node-id=11056-321367&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
     directionLinks: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/direction-links",
+        ds: `${dsBase}/components/direction-link`,
+        figma: `${figmaBase}?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
+    footer: { ds: `${dsBase}/components/footer`, figma: `${figmaBase}?node-id=5990-97582&p=f&t=xM7nOPN0NPouiFDO-0` },
+    forms: { ds: `${dsBase}/components/forms` },
     globalAlert: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97590&p=f&t=DWJ5IM0EPnQV6Sui-0",
-        ds: "https://www.designsystem.qld.gov.au/components/global-alert",
+        ds: `${dsBase}/components/global-alert`,
+        figma: `${figmaBase}?node-id=5990-97590&p=f&t=DWJ5IM0EPnQV6Sui-0`,
     },
-    iconography: {
-        ds: "https://www.designsystem.qld.gov.au/styles/iconography",
+    header: { ds: `${dsBase}/components/header`, figma: `${figmaBase}?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0` },
+    horizontalRule: {
+        ds: `${dsBase}/components/horizontal-rule`,
+        figma: `${figmaBase}?node-id=5990-97954&p=f&t=avPgpU6waAIMt5Tt-0`,
     },
+    iconography: { ds: `${dsBase}/styles/iconography` },
     inPageAlert: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-98125&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/alerts-in-page",
+        ds: `${dsBase}/components/alerts-in-page`,
+        figma: `${figmaBase}?node-id=5990-98125&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
     inPageNavigation: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=7905-252906&p=f&t=HnUAp2BI742820Qk-0",
-        ds: "https://www.designsystem.qld.gov.au/components/in-page-navigation",
+        ds: `${dsBase}/components/in-page-navigation`,
+        figma: `${figmaBase}?node-id=7905-252906&p=f&t=Tb6VtPPWrZ7Na35f-0`,
     },
     linkColumns: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/link-columns-link-list",
+        ds: `${dsBase}/components/link-columns-link-list`,
+        figma: `${figmaBase}?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
     loadingSpinner: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=49314-16705&p=f&t=N6vEZVb73vuDEtRO-0",
-        ds: "https://www.designsystem.qld.gov.au/components/loading-spinner",
-    },
-    pagination: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321779&p=f&t=wdrRF6qJa1fuzxWP-0",
-        ds: "https://www.designsystem.qld.gov.au/components/pagination",
-    },
-    promoPanel: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=23269-286312&p=f&t=ub7vIB4rUQNZ6zzo-0",
-        ds: "https://www.designsystem.qld.gov.au/components/promotional-panel",
-    },
-    radioButtons: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321347&p=f&t=kHfUZsyKYuDkprji-0",
-        ds: "https://www.designsystem.qld.gov.au/components/radio-buttons",
-    },
-    selectBox: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/input-fields-select-box",
-    },
-    tabs: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=25951-236134&p=f&t=pMQreNNlQuuKMxlD-0",
-        ds: "https://www.designsystem.qld.gov.au/components/tabs",
-    },
-    tags: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97596&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components/tags",
-    },
-    textInput: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97997&p=f&t=yRd2EKrtkEkPbBDT-0",
-        ds: "https://www.designsystem.qld.gov.au/components/text-input",
-    },
-    videoPlayer: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0",
-        ds: "https://www.designsystem.qld.gov.au/components",
-    },
-    header: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",
-        ds: "https://www.designsystem.qld.gov.au/components/header",
-    },
-    horizontalRule: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97954&p=f&t=avPgpU6waAIMt5Tt-0",
-        ds: "https://www.designsystem.qld.gov.au/components/horizontal-rule",
+        ds: `${dsBase}/components/loading-spinner`,
+        figma: `${figmaBase}?node-id=49314-16705&p=f&t=N6vEZVb73vuDEtRO-0`,
     },
     navbar: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0",
-        ds: "https://www.designsystem.qld.gov.au/components/navigation-horizontal",
+        ds: `${dsBase}/components/navigation-horizontal`,
+        figma: `${figmaBase}?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0`,
     },
-    footer: {
-        design: "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit?node-id=5990-97582&p=f&t=xM7nOPN0NPouiFDO-0",
-        ds: "https://www.designsystem.qld.gov.au/components/footer",
+    pagination: {
+        ds: `${dsBase}/components/pagination`,
+        figma: `${figmaBase}?node-id=11056-321779&p=f&t=wdrRF6qJa1fuzxWP-0`,
+    },
+    promoPanel: {
+        ds: `${dsBase}/components/promotional-panel`,
+        figma: `${figmaBase}?node-id=23269-286312&p=f&t=ub7vIB4rUQNZ6zzo-0`,
+    },
+    radioButtons: {
+        ds: `${dsBase}/components/radio-buttons`,
+        figma: `${figmaBase}?node-id=11056-321347&p=f&t=kHfUZsyKYuDkprji-0`,
+    },
+    selectBox: {
+        ds: `${dsBase}/components/input-fields-select-box`,
+        figma: `${figmaBase}?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0`,
+    },
+    table: { ds: `${dsBase}/components/table`, figma: `${figmaBase}?node-id=120418-57729&t=VPLTzrxLs85peK9J-0` },
+    tabs: { ds: `${dsBase}/components/tabs`, figma: `${figmaBase}?node-id=25951-236134&p=f&t=pMQreNNlQuuKMxlD-0` },
+    tags: { ds: `${dsBase}/components/tags`, figma: `${figmaBase}?node-id=5990-97596&p=f&t=WmKMIp3MbkVrYkUf-0` },
+    textInput: {
+        ds: `${dsBase}/components/text-input`,
+        figma: `${figmaBase}?node-id=5990-97997&p=f&t=yRd2EKrtkEkPbBDT-0`,
+    },
+    videoPlayer: {
+        figma: `${figmaBase}?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0`,
     },
 };
+
+/**
+ * Standard docs parameters for a story.
+ * Renders a Resources line at the top of autodocs with links to the QLD Design System
+ * and Figma (when available). Both are looked up automatically from the component key.
+ *
+ * @param {keyof typeof componentLinks} componentKey
+ */
+export function storyParams(componentKey) {
+    const { ds, figma } = componentLinks[componentKey] ?? {};
+    const links = ds ? [`[QLD Design System ↗](${ds})`] : [];
+    if (figma) links.push(`[Figma UI Kit ↗](${figma})`);
+    return {
+        docs: {
+            toc: true,
+            codePanel: true,
+            description: {
+                component: `**Resources:** ${links.join(" · ")}`,
+            },
+        },
+        ...(figma && { design: { type: "figma", url: figma } }),
+    };
+}

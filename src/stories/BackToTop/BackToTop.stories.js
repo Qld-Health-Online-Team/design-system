@@ -1,28 +1,18 @@
-import { BackToTop } from "./BackToTop";
-import { figmaLinks } from "../../../.storybook/globals";
-
-const backtotopArgs = {
-    text: "Back to top",
-};
+import { storyParams } from "../../../.storybook/globals";
 
 export default {
-    title: "3. Components/BackToTop",
-    render: (args) => BackToTop(args), // calls the function
-    argTypes: {
-        text: { control: "text", description: "Back to top" },
-    },
+    title: "3. Components/Back to Top",
+    render: ({ text }) => `
+          <div class="qld__widgets__back_to_top">
+              <a href="#content" class="qld__direction-link qld__direction-link--up" aria-label="Back to top">
+                  ${text}
+              </a>
+          </div>
+      `,
     args: {
-        ...backtotopArgs,
+        text: "Back to top",
     },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.backToTop.design,
-        },
-    },
+    parameters: storyParams("backToTop"),
 };
 
-// Named story
-export const Default = {
-    args: { ...backtotopArgs },
-};
+export const Default = {};

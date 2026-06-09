@@ -45,6 +45,13 @@ img.pull-right {
     margin-left: 1em;
 }
 
+// Vertically aligned classes
+.qld__align-middle,
+.qld__align-middle th,
+.qld__align-middle td {
+    vertical-align: middle !important;
+}
+
 // 16:9 Ratio container for embedded video
 // This container is suitable for something like youtube videos
 .video-container {
@@ -741,4 +748,77 @@ div.sq-form-question-error {
             width: 100%;
         }
     }
+}
+
+// Spacing utility classes
+.mt-0 {
+    @include QLD-space(margin-top, 0);
+}
+
+.mt-1 {
+    @include QLD-space(margin-top, 1unit);
+}
+
+.mt-2 {
+    @include QLD-space(margin-top, 2unit);
+}
+
+.mt-3 {
+    @include QLD-space(margin-top, 3unit);
+}
+
+.mb-0 {
+    @include QLD-space(margin-bottom, 0);
+}
+
+.mb-1 {
+    @include QLD-space(margin-bottom, 1unit);
+}
+
+.mb-2 {
+    @include QLD-space(margin-bottom, 2unit);
+}
+
+.mb-3 {
+    @include QLD-space(margin-bottom, 3unit);
+}
+
+.mx-0 {
+    @include QLD-space(margin-left, 0);
+    @include QLD-space(margin-right, 0);
+}
+
+.mx-1 {
+    @include QLD-space(margin-left, 1unit);
+    @include QLD-space(margin-right, 1unit);
+}
+
+.mx-2 {
+    @include QLD-space(margin-left, 2unit);
+    @include QLD-space(margin-right, 2unit);
+}
+
+.mx-3 {
+    @include QLD-space(margin-left, 3unit);
+    @include QLD-space(margin-right, 3unit);
+}
+
+.my-0 {
+    @include QLD-space(margin-top, 0);
+    @include QLD-space(margin-bottom, 0);
+}
+
+.my-1 {
+    @include QLD-space(margin-top, 1unit);
+    @include QLD-space(margin-bottom, 1unit);
+}
+
+.my-2 {
+    @include QLD-space(margin-top, 2unit);
+    @include QLD-space(margin-bottom, 2unit);
+}
+
+.my-3 {
+    @include QLD-space(margin-top, 3unit);
+    @include QLD-space(margin-bottom, 3unit);
 }

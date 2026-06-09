@@ -1,9 +1,8 @@
-import Handlebars from "handlebars";
-import Template from "../../components/page_alert/html/component.hbs?raw";
-import { figmaLinks } from "../../../.storybook/globals";
+import Template from "../../components/page_alert/html/component.hbs";
+import { storyParams } from "../../../.storybook/globals";
 
 const renderInPageAlert = ({ id, type, headingLevel, heading, body, ...args }) =>
-    Handlebars.compile(Template)({
+    Template({
         component: {
             data: {
                 metadata: {
@@ -17,14 +16,6 @@ const renderInPageAlert = ({ id, type, headingLevel, heading, body, ...args }) =
         },
         ...args,
     });
-
-const inPageAlertArgs = {
-    id: "123",
-    type: "info",
-    headingLevel: "h2",
-    heading: "In-page alert title",
-    body: "Woohoo! This is the body of my in-page alert",
-};
 
 export default {
     title: "3. Components/In-page Alert",
@@ -65,29 +56,34 @@ export default {
         heading: { control: "text", description: "The heading of the alert" },
         body: { control: "text", description: "The body text of the alert" },
     },
-    args: { ...inPageAlertArgs },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.inPageAlert.design,
-        },
-    },
-};
-
-export const Default = {
     args: {
-        ...inPageAlertArgs,
+        id: "123",
+        type: "info",
+        headingLevel: "h2",
+        heading: "In-page alert title",
+        body: "Woohoo! This is the body of my in-page alert",
     },
+    parameters: storyParams("inPageAlert"),
 };
 
-export const infoVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "info" });
-infoVariant.tags = ["!dev"];
+export const Default = {};
 
-export const successVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "success" });
-successVariant.tags = ["!dev"];
+export const infoVariant = {
+    args: { type: "info" },
+    tags: ["!dev"],
+};
 
-export const warningVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "warning" });
-warningVariant.tags = ["!dev"];
+export const successVariant = {
+    args: { type: "success" },
+    tags: ["!dev"],
+};
 
-export const errorVariant = (inPageAlertArgs) => renderInPageAlert({ ...inPageAlertArgs, type: "error" });
-errorVariant.tags = ["!dev"];
+export const warningVariant = {
+    args: { type: "warning" },
+    tags: ["!dev"],
+};
+
+export const errorVariant = {
+    args: { type: "error" },
+    tags: ["!dev"],
+};

@@ -1,5 +1,5 @@
 import { renderNavbar, navbarArgs } from "./Navbar";
-import { figmaLinks } from "../../../.storybook/globals";
+import { storyParams } from "../../../.storybook/globals";
 
 export default {
     title: "3. Components/Navbar",
@@ -51,14 +51,10 @@ export default {
         mainNavCtaTwoIcon: { table: { disable: true } },
         sitePreHeaderTheme: { table: { disable: true } },
     },
-
     parameters: {
         layout: "fullscreen",
+        ...storyParams("navbar"),
         themes: null,
-        design: {
-            type: "figma",
-            url: figmaLinks.navbar?.design,
-        },
     },
 };
 
@@ -68,12 +64,6 @@ export const Default = {
         // Plain wrapper with nothing else
         return `<div class="qld__grid">${renderNavbar(args)}</div>`;
     },
-    decorators: [
-        (Story) => {
-            // Simply return the story HTML without the global theme wrapper
-            return Story();
-        },
-    ],
 };
 
 // Variants

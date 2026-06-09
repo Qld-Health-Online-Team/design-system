@@ -1,5 +1,4 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
 const fs = require("fs");
 const glob = require("glob");
@@ -153,8 +152,7 @@ module.exports = {
     },
     plugins: htmlPlugins
         .concat(reloadHtml)
-        .concat(copyWebPack)
-        .concat(new ESLintPlugin()),
+        .concat(copyWebPack),
     optimization: {
         minimize: false,
         runtimeChunk: "single",
