@@ -3,6 +3,7 @@ import "./components/_global/js/global.js";
 
 // Standard components
 import { initAccordion } from "./components/accordion/js/global.js";
+import initBreadcrumb from "./components/breadcrumbs/js/global.js";
 import initHeader from "./components/header/js/global.js";
 import initInPageNavigation from "./components/in_page_navigation/js/global.js";
 import initInternalNavigation from "./components/internal_navigation/js/global.js";
@@ -24,6 +25,7 @@ export default function initComponents() {
     initGlobalAlert();
     document.addEventListener("DOMContentLoaded", () => {
         initAccordion(document);
+        initBreadcrumb();
         initCtaLinks(document);
         initHeader(document);
         initInPageNavigation(document);
@@ -33,5 +35,9 @@ export default function initComponents() {
         initPromoPanel(document);
         initSelectBoxes(document);
         initVideoPlayer(document);
+    });
+
+    window.addEventListener("resize", () => {
+        initBreadcrumb(document, true);
     });
 }

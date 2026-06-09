@@ -1,6 +1,8 @@
 import Template from "../../components/breadcrumbs/html/component.hbs";
 import { storyParams, themes } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
+import { initComponents } from "../../../.storybook/decorators";
+import initBreadcrumb from "../../components/breadcrumbs/js/global";
 
 function render({ displayBreadcrumbs, lineage, ...args }) {
     return Template({
@@ -48,6 +50,7 @@ const breadcrumbsArgsLong = {
 export default {
     title: "3. Components/Breadcrumbs",
     render: render,
+    decorators: [initComponents([initBreadcrumb])],
     argTypes: {
         displayBreadcrumbs: {
             description: "Whether the component should be displayed.",

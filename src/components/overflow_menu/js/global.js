@@ -24,7 +24,7 @@ export function initOverflowMenu(root = document) {
     root.querySelectorAll(".qld__overflow_menu__btn").forEach((button) => {
         if (button.dataset.qldOverflowWired === "true") return;
         button.dataset.qldOverflowWired = "true";
-        button.addEventListener("click", () => toggleOverflowMenu(button));
+        button.addEventListener("click", () => toggleOverflowMenu(button, root));
     });
 }
 
@@ -34,20 +34,20 @@ export function initOverflowMenu(root = document) {
  *
  * @param {HTMLElement} button - The overflow menu toggle button
  */
-function toggleOverflowMenu(button) {
-    const panel = document.getElementById(button.getAttribute("aria-controls"));
+function toggleOverflowMenu(button, root = document) {
+    const panel = root.querySelector(`[id="${button.getAttribute("aria-controls")}"]`);
     if (!panel) return;
 
     if (isExpanded(button)) {
-        collapsible.close(button);
+        collapsible.close(button, undefined, root);
         teardownOutsideClick(panel);
     } else {
-        collapsible.open(button, undefined, document, {
+        collapsible.open(button, undefined, root, {
             afterOpen: () => {
                 panel.querySelector("a.qld__overflow_menu_list-item-link")?.focus();
             },
         });
-        setupOutsideClick(button, panel);
+        setupOutsideClick(button, panel, root);
     }
 }
 
@@ -58,7 +58,7 @@ function toggleOverflowMenu(button) {
  * @param {HTMLElement} button - The overflow menu toggle button
  * @param {HTMLElement} panel  - The overflow menu panel
  */
-function setupOutsideClick(button, panel) {
+function setupOutsideClick(button, panel, root = document) {
     const controller = new AbortController();
     panel.__qldOutsideClickController = controller;
 
@@ -69,7 +69,7 @@ function setupOutsideClick(button, panel) {
             controller.abort();
             panel.__qldOutsideClickController = null;
             if (isExpanded(button)) {
-                collapsible.close(button);
+                collapsible.close(button, undefined, root);
             }
         },
         { signal: controller.signal },
