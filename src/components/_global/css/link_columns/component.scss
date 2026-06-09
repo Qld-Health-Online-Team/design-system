@@ -43,6 +43,14 @@
             padding-right: 2rem;
         }
 
+        // Rule that ensures that if a cta-link is used in the link columns, the correct arrow is displayed
+        a.qld__cta-link:not(.qld__cta-link--view-all) {
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+
         &::before {
             @include QLD-space(margin, 0 0.5unit 0 0.5unit);
             flex: 0 0 auto;

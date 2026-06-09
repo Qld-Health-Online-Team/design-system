@@ -1,4 +1,4 @@
-import { figmaLinks, themes } from "../../../.storybook/globals";
+import { storyParams, themes } from "../../../.storybook/globals";
 import { Iconography } from "./Iconography";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
@@ -33,12 +33,7 @@ export default {
         },
     },
     args: iconographyArgs,
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.iconography.design,
-        },
-    },
+    parameters: storyParams("iconography"),
 };
 
 export const Default = {};

@@ -6,11 +6,39 @@
 
     {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}qld__banner--breadcrumbs{{/ifCond}}
     "
-    {{#ifCond site.metadata.defaultBannerType.value '==' 'texture'}}
-    style="background-image: url(./?a={{site.metadata.defaultBannerTexture.value}});"
+    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'light'}}
+        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
+            {{#if @root.site.metadata.defaultBannerTexture.value}}
+                style="background-image: url({{@root.site.metadata.defaultBannerTextureUrl.value}});"
+            {{/if}}
+        {{/ifCond}}
     {{/ifCond}}
-    
+
+        {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'alternate'}}
+        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
+            {{#if @root.site.metadata.defaultBannerTexture.value}}
+                style="background-image: url({{@root.site.metadata.defaultBannerTextureUrl.value}});"
+            {{/if}}
+        {{/ifCond}}
+    {{/ifCond}}
+
+    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark'}}
+        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
+            {{#if @root.site.metadata.defaultBannerTextureDark.value}}
+                style="background-image: url({{@root.site.metadata.defaultBannerTextureDarkUrl.value}});"
+            {{/if}}
+        {{/ifCond}}
+    {{/ifCond}}
+
+    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}
+        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
+            {{#if @root.site.metadata.defaultBannerTextureDark.value}}
+                style="background-image: url({{@root.site.metadata.defaultBannerTextureDarkUrl.value}});"
+            {{/if}}
+        {{/ifCond}}
+    {{/ifCond}}
 >
+
 <!--@@ Breadcrumbs - Mobile @@-->
 {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
     <nav class="qld__breadcrumbs qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb">

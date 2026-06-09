@@ -1,10 +1,9 @@
-import Handlebars from "handlebars";
-import Template from "../../components/pagination/html/component.hbs?raw";
-import { figmaLinks, themes, dummyLink } from "../../../.storybook/globals";
+import Template from "../../components/pagination/html/component.hbs";
+import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const renderPagination = ({ data, ...args }) =>
-    Handlebars.compile(Template)({
+    Template({
         pagination: data,
         ...args,
     });
@@ -199,12 +198,7 @@ export default {
     title: "3. Components/Pagination",
     render: renderPagination,
     args: { data: paginationData },
-    parameters: {
-        design: {
-            type: "figma",
-            url: figmaLinks.pagination.design,
-        },
-    },
+    parameters: storyParams("pagination"),
 };
 
 export const Default = {};

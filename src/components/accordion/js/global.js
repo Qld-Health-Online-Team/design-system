@@ -2,9 +2,7 @@
  * @module accordion
  */
 
-(function () {
-
-    var accordion = {}
+const accordion = {};
 
     /**
      * Set the correct Aria roles for given element on the accordion title and body
@@ -138,7 +136,7 @@
             target.style.display = 'block';
 
             (function (element) {
-                QLD.animate.Toggle({
+                window.QLD.animate.Toggle({
                     element: target,
                     property: "height",
                     speed: speed || 250,
@@ -359,7 +357,7 @@
             }
             
             (function (target, speed, element) {
-                QLD.animate.Run({
+                window.QLD.animate.Run({
                     element: target,
                     property: 'height',
                     endSize: 'auto',
@@ -414,7 +412,7 @@
             }
             
             (function (target, speed) {
-                QLD.animate.Run({
+                window.QLD.animate.Run({
                     element: target,
                     property: 'height',
                     endSize: 0,
@@ -461,12 +459,13 @@
 
     }
 
-    // Make accordion public
-    QLD.accordion = accordion;
+// Make accordion public
+window.QLD = window.QLD || {};
+window.QLD.accordion = accordion;
 
-    // Add toggle event listeners to accordion buttons
-    window.addEventListener('DOMContentLoaded', function () {
-        QLD.accordion.init();
-    });
+// Add toggle event listeners to accordion buttons
+window.addEventListener('DOMContentLoaded', function () {
+    accordion.init();
+});
 
-}());
+export { accordion };
