@@ -1,6 +1,8 @@
 import { LinkColumns } from "./LinkColumns";
 import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
+import { initComponents } from "../../../.storybook/decorators";
+import initCtaLinks from "../../components/_global/js/cta_links/global";
 
 const linkColumnsArgs = {
     ariaLabel: "related links",
@@ -42,6 +44,7 @@ const linkColumnsArgs = {
 export default {
     title: "3. Components/Link Columns",
     render: LinkColumns,
+    decorators: [initComponents([initCtaLinks])],
     argTypes: {
         ariaLabel: { control: "text", description: "The aria " },
         columns: {
