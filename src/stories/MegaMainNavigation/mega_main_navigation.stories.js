@@ -3,6 +3,7 @@ import { initMegaMenu } from "../../components/mega_main_navigation/js/global.js
 import { within, userEvent, expect } from "storybook/test";
 import { storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
+import initCtaLinks from "../../components/_global/js/cta_links/global";
 
 function render(args) {
     const { site, children, currentAssetid, showMegaMenu, showHomeIcon, showPageDescLevelOne, showPageDescLevelTwo, showViewAll, preHeaderTheme, navStyle, ctaOneText, ctaOneIcon, ctaTwoText, ctaTwoIcon } = args;
@@ -146,7 +147,7 @@ const storyDocs = storyParams("navbar");
 const meta = {
     title: "3. Components/Mega Main Navigation",
     render,
-    decorators: [initComponents([initMegaMenu])],
+    decorators: [initComponents([initMegaMenu, initCtaLinks])],
     parameters: {
         ...storyDocs,
         docs: {

@@ -7,15 +7,15 @@
  * This makes the decorator safe in docs mode where multiple stories share the
  * same page.
  *
- * Init functions may optionally return a cleanup function. If they do, it will
+ * Init functions may optionally return a clean-up function. If they do, it will
  * be called before the next render — covering both story navigation and arg
  * changes — to remove any event listeners or other side effects.
  *
- * @param {Array<function(HTMLElement): (function|void)>} initFunctions
+ * @param {Array<function(Document|Element): (function|void)>} initFunctions
  * @returns {function} Storybook decorator
  *
  * @example
- * // In a stories file:
+ * // In a story file:
  * export default {
  *     decorators: [initComponents([initMegaMenu, initToggleTip])],
  * };
