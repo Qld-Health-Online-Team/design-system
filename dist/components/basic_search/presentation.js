@@ -222,7 +222,7 @@
         return undefined
     };
 
-  return ((stack1 = (lookupProperty(helpers,"contains")||(depth0 && lookupProperty(depth0,"contains"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"hhsid:",{"name":"contains","hash":{},"fn":container.program(46, data, 0),"inverse":container.program(48, data, 0),"data":data,"loc":{"start":{"line":102,"column":262},"end":{"line":102,"column":362}}})) != null ? stack1 : "");
+  return ((stack1 = (lookupProperty(helpers,"contains")||(depth0 && lookupProperty(depth0,"contains"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"hhsid:",{"name":"contains","hash":{},"fn":container.program(46, data, 0),"inverse":container.program(48, data, 0),"data":data,"loc":{"start":{"line":102,"column":262},"end":{"line":102,"column":376}}})) != null ? stack1 : "");
 },"46":function(container,depth0,helpers,partials,data) {
     return "";
 },"48":function(container,depth0,helpers,partials,data) {
@@ -233,7 +233,7 @@
         return undefined
     };
 
-  return container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1), depth0));
+  return container.escapeExpression((lookupProperty(helpers,"renderEncoded")||(depth0 && lookupProperty(depth0,"renderEncoded"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),{"name":"renderEncoded","hash":{},"data":data,"loc":{"start":{"line":102,"column":319},"end":{"line":102,"column":363}}}));
 },"50":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -242,7 +242,7 @@
         return undefined
     };
 
-  return ((stack1 = (lookupProperty(helpers,"contains")||(depth0 && lookupProperty(depth0,"contains"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"hhsid:",{"name":"contains","hash":{},"fn":container.program(46, data, 0),"inverse":container.program(51, data, 0),"data":data,"loc":{"start":{"line":127,"column":106},"end":{"line":127,"column":263}}})) != null ? stack1 : "");
+  return ((stack1 = (lookupProperty(helpers,"contains")||(depth0 && lookupProperty(depth0,"contains"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"hhsid:",{"name":"contains","hash":{},"fn":container.program(46, data, 0),"inverse":container.program(51, data, 0),"data":data,"loc":{"start":{"line":127,"column":106},"end":{"line":127,"column":277}}})) != null ? stack1 : "");
 },"51":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -251,9 +251,9 @@
         return undefined
     };
 
-  return " for <span class=\"qld__search__info-query-term\">‘"
-    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1), depth0))
-    + "’</span>";
+  return " for <span class=\"qld__search__info-query-term\">'"
+    + container.escapeExpression((lookupProperty(helpers,"renderEncoded")||(depth0 && lookupProperty(depth0,"renderEncoded"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),{"name":"renderEncoded","hash":{},"data":data,"loc":{"start":{"line":127,"column":212},"end":{"line":127,"column":256}}}))
+    + "'</span>";
 },"53":function(container,depth0,helpers,partials,data,blockParams) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -796,7 +796,7 @@
     + container.escapeExpression((lookupProperty(helpers,"formatDate")||(depth0 && lookupProperty(depth0,"formatDate"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"listMetadata") : depth0)) != null ? lookupProperty(stack1,"d") : stack1)) != null ? lookupProperty(stack1,"0") : stack1),"j F Y",{"name":"formatDate","hash":{},"data":data,"loc":{"start":{"line":313,"column":101},"end":{"line":313,"column":142}}}))
     + " —</span>";
 },"125":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -804,12 +804,12 @@
     };
 
   return "                <div class=\"qld__search__results qld__search__results--no-results\">\n                    <div class=\"qld__abstract\">\n                        Did you mean <a href=\""
-    + container.escapeExpression(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
-    + "\">‘"
-    + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"text") : stack1), depth0)) != null ? stack1 : "")
-    + "’</a>\n                    </div>\n                    <h2 class=\"qld__display-lg\"><span>Our search for </span><span class=\"qld__search__info-query-term\">‘"
-    + ((stack1 = alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"question") : depth0)) != null ? lookupProperty(stack1,"query") : stack1), depth0)) != null ? stack1 : "")
-    + "’</span> didn't return any results.</h2>\n                    <p class=\"qld__abstract\">You could try:</p>\n                    <ul class=\"qld__search-link-list qld__link-list\">\n                        <li>Check the spelling of your keywords.</li>\n                        <li>Searching again using other words</li>\n                        <li>Using fewer keywords.</li>\n                    </ul>\n                </div>\n";
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"url") : stack1), depth0))
+    + "\">'"
+    + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"spell") : depth0)) != null ? lookupProperty(stack1,"text") : stack1), depth0))
+    + "'</a>\n                    </div>\n                    <h2 class=\"qld__display-lg\"><span>Our search for </span><span class=\"qld__search__info-query-term\">'"
+    + alias2((lookupProperty(helpers,"renderEncoded")||(depth0 && lookupProperty(depth0,"renderEncoded"))||container.hooks.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),{"name":"renderEncoded","hash":{},"data":data,"loc":{"start":{"line":330,"column":120},"end":{"line":330,"column":164}}}))
+    + "'</span> didn't return any results.</h2>\n                    <p class=\"qld__abstract\">You could try:</p>\n                    <ul class=\"qld__search-link-list qld__link-list\">\n                        <li>Check the spelling of your keywords.</li>\n                        <li>Searching again using other words</li>\n                        <li>Using fewer keywords.</li>\n                    </ul>\n                </div>\n";
 },"127":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -937,11 +937,11 @@
     + "\">\n                            <div class=\"qld__search-form__inner\">\n                                <svg class=\"qld__icon qld__icon--sm qld__search-form__inner-icon\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#search\"></use></svg>\n                                <input type=\"search\" id=\"search-input-global-basic-query\" name=\"query\" class=\"qld__text-input data-hj-allow\" aria-expanded=\"false\" autocomplete=\"off\" disabled=\"true\" value=\""
-    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"!==","!padrenull",{"name":"ifCond","hash":{},"fn":container.program(45, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":102,"column":205},"end":{"line":102,"column":373}}})) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"!==","!padrenull",{"name":"ifCond","hash":{},"fn":container.program(45, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":102,"column":205},"end":{"line":102,"column":387}}})) != null ? stack1 : "")
     + "\">\n                                <input type=\"text\" id=\"name\" name=\"name\" autocomplete=\"off\" tabindex=\"-1\" class=\"qld__text-input--validation\">\n                                <div class=\"qld__search-form__btn\">\n                                    <button class=\"qld__btn qld__btn--search\" type=\"button\" aria-label=\"Search\" disabled=\"true\">\n                                        <span class=\"qld__btn__icon\">\n                                            <svg class=\"qld__icon\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><use href=\""
     + alias4(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#search\"></use></svg>\n                                        </span>\n                                        <span class=\"qld__btn__text\">Search</span>\n                                    </button>\n                                </div>\n                            </div>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>\n\n<section class=\"qld__body qld__search\" id=\"content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-xs-12 col-md-12\">\n                <div class=\"qld__search__info\">\n                    <div class=\"qld__search__info-query\">\n                        <h2 class=\"qld__display-lg\">Results"
-    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"!==","",{"name":"ifCond","hash":{},"fn":container.program(50, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":127,"column":59},"end":{"line":127,"column":274}}})) != null ? stack1 : "")
+    + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"question") : stack1)) != null ? lookupProperty(stack1,"query") : stack1),"!==","",{"name":"ifCond","hash":{},"fn":container.program(50, data, 0, blockParams),"inverse":container.noop,"data":data,"blockParams":blockParams,"loc":{"start":{"line":127,"column":59},"end":{"line":127,"column":288}}})) != null ? stack1 : "")
     + "</h2>\n                    </div>\n                    <div class=\"qld__search__info-inner\">\n                        <div class=\"qld__search__info-summary\">\n                            <span class=\"qld__search__info-summary-text\">Showing:</span> \n                            <span class=\"qld__search__info-summary-start-end\">"
     + alias4(alias3(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"resultsPage") : depth0)) != null ? lookupProperty(stack1,"resultsSummary") : stack1)) != null ? lookupProperty(stack1,"currStart") : stack1), depth0))
     + " - "

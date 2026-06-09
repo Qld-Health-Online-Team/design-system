@@ -854,6 +854,15 @@ Handlebars.registerHelper('printAccordion', function (metadata, options) {
 
     return accordions;
 }); 
+Handlebars.registerHelper('renderEncoded', function (string) {
+    if (!string) return "";
+
+    return string
+        .replace(/<[^>]*>/g, "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}); 
 Handlebars.registerHelper('renderSpecialChar', function(string) {
     var map = {
         '&amp;' : '&',
