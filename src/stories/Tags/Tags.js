@@ -1,3 +1,5 @@
+import { iconSpritePath } from "../../../.storybook/globals";
+
 export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
     const tagListWrapperStart = `<div class="qld__tag-list--wrapper"><span class="qld__tag-list--title">${leadingText}</span><ul class="qld__tag-list">`;
     const tagListWrapperEnd = `</ul></div>`;
@@ -24,7 +26,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="QLD-icons.svg#close"></use></svg>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${iconSpritePath}#close"></use></svg>
                             <span class="sr-only">close</span>
                         </button>
                     </div>
@@ -33,7 +35,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="QLD-icons.svg#close"></use></svg>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${iconSpritePath}#close"></use></svg>
                             <span class="sr-only">close</span>
                         </button>
                     </div>
@@ -42,7 +44,7 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     <div class="qld__tag qld__tag--filter">
                         ${text}
                         <button class="qld__tag--filter-close" data-toggleUrl="{{toggleUrl}}">
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="QLD-icons.svg#close"></use></svg>
+                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${iconSpritePath}#close"></use></svg>
                             <span class="sr-only">close</span>
                         </button>
                     </div>

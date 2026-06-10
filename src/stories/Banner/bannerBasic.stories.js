@@ -1,5 +1,5 @@
 import Template from "../../components/banner_basic/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import bannerTexture from "../../assets/img/banner-bg.png";
 
 const mockLineage = [
@@ -10,7 +10,7 @@ const mockLineage = [
 
 const mockSite = {
     metadata: {
-        coreSiteIcons: { value: "/QLD-icons.svg" },
+        coreSiteIcons: { value: iconSpritePath },
         defaultBannerTexture: { value: "" },
         defaultBannerTextureDark: { value: "" },
     },

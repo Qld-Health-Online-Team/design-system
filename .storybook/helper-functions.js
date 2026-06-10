@@ -15,7 +15,3 @@ export const cleanStorybookUrls = (html) => {
 export const themeWrapper = (theme, content) => {
     return `<div class="${theme}" style="padding: 2rem;">${content}</div>`;
 };
-
-export const getSvgPath = () => {
-    return window.location.origin === "https://qld-health-online-team.github.io" ? "/design-system/QLD-icons.svg" : "/QLD-icons.svg";
-};

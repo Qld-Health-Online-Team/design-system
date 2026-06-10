@@ -1,6 +1,14 @@
 import { storyParams, themes } from "../../../.storybook/globals";
 import { Iconography } from "./Iconography";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
+import iconsSvg from "../../assets/img/QLD-icons.svg?raw";
+
+// The sprite is inlined at build time (?raw); we parse it with DOMParser to list
+// every <symbol> id for the allIcons gallery. Lives here as it's the only consumer.
+// Parsing (rather than regex) means symbols inside comments — e.g. the "XXX"
+// template placeholder — are ignored, since comment nodes aren't queried.
+const iconSprite = new DOMParser().parseFromString(iconsSvg, "image/svg+xml");
+const iconIDs = [...iconSprite.querySelectorAll("symbol")].map((symbol) => symbol.id);
 
 const iconographyArgs = {
     size: "lg",
@@ -42,8 +50,8 @@ export const allIcons = (args) => {
     let iconString = `<div tabindex="0" class="iconography-container">`;
 
     // Loop through each icon ID
-    if (args.iconIDs.length > 0) {
-        args.iconIDs.forEach((iconID) => {
+    if (iconIDs.length > 0) {
+        iconIDs.forEach((iconID) => {
             iconString += `<div class="iconography-item">`;
             iconString += Iconography(iconographySizes[2], args.site, iconID);
             iconString += `<span class="iconography-item-name">${iconID}</span></div>`;
