@@ -47,7 +47,10 @@ const figmaBase =
   "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit";
 
 export const componentLinks = {
-  accordion: { ds: `${dsBase}/components/accordion` },
+  accordion: {
+    ds: `${dsBase}/components/accordion`,
+    figma: `${figmaBase}?node-id=120348-3558&t=oLOAet6SqqLBklzJ-0`,
+  },
   backToTop: {
     ds: `${dsBase}/patterns/back-to-top`,
     figma: `${figmaBase}?node-id=135268-27564&t=Gk55sISVPoJM2wm4-0`,
