@@ -17,19 +17,19 @@ import initSelectBoxes from "./components/_global/js/select_boxes/global.js";
 
 // Adding ES module initialisation for components
 export default function initComponents() {
-    // Call initGlobalAlert outside the DOMContentLoaded callback so it executes immediately. There is a noticeable
-    // delay before the DOMContentLoaded event fires, which can cause dismissed global alerts to stay visible for a few
-    // seconds before they are removed. Likely to remove DOMContentLoaded event listener in the future.
-    initGlobalAlert();
-    document.addEventListener("DOMContentLoaded", () => {
-        initCtaLinks(document);
-        initHeader(document);
-        initInPageNavigation(document);
-        initInternalNavigation(document);
-        initLeftHandNav(document);
-        initMegaMenu();
-        initPromoPanel(document);
-        initSelectBoxes(document);
-        initVideoPlayer(document);
-    });
+  // Call initGlobalAlert outside the DOMContentLoaded callback so it executes immediately. There is a noticeable
+  // delay before the DOMContentLoaded event fires, which can cause dismissed global alerts to stay visible for a few
+  // seconds before they are removed. Likely to remove DOMContentLoaded event listener in the future.
+  initGlobalAlert();
+  document.addEventListener("DOMContentLoaded", () => {
+    initCtaLinks(document);
+    initHeader(document);
+    initInPageNavigation(document);
+    initInternalNavigation(document);
+    initLeftHandNav(document);
+    initMegaMenu();
+    initPromoPanel(document);
+    initSelectBoxes(document);
+    initVideoPlayer(document);
+  });
 }

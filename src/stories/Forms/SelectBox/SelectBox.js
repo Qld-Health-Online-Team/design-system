@@ -1,48 +1,62 @@
 import { iconSpritePath } from "../../../../.storybook/globals";
 
-export const SelectBox = ({ id, extraClass, isFilled, isRequired, isDisabled, isMultiple, label, hintText, state, succcessMessage, errorMessage, defaultOption, options }) => {
-    let stateMessage = "";
-    let stateClass = "";
+export const SelectBox = ({
+  id,
+  extraClass,
+  isFilled,
+  isRequired,
+  isDisabled,
+  isMultiple,
+  label,
+  hintText,
+  state,
+  succcessMessage,
+  errorMessage,
+  defaultOption,
+  options,
+}) => {
+  let stateMessage = "";
+  let stateClass = "";
 
-    if (!defaultOption) {
-        defaultOption = {
-            value: "",
-            label: "--Select an option--",
-        };
-    }
+  if (!defaultOption) {
+    defaultOption = {
+      value: "",
+      label: "--Select an option--",
+    };
+  }
 
-    const optionsMapped = [defaultOption, ...options]
-        ?.map((option) => {
-            return `<option value="${option.value}">${option.label}</option>`;
-        })
-        .join("");
+  const optionsMapped = [defaultOption, ...options]
+    ?.map((option) => {
+      return `<option value="${option.value}">${option.label}</option>`;
+    })
+    .join("");
 
-    switch (state) {
-        case "success":
-            stateClass = "qld__text-input--valid";
-            stateMessage = `
+  switch (state) {
+    case "success":
+      stateClass = "qld__text-input--valid";
+      stateMessage = `
                 <span id="${id}-state-message" class="qld__input--success">
                     <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                         <use href="${iconSpritePath}#status-success"></use>
                     </svg>
                     <span>${succcessMessage}</span>
                 </span>`;
-            break;
-        case "error":
-            stateClass = "qld__text-input--error";
-            stateMessage = `
+      break;
+    case "error":
+      stateClass = "qld__text-input--error";
+      stateMessage = `
                 <span id="${id}-state-message" class="qld__input--error">
                     <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                         <use href="${iconSpritePath}#status-error"></use>
                     </svg>
                     <span>${errorMessage}</span>
                 </span>`;
-            break;
-        default:
-            stateMessage = "";
-    }
+      break;
+    default:
+      stateMessage = "";
+  }
 
-    return `
+  return `
         <fieldset ${isFilled ? "class='qld__form-style-filled'" : ""}>
             <label for="${id}">${isRequired ? "<abbr title=required>*</abbr>" : ""}${label}</label>
             ${hintText ? `<span id="${id}-hint" class="qld__hint-text">${hintText}</span>` : ""}

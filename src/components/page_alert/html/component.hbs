@@ -1,36 +1,82 @@
 {{#with component.data}}
-<section class="qld__body qld__page-alerts--wrapper" id="{{#if metadata.id_field.value}}{{metadata.id_field.value}}{{else}}page-alert-{{assetid}}{{/if}}">
+  <section
+    id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}page-alert-{{ assetid }}{{/if}}"
+    class="qld__body qld__page-alerts--wrapper"
+  >
     <div class="container-fluid">
-        <div role="region" 
-        aria-label="{{#ifCond metadata.type.value '==' 'info'}}Information{{/ifCond}}{{#ifCond metadata.type.value '==' 'success'}}Success{{/ifCond}}{{#ifCond metadata.type.value '==' 'warning'}}Warning{{/ifCond}}{{#ifCond metadata.type.value '==' 'error'}}Error{{/ifCond}}" class="qld__page-alerts qld__page-alerts--svg qld__page-alerts--{{metadata.type.value}}">
-            {{#ifCond metadata.type.value '==' 'info'}}            
-            <div class="qld__page-alerts__icon">
-                <svg aria-label="Information" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use></svg>
-            </div>
-            {{/ifCond}}
-            {{#ifCond metadata.type.value '==' 'success'}} 
-            <div class="qld__page-alerts__icon">
-                <svg aria-label="Success" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-success"></use></svg>
-            </div>
-            {{/ifCond}}
-            {{#ifCond metadata.type.value '==' 'warning'}} 
-            <div class="qld__page-alerts__icon">
-                <svg aria-label="Warning" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-warning"></use></svg>
-            </div>
-            {{/ifCond}}
-            {{#ifCond metadata.type.value '==' 'error'}} 
-            <div class="qld__page-alerts__icon">
-                <svg aria-label="Error" xmlns="http://www.w3.org/2000/svg" class="qld__icon qld__icon--sm"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-danger"></use></svg>
-            </div>
-            {{/ifCond}}
-            {{#if metadata.heading.value}}
-                <{{metadata.heading_level.value}} class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</{{metadata.heading_level.value}}>
-            {{/if}}
+      <div
+        class="
+          qld__page-alerts
+          qld__page-alerts--svg
+          qld__page-alerts--{{
+          metadata.type.value
+          }}
+        "
+        role="region"
+        aria-label="{{#ifCond metadata.type.value '==' 'info'}}Information{{/ifCond}}{{#ifCond metadata.type.value '==' 'success'}}Success{{/ifCond}}{{#ifCond metadata.type.value '==' 'warning'}}Warning{{/ifCond}}{{#ifCond metadata.type.value '==' 'error'}}Error{{/ifCond}}"
+      >
+        {{#ifCond metadata.type.value '==' 'info'}}
+          <div class="qld__page-alerts__icon">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-label="Information"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-information"
+              ></use>
+            </svg>
+          </div>
+        {{/ifCond}}
+        {{#ifCond metadata.type.value '==' 'success'}}
+          <div class="qld__page-alerts__icon">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-label="Success"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-success"
+              ></use>
+            </svg>
+          </div>
+        {{/ifCond}}
+        {{#ifCond metadata.type.value '==' 'warning'}}
+          <div class="qld__page-alerts__icon">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-label="Warning"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-warning"
+              ></use>
+            </svg>
+          </div>
+        {{/ifCond}}
+        {{#ifCond metadata.type.value '==' 'error'}}
+          <div class="qld__page-alerts__icon">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-label="Error"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-danger"
+              ></use>
+            </svg>
+          </div>
+        {{/ifCond}}
+        {{#if metadata.heading.value}}
+          <{{metadata.heading_level.value}} class="qld__page-alerts--heading qld__display-lg">{{metadata.heading.value}}</{{metadata.heading_level.value}}>
+        {{/if}}
 
-            {{#if metadata.body.value}}
-                <div>{{{metadata.body.value}}}</div>
-            {{/if}} 
-        </div>
+        {{#if metadata.body.value}}
+          <div>
+            {{{ metadata.body.value }}}
+          </div>
+        {{/if}}
+      </div>
     </div>
-</section>
+  </section>
 {{/with}}

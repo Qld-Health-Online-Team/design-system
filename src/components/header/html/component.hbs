@@ -1,151 +1,300 @@
 {{#ifCond site.metadata.defaultBannerContainedBanner.value '==' 'qld__banner_contained'}}
-<div class="qld__header__contained-banner"  {{#if site.metadata.imageContainedLayoutBackground.value}} style="background-image:url(./?a={{site.metadata.imageContainedLayoutBackground.value}}); background-position:{{site.metadata.containedBannerImageTexturePosition.value}}; background-size:{{site.metadata.containedBannerImageTextureSize.value}}; background-repeat:{{site.metadata.containedBannerImageTextureRepeat.value}}; "{{/if}}
-{{#if site.metadata.imageContainedLayoutTexture.value}} style="background-image:url(./?a={{site.metadata.imageContainedLayoutTexture.value}}); background-position:{{site.metadata.containedBannerImageTexturePosition.value}}; background-size:{{site.metadata.containedBannerImageTextureSize.value}}; background-repeat:{{site.metadata.containedBannerImageTextureRepeat.value}};"{{/if}}>
-</div>
+  <div
+    class="qld__header__contained-banner"
+    {{#if site.metadata.imageContainedLayoutBackground.value}}
+      style="background-image:url(./?a={{ site.metadata.imageContainedLayoutBackground.value }}); background-position:{{ site.metadata.containedBannerImageTexturePosition.value }}; background-size:{{ site.metadata.containedBannerImageTextureSize.value }}; background-repeat:{{ site.metadata.containedBannerImageTextureRepeat.value }}; "
+    {{/if}}
+    {{#if site.metadata.imageContainedLayoutTexture.value}}
+      style="background-image:url(./?a={{ site.metadata.imageContainedLayoutTexture.value }}); background-position:{{ site.metadata.containedBannerImageTexturePosition.value }}; background-size:{{ site.metadata.containedBannerImageTextureSize.value }}; background-repeat:{{ site.metadata.containedBannerImageTextureRepeat.value }};"
+    {{/if}}
+  ></div>
 {{/ifCond}}
 <header class="qld__header" role="banner">
-    <nav class="qld__skip-link" aria-label="skip links" tabindex="-1">
-        <a class="qld__skip-link__link" href="#content">Skip to main content</a>
-        <a class="qld__skip-link__link qld__skip-link__link-desktop" href="#main-nav">Skip to main navigation</a>
-        <a class="qld__skip-link__link qld__skip-link__link-mobile" href="#main-nav-mobile">Skip to main navigation</a>
-    </nav>
-    <div class="qld__header__pre-header {{site.metadata.sitePreHeaderTheme.value}}">
-        <div class="container-fluid">
-            <a href="{{#if site.metadata.sitePreHeaderURL.value}}{{site.metadata.sitePreHeaderURL.value}}{{else}}./?a={{site.data.assetid}}{{/if}}">
-                <span class="qld__header__pre-header-url">{{site.metadata.sitePreHeaderText.value}}</span>
-                {{#if site.metadata.sitePreHeaderLogo.value}}
-                <img
-                    class="qld__header__pre-header-brand-image"
-                    alt="Queensland Government logo"
-                    src="./?a={{site.metadata.sitePreHeaderLogo.value}}"
-                />
-                {{else}}
-                     <span class="qld__header__pre-header-url--mobile">{{site.metadata.sitePreHeaderText.value}}</span>
-                {{/if}}
-                
-            </a>
+  <nav class="qld__skip-link" aria-label="skip links" tabindex="-1">
+    <a class="qld__skip-link__link" href="#content">Skip to main content</a>
+    <a
+      class="qld__skip-link__link qld__skip-link__link-desktop"
+      href="#main-nav"
+    >
+      Skip to main navigation
+    </a>
+    <a
+      class="qld__skip-link__link qld__skip-link__link-mobile"
+      href="#main-nav-mobile"
+    >
+      Skip to main navigation
+    </a>
+  </nav>
+  <div
+    class="qld__header__pre-header {{ site.metadata.sitePreHeaderTheme.value }}"
+  >
+    <div class="container-fluid">
+      <a
+        href="{{#if site.metadata.sitePreHeaderURL.value}}{{ site.metadata.sitePreHeaderURL.value }}{{else}}./?a={{ site.data.assetid }}{{/if}}"
+      >
+        <span class="qld__header__pre-header-url">
+          {{ site.metadata.sitePreHeaderText.value }}
+        </span>
+        {{#if site.metadata.sitePreHeaderLogo.value}}
+          <img
+            class="qld__header__pre-header-brand-image"
+            alt="Queensland Government logo"
+            src="./?a={{ site.metadata.sitePreHeaderLogo.value }}"
+          />
+        {{else}}
+          <span class="qld__header__pre-header-url--mobile">
+            {{ site.metadata.sitePreHeaderText.value }}
+          </span>
+        {{/if}}
 
-            <div class="qld__header__cta-wrapper">
-                {{#if site.metadata.mainNavCtaOne.value}}
-                <a class="qld__header__cta-link" href="./?a={{site.metadata.mainNavCtaOne.value}}">
-		            {{#if site.metadata.mainNavCtaOneIcon.value}}
-                    <span class="qld__header__cta-link-icon">
-                        <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{site.metadata.mainNavCtaOneIcon.value}}"></use></svg>
-                    </span>
-                    {{/if}}
-                    <span class="qld__header__cta-link-text">{{site.metadata.mainNavCtaOneText.value}}</span>
-                </a>
-                {{/if}}
-                {{#if site.metadata.mainNavCtaTwo.value}}
-                <a class="qld__header__cta-link" href="./?a={{site.metadata.mainNavCtaTwo.value}}">
-                    {{#if site.metadata.mainNavCtaTwoIcon.value}}
-                    <span class="qld__header__cta-link-icon">
-                        <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#{{site.metadata.mainNavCtaTwoIcon.value}}"></use></svg>
-                    </span>
-                    {{/if}}
-                    <span class="qld__header__cta-link-text">{{site.metadata.mainNavCtaTwoText.value}}</span>
-                </a>
-                {{/if}}
-            </div>
+      </a>
 
-            <div class="qld__header__main-nav-controls">
-                {{#if site.metadata.siteSearchAsset.value}}
-                <button aria-controls="qld-header-search" class="qld__header__toggle-main-nav qld__main-nav__toggle-search qld__main-nav__toggle-search--open" aria-expanded="false">
-                    <svg class="qld__icon qld__main-nav__toggle-search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#search"></use></svg> 
-                    <svg class="qld__icon qld__main-nav__toggle-search-close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#close"></use></svg> 
-                    <span class="qld__main-nav__toggle-text">Search</span>
-                </button>
-                {{/if}}
-                <button id="main-nav-mobile" aria-controls="main-nav" class="qld__header__toggle-main-nav qld__main-nav__toggle--open">
-                    <svg class="qld__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#menu"></use></svg>
-                    <span class="qld__main-nav__toggle-text">Menu</span>
-                </button>
-            </div>
-        </div>
-    </div>        
-
-    <div class="qld__header__main {{site.metadata.siteHeaderMainTheme.value}}">
-        <div class="container-fluid">
-
-            <div class="qld__header__brand">
-                <a href="{{#if site.metadata.siteLogoUrl.value}}./?a={{site.metadata.siteLogoUrl.value}}{{else}}./?a={{site.data.assetid}}{{/if}}">
-                    {{#ifCond site.metadata.siteShowLogo.value '==' 'yes'}}
-                    <div class="qld__header__brand-image">
-                        {{#if site.metadata.siteLogo.value}}
-                            <img src="./?a={{site.metadata.siteLogo.value}}" width="170" height="56" alt="Queensland Government logo"/>
-                        {{else}}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="170" height="56" role="img" aria-label="Queensland Government logo"><use href="./?a={{site.metadata.siteHeaderDefaultLogo.value}}#logo"></use></svg>
-                        {{/if}}
-                    </div>
-                    {{/ifCond}}
-
-
-                    {{#if site.metadata.siteLogoSecondary.value}}
-                        <div class="qld__header__site-name">
-                            <picture>
-                                {{#if site.metadata.siteLogoSecondaryMobile.value}}
-                                    <source media="(max-width: 991px)" 
-                                    srcset="./?a={{site.metadata.siteLogoSecondaryMobile.value}}" />
-                                {{else}}
-                                    <source media="(max-width: 991px)" 
-                                        srcset="./?a={{site.metadata.siteLogoSecondary.value}}" />
-                                {{/if}}
-                                <source media="(max-width: 3000px)" 
-                                srcset="./?a={{site.metadata.siteLogoSecondary.value}}" />
-                            <img
-                                class="qld__header__secondary-image"
-                                alt="{{site.metadata.siteTitle.value}}"
-                                src= "./?a={{site.metadata.siteLogoSecondary.value}}"
-                            />
-                            </picture>
-                        </div>
-                        {{else}}
-                        <div class="qld__header__site-name">
-                            <span class="qld__header__heading">
-                                {{site.metadata.siteTitle.value}}
-                            </span>
-                            {{#if site.metadata.siteSubline.value}}
-                            <span class="qld__header__subline">
-                                {{site.metadata.siteSubline.value}}
-                            </span>
-                            {{/if}}
-                        </div>
-                    
-                    {{/if}}
-                </a>
-
-            </div>
-
-            {{#if site.metadata.siteSearchAsset.value}}
-            
-            <div class="qld__header__search" id="qld-header-search">
-                <div class="qld__main-nav__focus-trap-top"></div>
-
-                <div class="qld__search-form--wrapper">
-                    <form role="search" aria-label="sitewide" class="qld__search-form" id="search-input-global-header" action="{{site.metadata.siteSearchUrl.value}}">
-                        <label for="search-input-global-header-query" class="qld__label qld__display-lg qld__search-form__label">Search this website</label>
-                        <div class="qld__search-form__inner">
-                            <svg class="qld__icon qld__icon--sm qld__search-form__inner-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#search"></use></svg>
-                            <input type="search" id="search-input-global-header-query" name="query" class="qld__text-input data-hj-allow" autocomplete='off' disabled="true">
-                            <input type="text" id="name" name="name" autocomplete="off" tabindex="-1" class="qld__text-input--validation">
-                            <div class="qld__search-form__btn">
-                                <button class="qld__btn qld__btn--search" type="button" aria-label="Search" disabled="true">
-                                    <span class="qld__btn__icon">
-                                        <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use href="{{@root.site.metadata.coreSiteIcons.value}}#search"></use></svg>
-                                    </span>
-                                    <span class="qld__btn__text">Search</span>
-                                </button>
-                            </div>
-                        </div>  
-                    </form>
-                </div>
-                
-                <div class="qld__main-nav__focus-trap-bottom"></div>
-            </div>
+      <div class="qld__header__cta-wrapper">
+        {{#if site.metadata.mainNavCtaOne.value}}
+          <a
+            class="qld__header__cta-link"
+            href="./?a={{ site.metadata.mainNavCtaOne.value }}"
+          >
+            {{#if site.metadata.mainNavCtaOneIcon.value}}
+              <span class="qld__header__cta-link-icon">
+                <svg
+                  class="qld__icon"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use
+                    href="{{ @root.site.metadata.coreSiteIcons.value }}#{{ site.metadata.mainNavCtaOneIcon.value }}"
+                  ></use>
+                </svg>
+              </span>
             {{/if}}
+            <span class="qld__header__cta-link-text">
+              {{ site.metadata.mainNavCtaOneText.value }}
+            </span>
+          </a>
+        {{/if}}
+        {{#if site.metadata.mainNavCtaTwo.value}}
+          <a
+            class="qld__header__cta-link"
+            href="./?a={{ site.metadata.mainNavCtaTwo.value }}"
+          >
+            {{#if site.metadata.mainNavCtaTwoIcon.value}}
+              <span class="qld__header__cta-link-icon">
+                <svg
+                  class="qld__icon"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use
+                    href="{{ @root.site.metadata.coreSiteIcons.value }}#{{ site.metadata.mainNavCtaTwoIcon.value }}"
+                  ></use>
+                </svg>
+              </span>
+            {{/if}}
+            <span class="qld__header__cta-link-text">
+              {{ site.metadata.mainNavCtaTwoText.value }}
+            </span>
+          </a>
+        {{/if}}
+      </div>
 
+      <div class="qld__header__main-nav-controls">
+        {{#if site.metadata.siteSearchAsset.value}}
+          <button
+            class="
+              qld__header__toggle-main-nav
+              qld__main-nav__toggle-search
+              qld__main-nav__toggle-search--open
+            "
+            aria-controls="qld-header-search"
+            aria-expanded="false"
+          >
+            <svg
+              class="qld__icon qld__main-nav__toggle-search-icon"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="{{ @root.site.metadata.coreSiteIcons.value }}#search"
+              ></use>
+            </svg>
+            <svg
+              class="qld__icon qld__main-nav__toggle-search-close-icon"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="{{ @root.site.metadata.coreSiteIcons.value }}#close"
+              ></use>
+            </svg>
+            <span class="qld__main-nav__toggle-text">Search</span>
+          </button>
+        {{/if}}
+        <button
+          id="main-nav-mobile"
+          class="qld__header__toggle-main-nav qld__main-nav__toggle--open"
+          aria-controls="main-nav"
+        >
+          <svg
+            class="qld__icon"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use href="{{ @root.site.metadata.coreSiteIcons.value }}#menu"
+            ></use>
+          </svg>
+          <span class="qld__main-nav__toggle-text">Menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="qld__header__main {{ site.metadata.siteHeaderMainTheme.value }}">
+    <div class="container-fluid">
+
+      <div class="qld__header__brand">
+        <a
+          href="{{#if site.metadata.siteLogoUrl.value}}./?a={{ site.metadata.siteLogoUrl.value }}{{else}}./?a={{ site.data.assetid }}{{/if}}"
+        >
+          {{#ifCond site.metadata.siteShowLogo.value '==' 'yes'}}
+            <div class="qld__header__brand-image">
+              {{#if site.metadata.siteLogo.value}}
+                <img
+                  src="./?a={{ site.metadata.siteLogo.value }}"
+                  width="170"
+                  height="56"
+                  alt="Queensland Government logo"
+                />
+              {{else}}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="170"
+                  height="56"
+                  role="img"
+                  aria-label="Queensland Government logo"
+                >
+                  <use
+                    href="./?a={{ site.metadata.siteHeaderDefaultLogo.value }}#logo"
+                  ></use>
+                </svg>
+              {{/if}}
+            </div>
+          {{/ifCond}}
+
+          {{#if site.metadata.siteLogoSecondary.value}}
+            <div class="qld__header__site-name">
+              <picture>
+                {{#if site.metadata.siteLogoSecondaryMobile.value}}
+                  <source
+                    media="(max-width: 991px)"
+                    srcset="./?a={{ site.metadata.siteLogoSecondaryMobile.value }}"
+                  />
+                {{else}}
+                  <source
+                    media="(max-width: 991px)"
+                    srcset="./?a={{ site.metadata.siteLogoSecondary.value }}"
+                  />
+                {{/if}}
+                <source
+                  media="(max-width: 3000px)"
+                  srcset="./?a={{ site.metadata.siteLogoSecondary.value }}"
+                />
+                <img
+                  class="qld__header__secondary-image"
+                  alt="{{ site.metadata.siteTitle.value }}"
+                  src="./?a={{ site.metadata.siteLogoSecondary.value }}"
+                />
+              </picture>
+            </div>
+          {{else}}
+            <div class="qld__header__site-name">
+              <span class="qld__header__heading">
+                {{ site.metadata.siteTitle.value }}
+              </span>
+              {{#if site.metadata.siteSubline.value}}
+                <span class="qld__header__subline">
+                  {{ site.metadata.siteSubline.value }}
+                </span>
+              {{/if}}
+            </div>
+          {{/if}}
+        </a>
+
+      </div>
+
+      {{#if site.metadata.siteSearchAsset.value}}
+        <div id="qld-header-search" class="qld__header__search">
+          <div class="qld__main-nav__focus-trap-top"></div>
+
+          <div class="qld__search-form--wrapper">
+            <form
+              id="search-input-global-header"
+              class="qld__search-form"
+              role="search"
+              aria-label="sitewide"
+              action="{{ site.metadata.siteSearchUrl.value }}"
+            >
+              <label
+                class="qld__label qld__display-lg qld__search-form__label"
+                for="search-input-global-header-query"
+              >
+                Search this website
+              </label>
+              <div class="qld__search-form__inner">
+                <svg
+                  class="qld__icon qld__icon--sm qld__search-form__inner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <use
+                    href="{{ @root.site.metadata.coreSiteIcons.value }}#search"
+                  ></use>
+                </svg>
+                <input
+                  id="search-input-global-header-query"
+                  class="qld__text-input data-hj-allow"
+                  type="search"
+                  name="query"
+                  autocomplete="off"
+                  disabled="true"
+                />
+                <input
+                  id="name"
+                  class="qld__text-input--validation"
+                  type="text"
+                  name="name"
+                  autocomplete="off"
+                  tabindex="-1"
+                />
+                <div class="qld__search-form__btn">
+                  <button
+                    class="qld__btn qld__btn--search"
+                    type="button"
+                    aria-label="Search"
+                    disabled="true"
+                  >
+                    <span class="qld__btn__icon">
+                      <svg
+                        class="qld__icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <use
+                          href="{{ @root.site.metadata.coreSiteIcons.value }}#search"
+                        ></use>
+                      </svg>
+                    </span>
+                    <span class="qld__btn__text">Search</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="qld__main-nav__focus-trap-bottom"></div>
         </div>
+      {{/if}}
 
     </div>
+
+  </div>
 </header>
 <!-- HEADER END -->
