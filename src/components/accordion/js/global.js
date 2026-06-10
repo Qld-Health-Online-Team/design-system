@@ -2,464 +2,182 @@
  * @module accordion
  */
 
-const accordion = {};
+import * as collapsible from "../../_global/js/collapsible.js";
+import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
 
-/**
- * Set the correct Aria roles for given element on the accordion title and body
- *
- * @memberof module:accordion
- * @instance
- * @private
- *
- * @param  {object} element - The DOM element we want to set attributes for
- * @param  {object} target  - The DOM element we want to set attributes for
- * @param  {string} state   - The DOM element we want to set attributes for
- */
-function setAriaRoles(element, target, state) {
-  if (state === "closing") {
-    element.setAttribute("aria-expanded", false);
-  } else {
-    element.setAttribute("aria-expanded", true);
-  }
+export function initAccordion(root = document) {
+  const controller = new AbortController();
+  const { signal } = controller;
+
+  root
+    .querySelectorAll(".qld__accordion-group")
+    .forEach((groupEl) => initAccordionGroup(groupEl, signal));
+
+  // Cleanup: remove every listener added above in one call (used by the Storybook decorator)
+  return () => controller.abort();
 }
 
 /**
- * IE8 compatible function for replacing classes on a DOM node
+ * Wire up a single accordion group: each accordion's toggle button plus the
+ * optional "Open all / Close all" button.
  *
- * @memberof module:accordion
- * @instance
- * @private
- *
- * @param  {object} element      - The DOM element we want to toggle classes on
- * @param  {object} target       - The DOM element we want to toggle classes on
- * @param  {object} state        - The current state of the animation on the element
- * @param  {string} openingClass - The firstClass you want to toggle on the DOM node
- * @param  {string} closingClass - The secondClass you want to toggle on the DOM node
+ * @param {HTMLElement} groupEl - The `.qld__accordion-group` element
+ * @param {AbortSignal} signal  - Signal used to remove the listeners on cleanup
  */
-function toggleClasses(element, state, openingClass, closingClass) {
-  if (state === "opening" || state === "open") {
-    var oldClass = openingClass || "qld__accordion--closed";
-    var newClass = closingClass || "qld__accordion--open";
-  } else {
-    var oldClass = closingClass || "qld__accordion--open";
-    var newClass = openingClass || "qld__accordion--closed";
-  }
-
-  removeClass(element, oldClass);
-  addClass(element, newClass);
-}
-
-/**
- * IE8 compatible function for removing a class
- *
- * @memberof module:accordion
- * @instance
- * @private
- *
- * @param  {object} element   - The DOM element we want to manipulate
- * @param  {object} className - The name of the class to be removed
- */
-function removeClass(element, className) {
-  if (element.classList) {
-    element.classList.remove(className);
-  } else {
-    element.className = element.className.replace(
-      new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"),
-      " ",
+function initAccordionGroup(groupEl, signal) {
+  groupEl
+    .querySelectorAll(".qld__accordion")
+    .forEach((accordionEl) =>
+      wireAccordionToggle(accordionEl, signal, groupEl),
     );
+
+  const toggleAllBtn = groupEl.querySelector(".qld__accordion__toggle-btn");
+  if (toggleAllBtn) {
+    wireToggleAll(toggleAllBtn, signal);
   }
 }
 
 /**
- * IE8 compatible function for adding a class
+ * Attach the click listener that toggles a single accordion open/closed.
  *
- * @memberof module:accordion
- * @instance
- * @private
+ * Target lookups are scoped to the group element so duplicate ids in sibling
+ * groups (e.g. multiple Storybook stories on a docs page) don't collide.
  *
- * @param  {object} element   - The DOM element we want to manipulate
- * @param  {object} className - The name of the class to be added
+ * @param {HTMLElement} accordionEl - The `.qld__accordion` element
+ * @param {AbortSignal} signal      - Signal used to remove the listener on cleanup
+ * @param {HTMLElement} groupEl     - The `.qld__accordion-group` to scope target lookups to
  */
-function addClass(element, className) {
-  if (element.classList) {
-    element.classList.add(className);
-  } else {
-    element.className = element.className + " " + className;
-  }
+function wireAccordionToggle(accordionEl, signal, groupEl) {
+  const btn = accordionEl.querySelector("button.qld__accordion__title");
+  if (!btn) return;
+
+  btn.addEventListener(
+    "click",
+    () => {
+      Toggle(btn, undefined, groupEl);
+      syncToggleAllButton(groupEl);
+    },
+    { signal },
+  );
 }
 
 /**
- * Toggle an accordion element
+ * Set the "Open all / Close all" button's class, label and `aria-expanded` to
+ * reflect whether the group is fully open.
  *
- * @memberof module:accordion
- *
- * @param  {string}  elements  - The DOM node/s to toggle
- * @param  {integer} speed     - The speed in ms for the animation
- * @param  {object}  callbacks - An object of four optional callbacks: { onOpen, afterOpen, onClose, afterClose }
- *
+ * @param {HTMLElement} toggleAllBtn - The `.qld__accordion__toggle-btn` element
+ * @param {boolean}     isOpen       - Whether the group is fully open
  */
-accordion.Toggle = function (elements, speed, callbacks) {
-  // stop event propagation
-  try {
-    window.event.cancelBubble = true;
-    event.stopPropagation();
-  } catch (error) {}
-
-  // making sure we can iterate over just one DOM element
-  if (elements.length === undefined) {
-    elements = [elements];
-  }
-
-  // check this once
-  if (typeof callbacks != "object") {
-    callbacks = {};
-  }
-
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-    var targetId = element.getAttribute("aria-controls");
-    var target = document.getElementById(targetId);
-
-    if (target == null) {
-      throw new Error(
-        "accordion.Toggle cannot find the target to be toggled from inside aria-controls.\n" +
-          "Make sure the first argument you give accordion.Toggle is the DOM element (a button or a link) that has an aria-controls attribute that points " +
-          "to a div that you want to toggle.",
-      );
-    }
-
-    target.style.display = "block";
-
-    (function (element) {
-      window.QLD.animate.Toggle({
-        element: target,
-        property: "height",
-        speed: speed || 250,
-        prefunction: function (target, state) {
-          if (state === "opening") {
-            target.style.display = "block";
-
-            // run when opening
-            if (typeof callbacks.onOpen === "function") {
-              callbacks.onOpen();
-            }
-          } else {
-            // run when closing
-            if (typeof callbacks.onClose === "function") {
-              callbacks.onClose();
-            }
-          }
-
-          setAriaRoles(element, target, state);
-          toggleClasses(element, state);
-        },
-        postfunction: function (target, state) {
-          if (state === "closed") {
-            // run after closing
-            target.style.display = "";
-            target.style.height = "";
-
-            // GTM event
-            if (typeof window.dataLayer !== "undefined") {
-              window.dataLayer.push({
-                event: "accordion closed",
-                category: "accordion",
-                action: "close",
-                label: targetId,
-              });
-            }
-
-            if (typeof callbacks.afterClose === "function") {
-              callbacks.afterClose();
-            }
-          } else {
-            // run after opening
-            target.style.display = "";
-            target.style.height = "";
-
-            // GTM event
-            if (typeof window.dataLayer !== "undefined") {
-              window.dataLayer.push({
-                event: "accordion open",
-                category: "accordion",
-                action: "open",
-                label: targetId,
-              });
-            }
-
-            if (typeof callbacks.afterOpen === "function") {
-              callbacks.afterOpen();
-            }
-
-            if (target.classList.contains("qld__overflow_menu")) {
-              var overFlowLinks = [];
-              overFlowLinks = target.querySelectorAll(
-                "a.qld__overflow_menu_list-item-link",
-              );
-
-              if (overFlowLinks[0]) {
-                setTimeout(function () {
-                  overFlowLinks[0].focus();
-                }, 10);
-              }
-            }
-          }
-
-          toggleClasses(target, state);
-        },
-        callback: function (target, state) {
-          const controller = new AbortController();
-
-          function toggleNavOnDocumentClick(event) {
-            if (
-              !event.target.closest(
-                ".qld__main-nav__menu-sub.qld__accordion__body.qld__accordion--open",
-              )
-            ) {
-              controller.abort();
-              if (elements[0].classList.contains("qld__accordion--open")) {
-                accordion.Toggle(elements, speed, callbacks);
-              }
-            }
-          }
-
-          if (state === "open" || state === "opening") {
-            //if it is a mega nav add an event listener to close it when document is clicked
-            if (
-              this.element.classList.contains("qld__main-nav__menu-sub") ||
-              this.element.classList.contains("qld__overflow_menu")
-            ) {
-              document.addEventListener("click", toggleNavOnDocumentClick, {
-                signal: controller.signal,
-              });
-            }
-          } else {
-            if (
-              this.element.classList.contains("qld__main-nav__menu-sub") ||
-              this.element.classList.contains("qld__overflow_menu")
-            ) {
-              document.removeEventListener("click", toggleNavOnDocumentClick, {
-                signal: controller.signal,
-              });
-              controller.abort();
-            }
-          }
-        },
-      });
-    })(element);
-  }
-
-  return false;
-};
+function setToggleAllState(toggleAllBtn, isOpen) {
+  toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--open", isOpen);
+  toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--closed", !isOpen);
+  setExpanded(toggleAllBtn, isOpen);
+  toggleAllBtn.textContent = isOpen ? "Close all" : "Open all";
+}
 
 /**
- * Toggle all accordion elements
+ * Keep a group's "Open all / Close all" button in sync with its accordions:
+ * the button shows "Close all" only when every accordion is open.
+ *
+ * @param {HTMLElement} groupEl - The `.qld__accordion-group` element
+ */
+function syncToggleAllButton(groupEl) {
+  const toggleAllBtn = groupEl.querySelector(".qld__accordion__toggle-btn");
+  if (!toggleAllBtn) return;
+
+  const titles = groupEl.querySelectorAll(".qld__accordion__title");
+  const allOpen = titles.length > 0 && [...titles].every(isExpanded);
+
+  setToggleAllState(toggleAllBtn, allOpen);
+}
+
+/**
+ * Attach the click listener for a group's "Open all / Close all" button.
+ *
+ * @param {HTMLElement} toggleAllBtn - The `.qld__accordion__toggle-btn` element
+ * @param {AbortSignal} signal       - Signal used to remove the listeners on cleanup
+ */
+function wireToggleAll(toggleAllBtn, signal) {
+  toggleAllBtn.addEventListener("click", () => ToggleAll(toggleAllBtn), {
+    signal,
+  });
+}
+
+/**
+ * Toggle an accordion element.
  *
  * @memberof module:accordion
  *
- * @param  {string}  elements  - The DOM node/s to toggle
- * @param  {integer} speed     - The speed in ms for the animation
- * @param  {object}  callbacks - An object of four optional callbacks: { onOpen, afterOpen, onClose, afterClose }
- *
+ * @param  {HTMLElement | NodeList} elements  - The DOM node/s to toggle
+ * @param  {number}                 speed     - The speed in ms for the animation
+ * @param  {Document | HTMLElement} root      - The root element to search for the target
+ * @param  {object}                 callbacks - Optional callbacks: { onOpen, afterOpen, onClose, afterClose }
  */
-accordion.ToggleAll = function (elements, speed, callbacks) {
-  // stop event propagation
-  try {
-    window.event.cancelBubble = true;
-    event.stopPropagation();
-  } catch (error) {}
+export function Toggle(elements, speed, root = document, callbacks) {
+  collapsible.toggle(elements, speed, root, callbacks);
+}
 
-  var toogleAllButton = elements;
-  // find the accordion wrapper
-  var wrapper = toogleAllButton.closest(".qld__accordion-group");
+/**
+ * Toggle all accordion elements in a group.
+ *
+ * @memberof module:accordion
+ *
+ * @param  {HTMLElement} toggleAllBtn  - The "Open all / Close all" button
+ * @param  {number}      speed     - The speed in ms for the animation
+ * @param  {object}      callbacks - Optional callbacks: { onOpen, afterOpen, onClose, afterClose }
+ */
+export function ToggleAll(toggleAllBtn, speed, callbacks = {}) {
+  // find the accordion wrapper — also used to scope the target lookups so
+  // duplicate ids in sibling groups (e.g. multiple Storybook stories) don't collide
+  const wrapper = toggleAllBtn.closest(".qld__accordion-group");
   // get all the accordion buttons
-  var accordionButtons = wrapper.querySelectorAll(".qld__accordion__title");
-
-  // check this once
-  if (typeof callbacks != "object") {
-    callbacks = {};
-  }
+  const accordionButtons = wrapper.querySelectorAll(".qld__accordion__title");
 
   // Check if opened or closed
-  if (
-    toogleAllButton.classList.contains("qld__accordion__toggle-btn--closed")
-  ) {
-    toogleAllButton.classList.remove("qld__accordion__toggle-btn--closed");
-    toogleAllButton.setAttribute("aria-expanded", "true");
-    toogleAllButton.classList.add("qld__accordion__toggle-btn--open");
-    toogleAllButton.textContent = "Close all";
-    accordion.Open(accordionButtons);
+  if (toggleAllBtn.classList.contains("qld__accordion__toggle-btn--closed")) {
+    collapsible.open(accordionButtons, speed, wrapper, callbacks);
+    setToggleAllState(toggleAllBtn, true);
   } else if (
-    toogleAllButton.classList.contains("qld__accordion__toggle-btn--open")
+    toggleAllBtn.classList.contains("qld__accordion__toggle-btn--open")
   ) {
-    toogleAllButton.classList.remove("qld__accordion__toggle-btn--open");
-    toogleAllButton.setAttribute("aria-expanded", "false");
-    toogleAllButton.classList.add("qld__accordion__toggle-btn--closed");
-    toogleAllButton.textContent = "Open all";
-    accordion.Close(accordionButtons);
+    collapsible.close(accordionButtons, speed, wrapper, callbacks);
+    setToggleAllState(toggleAllBtn, false);
   }
-
-  return false;
-};
+}
 
 /**
- * Open a group of accordion elements
+ * Open a group of accordion elements.
  *
  * @memberof module:accordion
  *
- * @param  {string}  elements - The DOM node/s to toggle
- * @param  {integer} speed    - The speed in ms for the animation
- * @param  {Document | HTMLElement}  root     - The root element to search for the target element
+ * @param  {HTMLElement | NodeList} elements - The DOM node/s to open
+ * @param  {number}                 speed    - The speed in ms for the animation
+ * @param  {Document | HTMLElement} root     - The root element to search for the target element
+ * @param  {object}                 callbacks - Optional callbacks: { onOpen, afterOpen }
  */
-accordion.Open = function (elements, speed, root = document) {
-  // stop event propagation
-  try {
-    window.event.cancelBubble = true;
-    event.stopPropagation();
-  } catch (error) {}
-
-  if (elements.length === undefined) {
-    elements = [elements];
-  }
-
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-    var targetId = element.getAttribute("aria-controls");
-    var target = root.querySelector(`[id="${targetId}"]`);
-
-    // let’s find out if this accordion is still closed
-    var height = 0;
-    if (typeof getComputedStyle !== "undefined") {
-      height = window.getComputedStyle(target).height;
-    } else {
-      height = target.currentStyle.height;
-    }
-
-    if (parseInt(height) === 0) {
-      target.style.height = "0px";
-    }
-
-    target.style.display = "";
-    toggleClasses(target, "opening");
-    toggleClasses(element, "opening");
-    setAriaRoles(element, target, "opening");
-
-    if (typeof window.dataLayer !== "undefined") {
-      window.dataLayer.push({
-        event: "accordion open",
-        category: "accordion",
-        action: "close",
-        label: targetId,
-      });
-    }
-
-    (function (target, speed, element) {
-      window.QLD.animate.Run({
-        element: target,
-        property: "height",
-        endSize: "auto",
-        speed: speed || 250,
-        callback: function () {
-          toggleClasses(element, "opening");
-        },
-      });
-    })(target, speed, element);
-  }
-};
+export function Open(elements, speed, root = document, callbacks) {
+  collapsible.open(elements, speed, root, callbacks);
+}
 
 /**
- * Close a group of accordion elements
+ * Close a group of accordion elements.
  *
  * @memberof module:accordion
  *
- * @param  {string}  elements - The DOM node/s to toggle
- * @param  {integer} speed    - The speed in ms for the animation
- * @param  {Document | HTMLElement}  root     - The root element to search for the target element
+ * @param  {HTMLElement | NodeList} elements - The DOM node/s to close
+ * @param  {number}                 speed    - The speed in ms for the animation
+ * @param  {Document | HTMLElement} root     - The root element to search for the target element
+ * @param  {object}                 callbacks - Optional callbacks: { onClose, afterClose }
  */
-accordion.Close = function (elements, speed, root = document) {
-  // stop event propagation
-  try {
-    window.event.cancelBubble = true;
-    event.stopPropagation();
-  } catch (error) {}
+export function Close(elements, speed, root = document, callbacks) {
+  collapsible.close(elements, speed, root, callbacks);
+}
 
-  if (elements.length === undefined) {
-    elements = [elements];
-  }
-
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-    var targetId = element.getAttribute("aria-controls");
-    var target = root.querySelector(`[id="${targetId}"]`);
-
-    toggleClasses(element, "closing");
-    setAriaRoles(element, target, "closing");
-
-    if (typeof window.dataLayer !== "undefined") {
-      window.dataLayer.push({
-        event: "accordion close",
-        category: "accordion",
-        action: "close",
-        label: targetId,
-      });
-    }
-
-    (function (target, speed) {
-      window.QLD.animate.Run({
-        element: target,
-        property: "height",
-        endSize: 0,
-        speed: speed || 250,
-        callback: function () {
-          target.style.display = "";
-          toggleClasses(target, "close");
-        },
-      });
-    })(target, speed);
-  }
-};
-
-/**
- * Init the accordion component by adding relevent event listeners
- *
- * @memberof module:accordion
- */
-accordion.init = function (element) {
-  if (element == "overflow") {
-    var overflowMenuButtons = document.querySelectorAll(
-      ".qld__overflow_menu__btn",
-    );
-    overflowMenuButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        accordion.Toggle(button);
-      });
-    });
-  } else {
-    var accordionButtons = document.querySelectorAll(".qld__accordion__title");
-    accordionButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        accordion.Toggle(button);
-      });
-    });
-
-    var accordionAllButtton = document.querySelectorAll(
-      ".qld__accordion__toggle-btn",
-    );
-    accordionAllButtton.forEach(function (button) {
-      button.addEventListener("click", function () {
-        accordion.ToggleAll(button);
-      });
-    });
-  }
-};
-
-// Make accordion public
+// Make accordion public for backwards compatibility (window.QLD.accordion.*)
+const accordion = { Toggle, ToggleAll, Open, Close, initAccordion };
 window.QLD = window.QLD || {};
 window.QLD.accordion = accordion;
 
-// Add toggle event listeners to accordion buttons
-window.addEventListener("DOMContentLoaded", function () {
-  accordion.init();
-});
+// Note: accordion groups are initialised via initAccordion() from component-loader.js.
 
 export { accordion };
