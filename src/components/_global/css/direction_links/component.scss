@@ -9,122 +9,122 @@ $icon-arrow-body-length: 1rem;
 $icon-gap-from-text: 1.75rem;
 
 a.qld__direction-link {
-    &--right,
-    &--left,
-    &--up,
-    &--down {
-        position: relative;
-        display: inline-block;
-        border-radius: $QLD-border-radius-xs;
+  &--right,
+  &--left,
+  &--up,
+  &--down {
+    position: relative;
+    display: inline-block;
+    border-radius: $QLD-border-radius-xs;
 
-        &::before {
-            width: $icon-arrow-body-length;
-        }
-
-        &::after {
-            width: $icon-arrow-head-width;
-            height: $icon-arrow-head-width;
-            border-right: $icon-arrow-stroke-width solid;
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            display: inline-block;
-            box-sizing: border-box;
-            border-bottom: $icon-arrow-stroke-width solid;
-            transition: border-color 0.3s ease;
-            border-color: var(--QLD-color-light__action--secondary);
-
-            .qld__body--dark &,
-            .qld__body--dark-alt & {
-                border-color: var(--QLD-color-dark__action--secondary);
-            }
-        }
+    &::before {
+      width: $icon-arrow-body-length;
     }
 
-    &--right {
-        padding-right: $icon-gap-from-text;
-
-        &::before {
-            top: 50%;
-            right: 0.3rem;
-            transform: scale($icon-scale);
-        }
-
-        &::after {
-            transform: rotate(315deg) scale($icon-scale);
-            top: 0.5rem;
-            right: 0.3rem;
-        }
+    &::after {
+      width: $icon-arrow-head-width;
+      height: $icon-arrow-head-width;
+      border-right: $icon-arrow-stroke-width solid;
     }
 
-    &--left {
-        padding-left: $icon-gap-from-text;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      box-sizing: border-box;
+      border-bottom: $icon-arrow-stroke-width solid;
+      transition: border-color 0.3s ease;
+      border-color: var(--QLD-color-light__action--secondary);
 
-        &::before {
-            top: 50%;
-            left: 0.3rem;
-            transform: scale($icon-scale);
-        }
+      .qld__body--dark &,
+      .qld__body--dark-alt & {
+        border-color: var(--QLD-color-dark__action--secondary);
+      }
+    }
+  }
 
-        &::after {
-            top: 0.5rem;
-            left: 0.3rem;
-            transform: rotate(135deg) scale($icon-scale);
-        }
+  &--right {
+    padding-right: $icon-gap-from-text;
+
+    &::before {
+      top: 50%;
+      right: 0.3rem;
+      transform: scale($icon-scale);
     }
 
-    &--up {
-        padding-right: $icon-gap-from-text;
+    &::after {
+      transform: rotate(315deg) scale($icon-scale);
+      top: 0.5rem;
+      right: 0.3rem;
+    }
+  }
 
-        &::before {
-            top: 13px;
-            right: 5px;
-            transform: rotate(90deg) scale($icon-scale);
-        }
+  &--left {
+    padding-left: $icon-gap-from-text;
 
-        &::after {
-            top: 6px;
-            right: 8.25px;
-            transform: rotate(225deg) scale($icon-scale);
-        }
+    &::before {
+      top: 50%;
+      left: 0.3rem;
+      transform: scale($icon-scale);
     }
 
-    &--down {
-        padding-right: $icon-gap-from-text;
-
-        &::before {
-            top: 11.5px;
-            right: 5px;
-            transform: rotate(90deg) scale($icon-scale);
-        }
-
-        &::after {
-            top: 11px;
-            right: 8.45px;
-            transform: rotate(45deg) scale($icon-scale);
-        }
+    &::after {
+      top: 0.5rem;
+      left: 0.3rem;
+      transform: rotate(135deg) scale($icon-scale);
     }
+  }
+
+  &--up {
+    padding-right: $icon-gap-from-text;
+
+    &::before {
+      top: 13px;
+      right: 5px;
+      transform: rotate(90deg) scale($icon-scale);
+    }
+
+    &::after {
+      top: 6px;
+      right: 8.25px;
+      transform: rotate(225deg) scale($icon-scale);
+    }
+  }
+
+  &--down {
+    padding-right: $icon-gap-from-text;
+
+    &::before {
+      top: 11.5px;
+      right: 5px;
+      transform: rotate(90deg) scale($icon-scale);
+    }
+
+    &::after {
+      top: 11px;
+      right: 8.45px;
+      transform: rotate(45deg) scale($icon-scale);
+    }
+  }
 }
 
 // Print styles
 @media print {
-    a.qld__direction-link,
-    .qld__body--dark a.qld__direction-link,
-    .qld__body--dark-alt a.qld__direction-link {
-        color: $QLD-color-neutral--black;
-        text-decoration-color: $QLD-color-neutral--black;
+  a.qld__direction-link,
+  .qld__body--dark a.qld__direction-link,
+  .qld__body--dark-alt a.qld__direction-link {
+    color: $QLD-color-neutral--black;
+    text-decoration-color: $QLD-color-neutral--black;
 
-        &--right,
-        &--left,
-        &--up,
-        &--down {
-            &::before,
-            &::after {
-                border-color: $QLD-color-neutral--black;
-            }
-        }
+    &--right,
+    &--left,
+    &--up,
+    &--down {
+      &::before,
+      &::after {
+        border-color: $QLD-color-neutral--black;
+      }
     }
+  }
 }

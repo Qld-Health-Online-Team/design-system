@@ -4,22 +4,22 @@
 <script src="externals/componentPreview.js"></script>
 <script src="js/helpers.js"></script>
 <script>
-    const serviceFinderData = new Datastore({
-        // serviceURL: 'http://0.0.0.0:7001/hXL8Q1uq', // Matt
-        //serviceURL: 'http://0.0.0.0:7001/afMhajMG', // Tom
-        serviceURL: "http://0.0.0.0:7001/GbO0pTqv", // Julian
-        //serviceURL: 'https://au-a14fc409.datastore.squiz.cloud',
-        jwtURL: "http://0.0.0.0:7001/__JWT/issueToken",
-    });
+  const serviceFinderData = new Datastore({
+    // serviceURL: 'http://0.0.0.0:7001/hXL8Q1uq', // Matt
+    //serviceURL: 'http://0.0.0.0:7001/afMhajMG', // Tom
+    serviceURL: "http://0.0.0.0:7001/GbO0pTqv", // Julian
+    //serviceURL: 'https://au-a14fc409.datastore.squiz.cloud',
+    jwtURL: "http://0.0.0.0:7001/__JWT/issueToken",
+  });
 
-    serviceFinderData.setSetting("jwtPayload", {
-        username: "jdoe",
-        fullName: "John Doe",
-        dsAdmin: false,
-        hhsGroup: "sunshine-coast",
-        isPublic: false,
-        currentHHS: true,
-    });
+  serviceFinderData.setSetting("jwtPayload", {
+    username: "jdoe",
+    fullName: "John Doe",
+    dsAdmin: false,
+    hhsGroup: "sunshine-coast",
+    isPublic: false,
+    currentHHS: true,
+  });
 </script>
 
 <script src="externals/populateDatastoreSim.js"></script>

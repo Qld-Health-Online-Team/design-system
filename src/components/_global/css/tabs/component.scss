@@ -1,39 +1,39 @@
 .qld__tab_panel {
-    &.qld__tab--closed,
-    &[hidden] {
-        display: none !important;
-    }
+  &.qld__tab--closed,
+  &[hidden] {
+    display: none !important;
+  }
 }
 
 .qld__tab {
-    cursor: pointer;
-    background-color: $QLD-color-neutral--white !important;
+  cursor: pointer;
+  background-color: $QLD-color-neutral--white !important;
 
-    &[aria-selected="true"] {
-        background-color: $QLD-color-neutral--lightest !important;
-    }
+  &[aria-selected="true"] {
+    background-color: $QLD-color-neutral--lightest !important;
+  }
 }
 
 .qld__content-tabs {
-    border-bottom: 1px solid var(--QLD-color-light__border--alt);
-    margin-top: pxToRem(30);
-    margin-bottom: pxToRem(24);
+  border-bottom: 1px solid var(--QLD-color-light__border--alt);
+  margin-top: pxToRem(30);
+  margin-bottom: pxToRem(24);
 
-    .qld__tab {
-        cursor: pointer;
-        background-color: transparent !important;
-        border: 0;
-        line-height: pxToRem(32);
-        padding: pxToRem(15) pxToRem(15);
+  .qld__tab {
+    cursor: pointer;
+    background-color: transparent !important;
+    border: 0;
+    line-height: pxToRem(32);
+    padding: pxToRem(15) pxToRem(15);
 
-        &[aria-selected="true"] {
-            background-color: transparent !important;
-            font-weight: $QLD-font-weight-semibold;
-            border-bottom: 8px solid var(--QLD-color-dark__action--secondary);
-        }
-
-        &:hover {
-            font-weight: $QLD-font-weight-semibold;
-        }
+    &[aria-selected="true"] {
+      background-color: transparent !important;
+      font-weight: $QLD-font-weight-semibold;
+      border-bottom: 8px solid var(--QLD-color-dark__action--secondary);
     }
+
+    &:hover {
+      font-weight: $QLD-font-weight-semibold;
+    }
+  }
 }

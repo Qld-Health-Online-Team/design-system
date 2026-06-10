@@ -5,173 +5,284 @@ import { initComponents } from "../../../../.storybook/decorators";
 import initSelectBoxes from "../../../components/_global/js/select_boxes/global";
 
 const selectBoxArgs = {
-    id: "select1",
-    extraClass: "",
-    isFilled: false,
-    isRequired: false,
-    isDisabled: false,
-    isMultiple: false,
-    label: "Select label",
-    hintText: "Hint text",
-    state: "default",
-    succcessMessage: "Success message",
-    errorMessage: "Error message",
-    defaultOption: { value: "", label: "Please select" },
-    options: [
-        { value: "option 1", label: "Option 1" },
-        { value: "option 2", label: "Option 2" },
-        { value: "option 3", label: "Option 3" },
-        { value: "option 4", label: "Option 4" },
-        { value: "option 5", label: "Option 5" },
-    ],
+  id: "select1",
+  extraClass: "",
+  isFilled: false,
+  isRequired: false,
+  isDisabled: false,
+  isMultiple: false,
+  label: "Select label",
+  hintText: "Hint text",
+  state: "default",
+  succcessMessage: "Success message",
+  errorMessage: "Error message",
+  defaultOption: { value: "", label: "Please select" },
+  options: [
+    { value: "option 1", label: "Option 1" },
+    { value: "option 2", label: "Option 2" },
+    { value: "option 3", label: "Option 3" },
+    { value: "option 4", label: "Option 4" },
+    { value: "option 5", label: "Option 5" },
+  ],
 };
 
 export default {
-    title: "3. Components/Forms/Select",
-    render: SelectBox,
-    decorators: [initComponents([initSelectBoxes])],
-    argTypes: {
-        id: { control: "text", description: "The id for this component" },
-        extraClass: { control: "text", description: "Extra classes that will be applied to the < select > element" },
-        isFilled: {
-            name: "is_filled",
-            control: "boolean",
-            description: "Whether the input field has a full border",
-            table: {
-                defaultValue: { summary: "false" },
-            },
-        },
-        isRequired: {
-            name: "is_required",
-            control: "boolean",
-            description: "Whether the input field requires a value to be entered",
-            table: {
-                defaultValue: { summary: "false" },
-            },
-        },
-        isDisabled: {
-            name: "is_disabled",
-            control: "boolean",
-            description: "Whether the select field has been disabled",
-            table: {
-                defaultValue: { summary: "false" },
-            },
-        },
-        isMultiple: {
-            name: "is_multiple",
-            control: "boolean",
-            description: "Whether the select field allows multiple selections",
-            table: {
-                defaultValue: { summary: "false" },
-            },
-        },
-        label: { control: "text", description: "The top-most label for this component" },
-        hintText: { control: "text", description: "The text underneath label for supporting text" },
-        state: {
-            control: {
-                type: "radio",
-                labels: {
-                    default: "Default",
-                    success: "Success",
-                    error: "Error",
-                },
-            },
-            options: ["default", "success", "error"],
-            description: "The type of SelectBox that will be displayed",
-            table: {
-                defaultValue: { summary: "default" },
-            },
-        },
-        succcessMessage: { control: "text", description: "The message that will be displayed if the select is valid", if: { arg: "state", eq: "success" } },
-        errorMessage: { control: "text", description: "The message that will be displayed if the select is in error", if: { arg: "state", eq: "error" } },
-        defaultOption: {
-            control: "object",
-            description: "The default option for this select",
-            table: {
-                defaultValue: {
-                    summary: `{ value: "", label: "--Select an option--" }`,
-                },
-            },
-        },
-        options: {
-            control: "array",
-            description: "The options select",
-        },
+  title: "3. Components/Forms/Select",
+  render: SelectBox,
+  decorators: [initComponents([initSelectBoxes])],
+  argTypes: {
+    id: { control: "text", description: "The id for this component" },
+    extraClass: {
+      control: "text",
+      description:
+        "Extra classes that will be applied to the < select > element",
     },
-    args: { ...selectBoxArgs },
-    parameters: storyParams("selectBox"),
+    isFilled: {
+      name: "is_filled",
+      control: "boolean",
+      description: "Whether the input field has a full border",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    isRequired: {
+      name: "is_required",
+      control: "boolean",
+      description: "Whether the input field requires a value to be entered",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    isDisabled: {
+      name: "is_disabled",
+      control: "boolean",
+      description: "Whether the select field has been disabled",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    isMultiple: {
+      name: "is_multiple",
+      control: "boolean",
+      description: "Whether the select field allows multiple selections",
+      table: {
+        defaultValue: { summary: "false" },
+      },
+    },
+    label: {
+      control: "text",
+      description: "The top-most label for this component",
+    },
+    hintText: {
+      control: "text",
+      description: "The text underneath label for supporting text",
+    },
+    state: {
+      control: {
+        type: "radio",
+        labels: {
+          default: "Default",
+          success: "Success",
+          error: "Error",
+        },
+      },
+      options: ["default", "success", "error"],
+      description: "The type of SelectBox that will be displayed",
+      table: {
+        defaultValue: { summary: "default" },
+      },
+    },
+    succcessMessage: {
+      control: "text",
+      description: "The message that will be displayed if the select is valid",
+      if: { arg: "state", eq: "success" },
+    },
+    errorMessage: {
+      control: "text",
+      description:
+        "The message that will be displayed if the select is in error",
+      if: { arg: "state", eq: "error" },
+    },
+    defaultOption: {
+      control: "object",
+      description: "The default option for this select",
+      table: {
+        defaultValue: {
+          summary: `{ value: "", label: "--Select an option--" }`,
+        },
+      },
+    },
+    options: {
+      control: "array",
+      description: "The options select",
+    },
+  },
+  args: { ...selectBoxArgs },
+  parameters: storyParams("selectBox"),
 };
 
 export const Default = {};
 
-export const defaultVariant = () => SelectBox({ ...selectBoxArgs, id: "select2" });
+export const defaultVariant = () =>
+  SelectBox({ ...selectBoxArgs, id: "select2" });
 defaultVariant.tags = ["!dev"];
 
-export const successVariant = () => SelectBox({ ...selectBoxArgs, id: "select3", state: "success", succcessMessage: "Success message" });
+export const successVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select3",
+    state: "success",
+    succcessMessage: "Success message",
+  });
 successVariant.tags = ["!dev"];
 
-export const errorVariant = () => SelectBox({ ...selectBoxArgs, id: "select4", state: "error", errorMessage: "Error message" });
+export const errorVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select4",
+    state: "error",
+    errorMessage: "Error message",
+  });
 errorVariant.tags = ["!dev"];
 
-export const filledVariant = () => SelectBox({ ...selectBoxArgs, id: "select5", isFilled: true });
+export const filledVariant = () =>
+  SelectBox({ ...selectBoxArgs, id: "select5", isFilled: true });
 filledVariant.tags = ["!dev"];
 
-export const requiredVariant = () => SelectBox({ ...selectBoxArgs, id: "select6", isRequired: true });
+export const requiredVariant = () =>
+  SelectBox({ ...selectBoxArgs, id: "select6", isRequired: true });
 requiredVariant.tags = ["!dev"];
 
-export const disabledVariant = () => SelectBox({ ...selectBoxArgs, id: "select7", isDisabled: true });
+export const disabledVariant = () =>
+  SelectBox({ ...selectBoxArgs, id: "select7", isDisabled: true });
 disabledVariant.tags = ["!dev"];
 
-export const multipleVariant = () => SelectBox({ ...selectBoxArgs, id: "select23", isMultiple: true });
+export const multipleVariant = () =>
+  SelectBox({ ...selectBoxArgs, id: "select23", isMultiple: true });
 multipleVariant.tags = ["!dev"];
 
-export const size2charVariant = () => SelectBox({ ...selectBoxArgs, id: "select8", extraClass: "qld__field-width--2char" });
+export const size2charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select8",
+    extraClass: "qld__field-width--2char",
+  });
 size2charVariant.tags = ["!dev"];
 
-export const size3charVariant = () => SelectBox({ ...selectBoxArgs, id: "select9", extraClass: "qld__field-width--3char" });
+export const size3charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select9",
+    extraClass: "qld__field-width--3char",
+  });
 size3charVariant.tags = ["!dev"];
 
-export const size4charVariant = () => SelectBox({ ...selectBoxArgs, id: "select10", extraClass: "qld__field-width--4char" });
+export const size4charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select10",
+    extraClass: "qld__field-width--4char",
+  });
 size4charVariant.tags = ["!dev"];
 
-export const size5charVariant = () => SelectBox({ ...selectBoxArgs, id: "select11", extraClass: "qld__field-width--5char" });
+export const size5charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select11",
+    extraClass: "qld__field-width--5char",
+  });
 size5charVariant.tags = ["!dev"];
 
-export const size10charVariant = () => SelectBox({ ...selectBoxArgs, id: "select12", extraClass: "qld__field-width--10char" });
+export const size10charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select12",
+    extraClass: "qld__field-width--10char",
+  });
 size10charVariant.tags = ["!dev"];
 
-export const size20charVariant = () => SelectBox({ ...selectBoxArgs, id: "select13", extraClass: "qld__field-width--20char" });
+export const size20charVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select13",
+    extraClass: "qld__field-width--20char",
+  });
 size20charVariant.tags = ["!dev"];
 
-export const sizeXSVariant = () => SelectBox({ ...selectBoxArgs, id: "select14", extraClass: "qld__field-width--xs" });
+export const sizeXSVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select14",
+    extraClass: "qld__field-width--xs",
+  });
 sizeXSVariant.tags = ["!dev"];
 
-export const sizeSMVariant = () => SelectBox({ ...selectBoxArgs, id: "select15", extraClass: "qld__field-width--sm" });
+export const sizeSMVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select15",
+    extraClass: "qld__field-width--sm",
+  });
 sizeSMVariant.tags = ["!dev"];
 
-export const sizeMDVariant = () => SelectBox({ ...selectBoxArgs, id: "select16", extraClass: "qld__field-width--md" });
+export const sizeMDVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select16",
+    extraClass: "qld__field-width--md",
+  });
 sizeMDVariant.tags = ["!dev"];
 
-export const sizeLGVariant = () => SelectBox({ ...selectBoxArgs, id: "select17", extraClass: "qld__field-width--lg" });
+export const sizeLGVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select17",
+    extraClass: "qld__field-width--lg",
+  });
 sizeLGVariant.tags = ["!dev"];
 
-export const sizeXLVariant = () => SelectBox({ ...selectBoxArgs, id: "select18", extraClass: "qld__field-width--xl" });
+export const sizeXLVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select18",
+    extraClass: "qld__field-width--xl",
+  });
 sizeXLVariant.tags = ["!dev"];
 
-export const sizeFullVariant = () => SelectBox({ ...selectBoxArgs, id: "select19", extraClass: "qld__field-width--full" });
+export const sizeFullVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select19",
+    extraClass: "qld__field-width--full",
+  });
 sizeFullVariant.tags = ["!dev"];
 
-export const size3QuartersVariant = () => SelectBox({ ...selectBoxArgs, id: "select20", extraClass: "qld__field-width--3-quarters" });
+export const size3QuartersVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select20",
+    extraClass: "qld__field-width--3-quarters",
+  });
 size3QuartersVariant.tags = ["!dev"];
 
-export const sizeHalfVariant = () => SelectBox({ ...selectBoxArgs, id: "select21", extraClass: "qld__field-width--half" });
+export const sizeHalfVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select21",
+    extraClass: "qld__field-width--half",
+  });
 sizeHalfVariant.tags = ["!dev"];
 
-export const size1QuarterVariant = () => SelectBox({ ...selectBoxArgs, id: "select22", extraClass: "qld__field-width--1-quarter" });
+export const size1QuarterVariant = () =>
+  SelectBox({
+    ...selectBoxArgs,
+    id: "select22",
+    extraClass: "qld__field-width--1-quarter",
+  });
 size1QuarterVariant.tags = ["!dev"];
 
 export const allVariants = () => {
-    return `
+  return `
         <h3>Default select box</h3>
         ${defaultVariant()}
         <h3>Success select box</h3>
@@ -220,50 +331,50 @@ export const allVariants = () => {
     `;
 };
 const allVariantsArgTypes = {
-    type: {
-        table: {
-            disable: true,
-        },
+  type: {
+    table: {
+      disable: true,
     },
-    isLargeTag: {
-        table: {
-            disable: true,
-        },
+  },
+  isLargeTag: {
+    table: {
+      disable: true,
     },
+  },
 };
 allVariants.tags = ["!dev"];
 
 export const white = {
-    argTypes: allVariantsArgTypes,
-    render: () => {
-        return themeWrapper(themes["white"], allVariants());
-    },
+  argTypes: allVariantsArgTypes,
+  render: () => {
+    return themeWrapper(themes["white"], allVariants());
+  },
 };
 
 export const light = {
-    argTypes: allVariantsArgTypes,
-    render: () => {
-        return themeWrapper(themes["light"], allVariants());
-    },
+  argTypes: allVariantsArgTypes,
+  render: () => {
+    return themeWrapper(themes["light"], allVariants());
+  },
 };
 
 export const lightAlt = {
-    argTypes: allVariantsArgTypes,
-    render: () => {
-        return themeWrapper(themes["light alt"], allVariants());
-    },
+  argTypes: allVariantsArgTypes,
+  render: () => {
+    return themeWrapper(themes["light alt"], allVariants());
+  },
 };
 
 export const dark = {
-    argTypes: allVariantsArgTypes,
-    render: () => {
-        return themeWrapper(themes["dark"], allVariants());
-    },
+  argTypes: allVariantsArgTypes,
+  render: () => {
+    return themeWrapper(themes["dark"], allVariants());
+  },
 };
 
 export const darkAlt = {
-    argTypes: allVariantsArgTypes,
-    render: () => {
-        return themeWrapper(themes["dark alt"], allVariants());
-    },
+  argTypes: allVariantsArgTypes,
+  render: () => {
+    return themeWrapper(themes["dark alt"], allVariants());
+  },
 };

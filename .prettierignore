@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+coverage
+dist
+storybook-static
+src/externals
+
+# html-loader interpolate templates: the ${...} blocks are parsed as JS by
+# esprima, which cannot handle strings wrapped across lines by Prettier
+src/html

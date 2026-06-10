@@ -1,4 +1,5 @@
 # The Design System by Qld Health
+
 ## This is an alpha version, provided to the community for their use. Qld Health will not provide support for this design system.
 
 If you are using assets from this Repo, please send an email to qgdesignsystem@chde.qld.gov.au so we can add you to the change management communications list for the formal future state Qld Gov Design System.
@@ -6,13 +7,16 @@ If you are using assets from this Repo, please send an email to qgdesignsystem@c
 This boilerplate is the frontend starting point for design cutups and front end component development for the Queensland Design System.
 
 ## Table of Contents
+
 #### [Getting Started](#getting-started-1)
+
 - [Inclusions](#inclusions)
 - [Requirements](#requirements)
 - [Local Development](#local-development)
 - [Building for production](#building-for-production)
 
 #### [Component Development](#component-development-1)
+
 - [Creating a new component](#creating-a-new-component)
 - [Component data](#component-data-manifestjson)
 - [Handlebars template](#handlebars-template-componenthbs)
@@ -23,17 +27,21 @@ This boilerplate is the frontend starting point for design cutups and front end 
 - [Importing into Matrix](#importing-into-matrix)
 
 #### [General Boilerplate Features](#general-boilerplate-features-1)
+
 - [Working in HTML Files](#working-in-html-files)
 - [Working in SCSS Files](#working-in-scss-files)
 - [Working in JS Files](#working-in-js-files)
 
 #### [Contributing](#contributing)
+
 #### [Copyright and Warrannty](#copyright-and-warrannty)
 
 ## Getting Started
 
 ### Inclusions
+
 When you first clone down the Design System, you automatically get the following:
+
 - Sass compilation + Post CSS autoprefixer
 - Templated components with HandlebarsJS
 - Babel ES6 conversion
@@ -41,6 +49,7 @@ When you first clone down the Design System, you automatically get the following
 - Hot-reload HTML, CSS and JS
 
 ### Requirements
+
 - Node: v20.19.1
 - NPM: 10.8.2
 
@@ -67,35 +76,41 @@ There are two commands you can run when compiling your code for production envir
 ```
 npm run build
 ```
+
 ```
 npm run build-min
 ```
+
 Both of these commands will run through the configurations set up in `webpack.prod.js` to compile all of your HTML, CSS, and JavaScript for use on a production system.
 
 Instead of just serving the site into memory in your browser with `npm run serve`, this will actually build your files into the /dist directory.
 
 ## Component development
+
 ### Creating a new component
-All existing components are located in src/components, and you can find the base component template in src/components/_template. Run the command `npm run add-component` and follow the prompts to create a new component from this template. 
+
+All existing components are located in src/components, and you can find the base component template in src/components/\_template. Run the command `npm run add-component` and follow the prompts to create a new component from this template.
 
 **Please note:** If you've still got `npm run serve` running in another console window, you'll need to restart that process for Webpack to recognise it.
 
 Each new component will include the following files, which will require updating:
-* js/manifest.json - Define the data structure for your component (see below)
-* html/component.hbs - Define the structure of your component using HandlebarsJS templating
-* css/component.scss - Style your component using SASS
-* js/global.js - Frontend JavaScript for your component (eg. toggling of accordions)
+
+- js/manifest.json - Define the data structure for your component (see below)
+- html/component.hbs - Define the structure of your component using HandlebarsJS templating
+- css/component.scss - Style your component using SASS
+- js/global.js - Frontend JavaScript for your component (eg. toggling of accordions)
 
 At the same time, the script will also automatically create a corresponding component HTML page at src/html/component-\[component-name\], which will allow you to preview the component via `npm run serve`.
 
 For more details on each of these, see the sections below.
 
 ### Component data (manifest.json)
-Step 1 after creating your new component is to define its data structure via its *manifest.json* file.
+
+Step 1 after creating your new component is to define its data structure via its _manifest.json_ file.
 
 Use the **component** object to define some global properties (Eg. name, description, version etc.).
 
-Then, use the **metadata** object inside the **data** object to define each of the various editable fields. For each field, ensure to define the type (eg. *metadata_field_text*) and a default value (see below for examples). Also note that the field name (ie. the object key) must be in 'snake_case' (ie. lowercase with underscores).
+Then, use the **metadata** object inside the **data** object to define each of the various editable fields. For each field, ensure to define the type (eg. _metadata_field_text_) and a default value (see below for examples). Also note that the field name (ie. the object key) must be in 'snake_case' (ie. lowercase with underscores).
 
 Here is an example from the existing **Banner Home** component:
 
@@ -134,7 +149,7 @@ Here is an example from the existing **Banner Home** component:
 
 You can also use the manifest file to configure certain fields for conditional display in the Matrix editing interface. These rules can be defined for each metadata field under the **display_if** property.
 
-Below is an example showing the *background_image_alignment* field in the Banner Advanced component. In this particular case, if *background_type* is equal to 'image' OR 'image-multi', then we show the *background_image_alignment* field. Have a look at that component for more examples.
+Below is an example showing the _background_image_alignment_ field in the Banner Advanced component. In this particular case, if _background_type_ is equal to 'image' OR 'image-multi', then we show the _background_image_alignment_ field. Have a look at that component for more examples.
 
 ```
 
@@ -169,7 +184,7 @@ Below is an example showing the *background_image_alignment* field in the Banner
 
 There are also two optional arrays available inside the component object (**children** and **assets**) that can be used for a component that lists multiple items (Eg. Cards or Tags).
 
-To populate the **children** array, you need to create a field named **root_node** within the **metadata** object. In Matrix, the template will look for a field with this exact name. If it exists, it will automatically populate the **children** array with a JSON blob containing the ***%asset_data%*** of each ***child asset*** under that root_node.
+To populate the **children** array, you need to create a field named **root_node** within the **metadata** object. In Matrix, the template will look for a field with this exact name. If it exists, it will automatically populate the **children** array with a JSON blob containing the **_%asset_data%_** of each **_child asset_** under that root_node.
 
 See the Cards component for an example of this (example manifest.json below).
 
@@ -183,9 +198,9 @@ See the Cards component for an example of this (example manifest.json below).
         "status": "Released",
         "data": {
             "metadata": {
-                
+
 				//... Other component metadata
-                
+
 				"root_node": {
                     "type": "metadata_field_related_asset",
                     "description": "",
@@ -240,14 +255,14 @@ See the Cards component for an example of this (example manifest.json below).
         },
 
 		// ... All other child assets
-        
+
 		]
     }
 }
 
 ```
 
-The second array available is the **assets** array. Instead of picking a parent node, this one is controlled by a related metadata field named **asset_select**. In Matrix, the template will look for a field with this exact name. If it exists, it will automatically populate the **assets** array with a JSON blob containing the ***%asset_data%*** of each selected asset in the **asset_select** field.
+The second array available is the **assets** array. Instead of picking a parent node, this one is controlled by a related metadata field named **asset_select**. In Matrix, the template will look for a field with this exact name. If it exists, it will automatically populate the **assets** array with a JSON blob containing the **_%asset_data%_** of each selected asset in the **asset_select** field.
 
 See the Tags List Linked component for an example of this (example manifest.json below).
 
@@ -260,7 +275,7 @@ See the Tags List Linked component for an example of this (example manifest.json
 		"status": "In Development",
 		"data": {
 			"metadata": {
-				
+
 				// ... Other component metadata
 
 				"asset_select": {
@@ -301,7 +316,7 @@ See the Tags List Linked component for an example of this (example manifest.json
                     "is_contextable": true,
                     "use_default": true
                 },
-                
+
 				// ... All other attributes
             },
             "metadata": {
@@ -313,11 +328,11 @@ See the Tags List Linked component for an example of this (example manifest.json
                     "default_value": false,
                     "use_default": true
                 },
-                
+
 				// ... All other metadata
             }
-        }, 
-        
+        },
+
 		// ... All other selected assets
 
         }]
@@ -327,9 +342,10 @@ See the Tags List Linked component for an example of this (example manifest.json
 ```
 
 ### Handlebars template (component.hbs)
+
 Use this file to define the overall template structure of your component using [HandlebarsJS](https://handlebarsjs.com/guide/).
 
-Every component will have access to the **data** object defined in your *manifest.json* file, as well as global data values from **site** and **current** (ie. the current page). See examples of these at *src/data/site.json* and *src/data/current.json* respectively.
+Every component will have access to the **data** object defined in your _manifest.json_ file, as well as global data values from **site** and **current** (ie. the current page). See examples of these at _src/data/site.json_ and _src/data/current.json_ respectively.
 
 Here is an example from the existing **Accordion** component:
 
@@ -337,7 +353,7 @@ Here is an example from the existing **Accordion** component:
 {{#ifCond globals.current.data.metadata.pageType.value '==' 'landing'}}
 <section class="qld__body">
     <div class="container-fluid">
-{{/ifCond}}    
+{{/ifCond}}
 
 
 {{#if data.heading.value}}
@@ -352,14 +368,14 @@ Here is an example from the existing **Accordion** component:
 <ul class="qld__accordion-group">
     {{#each data}}
         {{#ifCond this.type '==' 'metadata_field_wysiwyg'}}
-            {{#ifCond @key '!=' 'intro'}} 
+            {{#ifCond @key '!=' 'intro'}}
                 {{#ifCond this.value '!=' ''}}
                 <li>
                     <section class="qld__accordion">
                         <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../containerId}}-{{this.fieldid}}" aria-expanded="false" >
                             {{#getTitle ../data @key}}{{/getTitle}}
                         </button>
-            
+
                         <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../containerId}}-{{this.fieldid}}">
                             <div class="qld__accordion__body-wrapper">
                                 {{{this.value}}}
@@ -380,9 +396,9 @@ Here is an example from the existing **Accordion** component:
 
 ```
 
-This example contains instances of both the **data** object, as well as the **globals** object. For example, we access the *pageType* value from the current page to determine whether to add some additional wrapping markup.
+This example contains instances of both the **data** object, as well as the **globals** object. For example, we access the _pageType_ value from the current page to determine whether to add some additional wrapping markup.
 
-There are also some examples of custom [Handlebars Helpers](https://handlebarsjs.com/guide/#custom-helpers) being used (Eg. *ifCond* and *getTitle*). Each helper is defined in its own JS file under *src/helpers/Handlebars*. You can add your own helpers by creating additional JS files (one per helper) in this directory, and following the same code structure.
+There are also some examples of custom [Handlebars Helpers](https://handlebarsjs.com/guide/#custom-helpers) being used (Eg. _ifCond_ and _getTitle_). Each helper is defined in its own JS file under _src/helpers/Handlebars_. You can add your own helpers by creating additional JS files (one per helper) in this directory, and following the same code structure.
 
 For example:
 
@@ -395,9 +411,10 @@ module.exports = function (params) {
 ```
 
 ### Styling a component (component.scss)
+
 Use SASS to style your component, and follow the BEM methodology when naming your classes (Eg. `.qld__accordion--light`). To maintain consistency, look at existing components if you are unsure.
 
-Also take care to follow a 'mobile-first' approach with your SCSS code, where styling at larger breakpoints (see *src/styles/imports/variables.scss* for breakpoint definitions) can be implemented with one of the following mixins:
+Also take care to follow a 'mobile-first' approach with your SCSS code, where styling at larger breakpoints (see _src/styles/imports/variables.scss_ for breakpoint definitions) can be implemented with one of the following mixins:
 
 ```
 // >sm breakpoint
@@ -413,100 +430,116 @@ Also take care to follow a 'mobile-first' approach with your SCSS code, where st
 @include QH-media( xl ) {}
 
 // >xxl breakpoint
-@include QH-media( xxl ) {} 
+@include QH-media( xxl ) {}
 
 ```
 
-These should be implemented inline for each class separately (see *banner* component for a good example)
+These should be implemented inline for each class separately (see _banner_ component for a good example)
 
 ### Component JavaScript (global.js)
+
 This is where you should add any client side JavaScript (eg. toggling of Accordions). Ensure that all functions are documented in [Jsdoc](https://devhints.io/jsdoc) format.
 
 ### Updating / Previewing a component
+
 To test any updates to a component, you can view it locally using `npm run serve`. A corresponding component page will be automatically created at src/html/component-\[component-name\], so that you can easily preview your component, and test the output with different input data.
 
 ### Build / Commit / Push
+
 Once you are ready to push up any local changes to a component, you should run the `npm run build` script before you commit. This generates the compiled Handlebars template, as well as an import.xml file that can be used to automatically create all of the assets required in Matrix for your component.
 
 ### Importing into Matrix
+
 To import your finished component, go to the Matrix Admin interface and in the 'Tools' menu select 'Import assets from XML'. Choose the 'import.xml' file generated for your component on build, and select the 'Components' folder in the 'Import Assets Under' field.
 
-After successful import, you should have a new Content Template in Matrix with a Metadata Schema that matches your *manifest.json* file.
+After successful import, you should have a new Content Template in Matrix with a Metadata Schema that matches your _manifest.json_ file.
 
 ## General Boilerplate Features
+
 This section contains some general tips for writing code using this boilerplate
+
 ### Working in HTML files
+
 #### Including images
+
 - Your files live in:
-    - src/files/my-awesome-file.png
+  - src/files/my-awesome-file.png
 - And you're wanting to include an image in:
-    - src/modules/header/html/index.html
+  - src/modules/header/html/index.html
 - Use either reference:
-    - Relative path: `<img src="../../../files/my-awesome-file.png" alt="My awesome file" >`
-    - Absolute path: `<img src="~src/files/my-awesome-file.png" alt="My awesome file" >`
+  - Relative path: `<img src="../../../files/my-awesome-file.png" alt="My awesome file" >`
+  - Absolute path: `<img src="~src/files/my-awesome-file.png" alt="My awesome file" >`
 
 #### Including HTML modules
+
 - Your awesome menu lives in:
-    - src/modules/header-menu/html/index.html
+  - src/modules/header-menu/html/index.html
 - And you want to include it in:
-    - src/modules/header/html/index.html
+  - src/modules/header/html/index.html
 - Use either reference:
-    - Relative path: `${require('../../header-menu/html/index.html')}`
-    - Absolute path: `${require('src/header-menu/html/index.html')}`
+  - Relative path: `${require('../../header-menu/html/index.html')}`
+  - Absolute path: `${require('src/header-menu/html/index.html')}`
 
 ### Working in SCSS files
+
 #### Including fonts
+
 - Your fonts live in:
-    - src/styles/imports/fonts/my-awesome-font.woff
+  - src/styles/imports/fonts/my-awesome-font.woff
 - And you want to include it in your main CSS:
-    - src/styles/global.scss
+  - src/styles/global.scss
 - Use either reference:
-    - Relative path: `url('./imports/fonts/my-awesome-font.woff') format('woff')`
-    - Absolute path: `url('~src/imports/fonts/my-awesome-font.woff') format('woff')`
+  - Relative path: `url('./imports/fonts/my-awesome-font.woff') format('woff')`
+  - Absolute path: `url('~src/imports/fonts/my-awesome-font.woff') format('woff')`
 
 #### Including images
-- Your files live in:
-    - src/files/icon.png
-- And you're wanting to include an image in:
-    - src/modules/header/css/global.scss
-- Use either reference:
-    - Relative path: `background-image: url('../files/icon.png')`;
-    - Absolute path: `background-image: url('~src/files/icon.png')`;
 
+- Your files live in:
+  - src/files/icon.png
+- And you're wanting to include an image in:
+  - src/modules/header/css/global.scss
+- Use either reference:
+  - Relative path: `background-image: url('../files/icon.png')`;
+  - Absolute path: `background-image: url('~src/files/icon.png')`;
 
 ### Working in JS files
+
 #### Including images
+
 - Your files live in:
-    - src/files/icon.png
+  - src/files/icon.png
 - And you're wanting to include an image in:
-    - src/modules/header/js/global.js
+  - src/modules/header/js/global.js
 - Use either reference:
-    - Relative path: `const icon = require('../../../files/icon.png');`
-    - Absolute path: `const icon = require('src/files/icon.png');`
+  - Relative path: `const icon = require('../../../files/icon.png');`
+  - Absolute path: `const icon = require('src/files/icon.png');`
 
 #### Including JSON
+
 You may want to reference an external JSON file that does not need to be a part of the webpack build process. For instance, mock data returned from funnelback autocomplete. The /externals directory allows you to pop in files to ensure that they will be included in the /dist directory
 
 - Your file lives in:
-    - `src/externals/data.json`
+  - `src/externals/data.json`
 - You can reference it by its relative path ie.
-    - `fetch('./externals/data.json').then(function(response){...do stuff})`
+  - `fetch('./externals/data.json').then(function(response){...do stuff})`
 - Or its absolute path ie.
-    - `fetch('~src/externals/data.json').then(function(response){...do stuff})`
+  - `fetch('~src/externals/data.json').then(function(response){...do stuff})`
 - File will be moved into the dist directory `dist/externals/data.json`
 
-
 #### Maven
-- To build and test all: ```mvn install```
-- To build js docs ```mvn com.github.eirslett:frontend-maven-plugin:npm@jsdoc```
-- To run webpack serve ```mvn com.github.eirslett:frontend-maven-plugin:npm@serve```
+
+- To build and test all: `mvn install`
+- To build js docs `mvn com.github.eirslett:frontend-maven-plugin:npm@jsdoc`
+- To run webpack serve `mvn com.github.eirslett:frontend-maven-plugin:npm@serve`
 
 ### Contributing
 
 #### Pull Request Guidelines
+
 Thank you for contributing to our project! To ensure a smooth and efficient review process, please follow these guidelines when submitting a pull request.
 
 ##### Pull Request Template
+
 Before creating a pull request, please make sure to:
 
 - Fork the repository and create a branch for your changes.
@@ -515,6 +548,7 @@ Before creating a pull request, please make sure to:
 - Write tests for your changes if applicable.
 
 ##### Labels
+
 We use labels to categorize pull requests based on the type of change. Please add one of the following labels to your pull request:
 
 - Label: major
@@ -533,13 +567,15 @@ We use labels to categorize pull requests based on the type of change. Please ad
 - - Typically fast-tracked for a swift review and merging.
 
 ### Submitting the Pull Request
+
 When your changes are ready, submit the pull request with a clear and informative title. Provide a brief description of the changes and reference any relevant issues.
 
 ### Communication
+
 Feel free to reach out if you have questions or need assistance during the review process. We appreciate your contributions and look forward to collaborating with you!
 
-
 ### Copyright and Warrannt
+
 Copyright (c) The State of Queensland 2023 (Queensland Health)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -558,4 +594,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. 
+SOFTWARE.

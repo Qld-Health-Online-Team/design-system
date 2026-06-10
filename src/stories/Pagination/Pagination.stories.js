@@ -3,242 +3,242 @@ import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const renderPagination = ({ data, ...args }) =>
-    Template({
-        pagination: data,
-        ...args,
-    });
+  Template({
+    pagination: data,
+    ...args,
+  });
 
 const paginationData = [
-    {
-        linkType: "prev",
-    },
-    {
-        label: 1,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 2,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 3,
-        isCurrent: true,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 4,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 5,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 8,
-        linkType: "last",
-        url: dummyLink,
-    },
-    {
-        linkType: "next",
-        url: dummyLink,
-    },
+  {
+    linkType: "prev",
+  },
+  {
+    label: 1,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 2,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 3,
+    isCurrent: true,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 4,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 5,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 8,
+    linkType: "last",
+    url: dummyLink,
+  },
+  {
+    linkType: "next",
+    url: dummyLink,
+  },
 ];
 
 const paginationDataShort = [
-    {
-        linkType: "prev",
-    },
-    {
-        label: 1,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 2,
-        isCurrent: true,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 3,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        linkType: "next",
-        url: dummyLink,
-    },
+  {
+    linkType: "prev",
+  },
+  {
+    label: 1,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 2,
+    isCurrent: true,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 3,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    linkType: "next",
+    url: dummyLink,
+  },
 ];
 
 const paginationDataLong = [
-    {
-        linkType: "prev",
-    },
-    {
-        label: 1,
-        isCurrent: false,
-        linkType: "first",
-        url: dummyLink,
-    },
-    {
-        label: 6,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 7,
-        isCurrent: true,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 8,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 15,
-        isCurrent: false,
-        linkType: "last",
-        url: dummyLink,
-    },
-    {
-        linkType: "next",
-        url: dummyLink,
-    },
+  {
+    linkType: "prev",
+  },
+  {
+    label: 1,
+    isCurrent: false,
+    linkType: "first",
+    url: dummyLink,
+  },
+  {
+    label: 6,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 7,
+    isCurrent: true,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 8,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 15,
+    isCurrent: false,
+    linkType: "last",
+    url: dummyLink,
+  },
+  {
+    linkType: "next",
+    url: dummyLink,
+  },
 ];
 
 const paginationDataPreviousOnly = [
-    {
-        linkType: "prev",
-    },
-    {
-        label: 1,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 2,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 3,
-        isCurrent: true,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 4,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 5,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
+  {
+    linkType: "prev",
+  },
+  {
+    label: 1,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 2,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 3,
+    isCurrent: true,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 4,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 5,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
 ];
 
 const paginationDataNextOnly = [
-    {
-        label: 1,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 2,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 3,
-        isCurrent: true,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 4,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        label: 5,
-        isCurrent: false,
-        linkType: "num",
-        url: dummyLink,
-    },
-    {
-        linkType: "next",
-        url: dummyLink,
-    },
+  {
+    label: 1,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 2,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 3,
+    isCurrent: true,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 4,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    label: 5,
+    isCurrent: false,
+    linkType: "num",
+    url: dummyLink,
+  },
+  {
+    linkType: "next",
+    url: dummyLink,
+  },
 ];
 
 export default {
-    title: "3. Components/Pagination",
-    render: renderPagination,
-    args: { data: paginationData },
-    parameters: storyParams("pagination"),
+  title: "3. Components/Pagination",
+  render: renderPagination,
+  args: { data: paginationData },
+  parameters: storyParams("pagination"),
 };
 
 export const Default = {};
 
 export const light = {
-    render: (args) => {
-        return themeWrapper(themes["light"], renderPagination(args));
-    },
+  render: (args) => {
+    return themeWrapper(themes["light"], renderPagination(args));
+  },
 };
 
 export const lightAlt = {
-    render: (args) => {
-        return themeWrapper(themes["light alt"], renderPagination(args));
-    },
+  render: (args) => {
+    return themeWrapper(themes["light alt"], renderPagination(args));
+  },
 };
 
 export const dark = {
-    render: (args) => {
-        return themeWrapper(themes["dark"], renderPagination(args));
-    },
+  render: (args) => {
+    return themeWrapper(themes["dark"], renderPagination(args));
+  },
 };
 
 export const darkAlt = {
-    render: (args) => {
-        return themeWrapper(themes["dark alt"], renderPagination(args));
-    },
+  render: (args) => {
+    return themeWrapper(themes["dark alt"], renderPagination(args));
+  },
 };
 
 export const short = {
-    args: { data: paginationDataShort },
+  args: { data: paginationDataShort },
 };
 
 export const long = {
-    args: { data: paginationDataLong },
+  args: { data: paginationDataLong },
 };
 
 export const previousOnly = {
-    args: { data: paginationDataPreviousOnly },
+  args: { data: paginationDataPreviousOnly },
 };
 
 export const nextOnly = {
-    args: { data: paginationDataNextOnly },
+  args: { data: paginationDataNextOnly },
 };

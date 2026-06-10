@@ -1,3 +1,3 @@
 module.exports = function (url) {
-    return decodeURIComponent(url || '');
+  return decodeURIComponent(url || "");
 };

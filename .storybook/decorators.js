@@ -21,16 +21,16 @@
  * };
  */
 export function initComponents(initFunctions = []) {
-    let cleanups = [];
-    return (storyFn, context) => {
-        cleanups.forEach((fn) => fn?.());
-        cleanups = [];
-        const story = storyFn();
-        setTimeout(() => {
-            cleanups = initFunctions
-                .map((initFunction) => initFunction(context.canvasElement))
-                .filter(Boolean);
-        }, 0);
-        return story;
-    };
+  let cleanups = [];
+  return (storyFn, context) => {
+    cleanups.forEach((fn) => fn?.());
+    cleanups = [];
+    const story = storyFn();
+    setTimeout(() => {
+      cleanups = initFunctions
+        .map((initFunction) => initFunction(context.canvasElement))
+        .filter(Boolean);
+    }, 0);
+    return story;
+  };
 }
