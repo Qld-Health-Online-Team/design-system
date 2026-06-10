@@ -1,6 +1,7 @@
 import {
   validateInternalSvgPath,
   buildIconPath,
+  setExpanded,
 } from "../../../helpers/global-helpers.js";
 import { initOverflowMenu } from "../../overflow_menu/js/global.js";
 
@@ -104,7 +105,7 @@ function createOverFlow(svgPath) {
     "qld__btn qld__btn--toggle qld__overflow_menu__btn qld__accordion--closed";
   button.setAttribute("href", "#");
   button.setAttribute("aria-controls", "overflow-menu--");
-  button.setAttribute("aria-expanded", "false");
+  setExpanded(button, false);
 
   if (svgPath) {
     // Create <svg>
