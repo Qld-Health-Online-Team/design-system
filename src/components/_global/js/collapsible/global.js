@@ -12,16 +12,16 @@
  * arrow keys, etc.) belong to the consuming component, not here.
  */
 
-import '../animate/global'
-import { isExpanded, setExpanded } from '../../../../helpers/global-helpers.js'
+import "../animate/global";
+import { isExpanded, setExpanded } from "../../../../helpers/global-helpers.js";
 
 /**
  * Shared state-class contract. These class names are also referenced by the CSS
  * of every consumer (accordion, overflow_menu, mega_main_navigation), so they
  * are kept stable rather than renamed.
  */
-const OPEN_CLASS = 'qld__accordion--open';
-const CLOSED_CLASS = 'qld__accordion--closed';
+const OPEN_CLASS = "qld__accordion--open";
+const CLOSED_CLASS = "qld__accordion--closed";
 const DEFAULT_SPEED = 250;
 
 /**
@@ -30,8 +30,7 @@ const DEFAULT_SPEED = 250;
  * @param  {HTMLElement | NodeList | HTMLElement[]} elements
  * @return {HTMLElement[]}
  */
-const toItems = (elements) =>
-    elements.length === undefined ? [elements] : Array.from(elements);
+const toItems = (elements) => (elements.length === undefined ? [elements] : Array.from(elements));
 
 /**
  * Swap the open/closed state classes on a DOM node.
@@ -40,19 +39,9 @@ const toItems = (elements) =>
  * @param  {string}      state   - The current state of the animation on the element
  */
 const toggleClasses = (element, state) => {
-    const opening = state === 'opening' || state === 'open';
+    const opening = state === "opening" || state === "open";
     element.classList.toggle(OPEN_CLASS, opening);
     element.classList.toggle(CLOSED_CLASS, !opening);
-};
-
-/**
- * Keep the trigger's `aria-expanded` attribute in sync with the state.
- *
- * @param  {HTMLElement} element - The trigger element
- * @param  {string}      state   - The current state of the animation on the element
- */
-const setAriaExpanded = (element, state) => {
-    setExpanded(element, state !== 'closing');
 };
 
 /**
@@ -62,8 +51,7 @@ const setAriaExpanded = (element, state) => {
  * @param  {Document | HTMLElement} root    - The root to search within
  * @return {HTMLElement | null}
  */
-const getTarget = (element, root = document) =>
-    root.querySelector(`[id="${element.getAttribute('aria-controls')}"]`);
+const getTarget = (element, root = document) => root.querySelector(`[id="${element.getAttribute("aria-controls")}"]`);
 
 /**
  * Push a GTM dataLayer event, if a dataLayer is present.
@@ -73,7 +61,7 @@ const getTarget = (element, root = document) =>
  * @param  {string} label  - The id of the affected region
  */
 const pushDataLayer = (event, action, label) => {
-    window.dataLayer?.push({ event, category: 'accordion', action, label });
+    window.dataLayer?.push({ event, category: "accordion", action, label });
 };
 
 /**
@@ -92,24 +80,23 @@ export function open(elements, speed, root = document, callbacks = {}) {
 
         // If the region is collapsed, pin its height to 0 so it can animate open.
         if (parseInt(getComputedStyle(target).height, 10) === 0) {
-            target.style.height = '0px';
+            target.style.height = "0px";
         }
 
-        target.style.display = '';
-        toggleClasses(target, 'opening');
-        toggleClasses(element, 'opening');
-        setAriaExpanded(element, 'opening');
+        target.style.display = "";
+        toggleClasses(target, "opening");
+        toggleClasses(element, "opening");
+        setExpanded(element, true);
 
         callbacks.onOpen?.();
-        pushDataLayer('accordion open', 'open', element.getAttribute('aria-controls'));
+        pushDataLayer("accordion open", "open", element.getAttribute("aria-controls"));
 
         window.QLD.animate.Run({
             element: target,
-            property: 'height',
-            endSize: 'auto',
+            property: "height",
+            endSize: "auto",
             speed: speed || DEFAULT_SPEED,
             callback: () => {
-                toggleClasses(element, 'opening');
                 callbacks.afterOpen?.();
             },
         });
@@ -130,20 +117,20 @@ export function close(elements, speed, root = document, callbacks = {}) {
     toItems(elements).forEach((element) => {
         const target = getTarget(element, root);
 
-        toggleClasses(element, 'closing');
-        setAriaExpanded(element, 'closing');
+        toggleClasses(element, "closing");
+        setExpanded(element, false);
 
         callbacks.onClose?.();
-        pushDataLayer('accordion close', 'close', element.getAttribute('aria-controls'));
+        pushDataLayer("accordion close", "close", element.getAttribute("aria-controls"));
 
         window.QLD.animate.Run({
             element: target,
-            property: 'height',
+            property: "height",
             endSize: 0,
             speed: speed || DEFAULT_SPEED,
             callback: () => {
-                target.style.display = '';
-                toggleClasses(target, 'close');
+                target.style.display = "";
+                toggleClasses(target, "close");
                 callbacks.afterClose?.();
             },
         });
@@ -167,9 +154,9 @@ export function toggle(elements, speed, root = document, callbacks) {
 
         if (target == null) {
             throw new Error(
-                'collapsible.toggle cannot find the target to be toggled from inside aria-controls.\n' +
-                'Make sure the first argument you give collapsible.toggle is the DOM element (a button or a link) that has an aria-controls attribute that points ' +
-                'to a div that you want to toggle.'
+                "collapsible.toggle cannot find the target to be toggled from inside aria-controls.\n" +
+                    "Make sure the first argument you give collapsible.toggle is the DOM element (a button or a link) that has an aria-controls attribute that points " +
+                    "to a div that you want to toggle.",
             );
         }
 

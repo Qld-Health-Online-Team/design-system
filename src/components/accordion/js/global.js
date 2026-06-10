@@ -2,16 +2,14 @@
  * @module accordion
  */
 
-import * as collapsible from '../../_global/js/collapsible/global.js'
-import { isExpanded, setExpanded } from '../../../helpers/global-helpers.js'
+import * as collapsible from "../../_global/js/collapsible/global.js";
+import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
 
 export function initAccordion(root = document) {
     const controller = new AbortController();
     const { signal } = controller;
 
-    root.querySelectorAll(".qld__accordion-group").forEach((groupEl) =>
-        initAccordionGroup(groupEl, signal),
-    );
+    root.querySelectorAll(".qld__accordion-group").forEach((groupEl) => initAccordionGroup(groupEl, signal));
 
     // Cleanup: remove every listener added above in one call (used by the Storybook decorator)
     return () => controller.abort();
@@ -25,9 +23,7 @@ export function initAccordion(root = document) {
  * @param {AbortSignal} signal  - Signal used to remove the listeners on cleanup
  */
 function initAccordionGroup(groupEl, signal) {
-    groupEl.querySelectorAll(".qld__accordion").forEach((accordionEl) =>
-        wireAccordionToggle(accordionEl, signal, groupEl),
-    );
+    groupEl.querySelectorAll(".qld__accordion").forEach((accordionEl) => wireAccordionToggle(accordionEl, signal, groupEl));
 
     const toggleAllBtn = groupEl.querySelector(".qld__accordion__toggle-btn");
     if (toggleAllBtn) {
@@ -49,10 +45,14 @@ function wireAccordionToggle(accordionEl, signal, groupEl) {
     const btn = accordionEl.querySelector("button.qld__accordion__title");
     if (!btn) return;
 
-    btn.addEventListener("click", () => {
-        Toggle(btn, undefined, groupEl);
-        syncToggleAllButton(groupEl);
-    }, { signal });
+    btn.addEventListener(
+        "click",
+        () => {
+            Toggle(btn, undefined, groupEl);
+            syncToggleAllButton(groupEl);
+        },
+        { signal },
+    );
 }
 
 /**
@@ -114,25 +114,24 @@ export function Toggle(elements, speed, root = document, callbacks) {
  *
  * @memberof module:accordion
  *
- * @param  {HTMLElement} elements  - The "Open all / Close all" button
+ * @param  {HTMLElement} toggleAllBtn  - The "Open all / Close all" button
  * @param  {number}      speed     - The speed in ms for the animation
  * @param  {object}      callbacks - Optional callbacks: { onOpen, afterOpen, onClose, afterClose }
  */
-export function ToggleAll(elements, speed, callbacks = {}) {
-    const toogleAllButton = elements;
+export function ToggleAll(toggleAllBtn, speed, callbacks = {}) {
     // find the accordion wrapper — also used to scope the target lookups so
     // duplicate ids in sibling groups (e.g. multiple Storybook stories) don't collide
-    const wrapper = toogleAllButton.closest(".qld__accordion-group");
+    const wrapper = toggleAllBtn.closest(".qld__accordion-group");
     // get all the accordion buttons
-    const accordionButtons = wrapper.querySelectorAll('.qld__accordion__title');
+    const accordionButtons = wrapper.querySelectorAll(".qld__accordion__title");
 
     // Check if opened or closed
-    if (toogleAllButton.classList.contains('qld__accordion__toggle-btn--closed')) {
+    if (toggleAllBtn.classList.contains("qld__accordion__toggle-btn--closed")) {
         collapsible.open(accordionButtons, speed, wrapper, callbacks);
-        setToggleAllState(toogleAllButton, true);
-    } else if (toogleAllButton.classList.contains('qld__accordion__toggle-btn--open')) {
+        setToggleAllState(toggleAllBtn, true);
+    } else if (toggleAllBtn.classList.contains("qld__accordion__toggle-btn--open")) {
         collapsible.close(accordionButtons, speed, wrapper, callbacks);
-        setToggleAllState(toogleAllButton, false);
+        setToggleAllState(toggleAllBtn, false);
     }
 }
 
