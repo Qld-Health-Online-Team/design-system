@@ -1,10 +1,10 @@
 import Template from "../../components/global_alert/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 
 function buildSite({ alertLevel, alertTitle, alertMessage, alertLinkTitle, alertLinkURL, secondAlert, thirdAlert }) {
     return {
         metadata: {
-            coreSiteIcons: { value: "/QLD-icons.svg" },
+            coreSiteIcons: { value: iconSpritePath },
             mainNavVerticalNav: { value: "" },
             alertDisplay: { value: "true" },
             alertLevel: { value: alertLevel },

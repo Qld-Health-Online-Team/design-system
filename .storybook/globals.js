@@ -38,6 +38,10 @@ export const dummyText =
 
 export const dummyLink = "https://www.google.com";
 
+// Path to the icon sprite, relative to the Storybook preview iframe. Used for
+// <use href> references and the coreSiteIcons metadata across stories.
+export const iconSpritePath = "QLD-icons.svg";
+
 const dsBase = "https://www.designsystem.qld.gov.au";
 const figmaBase = "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit";
 
