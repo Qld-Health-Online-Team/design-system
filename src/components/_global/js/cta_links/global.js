@@ -1,5 +1,8 @@
-export default function initCtaLinks(document = document) {
-    document.querySelectorAll(".qld__cta-link.qld__cta-link--view-all").forEach((ctaLink) => {
+/**
+ * @param {Document|Element} root
+ */
+export default function initCtaLinks(root = document) {
+    root.querySelectorAll(".qld__cta-link.qld__cta-link--view-all").forEach((ctaLink) => {
         const viewAllIconWrapperClass = "qld__cta-link--view-all-icon--wrapper";
 
         // First check that the cta is not already wrapped

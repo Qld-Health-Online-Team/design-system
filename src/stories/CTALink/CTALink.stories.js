@@ -1,19 +1,23 @@
-import { CTALink } from "./CTALink";
 import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
+import { initComponents } from "../../../.storybook/decorators";
+import initCtaLinks from "../../components/_global/js/cta_links/global";
 
-const ctaLinkArgs = {
-    id: "cta-link-1",
-    text: "CTA Link",
-    href: dummyLink,
-    target: "_blank",
-    isViewAll: false,
-    isDisabled: false,
-};
-
-export default {
+const meta = {
     title: "3. Components/Call to action (CTA)",
-    render: (args) => CTALink(args),
+    render: ({ id, text, href, target, isViewAll, isDisabled }) => {
+        return `
+            <a 
+            id="${id}" 
+            href="${href}" 
+            target="${target}" 
+            class="qld__cta-link ${isViewAll ? "qld__cta-link--view-all" : ""}" 
+            ${isDisabled ? "disabled" : ""}>
+                ${text}
+            </a>
+        `;
+    },
+    decorators: [initComponents([initCtaLinks])],
     argTypes: {
         id: { control: "text", description: "The unique identifier of the component" },
         text: { control: "text", description: "The text of the component" },
@@ -46,147 +50,92 @@ export default {
             description: "If the component is in a disabled state",
         },
     },
-    args: { ...ctaLinkArgs },
+    args: {
+        id: "cta-link-1",
+        text: "CTA Link",
+        href: dummyLink,
+        target: "_blank",
+        isViewAll: false,
+        isDisabled: false,
+    },
     parameters: storyParams("ctaLink"),
 };
+export default meta;
 
 export const Default = {};
 
-export const viewAllVariant = (ctaLinkArgs) =>
-    CTALink({
-        ...ctaLinkArgs,
-        isViewAll: true,
-    });
-viewAllVariant.tags = ["!dev"];
-
-export const disabledVariant = (ctaLinkArgs) =>
-    CTALink({
-        ...ctaLinkArgs,
-        isDisabled: true,
-    });
-disabledVariant.tags = ["!dev"];
-
-export const linkedListExample = (ctaLinkArgs) => {
-    return `
-        <ul aria-label="Related links" class="qld__link-columns qld__link-columns--2-col">
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Contact us",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "About us",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Products",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "FAQ",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Terms and conditions",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Privacy policy",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Blog",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Careers",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Press",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Resources",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Partners",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Events",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Community",
-            })}</li>
-            <li>${CTALink({
-                ...ctaLinkArgs,
-                text: "Sitemap",
-            })}</li>
-            <li class="qld__link-columns__all-link">${CTALink({
-                ...ctaLinkArgs,
-                text: "View all",
-                isViewAll: true,
-            })}
-            </li>
-        </ul>
-    `;
-};
-linkedListExample.parameters = {
-    controls: { disable: true },
-    actions: { disable: true },
+export const ViewAllVariant = {
+    args: { isViewAll: true },
 };
 
-export const longCtaLinkExample = (ctaLinkArgs) => {
-    return `
-        <div style="width: 300px;">
-            ${CTALink({
-                ...ctaLinkArgs,
-                text: "Super super long link super long link super long link super long link",
-            })}
-        </div>
-    `;
+export const DisabledVariant = {
+    args: { isDisabled: true },
 };
 
-const allVariants = (args) => {
-    return `
+export const LinkedListExample = {
+    render: (args) => `
+    <ul aria-label="Related links" class="qld__link-columns qld__link-columns--2-col">
+        <li>${meta.render({ ...args, text: "Contact us" })}</li>
+        <li>${meta.render({ ...args, text: "About us" })}</li>
+        <li>${meta.render({ ...args, text: "Products" })}</li>
+        <li>${meta.render({ ...args, text: "FAQ" })}</li>
+        <li>${meta.render({ ...args, text: "Terms and conditions" })}</li>
+        <li>${meta.render({ ...args, text: "Privacy policy" })}</li>
+        <li>${meta.render({ ...args, text: "Blog" })}</li>
+        <li>${meta.render({ ...args, text: "Careers" })}</li>
+        <li>${meta.render({ ...args, text: "Press" })}</li>
+        <li>${meta.render({ ...args, text: "Resources" })}</li>
+        <li>${meta.render({ ...args, text: "Partners" })}</li>
+        <li>${meta.render({ ...args, text: "Events" })}</li>
+        <li>${meta.render({ ...args, text: "Community" })}</li>
+        <li>${meta.render({ ...args, text: "Sitemap" })}</li>
+        <li class="qld__link-columns__all-link">${meta.render({ ...args, text: "View all", isViewAll: true })}</li>
+    </ul>
+    `,
+};
+
+export const LongCtaLinkExample = {
+    render: (args) => `<div style="width: 300px;">${meta.render(args)}</div>`,
+    args: { text: "Super super long link super long link super long link super long link" },
+};
+
+export const AllVariants = {
+    render: (args) => `
         <h3>Default</h3>
-        ${CTALink(args)}
+        ${meta.render(args)}
         <h3>View all</h3>
-        ${viewAllVariant(args)}
+        ${meta.render({ ...args, ...ViewAllVariant.args })}
         <h3>Disabled</h3>
-        ${disabledVariant(args)}
-    `;
+        ${meta.render({ ...args, ...DisabledVariant.args })}
+    `,
 };
 
-export const white = {
+export const White = {
     render: (args) => {
-        return themeWrapper(themes["white"], allVariants(args));
+        return themeWrapper(themes["white"], AllVariants.render(args));
     },
 };
 
-export const light = {
+export const Light = {
     render: (args) => {
-        return themeWrapper(themes["light"], allVariants(args));
+        return themeWrapper(themes["light"], AllVariants.render(args));
     },
 };
 
-export const lightAlt = {
+export const LightAlt = {
     render: (args) => {
-        return themeWrapper(themes["light alt"], allVariants(args));
+        return themeWrapper(themes["light alt"], AllVariants.render(args));
     },
 };
 
-export const dark = {
+export const Dark = {
     render: (args) => {
-        return themeWrapper(themes["dark"], allVariants(args));
+        return themeWrapper(themes["dark"], AllVariants.render(args));
     },
 };
 
-export const darkAlt = {
+export const DarkAlt = {
     render: (args) => {
-        return themeWrapper(themes["dark alt"], allVariants(args));
+        return themeWrapper(themes["dark alt"], AllVariants.render(args));
     },
 };

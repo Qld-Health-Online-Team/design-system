@@ -2,6 +2,8 @@ import { Checkboxes } from "./Checkboxes/Checkboxes";
 import { RadioButtons } from "./RadioButtons/RadioButtons";
 import { SelectBox } from "./SelectBox/SelectBox";
 import { storyParams } from "../../../.storybook/globals";
+import initSelectBoxes from "../../components/_global/js/select_boxes/global";
+import { initComponents } from "../../../.storybook/decorators";
 
 function renderTextInput({ id, label, hint, required, optional, state, filled, value = "" }) {
     const stateClass = state === "valid" ? " qld__text-input--valid" : state === "error" ? " qld__text-input--error" : "";
@@ -151,6 +153,7 @@ function renderForm({ filled, showErrors }) {
 const meta = {
     title: "3. Components/Forms",
     render: renderForm,
+    decorators: [initComponents([initSelectBoxes])],
     argTypes: {
         filled: {
             description: "Apply the filled input style across all form fields.",

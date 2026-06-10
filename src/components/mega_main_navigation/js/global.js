@@ -9,49 +9,64 @@
  *  - Focusout (toggle button or submenu): close submenu unless focus stays within
  */
 
-import {accordion} from "../../accordion/js/global.js";
+import { accordion } from "../../accordion/js/global.js";
 
 /** Selector matching all interactive elements that can receive focus. */
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-export function initMegaMenu() {
-    const navItemEls = document.querySelectorAll(".qld__main-nav__item");
+export function initMegaMenu(root = document) {
+    const navItemEls = root.querySelectorAll(".qld__main-nav__item");
 
-    const navItems = Array.from(navItemEls).map((item) => {
-        const navItemTitle = item.querySelector(".qld__main-nav__item-title");
-        if (!navItemTitle) return null;
-        const toggleBtnEl = navItemTitle.querySelector("button");
-        return {
-            linkEl: navItemTitle.querySelector("a"),
-            toggleBtnEl,
-            subMenuEl: item.querySelector(".qld__main-nav__menu-sub"),
-            clickingInsideSubMenu: false,
-            handlers: {},
-        };
-    }).filter(Boolean);
+    const navItems = Array.from(navItemEls)
+        .map((item) => {
+            const navItemTitle = item.querySelector(".qld__main-nav__item-title");
+            if (!navItemTitle) return null;
+            const toggleBtnEl = navItemTitle.querySelector("button");
+            return {
+                rootEl: root,
+                linkEl: navItemTitle.querySelector("a"),
+                toggleBtnEl,
+                subMenuEl: item.querySelector(".qld__main-nav__menu-sub"),
+                clickingInsideSubMenu: false,
+                handlers: {},
+            };
+        })
+        .filter(Boolean);
 
-    // Single shared mouseup listener to reset the clickingInsideSubMenu flag
-    // across all items. Registered once rather than once per item.
-    document.addEventListener("mouseup", () => {
+    if (navItems.length === 0) return () => {};
+
+    const mouseUpHandler = () => {
         navItems.forEach((item) => {
             item.clickingInsideSubMenu = false;
         });
-    });
+    };
+    document.addEventListener("mouseup", mouseUpHandler);
 
     navItems.forEach((item) => {
-        const {toggleBtnEl, subMenuEl} = item;
-        item.handlers.click = handleToggleBtnClick(item, navItems);
-        toggleBtnEl?.addEventListener("click", item.handlers.click);
-
-        subMenuEl?.addEventListener("mousedown", () => {
+        const { toggleBtnEl, subMenuEl } = item;
+        if (toggleBtnEl) {
+            item.handlers.click = handleToggleBtnClick(item, navItems);
+            toggleBtnEl.addEventListener("click", item.handlers.click);
+        }
+        item.handlers.mousedown = () => {
             item.clickingInsideSubMenu = true;
-        });
+        };
+        subMenuEl?.addEventListener("mousedown", item.handlers.mousedown);
     });
+
+    return () => {
+        navItems.forEach((item) => {
+            if (item.toggleBtnEl && isSubMenuOpen(item.toggleBtnEl)) closeSubMenu(item);
+            item.toggleBtnEl?.removeEventListener("click", item.handlers.click);
+            item.subMenuEl?.removeEventListener("mousedown", item.handlers.mousedown);
+        });
+        document.removeEventListener("mouseup", mouseUpHandler);
+    };
 }
 
 function handleToggleBtnClick(item, navItems) {
     return () => {
-        const {toggleBtnEl} = item;
+        const { toggleBtnEl } = item;
         if (isSubMenuOpen(toggleBtnEl)) {
             closeSubMenu(item);
         } else {
@@ -66,8 +81,8 @@ function handleToggleBtnClick(item, navItems) {
  * Listeners are stored on item.handlers so they can be removed on close.
  */
 function openSubMenu(item) {
-    const {linkEl, toggleBtnEl, subMenuEl} = item;
-    accordion.Open(toggleBtnEl);
+    const { linkEl, toggleBtnEl, subMenuEl } = item;
+    accordion.Open(toggleBtnEl, undefined, item.rootEl);
     syncNavItemLinkClass(linkEl, true);
 
     item.handlers.documentEscape = handleDocumentEscape(item);
@@ -88,8 +103,8 @@ function openSubMenu(item) {
  * Closes the submenu and removes all associated event listeners registered in openSubMenu.
  */
 function closeSubMenu(item) {
-    const {linkEl, toggleBtnEl, subMenuEl} = item;
-    accordion.Close(toggleBtnEl);
+    const { linkEl, toggleBtnEl, subMenuEl } = item;
+    accordion.Close(toggleBtnEl, undefined, item.rootEl);
     syncNavItemLinkClass(linkEl, false);
 
     document.removeEventListener("keydown", item.handlers.documentEscape, true);
@@ -111,7 +126,7 @@ function handleDocumentEscape(item) {
 
 function handleOutsideClick(item) {
     return (e) => {
-        const {toggleBtnEl, subMenuEl} = item;
+        const { toggleBtnEl, subMenuEl } = item;
         if (toggleBtnEl?.contains(e.target)) return;
         if (subMenuEl?.contains(e.target)) return;
         closeSubMenu(item);
@@ -142,7 +157,7 @@ function handleFocusOut(item) {
         // is null when clicking non-focusable whitespace, so we track mousedown instead.
         if (item.clickingInsideSubMenu) return;
 
-        const {toggleBtnEl, subMenuEl} = item;
+        const { toggleBtnEl, subMenuEl } = item;
         const focusMovingTo = e.relatedTarget;
         if (subMenuEl?.contains(focusMovingTo)) return;
         if (toggleBtnEl?.contains(focusMovingTo)) return;

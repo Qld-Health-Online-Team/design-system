@@ -1,6 +1,8 @@
 import { SelectBox } from "./SelectBox";
 import { themes, storyParams } from "../../../../.storybook/globals";
 import { themeWrapper } from "../../../../.storybook/helper-functions.js";
+import { initComponents } from "../../../../.storybook/decorators";
+import initSelectBoxes from "../../../components/_global/js/select_boxes/global";
 
 const selectBoxArgs = {
     id: "select1",
@@ -27,6 +29,7 @@ const selectBoxArgs = {
 export default {
     title: "3. Components/Forms/Select",
     render: SelectBox,
+    decorators: [initComponents([initSelectBoxes])],
     argTypes: {
         id: { control: "text", description: "The id for this component" },
         extraClass: { control: "text", description: "Extra classes that will be applied to the < select > element" },
