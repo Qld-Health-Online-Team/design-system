@@ -2,22 +2,7 @@ import "./assets/index.js"; // Storybook JS import
 import "./assets/index.scss"; // Storybook styles import from core
 import "./assets/storybook.scss"; // Storybook specific styles
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
-import { viewports, themes, themeColours } from "./globals.js";
-import { getSvgPath } from "./helper-functions.js";
-
-const iconsIds = fetch(getSvgPath())
-    .then((res) => res.text())
-    .then((svgText) => {
-        // Parse the text as XML
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
-
-        // Select all <symbol> elements
-        const symbols = svgDoc.querySelectorAll("symbol");
-
-        // Map their IDs
-        return Array.from(symbols).map((sym) => sym.id);
-    });
+import { viewports, themes, themeColours, iconSpritePath } from "./globals.js";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
@@ -83,13 +68,11 @@ const preview = {
     },
     args: {
         // Ensure GitHub hosted page uses correct icon path
-        site: { metadata: { coreSiteIcons: { value: getSvgPath() } } },
-        iconIDs: await iconsIds,
+        site: { metadata: { coreSiteIcons: { value: iconSpritePath } } },
     },
     argTypes: {
         // Remove the site metadata from the controls
         site: { table: { disable: true } },
-        iconIDs: { table: { disable: true } },
     },
     decorators: [
         (storyFn, context) => {

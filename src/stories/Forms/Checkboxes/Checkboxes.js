@@ -1,3 +1,5 @@
+import { iconSpritePath } from "../../../../.storybook/globals";
+
 export const Checkboxes = ({ id, legend, hintText, isRequired, inError, errorMessage, inSuccess, successMessage, inputs, isSmall }) => {
     const getInputClasses = (input) => {
         if (input.inError) return "qld__input--error";
@@ -9,13 +11,13 @@ export const Checkboxes = ({ id, legend, hintText, isRequired, inError, errorMes
         if (inError) {
             return `
                 <span id="qld__checkboxes-status-${id}" class="qld__input--error" role="status" aria-live="polite">
-                    <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true"><title>Error icon</title><desc>Indicates an error</desc><use href="QLD-icons.svg#status-error"></use></svg>${errorMessage}
+                    <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true"><title>Error icon</title><desc>Indicates an error</desc><use href="${iconSpritePath}#status-error"></use></svg>${errorMessage}
                 </span>
             `;
         } else if (inSuccess) {
             return `
                 <span id="qld__checkboxes-status-${id}" class="qld__input--success" role="status" aria-live="polite">
-                    <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true"><title>Success icon</title><desc>Indicates a correct answer</desc><use href="QLD-icons.svg#status-success"></svg>${successMessage}
+                    <svg class="qld__icon qld__icon--lead qld__icon--sm" aria-hidden="true"><title>Success icon</title><desc>Indicates a correct answer</desc><use href="${iconSpritePath}#status-success"></svg>${successMessage}
                 </span>
             `;
         } else return "";

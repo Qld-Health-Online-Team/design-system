@@ -1,9 +1,9 @@
 import Template from "../../components/card_feature/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaIMage from "./Toowoomba-web.jpeg";
 
 const mockSite = {
-    metadata: { coreSiteIcons: { value: "/QLD-icons.svg" } },
+    metadata: { coreSiteIcons: { value: iconSpritePath } },
 };
 
 function buildData(args) {

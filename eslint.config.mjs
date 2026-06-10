@@ -52,6 +52,11 @@ export default defineConfig([
             "valid-typeof": "warn",
         },
     },
+    {
+        // Storybook config files (main.js, prepare-storybook.js, etc.) run in Node.
+        files: [".storybook/**/*.js"],
+        languageOptions: { globals: globals.node },
+    },
     { files: ["**/*.json"], plugins: { json }, language: "json/json", extends: ["json/recommended"] },
     { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] },
     { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"] },

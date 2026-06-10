@@ -1,4 +1,4 @@
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 
 function rowDecorator(Story) {
     return '<div style="display: flex; gap: 5px">\n' + `${Story()}` + "    </div>";
@@ -17,13 +17,13 @@ function renderButtonList({ variant }) {
         `<button type="button" class="${btnClasses}">Default</button>\n\n` +
         `<button type="button" class="${btnClasses} qld__btn--icon-lead">\n` +
         '    <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use' +
-        ' href="/QLD-icons.svg#announcement"></use></svg>\n' +
+        ` href="${iconSpritePath}#announcement"></use></svg>\n` +
         "    Leading icon\n" +
         "</button>\n\n" +
         `<button type="button" class="${btnClasses} qld__btn--icon-trail">\n` +
         "   Trailing icon\n" +
         '   <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use' +
-        ' href="/QLD-icons.svg#announcement"></use></svg>\n' +
+        ` href="${iconSpritePath}#announcement"></use></svg>\n` +
         "</button>\n\n" +
         `<button type="button" class="${btnClasses}" disabled="">Disabled</button>`
     );
