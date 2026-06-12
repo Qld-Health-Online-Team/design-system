@@ -9,6 +9,16 @@ export function initAccordion(root = document) {
   const controller = new AbortController();
   const { signal } = controller;
 
+  // Every `.qld__accordion` is a self-contained collapsible unit; wire each
+  // one individually. This covers grouped accordions, standalone/legacy
+  // markup, and other components built on the accordion contract (e.g. the
+  // internal navigation side-nav and the video player transcript).
+  root
+    .querySelectorAll(".qld__accordion")
+    .forEach((accordionEl) => wireAccordionToggle(accordionEl, signal));
+
+  // A `.qld__accordion-group` is purely orchestration on top: it only adds
+  // the optional "Open all / Close all" button.
   root
     .querySelectorAll(".qld__accordion-group")
     .forEach((groupEl) => initAccordionGroup(groupEl, signal));
@@ -18,45 +28,45 @@ export function initAccordion(root = document) {
 }
 
 /**
- * Wire up a single accordion group: each accordion's toggle button plus the
- * optional "Open all / Close all" button.
+ * Attach the click listener that toggles a single accordion open/closed.
+ *
+ * Target lookups are scoped to the accordion element itself (the body always
+ * lives inside it), so duplicate ids in sibling accordions (e.g. multiple
+ * Storybook stories on a docs page) don't collide.
+ *
+ * @param {HTMLElement} accordionEl - The `.qld__accordion` element
+ * @param {AbortSignal} signal      - Signal used to remove the listener on cleanup
+ */
+function wireAccordionToggle(accordionEl, signal) {
+  // Loose selector: legacy markup doesn't guarantee the title is a <button>
+  const titleEl = accordionEl.querySelector(".qld__accordion__title");
+  if (!titleEl) return;
+
+  titleEl.addEventListener(
+    "click",
+    () => Toggle(titleEl, undefined, accordionEl),
+    { signal },
+  );
+}
+
+/**
+ * Wire up a group's "Open all / Close all" button and keep it in sync with
+ * the accordions inside the group. Individual accordions are wired by
+ * initAccordion regardless of group membership; the group only observes their
+ * state changes via the bubbling collapsible toggle event.
  *
  * @param {HTMLElement} groupEl - The `.qld__accordion-group` element
  * @param {AbortSignal} signal  - Signal used to remove the listeners on cleanup
  */
 function initAccordionGroup(groupEl, signal) {
-  groupEl
-    .querySelectorAll(".qld__accordion")
-    .forEach((accordionEl) =>
-      wireAccordionToggle(accordionEl, signal, groupEl),
-    );
-
   const toggleAllBtn = groupEl.querySelector(".qld__accordion__toggle-btn");
-  if (toggleAllBtn) {
-    wireToggleAll(toggleAllBtn, signal);
-  }
-}
+  if (!toggleAllBtn) return;
 
-/**
- * Attach the click listener that toggles a single accordion open/closed.
- *
- * Target lookups are scoped to the group element so duplicate ids in sibling
- * groups (e.g. multiple Storybook stories on a docs page) don't collide.
- *
- * @param {HTMLElement} accordionEl - The `.qld__accordion` element
- * @param {AbortSignal} signal      - Signal used to remove the listener on cleanup
- * @param {HTMLElement} groupEl     - The `.qld__accordion-group` to scope target lookups to
- */
-function wireAccordionToggle(accordionEl, signal, groupEl) {
-  const btn = accordionEl.querySelector("button.qld__accordion__title");
-  if (!btn) return;
+  wireToggleAll(toggleAllBtn, signal);
 
-  btn.addEventListener(
-    "click",
-    () => {
-      Toggle(btn, undefined, groupEl);
-      syncToggleAllButton(groupEl);
-    },
+  groupEl.addEventListener(
+    collapsible.TOGGLE_EVENT,
+    () => syncToggleAllButton(groupEl),
     { signal },
   );
 }
