@@ -1,26 +1,11 @@
-// Validate that the SVG path has the correct extension and is same-origin
+// Validate that the SVG path has the correct extension and is same-origin.
+// Accepts either a Squiz Matrix asset URL (?a=12345:path/to/icons.svg) or a
+// plain path to an .svg file (e.g. "QLD-icons.svg" in Storybook builds).
 export const validateInternalSvgPath = (path) => {
-  // Local testing, chromatic, and github builds are safe
-  const allowedOrigins = [
-    "http://localhost:8080",
-    "http://localhost:6006",
-    "chromatic.com",
-    "https://qld-health-online-team.github.io",
-  ];
-  // Skip validation
-  if (
-    allowedOrigins.some((origin) => window.location.origin.includes(origin))
-  ) {
-    return true;
-  }
-
-  let shouldValidate = true;
-
   // Check given path is a string
   if (typeof path !== "string") {
     console.error(`Path provided is not a string. ${path}.`);
-    shouldValidate = false;
-    return shouldValidate;
+    return false;
   }
 
   const trimmed = path.trim();
@@ -32,43 +17,50 @@ export const validateInternalSvgPath = (path) => {
     trimmed.includes("vbscript:")
   ) {
     console.error(`Path contains potentially dangerous scheme. ${path}.`);
-    shouldValidate = false;
-    return shouldValidate;
+    return false;
   }
 
-  const url = new URL(trimmed, window.location.origin);
-  const filePath = url.searchParams.get("a"); // Extracts asset path from query parameter
+  let url;
+  try {
+    // Resolve relative paths against the current document, matching how the
+    // browser will resolve the <use href> value.
+    url = new URL(trimmed, window.location.href);
+  } catch {
+    console.error(`The SVG path could not be parsed as a URL: ${path}`);
+    return false;
+  }
 
   // Ensure same-origin
   if (url.origin !== window.location.origin) {
     console.error(
       `The SVG path comes from a different origin: ${url.origin} but expected ${window.location.origin}`,
     );
-    shouldValidate = false;
-    return shouldValidate;
+    return false;
   }
 
-  // Only allow simple path characters and .svg extension
-  if (!/^\d+:[a-z0-9/_-]+\.svg$/i.test(filePath)) {
-    console.error(`The SVG path is invalid: ${filePath}`);
-    shouldValidate = false;
-    return shouldValidate;
-  }
-
-  return shouldValidate;
-};
-
-export const buildIconPath = (path, icon) => {
-  try {
-    const url = new URL(path, window.location.origin);
-    if (icon) {
-      url.hash = icon;
+  // Squiz Matrix asset URL: validate the asset path in the "a" query parameter
+  const assetPath = url.searchParams.get("a");
+  if (assetPath !== null) {
+    if (!/^\d+:[a-z0-9/_-]+\.svg$/i.test(assetPath)) {
+      console.error(`The SVG path is invalid: ${assetPath}`);
+      return false;
     }
-    return url;
-  } catch {
-    return null;
+    return true;
   }
+
+  // Plain path: only allow simple path characters and .svg extension
+  if (!/^[a-z0-9/_.-]+\.svg$/i.test(url.pathname)) {
+    console.error(`The SVG path is invalid: ${url.pathname}`);
+    return false;
+  }
+
+  return true;
 };
+
+// Build a sprite reference like "QLD-icons.svg#tick". Relative paths are left
+// relative so the browser resolves them against the current document, which
+// keeps icons working when the site is deployed under a sub-path.
+export const buildIconPath = (path, icon) => (icon ? `${path}#${icon}` : path);
 
 // Remove all special characters
 export const normaliseIdentifier = (string) => {

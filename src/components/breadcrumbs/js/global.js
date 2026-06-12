@@ -121,7 +121,7 @@ function createOverFlow(svgPath) {
       use.setAttributeNS(
         null,
         "href",
-        buildIconPath(svgPath, "more-horizontal").toString(),
+        buildIconPath(svgPath, "more-horizontal"),
       );
     }
 

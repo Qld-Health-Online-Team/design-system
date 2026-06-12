@@ -36,7 +36,7 @@ export default function initInternalNavigation(root = document) {
           use.setAttributeNS(
             null,
             "href",
-            buildIconPath(svgPath, "tick").toString(),
+            buildIconPath(svgPath, "tick"),
           );
         }
 
