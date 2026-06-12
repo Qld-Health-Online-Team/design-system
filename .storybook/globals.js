@@ -113,6 +113,10 @@ export const componentLinks = {
     ds: `${dsBase}/components/in-page-navigation`,
     figma: `${figmaBase}?node-id=7905-252906&p=f&t=Tb6VtPPWrZ7Na35f-0`,
   },
+  internalNavigation: {
+    ds: `${dsBase}/components/side-navigation`,
+    figma: `${figmaBase}?node-id=120418-56310&t=QVD97pKrIpIBHqDI-0`,
+  },
   linkColumns: {
     ds: `${dsBase}/components/link-columns-link-list`,
     figma: `${figmaBase}?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0`,
