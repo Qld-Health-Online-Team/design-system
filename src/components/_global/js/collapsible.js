@@ -25,6 +25,28 @@ const CLOSED_CLASS = "qld__accordion--closed";
 const DEFAULT_SPEED = 250;
 
 /**
+ * Name of the CustomEvent dispatched on a trigger whenever its region is
+ * opened or closed. The event bubbles, so components can observe state changes
+ * on an ancestor (e.g. the video player syncing its transcript button label,
+ * or an accordion group syncing its "Open all / Close all" button) without
+ * wiring their own click listeners. `event.detail.open` is true when the
+ * region was opened.
+ */
+export const TOGGLE_EVENT = "qld.collapsible.toggle";
+
+/**
+ * Dispatch the bubbling toggle event on a trigger after its state changed.
+ *
+ * @param  {HTMLElement} element - The trigger element
+ * @param  {boolean}     open    - Whether the region was opened
+ */
+const dispatchToggle = (element, open) => {
+  element.dispatchEvent(
+    new CustomEvent(TOGGLE_EVENT, { bubbles: true, detail: { open } }),
+  );
+};
+
+/**
  * Normalise a single element, NodeList, or array of triggers into an array.
  *
  * @param  {HTMLElement | NodeList | HTMLElement[]} elements
@@ -91,6 +113,7 @@ export function open(elements, speed, root = document, callbacks = {}) {
     setExpanded(element, true);
 
     callbacks.onOpen?.();
+    dispatchToggle(element, true);
     pushDataLayer(
       "accordion open",
       "open",
@@ -127,6 +150,7 @@ export function close(elements, speed, root = document, callbacks = {}) {
     setExpanded(element, false);
 
     callbacks.onClose?.();
+    dispatchToggle(element, false);
     pushDataLayer(
       "accordion close",
       "close",
