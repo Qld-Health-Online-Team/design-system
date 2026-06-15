@@ -1,6 +1,8 @@
 import Template from "../../components/card_single_action/html/component.hbs";
 import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
+import { initComponents } from "../../../.storybook/decorators";
+import initCtaLinks from "../../components/_global/js/cta_links/global";
 
 const mockSite = {
     metadata: { coreSiteIcons: { value: iconSpritePath } },
@@ -77,6 +79,7 @@ function render(args) {
 const meta = {
     title: "3. Components/Cards/Card Single Action",
     render,
+    decorators: [initComponents([initCtaLinks])],
     argTypes: {
         cardType: {
             description: "Display style for each card.",

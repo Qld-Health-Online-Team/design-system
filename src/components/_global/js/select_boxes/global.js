@@ -2,8 +2,11 @@
  * @module selectBoxes
  */
 
-export default function initSelectBoxes(document = document) {
-    document.querySelectorAll("select").forEach((select) => {
+/**
+ * @param {Document|Element} root
+ */
+export default function initSelectBoxes(root = document) {
+    root.querySelectorAll("select").forEach((select) => {
         // First check that the select is not already wrapped
         if (select.closest(".qld__select")) {
             return;

@@ -1,5 +1,7 @@
 import Template from "../../components/in_page_navigation/html/component.hbs";
 import { dummyText, storyParams } from "../../../.storybook/globals";
+import { initComponents } from "../../../.storybook/decorators";
+import initInPageNavigation from "../../components/in_page_navigation/js/global";
 
 const renderInPageNavigation = ({ heading, headingType, ...args }) =>
     Template({
@@ -46,6 +48,7 @@ export default {
     },
     parameters: storyParams("inPageNavigation"),
     decorators: [
+        initComponents([initInPageNavigation]),
         (Story, context) => {
             // Default IDs for headings. Simulates the publisher not adding custom ID's to the page headings which is a
             // common scenario

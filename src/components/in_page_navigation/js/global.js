@@ -4,15 +4,19 @@ import { normaliseIdentifier } from "../../../helpers/global-helpers.js";
  * @module inPageNavigation
  */
 
-export default function initInPageNavigation(document = document) {
-    const navs = document.querySelectorAll(".qld__inpage-nav-links");
-    const mainEl = document.querySelector("main.main");
+/**
+ *
+ * @param {Document|Element} root
+ */
+export default function initInPageNavigation(root = document) {
+    const navs = root.querySelectorAll(".qld__inpage-nav-links");
+    const mainEl = root.querySelector("main.main");
     const isLandingPage = mainEl && mainEl.classList.contains("landing");
 
     // For all In-Page Nav components
     navs.forEach((nav) => {
         const headingSelector = nav.getAttribute("data-headingType") ? nav.getAttribute("data-headingType") : "h2";
-        const pageContent = isLandingPage ? mainEl : document.getElementById("content");
+        const pageContent = isLandingPage ? mainEl : root.querySelector('[id="content"]')
         // Gracefully handle missing page content element
         if (!pageContent) {
             return;
