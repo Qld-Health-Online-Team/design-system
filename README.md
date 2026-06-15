@@ -1,6 +1,6 @@
-# Queensland Government design system - Vanilla JS
-## This is the 'Vanilla' version of the Queensland Government design system, built and maintained by Queensland Health's Digital Experience Team.
+# Queensland Government Design System - Vanilla JS
 
+This is the 'Vanilla' version of the Queensland Government Design System, built and maintained by Queensland Health's Digital Experience Team.
 This codebase is designed around the principle of reduce reliance on 3rd party libraries and framework lock in. We will continue to reduce this reliance over time.
 
 For more information on the Queensland Government Design System and other codebases, please visit - [Queensland Government Design System](https://www.designsystem.qld.gov.au).
@@ -103,6 +103,6 @@ You can use any IDE of your choice. Our development team uses Visual Studio Code
 This repository is tested against the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA to help ensure a high standard of accessibility. 
 We follow the Queensland Government's digital accessibility requirements to support equitable access to information, services, and opportunities.
 
-## Communication
+### Communication
 
 If you encounter an accessibility issue or have suggestions for improvement, please raise an issue in this repository.
