@@ -111,13 +111,15 @@ class PrecompilePlugin {
           if (manifestData.length) {
             const manifestDataXML = JSON.parse(manifestData);
 
-            function rand() {
-              return Math.floor(Math.random() * 10000000000);
-            }
+            // Derive deterministic ids from the template/field names. These
+            // values are only internal cross-reference handles within this
+            // import.xml, so they only need to be unique within the file.
+            // Deriving them from names keeps builds reproducible and the XML
+            // diffable.
             var idMap = {
-              cct_id: rand(),
-              schema_id: rand(),
-              section_id: rand(),
+              cct_id: `${templateName}_cct`,
+              schema_id: `${templateName}_schema`,
+              section_id: `${templateName}_section`,
             };
 
             //test if we have the data and metadata objects as children
@@ -127,7 +129,7 @@ class PrecompilePlugin {
             ) {
               //grab the metadata fields
               for (const field in manifestDataXML.component.data.metadata) {
-                idMap[field] = rand();
+                idMap[field] = `${templateName}_${field}`;
               }
             }
 
