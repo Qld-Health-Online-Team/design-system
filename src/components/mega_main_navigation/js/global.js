@@ -9,7 +9,8 @@
  *  - Focusout (toggle button or submenu): close submenu unless focus stays within
  */
 
-import { accordion } from "../../accordion/js/global.js";
+import * as collapsible from "../../_global/js/collapsible.js";
+import { isExpanded } from "../../../helpers/global-helpers.js";
 
 /** Selector matching all interactive elements that can receive focus. */
 const FOCUSABLE_SELECTOR =
@@ -84,7 +85,7 @@ function handleToggleBtnClick(item, navItems) {
  */
 function openSubMenu(item) {
   const { linkEl, toggleBtnEl, subMenuEl } = item;
-  accordion.Open(toggleBtnEl, undefined, item.rootEl);
+  collapsible.open(toggleBtnEl, undefined, item.rootEl);
   syncNavItemLinkClass(linkEl, true);
 
   item.handlers.documentEscape = handleDocumentEscape(item);
@@ -106,7 +107,7 @@ function openSubMenu(item) {
  */
 function closeSubMenu(item) {
   const { linkEl, toggleBtnEl, subMenuEl } = item;
-  accordion.Close(toggleBtnEl, undefined, item.rootEl);
+  collapsible.close(toggleBtnEl, undefined, item.rootEl);
   syncNavItemLinkClass(linkEl, false);
 
   document.removeEventListener("keydown", item.handlers.documentEscape, true);
@@ -170,7 +171,7 @@ function handleFocusOut(item) {
 }
 
 function isSubMenuOpen(toggleBtnEl) {
-  return toggleBtnEl.getAttribute("aria-expanded") === "true";
+  return isExpanded(toggleBtnEl);
 }
 
 function syncNavItemLinkClass(linkEl, isOpen) {
