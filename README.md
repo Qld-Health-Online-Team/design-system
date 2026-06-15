@@ -23,7 +23,7 @@ For more information on the Queensland Government Design System and other codeba
 ## Documentation
 - Storybook documentation is available at [https://qld-health-online-team.github.io/design-system](https://qld-health-online-team.github.io/design-system)
 
-### Development Getting started
+## Development Getting started
 
 ### Quick build
 
@@ -86,23 +86,23 @@ Unit tests may be created and run via `vitest`.
 npm run test
 ```
 
-### GitHub Actions
+## GitHub Actions
 - Automated CI/CD validation for pull requests
 - [NPM package](https://www.npmjs.com/package/@qhealth-design-system/core) publishing and release management
-- (Semantic versioning)[https://semver.org] for patch, minor, and major releases
-- Automated (Storybook)[https://storybook.js.org] build and deployment workflows
-- (Chromatic)[https://www.chromatic.com] visual regression testing on master and release branches
+- [Semantic versioning](https://semver.org) for patch, minor, and major releases
+- Automated [Storybook](https://storybook.js.org) build and deployment workflows
+- [Chromatic](https://www.chromatic.com) visual regression testing on master and release branches
 
 You can use any IDE of your choice. Our development team uses Visual Studio Code (VS Code) with the following recommended extensions:
 - Prettier
 - ESLint
-- (HandlebarsJS)[https://handlebarsjs.com] Template Support
+- [HandlebarsJS](https://handlebarsjs.com) Template Support
 
-### Accessibility
+## Accessibility
 
 This repository is tested against the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA to help ensure a high standard of accessibility. 
 We follow the Queensland Government's digital accessibility requirements to support equitable access to information, services, and opportunities.
 
-### Communication
+## Communication
 
 If you encounter an accessibility issue or have suggestions for improvement, please raise an issue in this repository.
