@@ -1,27 +1,27 @@
 import { iconSpritePath } from "../../../.storybook/globals";
 
 export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
-    const tagListWrapperStart = `<div class="qld__tag-list--wrapper"><span class="qld__tag-list--title">${leadingText}</span><ul class="qld__tag-list">`;
-    const tagListWrapperEnd = `</ul></div>`;
-    let tagListContent = "";
+  const tagListWrapperStart = `<div class="qld__tag-list--wrapper"><span class="qld__tag-list--title">${leadingText}</span><ul class="qld__tag-list">`;
+  const tagListWrapperEnd = `</ul></div>`;
+  let tagListContent = "";
 
-    switch (type) {
-        case "action":
-            tagListContent = `
+  switch (type) {
+    case "action":
+      tagListContent = `
                 <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
                 <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
                 <li><a class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--link" href="${action}">${text}</a></li>
             `;
-            break;
-        case "info":
-            tagListContent = `
+      break;
+    case "info":
+      tagListContent = `
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""} qld__tag--info">${text}</li>
             `;
-            break;
-        case "filter":
-            tagListContent = `
+      break;
+    case "filter":
+      tagListContent = `
                 <li>
                     <div class="qld__tag qld__tag--filter">
                         ${text}
@@ -50,16 +50,16 @@ export const Tags = ({ type, leadingText, text, isLargeTag, action }) => {
                     </div>
                 </li>
             `;
-            break;
-        case "default":
-        default:
-            tagListContent = `
+      break;
+    case "default":
+    default:
+      tagListContent = `
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
                 <li class="qld__tag ${isLargeTag ? "qld__tag--large" : ""}">${text}</li>
             `;
-            break;
-    }
+      break;
+  }
 
-    return tagListWrapperStart + tagListContent + tagListWrapperEnd;
+  return tagListWrapperStart + tagListContent + tagListWrapperEnd;
 };

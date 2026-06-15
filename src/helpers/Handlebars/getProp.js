@@ -1,3 +1,3 @@
-module.exports = function (obj,prop) {
-    return obj[prop];
+module.exports = function (obj, prop) {
+  return obj[prop];
 };

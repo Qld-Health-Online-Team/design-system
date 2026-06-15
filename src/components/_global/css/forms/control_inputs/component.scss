@@ -6,325 +6,328 @@
 input[type="checkbox"],
 .sq-form-field[type="checkbox"],
 .sq-form-question-tickbox-list input {
-    @extend .sr-only;
+  @extend .sr-only;
 
-    + label {
-        cursor: pointer;
-        position: relative;
-        vertical-align: bottom;
-        @include QLD-space(line-height, 2unit);
-        @include QLD-space(padding-left, 2.5unit);
-        font-weight: $QLD-font-weight-regular;
+  + label {
+    cursor: pointer;
+    position: relative;
+    vertical-align: bottom;
+    @include QLD-space(line-height, 2unit);
+    @include QLD-space(padding-left, 2.5unit);
+    font-weight: $QLD-font-weight-regular;
 
-        &:before {
-            @include QLD-space(width, 2unit);
-            @include QLD-space(height, 2unit);
-            visibility: visible;
-            content: "";
-            display: block;
-            position: absolute;
-            box-sizing: border-box;
-            z-index: 9;
-            @include QLD-space(left, 0unit);
-            border: $QLD-border-width-default solid transparent;
-            border-color: var(--QLD-color-light__border--alt);
-            top: 0;
+    &:before {
+      @include QLD-space(width, 2unit);
+      @include QLD-space(height, 2unit);
+      visibility: visible;
+      content: "";
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 9;
+      @include QLD-space(left, 0unit);
+      border: $QLD-border-width-default solid transparent;
+      border-color: var(--QLD-color-light__border--alt);
+      top: 0;
 
-            .qld__control-input--small & {
-                @include QLD-space(width, 1.25unit);
-                @include QLD-space(height, 1.25unit);
-            }
-        }
-
-        &:after {
-            z-index: 101;
-        }
+      .qld__control-input--small & {
+        @include QLD-space(width, 1.25unit);
+        @include QLD-space(height, 1.25unit);
+      }
     }
 
+    &:after {
+      z-index: 101;
+    }
+  }
+
+  .qld__control-input--small & {
+    + label {
+      line-height: 20px;
+      @include QLD-space(padding-left, 1.75unit);
+    }
+  }
+
+  // Hover
+  &:hover:not([disabled]) {
+    + label:before {
+      background-color: $QLD-color-neutral--lightest;
+    }
+  }
+
+  // Normal checked
+  &:checked + label::after {
+    transition: border-color 0.3s ease;
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 0.55rem;
+    transform: rotate(-45deg);
+    border: none;
+    border-bottom: 0.25rem solid;
+    border-left: 0.25rem solid;
+    top: 0.6rem;
+    left: 0.5rem;
+
     .qld__control-input--small & {
-        + label {
-            line-height: 20px;
-            @include QLD-space(padding-left, 1.75unit);
-        }
+      width: 0.7rem;
+      height: 0.35rem;
+      border-bottom-width: 0.15rem;
+      border-left-width: 0.15rem;
+      top: 0.375rem;
+      left: 0.275rem;
+    }
+  }
+
+  // Focus
+  &:focus + label:before,
+  &.qld__input--valid:focus + label:before,
+  &.qld__input--error:focus + label:before {
+    box-shadow: none;
+    @include QLD-outline("light", false);
+    outline-offset: 2px;
+  }
+
+  // Disabled
+  &:disabled {
+    + label:before {
+      opacity: 0.3;
+      background-color: $QLD-color-neutral--black__opacity-10;
+    }
+
+    + label {
+      color: var(--QLD-color-light__text--lighter);
+      cursor: not-allowed;
+    }
+
+    &:checked + label:after {
+      opacity: 0.5;
+    }
+  }
+
+  &.qld__input--valid {
+    + label:before {
+      box-shadow: 0 0 0 3px $QLD-color-status__success;
+      border-color: var(--QLD-color-light__text);
+    }
+  }
+
+  &.qld__input--error {
+    + label:before {
+      box-shadow: 0 0 0 3px $QLD-color-status__error;
+      border-color: var(--QLD-color-light__text);
+    }
+  }
+
+  .qld__body--dark &,
+  .qld__body--dark-alt & {
+    + label:before {
+      border-color: var(--QLD-color-dark__heading);
     }
 
     // Hover
-    &:hover:not([disabled]) {
-        + label:before {
-            background-color: $QLD-color-neutral--lightest;
-        }
-    }
-
-    // Normal checked
-    &:checked + label::after {
-        transition: border-color 0.3s ease;
-        content: "";
-        position: absolute;
-        width: 1rem;
-        height: 0.55rem;
-        transform: rotate(-45deg);
-        border: none;
-        border-bottom: 0.25rem solid;
-        border-left: 0.25rem solid;
-        top: 0.6rem;
-        left: 0.5rem;
-
-        .qld__control-input--small & {
-            width: 0.7rem;
-            height: 0.35rem;
-            border-bottom-width: 0.15rem;
-            border-left-width: 0.15rem;
-            top: 0.375rem;
-            left: 0.275rem;
-        }
+    &:hover {
+      + label:before {
+        background-color: var(--QLD-color-dark__background--shade);
+      }
     }
 
     // Focus
     &:focus + label:before,
     &.qld__input--valid:focus + label:before,
     &.qld__input--error:focus + label:before {
-        box-shadow: none;
-        @include QLD-outline("light", false);
-        outline-offset: 2px;
+      @include QLD-outline("dark", false);
+      box-shadow: none;
     }
 
     // Disabled
     &:disabled {
-        + label:before {
-            opacity: 0.3;
-            background-color: $QLD-color-neutral--black__opacity-10;
-        }
+      + label:before {
+        background-color: transparent;
+      }
 
-        + label {
-            color: var(--QLD-color-light__text--lighter);
-            cursor: not-allowed;
-        }
+      + label {
+        color: var(--QLD-color-dark__text--lighter);
+        cursor: not-allowed;
+      }
 
-        &:checked + label:after {
-            opacity: 0.5;
-        }
+      &:checked + label:after {
+        opacity: 0.5;
+      }
     }
 
     &.qld__input--valid {
-        + label:before {
-            box-shadow: 0 0 0 3px $QLD-color-status__success;
-            border-color: var(--QLD-color-light__text);
-        }
+      + label:before {
+        border-color: var(--QLD-color-dark__text);
+      }
     }
 
     &.qld__input--error {
-        + label:before {
-            box-shadow: 0 0 0 3px $QLD-color-status__error;
-            border-color: var(--QLD-color-light__text);
-        }
+      + label:before {
+        border-color: var(--QLD-color-dark__text);
+      }
     }
-
-    .qld__body--dark &,
-    .qld__body--dark-alt & {
-        + label:before {
-            border-color: var(--QLD-color-dark__heading);
-        }
-
-        // Hover
-        &:hover {
-            + label:before {
-                background-color: var(--QLD-color-dark__background--shade);
-            }
-        }
-
-        // Focus
-        &:focus + label:before,
-        &.qld__input--valid:focus + label:before,
-        &.qld__input--error:focus + label:before {
-            @include QLD-outline("dark", false);
-            box-shadow: none;
-        }
-
-        // Disabled
-        &:disabled {
-            + label:before {
-                background-color: transparent;
-            }
-
-            + label {
-                color: var(--QLD-color-dark__text--lighter);
-                cursor: not-allowed;
-            }
-
-            &:checked + label:after {
-                opacity: 0.5;
-            }
-        }
-
-        &.qld__input--valid {
-            + label:before {
-                border-color: var(--QLD-color-dark__text);
-            }
-        }
-
-        &.qld__input--error {
-            + label:before {
-                border-color: var(--QLD-color-dark__text);
-            }
-        }
-    }
+  }
 }
 
 input[type="radio"],
 .sq-form-field[type="radio"],
 .sq-form-question-option-list input {
-    @extend .sr-only;
+  @extend .sr-only;
 
-    + label {
-        font-weight: $QLD-font-weight-regular;
-        cursor: pointer;
-        position: relative;
-        @include QLD-space(line-height, 2unit);
-        @include QLD-space(padding-left, 2.5unit);
+  + label {
+    font-weight: $QLD-font-weight-regular;
+    cursor: pointer;
+    position: relative;
+    @include QLD-space(line-height, 2unit);
+    @include QLD-space(padding-left, 2.5unit);
 
-        &:before {
-            width: 30px;
-            height: 30px;
-            visibility: visible;
-            content: "";
-            display: block;
-            position: absolute;
-            box-sizing: border-box;
-            z-index: 100;
-            @include QLD-space(left, 0unit);
-            border: $QLD-border-width-default solid transparent;
-            border-radius: 50%;
-            border-color: var(--QLD-color-light__border--alt);
-            top: 0;
+    &:before {
+      width: 30px;
+      height: 30px;
+      visibility: visible;
+      content: "";
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      z-index: 100;
+      @include QLD-space(left, 0unit);
+      border: $QLD-border-width-default solid transparent;
+      border-radius: 50%;
+      border-color: var(--QLD-color-light__border--alt);
+      top: 0;
 
-            .qld__control-input--small & {
-                @include QLD-space(width, 1.25unit);
-                @include QLD-space(height, 1.25unit);
-            }
-        }
-
-        &:after {
-            z-index: 101;
-        }
+      .qld__control-input--small & {
+        @include QLD-space(width, 1.25unit);
+        @include QLD-space(height, 1.25unit);
+      }
     }
 
-    .qld__control-input--small & {
-        + label {
-            line-height: 20px;
-            @include QLD-space(padding-left, 1.75unit);
-        }
+    &:after {
+      z-index: 101;
+    }
+  }
+
+  .qld__control-input--small & {
+    + label {
+      line-height: 20px;
+      @include QLD-space(padding-left, 1.75unit);
+    }
+  }
+
+  // Hover
+  &:hover {
+    + label:before {
+      background-color: $QLD-color-neutral--lightest;
+    }
+  }
+
+  // Normal checked
+  &:checked,
+  &:checked:disabled {
+    + label:after {
+      transition: border-color 0.3s ease;
+      content: "";
+      position: absolute;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      top: 5px;
+      left: 5px;
+      border: 10px solid;
+
+      .qld__control-input--small & {
+        top: 4px;
+        left: 4px;
+        border-width: 6.5px;
+      }
+    }
+  }
+
+  // Focus
+  &:focus + label:before,
+  &.qld__input--error:focus + label:before,
+  &.qld__input--valid:focus + label:before {
+    @include QLD-outline("light", false);
+    box-shadow: none;
+    outline-offset: 2px;
+  }
+
+  // Disabled
+  &:disabled {
+    + label:before {
+      opacity: 0.3;
+      background-color: $QLD-color-neutral--black__opacity-10;
+    }
+
+    + label {
+      color: var(--QLD-color-light__text--lighter);
+      cursor: not-allowed;
+    }
+
+    &:checked + label:after {
+      opacity: 0.5;
+    }
+  }
+
+  &.qld__input--valid {
+    + label:before {
+      @include QLD-space(
+        box-shadow,
+        0 0 0 0.188unit $QLD-color-status__success
+      );
+    }
+  }
+
+  &.qld__input--error {
+    + label:before {
+      @include QLD-space(box-shadow, 0 0 0 0.188unit $QLD-color-status__error);
+    }
+  }
+
+  .qld__body--dark &,
+  .qld__body--dark-alt & {
+    + label:before {
+      background-color: transparent;
+      border-color: var(--QLD-color-dark__heading);
     }
 
     // Hover
     &:hover {
-        + label:before {
-            background-color: $QLD-color-neutral--lightest;
-        }
-    }
-
-    // Normal checked
-    &:checked,
-    &:checked:disabled {
-        + label:after {
-            transition: border-color 0.3s ease;
-            content: "";
-            position: absolute;
-            display: inline-block;
-            box-sizing: border-box;
-            width: 0.75rem;
-            height: 0.75rem;
-            border-radius: 50%;
-            top: 5px;
-            left: 5px;
-            border: 10px solid;
-
-            .qld__control-input--small & {
-                top: 4px;
-                left: 4px;
-                border-width: 6.5px;
-            }
-        }
+      + label:before {
+        background-color: var(--QLD-color-dark__background--shade);
+      }
     }
 
     // Focus
-    &:focus + label:before,
-    &.qld__input--error:focus + label:before,
-    &.qld__input--valid:focus + label:before {
-        @include QLD-outline("light", false);
-        box-shadow: none;
-        outline-offset: 2px;
+    &:focus + label:before {
+      @include QLD-outline("dark", false);
+      box-shadow: none;
     }
 
     // Disabled
     &:disabled {
-        + label:before {
-            opacity: 0.3;
-            background-color: $QLD-color-neutral--black__opacity-10;
-        }
+      + label:before {
+        opacity: 0.3;
+        background-color: $QLD-color-neutral--black__opacity-10;
+      }
 
-        + label {
-            color: var(--QLD-color-light__text--lighter);
-            cursor: not-allowed;
-        }
+      + label {
+        color: var(--QLD-color-dark__text--lighter);
+        cursor: not-allowed;
+      }
 
-        &:checked + label:after {
-            opacity: 0.5;
-        }
+      &:checked + label:after {
+        opacity: 0.5;
+      }
     }
-
-    &.qld__input--valid {
-        + label:before {
-            @include QLD-space(box-shadow, 0 0 0 0.188unit $QLD-color-status__success);
-        }
-    }
-
-    &.qld__input--error {
-        + label:before {
-            @include QLD-space(box-shadow, 0 0 0 0.188unit $QLD-color-status__error);
-        }
-    }
-
-    .qld__body--dark &,
-    .qld__body--dark-alt & {
-        + label:before {
-            background-color: transparent;
-            border-color: var(--QLD-color-dark__heading);
-        }
-
-        // Hover
-        &:hover {
-            + label:before {
-                background-color: var(--QLD-color-dark__background--shade);
-            }
-        }
-
-        // Focus
-        &:focus + label:before {
-            @include QLD-outline("dark", false);
-            box-shadow: none;
-        }
-
-        // Disabled
-        &:disabled {
-            + label:before {
-                opacity: 0.3;
-                background-color: $QLD-color-neutral--black__opacity-10;
-            }
-
-            + label {
-                color: var(--QLD-color-dark__text--lighter);
-                cursor: not-allowed;
-            }
-
-            &:checked + label:after {
-                opacity: 0.5;
-            }
-        }
-    }
+  }
 }
 
 // Ensure the groups have space between elements
 .qld__radio-buttons > div,
 .qld__checkboxes > div {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }

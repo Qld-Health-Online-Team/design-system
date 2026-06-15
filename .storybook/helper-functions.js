@@ -4,14 +4,14 @@
  * @returns {string} - cleaned HTML
  */
 export const cleanStorybookUrls = (html) => {
-    return (
-        html
-            .replace(/(\b(?:href|src|srcset)=["'])\.\/\?a=/g, "$1")
-            // CSS url(./?a=...)
-            .replace(/url\(\s*\.\/\?a=/g, "url(")
-    );
+  return (
+    html
+      .replace(/(\b(?:href|src|srcset)=["'])\.\/\?a=/g, "$1")
+      // CSS url(./?a=...)
+      .replace(/url\(\s*\.\/\?a=/g, "url(")
+  );
 };
 
 export const themeWrapper = (theme, content) => {
-    return `<div class="${theme}" style="padding: 2rem;">${content}</div>`;
+  return `<div class="${theme}" style="padding: 2rem;">${content}</div>`;
 };

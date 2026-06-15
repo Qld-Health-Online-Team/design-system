@@ -6,362 +6,370 @@ $QLD-side-nav-depth: 3 !default;
 $QLD-side-nav-breakpoint: lg !default;
 
 .qld__side-nav {
-    @include QLD-fontgrid(sm);
-    font-family: $QLD-font;
-    border-radius: $QLD-border-radius;
-    overflow: hidden;
-    @include QLD-space(margin-bottom, 2.5unit);
+  @include QLD-fontgrid(sm);
+  font-family: $QLD-font;
+  border-radius: $QLD-border-radius;
+  overflow: hidden;
+  @include QLD-space(margin-bottom, 2.5unit);
 
-    @include QLD-media(lg) {
-        @include QLD-space(margin-bottom, 0unit);
-        border: 0;
+  @include QLD-media(lg) {
+    @include QLD-space(margin-bottom, 0unit);
+    border: 0;
+  }
+
+  @include QLD-media(xl) {
+    @include QLD-space(margin-bottom, 0unit);
+  }
+  a,
+  .active > span {
+    @include QLD-space(padding, 1unit);
+    @include QLD-fontgrid(xs);
+    color: var(--QLD-color-light__text);
+    display: block;
+  }
+
+  a {
+    max-width: 100%;
+    @include QLD-underline("light", "noUnderline");
+
+    &:hover,
+    &:focus {
+      color: var(--QLD-color-light__link);
+      background-color: $QLD-color-neutral--lightest;
+
+      .qld__body--light & {
+        background-color: var(--QLD-color-light__background--shade);
+      }
+      .qld__body--alt & {
+        background-color: var(--QLD-color-light__background--alt-shade);
+      }
+      .qld__body--dark & {
+        background-color: var(--QLD-color-dark__background--shade);
+      }
+      .qld__body--dark-alt & {
+        background-color: var(--QLD-color-dark__background--alt-shade);
+      }
     }
 
-    @include QLD-media(xl) {
-        @include QLD-space(margin-bottom, 0unit);
-    }
-    a,
-    .active > span {
-        @include QLD-space(padding, 1unit);
-        @include QLD-fontgrid(xs);
-        color: var(--QLD-color-light__text);
-        display: block;
+    &:visited {
+      color: var(--QLD-color-light__text);
     }
 
-    a {
-        max-width: 100%;
-        @include QLD-underline("light", "noUnderline");
+    @include QLD-focus();
+  }
 
-        &:hover,
-        &:focus {
-            color: var(--QLD-color-light__link);
-            background-color: $QLD-color-neutral--lightest;
+  .qld__sidenav__link {
+    svg.qld__icon {
+      color: var(--QLD-color-light__heading);
+      fill: var(--QLD-color-light__heading);
 
-            .qld__body--light & {
-                background-color: var(--QLD-color-light__background--shade);
-            }
-            .qld__body--alt & {
-                background-color: var(--QLD-color-light__background--alt-shade);
-            }
-            .qld__body--dark & {
-                background-color: var(--QLD-color-dark__background--shade);
-            }
-            .qld__body--dark-alt & {
-                background-color: var(--QLD-color-dark__background--alt-shade);
-            }
+      .qld__body--dark &,
+      .qld__body--dark-alt & {
+        color: var(--QLD-color-dark__heading);
+        fill: var(--QLD-color-dark__heading);
+      }
+    }
+  }
+
+  // Link list
+  .qld__link-list {
+    @include QLD-space(
+      border-top,
+      solid 0.0625unit var(--QLD-color-light__design-accent)
+    );
+    padding: 0;
+    margin: 0 !important;
+
+    > li:not(:first-child) {
+      // First level li; same colour for normal, light, and alt
+      border-top: $QLD-border-width-thin solid
+        var(--QLD-color-light__border--alt);
+      // First level li; same colour for dark and dark-alt
+      .qld__body--dark &,
+      .qld__body--dark-alt & {
+        border-top: $QLD-border-width-thin solid
+          var(--QLD-color-dark__border--alt);
+      }
+    }
+
+    li {
+      margin: 0;
+
+      &:first-child {
+        a,
+        span {
+          border-top-color: transparent;
         }
-
-        &:visited {
-            color: var(--QLD-color-light__text);
-        }
-
-        @include QLD-focus();
+      }
     }
 
-    .qld__sidenav__link {
-        svg.qld__icon {
-            color: var(--QLD-color-light__heading);
-            fill: var(--QLD-color-light__heading);
-
-            .qld__body--dark &,
-            .qld__body--dark-alt & {
-                color: var(--QLD-color-dark__heading);
-                fill: var(--QLD-color-dark__heading);
-            }
-        }
-    }
-
-    // Link list
     .qld__link-list {
-        @include QLD-space(border-top, solid 0.0625unit var(--QLD-color-light__design-accent));
-        padding: 0;
-        margin: 0 !important;
+      @include QLD-space(border-top-width, 0unit);
 
-        > li:not(:first-child) {
-            // First level li; same colour for normal, light, and alt
-            border-top: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
-            // First level li; same colour for dark and dark-alt
-            .qld__body--dark &,
-            .qld__body--dark-alt & {
-                border-top: $QLD-border-width-thin solid var(--QLD-color-dark__border--alt);
-            }
+      li {
+        border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
+
+        .qld__body--light & {
+          border-top-color: var(--QLD-color-light__border);
         }
-
-        li {
-            margin: 0;
-
-            &:first-child {
-                a,
-                span {
-                    border-top-color: transparent;
-                }
-            }
+        .qld__body--alt & {
+          border-top-color: $QLD-color-neutral--darkest__opacity-10;
         }
-
-        .qld__link-list {
-            @include QLD-space(border-top-width, 0unit);
-
-            li {
-                border-top: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
-
-                .qld__body--light & {
-                    border-top-color: var(--QLD-color-light__border);
-                }
-                .qld__body--alt & {
-                    border-top-color: $QLD-color-neutral--darkest__opacity-10;
-                }
-                .qld__body--dark & {
-                    border-top-color: var(--QLD-color-dark__border);
-                }
-                .qld__body--dark-alt & {
-                    border-top-color: $QLD-color-neutral--light__opacity-10;
-                }
-            }
+        .qld__body--dark & {
+          border-top-color: var(--QLD-color-dark__border);
         }
+        .qld__body--dark-alt & {
+          border-top-color: $QLD-color-neutral--light__opacity-10;
+        }
+      }
+    }
+  }
+
+  // Accordion styles
+  &.qld__accordion {
+    @include QLD-media(lg, "down") {
+      border-bottom: 1px solid $QLD-color-neutral--lighter;
+
+      .qld__body--light & {
+        border-color: var(--QLD-color-light__border);
+      }
+      .qld__body--alt & {
+        border-color: var(--QLD-color-light__border--alt);
+      }
+      .qld__body--dark & {
+        border-color: var(--QLD-color-dark__border);
+      }
+      .qld__body--dark-alt & {
+        border-color: var(--QLD-color-dark__border--alt);
+      }
+    }
+  }
+
+  .qld__accordion__body {
+    overflow: visible;
+  }
+
+  .qld__accordion__title {
+    @include QLD-fontgrid(md, heading);
+    color: var(--QLD-color-light__link);
+    font-weight: $QLD-font-weight-regular;
+    background-color: inherit;
+
+    &.qld__side-nav__toggle {
+      background: $QLD-color-neutral--lightest;
+
+      .qld__body--light & {
+        background: var(--QLD-color-light__background--shade);
+      }
+      .qld__body--alt & {
+        background: var(--QLD-color-light__background--alt-shade);
+      }
+      .qld__body--dark & {
+        background: var(--QLD-color-dark__background--shade);
+      }
+      .qld__body--dark-alt & {
+        background: var(--QLD-color-dark__background--alt-shade);
+      }
     }
 
-    // Accordion styles
-    &.qld__accordion {
-        @include QLD-media(lg, "down") {
-            border-bottom: 1px solid $QLD-color-neutral--lighter;
+    &.qld__side-nav__toggle.qld__accordion--open {
+      border-bottom: 1px solid $QLD-color-neutral--lighter;
 
-            .qld__body--light & {
-                border-color: var(--QLD-color-light__border);
-            }
-            .qld__body--alt & {
-                border-color: var(--QLD-color-light__border--alt);
-            }
-            .qld__body--dark & {
-                border-color: var(--QLD-color-dark__border);
-            }
-            .qld__body--dark-alt & {
-                border-color: var(--QLD-color-dark__border--alt);
-            }
-        }
+      .qld__body--light & {
+        border-bottom-color: var(--QLD-color-light__border);
+      }
+      .qld__body--alt & {
+        border-bottom-color: var(--QLD-color-light__border--alt);
+      }
+      .qld__body--dark & {
+        border-bottom-color: var(--QLD-color-dark__border);
+      }
+      .qld__body--dark-alt & {
+        border-bottom-color: var(--QLD-color-dark__border--alt);
+      }
     }
 
-    .qld__accordion__body {
-        overflow: visible;
+    &:focus {
+      outline-offset: -3px;
+    }
+
+    // Hide the accordion title without javascript
+    .no-js & {
+      display: none;
+    }
+  }
+
+  .qld__accordion__body-wrapper {
+    border: 0;
+    padding: 0;
+  }
+
+  // Desktop styles
+  @include QLD-media($QLD-side-nav-breakpoint) {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+
+    // Open the menu on desktop
+    .qld__accordion__body.qld__accordion--closed {
+      display: block;
+      height: auto;
     }
 
     .qld__accordion__title {
-        @include QLD-fontgrid(md, heading);
-        color: var(--QLD-color-light__link);
-        font-weight: $QLD-font-weight-regular;
-        background-color: inherit;
-
-        &.qld__side-nav__toggle {
-            background: $QLD-color-neutral--lightest;
-
-            .qld__body--light & {
-                background: var(--QLD-color-light__background--shade);
-            }
-            .qld__body--alt & {
-                background: var(--QLD-color-light__background--alt-shade);
-            }
-            .qld__body--dark & {
-                background: var(--QLD-color-dark__background--shade);
-            }
-            .qld__body--dark-alt & {
-                background: var(--QLD-color-dark__background--alt-shade);
-            }
-        }
-
-        &.qld__side-nav__toggle.qld__accordion--open {
-            border-bottom: 1px solid $QLD-color-neutral--lighter;
-
-            .qld__body--light & {
-                border-bottom-color: var(--QLD-color-light__border);
-            }
-            .qld__body--alt & {
-                border-bottom-color: var(--QLD-color-light__border--alt);
-            }
-            .qld__body--dark & {
-                border-bottom-color: var(--QLD-color-dark__border);
-            }
-            .qld__body--dark-alt & {
-                border-bottom-color: var(--QLD-color-dark__border--alt);
-            }
-        }
-
-        &:focus {
-            outline-offset: -3px;
-        }
-
-        // Hide the accordion title without javascript
-        .no-js & {
-            display: none;
-        }
+      display: none;
     }
-
-    .qld__accordion__body-wrapper {
-        border: 0;
-        padding: 0;
-    }
-
-    // Desktop styles
-    @include QLD-media($QLD-side-nav-breakpoint) {
-        background: transparent;
-        border-radius: 0;
-        overflow: visible;
-
-        // Open the menu on desktop
-        .qld__accordion__body.qld__accordion--closed {
-            display: block;
-            height: auto;
-        }
-
-        .qld__accordion__title {
-            display: none;
-        }
-    }
+  }
 }
 
 // Content inside the side navigation accordion
 .qld__side-nav__content {
-    @include QLD-space(margin, 0 1unit);
+  @include QLD-space(margin, 0 1unit);
 
-    ul {
-        @include QLD-side-nav-indent(1);
-        @include QLD-side-nav-indent(1, ".active > span");
-    }
+  ul {
+    @include QLD-side-nav-indent(1);
+    @include QLD-side-nav-indent(1, ".active > span");
+  }
 
-    .active > span {
-        font-weight: $QLD-font-weight-semibold;
-        color: var(--QLD-color-light__heading);
-    }
+  .active > span {
+    font-weight: $QLD-font-weight-semibold;
+    color: var(--QLD-color-light__heading);
+  }
 
-    ul ul ul svg.qld__icon {
-        margin-right: pxToRem(10);
-        transform: rotate(45deg);
-    }
+  ul ul ul svg.qld__icon {
+    margin-right: pxToRem(10);
+    transform: rotate(45deg);
+  }
 
-    @include QLD-media($QLD-side-nav-breakpoint) {
-        margin: 0;
-    }
+  @include QLD-media($QLD-side-nav-breakpoint) {
+    margin: 0;
+  }
 }
 
 // Side navigation title
 .qld__side-nav .qld__sidenav__title {
-    margin: 0;
-    max-width: 100%;
+  margin: 0;
+  max-width: 100%;
 
-    a {
-        @include QLD-fontgrid(sm);
-        color: var(--QLD-color-light__heading);
-        @include QLD-space(border-bottom, solid 0.125unit var(--QLD-color-light__design-accent));
-        @include QLD-underline("light", "noUnderline", "default", "noVisited");
+  a {
+    @include QLD-fontgrid(sm);
+    color: var(--QLD-color-light__heading);
+    @include QLD-space(
+      border-bottom,
+      solid 0.125unit var(--QLD-color-light__design-accent)
+    );
+    @include QLD-underline("light", "noUnderline", "default", "noVisited");
 
-        @include QLD-media(md) {
-            font-weight: $QLD-font-weight-semibold;
-        }
-
-        &:hover,
-        &:focus {
-            color: var(--QLD-color-light__link);
-        }
+    @include QLD-media(md) {
+      font-weight: $QLD-font-weight-semibold;
     }
+
+    &:hover,
+    &:focus {
+      color: var(--QLD-color-light__link);
+    }
+  }
 }
 
 // Dark colour variation
 .qld__body--dark .qld__side-nav {
-    .qld__sidenav__link {
-        color: var(--QLD-color-dark__link);
-        @include QLD-underline("light", "noUnderline");
-    }
+  .qld__sidenav__link {
+    color: var(--QLD-color-dark__link);
+    @include QLD-underline("light", "noUnderline");
+  }
 }
 
 // Dark alternative colour variation
 .qld__body--dark-alt .qld__side-nav {
-    .qld__sidenav__link {
-        color: var(--QLD-color-dark__text);
-        @include QLD-underline("dark", "noUnderline");
-    }
+  .qld__sidenav__link {
+    color: var(--QLD-color-dark__text);
+    @include QLD-underline("dark", "noUnderline");
+  }
 }
 
 // Dark and dark-alt mutual styles
 .qld__body--dark,
 .qld__body--dark-alt {
-    .qld__side-nav {
-        .qld__accordion__title {
-            color: var(--QLD-color-dark__heading);
-            text-decoration-color: var(--QLD-color-dark__heading);
-            background-color: inherit;
+  .qld__side-nav {
+    .qld__accordion__title {
+      color: var(--QLD-color-dark__heading);
+      text-decoration-color: var(--QLD-color-dark__heading);
+      background-color: inherit;
 
-            &:after {
-                background-color: var(--QLD-color-dark__action--secondary);
-            }
-        }
-
-        .qld__side-nav__content {
-            .active > span {
-                color: var(--QLD-color-dark__text);
-            }
-
-            ul ul ul svg.qld__icon {
-                color: var(--QLD-color-dark__border--alt);
-                fill: var(--QLD-color-dark__border--alt);
-            }
-        }
-
-        .qld__sidenav__link {
-            @include QLD-focus("dark");
-
-            &:hover {
-                color: var(--QLD-color-dark__link);
-                text-decoration-color: var(--QLD-color-dark__link);
-                &:visited {
-                    color: var(--QLD-color-dark__link);
-                    text-decoration: none;
-                }
-            }
-
-            &:visited {
-                color: var(--QLD-color-dark__link);
-                text-decoration: none;
-            }
-
-            &:focus {
-                text-decoration-color: var(--QLD-color-dark__link);
-            }
-        }
-
-        .qld__sidenav__title a {
-            @include QLD-underline("light", "noUnderline", "default", "noVisited");
-
-            border-color: var(--QLD-color-dark__design-accent);
-            color: var(--QLD-color-dark__text);
-
-            &:focus {
-                text-decoration-color: var(--QLD-color-dark__link);
-            }
-        }
+      &:after {
+        background-color: var(--QLD-color-dark__action--secondary);
+      }
     }
+
+    .qld__side-nav__content {
+      .active > span {
+        color: var(--QLD-color-dark__text);
+      }
+
+      ul ul ul svg.qld__icon {
+        color: var(--QLD-color-dark__border--alt);
+        fill: var(--QLD-color-dark__border--alt);
+      }
+    }
+
+    .qld__sidenav__link {
+      @include QLD-focus("dark");
+
+      &:hover {
+        color: var(--QLD-color-dark__link);
+        text-decoration-color: var(--QLD-color-dark__link);
+        &:visited {
+          color: var(--QLD-color-dark__link);
+          text-decoration: none;
+        }
+      }
+
+      &:visited {
+        color: var(--QLD-color-dark__link);
+        text-decoration: none;
+      }
+
+      &:focus {
+        text-decoration-color: var(--QLD-color-dark__link);
+      }
+    }
+
+    .qld__sidenav__title a {
+      @include QLD-underline("light", "noUnderline", "default", "noVisited");
+
+      border-color: var(--QLD-color-dark__design-accent);
+      color: var(--QLD-color-dark__text);
+
+      &:focus {
+        text-decoration-color: var(--QLD-color-dark__link);
+      }
+    }
+  }
 }
 
 // Print styles
 @media print {
-    .qld__side-nav {
-        display: none !important;
-        background: transparent !important;
+  .qld__side-nav {
+    display: none !important;
+    background: transparent !important;
 
-        a {
-            color: #000;
-            text-decoration: underline;
+    a {
+      color: #000;
+      text-decoration: underline;
 
-            &:hover {
-                background: transparent;
-            }
-        }
-
-        .qld__accordion__title {
-            display: none;
-        }
+      &:hover {
+        background: transparent;
+      }
     }
 
-    .qld__side-nav__content {
-        & > ul > li {
-            border-color: #000 !important;
-        }
+    .qld__accordion__title {
+      display: none;
     }
+  }
+
+  .qld__side-nav__content {
+    & > ul > li {
+      border-color: #000 !important;
+    }
+  }
 }

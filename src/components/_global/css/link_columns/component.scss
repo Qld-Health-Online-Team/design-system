@@ -3,233 +3,233 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 .qld__link-columns {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  @include QLD-fontgrid(sm);
+  font-weight: $QLD-font-weight-semibold;
+  overflow: hidden;
+
+  * + & {
+    @include QLD-space(margin, 1.5unit 0);
+  }
+  &:last-child {
+    @include QLD-space(margin-bottom, 0);
+  }
+
+  > li {
+    @include QLD-space(padding, 1unit 0.25unit 1unit 0.25unit);
+    box-shadow: 0 $QLD-border-width-thin 0 $QLD-color-neutral--lighter;
     display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    @include QLD-fontgrid(sm);
-    font-weight: $QLD-font-weight-semibold;
-    overflow: hidden;
+    justify-content: space-between;
+    position: relative;
+    flex: 0 0 100%;
 
-    * + & {
-        @include QLD-space(margin, 1.5unit 0);
-    }
-    &:last-child {
-        @include QLD-space(margin-bottom, 0);
+    a:not(.qld__cta-link) {
+      @include QLD-underline("light", "noUnderline");
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
 
+    // Add padding to prevent text going over the arrow
+    a:not(.qld__cta-link) {
+      padding-right: 2rem;
+    }
+
+    // Rule that ensures that if a cta-link is used in the link columns, the correct arrow is displayed
+    a.qld__cta-link:not(.qld__cta-link--view-all) {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &::before {
+      @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+      flex: 0 0 auto;
+      width: 1rem;
+      top: 28px;
+      right: 0.3rem;
+    }
+
+    &::after {
+      @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+      flex: 0 0 auto;
+      transform: rotate(315deg);
+      width: 0.6rem;
+      top: 1.5rem;
+      right: 0.3rem;
+      height: 0.6rem;
+      border-right: 0.125rem solid;
+    }
+
+    &:not(.qld__link-columns__all-link) {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        box-sizing: border-box;
+        border-bottom: 0.125rem solid;
+        transition: border-color 0.3s ease;
+        border-color: var(--QLD-color-light__action--secondary);
+        transition: margin 0.2s ease;
+        z-index: 1;
+
+        .qld__body--dark &,
+        .qld__body--dark-alt &,
+        .qld__main-nav--dark &,
+        .qld__main-nav--dark-alt & {
+          border-color: var(--QLD-color-dark__action--secondary);
+        }
+      }
+    }
+
+    &:hover {
+      a:not(:visited) {
+        color: var(--QLD-color-light__link);
+      }
+
+      &::before,
+      &::after {
+        @include QLD-space(margin, 0 0 0 1unit);
+        border-color: var(--QLD-color-light__action--secondary-hover);
+
+        .qld__body--dark &,
+        .qld__body--dark-alt &,
+        .qld__main-nav--dark &,
+        .qld__main-nav--dark-alt & {
+          border-color: var(--QLD-color-dark__action--secondary-hover);
+        }
+      }
+    }
+
+    &.qld__link-columns__all-link {
+      @include QLD-fontgrid(sm);
+      @include QLD-space(font-size, 1unit);
+      font-weight: $QLD-font-weight-semibold;
+      justify-content: flex-end;
+      box-shadow: inset 0 0 - $QLD-border-width-thin 0 transparent;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  @include QLD-media(lg) {
+    &.qld__link-columns--2-col {
+      @include QLD-space(column-gap, 2unit);
+
+      > li {
+        flex: 0 0 calc(50% - 16px);
+        align-self: flex-start;
+      }
+
+      a {
+        break-inside: avoid;
+      }
+    }
+
+    &.qld__link-columns--3-col {
+      @include QLD-space(column-gap, 2unit);
+      column-count: 3;
+
+      > li {
+        flex: 0 0 calc(33.22% - 22px);
+        align-self: flex-start;
+      }
+
+      a {
+        break-inside: avoid;
+      }
+    }
+  }
+
+  .qld__body--light & {
     > li {
-        @include QLD-space(padding, 1unit 0.25unit 1unit 0.25unit);
-        box-shadow: 0 $QLD-border-width-thin 0 $QLD-color-neutral--lighter;
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        flex: 0 0 100%;
+      box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
 
-        a:not(.qld__cta-link) {
-            @include QLD-underline("light", "noUnderline");
-            &:before {
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-        }
-
-        // Add padding to prevent text going over the arrow
-        a:not(.qld__cta-link) {
-            padding-right: 2rem;
-        }
-
-        // Rule that ensures that if a cta-link is used in the link columns, the correct arrow is displayed
-        a.qld__cta-link:not(.qld__cta-link--view-all) {
-            &::before,
-            &::after {
-                display: none;
-            }
-        }
-
-        &::before {
-            @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-            flex: 0 0 auto;
-            width: 1rem;
-            top: 28px;
-            right: 0.3rem;
-        }
+      &.qld__link-columns__all-link {
+        box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
         &::after {
-            @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-            flex: 0 0 auto;
-            transform: rotate(315deg);
-            width: 0.6rem;
-            top: 1.5rem;
-            right: 0.3rem;
-            height: 0.6rem;
-            border-right: 0.125rem solid;
+          display: none;
         }
-
-        &:not(.qld__link-columns__all-link) {
-            &::before,
-            &::after {
-                content: "";
-                position: absolute;
-                display: inline-block;
-                box-sizing: border-box;
-                border-bottom: 0.125rem solid;
-                transition: border-color 0.3s ease;
-                border-color: var(--QLD-color-light__action--secondary);
-                transition: margin 0.2s ease;
-                z-index: 1;
-
-                .qld__body--dark &,
-                .qld__body--dark-alt &,
-                .qld__main-nav--dark &,
-                .qld__main-nav--dark-alt & {
-                    border-color: var(--QLD-color-dark__action--secondary);
-                }
-            }
-        }
-
-        &:hover {
-            a:not(:visited) {
-                color: var(--QLD-color-light__link);
-            }
-
-            &::before,
-            &::after {
-                @include QLD-space(margin, 0 0 0 1unit);
-                border-color: var(--QLD-color-light__action--secondary-hover);
-
-                .qld__body--dark &,
-                .qld__body--dark-alt &,
-                .qld__main-nav--dark &,
-                .qld__main-nav--dark-alt & {
-                    border-color: var(--QLD-color-dark__action--secondary-hover);
-                }
-            }
-        }
-
-        &.qld__link-columns__all-link {
-            @include QLD-fontgrid(sm);
-            @include QLD-space(font-size, 1unit);
-            font-weight: $QLD-font-weight-semibold;
-            justify-content: flex-end;
-            box-shadow: inset 0 0 - $QLD-border-width-thin 0 transparent;
-
-            &::after {
-                display: none;
-            }
-        }
+      }
     }
+  }
 
-    @include QLD-media(lg) {
-        &.qld__link-columns--2-col {
-            @include QLD-space(column-gap, 2unit);
+  .qld__body--alt & {
+    > li {
+      box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border--alt);
 
-            > li {
-                flex: 0 0 calc(50% - 16px);
-                align-self: flex-start;
-            }
+      &.qld__link-columns__all-link {
+        box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
-            a {
-                break-inside: avoid;
-            }
+        &::after {
+          display: none;
         }
-
-        &.qld__link-columns--3-col {
-            @include QLD-space(column-gap, 2unit);
-            column-count: 3;
-
-            > li {
-                flex: 0 0 calc(33.22% - 22px);
-                align-self: flex-start;
-            }
-
-            a {
-                break-inside: avoid;
-            }
-        }
+      }
     }
+  }
 
-    .qld__body--light & {
-        > li {
-            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border);
-
-            &.qld__link-columns__all-link {
-                box-shadow: 0 $QLD-border-width-thin 0 transparent;
-
-                &::after {
-                    display: none;
-                }
-            }
+  .qld__body--dark &,
+  .qld__main-nav--dark & {
+    > li {
+      box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border);
+      a {
+        @include QLD-underline("dark", "noUnderline");
+      }
+      &:hover {
+        a {
+          @include QLD-underline("dark", "noUnderline");
+          color: var(--QLD-color-dark__link);
         }
-    }
+      }
 
-    .qld__body--alt & {
-        > li {
-            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-light__border--alt);
+      &.qld__link-columns__all-link {
+        box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
-            &.qld__link-columns__all-link {
-                box-shadow: 0 $QLD-border-width-thin 0 transparent;
-
-                &::after {
-                    display: none;
-                }
-            }
+        &::after {
+          display: none;
         }
+      }
     }
+  }
 
-    .qld__body--dark &,
-    .qld__main-nav--dark & {
-        > li {
-            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border);
-            a {
-                @include QLD-underline("dark", "noUnderline");
-            }
-            &:hover {
-                a {
-                    @include QLD-underline("dark", "noUnderline");
-                    color: var(--QLD-color-dark__link);
-                }
-            }
+  .qld__body--dark-alt &,
+  .qld__main-nav--dark-alt & {
+    > li {
+      box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border--alt);
 
-            &.qld__link-columns__all-link {
-                box-shadow: 0 $QLD-border-width-thin 0 transparent;
+      a {
+        @include QLD-underline("dark", "noUnderline");
+      }
 
-                &::after {
-                    display: none;
-                }
-            }
+      &:hover {
+        a {
+          @include QLD-underline("dark", "noUnderline");
+          color: var(--QLD-color-dark__link);
         }
-    }
+      }
 
-    .qld__body--dark-alt &,
-    .qld__main-nav--dark-alt & {
-        > li {
-            box-shadow: 0 $QLD-border-width-thin 0 var(--QLD-color-dark__border--alt);
+      &.qld__link-columns__all-link {
+        box-shadow: 0 $QLD-border-width-thin 0 transparent;
 
-            a {
-                @include QLD-underline("dark", "noUnderline");
-            }
-
-            &:hover {
-                a {
-                    @include QLD-underline("dark", "noUnderline");
-                    color: var(--QLD-color-dark__link);
-                }
-            }
-
-            &.qld__link-columns__all-link {
-                box-shadow: 0 $QLD-border-width-thin 0 transparent;
-
-                &::after {
-                    display: none;
-                }
-            }
+        &::after {
+          display: none;
         }
+      }
     }
+  }
 }
 
 // Fixes the all-link issue
@@ -237,17 +237,17 @@
 .qld__card,
 .qld__banner,
 .qld__footer {
-    .qld__link-columns > li.qld__link-columns__all-link {
-        flex: 0 0 100%;
-    }
+  .qld__link-columns > li.qld__link-columns__all-link {
+    flex: 0 0 100%;
+  }
 }
 
 .qld__body {
-    h1 + .qld__link-columns,
-    h2 + .qld__link-columns,
-    h3 + .qld__link-columns,
-    h4 + .qld__link-columns,
-    h5 + .qld__link-columns {
-        @include QLD-space(margin-top, 1.5unit);
-    }
+  h1 + .qld__link-columns,
+  h2 + .qld__link-columns,
+  h3 + .qld__link-columns,
+  h4 + .qld__link-columns,
+  h5 + .qld__link-columns {
+    @include QLD-space(margin-top, 1.5unit);
+  }
 }

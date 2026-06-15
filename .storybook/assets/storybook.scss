@@ -1,56 +1,56 @@
 /* Storybook specific styling */
 
 #storybook-docs {
-    /* Reset the styling of the radio buttons */
-    .docblock-argstable .docblock-argstable-body input[type="radio"] {
-        border: initial;
-        clip: auto;
-        height: auto;
-        overflow: visible;
-        padding: initial;
-        position: static;
-        width: auto;
-    }
+  /* Reset the styling of the radio buttons */
+  .docblock-argstable .docblock-argstable-body input[type="radio"] {
+    border: initial;
+    clip: auto;
+    height: auto;
+    overflow: visible;
+    padding: initial;
+    position: static;
+    width: auto;
+  }
 
-    /* Remove the default chevron down in SB select elements */
-    .docblock-argstable .docblock-argstable-body .css-1x3be6s {
-        > svg {
-            display: none;
-        }
+  /* Remove the default chevron down in SB select elements */
+  .docblock-argstable .docblock-argstable-body .css-1x3be6s {
+    > svg {
+      display: none;
     }
+  }
 }
 
 .figma-link {
-    > p {
-        color: #09549f; /* $QLD-color-light__action--primary */
-        text-decoration: underline;
-        cursor: pointer;
+  > p {
+    color: #09549f; /* $QLD-color-light__action--primary */
+    text-decoration: underline;
+    cursor: pointer;
 
-        &:hover {
-            color: #003e7d; /* $QLD-color-light__action--primary-hover */
-        }
+    &:hover {
+      color: #003e7d; /* $QLD-color-light__action--primary-hover */
     }
+  }
 }
 
 .iconography-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .iconography-item {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--QLD-color-light__heading);
+    border-radius: 8px;
+    gap: 1rem;
+    margin: 1rem;
+    padding: 2rem 1rem;
+    width: 12rem;
 
-    .iconography-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid var(--QLD-color-light__heading);
-        border-radius: 8px;
-        gap: 1rem;
-        margin: 1rem;
-        padding: 2rem 1rem;
-        width: 12rem;
-
-        .qld__dark &,
-        .qld__dark-alt & {
-            border-color: white;
-        }
+    .qld__dark &,
+    .qld__dark-alt & {
+      border-color: white;
     }
+  }
 }

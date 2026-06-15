@@ -3,50 +3,57 @@ import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const directionLinksArgs = {
-    text: "my link",
-    direction: "right",
-    href: dummyLink,
+  text: "my link",
+  direction: "right",
+  href: dummyLink,
 };
 
 export default {
-    title: "3. Components/Direction Links",
-    render: (args) => DirectionLinks(args),
-    argTypes: {
-        direction: {
-            control: {
-                type: "radio",
-                labels: {
-                    left: "left",
-                    right: "right",
-                    up: "up",
-                    down: "down",
-                },
-            },
-            options: ["left", "right", "up", "down"],
-            description: "The direction of the link icon",
-            table: {
-                defaultValue: { summary: "right" },
-            },
+  title: "3. Components/Direction Links",
+  render: (args) => DirectionLinks(args),
+  argTypes: {
+    direction: {
+      control: {
+        type: "radio",
+        labels: {
+          left: "left",
+          right: "right",
+          up: "up",
+          down: "down",
         },
-        text: { control: "text", description: "The link the user will be taken to on click" },
+      },
+      options: ["left", "right", "up", "down"],
+      description: "The direction of the link icon",
+      table: {
+        defaultValue: { summary: "right" },
+      },
     },
-    args: { ...directionLinksArgs },
-    parameters: storyParams("directionLinks"),
+    text: {
+      control: "text",
+      description: "The link the user will be taken to on click",
+    },
+  },
+  args: { ...directionLinksArgs },
+  parameters: storyParams("directionLinks"),
 };
 
 export const Default = {};
 
-export const defaultVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "right" });
+export const defaultVariant = () =>
+  DirectionLinks({ ...directionLinksArgs, direction: "right" });
 defaultVariant.tags = ["!dev"];
-export const leftVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "left" });
+export const leftVariant = () =>
+  DirectionLinks({ ...directionLinksArgs, direction: "left" });
 leftVariant.tags = ["!dev"];
-export const upVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "up" });
+export const upVariant = () =>
+  DirectionLinks({ ...directionLinksArgs, direction: "up" });
 upVariant.tags = ["!dev"];
-export const downVariant = () => DirectionLinks({ ...directionLinksArgs, direction: "down" });
+export const downVariant = () =>
+  DirectionLinks({ ...directionLinksArgs, direction: "down" });
 downVariant.tags = ["!dev"];
 
 export const allVariants = () => {
-    return `
+  return `
         <h3>Direction link left</h3>
         ${leftVariant()}
         <h3>Direction link right</h3>
@@ -60,31 +67,31 @@ export const allVariants = () => {
 allVariants.tags = ["!dev"];
 
 export const white = {
-    render: () => {
-        return themeWrapper(themes["white"], allVariants());
-    },
+  render: () => {
+    return themeWrapper(themes["white"], allVariants());
+  },
 };
 
 export const light = {
-    render: () => {
-        return themeWrapper(themes["light"], allVariants());
-    },
+  render: () => {
+    return themeWrapper(themes["light"], allVariants());
+  },
 };
 
 export const lightAlt = {
-    render: () => {
-        return themeWrapper(themes["light alt"], allVariants());
-    },
+  render: () => {
+    return themeWrapper(themes["light alt"], allVariants());
+  },
 };
 
 export const dark = {
-    render: () => {
-        return themeWrapper(themes["dark"], allVariants());
-    },
+  render: () => {
+    return themeWrapper(themes["dark"], allVariants());
+  },
 };
 
 export const darkAlt = {
-    render: () => {
-        return themeWrapper(themes["dark alt"], allVariants());
-    },
+  render: () => {
+    return themeWrapper(themes["dark alt"], allVariants());
+  },
 };

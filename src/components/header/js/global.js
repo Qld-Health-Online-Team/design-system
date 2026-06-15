@@ -4,16 +4,18 @@
 
 // Search toggle button
 const searchToggle = document.querySelector(".qld__main-nav__toggle-search");
-const searchForm = document.querySelector(".qld__header__search .qld__search-form");
+const searchForm = document.querySelector(
+  ".qld__header__search .qld__search-form",
+);
 let searchToggleText, targetId, target, focustrapTop, focustrapBottom;
 if (searchToggle) {
-    searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
-    targetId = searchToggle.getAttribute("aria-controls");
-    target = document.getElementById(targetId);
-    if (target) {
-        focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
-        focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
-    }
+  searchToggleText = searchToggle.querySelector(".qld__main-nav__toggle-text");
+  targetId = searchToggle.getAttribute("aria-controls");
+  target = document.getElementById(targetId);
+  if (target) {
+    focustrapTop = target.querySelector(".qld__main-nav__focus-trap-top");
+    focustrapBottom = target.querySelector(".qld__main-nav__focus-trap-bottom");
+  }
 }
 
 // Hold state of the header (open vs close)
@@ -26,35 +28,39 @@ const mobileBreakpoint = 992;
 let lastWidth = window.innerWidth;
 
 export default function initHeader(document = document) {
-    // Add action so the search works only if JS is enabled
-    if (searchForm) {
-        searchForm.querySelector(".qld__btn--search").setAttribute("type", "submit");
-        searchForm.querySelectorAll(".qld__btn--search, .qld__text-input").forEach((el) => {
-            el.removeAttribute("disabled");
-        });
-        checkHoneypot();
+  // Add action so the search works only if JS is enabled
+  if (searchForm) {
+    searchForm
+      .querySelector(".qld__btn--search")
+      .setAttribute("type", "submit");
+    searchForm
+      .querySelectorAll(".qld__btn--search, .qld__text-input")
+      .forEach((el) => {
+        el.removeAttribute("disabled");
+      });
+    checkHoneypot();
+  }
+
+  // Add event listener to search toggle button
+  if (searchToggle) {
+    searchToggle.addEventListener("click", toggleHeaderSearch);
+  }
+
+  // We want to ensure the search input is visible on desktop at all times
+  window.addEventListener("resize", () => {
+    const currentWidth = window.innerWidth;
+    // Ignore resize events that do not change the viewport size. Required for Android devices
+    if (currentWidth === lastWidth) return;
+    else lastWidth = currentWidth;
+
+    if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
+      openHeader(false);
+      // Disable focus trap as it's not needed on desktop
+      disableFocusTrap();
+    } else if (window.innerWidth < mobileBreakpoint && isHeaderOpen) {
+      closeHeader(false);
     }
-
-    // Add event listener to search toggle button
-    if (searchToggle) {
-        searchToggle.addEventListener("click", toggleHeaderSearch);
-    }
-
-    // We want to ensure the search input is visible on desktop at all times
-    window.addEventListener("resize", () => {
-        const currentWidth = window.innerWidth;
-        // Ignore resize events that do not change the viewport size. Required for Android devices
-        if (currentWidth === lastWidth) return;
-        else lastWidth = currentWidth;
-
-        if (window.innerWidth >= mobileBreakpoint && !isHeaderOpen) {
-            openHeader(false);
-            // Disable focus trap as it's not needed on desktop
-            disableFocusTrap();
-        } else if (window.innerWidth < mobileBreakpoint && isHeaderOpen) {
-            closeHeader(false);
-        }
-    });
+  });
 }
 
 /**
@@ -65,17 +71,17 @@ export default function initHeader(document = document) {
  * @private
  */
 function checkHoneypot() {
-    const honeypot = searchForm.querySelector(".qld__text-input--validation");
-    honeypot.value = "";
+  const honeypot = searchForm.querySelector(".qld__text-input--validation");
+  honeypot.value = "";
 
-    searchForm.addEventListener("submit", function (event) {
-        // Prevent form submission if the honeypot field is filled
-        if (honeypot.value !== "") {
-            event.preventDefault(); // Stop the form submission
-        } else {
-            honeypot.removeAttribute("name");
-        }
-    });
+  searchForm.addEventListener("submit", function (event) {
+    // Prevent form submission if the honeypot field is filled
+    if (honeypot.value !== "") {
+      event.preventDefault(); // Stop the form submission
+    } else {
+      honeypot.removeAttribute("name");
+    }
+  });
 }
 
 /**
@@ -86,100 +92,107 @@ function checkHoneypot() {
  * @private
  */
 function toggleHeaderSearch() {
-    // Open menu
-    if (!isHeaderOpen) {
-        openHeader();
-        // Close menu
-    } else {
-        closeHeader();
-    }
+  // Open menu
+  if (!isHeaderOpen) {
+    openHeader();
+    // Close menu
+  } else {
+    closeHeader();
+  }
 }
 
 function openHeader(requireFocusChange = true) {
-    isHeaderOpen = true;
-    searchToggle.setAttribute("aria-expanded", true);
-    searchToggle.classList.remove("qld__main-nav__toggle-search--open");
-    searchToggle.classList.add("qld__main-nav__toggle-search--close");
-    searchToggleText.textContent = "Close";
-    target.style.display = "block";
+  isHeaderOpen = true;
+  searchToggle.setAttribute("aria-expanded", true);
+  searchToggle.classList.remove("qld__main-nav__toggle-search--open");
+  searchToggle.classList.add("qld__main-nav__toggle-search--close");
+  searchToggleText.textContent = "Close";
+  target.style.display = "block";
 
-    // Wait for display: block, and then add class to open smoothly
-    setTimeout(function () {
-        target.classList.add("qld__main-nav__search--open");
-        if (requireFocusChange) {
-            target.querySelector(".qld__text-input").focus();
-        }
-
-        // Close header search on click outside
-        headerSearchEvents.background = addEvent(document, "click", function () {
-            if (!target.contains(event.target) && window.innerWidth < mobileBreakpoint) {
-                toggleHeaderSearch();
-            }
-        });
-    }, 0);
-
-    enableFocusTrap();
-
-    // Close header search if burger menu opened
-    const menuToggle = document.querySelector('button[aria-controls="main-nav"]');
-    if (menuToggle) {
-        headerSearchEvents.menu = addEvent(menuToggle, "click", function () {
-            toggleHeaderSearch();
-        });
+  // Wait for display: block, and then add class to open smoothly
+  setTimeout(function () {
+    target.classList.add("qld__main-nav__search--open");
+    if (requireFocusChange) {
+      target.querySelector(".qld__text-input").focus();
     }
 
-    // Add key listener
-    headerSearchEvents.escKey = addEvent(document, "keydown", function (event) {
-        // Check the menu is open and visible and the escape key is pressed
-        if (event.key === "Escape") {
-            toggleHeaderSearch();
-        }
+    // Close header search on click outside
+    headerSearchEvents.background = addEvent(document, "click", function () {
+      if (
+        !target.contains(event.target) &&
+        window.innerWidth < mobileBreakpoint
+      ) {
+        toggleHeaderSearch();
+      }
     });
+  }, 0);
+
+  enableFocusTrap();
+
+  // Close header search if burger menu opened
+  const menuToggle = document.querySelector('button[aria-controls="main-nav"]');
+  if (menuToggle) {
+    headerSearchEvents.menu = addEvent(menuToggle, "click", function () {
+      toggleHeaderSearch();
+    });
+  }
+
+  // Add key listener
+  headerSearchEvents.escKey = addEvent(document, "keydown", function (event) {
+    // Check the menu is open and visible and the escape key is pressed
+    if (event.key === "Escape") {
+      toggleHeaderSearch();
+    }
+  });
 }
 
 function closeHeader(requireFocusChange = true) {
-    isHeaderOpen = false;
-    searchToggle.setAttribute("aria-expanded", false);
-    searchToggle.classList.remove("qld__main-nav__toggle-search--close");
-    searchToggle.classList.add("qld__main-nav__toggle-search--open");
-    searchToggleText.textContent = "Search";
-    if (requireFocusChange) {
-        searchToggle.focus();
-    }
-    target.classList.remove("qld__main-nav__search--open");
-    target.style.display = "none";
+  isHeaderOpen = false;
+  searchToggle.setAttribute("aria-expanded", false);
+  searchToggle.classList.remove("qld__main-nav__toggle-search--close");
+  searchToggle.classList.add("qld__main-nav__toggle-search--open");
+  searchToggleText.textContent = "Search";
+  if (requireFocusChange) {
+    searchToggle.focus();
+  }
+  target.classList.remove("qld__main-nav__search--open");
+  target.style.display = "none";
 
-    disableFocusTrap();
+  disableFocusTrap();
 
-    // Remove the event listeners
-    removeEvent(headerSearchEvents.background);
-    removeEvent(headerSearchEvents.menu);
-    removeEvent(headerSearchEvents.escKey);
-    // Clear events object
-    headerSearchEvents = {};
+  // Remove the event listeners
+  removeEvent(headerSearchEvents.background);
+  removeEvent(headerSearchEvents.menu);
+  removeEvent(headerSearchEvents.escKey);
+  // Clear events object
+  headerSearchEvents = {};
 }
 // Enable trap enabled
 function enableFocusTrap() {
-    focustrapTop.setAttribute("tabindex", 0);
-    focustrapBottom.setAttribute("tabindex", 0);
+  focustrapTop.setAttribute("tabindex", 0);
+  focustrapBottom.setAttribute("tabindex", 0);
 
-    // Add focus listeners
-    headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
-        target.querySelector("button").focus();
-    });
+  // Add focus listeners
+  headerSearchEvents.focusTop = addEvent(focustrapTop, "focus", function () {
+    target.querySelector("button").focus();
+  });
 
-    headerSearchEvents.focusBottom = addEvent(focustrapBottom, "focus", function () {
-        target.querySelector("input").focus();
-    });
+  headerSearchEvents.focusBottom = addEvent(
+    focustrapBottom,
+    "focus",
+    function () {
+      target.querySelector("input").focus();
+    },
+  );
 }
 // Remove the focus trap
 function disableFocusTrap() {
-    focustrapTop.removeAttribute("tabindex");
-    focustrapBottom.removeAttribute("tabindex");
+  focustrapTop.removeAttribute("tabindex");
+  focustrapBottom.removeAttribute("tabindex");
 
-    // Remove focus listeners
-    removeEvent(headerSearchEvents.focusTop);
-    removeEvent(headerSearchEvents.focusBottom);
+  // Remove focus listeners
+  removeEvent(headerSearchEvents.focusTop);
+  removeEvent(headerSearchEvents.focusBottom);
 }
 
 /**
@@ -204,22 +217,22 @@ function disableFocusTrap() {
  * @return {event}
  */
 function addEvent(element, event, rawHandler) {
-    // Using local functions instead of anonymous for event handler
-    function listenHandler(event) {
-        const handler = rawHandler.apply(this, arguments);
-        if (handler === false) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-        return handler;
+  // Using local functions instead of anonymous for event handler
+  function listenHandler(event) {
+    const handler = rawHandler.apply(this, arguments);
+    if (handler === false) {
+      event.stopPropagation();
+      event.preventDefault();
     }
+    return handler;
+  }
 
-    element.addEventListener(event, listenHandler, false);
-    return {
-        element: element,
-        handler: listenHandler,
-        event: event,
-    };
+  element.addEventListener(event, listenHandler, false);
+  return {
+    element: element,
+    handler: listenHandler,
+    event: event,
+  };
 }
 
 /**
@@ -232,5 +245,6 @@ function addEvent(element, event, rawHandler) {
  * @param {event} token     The event to remove
  */
 function removeEvent(token) {
-    if (token && token.element) token.element.removeEventListener(token.event, token.handler);
+  if (token && token.element)
+    token.element.removeEventListener(token.event, token.handler);
 }
