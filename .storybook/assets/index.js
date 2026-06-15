@@ -6,14 +6,14 @@ import { initBreadcrumbs, getTheElements } from "./breadcrumbs-js.js";
 
 // ES module initialisation for Storybook specific components
 document.addEventListener("DOMContentLoaded", () => {
-    initAnimate(document);
-    initAccordion(document);
-    initBreadcrumbs(document);
-    initAccordion(document, "overflow"); // Needed specifically for the breadcrumbs overflow functionality
+  initAnimate(document);
+  initAccordion(document);
+  initBreadcrumbs(document);
+  initAccordion(document, "overflow"); // Needed specifically for the breadcrumbs overflow functionality
 });
 
 window.addEventListener("resize", function () {
-    getTheElements(true);
-    initBreadcrumbs(document);
-    initAccordion(document, "overflow");
+  getTheElements(true);
+  initBreadcrumbs(document);
+  initAccordion(document, "overflow");
 });

@@ -1,85 +1,140 @@
-<div class="qld__left-nav {{site.metadata.mainNavStyle.value}}">
-    <nav aria-label="left navigation" id="left-nav" class="qld__left-nav__content"> 
-        <ul class="qld__link-list">
-            {{#ifCond site.data.assetid '!=' @root.current.data.assetid}}
-            <li>
-                <a class="qld__left-nav__item-link" href="./?a={{site.data.assetid}}">
-                    {{#if site.metadata.mainNavHomeIconShow.value}}
-                    <span class="qld__left-nav__item-icon">
-                        <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#home"></use></svg>
-                    </span>
-                    {{/if}}
-                    <span class="qld__left-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
-                </a>
-            </li>
+<div class="qld__left-nav {{ site.metadata.mainNavStyle.value }}">
+  <nav id="left-nav" class="qld__left-nav__content" aria-label="left navigation"
+  >
+    <ul class="qld__link-list">
+    {{#ifCond site.data.assetid '!=' @root.current.data.assetid}}
+      <li>
+        <a class="qld__left-nav__item-link" href="./?a={{ site.data.assetid }}">
+          {{#if site.metadata.mainNavHomeIconShow.value}}
+            <span class="qld__left-nav__item-icon">
+              <svg
+                class="qld__icon qld__icon--md"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="{{ @root.site.metadata.coreSiteIcons.value }}#home"
+                ></use>
+              </svg>
+            </span>
+          {{/if}}
+          <span
+            class="qld__left-nav__item-text"
+            data-name="{{{ asset_short_name }}}"
+          >
+            Home
+          </span>
+        </a>
+      </li>
+    {{else}}
+      <li class="active" aria-current="page">
+        <span class="qld__left-nav__item-link">
+          {{#if site.metadata.mainNavHomeIconShow.value}}
+            <span class="qld__left-nav__item-icon">
+              <svg
+                class="qld__icon qld__icon--md"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use href="{{ @root.site.metadata.coreSiteIcons.value }}#home"
+                ></use>
+              </svg>
+            </span>
+          {{/if}}
+          <span
+            class="qld__left-nav__item-text"
+            data-name="{{{ asset_short_name }}}"
+          >
+            Home
+          </span>
+        </span>
+      </li>
+    {{/ifCond}}
+    {{#each site.children}}
+      {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
+        <li>
+        {{#inArray @root.current.lineage 'asset_assetid' this.asset_assetid}}
+          <a class="qld__left-nav__item-link qld__left-nav__item-link--open" href="{{asset_url}}">
+        {{else}}
+          <a class="qld__left-nav__item-link" href="{{asset_url}}">
+        {{/inArray}}
+        <span
+          class="qld__left-nav__item-text"
+          data-name="{{{ asset_short_name }}}"
+        >
+          {{{ asset_short_name }}}
+        </span>
+        </a>
+      {{else}}
+        <li class="active" aria-current="page">
+        <span class="qld__left-nav__item-link">
+          <span class="qld__left-nav__item-text">{{{ asset_short_name }}}</span>
+        </span>
+      {{/ifCond}}
+      {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
+        {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
+          {{#if this}}
+            {{#inArray this 'asset_assetid' @root.current.data.assetid}}
+              <button
+                class="qld__left-nav__item-toggle qld__accordion--open"
+                aria-controls="internal-nav-{{ ../this.asset_assetid }}"
+                aria-expanded="true"
+                aria-label="Toggle navigation, {{{ ../asset_short_name }}}"
+              >
+                <svg
+                  class="qld__icon qld__icon--sm"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use
+                    href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+                  ></use>
+                </svg>
+              </button>
+              <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--open qld__accordion__body">
             {{else}}
-            <li class="active" aria-current="page">
-                <span class="qld__left-nav__item-link">
-                    {{#if site.metadata.mainNavHomeIconShow.value}}
-                        <span class="qld__left-nav__item-icon">
-                            <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#home"></use></svg> 
-                        </span>
-                    {{/if}}
-                    <span class="qld__left-nav__item-text" data-name="{{{asset_short_name}}}">Home</span>
-                </span>
-            </li>
-            {{/ifCond}}
-            {{#each site.children}}
-                {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
+              <button
+                class="qld__left-nav__item-toggle qld__accordion--closed"
+                aria-controls="internal-nav-{{ ../this.asset_assetid }}"
+                aria-expanded="false"
+                aria-label="Toggle navigation, {{{ ../asset_short_name }}}"
+              >
+                <svg
+                  class="qld__icon qld__icon--sm"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <use
+                    href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+                  ></use>
+                </svg>
+              </button>
+              <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--closed qld__accordion__body">
+            {{/inArray}}
+            {{#each this}}
+              {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
                 <li>
-                    {{#inArray @root.current.lineage 'asset_assetid' this.asset_assetid}}
-                    <a class="qld__left-nav__item-link qld__left-nav__item-link--open" href="{{asset_url}}">
-                    {{else}}
-                    <a class="qld__left-nav__item-link" href="{{asset_url}}">
-                    {{/inArray}}
-                        <span class="qld__left-nav__item-text" data-name="{{{asset_short_name}}}">{{{asset_short_name}}}
-                        </span>
-                    </a> 
-                {{else}}
+                <a class="qld__left-nav__item-link" href="{{ asset_url }}">
+                  <span class="qld__left-nav__item-text">
+                    {{{ asset_short_name }}}
+                  </span>
+                </a>
+              {{/ifCond}}
+              {{#ifCond asset_assetid '==' @root.current.data.assetid}}
                 <li class="active" aria-current="page">
-                    <span class="qld__left-nav__item-link">
-                        <span class="qld__left-nav__item-text">{{{asset_short_name}}}</span>
-                    </span>
-                {{/ifCond}}
-                {{#ifCond ../site.metadata.mainNavMegaMenuShow.value '==' 'true'}}
-                    {{#arrayWith children 'asset_metadata_showInMegaNav' 'true'}}
-                        {{#if this}}
-                            {{#inArray this 'asset_assetid' @root.current.data.assetid}}
-                                <button class="qld__left-nav__item-toggle qld__accordion--open" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="true" aria-label="Toggle navigation, {{{../asset_short_name}}}">
-                                    <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
-                                </button>
-                                <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--open qld__accordion__body">
-                            {{else}}
-                                <button class="qld__left-nav__item-toggle qld__accordion--closed" aria-controls="internal-nav-{{../this.asset_assetid}}" aria-expanded="false" aria-label="Toggle navigation, {{{../asset_short_name}}}">
-                                    <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-up"></use></svg>
-                                </button>
-                                <ul id="internal-nav-{{../this.asset_assetid}}" class="qld__link-list qld__accordion--closed qld__accordion__body">
-                            {{/inArray}}
-                            {{#each this}}
-                                {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                                <li>
-                                    <a class="qld__left-nav__item-link" href="{{asset_url}}">
-                                        <span class="qld__left-nav__item-text">
-                                            {{{asset_short_name}}}
-                                        </span>
-                                    </a>
-                                {{/ifCond}}
-                                {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                                <li class="active" aria-current="page">
-                                    <span class="qld__left-nav__item-link">
-                                        <span class="qld__left-nav__item-text">
-                                            {{{asset_short_name}}}
-                                        </span>
-                                    </span>
-                                {{/ifCond}}
-                                </li>
-                            {{/each}}
-                            </ul>
-                        {{/if}}
-                    {{/arrayWith}}
-                {{/ifCond}}
-                </li>
+                <span class="qld__left-nav__item-link">
+                  <span class="qld__left-nav__item-text">
+                    {{{ asset_short_name }}}
+                  </span>
+                </span>
+              {{/ifCond}}
+              </li>
             {{/each}}
-        </ul>
-    </nav>
+            </ul>
+          {{/if}}
+        {{/arrayWith}}
+      {{/ifCond}}
+      </li>
+    {{/each}}
+    </ul>
+  </nav>
 </div>

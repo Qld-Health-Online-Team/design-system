@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars';
+import Handlebars from "handlebars";
 
 /**
  * Vite plugin that transforms Handlebars component templates (.hbs)
@@ -29,24 +29,24 @@ import Handlebars from 'handlebars';
  * @returns {import('vite').Plugin}
  */
 export default function hbsPlugin() {
-    return {
-        name: 'vite-plugin-hbs',
+  return {
+    name: "vite-plugin-hbs",
 
-        transform(src, id) {
-            if (!id.endsWith('.hbs')) return;
+    transform(src, id) {
+      if (!id.endsWith(".hbs")) return;
 
-            const templateSpec = Handlebars.precompile(src);
+      const templateSpec = Handlebars.precompile(src);
 
-            const code = `
+      const code = `
                 import Handlebars from 'handlebars';
                 const template = Handlebars.template(${templateSpec});
                 export default template;
             `;
 
-            return {
-                code,
-                map: null,
-            };
-        },
-    };
+      return {
+        code,
+        map: null,
+      };
+    },
+  };
 }

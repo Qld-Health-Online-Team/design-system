@@ -2,238 +2,264 @@
 // This technique will allow external font sizes to be set for html and respected
 // if REMs are supported (everything but IE8 and older).
 @mixin sq-font-size($sizeValue: 1) {
-    @include sq-rem-attr(font-size, $sizeValue);
+  @include sq-rem-attr(font-size, $sizeValue);
 }
 
 // Express the value of an attribute using rems falling back to pixels
 @mixin sq-rem-attr($attr, $sizeValue: 1) {
-    #{$attr}: ($sizeValue * $base-font-pixel) + px;
-    #{$attr}: $sizeValue + rem;
+  #{$attr}: ($sizeValue * $base-font-pixel) + px;
+  #{$attr}: $sizeValue + rem;
 }
 
 // Transition shortcut
 @mixin sq-transition($params...) {
-    -webkit-transition: $params;
-    -moz-transition: $params;
-    transition: $params;
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  transition: $params;
 }
 
 // Apply a prefixed transformation
 @mixin sq-transform($params) {
-    -webkit-transform: $params; // Chrome, Safari 3.1+
-    //-moz-transform: $params; // Firefox 3.5-15
-    -ms-transform: $params; // IE 9
-    transform: $params;
+  -webkit-transform: $params; // Chrome, Safari 3.1+
+  //-moz-transform: $params; // Firefox 3.5-15
+  -ms-transform: $params; // IE 9
+  transform: $params;
 }
 
 // 2D rotation with IE support
 @mixin sq-rotate($deg) {
-    $msRotVal: (((360 + $deg) % 360) / 90); // Modulo lets us handle negative values.
+  $msRotVal: (
+    ((360 + $deg) % 360) / 90
+  ); // Modulo lets us handle negative values.
 
-    @include sq-transform(rotate($deg + deg));
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$msRotVal}); /* stylelint-disable-line */
+  @include sq-transform(rotate($deg + deg));
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$msRotVal}); /* stylelint-disable-line */
 }
 
 @mixin sq-border-box() {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @mixin sq-reset-box-sizing() {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 @mixin sq-box-shadow($params) {
-    -webkit-box-shadow: $params;
-    -moz-box-shadow: $params;
-    box-shadow: $params;
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $params;
+  box-shadow: $params;
 }
 
 // Glow effect taken from foundation
-@mixin sq-block-glowing-effect($selector: focus, $fade-time: 300ms, $glowing-effect-color: blue) {
-    -webkit-transition: -webkit-box-shadow $fade-time, border-color $fade-time ease-in-out;
-    -moz-transition: -moz-box-shadow $fade-time, border-color $fade-time ease-in-out;
-    transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
+@mixin sq-block-glowing-effect(
+  $selector: focus,
+  $fade-time: 300ms,
+  $glowing-effect-color: blue
+) {
+  -webkit-transition:
+    -webkit-box-shadow $fade-time,
+    border-color $fade-time ease-in-out;
+  -moz-transition:
+    -moz-box-shadow $fade-time,
+    border-color $fade-time ease-in-out;
+  transition:
+    box-shadow $fade-time,
+    border-color $fade-time ease-in-out;
 
-    &:#{$selector} {
-        @include sq-box-shadow(0 0 5px $glowing-effect-color);
-        border-color: $glowing-effect-color;
-    }
+  &:#{$selector} {
+    @include sq-box-shadow(0 0 5px $glowing-effect-color);
+    border-color: $glowing-effect-color;
+  }
 }
 
 // Legacy border radius helper
 @mixin sq-border-radius($radius: 4px) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 // Opacity with IE filter fallback
 // Value should be expressed as a number between 0 and 100
 // with 0 being transparent and 100 being opaque
 @mixin sq-opacity($value) {
-    $decimal-value: $value/100;
-    -webkit-opacity: $decimal-value;
-    -moz-opacity: $decimal-value;
-    opacity: $decimal-value;
-    -ms-filter: #{"alpha(opacity=" + $value + ")"};
-    filter: alpha(opacity=$value);
+  $decimal-value: $value/100;
+  -webkit-opacity: $decimal-value;
+  -moz-opacity: $decimal-value;
+  opacity: $decimal-value;
+  -ms-filter: #{"alpha(opacity=" + $value + ")"};
+  filter: alpha(opacity=$value);
 }
 
 // Individual border radius rule helper.
 @mixin sq-rounded($vert, $horz, $radius: 10px) {
-    -webkit-border-#{$vert}-#{$horz}-radius: $radius;
-    -moz-border-radius-#{$vert}#{$horz}: $radius;
-    border-#{$vert}-#{$horz}-radius: $radius;
+  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+  -moz-border-radius-#{$vert}#{$horz}: $radius;
+  border-#{$vert}-#{$horz}-radius: $radius;
 }
 
 // Use an SVG background image (for perfect Retina-rendering) with a PNG fallback.
 @mixin sq-svg-background($suffixless-url) {
-    background-image: url($suffixless-url + ".svg");
-    .no-svg & {
-        background-image: url($suffixless-url + ".png");
-    }
+  background-image: url($suffixless-url + ".svg");
+  .no-svg & {
+    background-image: url($suffixless-url + ".png");
+  }
 }
 
 @mixin sq-flex-box() {
-    .no-js &,
-    .no-flexbox & {
-        display: table;
-    }
-    .flexbox & {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-    }
+  .no-js &,
+  .no-flexbox & {
+    display: table;
+  }
+  .flexbox & {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
 }
 
 // Apply flex to an element
 @mixin sq-flex($values) {
-    // Table cell is a fallback to no flexbox support
-    .flexbox & {
-        -webkit-box-flex: $values;
-        -moz-box-flex: $values;
-        -webkit-flex: $values;
-        -ms-flex: $values;
-        flex: $values;
-    }
-    .no-js &,
-    .no-flexbox & {
-        display: table-cell;
-        // Vertical align is needed to prevent auto vertical centering by some browsers
-        vertical-align: top;
-    }
+  // Table cell is a fallback to no flexbox support
+  .flexbox & {
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+  }
+  .no-js &,
+  .no-flexbox & {
+    display: table-cell;
+    // Vertical align is needed to prevent auto vertical centering by some browsers
+    vertical-align: top;
+  }
 }
 
 // Em calculator based on James' in Squiz Map issue #4906
 @mixin sq-calc-ems($prop, $numerator, $denominator) {
-    $tmp: ($numerator/$denominator);
-    #{$prop}: #{$tmp}em;
-    #{$prop}: calc(#{$numerator}em / #{$denominator});
+  $tmp: ($numerator/$denominator);
+  #{$prop}: #{$tmp}em;
+  #{$prop}: calc(#{$numerator}em / #{$denominator});
 }
 
 // CSS arrow helper
 // $direction: top, left, right, bottom
 @mixin sq-arrow($direction: top, $color: #000, $size: 5px, $height: 0) {
-    $_height: $size + $height;
+  $_height: $size + $height;
 
-    height: 0;
-    width: 0;
-    content: " ";
-    border-style: solid;
+  height: 0;
+  width: 0;
+  content: " ";
+  border-style: solid;
 
-    @if $direction == "top" {
-        border-width: $size $size $_height $size;
-        border-color: transparent transparent $color transparent;
-    } @else if $direction == "right" {
-        border-width: $size $size $size $_height;
-        border-color: transparent transparent transparent $color;
-    } @else if $direction == "bottom" {
-        border-width: $_height $size $size $size;
-        border-color: $color transparent transparent transparent;
-    } @else if $direction == "left" {
-        border-width: $size $_height $size $size;
-        border-color: transparent $color transparent transparent;
-    }
+  @if $direction == "top" {
+    border-width: $size $size $_height $size;
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == "right" {
+    border-width: $size $size $size $_height;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == "bottom" {
+    border-width: $_height $size $size $size;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == "left" {
+    border-width: $size $_height $size $size;
+    border-color: transparent $color transparent transparent;
+  }
 }
 
 @mixin sq-inline-block() {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
 }
 
 @mixin sq-list-reset() {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 // "Quantity queries" - a.k.a. "One of n siblings"
 // From this codepen: http://codepen.io/long-lazuli/pen/PwBbmo
 // http://alistapart.com/article/quantity-queries-for-css
 @mixin sq-one-of-n-siblings($countArg...) {
-    &:nth-last-child(#{$countArg}):first-child,
-    &:nth-last-child(#{$countArg}):first-child ~ & {
-        @content;
-    }
+  &:nth-last-child(#{$countArg}):first-child,
+  &:nth-last-child(#{$countArg}):first-child ~ & {
+    @content;
+  }
 }
 
 @mixin sq-keyframes($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
 
-    @-moz-keyframes #{$name} {
-        @content;
-    }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
 
-    @-ms-keyframes #{$name} {
-        @content;
-    }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
 
-    @keyframes #{$name} {
-        @content;
-    }
+  @keyframes #{$name} {
+    @content;
+  }
 }
 
 @mixin sq-skew($deg) {
-    -webkit-transform: skew($deg); // Safari
-    -ms-transform: skew($deg); // IE 9
-    transform: skew($deg);
+  -webkit-transform: skew($deg); // Safari
+  -ms-transform: skew($deg); // IE 9
+  transform: skew($deg);
 }
 
 // Font face
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-    $src: null;
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
 
-    $extmods: (
-        eot: "?",
-        svg: "#" + str-replace($name, " ", "_"),
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
     );
-
-    $formats: (
-        otf: "opentype",
-        ttf: "truetype",
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + "." + $extmod)) format(quote($format)),
+      comma
     );
+  }
 
-    @each $ext in $exts {
-        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-    }
-
-    @font-face {
-        font-family: quote($name);
-        font-style: $style;
-        font-weight: $weight;
-        src: $src;
-    }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -248,41 +274,41 @@
  * @return {number}           - The space in px and rems
  */
 @mixin QLD-space($property, $values, $pixelfallback: $QLD-pixelfallback) {
-    $unit: $QLD-unit; // The grid unit to use
-    $output: ();
-    $fallback: ();
-    $has_fallback: false;
+  $unit: $QLD-unit; // The grid unit to use
+  $output: ();
+  $fallback: ();
+  $has_fallback: false;
 
-    @if type-of($property) != "string" {
-        @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
+  @if type-of($property) != "string" {
+    @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
+  }
+
+  // Loop through the $values list
+  @each $value in $values {
+    // This is a pixel on unitless unit. Let’s convert it to rems
+    @if type-of($value) == "number" and unit($value) == "unit" {
+      $value: calc($value / 1unit); // This is to remove the unit value
+      $rem: calc($value / (calc($value / $unit) * 0 + 1));
+
+      $fallback: join($fallback, round($value * ($unit * $unit)) + 0px);
+      $output: join($output, #{$rem}rem);
+
+      $has_fallback: true;
     }
 
-    // Loop through the $values list
-    @each $value in $values {
-        // This is a pixel on unitless unit. Let’s convert it to rems
-        @if type-of($value) == "number" and unit($value) == "unit" {
-            $value: calc($value / 1unit); // This is to remove the unit value
-            $rem: calc($value / (calc($value / $unit) * 0 + 1));
-
-            $fallback: join($fallback, round($value * ($unit * $unit)) + 0px);
-            $output: join($output, #{$rem}rem);
-
-            $has_fallback: true;
-        }
-
-        // We don’t know what this is so we don’t change it.
-        @else {
-            $fallback: join($fallback, $value);
-            $output: join($output, $value);
-        }
+    // We don’t know what this is so we don’t change it.
+    @else {
+      $fallback: join($fallback, $value);
+      $output: join($output, $value);
     }
+  }
 
-    @if ($has_fallback and $pixelfallback) {
-        #{ $property }: $fallback;
-        #{ $property }: $output;
-    } @else {
-        #{ $property }: $output;
-    }
+  @if ($has_fallback and $pixelfallback) {
+    #{ $property }: $fallback;
+    #{ $property }: $output;
+  } @else {
+    #{ $property }: $output;
+  }
 }
 
 /**
@@ -294,58 +320,58 @@
  * @return {number}           - The space in px and rems
  */
 @mixin QLD-standard-space($property, $values) {
-    $output: ();
-    $fallback: ();
-    $has_fallback: false;
+  $output: ();
+  $fallback: ();
+  $has_fallback: false;
 
-    @if type-of($property) != "string" {
-        @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
+  @if type-of($property) != "string" {
+    @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
+  }
+
+  // Loop through the $values list
+  @each $value in $values {
+    // This is a pixel on unitless unit. Let’s convert it to rems
+    @if type-of($value) == "number" {
+      //Map number input to the space map
+      $value: map-get($QLD-space-map, $value);
+
+      // Get the value from supplied key for pixel and calculate the rem value
+      $rem: calc($value / $QLD-rem);
+
+      $fallback: join($fallback, $value + 0px);
+      $output: join($output, #{$rem}rem);
+
+      $has_fallback: true;
     }
 
-    // Loop through the $values list
-    @each $value in $values {
-        // This is a pixel on unitless unit. Let’s convert it to rems
-        @if type-of($value) == "number" {
-            //Map number input to the space map
-            $value: map-get($QLD-space-map, $value);
-
-            // Get the value from supplied key for pixel and calculate the rem value
-            $rem: calc($value / $QLD-rem);
-
-            $fallback: join($fallback, $value + 0px);
-            $output: join($output, #{$rem}rem);
-
-            $has_fallback: true;
-        }
-
-        // We don’t know what this is so we don’t change it.
-        @else {
-            $fallback: join($fallback, $value);
-            $output: join($output, $value);
-        }
+    // We don’t know what this is so we don’t change it.
+    @else {
+      $fallback: join($fallback, $value);
+      $output: join($output, $value);
     }
+  }
 
-    @if ($has_fallback) {
-        #{ $property }: $fallback;
-        #{ $property }: $output;
-    } @else {
-        #{ $property }: $output;
-    }
+  @if ($has_fallback) {
+    #{ $property }: $fallback;
+    #{ $property }: $output;
+  } @else {
+    #{ $property }: $output;
+  }
 }
 
 /**
  * QLD-clearfix - Clearing floats
  */
 @mixin QLD-clearfix() {
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-    }
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
 
-    &:after {
-        clear: both;
-    }
+  &:after {
+    clear: both;
+  }
 }
 
 /**
@@ -356,44 +382,44 @@
  * @return {string}               - The code passed in via @content wrapped inside a media query
  */
 @mixin QLD-media($size, $direction: "up") {
-    $property: if($direction== "up", min-width, max-width);
-    $adjustment: if($direction== "up", 0, -1);
+  $property: if($direction== "up", min-width, max-width);
+  $adjustment: if($direction== "up", 0, -1);
 
-    @if $size==sm {
-        @media ($property: $QLD-media-sm + $adjustment) {
-            @content;
-        }
-    } @else if $size==md {
-        @media ($property: $QLD-media-md + $adjustment) {
-            @content;
-        }
-    } @else if $size==lg {
-        @media ($property: $QLD-media-lg + $adjustment) {
-            @content;
-        }
-    } @else if $size==xl {
-        @media ($property: $QLD-media-xl + $adjustment) {
-            @content;
-        }
-    } @else if $size==xxl {
-        @media ($property: $QLD-media-xxl + $adjustment) {
-            @content;
-        }
+  @if $size==sm {
+    @media ($property: $QLD-media-sm + $adjustment) {
+      @content;
     }
+  } @else if $size==md {
+    @media ($property: $QLD-media-md + $adjustment) {
+      @content;
+    }
+  } @else if $size==lg {
+    @media ($property: $QLD-media-lg + $adjustment) {
+      @content;
+    }
+  } @else if $size==xl {
+    @media ($property: $QLD-media-xl + $adjustment) {
+      @content;
+    }
+  } @else if $size==xxl {
+    @media ($property: $QLD-media-xxl + $adjustment) {
+      @content;
+    }
+  }
 }
 
 /**
  * QLD-sronly - Hide an element from the screen but not a screen reader
  */
 @mixin QLD-sronly() {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /**
@@ -406,32 +432,32 @@
  * @return {string}          - The code
  */
 @mixin QLD-outline($theme: "light", $rounded: true, $offset: 2px) {
-    @if $theme == "dark" {
-        outline: 3px solid var(--QLD-color-dark__focus);
-    } @else {
-        outline: 3px solid var(--QLD-color-light__focus);
-    }
+  @if $theme == "dark" {
+    outline: 3px solid var(--QLD-color-dark__focus);
+  } @else {
+    outline: 3px solid var(--QLD-color-light__focus);
+  }
 
-    // Apply radius if rounded is true
-    @if $rounded {
-        border-radius: $QLD-border-radius-xs;
-    }
+  // Apply radius if rounded is true
+  @if $rounded {
+    border-radius: $QLD-border-radius-xs;
+  }
 
-    outline-offset: $offset;
+  outline-offset: $offset;
 }
 
 /**
  * QLD-focus - Add the outline to focus
  */
 @mixin QLD-focus($theme: "light", $rounded: true, $offset: 2px) {
-    &:focus {
-        @include QLD-outline($theme, $rounded, $offset);
-    }
+  &:focus {
+    @include QLD-outline($theme, $rounded, $offset);
+  }
 
-    // Remove Modzilla inner HTML dotted line. github.com/necolas/normalize.css/blob/master/normalize.css#L285
-    &::-moz-focus-inner {
-        border: 0;
-    }
+  // Remove Modzilla inner HTML dotted line. github.com/necolas/normalize.css/blob/master/normalize.css#L285
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
 
 /**
@@ -443,34 +469,40 @@
  * @return {string}                   - The code; fontsize in REM, with PX fallback, and unitless line-height which matches vertical grid
 */
 @mixin QLD-fontgrid($fontsize-key, $lineheight-key: "default") {
-    @if type-of($fontsize-key) != "string" {
-        @error "Going somewhere, Solo?; the QLD-fontgrid mixin fontsize key takes a string!";
-    }
+  @if type-of($fontsize-key) != "string" {
+    @error "Going somewhere, Solo?; the QLD-fontgrid mixin fontsize key takes a string!";
+  }
 
-    @if type-of($lineheight-key) != "string" {
-        @error "Tell Jabba I've got his money; the QLD-fontgrid mixin lineheight key takes a string!";
-    }
+  @if type-of($lineheight-key) != "string" {
+    @error "Tell Jabba I've got his money; the QLD-fontgrid mixin lineheight key takes a string!";
+  }
 
-    @if not map-has-key($QLD-fontsize-map, $fontsize-key) {
-        @error "You shall not pass; the QLD-fontgrid mixin only takes the following fontsize keys strings: " + map-keys( $QLD-fontsize-map );
-    }
+  @if not map-has-key($QLD-fontsize-map, $fontsize-key) {
+    @error "You shall not pass; the QLD-fontgrid mixin only takes the following fontsize keys strings: " + map-keys( $QLD-fontsize-map );
+  }
 
-    @if not map-has-key($QLD-lineheight-map, $lineheight-key) {
-        @error "There's a snake in my boot; the QLD-fontgrid mixin only takes the following lineheight keys strings: " + map-keys( $QLD-lineheight-map );
-    }
+  @if not map-has-key($QLD-lineheight-map, $lineheight-key) {
+    @error "There's a snake in my boot; the QLD-fontgrid mixin only takes the following lineheight keys strings: " + map-keys( $QLD-lineheight-map );
+  }
 
-    // Get the value from supplied key for pixel and calculate the rem value
-    $fontsize-px: map-get($QLD-fontsize-map, $fontsize-key);
-    $fontsize-rem: calc($fontsize-px / $QLD-rem);
+  // Get the value from supplied key for pixel and calculate the rem value
+  $fontsize-px: map-get($QLD-fontsize-map, $fontsize-key);
+  $fontsize-rem: calc($fontsize-px / $QLD-rem);
 
-    // Change the lineheight if it doesn't hit a QLD-unit e.g. 40px font size with 1.5 lineheight = 50px should be 52px
-    $lineheight-pixel: round(calc((map-get($QLD-lineheight-map, $lineheight-key) * $fontsize-px) / $QLD-unit)) * $QLD-unit;
-    $lineheight: calc($lineheight-pixel / $fontsize-px);
+  // Change the lineheight if it doesn't hit a QLD-unit e.g. 40px font size with 1.5 lineheight = 50px should be 52px
+  $lineheight-pixel: round(
+      calc(
+        (map-get($QLD-lineheight-map, $lineheight-key) * $fontsize-px) /
+          $QLD-unit
+      )
+    ) *
+    $QLD-unit;
+  $lineheight: calc($lineheight-pixel / $fontsize-px);
 
-    // Mixin output
-    font-size: $fontsize-px + 0px; // Pixel fallback for non-rem support
-    font-size: $fontsize-rem + 0rem; // REM size
-    line-height: $lineheight;
+  // Mixin output
+  font-size: $fontsize-px + 0px; // Pixel fallback for non-rem support
+  font-size: $fontsize-rem + 0rem; // REM size
+  line-height: $lineheight;
 }
 
 /**
@@ -482,32 +514,40 @@
  *
  */
 @mixin QLD-container-padding($values, $verHoz: "vertical", $option: "") {
-    $output: ();
-    // Loop through the $values list
-    @each $value in $values {
-        // This is a pixel on unitless unit. Let’s convert it to rems
-        @if type-of($value) == "number" {
-            // Get the value from supplied key for pixel and calculate the rem value
-            $padding-px: map-get($QLD-space-map, $value);
-            $padding-rem: calc($padding-px / $QLD-rem);
+  $output: ();
+  // Loop through the $values list
+  @each $value in $values {
+    // This is a pixel on unitless unit. Let’s convert it to rems
+    @if type-of($value) == "number" {
+      // Get the value from supplied key for pixel and calculate the rem value
+      $padding-px: map-get($QLD-space-map, $value);
+      $padding-rem: calc($padding-px / $QLD-rem);
 
-            @if $verHoz == "vertical" {
-                padding-top: $padding-px + px + $option; // Pixel fallback for non-rem support
-                padding-top: $padding-rem + rem + $option; // REM size
-                padding-bottom: $padding-px + px + $option; // Pixel fallback for non-rem support
-                padding-bottom: $padding-rem + rem + $option; // REM size
-            } @else if $verHoz == "horizontal" {
-                padding-left: $padding-px + px + $option; // Pixel fallback for non-rem support
-                padding-left: $padding-rem + rem + $option; // REM size
-                padding-right: $padding-px + px + $option; // Pixel fallback for non-rem support
-                padding-right: $padding-rem + rem + $option; // REM size
-            }
+      @if $verHoz == "vertical" {
+        padding-top: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        padding-top: $padding-rem + rem + $option; // REM size
+        padding-bottom: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        padding-bottom: $padding-rem + rem + $option; // REM size
+      } @else if $verHoz == "horizontal" {
+        padding-left: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        padding-left: $padding-rem + rem + $option; // REM size
+        padding-right: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        padding-right: $padding-rem + rem + $option; // REM size
+      }
 
-            $output: join($output, $value);
-        }
+      $output: join($output, $value);
     }
-    // Mixin output
-    $output: $output;
+  }
+  // Mixin output
+  $output: $output;
 }
 
 /**
@@ -519,42 +559,55 @@
 * @param  {keywords} $option - Extra option for !important 
 *
 */
-@mixin QLD-container-margin($values, $posNeg, $verHoz: "vertical", $option: "") {
-    $output: ();
+@mixin QLD-container-margin(
+  $values,
+  $posNeg,
+  $verHoz: "vertical",
+  $option: ""
+) {
+  $output: ();
 
-    // Loop through the $values list
-    @each $value in $values {
-        // This is a pixel on unitless unit. Let’s convert it to rems
-        @if type-of($value) == "number" {
-            // Get the value from supplied key for pixel and calculate the rem value
-            $padding-px: map-get($QLD-space-map, $value);
-            $padding-rem: calc($padding-px / $QLD-rem);
+  // Loop through the $values list
+  @each $value in $values {
+    // This is a pixel on unitless unit. Let’s convert it to rems
+    @if type-of($value) == "number" {
+      // Get the value from supplied key for pixel and calculate the rem value
+      $padding-px: map-get($QLD-space-map, $value);
+      $padding-rem: calc($padding-px / $QLD-rem);
 
-            @if $posNeg == "pos" {
-                $padding-px: ($padding-px);
-                $padding-rem: ($padding-rem);
-            } @else if $posNeg == "neg" {
-                $padding-px: (-#{$padding-px});
-                $padding-rem: (-#{$padding-rem});
-            }
+      @if $posNeg == "pos" {
+        $padding-px: ($padding-px);
+        $padding-rem: ($padding-rem);
+      } @else if $posNeg == "neg" {
+        $padding-px: (-#{$padding-px});
+        $padding-rem: (-#{$padding-rem});
+      }
 
-            @if $verHoz == "vertical" {
-                margin-top: $padding-px + px + $option; // Pixel fallback for non-rem support
-                margin-top: $padding-rem + rem + $option; // REM size
-                margin-bottom: $padding-px + px + $option; // Pixel fallback for non-rem support
-                margin-bottom: $padding-rem + rem + $option; // REM size
-            } @else if $verHoz == "horizontal" {
-                margin-left: $padding-px + px + $option; // Pixel fallback for non-rem support
-                margin-left: $padding-rem + rem + $option; // REM size
-                margin-right: $padding-px + px + $option; // Pixel fallback for non-rem support
-                margin-right: $padding-rem + rem + $option; // REM size
-            }
+      @if $verHoz == "vertical" {
+        margin-top: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        margin-top: $padding-rem + rem + $option; // REM size
+        margin-bottom: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        margin-bottom: $padding-rem + rem + $option; // REM size
+      } @else if $verHoz == "horizontal" {
+        margin-left: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        margin-left: $padding-rem + rem + $option; // REM size
+        margin-right: $padding-px +
+          px +
+          $option; // Pixel fallback for non-rem support
+        margin-right: $padding-rem + rem + $option; // REM size
+      }
 
-            $output: join($output, $value);
-        }
+      $output: join($output, $value);
     }
-    // Mixin output
-    $output: $output;
+  }
+  // Mixin output
+  $output: $output;
 }
 
 /**
@@ -566,16 +619,24 @@
  *
  * @return {number}          - The indented menu items
  */
-@mixin QLD-side-nav-indent($depth: $QLD-side-nav-depth, $element: "a", $indent-size: 1) {
-    $chain: $element;
-    @for $i from 1 to $depth + 1 {
-        $chain: "ul " + $chain;
-        $indent: if($i < 2, ($indent-size * $i + 1) * 1unit, ($indent-size * $i + 1) * 1.25unit);
+@mixin QLD-side-nav-indent(
+  $depth: $QLD-side-nav-depth,
+  $element: "a",
+  $indent-size: 1
+) {
+  $chain: $element;
+  @for $i from 1 to $depth + 1 {
+    $chain: "ul " + $chain;
+    $indent: if(
+      $i < 2,
+      ($indent-size * $i + 1) * 1unit,
+      ($indent-size * $i + 1) * 1.25unit
+    );
 
-        & #{$chain} {
-            @include QLD-space(padding-left, $indent);
-        }
+    & #{$chain} {
+      @include QLD-space(padding-left, $indent);
     }
+  }
 }
 
 /**
@@ -586,15 +647,15 @@
  * @return {string}               - Returns different box-shadow variables
  */
 @mixin QLD-box-shadow($level) {
-    @if $level==1 {
-        box-shadow: $QLD-box-shaddow-level-one;
-    } @else if $level==2 {
-        box-shadow: $QLD-box-shaddow-level-two;
-    } @else if $level==3 {
-        box-shadow: $QLD-box-shaddow-level-three;
-    } @else if $level==4 {
-        box-shadow: $QLD-box-shaddow-level-four;
-    }
+  @if $level==1 {
+    box-shadow: $QLD-box-shaddow-level-one;
+  } @else if $level==2 {
+    box-shadow: $QLD-box-shaddow-level-two;
+  } @else if $level==3 {
+    box-shadow: $QLD-box-shaddow-level-three;
+  } @else if $level==4 {
+    box-shadow: $QLD-box-shaddow-level-four;
+  }
 }
 
 /**
@@ -605,8 +666,8 @@
  * @return {string}                 - Returns the underline and web kit underline
  */
 @mixin QLD-webkit-text-underline() {
-    text-decoration: underline;
-    -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-text-decoration: underline;
 }
 
 /**
@@ -617,8 +678,8 @@
  * @return {string}                 - Returns the none and web kit none
  */
 @mixin QLD-webkit-text-decoration-none() {
-    text-decoration: none;
-    -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-text-decoration: none;
 }
 
 /**
@@ -634,206 +695,219 @@
  *
  * @return {string}                 - Returns the underline color and style of the link.
  */
-@mixin QLD-underline($colorScheme: "light", $defaultUnderline: "underline", $buttonTextColor: "default", $visitedState: "hasVisited") {
-    //Whoevern inheriting this work, please get rid of this mixin approach as soon as possible. :-)
-    //the colorScheme refers to the color of the body that contains the element. So, colorShcheme of the element itself is managed within this mixin.
-    @if $colorScheme == "light" {
-        @if $defaultUnderline == "underline" {
-            @include QLD-webkit-text-underline();
-            text-decoration-line: solid;
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-light__underline);
-            text-underline-offset: var(--QLD-underline__offset);
-            text-decoration-skip-ink: auto;
+@mixin QLD-underline(
+  $colorScheme: "light",
+  $defaultUnderline: "underline",
+  $buttonTextColor: "default",
+  $visitedState: "hasVisited"
+) {
+  //Whoevern inheriting this work, please get rid of this mixin approach as soon as possible. :-)
+  //the colorScheme refers to the color of the body that contains the element. So, colorShcheme of the element itself is managed within this mixin.
+  @if $colorScheme == "light" {
+    @if $defaultUnderline == "underline" {
+      @include QLD-webkit-text-underline();
+      text-decoration-line: solid;
+      text-decoration-thickness: var(--QLD-underline__thickness-thin);
+      text-decoration-color: var(--QLD-color-light__underline);
+      text-underline-offset: var(--QLD-underline__offset);
+      text-decoration-skip-ink: auto;
 
-            &:hover,
-            &:focus {
-                text-decoration-color: var(--QLD-color-light__underline--hover);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            }
+      &:hover,
+      &:focus {
+        text-decoration-color: var(--QLD-color-light__underline--hover);
+        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+      }
 
-            @if $visitedState == "hasVisited" {
-                &:visited {
-                    color: var(--QLD-color-light__link--visited);
-                    text-decoration-color: var(--QLD-color-light__underline--visited);
-                }
-
-                &:hover:visited {
-                    color: var(--QLD-color-light__link--visited);
-                    text-decoration-color: var(--QLD-color-light__underline--hover-visited);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-            } @else {
-                &:visited {
-                    color: var(--QLD-color-light__link);
-                    text-decoration-color: var(--QLD-color-light__underline);
-                }
-
-                &:hover:visited {
-                    color: var(--QLD-color-light__link);
-                    text-decoration-color: var(--QLD-color-light__link);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-            }
-
-            &:disabled,
-            &[disabled] {
-                @include QLD-webkit-text-decoration-none();
-            }
-
-            //Doesn't have underline showing by default
-        } @else if $defaultUnderline== "noUnderline" {
-            @include QLD-webkit-text-decoration-none();
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-light__underline);
-            text-underline-offset: var(--QLD-underline__offset);
-            text-decoration-skip-ink: auto;
-
-            &:hover,
-            &:focus {
-                @include QLD-webkit-text-underline();
-
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                @if $buttonTextColor == "buttonText" {
-                    text-decoration-color: var(--QLD-color-light__link--on-action);
-                } @else {
-                    text-decoration-color: var(--QLD-color-light__underline--hover);
-                }
-            }
-
-            @if $visitedState == "hasVisited" {
-                &:visited {
-                    // @include QLD-webkit-text-underline();
-
-                    text-decoration-color: var(--QLD-color-light__underline--visited);
-                    @if $buttonTextColor == "buttonText" {
-                        color: var(--QLD-color-light__link--visited);
-                    } @else {
-                        text-decoration-color: var(--QLD-color-light__underline--hover);
-                    }
-                }
-
-                &:hover:visited {
-                    // @include QLD-webkit-text-underline();
-                    // color: var(--QLD-color-light__underline--hover-visited);
-                    text-decoration-color: var(--QLD-color-light__underline--hover-visited);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                    @if $buttonTextColor == "buttonText" {
-                        color: var(--QLD-color-light__link--on-action);
-                        text-decoration-color: var(--QLD-color-light__link--on-action);
-                    } @else {
-                        color: var(--QLD-color-light__link--visited);
-                        text-decoration-color: var(--QLD-color-light__underline--visited);
-                    }
-                }
-            }
-
-            &:disabled,
-            &[disabled] {
-                @include QLD-webkit-text-decoration-none();
-            }
+      @if $visitedState == "hasVisited" {
+        &:visited {
+          color: var(--QLD-color-light__link--visited);
+          text-decoration-color: var(--QLD-color-light__underline--visited);
         }
-    } @else if $colorScheme== "dark" {
-        //Has underline showing by default
-        @if $defaultUnderline== "underline" {
-            @include QLD-webkit-text-underline();
-            text-decoration-line: solid;
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-dark__underline);
-            text-underline-offset: var(--QLD-underline__offset);
-            text-decoration-skip-ink: auto;
 
-            &:hover,
-            &:focus {
-                text-decoration-color: var(--QLD-color-dark__underline--hover);
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-            }
-
-            @if $visitedState == "hasVisited" {
-                &:visited {
-                    color: var(--QLD-color-dark__link--visited);
-                    text-decoration-color: var(--QLD-color-dark__underline--visited);
-                }
-
-                &:hover:visited {
-                    color: var(--QLD-color-dark__link--visited);
-                    text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-            } @else {
-                &:visited {
-                    // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__link);
-                    text-decoration-color: var(--QLD-color-dark__underline);
-                }
-
-                &:hover:visited {
-                    // @include QLD-webkit-text-underline();
-                    color: var(--QLD-color-dark__link);
-                    text-decoration-color: var(--QLD-color-dark__link);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-                }
-            }
-
-            &:disabled,
-            &[disabled] {
-                @include QLD-webkit-text-decoration-none();
-            }
-
-            //Doesn't have underline showing by default
-        } @else if $defaultUnderline== "noUnderline" {
-            @include QLD-webkit-text-decoration-none();
-            text-decoration-line: solid;
-            text-decoration-thickness: var(--QLD-underline__thickness-thin);
-            text-decoration-color: var(--QLD-color-dark__underline);
-            text-underline-offset: var(--QLD-underline__offset);
-            text-decoration-skip-ink: auto;
-
-            &:hover,
-            &:focus {
-                @include QLD-webkit-text-underline();
-
-                text-decoration-thickness: var(--QLD-underline__thickness-thick);
-
-                @if $buttonTextColor == "buttonText" {
-                    text-decoration-color: var(--QLD-color-dark__link--on-action);
-                } @else {
-                    text-decoration-color: var(--QLD-color-dark__underline--hover);
-                }
-            }
-
-            @if $visitedState == "hasVisited" {
-                &:visited {
-                    @include QLD-webkit-text-underline();
-                    text-decoration-color: var(--QLD-color-dark__underline--visited);
-
-                    @if $buttonTextColor == "buttonText" {
-                        color: var(--QLD-color-dark__link--visited);
-                    } @else {
-                        color: var(--QLD-color-dark__link--visited);
-                        text-decoration-color: var(--QLD-color-dark__underline--hover);
-                    }
-                }
-
-                &:hover:visited {
-                    @include QLD-webkit-text-underline();
-                    // text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
-                    text-decoration-thickness: var(--QLD-underline__thickness-thick);
-
-                    @if $buttonTextColor == "buttonText" {
-                        color: var(--QLD-color-dark__link--on-action);
-                        text-decoration-color: var(--QLD-color-dark__link--on-action);
-                    } @else {
-                        color: var(--QLD-color-dark__underline--hover-visited);
-                        text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
-                    }
-                }
-            }
-
-            &:disabled,
-            &[disabled] {
-                @include QLD-webkit-text-decoration-none();
-            }
+        &:hover:visited {
+          color: var(--QLD-color-light__link--visited);
+          text-decoration-color: var(
+            --QLD-color-light__underline--hover-visited
+          );
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
         }
+      } @else {
+        &:visited {
+          color: var(--QLD-color-light__link);
+          text-decoration-color: var(--QLD-color-light__underline);
+        }
+
+        &:hover:visited {
+          color: var(--QLD-color-light__link);
+          text-decoration-color: var(--QLD-color-light__link);
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        @include QLD-webkit-text-decoration-none();
+      }
+
+      //Doesn't have underline showing by default
+    } @else if $defaultUnderline== "noUnderline" {
+      @include QLD-webkit-text-decoration-none();
+      text-decoration-thickness: var(--QLD-underline__thickness-thin);
+      text-decoration-color: var(--QLD-color-light__underline);
+      text-underline-offset: var(--QLD-underline__offset);
+      text-decoration-skip-ink: auto;
+
+      &:hover,
+      &:focus {
+        @include QLD-webkit-text-underline();
+
+        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+        @if $buttonTextColor == "buttonText" {
+          text-decoration-color: var(--QLD-color-light__link--on-action);
+        } @else {
+          text-decoration-color: var(--QLD-color-light__underline--hover);
+        }
+      }
+
+      @if $visitedState == "hasVisited" {
+        &:visited {
+          // @include QLD-webkit-text-underline();
+
+          text-decoration-color: var(--QLD-color-light__underline--visited);
+          @if $buttonTextColor == "buttonText" {
+            color: var(--QLD-color-light__link--visited);
+          } @else {
+            text-decoration-color: var(--QLD-color-light__underline--hover);
+          }
+        }
+
+        &:hover:visited {
+          // @include QLD-webkit-text-underline();
+          // color: var(--QLD-color-light__underline--hover-visited);
+          text-decoration-color: var(
+            --QLD-color-light__underline--hover-visited
+          );
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
+          @if $buttonTextColor == "buttonText" {
+            color: var(--QLD-color-light__link--on-action);
+            text-decoration-color: var(--QLD-color-light__link--on-action);
+          } @else {
+            color: var(--QLD-color-light__link--visited);
+            text-decoration-color: var(--QLD-color-light__underline--visited);
+          }
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        @include QLD-webkit-text-decoration-none();
+      }
     }
+  } @else if $colorScheme== "dark" {
+    //Has underline showing by default
+    @if $defaultUnderline== "underline" {
+      @include QLD-webkit-text-underline();
+      text-decoration-line: solid;
+      text-decoration-thickness: var(--QLD-underline__thickness-thin);
+      text-decoration-color: var(--QLD-color-dark__underline);
+      text-underline-offset: var(--QLD-underline__offset);
+      text-decoration-skip-ink: auto;
+
+      &:hover,
+      &:focus {
+        text-decoration-color: var(--QLD-color-dark__underline--hover);
+        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+      }
+
+      @if $visitedState == "hasVisited" {
+        &:visited {
+          color: var(--QLD-color-dark__link--visited);
+          text-decoration-color: var(--QLD-color-dark__underline--visited);
+        }
+
+        &:hover:visited {
+          color: var(--QLD-color-dark__link--visited);
+          text-decoration-color: var(
+            --QLD-color-dark__underline--hover-visited
+          );
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
+        }
+      } @else {
+        &:visited {
+          // @include QLD-webkit-text-underline();
+          color: var(--QLD-color-dark__link);
+          text-decoration-color: var(--QLD-color-dark__underline);
+        }
+
+        &:hover:visited {
+          // @include QLD-webkit-text-underline();
+          color: var(--QLD-color-dark__link);
+          text-decoration-color: var(--QLD-color-dark__link);
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        @include QLD-webkit-text-decoration-none();
+      }
+
+      //Doesn't have underline showing by default
+    } @else if $defaultUnderline== "noUnderline" {
+      @include QLD-webkit-text-decoration-none();
+      text-decoration-line: solid;
+      text-decoration-thickness: var(--QLD-underline__thickness-thin);
+      text-decoration-color: var(--QLD-color-dark__underline);
+      text-underline-offset: var(--QLD-underline__offset);
+      text-decoration-skip-ink: auto;
+
+      &:hover,
+      &:focus {
+        @include QLD-webkit-text-underline();
+
+        text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+        @if $buttonTextColor == "buttonText" {
+          text-decoration-color: var(--QLD-color-dark__link--on-action);
+        } @else {
+          text-decoration-color: var(--QLD-color-dark__underline--hover);
+        }
+      }
+
+      @if $visitedState == "hasVisited" {
+        &:visited {
+          @include QLD-webkit-text-underline();
+          text-decoration-color: var(--QLD-color-dark__underline--visited);
+
+          @if $buttonTextColor == "buttonText" {
+            color: var(--QLD-color-dark__link--visited);
+          } @else {
+            color: var(--QLD-color-dark__link--visited);
+            text-decoration-color: var(--QLD-color-dark__underline--hover);
+          }
+        }
+
+        &:hover:visited {
+          @include QLD-webkit-text-underline();
+          // text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
+          text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+          @if $buttonTextColor == "buttonText" {
+            color: var(--QLD-color-dark__link--on-action);
+            text-decoration-color: var(--QLD-color-dark__link--on-action);
+          } @else {
+            color: var(--QLD-color-dark__underline--hover-visited);
+            text-decoration-color: var(
+              --QLD-color-dark__underline--hover-visited
+            );
+          }
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        @include QLD-webkit-text-decoration-none();
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 (function () {
-    /* This code is for implementing a tab component on a webpage. It does the following:
+  /* This code is for implementing a tab component on a webpage. It does the following:
 
         1 .Selects all elements with the class qld__tab-container on the page and stores them in the tabComponents variable.
         2. Loops through each element in tabComponents.
@@ -15,243 +15,286 @@
 
     */
 
-    "use strict";
+  "use strict";
 
-    /**
-     * @module tab
-     */
+  /**
+   * @module tab
+   */
 
-    /**
-     * Initialise all embedded facility maps on a particular page
-     *
-     * @memberof module:tab
-     */
+  /**
+   * Initialise all embedded facility maps on a particular page
+   *
+   * @memberof module:tab
+   */
 
-    var tab = {};
-    const SCROLL_AMOUNT = 500;
+  var tab = {};
+  const SCROLL_AMOUNT = 500;
 
-    /**
-     * The functions below scroll the tab list to the left or right by the defined scroll amount
-     * @param {HTMLElement} tabList - The tab list element to scroll
-     */
+  /**
+   * The functions below scroll the tab list to the left or right by the defined scroll amount
+   * @param {HTMLElement} tabList - The tab list element to scroll
+   */
 
-    function scrollRight(tabList, scrollRightBtn, scrollLeftBtn) {
-        // Check if the current scroll position is at the maximum scroll position
-        if (tabList.scrollLeft + SCROLL_AMOUNT >= tabList.scrollWidth - tabList.clientWidth) {
-            // Hide the scroll right button
-            scrollRightBtn.style.display = "none";
+  function scrollRight(tabList, scrollRightBtn, scrollLeftBtn) {
+    // Check if the current scroll position is at the maximum scroll position
+    if (
+      tabList.scrollLeft + SCROLL_AMOUNT >=
+      tabList.scrollWidth - tabList.clientWidth
+    ) {
+      // Hide the scroll right button
+      scrollRightBtn.style.display = "none";
+    }
+
+    tabList.scrollLeft += SCROLL_AMOUNT;
+    scrollLeftBtn.style.display = "block";
+  }
+
+  function scrollLeft(tabList, scrollRightBtn, scrollLeftBtn) {
+    // Check if the current scroll position is at the beginning of the scroll
+    if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
+      // Hide the scroll left button
+      scrollLeftBtn.style.display = "none";
+    }
+
+    tabList.scrollLeft -= SCROLL_AMOUNT;
+    scrollRightBtn.style.display = "block";
+  }
+
+  /**
+   *  The function below checks if the tab list overflows the tab element and display the appropriate scroll buttons
+   * @param {HTMLElement} tabHeader - The tab nav element
+   * @param {HTMLElement} tabList - The tab list element
+   * @param {HTMLElement} scrollRightBtn - The right scroll button element
+   * @param {HTMLElement} scrollLeftBtn - The left scroll button element
+   */
+
+  function overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn) {
+    const cusidEle = tabList.querySelectorAll(".qld__tab-button");
+    const menuWidth = tabHeader.clientWidth;
+    let totalWidth = 0;
+    // Calculate the total width of all the nav items
+    for (let i = 0; i < cusidEle.length; i++) {
+      totalWidth += cusidEle[i].offsetWidth;
+    }
+    // If the total width is greater than the menu width, display the right scroll button
+    // and scroll the link list to the left by the defined amount
+    if (totalWidth > menuWidth) {
+      scrollRightBtn.style.display = "block";
+      tabList.scrollLeft -= SCROLL_AMOUNT;
+      scrollLeftBtn.style.display = "none";
+    } else {
+      scrollRightBtn.style.display = "none";
+      scrollLeftBtn.style.display = "none";
+    }
+  }
+
+  /**
+   * Debounce function to limit the number of times that a function is called
+   * @param {function} func - The function to debounce
+   * @param {number} wait - The number of milliseconds to wait before calling the function
+   */
+
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  function updateNavLinks() {
+    const tabs = document.querySelectorAll(".qld__tab-content");
+
+    for (let tab of tabs) {
+      const links = tab.querySelectorAll(".qld__inpage-nav-links li a");
+
+      if (!links) return;
+
+      links.forEach((link) => {
+        let targetId = link.getAttribute("href");
+        targetId = correctSelectors(targetId);
+        let targetElement = tab.querySelector(targetId);
+
+        if (!targetElement) {
+          link.parentElement.remove();
         }
-
-        tabList.scrollLeft += SCROLL_AMOUNT;
-        scrollLeftBtn.style.display = "block";
+      });
     }
 
-    function scrollLeft(tabList, scrollRightBtn, scrollLeftBtn) {
-        // Check if the current scroll position is at the beginning of the scroll
-        if (tabList.scrollLeft - SCROLL_AMOUNT <= 0) {
-            // Hide the scroll left button
-            scrollLeftBtn.style.display = "none";
+    window.removeEventListener("scroll", handleScroll);
+  }
+
+  function correctSelectors(selector) {
+    if (!selector) return "";
+    const specialChars = [
+      "!",
+      '"',
+      "$",
+      "%",
+      "&",
+      "'",
+      "(",
+      ")",
+      "*",
+      "+",
+      ",",
+      ".",
+      "/",
+      ":",
+      ";",
+      "<",
+      "=",
+      ">",
+      "?",
+      "@",
+      "[",
+      "\\",
+      "]",
+      "^",
+      "`",
+      "{",
+      "|",
+      "}",
+      "~",
+    ];
+    const regex = new RegExp(`([${specialChars.join("\\")}])`, "g");
+    return selector.replace(regex, "\\$1");
+  }
+
+  function tabFixInitializer() {
+    let buttons = document.getElementsByClassName("qld__tab-button");
+    for (let button of buttons) {
+      updateNavLinks();
+      button.addEventListener("click", () => {
+        updateNavLinks();
+      });
+    }
+  }
+  function handleScroll() {
+    tabFixInitializer();
+  }
+
+  tab.init = function () {
+    // Get all tab components on the page
+    const tabComponents = document.querySelectorAll(".qld__tab-container");
+
+    // Loop through each tab component
+    tabComponents.forEach((tabComponent) => {
+      // Get all tab heading elements within the tab component
+      const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
+
+      // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
+      if (tabHeadings.length) {
+        tabHeadings[0].setAttribute("tabindex", "0");
+        tabHeadings[0].setAttribute("aria-selected", "true");
+        const tabContentId = tabHeadings[0].getAttribute("data-tab");
+        tabHeadings[0].classList.add("active");
+
+        const tabContent = tabComponent.querySelector(
+          `.qld__tab-content[data-tab="${tabContentId}"]`,
+        );
+
+        if (tabContent.length) {
+          tabContent.setAttribute("tabindex", "0");
+          tabContent.setAttribute("aria-hidden", "false");
+          tabContent.classList.add("active");
         }
+      }
 
-        tabList.scrollLeft -= SCROLL_AMOUNT;
-        scrollRightBtn.style.display = "block";
-    }
+      // Add the 'active' class to the first tab heading and its corresponding content element
 
-    /**
-     *  The function below checks if the tab list overflows the tab element and display the appropriate scroll buttons
-     * @param {HTMLElement} tabHeader - The tab nav element
-     * @param {HTMLElement} tabList - The tab list element
-     * @param {HTMLElement} scrollRightBtn - The right scroll button element
-     * @param {HTMLElement} scrollLeftBtn - The left scroll button element
-     */
+      // Loop through each tab heading element
+      tabHeadings.forEach((tabHeading) => {
+        // Attach a click event listener to the tab heading
+        tabHeading.addEventListener("click", (event) => {
+          // Remove the 'active' class from all tab heading and content elements
+          const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
+          tabHeadings.forEach((tabHeading) => {
+            tabHeading.classList.remove("active");
+            tabHeading.setAttribute("aria-selected", "false");
+            tabHeading.setAttribute("tabindex", "-1");
+          });
+          const tabContents =
+            tabComponent.querySelectorAll(".qld__tab-content");
+          tabContents.forEach((tabContent) => {
+            tabContent.classList.remove("active");
+            tabContent.setAttribute("aria-hidden", "true");
+            tabContent.setAttribute("tabindex", "-1");
+          });
+          // Add the 'active' class to the clicked tab heading and its corresponding content element
+          event.currentTarget.classList.add("active");
+          event.currentTarget.setAttribute("aria-selected", "true");
+          event.currentTarget.setAttribute("tabindex", "0");
+          const tabContentId = event.currentTarget.getAttribute("data-tab");
+          const tabContent = tabComponent.querySelector(
+            `.qld__tab-content[data-tab="${tabContentId}"]`,
+          );
+          tabContent.classList.add("active");
+          tabContent.setAttribute("aria-hidden", "false");
+          tabContent.setAttribute("tabindex", "0");
+        });
+      });
 
-    function overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn) {
-        const cusidEle = tabList.querySelectorAll(".qld__tab-button");
-        const menuWidth = tabHeader.clientWidth;
-        let totalWidth = 0;
-        // Calculate the total width of all the nav items
-        for (let i = 0; i < cusidEle.length; i++) {
-            totalWidth += cusidEle[i].offsetWidth;
-        }
-        // If the total width is greater than the menu width, display the right scroll button
-        // and scroll the link list to the left by the defined amount
-        if (totalWidth > menuWidth) {
-            scrollRightBtn.style.display = "block";
-            tabList.scrollLeft -= SCROLL_AMOUNT;
-            scrollLeftBtn.style.display = "none";
-        } else {
-            scrollRightBtn.style.display = "none";
-            scrollLeftBtn.style.display = "none";
-        }
-    }
+      let currentTabIndex = 0; // Track the current tab index globally
 
-    /**
-     * Debounce function to limit the number of times that a function is called
-     * @param {function} func - The function to debounce
-     * @param {number} wait - The number of milliseconds to wait before calling the function
-     */
-
-    function debounce(func, wait) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), wait);
-        };
-    }
-
-    function updateNavLinks() {
-        const tabs = document.querySelectorAll(".qld__tab-content");
-
-        for (let tab of tabs) {
-            const links = tab.querySelectorAll(".qld__inpage-nav-links li a");
-
-            if (!links) return;
-
-            links.forEach((link) => {
-                let targetId = link.getAttribute("href");
-                targetId = correctSelectors(targetId);
-                let targetElement = tab.querySelector(targetId);
-
-                if (!targetElement) {
-                    link.parentElement.remove();
-                }
-            });
-        }
-
-        window.removeEventListener("scroll", handleScroll);
-    }
-
-    function correctSelectors(selector) {
-        if (!selector) return "";
-        const specialChars = ["!", '"', "$", "%", "&", "'", "(", ")", "*", "+", ",", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "`", "{", "|", "}", "~"];
-        const regex = new RegExp(`([${specialChars.join("\\")}])`, "g");
-        return selector.replace(regex, "\\$1");
-    }
-
-    function tabFixInitializer() {
-        let buttons = document.getElementsByClassName("qld__tab-button");
-        for (let button of buttons) {
-            updateNavLinks();
-            button.addEventListener("click", () => {
-                updateNavLinks();
-            });
-        }
-    }
-    function handleScroll() {
-        tabFixInitializer();
-    }
-
-    tab.init = function () {
-        // Get all tab components on the page
-        const tabComponents = document.querySelectorAll(".qld__tab-container");
-
-        // Loop through each tab component
-        tabComponents.forEach((tabComponent) => {
-            // Get all tab heading elements within the tab component
-            const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
-
-            // Set tab index and aria-selected attributes for the first tab heading and its corresponding content element
-            if (tabHeadings.length) {
-                tabHeadings[0].setAttribute("tabindex", "0");
-                tabHeadings[0].setAttribute("aria-selected", "true");
-                const tabContentId = tabHeadings[0].getAttribute("data-tab");
-                tabHeadings[0].classList.add("active");
-
-                const tabContent = tabComponent.querySelector(`.qld__tab-content[data-tab="${tabContentId}"]`);
-
-                if (tabContent.length) {
-                    tabContent.setAttribute("tabindex", "0");
-                    tabContent.setAttribute("aria-hidden", "false");
-                    tabContent.classList.add("active");
-                }
-            }
-
-            // Add the 'active' class to the first tab heading and its corresponding content element
-
-            // Loop through each tab heading element
-            tabHeadings.forEach((tabHeading) => {
-                // Attach a click event listener to the tab heading
-                tabHeading.addEventListener("click", (event) => {
-                    // Remove the 'active' class from all tab heading and content elements
-                    const tabHeadings = tabComponent.querySelectorAll(".qld__tab-button");
-                    tabHeadings.forEach((tabHeading) => {
-                        tabHeading.classList.remove("active");
-                        tabHeading.setAttribute("aria-selected", "false");
-                        tabHeading.setAttribute("tabindex", "-1");
-                    });
-                    const tabContents = tabComponent.querySelectorAll(".qld__tab-content");
-                    tabContents.forEach((tabContent) => {
-                        tabContent.classList.remove("active");
-                        tabContent.setAttribute("aria-hidden", "true");
-                        tabContent.setAttribute("tabindex", "-1");
-                    });
-                    // Add the 'active' class to the clicked tab heading and its corresponding content element
-                    event.currentTarget.classList.add("active");
-                    event.currentTarget.setAttribute("aria-selected", "true");
-                    event.currentTarget.setAttribute("tabindex", "0");
-                    const tabContentId = event.currentTarget.getAttribute("data-tab");
-                    const tabContent = tabComponent.querySelector(`.qld__tab-content[data-tab="${tabContentId}"]`);
-                    tabContent.classList.add("active");
-                    tabContent.setAttribute("aria-hidden", "false");
-                    tabContent.setAttribute("tabindex", "0");
-                });
-            });
-
-            let currentTabIndex = 0; // Track the current tab index globally
-
-            tabHeadings.forEach((tabHeading, index) => {
-                // Keydown event for arrow navigation
-                tabHeading.addEventListener("keydown", (event) => {
-                    if (event.key === "Enter" || event.key === "Space") {
-                        event.preventDefault();
-                        event.currentTarget.click();
-                    } else if (event.key === "ArrowLeft") {
-                        event.preventDefault();
-                        // Navigate to the previous tab
-                        currentTabIndex = (currentTabIndex - 1 + tabHeadings.length) % tabHeadings.length;
-                        setFocusOnTab(currentTabIndex);
-                    } else if (event.key === "ArrowRight") {
-                        event.preventDefault();
-                        // Navigate to the next tab
-                        currentTabIndex = (currentTabIndex + 1) % tabHeadings.length;
-                        setFocusOnTab(currentTabIndex);
-                    }
-                });
-
-                // Focus event to sync currentTabIndex
-                tabHeading.addEventListener("focus", (event) => {
-                    const tabIndex = Array.from(tabHeadings).indexOf(event.currentTarget);
-                    currentTabIndex = tabIndex; // Update the global index
-
-                    const tabContentId = event.currentTarget.getAttribute("data-tab");
-                    const tabContent = tabComponent.querySelector(`.qld__tab-content[data-tab="${tabContentId}"]`);
-                    if (tabContent) tabContent.classList.add("focused");
-                });
-
-                // Blur event to remove focused class
-                tabHeading.addEventListener("blur", (event) => {
-                    const tabContentId = event.currentTarget.getAttribute("data-tab");
-                    const tabContent = tabComponent.querySelector(`.qld__tab-content[data-tab="${tabContentId}"]`);
-                    if (tabContent) tabContent.classList.remove("focused");
-                });
-            });
-
-            // Function to apply focus and delay the update of currentTabIndex
-            function setFocusOnTab(index, tabHeadings) {
-                // Check if tabHeadings is valid and has elements
-                if (tabHeadings && tabHeadings.length > 0) {
-                    // Ensure the index is within bounds
-                    index = (index + tabHeadings.length) % tabHeadings.length;
-
-                    setTimeout(() => {
-                        const nextTabHeading = tabHeadings[index];
-                        nextTabHeading.focus();
-                    }, 50);
-                }
-            }
+      tabHeadings.forEach((tabHeading, index) => {
+        // Keydown event for arrow navigation
+        tabHeading.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === "Space") {
+            event.preventDefault();
+            event.currentTarget.click();
+          } else if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            // Navigate to the previous tab
+            currentTabIndex =
+              (currentTabIndex - 1 + tabHeadings.length) % tabHeadings.length;
+            setFocusOnTab(currentTabIndex);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            // Navigate to the next tab
+            currentTabIndex = (currentTabIndex + 1) % tabHeadings.length;
+            setFocusOnTab(currentTabIndex);
+          }
         });
 
-        /*  This script implements horizontal scrolling for fixed tab components on a page.
+        // Focus event to sync currentTabIndex
+        tabHeading.addEventListener("focus", (event) => {
+          const tabIndex = Array.from(tabHeadings).indexOf(event.currentTarget);
+          currentTabIndex = tabIndex; // Update the global index
+
+          const tabContentId = event.currentTarget.getAttribute("data-tab");
+          const tabContent = tabComponent.querySelector(
+            `.qld__tab-content[data-tab="${tabContentId}"]`,
+          );
+          if (tabContent) tabContent.classList.add("focused");
+        });
+
+        // Blur event to remove focused class
+        tabHeading.addEventListener("blur", (event) => {
+          const tabContentId = event.currentTarget.getAttribute("data-tab");
+          const tabContent = tabComponent.querySelector(
+            `.qld__tab-content[data-tab="${tabContentId}"]`,
+          );
+          if (tabContent) tabContent.classList.remove("focused");
+        });
+      });
+
+      // Function to apply focus and delay the update of currentTabIndex
+      function setFocusOnTab(index, tabHeadings) {
+        // Check if tabHeadings is valid and has elements
+        if (tabHeadings && tabHeadings.length > 0) {
+          // Ensure the index is within bounds
+          index = (index + tabHeadings.length) % tabHeadings.length;
+
+          setTimeout(() => {
+            const nextTabHeading = tabHeadings[index];
+            nextTabHeading.focus();
+          }, 50);
+        }
+      }
+    });
+
+    /*  This script implements horizontal scrolling for fixed tab components on a page.
 
                 It selects the main nav elements and tab list elements, and defines functions to scroll the tab list element to the left or right.
                 It also shows or hides the scroll buttons based on whether the tab list element overflows the main nav element.
@@ -260,39 +303,56 @@
 
             */
 
-        // Get the main nav elements and the tab list elements
-        const tabHeaders = document.getElementsByClassName("qld__tab-container__fixed");
-        const tabLists = [];
+    // Get the main nav elements and the tab list elements
+    const tabHeaders = document.getElementsByClassName(
+      "qld__tab-container__fixed",
+    );
+    const tabLists = [];
 
-        for (let i = 0; i < tabHeaders.length; i++) {
-            const tabs = tabHeaders[i].getElementsByClassName("qld__tabs");
-            tabLists.push(tabs[0]);
-        }
+    for (let i = 0; i < tabHeaders.length; i++) {
+      const tabs = tabHeaders[i].getElementsByClassName("qld__tabs");
+      tabLists.push(tabs[0]);
+    }
 
-        // Attach event listeners to each component
+    // Attach event listeners to each component
 
-        for (let i = 0; i < tabHeaders.length; i++) {
-            const tabHeader = tabHeaders[i];
-            const tabList = tabLists[i];
-            const scrollRightBtn = tabHeader.querySelector(".tab-overflow-nav-button-right");
-            const scrollLeftBtn = tabHeader.querySelector(".tab-overflow-nav-button-left");
-            window.addEventListener("load", () => overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn));
-            window.addEventListener(
-                "resize",
-                debounce(() => overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn), 250),
-            );
-            scrollRightBtn.addEventListener("click", () => scrollRight(tabList, scrollRightBtn, scrollLeftBtn));
-            scrollLeftBtn.addEventListener("click", () => scrollLeft(tabList, scrollRightBtn, scrollLeftBtn));
-        }
-    };
+    for (let i = 0; i < tabHeaders.length; i++) {
+      const tabHeader = tabHeaders[i];
+      const tabList = tabLists[i];
+      const scrollRightBtn = tabHeader.querySelector(
+        ".tab-overflow-nav-button-right",
+      );
+      const scrollLeftBtn = tabHeader.querySelector(
+        ".tab-overflow-nav-button-left",
+      );
+      window.addEventListener("load", () =>
+        overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn),
+      );
+      window.addEventListener(
+        "resize",
+        debounce(
+          () => overflow(tabHeader, tabList, scrollRightBtn, scrollLeftBtn),
+          250,
+        ),
+      );
+      scrollRightBtn.addEventListener("click", () =>
+        scrollRight(tabList, scrollRightBtn, scrollLeftBtn),
+      );
+      scrollLeftBtn.addEventListener("click", () =>
+        scrollLeft(tabList, scrollRightBtn, scrollLeftBtn),
+      );
+    }
+  };
 
-    QLD.tab = tab;
+  QLD.tab = tab;
 
-    window.addEventListener("DOMContentLoaded", function () {
-        QLD.tab.init();
-        tabFixInitializer();
-        // Update href paths for SVG icons in the tab component
-        QLD.utils.updateSvgIconPath(".qld__tab-container .qld__tabs svg.qld__icon > use");
-    });
-    window.addEventListener("scroll", handleScroll);
+  window.addEventListener("DOMContentLoaded", function () {
+    QLD.tab.init();
+    tabFixInitializer();
+    // Update href paths for SVG icons in the tab component
+    QLD.utils.updateSvgIconPath(
+      ".qld__tab-container .qld__tabs svg.qld__icon > use",
+    );
+  });
+  window.addEventListener("scroll", handleScroll);
 })();
