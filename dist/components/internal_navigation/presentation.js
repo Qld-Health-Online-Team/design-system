@@ -9,7 +9,7 @@
   return ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"!=",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":18,"column":8},"end":{"line":23,"column":19}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"==",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":24,"column":8},"end":{"line":29,"column":19}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"inArray")||(depth0 && lookupProperty(depth0,"inArray"))||alias2).call(alias1,((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"lineage")),"asset_assetid",(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),{"name":"inArray","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":30,"column":8},"end":{"line":71,"column":20}}})) != null ? stack1 : "")
-    + "        </li>\n";
+    + "        </li>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -18,11 +18,11 @@
         return undefined
     };
 
-  return "          <li>\n          <a class=\"qld__sidenav__link\" href=\""
+  return "          <li>\r\n          <a class=\"qld__sidenav__link\" href=\""
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":20,"column":46},"end":{"line":20,"column":61}}}) : helper)))
-    + "\">\n            "
+    + "\">\r\n            "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":21,"column":12},"end":{"line":21,"column":36}}}) : helper))) != null ? stack1 : "")
-    + "\n          </a>\n";
+    + "\r\n          </a>\r\n";
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -31,9 +31,9 @@
         return undefined
     };
 
-  return "          <li class=\"active\" aria-current=\"page\">\n          <span>\n            "
+  return "          <li class=\"active\" aria-current=\"page\">\r\n          <span>\r\n            "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":27,"column":12},"end":{"line":27,"column":36}}}) : helper))) != null ? stack1 : "")
-    + "\n          </span>\n";
+    + "\r\n          </span>\r\n";
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -51,9 +51,9 @@
         return undefined
     };
 
-  return "            <ul class=\"qld__link-list\">\n"
+  return "            <ul class=\"qld__link-list\">\r\n"
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"children") : depth0),{"name":"each","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":33,"column":14},"end":{"line":68,"column":23}}})) != null ? stack1 : "")
-    + "            </ul>\n";
+    + "            </ul>\r\n";
 },"8":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -65,7 +65,7 @@
   return ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"!=",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":34,"column":16},"end":{"line":39,"column":27}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"==",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":40,"column":16},"end":{"line":45,"column":27}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"inArray")||(depth0 && lookupProperty(depth0,"inArray"))||alias2).call(alias1,((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"lineage")),"asset_assetid",(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),{"name":"inArray","hash":{},"fn":container.program(13, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":46,"column":16},"end":{"line":66,"column":28}}})) != null ? stack1 : "")
-    + "                </li>\n";
+    + "                </li>\r\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -74,11 +74,11 @@
         return undefined
     };
 
-  return "                  <li>\n                  <a class=\"qld__sidenav__link\" href=\""
+  return "                  <li>\r\n                  <a class=\"qld__sidenav__link\" href=\""
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":36,"column":54},"end":{"line":36,"column":69}}}) : helper)))
-    + "\">\n                    "
+    + "\">\r\n                    "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":37,"column":20},"end":{"line":37,"column":44}}}) : helper))) != null ? stack1 : "")
-    + "\n                  </a>\n";
+    + "\r\n                  </a>\r\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -87,9 +87,9 @@
         return undefined
     };
 
-  return "                  <li class=\"active\" aria-current=\"page\">\n                  <span>\n                    "
+  return "                  <li class=\"active\" aria-current=\"page\">\r\n                  <span>\r\n                    "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":43,"column":20},"end":{"line":43,"column":44}}}) : helper))) != null ? stack1 : "")
-    + "\n                  </span>\n";
+    + "\r\n                  </span>\r\n";
 },"13":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -107,9 +107,9 @@
         return undefined
     };
 
-  return "                    <ul class=\"qld__link-list\">\n"
+  return "                    <ul class=\"qld__link-list\">\r\n"
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? lookupProperty(depth0,"children") : depth0),{"name":"each","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":49,"column":22},"end":{"line":63,"column":31}}})) != null ? stack1 : "")
-    + "                    </ul>\n";
+    + "                    </ul>\r\n";
 },"15":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -120,7 +120,7 @@
 
   return ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"!=",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(16, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":50,"column":24},"end":{"line":55,"column":35}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"asset_assetid") : depth0),"==",((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"current"))) && lookupProperty(stack1,"data"))) && lookupProperty(stack1,"assetid")),{"name":"ifCond","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":56,"column":24},"end":{"line":61,"column":35}}})) != null ? stack1 : "")
-    + "                        </li>\n";
+    + "                        </li>\r\n";
 },"16":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -129,11 +129,11 @@
         return undefined
     };
 
-  return "                          <li>\n                          <a class=\"qld__sidenav__link\" href=\""
+  return "                          <li>\r\n                          <a class=\"qld__sidenav__link\" href=\""
     + container.escapeExpression(((helper = (helper = lookupProperty(helpers,"asset_url") || (depth0 != null ? lookupProperty(depth0,"asset_url") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_url","hash":{},"data":data,"loc":{"start":{"line":52,"column":62},"end":{"line":52,"column":77}}}) : helper)))
-    + "\">\n                            "
+    + "\">\r\n                            "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":53,"column":28},"end":{"line":53,"column":52}}}) : helper))) != null ? stack1 : "")
-    + "\n                          </a>\n";
+    + "\r\n                          </a>\r\n";
 },"18":function(container,depth0,helpers,partials,data) {
     var stack1, helper, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -142,9 +142,9 @@
         return undefined
     };
 
-  return "                          <li class=\"active\" aria-current=\"page\">\n                          <span>\n                            "
+  return "                          <li class=\"active\" aria-current=\"page\">\r\n                          <span>\r\n                            "
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"asset_short_name") || (depth0 != null ? lookupProperty(depth0,"asset_short_name") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"asset_short_name","hash":{},"data":data,"loc":{"start":{"line":59,"column":28},"end":{"line":59,"column":52}}}) : helper))) != null ? stack1 : "")
-    + "\n                          </span>\n";
+    + "\r\n                          </span>\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -153,15 +153,15 @@
         return undefined
     };
 
-  return "<div\n  class=\"qld__side-nav qld__accordion\"\n  data-path=\""
+  return "<div\r\n  class=\"qld__side-nav qld__accordion\"\r\n  data-path=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "\"\n>\n  <button class=\"qld__side-nav__toggle qld__accordion__title qld__accordion--closed\" aria-controls=\"nav-default\" aria-expanded=\"false\">In "
+    + "\"\r\n>\r\n  <button class=\"qld__side-nav__toggle qld__accordion__title qld__accordion--closed\" aria-controls=\"nav-default\" aria-expanded=\"false\">In "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_name") : stack1), depth0)) != null ? stack1 : "")
-    + "</button>\n  <nav\n    id=\"nav-default\"\n    class=\"qld__side-nav__content qld__accordion--closed qld__accordion__body\"\n    aria-label=\"side navigation\"\n  >\n    <h2 class=\"qld__sidenav__title\">\n      <a class=\"qld__sidenav__link\" href=\""
+    + "</button>\r\n  <nav\r\n    id=\"nav-default\"\r\n    class=\"qld__side-nav__content qld__accordion--closed qld__accordion__body\"\r\n    aria-label=\"side navigation\"\r\n  >\r\n    <h2 class=\"qld__sidenav__title\">\r\n      <a class=\"qld__sidenav__link\" href=\""
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_url") : stack1), depth0))
-    + "\">\n        "
+    + "\">\r\n        "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"top") : stack1)) != null ? lookupProperty(stack1,"asset_name") : stack1), depth0)) != null ? stack1 : "")
-    + "\n      </a>\n    </h2>\n    <ul class=\"qld__link-list\">\n"
+    + "\r\n      </a>\r\n    </h2>\r\n    <ul class=\"qld__link-list\">\r\n"
     + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"current") : depth0)) != null ? lookupProperty(stack1,"children") : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":17,"column":6},"end":{"line":73,"column":15}}})) != null ? stack1 : "")
-    + "    </ul>\n  </nav>\n</div>\n";
+    + "    </ul>\r\n  </nav>\r\n</div>\r\n";
 },"useData":true}

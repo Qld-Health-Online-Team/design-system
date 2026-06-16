@@ -25,13 +25,13 @@
         return undefined
     };
 
-  return "<section\n  id=\""
+  return "<section\r\n  id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data,"loc":{"start":{"line":2,"column":6},"end":{"line":2,"column":144}}})) != null ? stack1 : "")
-    + "\"\n  class=\"\n    qld__body\n    "
+    + "\"\r\n  class=\"\r\n    qld__body\r\n    "
     + alias3(alias2(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"background") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n    "
+    + "\r\n    "
     + alias3(alias2(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"body_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n  \"\n>\n  <div class=\"container-fluid\">"
+    + "\r\n  \"\r\n>\r\n  <div class=\"container-fluid\">"
     + ((stack1 = ((helper = (helper = lookupProperty(helpers,"content") || (depth0 != null ? lookupProperty(depth0,"content") : depth0)) != null ? helper : container.hooks.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"content","hash":{},"data":data,"loc":{"start":{"line":13,"column":31},"end":{"line":13,"column":46}}}) : helper))) != null ? stack1 : "")
-    + "</div>\n</section>\n";
+    + "</div>\r\n</section>\r\n";
 },"useData":true}
