@@ -1,4 +1,4 @@
-import "./assets/index.js"; // Storybook JS import
+import "./core-assets/handlebar-helpers.js";
 import "./assets/index.scss"; // Storybook styles import from core
 import "./assets/storybook.scss"; // Storybook specific styles
 import { INITIAL_VIEWPORTS } from "storybook/viewport";

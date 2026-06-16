@@ -91,7 +91,7 @@ import {
           use.setAttributeNS(
             null,
             "href",
-            buildIconPath(svgPath, "chevron-up").toString(),
+            buildIconPath(svgPath, "chevron-up"),
           );
         }
 

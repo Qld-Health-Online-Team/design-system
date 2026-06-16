@@ -17,7 +17,7 @@
     "lint:js": "eslint .",
     "lint:styles": "stylelint \"**/*.{css,scss}\"",
     "lint": "npm run lint:js && npm run lint:styles",
-    "format": "prettier . --write",
+    "format": "prettier . --write --list-different",
     "format:check": "prettier . --check",
     "build-storybook": "node .storybook/prepare-storybook.js && storybook build",
     "storybook": "storybook dev -p 6006",
