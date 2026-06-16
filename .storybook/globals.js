@@ -59,6 +59,10 @@ export const componentLinks = {
     ds: `${dsBase}/components/banner`,
     figma: `${figmaBase}?node-id=120353-65175&t=Lne25vgTT2xUkJcD-0`,
   },
+  blockquote: {
+    ds: `${dsBase}/components/blockquote`,
+    figma: `${figmaBase}?node-id=133254-206548&t=Ix1loY6jzMoPl0rM-0`,
+  },
   breadcrumbs: {
     ds: `${dsBase}/components/breadcrumbs`,
     figma: `${figmaBase}?node-id=5990-98076&p=f&t=4xsFBWGSPA5BjG6z-0`,
