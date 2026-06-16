@@ -74,3 +74,16 @@ export const isExpanded = (element) =>
 // Set an element's aria-expanded attribute from a boolean
 export const setExpanded = (element, expanded) =>
   element.setAttribute("aria-expanded", expanded ? "true" : "false");
+
+// Used to create link to material symbols stylesheet. Only use on components that require full access to material icons, not just from our sprite sheets
+export const loadMaterialIconSheet = () => {
+  const materialStylesheetId = "material-stylesheet";
+  if (document.getElementById(materialStylesheetId)) return;
+
+  const link = document.createElement("link");
+  link.id = materialStylesheetId;
+  link.rel = "stylesheet";
+  link.href =
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined";
+  document.head.appendChild(link);
+};

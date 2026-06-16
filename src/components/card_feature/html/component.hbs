@@ -85,8 +85,16 @@
               "
             >
               {{#ifCond metadata.show_icon_image.value '==' 'icon'}}
+                {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_icon --}}
                 <div class="qld__card__icon">
-                  <i class="{{ metadata.card_icon.value }}"></i>
+                  {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_icon --}}
+                  {{#if metadata.card_icon.value}}
+                    <span class="material-symbols-outlined" aria-hidden="true">
+                      {{ metadata.card_icon.value }}
+                    </span>
+                  {{else}}
+                    <i class="{{ metadata.cardIcon.value }}"></i>
+                  {{/if}}
                 </div>
               {{/ifCond}}
               {{#ifCond metadata.show_icon_image.value '==' 'image'}}
@@ -140,7 +148,15 @@
                               aria-label="%globals_asset_name:{{ metadata.card_cta1_url.value }}%{{#if metadata.card_cta1_text.value}}, {{ metadata.card_cta1_text.value }}{{/if}}"
                               href="./?a={{ metadata.card_cta1_url.value }}"
                             >
-                              {{#if metadata.card_cta1_icon.value}}
+                              {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_cta_1_icon --}}
+                              {{#if metadata.card_cta_1_icon.value}}
+                                <span
+                                  class="qld__card__footer-link-icon material-symbols-outlined"
+                                  aria-hidden="true"
+                                >
+                                  {{ metadata.card_cta_1_icon.value }}
+                                </span>
+                              {{else}}
                                 <i
                                   class="qld__card__footer-link-icon {{ metadata.card_cta1_icon.value }}"
                                 ></i>
@@ -156,7 +172,15 @@
                               aria-label="%globals_asset_name:{{ metadata.card_cta2_url.value }}%{{#if metadata.card_cta2_text.value}}, {{ metadata.card_cta2_text.value }}{{/if}}"
                               href="./?a={{ metadata.card_cta2_url.value }}"
                             >
-                              {{#if metadata.card_cta2_icon.value}}
+                              {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_cta_2_icon --}}
+                              {{#if metadata.card_cta_2_icon.value}}
+                                <span
+                                  class="qld__card__footer-link-icon material-symbols-outlined"
+                                  aria-hidden="true"
+                                >
+                                  {{ metadata.card_cta_2_icon.value }}
+                                </span>
+                              {{else}}
                                 <i
                                   class="qld__card__footer-link-icon {{ metadata.card_cta2_icon.value }}"
                                 ></i>
@@ -172,7 +196,15 @@
                               aria-label="%globals_asset_name:{{ metadata.card_cta3_url.value }}%{{#if metadata.card_cta3_text.value}}, {{ metadata.card_cta3_text.value }}{{/if}}"
                               href="./?a={{ metadata.card_cta3_url.value }}"
                             >
-                              {{#if metadata.card_cta3_icon.value}}
+                              {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_cta_3_icon --}}
+                              {{#if metadata.card_cta_3_icon.value}}
+                                <span
+                                  class="qld__card__footer-link-icon material-symbols-outlined"
+                                  aria-hidden="true"
+                                >
+                                  {{ metadata.card_cta_3_icon.value }}
+                                </span>
+                              {{else}}
                                 <i
                                   class="qld__card__footer-link-icon {{ metadata.card_cta3_icon.value }}"
                                 ></i>
