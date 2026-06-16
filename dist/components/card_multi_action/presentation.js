@@ -339,7 +339,7 @@
         return undefined
     };
 
-  return "                <span class=\"material-symbols-outlined\" aria-hidden=\"true\">\r\n                  "
+  return "                <span class=\"material-symbols-rounded\" aria-hidden=\"true\">\r\n                  "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\r\n                </span>\r\n";
 },"52":function(container,depth0,helpers,partials,data) {
@@ -569,7 +569,7 @@
         return undefined
     };
 
-  return "                          <span class=\"qld__card__footer-link-icon material-symbols-outlined\" aria-hidden=\"true\">\r\n                            "
+  return "                          <span class=\"qld__card__footer-link-icon material-symbols-rounded\" aria-hidden=\"true\">\r\n                            "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta_1_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\r\n                          </span>\r\n";
 },"84":function(container,depth0,helpers,partials,data) {
@@ -620,7 +620,7 @@
         return undefined
     };
 
-  return "                          <span class=\"qld__card__footer-link-icon material-symbols-outlined\" aria-hidden=\"true\">\r\n                            "
+  return "                          <span class=\"qld__card__footer-link-icon material-symbols-rounded\" aria-hidden=\"true\">\r\n                            "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta_2_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\r\n                          </span>\r\n";
 },"91":function(container,depth0,helpers,partials,data) {
@@ -671,7 +671,7 @@
         return undefined
     };
 
-  return "                          <span class=\"qld__card__footer-link-icon material-symbols-outlined\" aria-hidden=\"true\">\r\n                            "
+  return "                          <span class=\"qld__card__footer-link-icon material-symbols-rounded\" aria-hidden=\"true\">\r\n                            "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_cta_3_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\r\n                          </span>\r\n";
 },"98":function(container,depth0,helpers,partials,data) {

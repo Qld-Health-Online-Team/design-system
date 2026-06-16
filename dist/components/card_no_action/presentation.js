@@ -257,7 +257,7 @@
         return undefined
     };
 
-  return "              <span class=\"material-symbols-outlined\" aria-hidden=\"true\">"
+  return "              <span class=\"material-symbols-rounded\" aria-hidden=\"true\">"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"card_icon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "</span>\r\n";
 },"40":function(container,depth0,helpers,partials,data) {
