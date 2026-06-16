@@ -6,7 +6,7 @@ import { loadMaterialIconSheet } from "../../../helpers/global-helpers.js";
 
 export default function initCards(document = document) {
   const shouldCallMaterialIconLoader = document.querySelectorAll(
-    ".material-symbols-outlined",
+    ".material-symbols-rounded",
   );
 
   if (shouldCallMaterialIconLoader.length > 0) {

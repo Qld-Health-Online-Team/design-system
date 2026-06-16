@@ -76,7 +76,7 @@ export const loadMaterialIconSheet = () => {
   link.id = materialStylesheetId;
   link.rel = "stylesheet";
   link.href =
-    "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined";
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0";
   document.head.appendChild(link);
 };
 
