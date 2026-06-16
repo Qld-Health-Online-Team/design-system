@@ -51,27 +51,22 @@ export const Default = {
 };
 
 // The blockquote has no style modifiers — its appearance is purely theme-driven,
-// so a single story shows it across every colour theme for comparison.
-export const ColourExamples = {
-  name: "Colour examples",
+// so each theme gets its own story to render and snapshot independently.
+const colourExample = (theme) => ({
   argTypes: {
     quote: { table: { disable: true } },
     source: { table: { disable: true } },
     cite: { table: { disable: true } },
   },
-  render: (args) => {
-    const example = (heading, theme) =>
-      themeWrapper(
-        themes[theme],
-        `<h3>${heading}</h3>${renderBlockQuote(args)}`,
-      );
+  render: (args) => themeWrapper(themes[theme], renderBlockQuote(args)),
+});
 
-    return [
-      example("Default colour example", "white"),
-      example("Light colour example", "light"),
-      example("Alt colour example", "light alt"),
-      example("Dark colour example", "dark"),
-      example("Dark-alt colour example", "dark alt"),
-    ].join("");
-  },
-};
+export const White = colourExample("white");
+
+export const Light = colourExample("light");
+
+export const LightAlt = colourExample("light alt");
+
+export const Dark = colourExample("dark");
+
+export const DarkAlt = colourExample("dark alt");
