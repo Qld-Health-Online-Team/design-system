@@ -47,7 +47,10 @@ const figmaBase =
   "https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-kit";
 
 export const componentLinks = {
-  accordion: { ds: `${dsBase}/components/accordion` },
+  accordion: {
+    ds: `${dsBase}/components/accordion`,
+    figma: `${figmaBase}?node-id=120348-3558&t=oLOAet6SqqLBklzJ-0`,
+  },
   backToTop: {
     ds: `${dsBase}/patterns/back-to-top`,
     figma: `${figmaBase}?node-id=135268-27564&t=Gk55sISVPoJM2wm4-0`,
@@ -55,6 +58,10 @@ export const componentLinks = {
   banner: {
     ds: `${dsBase}/components/banner`,
     figma: `${figmaBase}?node-id=120353-65175&t=Lne25vgTT2xUkJcD-0`,
+  },
+  blockquote: {
+    ds: `${dsBase}/components/blockquote`,
+    figma: `${figmaBase}?node-id=133254-206548&t=Ix1loY6jzMoPl0rM-0`,
   },
   breadcrumbs: {
     ds: `${dsBase}/components/breadcrumbs`,
@@ -109,6 +116,10 @@ export const componentLinks = {
   inPageNavigation: {
     ds: `${dsBase}/components/in-page-navigation`,
     figma: `${figmaBase}?node-id=7905-252906&p=f&t=Tb6VtPPWrZ7Na35f-0`,
+  },
+  internalNavigation: {
+    ds: `${dsBase}/components/side-navigation`,
+    figma: `${figmaBase}?node-id=120418-56310&t=QVD97pKrIpIBHqDI-0`,
   },
   linkColumns: {
     ds: `${dsBase}/components/link-columns-link-list`,

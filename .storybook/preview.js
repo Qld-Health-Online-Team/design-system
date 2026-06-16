@@ -1,8 +1,9 @@
-import "./assets/index.js"; // Storybook JS import
+import "./core-assets/handlebar-helpers.js";
 import "./assets/index.scss"; // Storybook styles import from core
 import "./assets/storybook.scss"; // Storybook specific styles
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { viewports, themes, themeColours, iconSpritePath } from "./globals.js";
+import { formatHtmlSource } from "./helper-functions.js";
 
 /** @type { import('@storybook/html-vite').Preview } */
 const preview = {
@@ -33,6 +34,9 @@ const preview = {
     docs: {
       source: {
         excludeDecorators: true,
+        // Pretty-print the rendered HTML in the code panel. Storybook's built-in
+        // `format` only dedents, so we re-indent the markup ourselves.
+        transform: (code) => formatHtmlSource(code),
       },
     },
     backgrounds: {

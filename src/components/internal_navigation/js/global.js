@@ -7,14 +7,12 @@ import {
  * @module internalNavigation
  */
 
-export default function initInternalNavigation(document = document) {
-  const svgSelector = document.querySelector(".qld__side-nav.qld__accordion");
+export default function initInternalNavigation(root = document) {
+  const svgSelector = root.querySelector(".qld__side-nav.qld__accordion");
 
   if (svgSelector) {
     const svgPath = svgSelector.getAttribute("data-path");
-    const thirdLevelLinks = document.querySelectorAll(
-      "ul ul ul a, ul ul ul span",
-    );
+    const thirdLevelLinks = root.querySelectorAll("ul ul ul a, ul ul ul span");
 
     // Loop through each matching element and apply the style
     thirdLevelLinks.forEach((link) => {
@@ -38,7 +36,7 @@ export default function initInternalNavigation(document = document) {
           use.setAttributeNS(
             null,
             "href",
-            buildIconPath(svgPath, "tick").toString(),
+            buildIconPath(svgPath, "tick"),
           );
         }
 
