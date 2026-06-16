@@ -1,10 +1,10 @@
 import Template from "../../components/header/html/component.hbs";
 import { cleanStorybookUrls } from "../../../.storybook/helper-functions";
-import { renderNavbar, navbarArgs } from "../Navbar/Navbar";
+import MegaMainNavStoriesMeta from "../GlobalNavigation/MegaMainNavigation/mega_main_navigation.stories";
 
 // Render function for Storybook / pages
 export const renderHeader = (args) => {
-  const navbarHTML = renderNavbar({ ...navbarArgs, ...args });
+  const navbarHTML = MegaMainNavStoriesMeta.render({ ...MegaMainNavStoriesMeta.args, ...args });
 
   const headerHTML = Template({
     site: {
