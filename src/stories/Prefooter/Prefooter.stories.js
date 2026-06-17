@@ -89,7 +89,8 @@ const meta = {
   updated: new Date(2025, 5, 16).getTime(),
   showBackToTop: true,
  },
- parameters: storyParams("pre-footer"),
+ // Currently only documented under the "Back to top" pattern in DS and Figma.
+ parameters: storyParams("backToTop")
 };
 
 export default meta;
