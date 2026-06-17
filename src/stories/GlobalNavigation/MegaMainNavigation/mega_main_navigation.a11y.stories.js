@@ -7,7 +7,7 @@ import MegaMainNavMeta from "./mega_main_navigation.stories.js";
 // `play` assertions still run as Chromatic interaction tests.
 const meta = {
   ...MegaMainNavMeta,
-  title: "3. Components/Mega Main Navigation/Accessibility",
+  title: "3. Components/Global Navigation/Horizontal/Accessibility",
   tags: ["!autodocs"],
   parameters: {
     ...MegaMainNavMeta.parameters,
