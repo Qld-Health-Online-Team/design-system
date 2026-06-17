@@ -1,9 +1,10 @@
-import Template from "../../components/mega_main_navigation/html/component.hbs";
-import { initMegaMenu } from "../../components/mega_main_navigation/js/global.js";
+import Template from "../../../components/mega_main_navigation/html/component.hbs";
+import { initMegaMenu } from "../../../components/mega_main_navigation/js/global.js";
 import { within, userEvent, expect } from "storybook/test";
-import { storyParams } from "../../../.storybook/globals";
-import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import { storyParams } from "../../../../.storybook/globals";
+import { initComponents } from "../../../../.storybook/decorators";
+import initCtaLinks from "../../../components/_global/js/cta_links/global";
+import { renderHeader, headerArgs } from "../../Header/Header.js";
 
 function render(args) {
   const {
@@ -182,7 +183,7 @@ const sampleChildren = [
 const storyDocs = storyParams("navbar");
 
 const meta = {
-  title: "3. Components/Mega Main Navigation",
+  title: "3. Components/Global Navigation/Horizontal",
   render,
   decorators: [initComponents([initMegaMenu, initCtaLinks])],
   parameters: {
@@ -292,5 +293,44 @@ export const DescriptionsOnBothLevels = {
 
     await userEvent.click(toggle);
     await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  },
+};
+
+/**
+ * Small-screen view with the full site header above the mega nav and the
+ * navigation's mobile drawer open. On mobile the bar collapses behind the
+ * header's "Menu" button; opening it slides in the drawer plus overlay.
+ *
+ * The drawer's open/close toggle is handled by the legacy main_navigation
+ * script, which binds on DOMContentLoaded and isn't wired into Storybook, so
+ * the play function applies the drawer's open state directly (the same approach
+ * the Internal Navigation MobileToggle story uses) for a deterministic
+ * snapshot.
+ */
+export const MobileOpenWithHeader = {
+  render: (args) => renderHeader({ ...headerArgs, ...args }),
+  parameters: { layout: "fullscreen" },
+  globals: {
+    viewport: { value: "small", isRotated: false },
+  },
+  play: async ({ canvasElement }) => {
+    const nav = canvasElement.querySelector("#main-nav");
+    const openBtn = canvasElement.querySelector(
+      '.qld__main-nav__toggle--open[aria-controls="main-nav"]',
+    );
+    const closeBtn = canvasElement.querySelector(
+      ".qld__main-nav__toggle--close",
+    );
+
+    await expect(nav).not.toHaveClass("qld__main-nav__content--open");
+
+    // Open the drawer. The "Menu" button's click handler lives in the legacy
+    // main_navigation IIFE (bound on DOMContentLoaded) and isn't loaded here,
+    // so set the open state and matching ARIA directly.
+    nav.classList.add("qld__main-nav__content--open");
+    openBtn?.setAttribute("aria-expanded", "true");
+    closeBtn?.setAttribute("aria-expanded", "true");
+
+    await expect(nav).toHaveClass("qld__main-nav__content--open");
   },
 };

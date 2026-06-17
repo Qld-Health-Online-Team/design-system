@@ -1,7 +1,7 @@
-import Template from "../../components/in_page_navigation/html/component.hbs";
-import { dummyText, storyParams } from "../../../.storybook/globals";
-import { initComponents } from "../../../.storybook/decorators";
-import initInPageNavigation from "../../components/in_page_navigation/js/global";
+import Template from "../../../components/in_page_navigation/html/component.hbs";
+import { dummyText, storyParams } from "../../../../.storybook/globals";
+import { initComponents } from "../../../../.storybook/decorators";
+import initInPageNavigation from "../../../components/in_page_navigation/js/global";
 
 const renderInPageNavigation = ({ heading, headingType, ...args }) =>
   Template({
@@ -17,7 +17,7 @@ const renderInPageNavigation = ({ heading, headingType, ...args }) =>
   });
 
 export default {
-  title: "3. Components/In-page Navigation",
+  title: "3. Components/Navigation/In-page Navigation",
   render: renderInPageNavigation,
   argTypes: {
     heading: {

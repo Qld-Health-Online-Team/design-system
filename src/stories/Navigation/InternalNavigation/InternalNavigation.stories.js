@@ -1,9 +1,9 @@
-import Template from "../../components/internal_navigation/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import Template from "../../../components/internal_navigation/html/component.hbs";
+import { storyParams } from "../../../../.storybook/globals";
 import { expect, userEvent } from "storybook/test";
-import { initComponents } from "../../../.storybook/decorators";
-import initInternalNavigation from "../../components/internal_navigation/js/global";
-import { initAccordion } from "../../components/accordion/js/global";
+import { initComponents } from "../../../../.storybook/decorators";
+import initInternalNavigation from "../../../components/internal_navigation/js/global";
+import { initAccordion } from "../../../components/accordion/js/global";
 import isChromatic from "chromatic/isChromatic";
 
 // Mock Matrix page tree for the section. The template supports up to three
@@ -74,7 +74,7 @@ function render({ sectionName, currentPageId, ...args }) {
 }
 
 export default {
-  title: "3. Components/Internal Navigation",
+  title: "3. Components/Navigation/Side navigation",
   render,
   // The mobile "In {section}" toggle is a `.qld__accordion` wired by
   // initAccordion, so both inits run (as they do via the component loader).

@@ -121,6 +121,9 @@ export const componentLinks = {
     ds: `${dsBase}/components/side-navigation`,
     figma: `${figmaBase}?node-id=120418-56310&t=QVD97pKrIpIBHqDI-0`,
   },
+  leftHandNavigation: {
+    ds: `${dsBase}/components/navigation-vertical`,
+  },
   linkColumns: {
     ds: `${dsBase}/components/link-columns-link-list`,
     figma: `${figmaBase}?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0`,
