@@ -99,16 +99,8 @@
                 ">
 
             {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}
-            {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_icon --}}
             <div class="qld__card__icon">
-              {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_icon --}}
-              {{#if metadata.card_icon.value}}
-              <span class="material-symbols-rounded" aria-hidden="true">
-                {{ metadata.card_icon.value }}
-              </span>
-              {{else}}
-              <i class="{{ metadata.cardIcon.value }}"></i>
-              {{/if}}
+              {{{iconSwitch metadata.cardIcon.value}}}
             </div>
             {{/ifCond}}
             {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}

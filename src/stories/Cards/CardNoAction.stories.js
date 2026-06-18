@@ -12,8 +12,7 @@ function makeChild(
   id,
   name,
   description = "",
-  icon = "",
-  iconFa = "fal fa-heart",
+  icon = "upload",
   footerContent = "",
 ) {
   return {
@@ -23,8 +22,7 @@ function makeChild(
     thumbnail: "https://placehold.co/782x440",
     metadata: {
       shortDescription: { value: description },
-      card_icon: { value: icon },
-      cardIcon: { value: iconFa },
+      cardIcon: { value: icon },
       cardDisplayFooter: { value: footerContent ? "true" : "false" },
       cardFooterContent: { value: footerContent },
     },
@@ -36,21 +34,18 @@ const sampleChildren = [
     1,
     "Card one",
     "Brief description of this card and what it links to.",
-    "upload",
   ),
   makeChild(
     2,
     "Card two",
     "Brief description of this card and what it links to.",
     "bolt",
-    "fal fa-stethoscope",
   ),
   makeChild(
     3,
     "Card three",
     "Brief description of this card and what it links to.",
     "download",
-    "fal fa-download",
   ),
 ];
 const sampleChildrenFa = [
@@ -58,20 +53,18 @@ const sampleChildrenFa = [
     1,
     "Card one",
     "Brief description of this card and what it links to.",
-    "",
+    "fal fa-heart",
   ),
   makeChild(
     2,
     "Card two",
     "Brief description of this card and what it links to.",
-    "",
     "fal fa-stethoscope",
   ),
   makeChild(
     3,
     "Card three",
     "Brief description of this card and what it links to.",
-    "",
     "fal fa-hospital",
   ),
 ];
@@ -81,13 +74,11 @@ const sampleChildrenFour = [
     "Card one",
     "Brief description of this card and what it links to.",
     "",
-    "",
   ),
   makeChild(
     2,
     "Card two",
     "Brief description of this card and what it links to.",
-    "",
     "",
   ),
   makeChild(
@@ -95,13 +86,11 @@ const sampleChildrenFour = [
     "Card three",
     "Brief description of this card and what it links to.",
     "",
-    "",
   ),
   makeChild(
     4,
     "Card four",
     "Brief description of this card and what it links to.",
-    "",
     "",
   ),
 ];
@@ -309,7 +298,6 @@ export const WithFooter = {
         "Card one",
         "Brief description.",
         "",
-        "",
         "<p>Footer content</p>",
       ),
       makeChild(
@@ -317,14 +305,12 @@ export const WithFooter = {
         "Card two",
         "Brief description.",
         "",
-        "",
         "<p>Footer content</p>",
       ),
       makeChild(
         3,
         "Card three",
         "Brief description.",
-        "",
         "",
         "<p>Footer content</p>",
       ),
