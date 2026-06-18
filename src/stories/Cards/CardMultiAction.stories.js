@@ -13,8 +13,7 @@ function makeChild(
   id,
   name,
   description = "",
-  icon = "",
-  iconFa = "fal fa-heart",
+  icon = "eda",
   ctas = [],
 ) {
   return {
@@ -24,49 +23,44 @@ function makeChild(
     thumbnail: "https://placehold.co/782x440",
     metadata: {
       shortDescription: { value: description },
-      card_icon: { value: icon },
-      cardIcon: { value: iconFa },
+      cardIcon: { value: icon },
       redirect_url: { value: "#" },
       cardDisplayFooter: { value: ctas.length ? "true" : "false" },
       cardCta1Url: { value: ctas[0]?.url ?? "" },
       cardCta1Text: { value: ctas[0]?.text ?? "" },
-      cardCta1Icon: { value: ctas[0]?.iconFa ?? "" },
-      card_cta_1_icon: { value: ctas[0]?.icon ?? "" },
+      cardCta1Icon: { value: ctas[0]?.icon ?? "" },
       cardCta2Url: { value: ctas[1]?.url ?? "" },
       cardCta2Text: { value: ctas[1]?.text ?? "" },
-      cardCta2Icon: { value: ctas[1]?.iconFa ?? "" },
-      card_cta_2_icon: { value: ctas[1]?.icon ?? "" },
+      cardCta2Icon: { value: ctas[1]?.icon ?? "" },
       cardCta3Url: { value: ctas[2]?.url ?? "" },
       cardCta3Text: { value: ctas[2]?.text ?? "" },
-      cardCta3Icon: { value: ctas[2]?.iconFa ?? "" },
-      card_cta_3_icon: { value: ctas[2]?.icon ?? "" },
+      cardCta3Icon: { value: ctas[2]?.icon ?? "" },
     },
   };
 }
 
 const twoCtas = [
-  { url: "1", text: "Call us", icon: "phone_enabled", iconFa: "fal fa-phone" },
-  { url: "2", text: "Email us", icon: "mail", iconFa: "fal fa-envelope" },
+  { url: "1", text: "Call us", icon: "phone_enabled" },
+  { url: "2", text: "Email us", icon: "mail" },
 ];
 const twoCtasFa = [
-  { url: "1", text: "Call us", iconFa: "fal fa-phone" },
-  { url: "2", text: "Email us", iconFa: "fal fa-envelope" },
+  { url: "1", text: "Call us", icon: "fal fa-phone" },
+  { url: "2", text: "Email us", icon: "fal fa-envelope" },
 ];
 
 const threeCtas = [
-  { url: "1", text: "Call us", icon: "phone_enabled", iconFa: "fal fa-phone" },
-  { url: "2", text: "Email us", icon: "mail", iconFa: "fal fa-envelope" },
+  { url: "1", text: "Call us", icon: "phone_enabled" },
+  { url: "2", text: "Email us", icon: "mail" },
   {
     url: "3",
     text: "Book online",
     icon: "calendar_today",
-    iconFa: "fal fa-calendar",
   },
 ];
 const threeCtasFa = [
-  { url: "1", text: "Call us", iconFa: "fal fa-phone" },
-  { url: "2", text: "Email us", iconFa: "fal fa-envelope" },
-  { url: "3", text: "Book online", iconFa: "fal fa-calendar" },
+  { url: "1", text: "Call us", icon: "fal fa-phone" },
+  { url: "2", text: "Email us", icon: "fal fa-envelope" },
+  { url: "3", text: "Book online", icon: "fal fa-calendar" },
 ];
 
 const sampleChildren = [
@@ -75,7 +69,6 @@ const sampleChildren = [
     "Card one",
     "Brief description of this card and what it links to.",
     "monitoring",
-    "fal fa-heart",
     twoCtas,
   ),
   makeChild(
@@ -83,7 +76,6 @@ const sampleChildren = [
     "Card two",
     "Brief description of this card and what it links to.",
     "pediatrics",
-    "fal fa-stethoscope",
     twoCtas,
   ),
   makeChild(
@@ -91,7 +83,6 @@ const sampleChildren = [
     "Card three",
     "Brief description of this card and what it links to.",
     "eda",
-    "fal fa-hospital",
     twoCtas,
   ),
 ];
@@ -100,7 +91,6 @@ const sampleChildrenFa = [
     1,
     "Card one",
     "Brief description of this card and what it links to.",
-    "",
     "fal fa-heart",
     twoCtasFa,
   ),
@@ -108,7 +98,6 @@ const sampleChildrenFa = [
     2,
     "Card two",
     "Brief description of this card and what it links to.",
-    "",
     "fal fa-stethoscope",
     twoCtasFa,
   ),
@@ -116,7 +105,6 @@ const sampleChildrenFa = [
     3,
     "Card three",
     "Brief description of this card and what it links to.",
-    "",
     "fal fa-hospital",
     twoCtasFa,
   ),
@@ -136,8 +124,7 @@ function buildData(args) {
           card_type: { value: args.cardType },
           background: { value: args.cardBackground },
           card_heading_level: { value: "h3" },
-          card_icon: { value: args.cardIcon },
-          cardIcon: { value: args.cardIconFa },
+          cardIcon: { value: args.cardIcon },
           icon_align: { value: args.iconAlign },
           show_arrow: { value: args.showArrow ? "true" : "false" },
           intro_heading: { value: args.introHeading },
@@ -328,7 +315,6 @@ export const ThreeFooterLinks = {
         "Card one",
         "Brief description.",
         "monitoring",
-        "fal fa-heart",
         threeCtas,
       ),
       makeChild(
@@ -336,7 +322,6 @@ export const ThreeFooterLinks = {
         "Card two",
         "Brief description.",
         "pediatrics",
-        "fal fa-stethoscope",
         threeCtas,
       ),
       makeChild(
@@ -344,7 +329,6 @@ export const ThreeFooterLinks = {
         "Card three",
         "Brief description.",
         "eda",
-        "fal fa-hospital",
         threeCtas,
       ),
     ],
@@ -358,7 +342,6 @@ export const ThreeFooterLinksFa = {
         1,
         "Card one",
         "Brief description.",
-        "",
         "fal fa-heart",
         threeCtasFa,
       ),
@@ -366,7 +349,6 @@ export const ThreeFooterLinksFa = {
         2,
         "Card two",
         "Brief description.",
-        "",
         "fal fa-stethoscope",
         threeCtasFa,
       ),
@@ -374,7 +356,6 @@ export const ThreeFooterLinksFa = {
         3,
         "Card three",
         "Brief description.",
-        "",
         "fal fa-hospital",
         threeCtasFa,
       ),

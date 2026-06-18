@@ -25,8 +25,7 @@ function buildData(args) {
           all_link: { value: "" },
           all_link_name: { value: "" },
           show_icon_image: { value: args.cardType },
-          card_icon: { value: args.cardIconFa },
-          card_icon_new: { value: args.cardIcon },
+          card_icon: { value: args.cardIcon },
           card_image_right: { value: args.imageAlignment },
           show_arrow: { value: args.showArrow ? "true" : "false" },
           background: { value: args.cardBackground },
@@ -36,16 +35,13 @@ function buildData(args) {
           show_card_footer: { value: args.showFooter ? "true" : "false" },
           card_cta1_url: { value: args.showFooter ? "1" : "" },
           card_cta1_text: { value: args.showFooter ? "Call us" : "" },
-          card_cta1_icon: { value: args.cardCta1IconFa },
-          card_cta_1_icon: { value: args.cardCta1Icon },
+          card_cta1_icon: { value: args.cardCta1Icon },
           card_cta2_url: { value: args.showFooter ? "2" : "" },
           card_cta2_text: { value: args.showFooter ? "Email us" : "" },
-          card_cta2_icon: { value: args.cardCta2IconFa },
-          card_cta_2_icon: { value: args.cardCta2Icon },
+          card_cta2_icon: { value: args.cardCta2Icon },
           card_cta3_url: { value: args.showFooter ? "3" : "" },
           card_cta3_text: { value: args.showFooter ? "Book online" : "" },
-          card_cta3_icon: { value: args.cardCta3IconFa },
-          card_cta_3_icon: { value: args.cardCta3Icon },
+          card_cta3_icon: { value: args.cardCta3Icon },
         },
       },
       image_alt: args.cardType === "image" ? "Card image" : "",
@@ -92,11 +88,6 @@ const meta = {
       description: "Icon class (when card type is icon).",
       control: { type: "text" },
     },
-    cardIconFa: {
-      description:
-        "Font Awesome icon class (when card type is icon). DISCONTINUED.",
-      control: { type: "text" },
-    },
     imageAlignment: {
       description: "Aligns the feature image left or right of the content.",
       control: { type: "radio" },
@@ -114,27 +105,12 @@ const meta = {
       description: "CTA 1 icon name (when showing footer).",
       control: { type: "text" },
     },
-    cardCta1IconFa: {
-      description:
-        "Font Awesome CTA 1 icon name (when showing footer). DISCONTINUED.",
-      control: { type: "text" },
-    },
     cardCta2Icon: {
       description: "CTA 2 icon name (when showing footer).",
       control: { type: "text" },
     },
-    cardCta2IconFa: {
-      description:
-        "Font Awesome CTA 2 icon name (when showing footer). DISCONTINUED.",
-      control: { type: "text" },
-    },
     cardCta3Icon: {
       description: "CTA 3 icon name (when showing footer).",
-      control: { type: "text" },
-    },
-    cardCta3IconFa: {
-      description:
-        "Font Awesome CTA 3 icon name (when showing footer). DISCONTINUED.",
       control: { type: "text" },
     },
     cardBackground: {
@@ -192,17 +168,13 @@ const meta = {
     bodyText:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     cardType: "none",
-    cardIcon: "",
-    cardIconFa: "fal fa-heart",
+    cardIcon: "eda",
     imageAlignment: "",
     showArrow: true,
     showFooter: false,
-    cardCta1Icon: "",
-    cardCta2Icon: "",
-    cardCta3Icon: "",
-    cardCta1IconFa: "fal fa-phone",
-    cardCta2IconFa: "fal fa-envelope",
-    cardCta3IconFa: "fal fa-calendar",
+    cardCta1Icon: "phone_enabled",
+    cardCta2Icon: "mail",
+    cardCta3Icon: "calendar_today",
     cardBackground: "",
     bodyBackground: "",
     introHeading: "",
@@ -216,11 +188,11 @@ export default meta;
 export const Default = {};
 
 export const StackedIcon = {
-  args: { cardType: "icon", cardIcon: "eda", showArrow: false },
+  args: { cardType: "icon", showArrow: false },
 };
 
 export const StackedIconFa = {
-  args: { cardType: "icon", cardIconFa: "fal fa-heart", showArrow: false },
+  args: { cardType: "icon", cardIcon: "fal fa-heart", showArrow: false },
 };
 
 export const WithImage = {
@@ -238,14 +210,16 @@ export const FeatureImageRight = {
 export const WithFooter = {
   args: {
     showFooter: true,
-    cardCta1Icon: "phone_enabled",
-    cardCta2Icon: "mail",
-    cardCta3Icon: "calendar_today",
   },
 };
 
 export const WithFooterFa = {
-  args: { showFooter: true },
+  args: {
+    showFooter: true,
+    cardCta1Icon: "fal fa-phone",
+    cardCta2Icon: "fal fa-envelope",
+    cardCta3Icon: "fal fa-calendar",
+  },
 };
 
 export const AlternateBackground = {

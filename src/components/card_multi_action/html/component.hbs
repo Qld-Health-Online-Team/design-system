@@ -91,14 +91,7 @@
 
               {{#ifCond ../component.data.metadata.card_type.value '==' 'icon'}}
               <div class="qld__card__icon">
-                {{!-- TODO: Remove the icon metadata once all instances have been updated to use card_icon --}}
-                {{#if metadata.card_icon.value}}
-                <span class="material-symbols-rounded" aria-hidden="true">
-                  {{ metadata.card_icon.value }}
-                </span>
-                {{else}}
-                <i class="{{ metadata.cardIcon.value }}"></i>
-                {{/if}}
+                {{{iconSwitch metadata.cardIcon.value}}}
               </div>
               {{/ifCond}}
               {{#ifCond ../component.data.metadata.card_type.value '==' 'image'}}
@@ -214,14 +207,8 @@
                         <a class="qld__card__footer-link"
                           aria-label="%globals_asset_name:{{ metadata.cardCta1Url.value }}%{{#if metadata.cardCta1Text.value}}, {{ metadata.cardCta1Text.value }}{{/if}}"
                           href="./?a={{ metadata.cardCta1Url.value }}">
-                          {{!-- TODO: Remove the icon metadata once all instances have been updated to use
-                          card_cta_1_icon --}}
-                          {{#if metadata.card_cta_1_icon.value}}
-                          <span class="qld__card__footer-link-icon material-symbols-rounded" aria-hidden="true">
-                            {{ metadata.card_cta_1_icon.value }}
-                          </span>
-                          {{else}}
-                          <i class="qld__card__footer-link-icon {{ metadata.cardCta1Icon.value }}"></i>
+                          {{#if metadata.cardCta1Icon.value}}
+                          {{{iconSwitch metadata.cardCta1Icon.value "qld__card__footer-link-icon" }}}
                           {{/if}}
                           <span>{{ metadata.cardCta1Text.value }}</span>
                         </a>
@@ -232,14 +219,8 @@
                         <a class="qld__card__footer-link"
                           aria-label="%globals_asset_name:{{ metadata.cardCta2Url.value }}%{{#if metadata.cardCta2Text.value}}, {{ metadata.cardCta2Text.value }}{{/if}}"
                           href="./?a={{ metadata.cardCta2Url.value }}">
-                          {{!-- TODO: Remove the icon metadata once all instances have been updated to use
-                          card_cta_2_icon --}}
-                          {{#if metadata.card_cta_2_icon.value}}
-                          <span class="qld__card__footer-link-icon material-symbols-rounded" aria-hidden="true">
-                            {{ metadata.card_cta_2_icon.value }}
-                          </span>
-                          {{else}}
-                          <i class="qld__card__footer-link-icon {{ metadata.cardCta2Icon.value }}"></i>
+                          {{#if metadata.cardCta2Icon.value}}
+                          {{{iconSwitch metadata.cardCta2Icon.value "qld__card__footer-link-icon" }}}
                           {{/if}}
                           <span>{{ metadata.cardCta2Text.value }}</span>
                         </a>
@@ -250,14 +231,8 @@
                         <a class="qld__card__footer-link"
                           aria-label="%globals_asset_name:{{ metadata.cardCta3Url.value }}%{{#if metadata.cardCta3Text.value}}, {{ metadata.cardCta3Text.value }}{{/if}}"
                           href="./?a={{ metadata.cardCta3Url.value }}">
-                          {{!-- TODO: Remove the icon metadata once all instances have been updated to use
-                          card_cta_3_icon --}}
-                          {{#if metadata.card_cta_3_icon.value}}
-                          <span class="qld__card__footer-link-icon material-symbols-rounded" aria-hidden="true">
-                            {{ metadata.card_cta_3_icon.value }}
-                          </span>
-                          {{else}}
-                          <i class="qld__card__footer-link-icon {{ metadata.cardCta3Icon.value }}"></i>
+                          {{#if metadata.cardCta3Icon.value}}
+                          {{{iconSwitch metadata.cardCta3Icon.value "qld__card__footer-link-icon" }}}
                           {{/if}}
                           <span>{{ metadata.cardCta3Text.value }}</span>
                         </a>
