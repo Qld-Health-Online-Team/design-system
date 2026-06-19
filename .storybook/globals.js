@@ -176,8 +176,9 @@ export const componentLinks = {
  * and Figma (when available). Both are looked up automatically from the component key.
  *
  * @param {keyof typeof componentLinks} componentKey
+ * @param {string} [extraDescription] Additional description to include in the story.
  */
-export function storyParams(componentKey) {
+export function storyParams(componentKey, extraDescription) {
   const { ds, figma } = componentLinks[componentKey] ?? {};
   const links = ds ? [`[QLD Design System ↗](${ds})`] : [];
   if (figma) links.push(`[Figma UI Kit ↗](${figma})`);
@@ -186,7 +187,7 @@ export function storyParams(componentKey) {
       toc: true,
       codePanel: true,
       description: {
-        component: `**Resources:** ${links.join(" · ")}`,
+        component: `**Resources:** ${links.join(" · ")}${extraDescription ? `\n\n${extraDescription}` : ""}`,
       },
     },
     ...(figma && { design: { type: "figma", url: figma } }),
