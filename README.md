@@ -1,4 +1,4 @@
-# Queensland Government Design System - Vanilla JS
+# Queensland Government Design System - Vanilla
 
 This is the 'Vanilla' version of the Queensland Government Design System, built and maintained by Queensland Health's Digital Experience Team.
 
@@ -26,26 +26,15 @@ For more information on the Queensland Government Design System and other codeba
 
 ## Development Getting started
 
-### Quick build
-
-If you hava java and maven installed. This will pull in a local node/npm version and run through the full lifecycle build.
-
-```bash
-git https://github.com/Qld-Health-Online-Team/design-system.git
-cd design-system
-mvn install
-```
-
 ### Requirements
 - Node: v20.19.1
 - NPM: 10.8.2
-
-### Standard build
 
 Download repo
 
 ```bash
 git clone https://github.com/Qld-Health-Online-Team/design-system.git
+cd design-system
 ```
 
 Install dependencies
@@ -54,7 +43,7 @@ Install dependencies
 npm install
 ```
 
-Build the Design System CSS, Components and templates
+Build the Design System CSS, JS, Components and templates
 
 ```bash
 npm run build
@@ -66,7 +55,7 @@ Static view, start a local server from /dist folder
 npm run serve
 ```
 
-Build Storybook for component development
+Build Storybook for Component development
         
 ```bash
 npm run build-storybook
@@ -79,7 +68,7 @@ Lint
 npm run lint
 ```
 
-Unit tests may be created and run via `vitest`.
+Unit tests
 
 ```bash
 npm run test

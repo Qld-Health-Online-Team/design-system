@@ -1,4 +1,4 @@
-# Thank You
+# Thank you
 
 Thank you for contributing to the Queensland Government Design System (Vanilla). Your work helps improve consistency, accessibility, and user experience across government digital services.
 
