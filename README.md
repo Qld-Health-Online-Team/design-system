@@ -30,8 +30,6 @@ For more information on the Queensland Government Design System and other codeba
 - Node: v20.19.1
 - NPM: 10.8.2
 
-### Standard build
-
 Download repo
 
 ```bash
