@@ -22,7 +22,7 @@ function render(args) {
 
 
 const meta = {
- title: "3. Components/Pre Footer",
+ title: "3. Components/Prefooter",
  render,
  decorators: [
   (Story, context) => {
@@ -58,6 +58,7 @@ const meta = {
    },
    options: ["yes", "no"],
   },
+  // Currently baked into the component but makes no actual difference
   pageType: {
    description:
     "The type of page this component will be displayed on.",
@@ -89,24 +90,13 @@ const meta = {
   updated: new Date(2025, 5, 16).getTime(),
   showBackToTop: true,
  },
- parameters: storyParams("pre-footer"),
+ // Currently only documented under the "Back to top" pattern in DS and Figma.
+ parameters: storyParams("backToTop")
 };
 
 export default meta;
 
 export const Default = {};
-
-export const LandingPage = {
- args: { pageType: "landing" },
-};
-
-export const NewsDetailPage = {
- args: { pageType: "news_detail" },
-};
-
-export const SiteSearchPage = {
- args: { pageType: "site_search" },
-};
 
 export const WithoutBackToTop = {
  args: { showBackToTop: false },
