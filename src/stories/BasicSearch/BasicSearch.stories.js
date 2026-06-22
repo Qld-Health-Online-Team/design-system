@@ -78,7 +78,7 @@ function render(args) {
 }
 
 export default {
-  title: "3. Components/Basic Search",
+  title: "4. Templates/Basic Search",
   render,
   argTypes: {
     query: {
