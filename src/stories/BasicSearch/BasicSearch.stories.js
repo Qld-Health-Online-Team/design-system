@@ -1,6 +1,8 @@
 import Template from "../../components/basic_search/html/component.hbs";
 import { iconSpritePath } from "../../../.storybook/globals";
 import manifest from "../../components/basic_search/js/manifest.json";
+import initBasicSearch from "../../components/basic_search/js/global.js";
+import { initComponents } from "../../../.storybook/decorators";
 
 // Realistic search payload (results, summary, spell suggestion, pagination)
 // shipped with the component manifest — reused so the stories stay in sync with
@@ -80,6 +82,7 @@ function render(args) {
 export default {
   title: "4. Templates/Basic Search",
   render,
+  decorators: [initComponents([initBasicSearch])],
   argTypes: {
     query: {
       control: "text",

@@ -3,6 +3,7 @@ import "./components/_global/js/global.js";
 
 // Standard components
 import { initAccordion } from "./components/accordion/js/global.js";
+import initBasicSearch from "./components/basic_search/js/global.js";
 import initBreadcrumb from "./components/breadcrumbs/js/global.js";
 import initHeader from "./components/header/js/global.js";
 import initInPageNavigation from "./components/in_page_navigation/js/global.js";
@@ -25,6 +26,7 @@ export default function initComponents() {
   initGlobalAlert();
   document.addEventListener("DOMContentLoaded", () => {
     initAccordion(document);
+    initBasicSearch(document);
     initBreadcrumb();
     initCtaLinks(document);
     initHeader(document);
