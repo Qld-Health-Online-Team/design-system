@@ -1,6 +1,8 @@
 import Template from "../../components/card_feature/html/component.hbs";
 import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaIMage from "./Toowoomba-web.jpeg";
+import { initComponents } from "../../../.storybook/decorators";
+import initCards from "../../components/card_no_action/js/global";
 
 const mockSite = {
   metadata: { coreSiteIcons: { value: iconSpritePath } },
@@ -33,13 +35,13 @@ function buildData(args) {
           show_card_footer: { value: args.showFooter ? "true" : "false" },
           card_cta1_url: { value: args.showFooter ? "1" : "" },
           card_cta1_text: { value: args.showFooter ? "Call us" : "" },
-          card_cta1_icon: { value: "fal fa-phone" },
+          card_cta1_icon: { value: args.cardCta1Icon },
           card_cta2_url: { value: args.showFooter ? "2" : "" },
           card_cta2_text: { value: args.showFooter ? "Email us" : "" },
-          card_cta2_icon: { value: "fal fa-envelope" },
-          card_cta3_url: { value: "" },
-          card_cta3_text: { value: "" },
-          card_cta3_icon: { value: "" },
+          card_cta2_icon: { value: args.cardCta2Icon },
+          card_cta3_url: { value: args.showFooter ? "3" : "" },
+          card_cta3_text: { value: args.showFooter ? "Book online" : "" },
+          card_cta3_icon: { value: args.cardCta3Icon },
         },
       },
       image_alt: args.cardType === "image" ? "Card image" : "",
@@ -66,6 +68,7 @@ function render(args) {
 const meta = {
   title: "3. Components/Cards/Card Feature",
   render,
+  decorators: [initComponents([initCards])],
   argTypes: {
     cardTitle: { description: "Card heading text.", control: { type: "text" } },
     cardTitleUrl: {
@@ -97,6 +100,18 @@ const meta = {
     showFooter: {
       description: "Show footer with CTA links.",
       control: { type: "boolean" },
+    },
+    cardCta1Icon: {
+      description: "CTA 1 icon name (when showing footer).",
+      control: { type: "text" },
+    },
+    cardCta2Icon: {
+      description: "CTA 2 icon name (when showing footer).",
+      control: { type: "text" },
+    },
+    cardCta3Icon: {
+      description: "CTA 3 icon name (when showing footer).",
+      control: { type: "text" },
     },
     cardBackground: {
       description: "Card background colour.",
@@ -153,10 +168,13 @@ const meta = {
     bodyText:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     cardType: "none",
-    cardIcon: "fal fa-heart",
+    cardIcon: "eda",
     imageAlignment: "",
     showArrow: true,
     showFooter: false,
+    cardCta1Icon: "phone_enabled",
+    cardCta2Icon: "mail",
+    cardCta3Icon: "calendar_today",
     cardBackground: "",
     bodyBackground: "",
     introHeading: "",
@@ -170,6 +188,10 @@ export default meta;
 export const Default = {};
 
 export const StackedIcon = {
+  args: { cardType: "icon", showArrow: false },
+};
+
+export const StackedIconFa = {
   args: { cardType: "icon", cardIcon: "fal fa-heart", showArrow: false },
 };
 
@@ -186,7 +208,18 @@ export const FeatureImageRight = {
 };
 
 export const WithFooter = {
-  args: { showFooter: true },
+  args: {
+    showFooter: true,
+  },
+};
+
+export const WithFooterFa = {
+  args: {
+    showFooter: true,
+    cardCta1Icon: "fal fa-phone",
+    cardCta2Icon: "fal fa-envelope",
+    cardCta3Icon: "fal fa-calendar",
+  },
 };
 
 export const AlternateBackground = {

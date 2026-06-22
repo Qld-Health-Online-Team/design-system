@@ -3,6 +3,7 @@ import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCards from "../../components/card_no_action/js/global";
 
 const mockSite = {
   metadata: { coreSiteIcons: { value: iconSpritePath } },
@@ -12,7 +13,7 @@ function makeChild(
   id,
   name,
   description = "",
-  icon = "fal fa-heart",
+  icon = "eda",
   url = "#",
   footerContent = "",
 ) {
@@ -36,6 +37,26 @@ const sampleChildren = [
     1,
     "Card one",
     "Brief description of this card and what it links to.",
+  ),
+  makeChild(
+    2,
+    "Card two",
+    "Brief description of this card and what it links to.",
+    "bolt",
+  ),
+  makeChild(
+    3,
+    "Card three",
+    "Brief description of this card and what it links to.",
+    "upload",
+  ),
+];
+const sampleChildrenFa = [
+  makeChild(
+    1,
+    "Card one",
+    "Brief description of this card and what it links to.",
+    "fal fa-heart",
   ),
   makeChild(
     2,
@@ -104,7 +125,7 @@ function render(args) {
 const meta = {
   title: "3. Components/Cards/Card Single Action",
   render,
-  decorators: [initComponents([initCtaLinks])],
+  decorators: [initComponents([initCtaLinks, initCards])],
   argTypes: {
     cardType: {
       description: "Display style for each card.",
@@ -211,9 +232,15 @@ export const Default = {};
 export const StackedIcon = {
   args: { cardType: "icon", iconAlign: "" },
 };
+export const StackedIconFa = {
+  args: { cardType: "icon", iconAlign: "", children: sampleChildrenFa },
+};
 
 export const LeadingIcon = {
   args: { cardType: "icon", iconAlign: "left" },
+};
+export const LeadingIconFa = {
+  args: { cardType: "icon", iconAlign: "left", children: sampleChildrenFa },
 };
 
 export const WithImages = {
@@ -250,7 +277,7 @@ export const WithFooter = {
         1,
         "Card one",
         "Brief description.",
-        "fal fa-heart",
+        "",
         "#",
         "<p>Footer content</p>",
       ),
@@ -258,7 +285,7 @@ export const WithFooter = {
         2,
         "Card two",
         "Brief description.",
-        "fal fa-stethoscope",
+        "",
         "#",
         "<p>Footer content</p>",
       ),
@@ -266,7 +293,7 @@ export const WithFooter = {
         3,
         "Card three",
         "Brief description.",
-        "fal fa-hospital",
+        "",
         "#",
         "<p>Footer content</p>",
       ),

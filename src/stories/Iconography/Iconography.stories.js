@@ -3,6 +3,12 @@ import { Iconography } from "./Iconography";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 import iconsSvg from "../../assets/img/QLD-icons.svg?raw";
 
+const componentIntroduction = `Iconography is in the process of being transitioned from using Font Awesome icons, to using Material Symbols.
+Currently, the following URL is being utilised to define the specifications of these new icons: https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0.
+This can be done manually replicated by adding a link tag within &lt;head&gt;,
+<strong>&lt;link id="material-stylesheet" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0" &gt;</strong> and 
+then adding the component to your template via <strong>&lt;span class="material-symbols-rounded" aria-hidden="true"&gt;ICON_NAME&lt;/span&gt;</strong>`;
+
 // The sprite is inlined at build time (?raw); we parse it with DOMParser to list
 // every <symbol> id for the allIcons gallery. Lives here as it's the only consumer.
 // Parsing (rather than regex) means symbols inside comments — e.g. the "XXX"
@@ -43,7 +49,7 @@ export default {
     },
   },
   args: iconographyArgs,
-  parameters: storyParams("iconography"),
+  parameters: storyParams("iconography", componentIntroduction),
 };
 
 export const Default = {};

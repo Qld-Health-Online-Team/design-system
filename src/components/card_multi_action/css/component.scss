@@ -12,15 +12,20 @@
   //Card Icon
   &.qld__card--icon {
     .qld__card__icon {
+
       i,
-      svg {
+      svg,
+      span {
         color: var(--QLD-color-light__action--secondary);
       }
     }
+
     &:hover {
       .qld__card__icon {
+
         i,
-        svg {
+        svg,
+        span {
           color: var(--QLD-color-light__action--secondary-hover);
         }
       }
@@ -53,7 +58,9 @@
       z-index: 1;
     }
   }
+
   .qld__card__image-link {
+
     &:hover,
     &:focus {
       &::before {
@@ -96,6 +103,7 @@
         }
       }
     }
+
     .qld__tag-list {
       @include QLD-space(margin, -0.5unit 0unit 0unit 0unit);
     }
@@ -122,6 +130,10 @@
 
     span {
       @include QLD-underline("light");
+
+      &.qld__card__footer-link-icon {
+        text-decoration: none;
+      }
     }
 
     &:visited {
@@ -130,6 +142,7 @@
         text-decoration-color: var(--QLD-color-light__underline--visited);
       }
     }
+
     &:hover:visited {
       span {
         color: var(--QLD-color-light__underline--hover-visited);
@@ -137,9 +150,11 @@
         text-decoration-thickness: var(--QLD-underline__thickness-thick);
       }
     }
+
     &:hover {
       color: var(--QLD-color-light__link);
       text-decoration: none;
+
       span {
         text-decoration-thickness: var(--QLD-underline__thickness-thick);
       }
@@ -152,18 +167,24 @@
 
   &.qld__card--dark,
   &.qld__card--dark-alt {
+
     //Card Icon
     &.qld__card--icon {
       .qld__card__icon {
+
         i,
-        svg {
+        svg,
+        span {
           color: var(--QLD-color-dark__action--secondary);
         }
       }
+
       &:hover {
         .qld__card__icon {
+
           i,
-          svg {
+          svg,
+          span {
             color: var(--QLD-color-dark__action--secondary-hover);
           }
         }
@@ -184,6 +205,10 @@
 
       span {
         @include QLD-underline("dark");
+
+        &.qld__card__footer-link-icon {
+          text-decoration: none;
+        }
       }
 
       &:visited {
@@ -196,9 +221,7 @@
       &:hover:visited {
         span {
           color: var(--QLD-color-dark__underline--hover-visited);
-          text-decoration-color: var(
-            --QLD-color-dark__underline--hover-visited
-          );
+          text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
           text-decoration-thickness: var(--QLD-underline__thickness-thick);
         }
       }
@@ -210,63 +233,67 @@
       }
     }
   }
-}
 
-.qld__card.qld__card__multi-action.qld__card__multi-action--feature {
-  @include QLD-media(md) {
-    flex-direction: row;
-    @include QLD-space(min-height, 18.75unit);
-  }
-  @include QLD-media(lg) {
-    @include QLD-space(min-height, 27.5unit);
-  }
-
-  .qld__card__image-link {
+  .qld__card.qld__card__multi-action.qld__card__multi-action--feature {
     @include QLD-media(md) {
-      flex: 1;
-      @include QLD-space(padding-bottom, 0unit);
-      height: auto;
-    }
-    @include QLD-media(lg) {
-      flex: 2;
-    }
-  }
-
-  .qld__card__inner {
-    @include QLD-space(padding, 1.5unit);
-    @include QLD-media(md) {
-      @include QLD-space(padding, 1.25unit);
-      flex: 1;
+      flex-direction: row;
+      @include QLD-space(min-height, 18.75unit);
     }
 
     @include QLD-media(lg) {
-      @include QLD-space(padding, 2unit);
+      @include QLD-space(min-height, 27.5unit);
     }
 
-    .qld__card__title {
-      @include QLD-space(font-size, 1.25unit);
-      line-height: 1.4;
-    }
-  }
+    .qld__card__image-link {
+      @include QLD-media(md) {
+        flex: 1;
+        @include QLD-space(padding-bottom, 0unit);
+        height: auto;
+      }
 
-  .qld__card__footer {
-    justify-content: initial;
-  }
-
-  &.qld__card__multi-action--image-right {
-    @include QLD-media(md) {
-      flex-direction: row-reverse;
-    }
-    @include QLD-media(lg) {
+      @include QLD-media(lg) {
+        flex: 2;
+      }
     }
 
-    .qld__responsive-media-img--bg {
-      border-radius: 0;
-    }
     .qld__card__inner {
+      @include QLD-space(padding, 1.5unit);
+
+      @include QLD-media(md) {
+        @include QLD-space(padding, 1.25unit);
+        flex: 1;
+      }
+
+      @include QLD-media(lg) {
+        @include QLD-space(padding, 2unit);
+      }
+
       .qld__card__title {
         @include QLD-space(font-size, 1.25unit);
         line-height: 1.4;
+      }
+    }
+
+    .qld__card__footer {
+      justify-content: initial;
+    }
+
+    &.qld__card__multi-action--image-right {
+      @include QLD-media(md) {
+        flex-direction: row-reverse;
+      }
+
+      @include QLD-media(lg) {}
+
+      .qld__responsive-media-img--bg {
+        border-radius: 0;
+      }
+
+      .qld__card__inner {
+        .qld__card__title {
+          @include QLD-space(font-size, 1.25unit);
+          line-height: 1.4;
+        }
       }
     }
   }
