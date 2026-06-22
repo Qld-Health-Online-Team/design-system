@@ -132,6 +132,9 @@ export const componentLinks = {
     ds: `${dsBase}/components/loading-spinner`,
     figma: `${figmaBase}?node-id=49314-16705&p=f&t=N6vEZVb73vuDEtRO-0`,
   },
+  multiColumns: {
+    ds: `${dsBase}/styles/layout-foundations`,
+  },
   navbar: {
     ds: `${dsBase}/components/navigation-horizontal`,
     figma: `${figmaBase}?node-id=5990-97586&p=f&t=UZuh698yg2zKvMDG-0`,
