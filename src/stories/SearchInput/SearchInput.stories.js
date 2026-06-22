@@ -45,9 +45,9 @@ function renderSearchInput({ value, placeholder, label, disabled }, context) {
         class="qld__text-input data-hj-allow"
         type="search"
         name="query"
-        aria-expanded="false"
         autocomplete="off"${placeholderAttr}
         value="${esc(value)}"${disabledAttr}
+        aria-label="Search"
       />
       <input
         id="name"
