@@ -6,13 +6,24 @@ import { iconSpritePath, storyParams } from "../../../.storybook/globals";
 // field is kept as-is — it's a honeypot the form uses for spam protection.
 const esc = (value) => String(value).replace(/"/g, "&quot;");
 
-function renderSearchInput({ value, placeholder, label, disabled }) {
+// Map the active background theme to the banner modifier that turns the inner
+// search icon white. The search_box SCSS only whitens the icon when it sits
+// under a dark banner/header (`.qld__banner--dark` / `--dark-alt`), not under a
+// plain dark body — so standalone here we mirror Basic Search's dark banner
+// wrapper for the dark themes. The modifier only paints the dark background
+// (identical to the canvas, so seamless); the rest of the field is unchanged.
+const darkBannerClass = {
+  dark: "qld__banner--dark",
+  "dark alt": "qld__banner--dark-alt",
+};
+
+function renderSearchInput({ value, placeholder, label, disabled }, context) {
   const disabledAttr = disabled ? " disabled" : "";
   const placeholderAttr = placeholder
     ? ` placeholder="${esc(placeholder)}"`
     : "";
 
-  return `
+  const form = `
 <div class="qld__search-form--wrapper">
   <form
     id="search-form-global-basic"
@@ -67,6 +78,9 @@ function renderSearchInput({ value, placeholder, label, disabled }) {
     </div>
   </form>
 </div>`;
+
+  const bannerClass = darkBannerClass[context?.globals?.backgrounds?.value];
+  return bannerClass ? `<div class="${bannerClass}">${form}</div>` : form;
 }
 
 // ── Meta ────────────────────────────────────────────────────────────────────
