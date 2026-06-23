@@ -61,7 +61,7 @@ const noResults = {
 function render(args) {
   const page = args.hasResults ? resultsPage : noResults;
 
-  return Template({
+  return `<main>${Template({
     component: { data: { assetid: "123" } },
     current: {
       data: {
@@ -76,7 +76,7 @@ function render(args) {
     metadata: { abstract: { value: args.abstract } },
     site: mockSite(args.bannerColour),
     resultsPage: { ...page, question: { ...page.question, query: args.query } },
-  });
+  })}</main>`;
 }
 
 export default {
