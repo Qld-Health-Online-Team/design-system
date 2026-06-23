@@ -80,8 +80,18 @@ const preview = {
   },
   decorators: [
     (storyFn, context) => {
-      // Skip wrapper for Navbar story
-      if (context.kind === "Components/Navbar") {
+      // Array to store stories that should not be wrapped in the generic theme wrapper
+      const componentsToSkip = [
+        { component: "Components/Global Navigation/Horizontal" },
+        { component: "Components/Skip Links" },
+        { component: "Components/Link", stories: ["Light", "LightAlt", "Dark", "DarkAlt"] },
+      ];
+
+      if (componentsToSkip.some((entry) => {
+        if (!context.title.includes(entry.component)) return false;
+        if (!entry.stories) return true;
+        return entry.stories.includes(context.name);
+      })) {
         return storyFn();
       }
       const wrapper = document.createElement("div");
