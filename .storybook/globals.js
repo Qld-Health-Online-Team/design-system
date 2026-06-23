@@ -151,6 +151,9 @@ export const componentLinks = {
     ds: `${dsBase}/components/radio-buttons`,
     figma: `${figmaBase}?node-id=11056-321347&p=f&t=kHfUZsyKYuDkprji-0`,
   },
+  searchInput: {
+    figma: `${figmaBase}?node-id=5990-97871&p=f&t=LQ9pTTJMMZTjWz1k-0`,
+  },
   selectBox: {
     ds: `${dsBase}/components/input-fields-select-box`,
     figma: `${figmaBase}?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0`,

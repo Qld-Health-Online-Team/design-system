@@ -49,7 +49,7 @@ const preview = {
           name: "Light",
           value: themeColours["light"],
         },
-        light_alternate: {
+        "light alt": {
           name: "Light Alternate",
           value: themeColours["light alt"],
         },
@@ -57,7 +57,7 @@ const preview = {
           name: "Dark",
           value: themeColours["dark"],
         },
-        dark_alternate: {
+        "dark alt": {
           name: "Dark Alternate",
           value: themeColours["dark alt"],
         },
@@ -84,12 +84,9 @@ const preview = {
       if (context.kind === "Components/Navbar") {
         return storyFn();
       }
-      // Get the theme key from the background, to use within the decorator
-      const themeKey = Object.keys(themeColours).find(
-        (key) => key === context.globals.backgrounds?.value,
-      );
       const wrapper = document.createElement("div");
-      wrapper.className = themes[themeKey] || themes["white"];
+      wrapper.className =
+        themes[context.globals.backgrounds?.value] || themes["white"];
       const story = storyFn();
       if (typeof story === "string") {
         wrapper.innerHTML = story;
