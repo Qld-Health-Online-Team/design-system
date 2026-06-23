@@ -488,19 +488,19 @@ Handlebars.registerHelper('getTitle', function (obj, name) {
   return obj["title_" + index].value;
 }); 
 Handlebars.registerHelper('iconSwitch', function (icon, extraClasses) {
- if (!icon) return '';
+  if (!icon) return "";
 
- // Check if a string is passed. Normally Handlebars gives an option when one isn't.
- if (typeof extraClasses !== 'string') {
-  extraClasses = '';
- }
- extraClasses = extraClasses.trim();
+  // Check if a string is passed. Normally Handlebars gives an option when one isn't.
+  if (typeof extraClasses !== "string") {
+    extraClasses = "";
+  }
+  extraClasses = extraClasses.trim();
 
- if (icon.includes('fa-')) {
-  return `<i class="${icon} ${extraClasses}"></i>`;
- }
+  if (icon.includes("fa-")) {
+    return `<i class="${icon} ${extraClasses}"></i>`;
+  }
 
- return `<span class="material-symbols-rounded ${extraClasses}" aria-hidden="true">${icon}</span>`;
+  return `<span class="material-symbols-rounded ${extraClasses}" aria-hidden="true">${icon}</span>`;
 }); 
 Handlebars.registerHelper('if_eq', function () {
   const args = Array.prototype.slice.call(arguments, 0, -1);

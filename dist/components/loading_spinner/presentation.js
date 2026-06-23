@@ -6,19 +6,19 @@
         return undefined
     };
 
-  return "  <div\r\n    class=\"\r\n      qld__loading_spinner\r\n"
+  return "  <div\n    class=\"\n      qld__loading_spinner\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"background_colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","dark",{"name":"ifCond","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":5,"column":6},"end":{"line":7,"column":17}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"layout") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","landscape",{"name":"ifCond","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":8,"column":6},"end":{"line":10,"column":17}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"layout") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","icon_only",{"name":"ifCond","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":11,"column":6},"end":{"line":13,"column":17}}})) != null ? stack1 : "")
-    + "    \"\r\n    role=\"status\"\r\n  >\r\n    <span class=\"qld__loading_spinner-wheel\"></span>\r\n    <div class=\"qld__loading_spinner-label qld__display-md\">\r\n      "
+    + "    \"\n    role=\"status\"\n  >\n    <span class=\"qld__loading_spinner-wheel\"></span>\n    <div class=\"qld__loading_spinner-label qld__display-md\">\n      "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"label") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n    </div>\r\n  </div>\r\n";
+    + "\n    </div>\n  </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
-    return "        qld__loading_spinner--dark\r\n";
+    return "        qld__loading_spinner--dark\n";
 },"4":function(container,depth0,helpers,partials,data) {
-    return "        qld__loading_spinner--landscape\r\n";
+    return "        qld__loading_spinner--landscape\n";
 },"6":function(container,depth0,helpers,partials,data) {
-    return "        qld__loading_spinner--icon_only\r\n";
+    return "        qld__loading_spinner--icon_only\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
