@@ -6,26 +6,26 @@
         return undefined
     };
 
-  return "  <section\n    id=\""
+  return "  <section\r\n    id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.program(4, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":3,"column":8},"end":{"line":3,"column":100}}})) != null ? stack1 : "")
-    + "\"\n    class=\"\n      qld__body\n"
+    + "\"\r\n    class=\"\r\n      qld__body\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(6, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":6},"end":{"line":8,"column":13}}})) != null ? stack1 : "")
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"display") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","full",{"name":"ifCond","hash":{},"fn":container.program(8, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":9,"column":6},"end":{"line":12,"column":17}}})) != null ? stack1 : "")
-    + "    \"\n  >\n    <div class=\"container-fluid\">\n\n"
+    + "    \"\r\n  >\r\n    <div class=\"container-fluid\">\r\n\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(10, data, 0, blockParams, depths),"inverse":container.program(23, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":17,"column":6},"end":{"line":72,"column":13}}})) != null ? stack1 : "")
-    + "\n      <div\n        id=\"tab-"
+    + "\r\n      <div\r\n        id=\"tab-"
     + alias3(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":75,"column":16},"end":{"line":75,"column":29}}}) : helper)))
-    + "\"\n        class=\"\n          qld__tab-container\n"
+    + "\"\r\n        class=\"\r\n          qld__tab-container\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(36, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":78,"column":10},"end":{"line":80,"column":17}}})) != null ? stack1 : "")
-    + "          qld__tab-container__fixed\n        \"\n      >\n        <button\n          class=\"qld__tab-nav__item-scroll tab-overflow-nav-button-left\"\n          aria-hidden=\"true\"\n          aria-label=\"Scroll tab buttons left\"\n          tabindex=\"-1\"\n        >\n          <svg\n            class=\"qld__icon qld__icon--sm\"\n            aria-hidden=\"true\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <use\n              href=\""
+    + "          qld__tab-container__fixed\r\n        \"\r\n      >\r\n        <button\r\n          class=\"qld__tab-nav__item-scroll tab-overflow-nav-button-left\"\r\n          aria-hidden=\"true\"\r\n          aria-label=\"Scroll tab buttons left\"\r\n          tabindex=\"-1\"\r\n        >\r\n          <svg\r\n            class=\"qld__icon qld__icon--sm\"\r\n            aria-hidden=\"true\"\r\n            xmlns=\"http://www.w3.org/2000/svg\"\r\n          >\r\n            <use\r\n              href=\""
     + alias3(alias4(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#chevron-left\"\n            ></use>\n          </svg>\n        </button>\n        <button\n          class=\"qld__tab-nav__item-scroll tab-overflow-nav-button-right\"\n          aria-hidden=\"true\"\n          aria-label=\"Scroll tab buttons right\"\n          tabindex=\"-1\"\n        >\n          <svg\n            class=\"qld__icon qld__icon--sm\"\n            aria-hidden=\"true\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <use\n              href=\""
+    + "#chevron-left\"\r\n            ></use>\r\n          </svg>\r\n        </button>\r\n        <button\r\n          class=\"qld__tab-nav__item-scroll tab-overflow-nav-button-right\"\r\n          aria-hidden=\"true\"\r\n          aria-label=\"Scroll tab buttons right\"\r\n          tabindex=\"-1\"\r\n        >\r\n          <svg\r\n            class=\"qld__icon qld__icon--sm\"\r\n            aria-hidden=\"true\"\r\n            xmlns=\"http://www.w3.org/2000/svg\"\r\n          >\r\n            <use\r\n              href=\""
     + alias3(alias4(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
-    + "#chevron-right\"\n            ></use>\n          </svg>\n        </button>\n        <div class=\"qld__tabs\" role=\"tablist\">\n"
+    + "#chevron-right\"\r\n            ></use>\r\n          </svg>\r\n        </button>\r\n        <div class=\"qld__tabs\" role=\"tablist\">\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","wysiwyg",{"name":"ifCond","hash":{},"fn":container.program(38, data, 0, blockParams, depths),"inverse":container.program(78, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":117,"column":10},"end":{"line":428,"column":21}}})) != null ? stack1 : "")
-    + "        </div>\n"
+    + "        </div>\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"type") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","wysiwyg",{"name":"ifCond","hash":{},"fn":container.program(92, data, 0, blockParams, depths),"inverse":container.program(122, data, 0, blockParams, depths),"data":data,"loc":{"start":{"line":430,"column":8},"end":{"line":591,"column":19}}})) != null ? stack1 : "")
-    + "      </div>\n    </div>\n  </section>\n";
+    + "      </div>\r\n    </div>\r\n  </section>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -55,9 +55,9 @@
 
   return "        qld__body--"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n";
+    + "\r\n";
 },"8":function(container,depth0,helpers,partials,data) {
-    return "        qld__body--full-width\n        qld__tab-section\n";
+    return "        qld__body--full-width\r\n        qld__tab-section\r\n";
 },"10":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -66,13 +66,13 @@
         return undefined
     };
 
-  return "        <div class=\"row\">\n\n          <div class=\"qld__tab-intro col-xs-12 "
+  return "        <div class=\"row\">\r\n\r\n          <div class=\"qld__tab-intro col-xs-12 "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n          >\n\n"
+    + "\"\r\n          >\r\n\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||container.hooks.helperMissing).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading_level") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),"==","h5",{"name":"ifCond","hash":{},"fn":container.program(11, data, 0),"inverse":container.program(13, data, 0),"data":data,"loc":{"start":{"line":23,"column":12},"end":{"line":35,"column":23}}})) != null ? stack1 : "")
-    + "\n"
+    + "\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":37,"column":12},"end":{"line":39,"column":19}}})) != null ? stack1 : "")
-    + "\n          </div>\n        </div>\n";
+    + "\r\n          </div>\r\n        </div>\r\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -81,9 +81,9 @@
         return undefined
     };
 
-  return "              <h5>\n                "
+  return "              <h5>\r\n                "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n              </h5>\n";
+    + "\r\n              </h5>\r\n";
 },"13":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -103,7 +103,7 @@
 
   return "              <h4>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\n";
+    + "</h4>\r\n";
 },"16":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -123,7 +123,7 @@
 
   return "              <h3>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h3>\n";
+    + "</h3>\r\n";
 },"19":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -132,9 +132,9 @@
         return undefined
     };
 
-  return "              <h2>\n                "
+  return "              <h2>\r\n                "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n              </h2>\n            ";
+    + "\r\n              </h2>\r\n            ";
 },"21":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -145,7 +145,7 @@
 
   return "              "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n";
+    + "\r\n";
 },"23":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -163,13 +163,13 @@
         return undefined
     };
 
-  return "          <div class=\"row\">\n\n            <div\n              class=\"qld__tab-intro col-xs-12 "
+  return "          <div class=\"row\">\r\n\r\n            <div\r\n              class=\"qld__tab-intro col-xs-12 "
     + container.escapeExpression(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_width") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n            >\n\n"
+    + "\"\r\n            >\r\n\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(25, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":51,"column":14},"end":{"line":65,"column":21}}})) != null ? stack1 : "")
-    + "\n              "
+    + "\r\n              "
     + ((stack1 = alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_body") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n\n            </div>\n          </div>\n";
+    + "\r\n\r\n            </div>\r\n          </div>\r\n";
 },"25":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -187,9 +187,9 @@
         return undefined
     };
 
-  return "                  <h5>\n                    "
+  return "                  <h5>\r\n                    "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </h5>\n";
+    + "\r\n                  </h5>\r\n";
 },"28":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -209,7 +209,7 @@
 
   return "                  <h4>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h4>\n";
+    + "</h4>\r\n";
 },"31":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -229,7 +229,7 @@
 
   return "                  <h3>"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "</h3>\n";
+    + "</h3>\r\n";
 },"34":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -238,9 +238,9 @@
         return undefined
     };
 
-  return "                  <h2>\n                    "
+  return "                  <h2>\r\n                    "
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"intro_heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </h2>\n                ";
+    + "\r\n                  </h2>\r\n                ";
 },"36":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -251,7 +251,7 @@
 
   return "            qld__tab-container--"
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n";
+    + "\r\n";
 },"38":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -278,17 +278,17 @@
         return undefined
     };
 
-  return "              <button\n                id=\"tab1-"
+  return "              <button\r\n                id=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":120,"column":25},"end":{"line":120,"column":38}}}) : helper)))
-    + "-button\"\n                class=\"qld__tab-button active\"\n                role=\"tab\"\n                data-tab=\"tab1-"
+    + "-button\"\r\n                class=\"qld__tab-button active\"\r\n                role=\"tab\"\r\n                data-tab=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":123,"column":31},"end":{"line":123,"column":44}}}) : helper)))
-    + "\"\n                aria-selected=\"true\"\n                aria-controls=\"tab1-"
+    + "\"\r\n                aria-selected=\"true\"\r\n                aria-controls=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":125,"column":36},"end":{"line":125,"column":49}}}) : helper)))
-    + "-content\"\n                tabindex=\"0\"\n              >\n                <span>\n"
+    + "-content\"\r\n                tabindex=\"0\"\r\n              >\r\n                <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(40, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":129,"column":18},"end":{"line":139,"column":25}}})) != null ? stack1 : "")
     + "                  "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                </span>\n              </button>\n";
+    + "\r\n                </span>\r\n              </button>\r\n";
 },"40":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -297,11 +297,11 @@
         return undefined
     };
 
-  return "                    <svg\n                      class=\"qld__icon qld__icon--sm\"\n                      aria-hidden=\"true\"\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                    >\n                      <use\n                        href=\""
+  return "                    <svg\r\n                      class=\"qld__icon qld__icon--sm\"\r\n                      aria-hidden=\"true\"\r\n                      xmlns=\"http://www.w3.org/2000/svg\"\r\n                    >\r\n                      <use\r\n                        href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                      ></use>\n                    </svg>\n";
+    + "\"\r\n                      ></use>\r\n                    </svg>\r\n";
 },"42":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -319,17 +319,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab2-"
+  return "                <button\r\n                  id=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":147,"column":27},"end":{"line":147,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab2-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":150,"column":33},"end":{"line":150,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab2-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":152,"column":38},"end":{"line":152,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(44, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":156,"column":20},"end":{"line":166,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"44":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -338,11 +338,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"46":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -360,17 +360,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab3-"
+  return "                <button\r\n                  id=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":175,"column":27},"end":{"line":175,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab3-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":178,"column":33},"end":{"line":178,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab3-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":180,"column":38},"end":{"line":180,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_3") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(48, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":184,"column":20},"end":{"line":194,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_3") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"48":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -379,11 +379,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_3") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"50":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -401,17 +401,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab4-"
+  return "                <button\r\n                  id=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":203,"column":27},"end":{"line":203,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab4-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":206,"column":33},"end":{"line":206,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab4-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":208,"column":38},"end":{"line":208,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_4") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(52, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":212,"column":20},"end":{"line":222,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_4") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"52":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -420,11 +420,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_4") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"54":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -442,17 +442,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab5-"
+  return "                <button\r\n                  id=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":231,"column":27},"end":{"line":231,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab5-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":234,"column":33},"end":{"line":234,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab5-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":236,"column":38},"end":{"line":236,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_5") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(56, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":240,"column":20},"end":{"line":250,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_5") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"56":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -461,11 +461,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_5") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"58":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -483,17 +483,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab6-"
+  return "                <button\r\n                  id=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":259,"column":27},"end":{"line":259,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab6-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":262,"column":33},"end":{"line":262,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab6-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":264,"column":38},"end":{"line":264,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_6") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(60, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":268,"column":20},"end":{"line":278,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_6") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"60":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -502,11 +502,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_6") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"62":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -524,17 +524,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab7-"
+  return "                <button\r\n                  id=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":287,"column":27},"end":{"line":287,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab7-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":290,"column":33},"end":{"line":290,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab7-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":292,"column":38},"end":{"line":292,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_7") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(64, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":296,"column":20},"end":{"line":306,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_7") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"64":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -543,11 +543,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_7") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"66":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -565,17 +565,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab8-"
+  return "                <button\r\n                  id=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":315,"column":27},"end":{"line":315,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab8-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":318,"column":33},"end":{"line":318,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab8-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":320,"column":38},"end":{"line":320,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_8") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(68, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":324,"column":20},"end":{"line":334,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_8") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"68":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -584,11 +584,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_8") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"70":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -606,17 +606,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab9-"
+  return "                <button\r\n                  id=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":343,"column":27},"end":{"line":343,"column":40}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab9-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":346,"column":33},"end":{"line":346,"column":46}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab9-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":348,"column":38},"end":{"line":348,"column":51}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_9") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(72, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":352,"column":20},"end":{"line":362,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_9") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"72":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -625,11 +625,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_9") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"74":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -647,17 +647,17 @@
         return undefined
     };
 
-  return "                <button\n                  id=\"tab10-"
+  return "                <button\r\n                  id=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":371,"column":28},"end":{"line":371,"column":41}}}) : helper)))
-    + "-button\"\n                  class=\"qld__tab-button\"\n                  role=\"tab\"\n                  data-tab=\"tab10-"
+    + "-button\"\r\n                  class=\"qld__tab-button\"\r\n                  role=\"tab\"\r\n                  data-tab=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":374,"column":34},"end":{"line":374,"column":47}}}) : helper)))
-    + "\"\n                  aria-selected=\"false\"\n                  aria-controls=\"tab10-"
+    + "\"\r\n                  aria-selected=\"false\"\r\n                  aria-controls=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":376,"column":39},"end":{"line":376,"column":52}}}) : helper)))
-    + "-content\"\n                  tabindex=\"-1\"\n                >\n                  <span>\n"
+    + "-content\"\r\n                  tabindex=\"-1\"\r\n                >\r\n                  <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_10") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(76, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":380,"column":20},"end":{"line":390,"column":27}}})) != null ? stack1 : "")
     + "                    "
     + alias4(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"title_10") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n                  </span>\n                </button>\n";
+    + "\r\n                  </span>\r\n                </button>\r\n";
 },"76":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -666,11 +666,11 @@
         return undefined
     };
 
-  return "                      <svg\n                        class=\"qld__icon qld__icon--sm\"\n                        aria-hidden=\"true\"\n                        xmlns=\"http://www.w3.org/2000/svg\"\n                      >\n                        <use\n                          href=\""
+  return "                      <svg\r\n                        class=\"qld__icon qld__icon--sm\"\r\n                        aria-hidden=\"true\"\r\n                        xmlns=\"http://www.w3.org/2000/svg\"\r\n                      >\r\n                        <use\r\n                          href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"icon_10") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                        ></use>\n                      </svg>\n";
+    + "\"\r\n                        ></use>\r\n                      </svg>\r\n";
 },"78":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -688,29 +688,29 @@
         return undefined
     };
 
-  return "              <button\n                id=\"tab"
+  return "              <button\r\n                id=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":399,"column":23},"end":{"line":399,"column":33}}}) : helper)))
-    + "-button\"\n                class=\"\n                  qld__tab-button\n"
+    + "-button\"\r\n                class=\"\r\n                  qld__tab-button\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(80, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":402,"column":18},"end":{"line":404,"column":29}}})) != null ? stack1 : "")
-    + "                \"\n                role=\"tab\"\n                data-tab=\"tab"
+    + "                \"\r\n                role=\"tab\"\r\n                data-tab=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":407,"column":29},"end":{"line":407,"column":39}}}) : helper)))
     + "-"
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"assetid") : depth0), depth0))
-    + "\"\n                aria-selected=\""
+    + "\"\r\n                aria-selected=\""
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(82, data, 0),"inverse":container.program(84, data, 0),"data":data,"loc":{"start":{"line":408,"column":31},"end":{"line":408,"column":82}}})) != null ? stack1 : "")
-    + "\"\n                aria-controls=\"tab"
+    + "\"\r\n                aria-controls=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":409,"column":34},"end":{"line":409,"column":44}}}) : helper)))
     + "-"
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"assetid") : depth0), depth0))
-    + "-content\"\n                tabindex=\""
+    + "-content\"\r\n                tabindex=\""
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(86, data, 0),"inverse":container.program(88, data, 0),"data":data,"loc":{"start":{"line":410,"column":26},"end":{"line":410,"column":71}}})) != null ? stack1 : "")
-    + "\"\n              >\n                <span>\n"
+    + "\"\r\n              >\r\n                <span>\r\n"
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"tabIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(90, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":413,"column":18},"end":{"line":423,"column":25}}})) != null ? stack1 : "")
     + "                  "
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"name") : depth0), depth0))
-    + "\n                </span>\n              </button>\n";
+    + "\r\n                </span>\r\n              </button>\r\n";
 },"80":function(container,depth0,helpers,partials,data) {
-    return "                    active\n";
+    return "                    active\r\n";
 },"82":function(container,depth0,helpers,partials,data) {
     return "true";
 },"84":function(container,depth0,helpers,partials,data) {
@@ -727,11 +727,11 @@
         return undefined
     };
 
-  return "                    <svg\n                      class=\"qld__icon qld__icon--sm\"\n                      aria-hidden=\"true\"\n                      xmlns=\"http://www.w3.org/2000/svg\"\n                    >\n                      <use\n                        href=\""
+  return "                    <svg\r\n                      class=\"qld__icon qld__icon--sm\"\r\n                      aria-hidden=\"true\"\r\n                      xmlns=\"http://www.w3.org/2000/svg\"\r\n                    >\r\n                      <use\r\n                        href=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"tabIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                      ></use>\n                    </svg>\n";
+    + "\"\r\n                      ></use>\r\n                    </svg>\r\n";
 },"92":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -758,15 +758,15 @@
         return undefined
     };
 
-  return "            <div\n              id=\"tab1-"
+  return "            <div\r\n              id=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":433,"column":23},"end":{"line":433,"column":36}}}) : helper)))
-    + "-content\"\n              class=\"qld__tab-content active\"\n              data-tab=\"tab1-"
+    + "-content\"\r\n              class=\"qld__tab-content active\"\r\n              data-tab=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":435,"column":29},"end":{"line":435,"column":42}}}) : helper)))
-    + "\"\n              role=\"tabpanel\"\n              aria-labelledby=\"tab1-"
+    + "\"\r\n              role=\"tabpanel\"\r\n              aria-labelledby=\"tab1-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":437,"column":36},"end":{"line":437,"column":49}}}) : helper)))
-    + "-button\"\n              tabindex=\"0\"\n              aria-hidden=\"false\"\n            >\n              "
+    + "-button\"\r\n              tabindex=\"0\"\r\n              aria-hidden=\"false\"\r\n            >\r\n              "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_1") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n            </div>\n";
+    + "\r\n            </div>\r\n";
 },"95":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -784,15 +784,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab2-"
+  return "              <div\r\n                id=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":447,"column":25},"end":{"line":447,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab2-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":449,"column":31},"end":{"line":449,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab2-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab2-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":451,"column":38},"end":{"line":451,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_2") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"98":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -810,15 +810,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab3-"
+  return "              <div\r\n                id=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":461,"column":25},"end":{"line":461,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab3-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":463,"column":31},"end":{"line":463,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab3-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab3-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":465,"column":38},"end":{"line":465,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_3") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"101":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -836,15 +836,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab4-"
+  return "              <div\r\n                id=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":475,"column":25},"end":{"line":475,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab4-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":477,"column":31},"end":{"line":477,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab4-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab4-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":479,"column":38},"end":{"line":479,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_4") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"104":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -862,15 +862,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab5-"
+  return "              <div\r\n                id=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":489,"column":25},"end":{"line":489,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab5-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":491,"column":31},"end":{"line":491,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab5-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab5-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":493,"column":38},"end":{"line":493,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_5") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"107":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -888,15 +888,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab6-"
+  return "              <div\r\n                id=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":503,"column":25},"end":{"line":503,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab6-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":505,"column":31},"end":{"line":505,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab6-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab6-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":507,"column":38},"end":{"line":507,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_6") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"110":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -914,15 +914,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab7-"
+  return "              <div\r\n                id=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":517,"column":25},"end":{"line":517,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab7-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":519,"column":31},"end":{"line":519,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab7-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab7-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":521,"column":38},"end":{"line":521,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_7") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"113":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -940,15 +940,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab8-"
+  return "              <div\r\n                id=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":531,"column":25},"end":{"line":531,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab8-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":533,"column":31},"end":{"line":533,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab8-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab8-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":535,"column":38},"end":{"line":535,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_8") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"116":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -966,15 +966,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab9-"
+  return "              <div\r\n                id=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":545,"column":25},"end":{"line":545,"column":38}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab9-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":547,"column":31},"end":{"line":547,"column":44}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab9-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab9-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":549,"column":38},"end":{"line":549,"column":51}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_9") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"119":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -992,15 +992,15 @@
         return undefined
     };
 
-  return "              <div\n                id=\"tab10-"
+  return "              <div\r\n                id=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":559,"column":26},"end":{"line":559,"column":39}}}) : helper)))
-    + "-content\"\n                class=\"qld__tab-content\"\n                data-tab=\"tab10-"
+    + "-content\"\r\n                class=\"qld__tab-content\"\r\n                data-tab=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":561,"column":32},"end":{"line":561,"column":45}}}) : helper)))
-    + "\"\n                role=\"tabpanel\"\n                aria-labelledby=\"tab10-"
+    + "\"\r\n                role=\"tabpanel\"\r\n                aria-labelledby=\"tab10-"
     + alias4(((helper = (helper = lookupProperty(helpers,"assetid") || (depth0 != null ? lookupProperty(depth0,"assetid") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assetid","hash":{},"data":data,"loc":{"start":{"line":563,"column":39},"end":{"line":563,"column":52}}}) : helper)))
-    + "-button\"\n                tabindex=\"0\"\n              >\n                "
+    + "-button\"\r\n                tabindex=\"0\"\r\n              >\r\n                "
     + ((stack1 = container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content_10") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
-    + "\n              </div>\n";
+    + "\r\n              </div>\r\n";
 },"122":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -1018,29 +1018,29 @@
         return undefined
     };
 
-  return "            <div\n              id=\"tab"
+  return "            <div\r\n              id=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":573,"column":21},"end":{"line":573,"column":31}}}) : helper)))
     + "-"
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"assetid") : depth0), depth0))
-    + "-content\"\n              class=\"\n                qld__tab-content\n"
+    + "-content\"\r\n              class=\"\r\n                qld__tab-content\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(124, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":576,"column":16},"end":{"line":578,"column":27}}})) != null ? stack1 : "")
-    + "              \"\n              data-tab=\"tab"
+    + "              \"\r\n              data-tab=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":580,"column":27},"end":{"line":580,"column":37}}}) : helper)))
     + "-"
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"assetid") : depth0), depth0))
-    + "\"\n              role=\"tabpanel\"\n              aria-labelledby=\"tab"
+    + "\"\r\n              role=\"tabpanel\"\r\n              aria-labelledby=\"tab"
     + alias4(((helper = (helper = lookupProperty(helpers,"key") || (data && lookupProperty(data,"key"))) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data,"loc":{"start":{"line":582,"column":34},"end":{"line":582,"column":44}}}) : helper)))
     + "-"
     + alias4(alias5((depth0 != null ? lookupProperty(depth0,"assetid") : depth0), depth0))
-    + "-button\"\n              tabindex=\"0\"\n"
+    + "-button\"\r\n              tabindex=\"0\"\r\n"
     + ((stack1 = (lookupProperty(helpers,"ifCond")||(depth0 && lookupProperty(depth0,"ifCond"))||alias2).call(alias1,(data && lookupProperty(data,"key")),"==",0,{"name":"ifCond","hash":{},"fn":container.program(126, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":584,"column":14},"end":{"line":586,"column":25}}})) != null ? stack1 : "")
-    + "            >\n              "
+    + "            >\r\n              "
     + ((stack1 = alias5((depth0 != null ? lookupProperty(depth0,"rawcontent") : depth0), depth0)) != null ? stack1 : "")
-    + "\n            </div>\n";
+    + "\r\n            </div>\r\n";
 },"124":function(container,depth0,helpers,partials,data) {
-    return "                  active\n";
+    return "                  active\r\n";
 },"126":function(container,depth0,helpers,partials,data) {
-    return "                aria-hidden=\"false\"\n";
+    return "                aria-hidden=\"false\"\r\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
