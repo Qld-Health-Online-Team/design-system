@@ -104,17 +104,21 @@ export const NoIcon = {
 };
 
 export const Light = {
+  parameters: { skipDecorator: true },
   render: (args) => `<div class="${themes["light"]}">${render(args)}</div>`,
 };
 
 export const LightAlt = {
+  parameters: { skipDecorator: true },
   render: (args) => `<div class="${themes["light alt"]}">${render(args)}</div>`,
 };
 
 export const Dark = {
+  parameters: { skipDecorator: true },
   render: (args) => `<div class="${themes["dark"]}">${render(args)}</div>`,
 };
 
 export const DarkAlt = {
+  parameters: { skipDecorator: true },
   render: (args) => `<div class="${themes["dark alt"]}">${render(args)}</div>`,
 };

@@ -238,6 +238,7 @@ const meta = {
         height: "620px",
       },
     },
+    skipDecorator: true
   },
   argTypes: {
     showMegaMenu: { name: "Mega menu enabled", control: "boolean" },
@@ -379,7 +380,7 @@ export const DescriptionsOnBothLevels = {
  */
 export const MobileOpenWithHeader = {
   render: (args) => renderHeader({ ...headerArgs, ...args }),
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", skipDecorator: false },
   globals: {
     viewport: { value: "small", isRotated: false },
   },

@@ -91,7 +91,7 @@ const meta = {
       return wrapper;
     },
   ],
-  parameters: storyParams("skipLinks"),
+  parameters: { ...storyParams("skipLinks"), skipDecorator: true },
 };
 
 export default meta;
