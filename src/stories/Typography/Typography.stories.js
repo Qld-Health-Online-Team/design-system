@@ -1,5 +1,5 @@
 import { getTypography } from "./typography.js";
-import { themes, themeColours } from "../../../.storybook/globals";
+import { themes, themeColours, dummyText } from "../../../.storybook/globals";
 
 // Typography token reference and Chromatic snapshot target.
 //
@@ -134,6 +134,81 @@ const renderTheme = (name) => `
     <p style="margin:1.5rem 0 0;"><small>Theme: ${name} — background ${themeColours[name] || "#ffffff"}</small></p>
   </div>`;
 
+// One labelled group in the text-elements showcase. The caption is a styled
+// <div> (not an <h*>) so it isn't itself restyled as a DS heading, sitting above
+// a set of bare, real DS elements. Storybook's decorator wraps every story in
+// `.qld__body`, so these unstyled elements pick up the live heading, link and
+// list-list styles.
+const elementGroup = (title, html) => `
+  <section style="margin-top:28px;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:${MUTED};margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid ${BORDER};">${title}</div>
+    ${html}
+  </section>`;
+
+// Common text elements written as plain HTML so they render with the live DS
+// styles: headings (h1–h6), paragraphs with inline emphasis, text links,
+// ordered/unordered lists, and the qld__link-list component (block + inline).
+const renderElements = () => `
+  <div style="font-family:${SANS};color:${TEXT};padding:1rem;max-width:900px;">
+    <h1 style="font-size:28px;font-weight:700;margin:0 0 8px;">Text elements</h1>
+    <p style="color:${MUTED};margin:0 0 8px;max-width:72ch;font-size:14px;">
+      Common text elements written as plain HTML so they render with the live
+      design-system styles — headings, links and link lists are styled by the
+      surrounding <span style="font-family:${MONO};">.qld__body</span> wrapper.
+    </p>
+    ${elementGroup(
+      "Headings",
+      `<h1>Heading level 1</h1>
+       <h2>Heading level 2</h2>
+       <h3>Heading level 3</h3>
+       <h4>Heading level 4</h4>
+       <h5>Heading level 5</h5>
+       <h6>Heading level 6</h6>`,
+    )}
+    ${elementGroup(
+      "Paragraphs",
+      `<p>${dummyText}</p>
+       <p>A second paragraph with <strong>bold emphasis</strong>, <em>italic emphasis</em> and <small>small print</small> to show inline styles and the rhythm between paragraphs.</p>`,
+    )}
+    ${elementGroup(
+      "Text links",
+      `<p>Body copy with an <a href="#">inline text link</a> that takes the design-system link colour and underline, alongside an <a href="${DS_URL}" target="_blank" rel="noopener noreferrer">external link ↗</a>.</p>`,
+    )}
+    ${elementGroup(
+      "Lists",
+      `<p>Unordered list</p>
+       <ul>
+         <li>List item one</li>
+         <li>List item two
+           <ul>
+             <li>Nested item</li>
+             <li>Nested item</li>
+           </ul>
+         </li>
+         <li>List item three</li>
+       </ul>
+       <p>Ordered list</p>
+       <ol>
+         <li>First step</li>
+         <li>Second step</li>
+         <li>Third step</li>
+       </ol>`,
+    )}
+    ${elementGroup(
+      "Link lists",
+      `<ul class="qld__link-list">
+         <li><a href="#">Link list item one</a></li>
+         <li><a href="#">Link list item two</a></li>
+         <li><a href="#">Link list item three</a></li>
+       </ul>
+       <ul class="qld__link-list qld__link-list--inline" style="margin-top:16px;">
+         <li><a href="#">Inline link one</a></li>
+         <li><a href="#">Inline link two</a></li>
+         <li><a href="#">Inline link three</a></li>
+       </ul>`,
+    )}
+  </div>`;
+
 export default {
   title: "1. Core Styles/Typography",
   // This story is the typography reference, so opt out of the auto-generated docs
@@ -145,6 +220,10 @@ export default {
 };
 
 export const Typography = {};
+
+// Common text elements rendered with real DS markup so authors can see the
+// applied heading, paragraph, link and list styles in one place.
+export const TextElements = { render: () => renderElements() };
 
 // Text-colour legibility, one story per theme background. Each renders the same
 // sample so contrast can be reviewed/snapshotted per theme.
