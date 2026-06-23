@@ -1,2 +1,12 @@
 # Ensure shell scripts are always checked out with unix line endings, even on Windows.
 *.sh text eol=lf
+
+# Minified, deterministic build bundles. They are kept in the repo for the
+# Matrix contract but are un-diffable by format (single-line / minified), so
+# mark them as generated: GitHub collapses them in PRs and git shows them as
+# binary rather than a multi-megabyte wall of changes. Review the source
+# (SCSS / JS), not these.
+dist/main.css linguist-generated -diff
+dist/banner_contained.css linguist-generated -diff
+dist/js/main.js linguist-generated -diff
+dist/js/runtime.js linguist-generated -diff
