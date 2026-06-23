@@ -158,7 +158,7 @@ export default function initCode(root = document) {
           const toggle = colorButton
             .closest(".qld__code")
             .querySelector(".qld__code-toggle");
-          if (typeof toggle !== "undefined") {
+          if (toggle) {
             toggle.classList.remove(
               "qld__body--light",
               "qld__body--alt",
