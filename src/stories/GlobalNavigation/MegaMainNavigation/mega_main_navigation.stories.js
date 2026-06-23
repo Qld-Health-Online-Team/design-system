@@ -180,6 +180,46 @@ const sampleChildren = [
   },
 ];
 
+/**
+ * Build a minimal top-level nav item (with a small mega-menu panel) so a story
+ * can stack up enough items to force the nav bar to wrap onto a second row.
+ */
+function makeNavItem(assetid, name) {
+  return {
+    asset_assetid: assetid,
+    asset_name: name,
+    asset_short_name: name,
+    asset_metadata_shortDescription: `About ${name.toLowerCase()}.`,
+    children: [
+      {
+        asset_metadata_showInMegaNav: "true",
+        asset_assetid: assetid,
+        asset_name: name,
+        asset_short_name: name,
+        asset_metadata_shortDescription: `Browse ${name.toLowerCase()}.`,
+        asset_url: "#",
+      },
+      {
+        asset_metadata_showInMegaNav: "true",
+        asset_assetid: `${assetid}1`,
+        asset_short_name: `${name} A-Z`,
+        asset_url: "#",
+      },
+    ],
+  };
+}
+
+const wrappingChildren = [
+  "Services",
+  "Conditions & treatments",
+  "Hospitals & locations",
+  "Patients & visitors",
+  "Healthy living",
+  "Research & education",
+  "News & events",
+  "Mental health & wellbeing",
+].map((name, i) => makeNavItem(`${50 + i}`, name));
+
 const storyDocs = storyParams("navbar");
 
 const meta = {
@@ -270,6 +310,36 @@ export const PlainNoMegaMenu = {
   args: {
     showMegaMenu: false,
     showViewAll: false,
+  },
+};
+
+/**
+ * Bug repro (do not delete): enough top-level items that the nav bar wraps
+ * onto a second row. The viewport is pinned to "xlarge" (1312px — the desktop
+ * nav breakpoint) so the wrap happens regardless of the browser window size.
+ *
+ * Repro steps:
+ * 1. Open this story in the canvas.
+ * 2. Set browser zoom to 95% (the bug does not reproduce at 100%).
+ * 3. Hover the last item on the FIRST row.
+ *
+ * Expected: the second-row items stay on the far left.
+ * Actual: the second-row items jump to sit directly underneath the hovered
+ * item.
+ *
+ * Suspected cause: the desktop hover style adds a border-bottom and cancels
+ * it with a negative margin-bottom (main_navigation/css/component.scss ~225).
+ * At fractional zoom the two round differently, the hovered float gets
+ * fractionally taller, and the wrapped floats can no longer slide left past
+ * it (CSS float placement rules).
+ */
+export const WrappedSecondRowHoverBug = {
+  globals: {
+    viewport: { value: "xlarge", isRotated: false },
+  },
+  args: {
+    children: wrappingChildren,
+    currentAssetid: "50",
   },
 };
 
