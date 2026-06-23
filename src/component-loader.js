@@ -11,6 +11,8 @@ import initInPageNavigation from "./components/in_page_navigation/js/global.js";
 import initInternalNavigation from "./components/internal_navigation/js/global.js";
 import initLeftHandNav from "./components/left_hand_navigation/js/global.js";
 import initPromoPanel from "./components/promo_panel/js/global.js";
+import initToggleTip from "./components/toggle_tip/js/global.js";
+import initToolTip from "./components/tool_tip/js/global.js";
 import initVideoPlayer from "./components/video_player/js/global.js";
 import { initMegaMenu } from "./components/mega_main_navigation/js/global";
 import { initGlobalAlert } from "./components/global_alert/js/global.js";
@@ -38,6 +40,8 @@ export default function initComponents() {
     initMegaMenu();
     initPromoPanel(document);
     initSelectBoxes(document);
+    initToggleTip(document);
+    initToolTip(document);
     initVideoPlayer(document);
   });
 
