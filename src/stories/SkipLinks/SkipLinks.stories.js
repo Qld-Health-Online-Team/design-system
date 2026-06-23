@@ -17,11 +17,13 @@ const meta = {
   render,
   argTypes: {
     contentTarget: {
-      description: "ID of the main content element the first skip link points to.",
+      description:
+        "ID of the main content element the first skip link points to.",
       control: { type: "text" },
     },
     navTarget: {
-      description: "ID of the desktop navigation element the second skip link points to.",
+      description:
+        "ID of the desktop navigation element the second skip link points to.",
       control: { type: "text" },
     },
     navTargetText: {
@@ -29,7 +31,8 @@ const meta = {
       control: { type: "text" },
     },
     mobileNavTarget: {
-      description: "ID of the mobile navigation element the third skip link points to.",
+      description:
+        "ID of the mobile navigation element the third skip link points to.",
       control: { type: "text" },
     },
     mobileNavTargetText: {
@@ -54,7 +57,8 @@ const meta = {
 
       // Add suplement text to guide the user into the component, as it's hidden at first.
       const hint = document.createElement("p");
-      hint.textContent = "Click on this text, then hit tab to bring up the skip links. Use Enter to skip to the listed item.";
+      hint.textContent =
+        "Click on this text, then hit tab to bring up the skip links. Use Enter to skip to the listed item.";
       wrapper.insertBefore(hint, wrapper.firstChild);
 
       // Adding space after the story
@@ -66,7 +70,8 @@ const meta = {
       const makeTarget = (id, label) => {
         const el = document.createElement("div");
         el.id = id;
-        el.style.cssText = "margin-top: 32px; padding: 16px; border: 2px dashed #ccc;";
+        el.style.cssText =
+          "margin-top: 32px; padding: 16px; border: 2px dashed #ccc;";
         el.textContent = `#${id} — ${label}`;
         return el;
       };
@@ -75,7 +80,9 @@ const meta = {
       wrapper.insertBefore(spacer, wrapper.children[1]);
       wrapper.appendChild(makeTarget(contentTarget, "Main content target"));
       wrapper.appendChild(makeTarget(navTarget, "Desktop navigation target"));
-      wrapper.appendChild(makeTarget(mobileNavTarget, "Mobile navigation target"));
+      wrapper.appendChild(
+        makeTarget(mobileNavTarget, "Mobile navigation target"),
+      );
       wrapper.appendChild(spacer2);
 
       // Adding click events to keep the user on the page. This is not necessary in prod, just SB as the iframes work react differently.

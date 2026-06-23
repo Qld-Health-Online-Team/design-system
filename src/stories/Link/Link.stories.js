@@ -1,4 +1,9 @@
-import { storyParams, iconSpritePath, dummyLink, themes } from "../../../.storybook/globals";
+import {
+  storyParams,
+  iconSpritePath,
+  dummyLink,
+  themes,
+} from "../../../.storybook/globals";
 
 function render(args) {
   return `
@@ -8,13 +13,17 @@ function render(args) {
     ${args.target ? `target="${args.target}"` : ""}
     aria-label="${args.label}"
   >
-    ${args.iconName ? `<svg
+    ${
+      args.iconName
+        ? `<svg
       class="qld__link-icon qld__icon qld__icon--md"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
       <use href="${iconSpritePath}#${args.iconName}"></use>
-    </svg>` : ""}${args.label}
+    </svg>`
+        : ""
+    }${args.label}
   </a>`;
 }
 
@@ -53,7 +62,7 @@ const meta = {
         type: "select",
         labels: {
           "": "Same tab (default)",
-          "_blank": "New tab (_blank)",
+          _blank: "New tab (_blank)",
         },
       },
       options: ["", "_blank"],
@@ -82,15 +91,18 @@ export const SameTab = {
   args: { target: "", label: "Opens link in the same tab" },
 };
 
-
 export const WithId = {
   args: { id: "link-id-123" },
 };
 
 export const IconGroup = {
   render: (args) => {
-    const items = iconOptions.filter((icon) => icon !== "")
-      .map((icon) => `<li class="qld__link-list-item">${render({ ...args, iconName: icon, label: `${icon} title [2.5 MB]` })}</li>`)
+    const items = iconOptions
+      .filter((icon) => icon !== "")
+      .map(
+        (icon) =>
+          `<li class="qld__link-list-item">${render({ ...args, iconName: icon, label: `${icon} title [2.5 MB]` })}</li>`,
+      )
       .join("");
 
     return `<ul class="qld__link-list">${items}</ul>`;

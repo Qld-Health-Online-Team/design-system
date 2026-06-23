@@ -12,7 +12,6 @@
   //Card Icon
   &.qld__card--icon {
     .qld__card__icon {
-
       i,
       svg,
       span {
@@ -22,7 +21,6 @@
 
     &:hover {
       .qld__card__icon {
-
         i,
         svg,
         span {
@@ -60,7 +58,6 @@
   }
 
   .qld__card__image-link {
-
     &:hover,
     &:focus {
       &::before {
@@ -167,11 +164,9 @@
 
   &.qld__card--dark,
   &.qld__card--dark-alt {
-
     //Card Icon
     &.qld__card--icon {
       .qld__card__icon {
-
         i,
         svg,
         span {
@@ -181,7 +176,6 @@
 
       &:hover {
         .qld__card__icon {
-
           i,
           svg,
           span {
@@ -221,7 +215,9 @@
       &:hover:visited {
         span {
           color: var(--QLD-color-dark__underline--hover-visited);
-          text-decoration-color: var(--QLD-color-dark__underline--hover-visited);
+          text-decoration-color: var(
+            --QLD-color-dark__underline--hover-visited
+          );
           text-decoration-thickness: var(--QLD-underline__thickness-thick);
         }
       }
@@ -283,7 +279,8 @@
         flex-direction: row-reverse;
       }
 
-      @include QLD-media(lg) {}
+      @include QLD-media(lg) {
+      }
 
       .qld__responsive-media-img--bg {
         border-radius: 0;

@@ -33,11 +33,7 @@ export default function initInternalNavigation(root = document) {
         );
         // Attempt to validate SVG path before using it
         if (validateInternalSvgPath(svgPath)) {
-          use.setAttributeNS(
-            null,
-            "href",
-            buildIconPath(svgPath, "tick"),
-          );
+          use.setAttributeNS(null, "href", buildIconPath(svgPath, "tick"));
         }
 
         // Append <use> to <svg>

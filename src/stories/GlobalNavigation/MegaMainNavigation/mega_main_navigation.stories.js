@@ -238,7 +238,7 @@ const meta = {
         height: "620px",
       },
     },
-    skipDecorator: true
+    skipDecorator: true,
   },
   argTypes: {
     showMegaMenu: { name: "Mega menu enabled", control: "boolean" },
