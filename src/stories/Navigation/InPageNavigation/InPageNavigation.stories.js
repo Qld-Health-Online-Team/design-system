@@ -2,6 +2,8 @@ import Template from "../../../components/in_page_navigation/html/component.hbs"
 import { dummyText, storyParams } from "../../../../.storybook/globals";
 import { initComponents } from "../../../../.storybook/decorators";
 import initInPageNavigation from "../../../components/in_page_navigation/js/global";
+import initTab from "../../../components/tab/js/global";
+import { expect, waitFor } from "storybook/test";
 
 const renderInPageNavigation = ({ heading, headingType, ...args }) =>
   Template({
@@ -42,6 +44,9 @@ export default {
         defaultValue: { summary: "h2" },
       },
     },
+    // Internal flag: stories that supply their own page layout (e.g. the tab
+    // example) opt out of the shared dummy-heading scaffolding below.
+    skipDummyHeadings: { table: { disable: true } },
   },
   args: {
     heading: "On this page",
@@ -51,6 +56,11 @@ export default {
   decorators: [
     initComponents([initInPageNavigation]),
     (Story, context) => {
+      // Stories that provide their own surrounding content render bare inside
+      // #content without the default dummy headings.
+      if (context.args.skipDummyHeadings) {
+        return `<section><div class="container-fluid"><div id="content">${Story()}</div></div></section>`;
+      }
       // Default IDs for headings. Simulates the publisher not adding custom ID's to the page headings which is a
       // common scenario
       if (!context.args.ids) {
@@ -139,5 +149,64 @@ export const duplicateIdentifiers = {
       "same-id",
       "same-id",
     ],
+  },
+};
+
+// An in-page nav placed inside a tab panel scopes its heading search to that
+// panel, so it only lists anchors that are reachable within the same tab —
+// headings in the sibling panel (Reference) must not appear in the list.
+const tabWithInPageNav = () => {
+  const nav = Template({
+    component: {
+      data: {
+        metadata: {
+          heading: { value: "On this page" },
+          headingType: { value: "h2" },
+        },
+      },
+    },
+  });
+
+  return `
+    <div class="qld__tab-container qld__tab-container__fixed" id="tab-demo">
+      <div class="qld__tabs" role="tablist">
+        <button role="tab" class="qld__tab-button active" data-tab="tab1-demo" aria-selected="true" aria-controls="tab1-demo-content" tabindex="0" id="tab1-demo-button"><span>Getting started</span></button>
+        <button role="tab" class="qld__tab-button" data-tab="tab2-demo" aria-selected="false" aria-controls="tab2-demo-content" tabindex="-1" id="tab2-demo-button"><span>Reference</span></button>
+      </div>
+      <div data-tab="tab1-demo" class="qld__tab-content active" role="tabpanel" aria-labelledby="tab1-demo-button" id="tab1-demo-content" tabindex="0" aria-hidden="false">
+        ${nav}
+        <h2>Installation</h2><p>${dummyText}</p>
+        <h2>Configuration</h2><p>${dummyText}</p>
+      </div>
+      <div data-tab="tab2-demo" class="qld__tab-content" role="tabpanel" aria-labelledby="tab2-demo-button" id="tab2-demo-content" tabindex="0">
+        <h2>API options</h2><p>${dummyText}</p>
+        <h2>Events</h2><p>${dummyText}</p>
+      </div>
+    </div>`;
+};
+
+export const WithinTabPanel = {
+  args: { skipDummyHeadings: true },
+  render: tabWithInPageNav,
+  decorators: [initComponents([initTab])],
+  play: async ({ canvasElement }) => {
+    const panel = canvasElement.querySelector("#tab1-demo-content");
+    const listedNow = () =>
+      [...panel.querySelectorAll(".qld__link-list a")].map((a) =>
+        a.textContent.trim(),
+      );
+
+    // initInPageNavigation populates the list from a setTimeout(0) init that
+    // runs after render, so wait for it before asserting. Only this panel's
+    // headings are listed (the nav's own "On this page" heading carries
+    // qld__inpage-nav-links__heading and is excluded).
+    await waitFor(() =>
+      expect(listedNow()).toEqual(["Installation", "Configuration"]),
+    );
+
+    // The sibling panel's headings are out of scope and must not appear.
+    const listed = listedNow();
+    await expect(listed).not.toContain("API options");
+    await expect(listed).not.toContain("Events");
   },
 };

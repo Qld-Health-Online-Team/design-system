@@ -18,9 +18,15 @@ export default function initInPageNavigation(root = document) {
     const headingSelector = nav.getAttribute("data-headingType")
       ? nav.getAttribute("data-headingType")
       : "h2";
-    const pageContent = isLandingPage
-      ? mainEl
-      : root.querySelector('[id="content"]');
+    // An in-page nav can live inside a tab panel. When it does, scope its
+    // heading search to that panel so it only lists anchors that exist within
+    // the same tab — headings in other (hidden) panels would be unreachable.
+    const tabPanel = nav.closest(".qld__tab-content");
+    const pageContent = tabPanel
+      ? tabPanel
+      : isLandingPage
+        ? mainEl
+        : root.querySelector('[id="content"]');
     // Gracefully handle missing page content element
     if (!pageContent) {
       return;
