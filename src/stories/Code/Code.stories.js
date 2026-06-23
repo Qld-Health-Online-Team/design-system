@@ -1,5 +1,8 @@
 import Template from "../../components/code/html/component.hbs";
 import { storyParams } from "../../../.storybook/globals";
+import { expect, userEvent, within } from "storybook/test";
+import { initComponents } from "../../../.storybook/decorators";
+import initCode from "../../components/code/js/global";
 
 // A representative multi-line HTML snippet. It is shown verbatim in the code
 // body and, when a preview is enabled, rendered as live markup in the preview
@@ -56,6 +59,7 @@ function render(args) {
 const meta = {
   title: "3. Components/Code",
   render,
+  decorators: [initComponents([initCode])],
   parameters: storyParams("code"),
   argTypes: {
     value: {
@@ -159,12 +163,49 @@ export const PreviewWithoutThemeColours = {
   },
 };
 
+export const WithDarkThemeSelected = {
+  args: {
+    snippetType: "multiline",
+    value: multilineSnippet,
+    showPreview: true,
+    showThemeColors: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const previewBody = canvasElement.querySelector(".qld__code-preview-body");
+
+    // The palette starts on "Default", so the preview carries no theme class.
+    await expect(canvas.getByLabelText("Default")).toBeChecked();
+    await expect(previewBody).not.toHaveClass("qld__body--dark");
+
+    // Selecting "Dark" checks that swatch and recolours the preview body.
+    await userEvent.click(canvas.getByLabelText("Dark"));
+    await expect(canvas.getByLabelText("Dark")).toBeChecked();
+    await expect(previewBody).toHaveClass("qld__body--dark");
+  },
+};
+
 // Long snippet collapsed behind a "Show more" toggle.
 export const WithShowMoreButton = {
   args: {
     snippetType: "multiline",
     value: longSnippet,
     showMoreButton: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const toggle = canvas.getByRole("button", { name: /show more/i });
+
+    // The toggle starts collapsed, labelled "Show more".
+    await expect(toggle).toHaveTextContent("Show more");
+
+    // Clicking expands the snippet and relabels the button "Show less"...
+    await userEvent.click(toggle);
+    await expect(toggle).toHaveTextContent("Show less");
+
+    // ...and clicking again collapses it back to "Show more".
+    await userEvent.click(toggle);
+    await expect(toggle).toHaveTextContent("Show more");
   },
 };
 
