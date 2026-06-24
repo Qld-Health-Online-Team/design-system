@@ -375,7 +375,9 @@ export const DescriptionsOnBothLevels = {
  * script, which binds on DOMContentLoaded and isn't wired into Storybook, so
  * the play function applies the drawer's open state directly (the same approach
  * the Internal Navigation MobileToggle story uses) for a deterministic
- * snapshot.
+ * snapshot. It then expands one of the sidebar's nav accordions — which IS
+ * driven by initMegaMenu (wired in via the decorator) — with a real click, so
+ * the snapshot shows an open submenu inside the drawer.
  */
 export const MobileOpenWithHeader = {
   render: (args) => renderHeader({ ...headerArgs, ...args }),
@@ -402,5 +404,24 @@ export const MobileOpenWithHeader = {
     closeBtn?.setAttribute("aria-expanded", "true");
 
     await expect(nav).toHaveClass("qld__main-nav__content--open");
+
+    // With the drawer open, the top-level items render as a stack of accordions
+    // in the sidebar. Expanding one is driven by initMegaMenu — which IS wired
+    // into Storybook (unlike the drawer toggle above) — so a real click works.
+    const canvas = within(canvasElement);
+    const accordionToggle = canvas.getByRole("button", {
+      name: /toggle navigation, services/i,
+    });
+
+    await expect(accordionToggle).toHaveAttribute("aria-expanded", "false");
+
+    await userEvent.click(accordionToggle);
+
+    // The toggle reports expanded and its controlled submenu opens.
+    await expect(accordionToggle).toHaveAttribute("aria-expanded", "true");
+    const submenu = canvasElement.querySelector(
+      `[id="${accordionToggle.getAttribute("aria-controls")}"]`,
+    );
+    await expect(submenu).toHaveClass("qld__accordion--open");
   },
 };
