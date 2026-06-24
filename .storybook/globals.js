@@ -126,6 +126,7 @@ export const componentLinks = {
   },
   link: {
     ds: `${dsBase}/styles/typography#section__text-links`,
+    figma: `${figmaBase}?node-id=12900-201779&p=f&t=yOj3gpnlDy5EdiKF-0`,
   },
   linkColumns: {
     ds: `${dsBase}/components/link-columns-link-list`,
