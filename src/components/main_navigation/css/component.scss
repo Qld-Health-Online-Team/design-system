@@ -556,8 +556,16 @@ $QLD-header-md: 72px;
     }
 
     &--flex {
-      display: flex;
-      flex-wrap: wrap;
+      // Flexbox horizontal layout is a desktop-only concern: it replaces the
+      // float-based top-level nav (QHDEV-642). On mobile the nav is a vertical
+      // sidebar accordion inside a full-height fixed panel, where a flex-wrap
+      // container's lines stretch (align-content: stretch) to fill that height
+      // and pull the items apart. Keep the list in normal block flow below the
+      // desktop breakpoint so the accordion items stay tightly aligned.
+      @include QLD-media(lg) {
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
   }
 
