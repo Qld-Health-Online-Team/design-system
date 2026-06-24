@@ -124,6 +124,10 @@ export const componentLinks = {
   leftHandNavigation: {
     ds: `${dsBase}/components/navigation-vertical`,
   },
+  link: {
+    ds: `${dsBase}/styles/typography#section__text-links`,
+    figma: `${figmaBase}?node-id=12900-201779&p=f&t=yOj3gpnlDy5EdiKF-0`,
+  },
   linkColumns: {
     ds: `${dsBase}/components/link-columns-link-list`,
     figma: `${figmaBase}?node-id=11056-321574&p=f&t=WmKMIp3MbkVrYkUf-0`,
@@ -157,6 +161,9 @@ export const componentLinks = {
   selectBox: {
     ds: `${dsBase}/components/input-fields-select-box`,
     figma: `${figmaBase}?node-id=11056-321345&p=f&t=WmKMIp3MbkVrYkUf-0`,
+  },
+  skipLinks: {
+    ds: `${dsBase}/components/header`,
   },
   table: {
     ds: `${dsBase}/components/table`,

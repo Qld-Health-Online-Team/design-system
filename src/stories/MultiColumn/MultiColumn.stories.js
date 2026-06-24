@@ -238,6 +238,16 @@ const meta = {
   ...rowColumnArgs(9),
   ...rowColumnArgs(10),
  },
+ decorators: [
+  // Mimicking a content page layout
+  (Story) => {
+   const main = document.createElement("main");
+   main.className = "main content";
+   main.setAttribute("role", "main");
+   main.innerHTML = Story();
+   return main;
+  },
+ ],
  parameters: storyParams("multiColumns"),
 };
 
@@ -262,8 +272,8 @@ export const ManualWidthOverride = {
  args: { col1Width: 8, col_1_1: "Row 1, Column 1 content manually overridden to take 8/12 of the row width" },
 };
 
-export const MultipleRows = {
- args: { rowNum: 3 },
+export const TextSpacing = {
+ args: { rowNum: 3, spaceRows: "qld__row-gap-text-element" },
 };
 
 export const ParagraphSpacing = {
