@@ -9,13 +9,7 @@ const mockSite = {
   metadata: { coreSiteIcons: { value: iconSpritePath } },
 };
 
-function makeChild(
-  id,
-  name,
-  description = "",
-  icon = "eda",
-  ctas = [],
-) {
+function makeChild(id, name, description = "", icon = "eda", ctas = []) {
   return {
     assetid: String(id),
     type_code: "page_standard",
@@ -310,27 +304,9 @@ export const DarkBackground = {
 export const ThreeFooterLinks = {
   args: {
     children: [
-      makeChild(
-        1,
-        "Card one",
-        "Brief description.",
-        "monitoring",
-        threeCtas,
-      ),
-      makeChild(
-        2,
-        "Card two",
-        "Brief description.",
-        "pediatrics",
-        threeCtas,
-      ),
-      makeChild(
-        3,
-        "Card three",
-        "Brief description.",
-        "eda",
-        threeCtas,
-      ),
+      makeChild(1, "Card one", "Brief description.", "monitoring", threeCtas),
+      makeChild(2, "Card two", "Brief description.", "pediatrics", threeCtas),
+      makeChild(3, "Card three", "Brief description.", "eda", threeCtas),
     ],
   },
 };

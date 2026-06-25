@@ -53,7 +53,8 @@
     flex: 0 0 auto;
     order: -1;
     margin-top: 0;
-    border-bottom: $QLD-border-width-thin solid var(--QLD-color-light__border--alt);
+    border-bottom: $QLD-border-width-thin solid
+      var(--QLD-color-light__border--alt);
     max-height: 162px;
 
     @include QLD-media(sm) {
@@ -303,7 +304,6 @@
     .qld__card__icon {
       background-color: var(--QLD-color-dark__background--shade);
     }
-
   }
 
   //Dark Alt theme
@@ -312,7 +312,6 @@
 
     .qld__card__icon {
       background-color: var(--QLD-color-dark__background--alt-shade);
-
     }
   }
 
@@ -333,7 +332,6 @@
     }
 
     .qld__card__icon {
-
       svg,
       i,
       span {
@@ -430,7 +428,7 @@
     display: none;
   }
 
-  >li {
+  > li {
     list-style: none;
     @include QLD-space(padding-left, 1unit);
     @include QLD-space(padding-right, 1unit);
@@ -481,7 +479,7 @@
     }
   }
 
-  .row>& {
+  .row > & {
     margin-left: 0;
     margin-right: 0;
   }
@@ -534,9 +532,8 @@
 
 // Checks if two card components are adjacent and same background to reduce padding
 .qld__body.qld__card--wrapper {
-
-  +.qld__body.qld__card--wrapper,
-  +data+.qld__body.qld__card--wrapper {
+  + .qld__body.qld__card--wrapper,
+  + data + .qld__body.qld__card--wrapper {
     @include QLD-space(margin-top, -1unit);
 
     .qld__card-intro {
@@ -565,7 +562,7 @@
     }
   }
 
-  +.qld__body:not(.qld__card--wrapper) {
+  + .qld__body:not(.qld__card--wrapper) {
     @include QLD-space(padding-top, 2.5unit !important);
 
     @include QLD-media(lg) {
@@ -574,9 +571,8 @@
   }
 
   &.qld__body--alt {
-
-    +.qld__body.qld__card--wrapper,
-    +data+.qld__body.qld__card--wrapper {
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper {
       @include QLD-space(margin-top, 0unit);
 
       &.qld__body--alt {
@@ -599,9 +595,8 @@
   }
 
   &.qld__body--dark {
-
-    +.qld__body.qld__card--wrapper,
-    +data+.qld__body.qld__card--wrapper {
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper {
       @include QLD-space(margin-top, 0unit);
 
       &.qld__body--dark {
@@ -624,9 +619,8 @@
   }
 
   &.qld__body--dark-alt {
-
-    +.qld__body.qld__card--wrapper,
-    +data+.qld__body.qld__card--wrapper {
+    + .qld__body.qld__card--wrapper,
+    + data + .qld__body.qld__card--wrapper {
       @include QLD-space(margin-top, 0unit);
 
       &.qld__body--dark-alt {
@@ -660,11 +654,10 @@
 
 .qld__body.qld__card--wrapper.qld__card--wrapper-bg-pattern,
 .qld__body.qld__card--wrapper.qld__card--wrapper-bg-image {
-
-  +.qld__body.qld__card--wrapper,
-  +data+.qld__body.qld__card--wrapper,
-  +.qld__body.qld__card--wrapper,
-  +data+.qld__body.qld__card--wrapper {
+  + .qld__body.qld__card--wrapper,
+  + data + .qld__body.qld__card--wrapper,
+  + .qld__body.qld__card--wrapper,
+  + data + .qld__body.qld__card--wrapper {
     @include QLD-space(padding-top, 2.5unit !important);
 
     @include QLD-media(lg) {
@@ -674,9 +667,8 @@
 }
 
 .qld__body--alt.qld__card--wrapper {
-
-  +.qld__body--alt.qld__card--wrapper,
-  +data+.qld__body--alt.qld__card--wrapper {
+  + .qld__body--alt.qld__card--wrapper,
+  + data + .qld__body--alt.qld__card--wrapper {
     @include QLD-space(margin-top, -1unit);
 
     @include QLD-media(lg) {
