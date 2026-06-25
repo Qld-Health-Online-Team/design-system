@@ -174,6 +174,10 @@ export const componentLinks = {
     ds: `${dsBase}/components/text-input`,
     figma: `${figmaBase}?node-id=5990-97997&p=f&t=yRd2EKrtkEkPbBDT-0`,
   },
+  typography: {
+    ds: `${dsBase}/styles/typography`,
+    figma: `${figmaBase}?node-id=58880-54175&t=HJaBKJMDC0c6s7KB-0`,
+  },
   videoPlayer: {
     figma: `${figmaBase}?node-id=13297-214065&p=f&t=WmKMIp3MbkVrYkUf-0`,
   },

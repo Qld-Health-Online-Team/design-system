@@ -1,5 +1,10 @@
 import { getTypography } from "./typography.js";
-import { themes, themeColours, dummyText } from "../../../.storybook/globals";
+import {
+  themes,
+  themeColours,
+  dummyText,
+  storyParams,
+} from "../../../.storybook/globals";
 
 // Typography token reference and Chromatic snapshot target.
 //
@@ -96,19 +101,7 @@ const lineHeightCard = (lh) =>
 const renderTypography = () => {
   const t = getTypography();
   return `
-    <div style="font-family:${SANS};color:${TEXT};padding:1rem;">
-      <h1 style="font-size:28px;font-weight:700;margin:0 0 8px;">Typography</h1>
-      <p style="color:${MUTED};margin:0 0 8px;max-width:72ch;">
-        The typography tokens in the design system, read from the SCSS so they
-        stay in sync with the variables. Each card previews the token applied to
-        sample text alongside its value and SCSS variable name.
-      </p>
-      <p style="margin:0 0 8px;font-size:14px;color:${MUTED};">
-        Resources:
-        <a href="${DS_URL}" target="_blank" rel="noopener noreferrer" style="color:${LINK};">QLD Design System ↗</a>
-        ·
-        <a href="${FIGMA_URL}" target="_blank" rel="noopener noreferrer" style="color:${LINK};">Figma UI Kit ↗</a>
-      </p>
+    <div style="font-family:${SANS};color:${TEXT}">
       ${section("Typeface", t.families.length, t.families.map(familyCard))}
       ${section("Type scale — font size", t.sizes.length, t.sizes.map(sizeCard))}
       ${section("Font weight", t.weights.length, t.weights.map(weightCard))}
@@ -149,13 +142,7 @@ const elementGroup = (title, html) => `
 // styles: headings (h1–h6), paragraphs with inline emphasis, text links,
 // ordered/unordered lists, and the qld__link-list component (block + inline).
 const renderElements = () => `
-  <div style="font-family:${SANS};color:${TEXT};padding:1rem;max-width:900px;">
-    <h1 style="font-size:28px;font-weight:700;margin:0 0 8px;">Text elements</h1>
-    <p style="color:${MUTED};margin:0 0 8px;max-width:72ch;font-size:14px;">
-      Common text elements written as plain HTML so they render with the live
-      design-system styles — headings, links and link lists are styled by the
-      surrounding <span style="font-family:${MONO};">.qld__body</span> wrapper.
-    </p>
+  <div style="font-family:${SANS};color:${TEXT};max-width:900px;">
     ${elementGroup(
       "Headings",
       `<h1>Heading level 1</h1>
@@ -211,11 +198,8 @@ const renderElements = () => `
 
 export default {
   title: "1. Core Styles/Typography",
-  // This story is the typography reference, so opt out of the auto-generated docs
-  // page (autodocs is enabled globally in preview.js).
-  tags: ["!autodocs"],
   // Show the Figma frame in the addon-designs "Design" panel.
-  parameters: { design: { type: "figma", url: FIGMA_URL } },
+  parameters: storyParams("typography"),
   render: () => renderTypography(),
 };
 
