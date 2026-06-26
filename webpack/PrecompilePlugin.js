@@ -44,7 +44,7 @@ class PrecompilePlugin {
       // register the helper using the helper name and the imported function
       Handlebars.registerHelper(helperName, helperFn);
 
-      let registerFunction = `Handlebars.registerHelper('${helperName}', ${helperFn.toString()}); \r\n`;
+      let registerFunction = `Handlebars.registerHelper('${helperName}', ${helperFn.toString()}); \n`;
 
       hbsHelpersFile += registerFunction;
     });

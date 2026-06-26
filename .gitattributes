@@ -1,5 +1,17 @@
-# Ensure shell scripts are always checked out with unix line endings, even on Windows.
+# Default: store every text file as LF and check it out as LF on all platforms
+# (including Windows). git auto-detects binary files and leaves them untouched.
+# This keeps the deterministic build byte-stable — source bytes (.hbs, .json,
+# .scss, .js, .html, .xml) are embedded into dist/ output, so a CRLF checkout
+# must never leak in. The rules below are explicit restatements for clarity.
+* text=auto eol=lf
+
+# Shell scripts must be LF even if the catch-all is ever relaxed.
 *.sh text eol=lf
+
+# Handlebars templates are precompiled into the deterministic build output; their
+# line endings are embedded as literal \n / \r\n in dist/**/presentation.js, so
+# a CRLF checkout would make the build non-deterministic.
+*.hbs text eol=lf
 
 # Minified, deterministic build bundles. They are kept in the repo for the
 # Matrix contract but are un-diffable by format (single-line / minified), so
