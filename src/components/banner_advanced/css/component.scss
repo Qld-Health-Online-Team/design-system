@@ -1,9 +1,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-// {{component_name}}
+// Banner Advanced
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /* Fixes an issue with the banner where the last element of the right-side menu disappears. */
-@media (width >= 729px) and (max-width: $QLD-media-lg) {
+@media (width >=729px) and (max-width: $QLD-media-lg) {
   .qld__banner__advanced {
     .qld__banner__wrapper {
       div.qld__banner__main.row {
@@ -176,7 +176,8 @@
     }
 
     svg,
-    i {
+    i,
+    span {
       display: block;
       margin: 0 auto;
 
@@ -228,7 +229,8 @@
       border-bottom: 1px solid var(--QLD-color-light__design-accent);
 
       svg path,
-      i {
+      i,
+      span {
         color: var(--QLD-color-light__action--secondary);
         fill: var(--QLD-color-light__action--secondary);
       }
@@ -243,15 +245,15 @@
     }
   }
 
-  &--dark {
-    background-color: var(--QLD-color-dark__background);
-
+  // Dark & Dark alt shared styles
+  &--dark,
+  &--dark-alt {
     .qld__tile-nav__item {
-      background-color: var(--QLD-color-dark__background);
       border-bottom: 1px solid var(--QLD-color-dark__design-accent);
 
       svg path,
-      i {
+      i,
+      span {
         color: var(--QLD-color-dark__action--secondary);
         fill: var(--QLD-color-dark__action--secondary);
 
@@ -272,32 +274,21 @@
     }
   }
 
+  // Dark specific styles
+  &--dark {
+    background-color: var(--QLD-color-dark__background);
+
+    .qld__tile-nav__item {
+      background-color: var(--QLD-color-dark__background);
+    }
+  }
+
+  // Dark alt specific styles
   &--dark-alt {
     background-color: var(--QLD-color-dark__background--alt);
 
     .qld__tile-nav__item {
       background-color: var(--QLD-color-dark__background--alt);
-      border-bottom: 1px solid var(--QLD-color-dark__design-accent);
-
-      svg path,
-      i {
-        color: var(--QLD-color-dark__action--secondary);
-        fill: var(--QLD-color-dark__action--secondary);
-
-        &:hover {
-          color: var(--QLD-color-dark__action--secondary-hover);
-        }
-      }
-
-      .qld__tile-nav__link {
-        color: var(--QLD-color-dark__link);
-
-        @include QLD-underline("dark", "noUnderline");
-
-        &:hover {
-          color: var(--QLD-color-dark__link);
-        }
-      }
     }
   }
 }
