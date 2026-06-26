@@ -4,7 +4,10 @@ import MegaMainNavStoriesMeta from "../GlobalNavigation/MegaMainNavigation/mega_
 
 // Render function for Storybook / pages
 export const renderHeader = (args) => {
-  const navbarHTML = MegaMainNavStoriesMeta.render({ ...MegaMainNavStoriesMeta.args, ...args });
+  const navbarHTML = MegaMainNavStoriesMeta.render({
+    ...MegaMainNavStoriesMeta.args,
+    ...args,
+  });
 
   const headerHTML = Template({
     site: {

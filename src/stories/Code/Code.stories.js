@@ -59,7 +59,10 @@ function render(args) {
 const meta = {
   title: "3. Components/Code",
   render,
-  decorators: [initComponents([initCode])],
+  decorators: [
+    initComponents([initCode]),
+    (storyFn) => `<main>${storyFn()}</main>`,
+  ],
   parameters: storyParams("code"),
   argTypes: {
     value: {

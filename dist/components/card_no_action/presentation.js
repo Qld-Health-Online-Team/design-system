@@ -416,5 +416,5 @@
     + ((stack1 = lookupProperty(helpers,"each").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"children") : stack1),{"name":"each","hash":{},"fn":container.program(29, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":80,"column":8},"end":{"line":133,"column":17}}})) != null ? stack1 : "")
     + "\n      </ul>\n    </div>\n"
     + ((stack1 = lookupProperty(helpers,"with").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1),{"name":"with","hash":{},"fn":container.program(59, data, 0, blockParams, depths),"inverse":container.noop,"data":data,"loc":{"start":{"line":137,"column":4},"end":{"line":146,"column":13}}})) != null ? stack1 : "")
-    + "  </div>\n</section>";
+    + "  </div>\n</section>\n";
 },"useData":true,"useDepths":true}

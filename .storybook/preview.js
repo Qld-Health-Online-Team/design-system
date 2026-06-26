@@ -80,8 +80,8 @@ const preview = {
   },
   decorators: [
     (storyFn, context) => {
-      // Skip wrapper for Navbar story
-      if (context.kind === "Components/Navbar") {
+      // Manual flag passed from the story to avoid the following parent wrapping
+      if (context.parameters.skipDecorator) {
         return storyFn();
       }
       const wrapper = document.createElement("div");
