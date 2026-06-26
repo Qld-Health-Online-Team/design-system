@@ -1,5 +1,7 @@
 import Template from "../../components/banner_advanced/html/component.hbs";
 import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import initBannerAdvanced from "../../components/banner_advanced/js/global";
+import { initComponents } from "../../../.storybook/decorators";
 import ToowoombaImage from "../Cards/Toowoomba-web.jpeg";
 
 const mockLineage = [
@@ -37,7 +39,7 @@ const mockChildren = [
     name: "Brand",
     metadata: {
       redirect_url: { value: "#" },
-      cardIcon: { value: "fal fa-question-circle" },
+      cardIcon: { value: "cancel" },
     },
   },
   {
@@ -45,7 +47,7 @@ const mockChildren = [
     name: "Content",
     metadata: {
       redirect_url: { value: "#" },
-      cardIcon: { value: "fal fa-stethoscope" },
+      cardIcon: { value: "eda" },
     },
   },
   {
@@ -53,7 +55,14 @@ const mockChildren = [
     name: "Components",
     metadata: {
       redirect_url: { value: "#" },
-      cardIcon: { value: "fal fa-heart" },
+      cardIcon: { value: "ent" },
+    },
+  }, {
+    assetid: "4",
+    name: "Contact us",
+    metadata: {
+      redirect_url: { value: "#" },
+      cardIcon: { value: "phone_enabled" },
     },
   },
 ];
@@ -135,6 +144,7 @@ function render(args) {
 const meta = {
   title: "3. Components/Banner/Advanced",
   render,
+  decorators: [initComponents([initBannerAdvanced])],
   argTypes: {
     headingPrimary: {
       description: "Primary heading text.",
