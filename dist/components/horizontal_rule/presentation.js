@@ -6,19 +6,19 @@
         return undefined
     };
 
-  return "  <section\r\n    id=\""
+  return "  <section\n    id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":3,"column":8},"end":{"line":3,"column":112}}})) != null ? stack1 : "")
-    + "\"\r\n    class=\"qld__body\"\r\n  >\r\n    <hr\r\n      class=\"\r\n        qld__horizontal-rule\r\n        "
+    + "\"\n    class=\"qld__body\"\n  >\n    <hr\n      class=\"\n        qld__horizontal-rule\n        "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"colour") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n        "
+    + "\n        "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\r\n      \"\r\n      style=\"\r\n        height:"
+    + "\n      \"\n      style=\"\n        height:"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"height") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ";margin-top:"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + ";margin-bottom:"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"margin_top") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + ";\r\n      \"\r\n      aria-hidden=\"true\"\r\n    />\r\n  </section>\r\n";
+    + ";\n      \"\n      aria-hidden=\"true\"\n    />\n  </section>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {

@@ -111,13 +111,22 @@ class PrecompilePlugin {
           if (manifestData.length) {
             const manifestDataXML = JSON.parse(manifestData);
 
-            function rand() {
-              return Math.floor(Math.random() * 10000000000);
-            }
+            // Derive deterministic ids from the template/field names. These
+            // values are only internal cross-reference handles within this
+            // import.xml (Matrix assigns the real asset ids at import time), so
+            // they only need to be unique within the file. Deriving them from
+            // names keeps builds reproducible and the XML diffable — adding or
+            // reordering a field only touches that field's actions.
+            //
+            // Names are sanitised because the ids are embedded in
+            // [[output://<id>.assetid]] references, which Matrix parses on ".".
+            const safeId = (name) =>
+              String(name).replace(/[^A-Za-z0-9_]/g, "_");
+
             var idMap = {
-              cct_id: rand(),
-              schema_id: rand(),
-              section_id: rand(),
+              cct_id: `${safeId(templateName)}_cct`,
+              schema_id: `${safeId(templateName)}_schema`,
+              section_id: `${safeId(templateName)}_section`,
             };
 
             //test if we have the data and metadata objects as children
@@ -127,7 +136,10 @@ class PrecompilePlugin {
             ) {
               //grab the metadata fields
               for (const field in manifestDataXML.component.data.metadata) {
-                idMap[field] = rand();
+                // Namespaced with "_field_" so a field literally named
+                // "cct"/"schema"/"section" can't collide with the container
+                // tokens above (the un-prefixed set_permission_* action ids).
+                idMap[field] = `${safeId(templateName)}_field_${safeId(field)}`;
               }
             }
 
@@ -336,15 +348,6 @@ class PrecompilePlugin {
                   <value><![CDATA[${f.editable ? 1 : 0}]]></value>
               </action>
               <action>
-                  <action_id>set_${f.type}_${idMap[field]}_editable</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[${f.editable ? 1 : 0}]]></value>
-              </action>
-              <action>
                   <action_id>set_${f.type}_${idMap[field]}_required</action_id>
                   <action_type>set_attribute_value</action_type>
                   <asset>[[output://create_${f.type}_${
@@ -379,7 +382,7 @@ class PrecompilePlugin {
                       <value><![CDATA[array (${options});]]></value>
                   </action>
                   <action>
-                      <action_id>set_{f.type}_${idMap[field]}_edit_params</action_id>
+                      <action_id>set_${f.type}_${idMap[field]}_edit_params</action_id>
                       <action_type>set_attribute_value</action_type>
                       <asset>[[output://create_${f.type}_${idMap[field]}.assetid]]</asset>
                       <attribute>edit_params</attribute>
