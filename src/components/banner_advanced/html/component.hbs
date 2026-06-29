@@ -40,91 +40,30 @@
     "
   >
     <style>
-      {
-          {
-          #ifCond metadata.background_type.value '==' 'image'
-        }
-      }
-
-      @media (min-width:699px) {
-        #banner-advanced- {
-            {
-            assetid
+      {{#ifCond metadata.background_type.value '==' 'image'}}
+          @media (min-width:699px) {
+              #banner-advanced-{{assetid}} {
+                  background-image: url(./?a={{metadata.background_image_lg.value}});
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position-x: {{metadata.background_image_alignment.value}};
+              }
           }
-        }
+      {{/ifCond}}
 
-          {
-          background-image: url(./?a={{metadata.background_image_lg.value}});
-          background-size: cover;
-          background-repeat: no-repeat;
-
-          background-position-x: {
-              {
-              metadata.background_image_alignment.value
-            }
+      {{#ifCond metadata.background_type.value '==' 'texture'}}
+          #banner-advanced-{{assetid}} {
+              background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}});
           }
+      {{/ifCond}}
 
-          ;
-        }
-      }
-
-        {
-          {
-          /ifCond
-        }
-      }
-
-        {
-          {
-          #ifCond metadata.background_type.value '==' 'texture'
-        }
-      }
-
-      #banner-advanced- {
-          {
-          assetid
-        }
-      }
-
-        {
-        background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}});
-      }
-
-        {
-          {
-          /ifCond
-        }
-      }
-
-        {
-          {
-          #if metadata.background_min_height.value
-        }
-      }
-
+      {{#if metadata.background_min_height.value}}
       @media (min-width:1312px) {
-        #banner-advanced- {
-            {
-            assetid
+          #banner-advanced-{{assetid}} {
+              min-height: {{metadata.background_min_height.value}};
           }
-        }
-
-          {
-          min-height: {
-              {
-              metadata.background_min_height.value
-            }
-          }
-
-          ;
-        }
       }
-
-        {
-          {
-          /if
-        }
-      }
+      {{/if}}
     </style>
 
     <!--@@ Breadcrumbs - Mobile @@-->
@@ -207,7 +146,8 @@
                 "
                 style="background-image: url('./?a={{ metadata.hero_image.value }}');"
                 {{#ifCond background_image_alt '!=' ''}}
-                  role="img" aria-label="{{ background_image_alt }}"
+                  role="img"
+                  aria-label="{{ background_image_alt }}"
                 {{/ifCond}}
               ></div>
               {{#if metadata.background_image_sm.value}}
@@ -219,7 +159,8 @@
                   "
                   style="background-image: url('./?a={{ metadata.background_image_sm.value }}');"
                   {{#ifCond background_image_alt '!=' ''}}
-                    role="img" aria-label="{{ background_image_alt }}"
+                    role="img"
+                    aria-label="{{ background_image_alt }}"
                   {{/ifCond}}
                 ></div>
               {{/if}}
