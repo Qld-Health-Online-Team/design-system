@@ -57,7 +57,8 @@ const mockChildren = [
       redirect_url: { value: "#" },
       cardIcon: { value: "ent" },
     },
-  }, {
+  },
+  {
     assetid: "4",
     name: "Contact us",
     metadata: {
