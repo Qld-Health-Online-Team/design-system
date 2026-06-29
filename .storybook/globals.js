@@ -93,6 +93,10 @@ export const componentLinks = {
     ds: `${dsBase}/components/direction-link`,
     figma: `${figmaBase}?node-id=11056-321363&p=f&t=WmKMIp3MbkVrYkUf-0`,
   },
+  fileUpload: {
+    ds: `${dsBase}/components/file-upload`,
+    figma: `${figmaBase}?node-id=120418-69592&t=reDR6N8B4YziXnTh-0`,
+  },
   footer: {
     ds: `${dsBase}/components/footer`,
     figma: `${figmaBase}?node-id=5990-97582&p=f&t=xM7nOPN0NPouiFDO-0`,

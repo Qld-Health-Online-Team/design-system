@@ -52,7 +52,7 @@ const meta = {
   render,
   decorators: [initComponents([initFileUpload])],
   parameters: {
-    ...storyParams("forms"),
+    ...storyParams("fileUpload"),
     layout: "padded",
   },
   argTypes: {
