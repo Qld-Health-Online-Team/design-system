@@ -430,7 +430,7 @@
                 <ul class="qld__tile-nav__list">
                   {{#eachUpTo ../component.children 4}}
                     <li class="qld__tile-nav__item">
-                      <i class="{{ metadata.cardIcon.value }}"></i>
+                      {{{iconSwitch metadata.cardIcon.value}}}
                       {{#if metadata.redirect_url}}
                         <a
                           class="qld__tile-nav__link"

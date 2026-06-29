@@ -3,6 +3,7 @@ import "./components/_global/js/global.js";
 
 // Standard components
 import { initAccordion } from "./components/accordion/js/global.js";
+import initBannerAdvanced from "./components/banner_advanced/js/global.js";
 import initBasicSearch from "./components/basic_search/js/global.js";
 import initBreadcrumb from "./components/breadcrumbs/js/global.js";
 import initCards from "./components/card_no_action/js/global.js";
@@ -32,6 +33,7 @@ export default function initComponents() {
   initGlobalAlert();
   document.addEventListener("DOMContentLoaded", () => {
     initAccordion(document);
+    initBannerAdvanced(document);
     initBasicSearch(document);
     initBreadcrumb();
     initCards(document);
