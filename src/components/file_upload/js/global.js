@@ -16,21 +16,28 @@ let fileUploads = {
  */
 const loadingTemplate = function (file) {
   const fileName = file.name;
-  const fileTemplate = document.createElement("div");
+  const tpl = document.createElement("template");
 
-  fileTemplate.classList.add("qld__form-file");
+  // Static markup only — no interpolation, so this innerHTML is safe.
+  tpl.innerHTML = `<div class="qld__form-file">
+                    <div class="qld__form-file-info-wrapper">
+                      <div class="qld__form-file-loader">
+                        <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
+                          <span class="qld__loading_spinner-wheel"></span>
+                        </div>
+                      </div>
+                      <div class="qld__form-file-info">
+                        <p class="qld__display-xs qld__form-file-info-name"></p>
+                        <span class="qld__form-file-info-status">Uploading...</span>
+                      </div>
+                    </div>
+                    <div class="qld__form-file-actions"></div>
+                  </div>`;
 
-  // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
-  // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-  //                     <div class="qld__loading_spinner qld__loading_spinner--landscape" role="status">
-  //                         <span class="qld__loading_spinner-wheel"></span>
-  //                     </div>
-  //                 </div>
-  //                 <div class="qld__form-file-info">
-  //                     <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-  //                     <span class="qld__form-file-info-status">Uploading...</span>
-  //                 </div></div>
-  //                 <div class="qld__form-file-actions"></div>`;
+  const fileTemplate = tpl.content.firstElementChild;
+  // Dynamic value injected as text, not HTML — prevents XSS.
+  fileTemplate.querySelector(".qld__form-file-info-name").textContent =
+    fileName;
   return fileTemplate;
 };
 
@@ -41,7 +48,6 @@ const loadingTemplate = function (file) {
  */
 const successTemplate = function (file) {
   const fileName = file.name;
-  const fileTemplate = document.createElement("div");
   let fileSize = null;
   const fileId = file.id != undefined ? file.id : fileName;
   let fileType = file.type != undefined ? getAssetType(file.type) : "";
@@ -50,25 +56,62 @@ const successTemplate = function (file) {
     fileSize = Math.ceil(file.size / 1000);
   }
 
-  fileTemplate.classList.add("qld__form-file", "qld__form-file--success");
+  const tpl = document.createElement("template");
 
-  // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
-  // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-  //                                 <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#${fileType !== "" ? fileType.iconClass : ""}"></use></svg>
-  //                             </div>
-  //                             <div class="qld__form-file-info">
-  //                                 <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-  //                                 <span class="qld__form-file-info-status">
-  //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-success"></use></svg>
-  //                                     Upload successful${fileSize !== null ? `, ${fileSize}KB` : ""}
-  //                                 </span>
-  //                             </div></div>
-  //                             <div class="qld__form-file-actions">
-  //                                 <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-  //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
-  //                                     <span class="qld__form-file-delete-btn-remove">Remove</span>
-  //                                 </button>
-  //                             </div>`;
+  // Static markup only — no interpolation, so this innerHTML is safe.
+  tpl.innerHTML = `<div class="qld__form-file qld__form-file--success">
+                    <div class="qld__form-file-info-wrapper">
+                      <div class="qld__form-file-loader">
+                        <svg class="qld__icon qld__icon--lg qld__form-file-type-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                      </div>
+                      <div class="qld__form-file-info">
+                        <p class="qld__display-xs qld__form-file-info-name"></p>
+                        <span class="qld__form-file-info-status">
+                          <svg class="qld__icon qld__icon--sm qld__form-file-status-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="qld__form-file-actions">
+                      <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                        <svg class="qld__icon qld__icon--sm qld__form-file-delete-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                        <span class="qld__form-file-delete-btn-remove">Remove</span>
+                      </button>
+                    </div>
+                  </div>`;
+
+  const fileTemplate = tpl.content.firstElementChild;
+
+  // Dynamic values injected as text/attributes, not HTML — prevents XSS.
+  fileTemplate.querySelector(".qld__form-file-info-name").textContent =
+    fileName;
+
+  fileTemplate
+    .querySelector(".qld__form-file-type-icon use")
+    .setAttribute(
+      "href",
+      `${fileUploads.iconDataPath}#${fileType !== "" ? fileType.iconClass : ""}`,
+    );
+
+  fileTemplate
+    .querySelector(".qld__form-file-status-icon use")
+    .setAttribute("href", `${fileUploads.iconDataPath}#status-success`);
+
+  // Append the status text as a text node alongside the status icon.
+  fileTemplate
+    .querySelector(".qld__form-file-info-status")
+    .appendChild(
+      document.createTextNode(
+        `Upload successful${fileSize !== null ? `, ${fileSize}KB` : ""}`,
+      ),
+    );
+
+  fileTemplate
+    .querySelector(".qld__form-file-delete-btn")
+    .setAttribute("data-file-id", fileId);
+
+  fileTemplate
+    .querySelector(".qld__form-file-delete-icon use")
+    .setAttribute("href", `${fileUploads.iconDataPath}#delete`);
 
   return fileTemplate;
 };
@@ -80,28 +123,58 @@ const successTemplate = function (file) {
  */
 const errorTemplate = function (file, error) {
   const fileName = file.name;
-  const fileTemplate = document.createElement("div");
   const fileId = file.id != undefined ? file.id : fileName;
   console.log("error:", file.name);
-  fileTemplate.classList.add("qld__form-file", "qld__form-file--error");
 
-  // TODO: Do not build html elements using innerHTML, build properly to prevent XSS
-  // fileTemplate.innerHTML = `<div class="qld__form-file-info-wrapper"><div class="qld__form-file-loader">
-  //                                 <svg class="qld__icon qld__icon--lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#document-error"></use></svg>
-  //                             </div>
-  //                             <div class="qld__form-file-info">
-  //                                 <p class="qld__display-xs qld__form-file-info-name">${fileName}</p>
-  //                                 <span class="qld__form-file-info-status">
-  //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#status-error"></use></svg>
-  //                                     ${error}
-  //                                 </span>
-  //                             </div></div>
-  //                             <div class="qld__form-file-actions">
-  //                                 <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn" data-file-id="${fileId}">
-  //                                     <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="${fileUploads.iconDataPath}#delete"></use></svg>
-  //                                     <span class="qld__form-file-delete-btn-remove">Remove</span>
-  //                                 </button>
-  //                             </div>`;
+  const tpl = document.createElement("template");
+
+  // Static markup only — no interpolation, so this innerHTML is safe.
+  tpl.innerHTML = `<div class="qld__form-file qld__form-file--error">
+                    <div class="qld__form-file-info-wrapper">
+                      <div class="qld__form-file-loader">
+                        <svg class="qld__icon qld__icon--lg qld__form-file-type-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                      </div>
+                      <div class="qld__form-file-info">
+                        <p class="qld__display-xs qld__form-file-info-name"></p>
+                        <span class="qld__form-file-info-status">
+                          <svg class="qld__icon qld__icon--sm qld__form-file-status-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="qld__form-file-actions">
+                      <button class="qld__btn qld__btn--tertiary qld__btn--icon-lead qld__form-file-delete-btn">
+                        <svg class="qld__icon qld__icon--sm qld__form-file-delete-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use></use></svg>
+                        <span class="qld__form-file-delete-btn-remove">Remove</span>
+                      </button>
+                    </div>
+                  </div>`;
+
+  const fileTemplate = tpl.content.firstElementChild;
+
+  // Dynamic values injected as text/attributes, not HTML — prevents XSS.
+  fileTemplate.querySelector(".qld__form-file-info-name").textContent =
+    fileName;
+
+  fileTemplate
+    .querySelector(".qld__form-file-type-icon use")
+    .setAttribute("href", `${fileUploads.iconDataPath}#document-error`);
+
+  fileTemplate
+    .querySelector(".qld__form-file-status-icon use")
+    .setAttribute("href", `${fileUploads.iconDataPath}#status-error`);
+
+  // Append the error message as a text node alongside the status icon.
+  fileTemplate
+    .querySelector(".qld__form-file-info-status")
+    .appendChild(document.createTextNode(error));
+
+  fileTemplate
+    .querySelector(".qld__form-file-delete-btn")
+    .setAttribute("data-file-id", fileId);
+
+  fileTemplate
+    .querySelector(".qld__form-file-delete-icon use")
+    .setAttribute("href", `${fileUploads.iconDataPath}#delete`);
 
   return fileTemplate;
 };
@@ -164,10 +237,14 @@ const isFileValid = function (file, input_field_settings) {
     return "Unsupported characters in file name.";
   }
 
-  // If a file of the same name has already been uploaded to the field
+  // If a file of the same name has already been uploaded to the field.
+  // Stored entries are File objects (no-API path) or stringified {id,name}
+  // objects (JS API path), so compare on name in both cases.
   if (
     currentFiles.some(function (item) {
-      return file.id == item.id;
+      const itemName =
+        typeof item === "string" ? JSON.parse(item).name : item.name;
+      return itemName === fileName;
     })
   ) {
     console.error("Duplicate file name");

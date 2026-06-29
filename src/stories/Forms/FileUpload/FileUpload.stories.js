@@ -89,6 +89,10 @@ export const SingleFile = {
   args: { maxFiles: 1 },
 };
 
+/**
+ * A single valid file that has been selected and "uploaded" (the no-API path
+ * simulates the upload), leaving a completed preview card.
+ */
 export const WithSelectedFile = {
   play: async ({ canvasElement }) => {
     await nextTick();
@@ -99,19 +103,47 @@ export const WithSelectedFile = {
 
     selectFiles(input, [file]);
 
-    // The file is accepted: a preview box is added and the input's FileList
-    // holds the file. (The preview's inner markup, and with it the
-    // "--complete" state, is disabled in the component pending its XSS TODO.)
+    // The file is accepted: the input's FileList holds it, and a completed
+    // preview card is shown with the file name rendered as text.
     await waitFor(() => expect(input.files).toHaveLength(1));
+    const card = canvasElement.querySelector(".qld__form-file--complete");
+    await expect(card).toBeInTheDocument();
     await expect(
-      canvasElement.querySelector(".qld__form-file"),
-    ).toBeInTheDocument();
+      card.querySelector(".qld__form-file-info-name"),
+    ).toHaveTextContent("example.pdf");
     await expect(
       canvasElement.querySelector(".qld__form-file--error"),
     ).not.toBeInTheDocument();
   },
 };
 
+/**
+ * Several valid files selected at once, each shown as its own completed card.
+ */
+export const MultipleFiles = {
+  play: async ({ canvasElement }) => {
+    await nextTick();
+    const input = canvasElement.querySelector("input[type=file]");
+    const files = [
+      new File(["pdf"], "report.pdf", { type: "application/pdf" }),
+      new File(["doc"], "letter.docx", {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      }),
+      new File(["img"], "diagram.png", { type: "image/png" }),
+    ];
+
+    selectFiles(input, files);
+
+    await waitFor(() => expect(input.files).toHaveLength(3));
+    await expect(
+      canvasElement.querySelectorAll(".qld__form-file--complete"),
+    ).toHaveLength(3);
+  },
+};
+
+/**
+ * An invalid file type is rejected with an error card and not added to the input.
+ */
 export const RejectsInvalidFileType = {
   play: async ({ canvasElement }) => {
     await nextTick();
@@ -129,5 +161,54 @@ export const RejectsInvalidFileType = {
       ).toBeInTheDocument(),
     );
     await expect(input.files).toHaveLength(0);
+  },
+};
+
+/**
+ * A file larger than `maxSize` is rejected with an error card.
+ */
+export const RejectsOversizedFile = {
+  play: async ({ canvasElement, args }) => {
+    await nextTick();
+    const input = canvasElement.querySelector("input[type=file]");
+    // One byte over the limit (maxSize is in MB).
+    const tooBig = "x".repeat(args.maxSize * 1024 * 1024 + 1);
+    const file = new File([tooBig], "huge.pdf", { type: "application/pdf" });
+
+    selectFiles(input, [file]);
+
+    await waitFor(() =>
+      expect(
+        canvasElement.querySelector(".qld__form-file--error"),
+      ).toBeInTheDocument(),
+    );
+    await expect(input.files).toHaveLength(0);
+  },
+};
+
+/**
+ * Selecting more than `maxFiles` accepts up to the limit and rejects the rest,
+ * showing a mix of completed and error cards.
+ */
+export const RejectsTooManyFiles = {
+  play: async ({ canvasElement, args }) => {
+    await nextTick();
+    const input = canvasElement.querySelector("input[type=file]");
+    const files = Array.from(
+      { length: args.maxFiles + 1 },
+      (_, i) =>
+        new File(["pdf"], `file-${i + 1}.pdf`, { type: "application/pdf" }),
+    );
+
+    selectFiles(input, files);
+
+    // Up to maxFiles are accepted; the extra one is rejected.
+    await waitFor(() => expect(input.files).toHaveLength(args.maxFiles));
+    await expect(
+      canvasElement.querySelectorAll(".qld__form-file--complete"),
+    ).toHaveLength(args.maxFiles);
+    await expect(
+      canvasElement.querySelector(".qld__form-file--error"),
+    ).toBeInTheDocument();
   },
 };
