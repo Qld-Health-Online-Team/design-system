@@ -17,8 +17,10 @@ const footerArgs = {
   footerCTALead:
     "Get in touch for enquiries, feedback, complaints and compliments.",
   footerLogo: {
-    asset_url:
-      "https://www.designsystem.qld.gov.au/__data/assets/file/0029/454259/coa-delivering-for-qld-mono-blue-mini-lockup.svg",
+    // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
+    // are deterministic — an external logo URL loads intermittently at capture
+    // time, making the SVG flicker in/out between builds.
+    asset_url: "/coa-delivering-for-qld-mono-blue-mini-lockup.svg",
   },
 
   footerLinks: [
@@ -185,8 +187,7 @@ export const Dark = {
   args: {
     footerStyle: "qld__footer--dark",
     footerLogo: {
-      asset_url:
-        "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
+      asset_url: "/coa-delivering-for-qld-mono-white-mini-lockup.svg",
     },
   },
 };
@@ -194,8 +195,7 @@ export const DarkAlt = {
   args: {
     footerStyle: "qld__footer--dark-alt",
     footerLogo: {
-      asset_url:
-        "https://www.designsystem.qld.gov.au/__data/assets/file/0022/456502/coa-delivering-for-qld-mono-white-mini-lockup.svg",
+      asset_url: "/coa-delivering-for-qld-mono-white-mini-lockup.svg",
     },
   },
 };

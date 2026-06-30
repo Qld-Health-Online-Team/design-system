@@ -68,8 +68,10 @@ const promoPanelArgs = {
   abstract:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   body: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-  promoImage:
-    "https://www.cq.health.qld.gov.au/__data/assets/image/0025/139534/Woorabinda.jpg",
+  // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
+  // are deterministic — an external image URL loads intermittently at capture
+  // time, making the image flicker in/out between builds.
+  promoImage: "/Woorabinda.jpg",
   bodyBackground: "qld__body--light",
   imageAlignment: "qld__promo-panel--image-left",
   promoPanelIcon: "zoom",

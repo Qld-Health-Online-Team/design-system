@@ -76,8 +76,10 @@ export const headerArgs = {
   sitePreHeaderTheme: "",
   sitePreHeaderText: "Queensland Government",
   siteHeaderDefaultLogo: "qgov-coa.svg",
-  sitePreHeaderLogo:
-    "https://www.childrens.health.qld.gov.au/__data/assets/file/0020/163334/CoA-Black-Mobile.svg",
+  // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
+  // are deterministic — an external logo URL loads intermittently at capture
+  // time, making the image flicker in/out between builds.
+  sitePreHeaderLogo: "/CoA-Black-Mobile.svg",
   siteLogoUrl: "https://www.qld.gov.au/",
   siteLogo: "",
   siteShowLogo: "yes",
