@@ -642,17 +642,17 @@
 },"125":function(container,depth0,helpers,partials,data) {
     return "                    qld__tile-nav--dark-alt\n";
 },"127":function(container,depth0,helpers,partials,data) {
-    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
         return undefined
     };
 
-  return "                    <li class=\"qld__tile-nav__item\">\n                      <i class=\""
-    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"></i>\n"
-    + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(128, data, 0),"inverse":container.program(130, data, 0),"data":data,"loc":{"start":{"line":434,"column":22},"end":{"line":446,"column":29}}})) != null ? stack1 : "")
+  return "                    <li class=\"qld__tile-nav__item\">\n                      "
+    + ((stack1 = (lookupProperty(helpers,"iconSwitch")||(depth0 && lookupProperty(depth0,"iconSwitch"))||container.hooks.helperMissing).call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"cardIcon") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"iconSwitch","hash":{},"data":data,"loc":{"start":{"line":433,"column":22},"end":{"line":433,"column":62}}})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"redirect_url") : stack1),{"name":"if","hash":{},"fn":container.program(128, data, 0),"inverse":container.program(130, data, 0),"data":data,"loc":{"start":{"line":434,"column":22},"end":{"line":446,"column":29}}})) != null ? stack1 : "")
     + "                    </li>\n";
 },"128":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {

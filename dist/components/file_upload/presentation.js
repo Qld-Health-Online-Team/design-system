@@ -37,7 +37,7 @@
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"input_name") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n          >\n            Select files\n          </label>\n        </div>\n        <div\n          id=\"ij-field__"
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"input_name") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "-preview\"\n          class=\"qld__form-file-preview\"\n        ></div>\n      </div>\n    </div>\n    <input type=\"submit\" value=\"submit\" />\n  </form>\n";
+    + "-preview\"\n          class=\"qld__form-file-preview\"\n        ></div>\n      </div>\n    </div>\n    <input class=\"qld__btn qld__btn--primary\" type=\"submit\" value=\"Submit\" />\n  </form>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
