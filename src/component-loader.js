@@ -8,6 +8,7 @@ import initBasicSearch from "./components/basic_search/js/global.js";
 import initBreadcrumb from "./components/breadcrumbs/js/global.js";
 import initCards from "./components/card_no_action/js/global.js";
 import initCode from "./components/code/js/global.js";
+import { initFileUpload } from "./components/file_upload/js/global.js";
 import initHeader from "./components/header/js/global.js";
 import initInPageNavigation from "./components/in_page_navigation/js/global.js";
 import initInternalNavigation from "./components/internal_navigation/js/global.js";
@@ -38,6 +39,7 @@ export default function initComponents() {
     initCards(document);
     initCode(document);
     initCtaLinks(document);
+    initFileUpload(document);
     initHeader(document);
     initInPageNavigation(document);
     initInternalNavigation(document);

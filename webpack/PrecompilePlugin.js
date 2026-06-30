@@ -16,7 +16,13 @@ class PrecompilePlugin {
       ? this.options.output.slice(0, -1)
       : this.options.output;
     const hbsTemplates = glob.sync(this.options.input);
-    const hbsHelpers = glob.sync(this.options.helpersInput);
+    // Exclude colocated unit tests — only real helper modules should be
+    // registered and serialised into dist/js/helpers.js. The helpersInput glob
+    // (`*.js`) otherwise also matches sibling `*.test.js` / `*.spec.js` files,
+    // and requiring those would run test code (e.g. `describe`) during the build.
+    const hbsHelpers = glob
+      .sync(this.options.helpersInput)
+      .filter((helperPath) => !/\.(test|spec)\.js$/.test(helperPath));
 
     let hbsHelpersFile = "";
 
@@ -26,12 +32,19 @@ class PrecompilePlugin {
       const helperName = helperPath.split("/")[4].split(".")[0];
 
       // Import the function from the file, and get the correct reference for the JS file
-      let module = require(helperPath.replace("./src", "../src"));
+      const imported = require(helperPath.replace("./src", "../src"));
+
+      // Support both `module.exports = fn` (CommonJS) and `export default fn`
+      // (ES module) helpers. Node's require() of an ES module returns the
+      // module namespace ({ __esModule, default: fn }) rather than the function
+      // itself, so unwrap .default when present.
+      const helperFn =
+        imported && imported.__esModule ? imported.default : imported;
 
       // register the helper using the helper name and the imported function
-      Handlebars.registerHelper(helperName, module);
+      Handlebars.registerHelper(helperName, helperFn);
 
-      let registerFunction = `Handlebars.registerHelper('${helperName}', ${module.toString()}); \r\n`;
+      let registerFunction = `Handlebars.registerHelper('${helperName}', ${helperFn.toString()}); \r\n`;
 
       hbsHelpersFile += registerFunction;
     });
@@ -120,7 +133,8 @@ class PrecompilePlugin {
             //
             // Names are sanitised because the ids are embedded in
             // [[output://<id>.assetid]] references, which Matrix parses on ".".
-            const safeId = (name) => String(name).replace(/[^A-Za-z0-9_]/g, "_");
+            const safeId = (name) =>
+              String(name).replace(/[^A-Za-z0-9_]/g, "_");
 
             var idMap = {
               cct_id: `${safeId(templateName)}_cct`,

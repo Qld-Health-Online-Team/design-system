@@ -116,12 +116,13 @@ function createOverFlow(svgPath) {
 
     // Create <use>
     const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    // Attempt to validate SVG path before using it
-    if (validateInternalSvgPath(svgPath)) {
+    // Validate and normalise the SVG path before using it
+    const safeSvgPath = validateInternalSvgPath(svgPath);
+    if (safeSvgPath) {
       use.setAttributeNS(
         null,
         "href",
-        buildIconPath(svgPath, "more-horizontal"),
+        buildIconPath(safeSvgPath, "more-horizontal"),
       );
     }
 

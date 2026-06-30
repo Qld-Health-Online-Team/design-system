@@ -31,9 +31,10 @@ export default function initInternalNavigation(root = document) {
           "http://www.w3.org/2000/svg",
           "use",
         );
-        // Attempt to validate SVG path before using it
-        if (validateInternalSvgPath(svgPath)) {
-          use.setAttributeNS(null, "href", buildIconPath(svgPath, "tick"));
+        // Validate and normalise the SVG path before using it
+        const safeSvgPath = validateInternalSvgPath(svgPath);
+        if (safeSvgPath) {
+          use.setAttributeNS(null, "href", buildIconPath(safeSvgPath, "tick"));
         }
 
         // Append <use> to <svg>
