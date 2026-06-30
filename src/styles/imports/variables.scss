@@ -32,11 +32,42 @@ $QLD-unit: 4 !default;
   * QLD-fonts stack
   * QLD-font-monospace stack
   */
-$QLD-font: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$QLD-font-sitename: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$QLD-font-display: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$QLD-font:
+  "Noto Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
+$QLD-font-sitename:
+  "Noto Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
+$QLD-font-display:
+  "Noto Sans",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol";
 
-$QLD-font-monospace: "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
+$QLD-font-monospace:
+  "Roboto Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace !default;
 
 // Font weights
 $QLD-font-weight-regular: 400;
@@ -49,13 +80,13 @@ $QLD-font-weight-bold: 700;
   * Predetermined pixel sizes from a 1.25 typescale rounded to the nearest $QLD-unit (vertical grid)
   */
 $QLD-fontsize-map: (
-    xs: 14,
-    sm: 16,
-    md: 20,
-    lg: 24,
-    xl: 32,
-    xxl: 48,
-    xxxl: 52,
+  xs: 14,
+  sm: 16,
+  md: 20,
+  lg: 24,
+  xl: 32,
+  xxl: 48,
+  xxxl: 52,
 ) !default;
 
 // Base font
@@ -94,13 +125,13 @@ $QLD-font-size-mobile-xxxl: 2.5rem;
   */
 
 $QLD-lineheight-map: (
-    nospace: 1,
-    heading: 1.25,
-    default: 1.5,
-    h3: calc(4 / 3),
-    h4: 1.2,
-    h6: calc(8 / 7),
-    small: 1.4,
+  nospace: 1,
+  heading: 1.25,
+  default: 1.5,
+  h3: calc(4 / 3),
+  h4: 1.2,
+  h6: calc(8 / 7),
+  small: 1.4,
 );
 
 /**
@@ -109,23 +140,23 @@ $QLD-lineheight-map: (
   * Predetermined standard spacing mapped to keyword
   */
 $QLD-space-map: (
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 12,
-    4: 16,
-    5: 20,
-    6: 24,
-    7: 32,
-    8: 36,
-    9: 40,
-    10: 48,
-    11: 56,
-    12: 64,
-    13: 80,
-    14: 96,
-    15: 128,
-    16: 160,
+  0: 0,
+  1: 4,
+  2: 8,
+  3: 12,
+  4: 16,
+  5: 20,
+  6: 24,
+  7: 32,
+  8: 36,
+  9: 40,
+  10: 48,
+  11: 56,
+  12: 64,
+  13: 80,
+  14: 96,
+  15: 128,
+  16: 160,
 ) !default;
 
 /* Gutters - Space between cols in the grid  */
@@ -148,8 +179,12 @@ $QLD-grid__inner-padding--media-lg: 7;
 $QLD-grid__inner-padding--media-xl: 7;
 
 /* Outer page margins (defined by padding on the container-fluid class) for vertical navigation   */
-$QLD-grid__inner-padding--media-portal-lg: calc(48px + (100vw - 992px) * (128 - 48) / (1312 - 992));
-$QLD-grid__inner-padding--media-portal-xl: calc(72px + (100vw - 1312px) * (128 - 72) / (1600 - 1312));
+$QLD-grid__inner-padding--media-portal-lg: calc(
+  48px + (100vw - 992px) * (128 - 48) / (1312 - 992)
+);
+$QLD-grid__inner-padding--media-portal-xl: calc(
+  72px + (100vw - 1312px) * (128 - 72) / (1600 - 1312)
+);
 
 /* Max-width of content area   */
 $QLD-grid__maxwidth: 86rem;
@@ -241,10 +276,19 @@ $QLD-underline__offset: 0.3em;
 /**
 * QLD box shadow values
 */
-$QLD-box-shaddow-level-one: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 3px 1px rgba(0, 0, 0, 0.1);
-$QLD-box-shaddow-level-two: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-$QLD-box-shaddow-level-three: 0px 4px 8px 3px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.2);
-$QLD-box-shaddow-level-four: 7px 6px 13px rgba(0, 0, 0, 0.02), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 13px 20px rgba(0, 0, 0, 0.1);
+$QLD-box-shaddow-level-one:
+  0px 1px 2px rgba(0, 0, 0, 0.2),
+  0px 1px 3px 1px rgba(0, 0, 0, 0.1);
+$QLD-box-shaddow-level-two:
+  0px 1px 2px rgba(0, 0, 0, 0.3),
+  0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+$QLD-box-shaddow-level-three:
+  0px 4px 8px 3px rgba(0, 0, 0, 0.1),
+  0px 1px 3px rgba(0, 0, 0, 0.2);
+$QLD-box-shaddow-level-four:
+  7px 6px 13px rgba(0, 0, 0, 0.02),
+  0px 2px 5px rgba(0, 0, 0, 0.1),
+  0px 13px 20px rgba(0, 0, 0, 0.1);
 
 /***
 QLD Fixed widths
@@ -466,96 +510,96 @@ $QLD-color-contained-layout__background: #eff4f9;
 :root,
 ::after,
 ::before {
-    --QLD-color-light__site-title: #{$QLD-color-light__site-title};
-    --QLD-color-light__design-accent: #{$QLD-color-light__design-accent};
-    --QLD-color-light__heading: #{$QLD-color-light__heading};
-    --QLD-color-light__text: #{$QLD-color-light__text};
-    --QLD-color-light__text--lighter: #{$QLD-color-light__text--lighter};
-    --QLD-color-light__link: #{$QLD-color-light__link};
-    --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
-    --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
-    --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
-    --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
-    --QLD-color-light__focus: #{$QLD-color-light__focus};
-    --QLD-color-light__border: #{$QLD-color-light__border};
-    --QLD-color-light__background: #{$QLD-color-light__background};
-    --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
-    --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
-    --QLD-color-light__underline: #{$QLD-color-light__underline};
-    --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
-    --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
-    --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
-    --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
-    --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
-    --QLD-color-light__border--alt: #{$QLD-color-light__border--alt};
-    --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
-    --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
+  --QLD-color-light__site-title: #{$QLD-color-light__site-title};
+  --QLD-color-light__design-accent: #{$QLD-color-light__design-accent};
+  --QLD-color-light__heading: #{$QLD-color-light__heading};
+  --QLD-color-light__text: #{$QLD-color-light__text};
+  --QLD-color-light__text--lighter: #{$QLD-color-light__text--lighter};
+  --QLD-color-light__link: #{$QLD-color-light__link};
+  --QLD-color-light__link--visited: #{$QLD-color-light__link--visited};
+  --QLD-color-light__link--on-action: #{$QLD-color-light__link--on-action};
+  --QLD-color-light__action--primary: #{$QLD-color-light__action--primary};
+  --QLD-color-light__action--primary-hover: #{$QLD-color-light__action--primary-hover};
+  --QLD-color-light__focus: #{$QLD-color-light__focus};
+  --QLD-color-light__border: #{$QLD-color-light__border};
+  --QLD-color-light__background: #{$QLD-color-light__background};
+  --QLD-color-light__background--shade: #{$QLD-color-light__background--shade};
+  --QLD-color-status__light-underline: #{$QLD-color-status__light-underline};
+  --QLD-color-light__underline: #{$QLD-color-light__underline};
+  --QLD-color-light__underline--hover: #{$QLD-color-light__underline--hover};
+  --QLD-color-light__underline--visited: #{$QLD-color-light__underline--visited};
+  --QLD-color-light__underline--hover-visited: #{$QLD-color-light__underline--hover-visited};
+  --QLD-color-light__action--secondary: #{$QLD-color-light__action--secondary};
+  --QLD-color-light__action--secondary-hover: #{$QLD-color-light__action--secondary-hover};
+  --QLD-color-light__border--alt: #{$QLD-color-light__border--alt};
+  --QLD-color-light__background--alt: #{$QLD-color-light__background--alt};
+  --QLD-color-light__background--alt-shade: #{$QLD-color-light__background--alt-shade};
 
-    --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
-    --QLD-color-dark__design-accent: #{$QLD-color-dark__design-accent};
-    --QLD-color-dark__heading: #{$QLD-color-dark__heading};
-    --QLD-color-dark__text: #{$QLD-color-dark__text};
-    --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
-    --QLD-color-dark__link: #{$QLD-color-dark__link};
-    --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
-    --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
-    --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
-    --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
-    --QLD-color-dark__focus: #{$QLD-color-dark__focus};
-    --QLD-color-dark__border: #{$QLD-color-dark__border};
-    --QLD-color-dark__background: #{$QLD-color-dark__background};
-    --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
-    --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
-    --QLD-color-dark__underline: #{$QLD-color-dark__underline};
-    --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
-    --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
-    --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
+  --QLD-color-dark__site-title: #{$QLD-color-dark__site-title};
+  --QLD-color-dark__design-accent: #{$QLD-color-dark__design-accent};
+  --QLD-color-dark__heading: #{$QLD-color-dark__heading};
+  --QLD-color-dark__text: #{$QLD-color-dark__text};
+  --QLD-color-dark__text--lighter: #{$QLD-color-dark__text--lighter};
+  --QLD-color-dark__link: #{$QLD-color-dark__link};
+  --QLD-color-dark__link--visited: #{$QLD-color-dark__link--visited};
+  --QLD-color-dark__link--on-action: #{$QLD-color-dark__link--on-action};
+  --QLD-color-dark__action--primary: #{$QLD-color-dark__action--primary};
+  --QLD-color-dark__action--primary-hover: #{$QLD-color-dark__action--primary-hover};
+  --QLD-color-dark__focus: #{$QLD-color-dark__focus};
+  --QLD-color-dark__border: #{$QLD-color-dark__border};
+  --QLD-color-dark__background: #{$QLD-color-dark__background};
+  --QLD-color-dark__background--shade: #{$QLD-color-dark__background--shade};
+  --QLD-color-status__dark-underline: #{$QLD-color-status__dark-underline};
+  --QLD-color-dark__underline: #{$QLD-color-dark__underline};
+  --QLD-color-dark__underline--hover: #{$QLD-color-dark__underline--hover};
+  --QLD-color-dark__underline--visited: #{$QLD-color-dark__underline--visited};
+  --QLD-color-dark__underline--hover-visited: #{$QLD-color-dark__underline--hover-visited};
 
-    --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
-    --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
-    --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
-    --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
-    --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
+  --QLD-color-dark__action--secondary: #{$QLD-color-dark__action--secondary};
+  --QLD-color-dark__action--secondary-hover: #{$QLD-color-dark__action--secondary-hover};
+  --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
+  --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
+  --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
 
-    --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
-    --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
-    --QLD-underline__offset: #{$QLD-underline__offset};
+  --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
+  --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
+  --QLD-underline__offset: #{$QLD-underline__offset};
 
-    --QLD-border-radius-xs: #{$QLD-border-radius-xs};
-    --QLD-border-radius-sm: #{$QLD-border-radius-sm};
-    --QLD-border-radius-md: #{$QLD-border-radius-md};
-    --QLD-border-radius-lg: #{$QLD-border-radius-lg};
-    --QLD-border-radius-xl: #{$QLD-border-radius-xl};
-    --QLD-border-radius-xxl: #{$QLD-border-radius-xxl};
+  --QLD-border-radius-xs: #{$QLD-border-radius-xs};
+  --QLD-border-radius-sm: #{$QLD-border-radius-sm};
+  --QLD-border-radius-md: #{$QLD-border-radius-md};
+  --QLD-border-radius-lg: #{$QLD-border-radius-lg};
+  --QLD-border-radius-xl: #{$QLD-border-radius-xl};
+  --QLD-border-radius-xxl: #{$QLD-border-radius-xxl};
 
-    --QLD-border-width-thin: #{$QLD-border-width-thin};
-    --QLD-border-width-default: #{$QLD-border-width-default};
-    --QLD-border-width-medium: #{$QLD-border-width-medium};
-    --QLD-border-width-thick: #{$QLD-border-width-thick};
-    --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
+  --QLD-border-width-thin: #{$QLD-border-width-thin};
+  --QLD-border-width-default: #{$QLD-border-width-default};
+  --QLD-border-width-medium: #{$QLD-border-width-medium};
+  --QLD-border-width-thick: #{$QLD-border-width-thick};
+  --QLD-border-width-extra-thick: #{$QLD-border-width-extra-thick};
 
-    --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
-    --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
-    --QLD-default-mobile-md: #{$QLD-default-mobile-md};
-    --QLD-default-mobile-lg: #{$QLD-default-mobile-lg};
-    --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
-    --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
-    --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
+  --QLD-default-mobile-xs: #{$QLD-default-mobile-xs};
+  --QLD-default-mobile-sm: #{$QLD-default-mobile-sm};
+  --QLD-default-mobile-md: #{$QLD-default-mobile-md};
+  --QLD-default-mobile-lg: #{$QLD-default-mobile-lg};
+  --QLD-default-mobile-xl: #{$QLD-default-mobile-xl};
+  --QLD-default-mobile-xxl: #{$QLD-default-mobile-xxl};
+  --QLD-default-mobile-xxxl: #{$QLD-default-mobile-xxxl};
 
-    --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
-    --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
-    --QLD-default-desktop-md: #{$QLD-default-desktop-md};
-    --QLD-default-desktop-lg: #{$QLD-default-desktop-lg};
-    --QLD-default-desktop-xl: #{$QLD-default-desktop-xl};
-    --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
-    --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
+  --QLD-default-desktop-xs: #{$QLD-default-desktop-xs};
+  --QLD-default-desktop-sm: #{$QLD-default-desktop-sm};
+  --QLD-default-desktop-md: #{$QLD-default-desktop-md};
+  --QLD-default-desktop-lg: #{$QLD-default-desktop-lg};
+  --QLD-default-desktop-xl: #{$QLD-default-desktop-xl};
+  --QLD-default-desktop-xxl: #{$QLD-default-desktop-xxl};
+  --QLD-default-desktop-xxxl: #{$QLD-default-desktop-xxxl};
 
-    --QLD-heading-space-xs: #{$QLD-heading-space-xs};
-    --QLD-heading-space-sm: #{$QLD-heading-space-sm};
-    --QLD-heading-space-md: #{$QLD-heading-space-md};
-    --QLD-heading-space-lg: #{$QLD-heading-space-lg};
-    --QLD-heading-space-xl: #{$QLD-heading-space-xl};
-    --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
-    --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
-    --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
+  --QLD-heading-space-xs: #{$QLD-heading-space-xs};
+  --QLD-heading-space-sm: #{$QLD-heading-space-sm};
+  --QLD-heading-space-md: #{$QLD-heading-space-md};
+  --QLD-heading-space-lg: #{$QLD-heading-space-lg};
+  --QLD-heading-space-xl: #{$QLD-heading-space-xl};
+  --QLD-heading-space-xxl: #{$QLD-heading-space-xxl};
+  --QLD-heading-space-xxxl: #{$QLD-heading-space-xxxl};
+  --QLD-color-contained-layout__background: #{$QLD-color-contained-layout__background};
 }

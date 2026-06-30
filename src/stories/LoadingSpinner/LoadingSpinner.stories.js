@@ -2,66 +2,69 @@ import Template from "../../components/loading_spinner/html/component.hbs";
 import { storyParams } from "../../../.storybook/globals";
 
 const renderLoadingSpinner = ({ backgroundColour, layout, label, ...args }) =>
-    Template({
-        component: {
-            data: {
-                metadata: {
-                    background_colour: { value: backgroundColour },
-                    layout: { value: layout },
-                    label: { value: label },
-                },
-            },
+  Template({
+    component: {
+      data: {
+        metadata: {
+          background_colour: { value: backgroundColour },
+          layout: { value: layout },
+          label: { value: label },
         },
-        ...args,
-    });
+      },
+    },
+    ...args,
+  });
 
 export default {
-    title: "3. Components/Loading Spinner",
-    render: renderLoadingSpinner,
-    argTypes: {
-        backgroundColour: {
-            description: "The background colour of the loading spinner.",
-            control: {
-                type: "radio",
-                labels: {
-                    "": "Light",
-                    dark: "Dark",
-                },
-            },
-            options: ["", "dark"],
+  title: "3. Components/Loading Spinner",
+  render: renderLoadingSpinner,
+  argTypes: {
+    backgroundColour: {
+      description: "The background colour of the loading spinner.",
+      control: {
+        type: "radio",
+        labels: {
+          "": "Light",
+          dark: "Dark",
         },
-        layout: {
-            description: "The layout of the spinner and its label.",
-            control: {
-                type: "radio",
-                labels: {
-                    "": "Stacked",
-                    landscape: "Landscape",
-                    icon_only: "Icon only",
-                },
-            },
-            options: ["", "landscape", "icon_only"],
+      },
+      options: ["", "dark"],
+    },
+    layout: {
+      description: "The layout of the spinner and its label.",
+      control: {
+        type: "radio",
+        labels: {
+          "": "Stacked",
+          landscape: "Landscape",
+          icon_only: "Icon only",
         },
-        label: { description: "The label underneath the spinner.", control: "text" },
+      },
+      options: ["", "landscape", "icon_only"],
     },
-    args: {
-        backgroundColour: "",
-        layout: "",
-        label: "Loading...",
+    label: {
+      description: "The label underneath the spinner.",
+      control: "text",
     },
-    parameters: storyParams("loadingSpinner"),
+  },
+  args: {
+    backgroundColour: "",
+    layout: "",
+    label: "Loading...",
+  },
+  parameters: storyParams("loadingSpinner"),
 };
 
 export const Default = {};
 
 export const landscape = {
-    args: { layout: "landscape" },
+  args: { layout: "landscape" },
 };
 
 export const iconOnly = {
-    args: { layout: "icon_only" },
+  args: { layout: "icon_only" },
 };
 
 export const dark = {
-    args: { backgroundColour: "dark" },
+  args: { backgroundColour: "dark" },
 };

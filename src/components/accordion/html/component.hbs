@@ -1,42 +1,55 @@
 <section class="qld__body">
-    <div class="container-fluid">
+  <div class="container-fluid">
 
-{{#with component.data}}
-    {{#if metadata.heading.value}}
-    <h2>{{metadata.heading.value}}</h2>
-    {{/if}}
+    {{#with component.data}}
+      {{#if metadata.heading.value}}
+        <h2>
+          {{ metadata.heading.value }}
+        </h2>
+      {{/if}}
 
-    {{#if metadata.intro.value}}
-    {{{metadata.intro.value}}}
-    {{/if}}
-    <div class="qld__accordion-group {{metadata.theme.value}}" id="{{#if metadata.id_field.value}}{{{metadata.id_field.value}}}{{else}}accordion-{{assetid}}{{/if}}">
+      {{#if metadata.intro.value}}
+        {{{ metadata.intro.value }}}
+      {{/if}}
+      <div
+        id="{{#if metadata.id_field.value}}{{{ metadata.id_field.value }}}{{else}}accordion-{{ assetid }}{{/if}}"
+        class="qld__accordion-group {{ metadata.theme.value }}"
+      >
         {{#ifCond metadata.toggle_all.value '==' 'yes'}}
-        <div class="qld__accordion__toggle">
-            <button class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed" type="button" aria-expanded="false">Open all</button>
-        </div>
+          <div class="qld__accordion__toggle">
+            <button
+              class="qld__accordion__toggle-btn qld__accordion__toggle-btn--closed"
+              type="button"
+              aria-expanded="false"
+            >
+              Open all
+            </button>
+          </div>
         {{/ifCond}}
-            {{#printAccordion metadata}}
-                {{#ifCond this.content '!=' ''}}
-                    <div class="qld__accordion">
-                        <{{../metadata.title_level.value}}>
+        {{#printAccordion metadata}}
+          {{#ifCond this.content '!=' ''}}
+            <div class="qld__accordion">
+              <{{../metadata.title_level.value}}>
                             <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
                                 {{this.title}}
                             </button>
                         </{{../metadata.title_level.value}}>
-                        <div class="qld__accordion__body qld__accordion--closed" id="accordion-group-{{../assetid}}-{{this.fieldid}}">
-                            <div class="qld__accordion__body-wrapper">
-                                {{{this.content}}}
-                            </div>
-                        </div>
-                    </div>
-                {{/ifCond}}
-            {{/printAccordion}}
-        
-    </div>
-{{/with}}
+              <div
+                id="accordion-group-{{ ../assetid }}-{{ this.fieldid }}"
+                class="qld__accordion__body qld__accordion--closed"
+              >
+                <div class="qld__accordion__body-wrapper">
+                  {{{ this.content }}}
+                </div>
+              </div>
+            </div>
+          {{/ifCond}}
+        {{/printAccordion}}
 
-{{!-- {{#ifCond current.data.metadata.pageType.value '==' 'landing'}} --}}
-</div>
+      </div>
+    {{/with}}
+
+    {{!-- {{#ifCond current.data.metadata.pageType.value '==' 'landing'}} --}}
+  </div>
 </section>
 {{!-- {{/ifCond}} --}}
-

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
           <actions>
           <action>
-            <action_id>create_Content_Container_Template_3850259149</action_id>
+            <action_id>create_Content_Container_Template_accordion_cct</action_id>
             <action_type>create_asset</action_type>
             <type_code>Content_Container_Template</type_code>
             <link_type>1</link_type>
@@ -11,167 +11,160 @@
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Content_Container_Template_3850259149_name</action_id>
+            <action_id>set_Content_Container_Template_accordion_cct_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_3850259149.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_accordion_cct.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Accordion]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_3850259149_edit_interface_in_admin</action_id>
+            <action_id>set_Content_Container_Template_accordion_cct_edit_interface_in_admin</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_3850259149.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_accordion_cct.assetid]]</asset>
             <attribute>edit_interface_in_admin</attribute>
             <value><![CDATA[1]]></value>
           </action>
 
           <action>
-            <action_id>set_Content_Container_Template_3850259149_icon_color</action_id>
+            <action_id>set_Content_Container_Template_accordion_cct_icon_color</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_3850259149.assetid]]</asset>
+            <asset>[[output://create_Content_Container_Template_accordion_cct.assetid]]</asset>
             <attribute>icon_color</attribute>
             <value><![CDATA[blue]]></value>
           </action>
           
           <action>
-          <action_id>create_Metadata_Schema_7318850161</action_id>
+          <action_id>create_Metadata_Schema_accordion_schema</action_id>
           <action_type>create_asset</action_type>
           <type_code>Metadata_Schema</type_code>
           <link_type>1</link_type>
-          <parentid>[[output://create_Content_Container_Template_3850259149.assetid]]</parentid>
+          <parentid>[[output://create_Content_Container_Template_accordion_cct.assetid]]</parentid>
           <value></value>
           <is_dependant>0</is_dependant>
           <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>set_Metadata_Schema_7318850161_name</action_id>
+            <action_id>set_Metadata_Schema_accordion_schema_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Schema_7318850161.assetid]]</asset>
+            <asset>[[output://create_Metadata_Schema_accordion_schema.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Accordion]]></value>
           </action>
           <action>
-              <action_id>set_permission_7318850161_read_5</action_id>
+              <action_id>set_permission_accordion_schema_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Schema_7318850161.assetid]]</asset>
+              <asset>[[output://create_Metadata_Schema_accordion_schema.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>
           
           <action>
-            <action_id>create_Metadata_Section_7588735947</action_id>
+            <action_id>create_Metadata_Section_accordion_section</action_id>
             <action_type>create_asset</action_type>
             <type_code>Metadata_Section</type_code>
             <link_type>2</link_type>
-            <parentid>[[output://create_Metadata_Schema_7318850161.assetid]]</parentid>
+            <parentid>[[output://create_Metadata_Schema_accordion_schema.assetid]]</parentid>
             <value></value>
             <is_dependant>1</is_dependant>
             <is_exclusive>0</is_exclusive>
           </action>
           <action>
-            <action_id>add_Metadata_Section_7588735947_path</action_id>
+            <action_id>add_Metadata_Section_accordion_section_path</action_id>
             <action_type>add_web_path</action_type>
-            <asset>[[output://create_Metadata_Section_7588735947.assetid]]</asset>
-            <parent_asset>[[output://create_Metadata_Schema_7318850161.assetid]]</parent_asset>
+            <asset>[[output://create_Metadata_Section_accordion_section.assetid]]</asset>
+            <parent_asset>[[output://create_Metadata_Schema_accordion_schema.assetid]]</parent_asset>
             <path>settings</path>
           </action>
           <action>
-            <action_id>set_Metadata_Section_7588735947_name</action_id>
+            <action_id>set_Metadata_Section_accordion_section_name</action_id>
             <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Section_7588735947.assetid]]</asset>
+            <asset>[[output://create_Metadata_Section_accordion_section.assetid]]</asset>
             <attribute>name</attribute>
             <value><![CDATA[Settings]]></value>
           </action>
           <action>
-              <action_id>set_permission_7588735947_read_5</action_id>
+              <action_id>set_permission_accordion_section_read_5</action_id>
               <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Section_7588735947.assetid]]</asset>
+              <asset>[[output://create_Metadata_Section_accordion_section.assetid]]</asset>
               <permission>1</permission>
               <granted>1</granted>
               <userid>[[system://public_user]]</userid>
           </action>           
           
               <action>
-                  <action_id>create_metadata_field_select_9641594364</action_id>
+                  <action_id>create_metadata_field_select_accordion_field_theme</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_select</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_select_9641594364_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[theme]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9641594364_friendly_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Theme]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9641594364_default</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[default]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9641594364_description</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9641594364_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9641594364_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_theme_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_select_9641594364_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_9641594364_read_5</action_id>
+                  <action_id>set_permission_accordion_field_theme_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
                   <action>
-                      <action_id>set_metadata_field_select_9641594364_select_options</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_theme_select_options</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                       <attribute>select_options</attribute>
                       <value><![CDATA[array ('' => 'White','qld__accordion-group--light' => 'Light','qld__accordion-group--alt' => 'Alternate','qld__accordion-group--dark' => 'Dark','qld__accordion-group--dark-alt' => 'Alternate Dark',);]]></value>
                   </action>
                   <action>
-                      <action_id>set_{f.type}_9641594364_edit_params</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_theme_edit_params</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_9641594364.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_theme.assetid]]</asset>
                       <attribute>edit_params</attribute>
                       <value><![CDATA[array (
                       'style' => 'list',
@@ -184,84 +177,77 @@
                   </action>  
                   
               <action>
-                  <action_id>create_metadata_field_select_9161757072</action_id>
+                  <action_id>create_metadata_field_select_accordion_field_title_level</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_select</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_select_9161757072_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_level]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9161757072_friendly_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion Title Level]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9161757072_default</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[h3]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9161757072_description</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9161757072_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_9161757072_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_title_level_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_select_9161757072_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_9161757072_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_level_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
                   <action>
-                      <action_id>set_metadata_field_select_9161757072_select_options</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_title_level_select_options</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                       <attribute>select_options</attribute>
                       <value><![CDATA[array ('h2' => 'H2','h3' => 'H3','h4' => 'H4',);]]></value>
                   </action>
                   <action>
-                      <action_id>set_{f.type}_9161757072_edit_params</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_title_level_edit_params</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_9161757072.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_title_level.assetid]]</asset>
                       <attribute>edit_params</attribute>
                       <value><![CDATA[array (
                       'style' => 'list',
@@ -274,84 +260,77 @@
                   </action>  
                   
               <action>
-                  <action_id>create_metadata_field_select_737187930</action_id>
+                  <action_id>create_metadata_field_select_accordion_field_toggle_all</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_select</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_select_737187930_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[toggle_all]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_737187930_friendly_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Display toggle all?]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_737187930_default</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[yes]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_737187930_description</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_737187930_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_737187930_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_toggle_all_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_select_737187930_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_737187930_read_5</action_id>
+                  <action_id>set_permission_accordion_field_toggle_all_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
                   <action>
-                      <action_id>set_metadata_field_select_737187930_select_options</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_toggle_all_select_options</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                       <attribute>select_options</attribute>
                       <value><![CDATA[array ('' => 'No','yes' => 'Yes',);]]></value>
                   </action>
                   <action>
-                      <action_id>set_{f.type}_737187930_edit_params</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_toggle_all_edit_params</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_737187930.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_toggle_all.assetid]]</asset>
                       <attribute>edit_params</attribute>
                       <value><![CDATA[array (
                       'style' => 'list',
@@ -364,220 +343,199 @@
                   </action>  
                   
               <action>
-                  <action_id>create_metadata_field_text_2226540747</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_heading</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_2226540747_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[heading]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2226540747_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Heading]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2226540747_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2226540747_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2226540747_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2226540747_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_heading_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_2226540747_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_2226540747_read_5</action_id>
+                  <action_id>set_permission_accordion_field_heading_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_2226540747.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_heading.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_7646393671</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_intro</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[intro]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Intro content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_intro_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_7646393671_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_7646393671_read_5</action_id>
+                  <action_id>set_permission_accordion_field_intro_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7646393671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_intro.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_select_5783490460</action_id>
+                  <action_id>create_metadata_field_select_accordion_field_accordion_num</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_select</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_select_5783490460_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[accordion_num]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_5783490460_friendly_name</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Number of accordions]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_5783490460_default</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[3]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_5783490460_description</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_5783490460_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_select_5783490460_editable</action_id>
+                  <action_id>set_metadata_field_select_accordion_field_accordion_num_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_select_5783490460_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_5783490460_read_5</action_id>
+                  <action_id>set_permission_accordion_field_accordion_num_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
                   <action>
-                      <action_id>set_metadata_field_select_5783490460_select_options</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_accordion_num_select_options</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                       <attribute>select_options</attribute>
                       <value><![CDATA[array ('1' => '1','2' => '2','3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10',);]]></value>
                   </action>
                   <action>
-                      <action_id>set_{f.type}_5783490460_edit_params</action_id>
+                      <action_id>set_metadata_field_select_accordion_field_accordion_num_edit_params</action_id>
                       <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_metadata_field_select_5783490460.assetid]]</asset>
+                      <asset>[[output://create_metadata_field_select_accordion_field_accordion_num.assetid]]</asset>
                       <attribute>edit_params</attribute>
                       <value><![CDATA[array (
                       'style' => 'list',
@@ -590,1428 +548,1281 @@
                   </action>  
                   
               <action>
-                  <action_id>create_metadata_field_text_9334822563</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_1</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_9334822563_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_9334822563_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 1 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_9334822563_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_9334822563_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_9334822563_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_9334822563_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_1_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_9334822563_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_9334822563_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_1_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_9334822563.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_1.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_7537643583</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_1</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 1 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_1_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_7537643583_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_7537643583_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_1_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_7537643583.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_1.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_7196586831</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_2</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_7196586831_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_2]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7196586831_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 2 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7196586831_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7196586831_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7196586831_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7196586831_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_2_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_7196586831_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_7196586831_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_2_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_7196586831.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_2.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_4861105702</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_2</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_2]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 2 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_2_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_4861105702_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_4861105702_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_2_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_4861105702.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_2.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_3034976171</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_3</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_3034976171_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_3]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3034976171_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 3 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3034976171_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3034976171_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3034976171_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3034976171_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_3_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_3034976171_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_3034976171_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_3_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_3034976171.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_3.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_5970335794</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_3</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_3]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 3 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_3_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_5970335794_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_5970335794_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_3_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_5970335794.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_3.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_3511778770</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_4</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_3511778770_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_4]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3511778770_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 4 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3511778770_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3511778770_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3511778770_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_3511778770_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_4_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_3511778770_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_3511778770_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_4_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_3511778770.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_4.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_1019853181</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_4</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_4]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 4 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_4_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_1019853181_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_1019853181_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_4_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_1019853181.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_4.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_142520965</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_5</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_142520965_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_5]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_142520965_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 5 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_142520965_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_142520965_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_142520965_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_142520965_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_5_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_142520965_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_142520965_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_5_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_142520965.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_5.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_8019821443</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_5</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_5]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 5 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_5_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_8019821443_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8019821443_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_5_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8019821443.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_5.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_7714010530</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_6</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_7714010530_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_6]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7714010530_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 6 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7714010530_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7714010530_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7714010530_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_7714010530_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_6_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_7714010530_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_7714010530_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_6_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_7714010530.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_6.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_8120287395</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_6</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_6]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 6 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_6_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_8120287395_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8120287395_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_6_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8120287395.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_6.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_2791357403</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_7</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_2791357403_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_7]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2791357403_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 7 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2791357403_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2791357403_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2791357403_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_2791357403_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_7_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_2791357403_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_2791357403_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_7_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_2791357403.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_7.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_8851980464</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_7</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_7]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 7 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_7_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_8851980464_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8851980464_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_7_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_8851980464.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_7.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_6677684</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_8</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_6677684_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_8]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6677684_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 8 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6677684_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6677684_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6677684_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6677684_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_8_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_6677684_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_6677684_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_8_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_6677684.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_8.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_640357671</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_8</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_8]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 8 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_8_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_640357671_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_640357671_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_8_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_640357671.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_8.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_8034200509</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_9</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_8034200509_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_9]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8034200509_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 9 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8034200509_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8034200509_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8034200509_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_8034200509_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_9_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_8034200509_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_8034200509_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_9_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_8034200509.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_9.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_2896630279</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_9</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_9]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 9 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_9_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_2896630279_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_2896630279_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_9_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_2896630279.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_9.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_6951438442</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_title_10</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_6951438442_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[title_10]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6951438442_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 10 - Title]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6951438442_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6951438442_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6951438442_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_6951438442_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_title_10_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_6951438442_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_6951438442_read_5</action_id>
+                  <action_id>set_permission_accordion_field_title_10_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_6951438442.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_title_10.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_wysiwyg_473529062</action_id>
+                  <action_id>create_metadata_field_wysiwyg_accordion_field_content_10</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_wysiwyg</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[content_10]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_friendly_name</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Accordion 10 - Content]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_default</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_description</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_editable</action_id>
+                  <action_id>set_metadata_field_wysiwyg_accordion_field_content_10_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_wysiwyg_473529062_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_473529062_read_5</action_id>
+                  <action_id>set_permission_accordion_field_content_10_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_wysiwyg_473529062.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_wysiwyg_accordion_field_content_10.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>
               </action>
               
               <action>
-                  <action_id>create_metadata_field_text_5363317973</action_id>
+                  <action_id>create_metadata_field_text_accordion_field_id_field</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_text</type_code>
                   <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_7588735947.assetid]]</parentid>
+                  <parentid>[[output://create_Metadata_Section_accordion_section.assetid]]</parentid>
                   <value></value>
                   <is_dependant>1</is_dependant>
                   <is_exclusive>0</is_exclusive>
               </action> 
               <action>
-                  <action_id>set_metadata_field_text_5363317973_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>name</attribute>
                   <value><![CDATA[id_field]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_5363317973_friendly_name</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_friendly_name</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>friendly_name</attribute>
                   <value><![CDATA[Id field]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_5363317973_default</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_default</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>default</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_5363317973_description</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_description</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>description</attribute>
                   <value><![CDATA[]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_5363317973_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_editable</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>editable</attribute>
                   <value><![CDATA[1]]></value>
               </action>
               <action>
-                  <action_id>set_metadata_field_text_5363317973_editable</action_id>
+                  <action_id>set_metadata_field_text_accordion_field_id_field_required</action_id>
                   <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[1]]></value>
-              </action>
-              <action>
-                  <action_id>set_metadata_field_text_5363317973_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <attribute>required</attribute>
                   <value><![CDATA[0]]></value>
               </action>
               <action>
-                  <action_id>set_permission_5363317973_read_5</action_id>
+                  <action_id>set_permission_accordion_field_id_field_read_5</action_id>
                   <action_type>set_permission</action_type>
-                  <asset>[[output://create_metadata_field_text_5363317973.assetid]]</asset>
+                  <asset>[[output://create_metadata_field_text_accordion_field_id_field.assetid]]</asset>
                   <permission>1</permission>
                   <granted>1</granted>
                   <userid>[[system://public_user]]</userid>

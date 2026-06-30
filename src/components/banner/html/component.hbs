@@ -1,111 +1,162 @@
-<section class="qld__banner 
-    {{#ifCond site.metadata.defaultBannerColour.value '==' 'light'}}qld__banner--light{{/ifCond}}
-    {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}qld__banner--alt{{/ifCond}}
-    {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__banner--dark{{/ifCond}}
-    {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__banner--dark-alt{{/ifCond}}
-
-    {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}qld__banner--breadcrumbs{{/ifCond}}
-    "
-    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'light'}}
-        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
-            {{#if @root.site.metadata.defaultBannerTexture.value}}
-                style="background-image: url({{@root.site.metadata.defaultBannerTextureUrl.value}});"
-            {{/if}}
-        {{/ifCond}}
+<section
+  class="
+    qld__banner
+    {{#ifCond site.metadata.defaultBannerColour.value '==' 'light'}}
+      qld__banner--light
     {{/ifCond}}
-
-        {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'alternate'}}
-        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
-            {{#if @root.site.metadata.defaultBannerTexture.value}}
-                style="background-image: url({{@root.site.metadata.defaultBannerTextureUrl.value}});"
-            {{/if}}
-        {{/ifCond}}
+    {{#ifCond site.metadata.defaultBannerColour.value '==' 'alternate'}}
+      qld__banner--alt
     {{/ifCond}}
-
-    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark'}}
-        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
-            {{#if @root.site.metadata.defaultBannerTextureDark.value}}
-                style="background-image: url({{@root.site.metadata.defaultBannerTextureDarkUrl.value}});"
-            {{/if}}
-        {{/ifCond}}
+    {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}
+      qld__banner--dark
     {{/ifCond}}
-
-    {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}
-        {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}
-            {{#if @root.site.metadata.defaultBannerTextureDark.value}}
-                style="background-image: url({{@root.site.metadata.defaultBannerTextureDarkUrl.value}});"
-            {{/if}}
-        {{/ifCond}}
+    {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}
+      qld__banner--dark-alt
     {{/ifCond}}
+    {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
+      qld__banner--breadcrumbs
+    {{/ifCond}}
+  "
+  {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'light'}}
+    {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}{{#if @root.site.metadata.defaultBannerTexture.value}}style="background-image: url({{ @root.site.metadata.defaultBannerTextureUrl.value }});"{{/if}}{{/ifCond}}
+  {{/ifCond}}
+  {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'alternate'}}
+    {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}{{#if @root.site.metadata.defaultBannerTexture.value}}style="background-image: url({{ @root.site.metadata.defaultBannerTextureUrl.value }});"{{/if}}{{/ifCond}}
+  {{/ifCond}}
+  {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark'}}
+    {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}{{#if @root.site.metadata.defaultBannerTextureDark.value}}style="background-image: url({{ @root.site.metadata.defaultBannerTextureDarkUrl.value }});"{{/if}}{{/ifCond}}
+  {{/ifCond}}
+  {{#ifCond @root.site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}
+    {{#ifCond @root.site.metadata.defaultBannerType.value '==' 'texture'}}{{#if @root.site.metadata.defaultBannerTextureDark.value}}style="background-image: url({{ @root.site.metadata.defaultBannerTextureDarkUrl.value }});"{{/if}}{{/ifCond}}
+  {{/ifCond}}
 >
 
-<!--@@ Breadcrumbs - Mobile @@-->
-{{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
-    <nav class="qld__breadcrumbs qld__banner__breadcrumbs qld__banner__breadcrumbs--mobile" aria-label="breadcrumb">
-        <div class="qld__link-list qld__link-list--inline">
-            {{#with (itemAt current.lineage -2)}}
-            {{#ifCond asset_type_code '!=' 'folder'}}  
+  <!--@@ Breadcrumbs - Mobile @@-->
+  {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
+    <nav
+      class="
+        qld__breadcrumbs
+        qld__banner__breadcrumbs
+        qld__banner__breadcrumbs--mobile
+      "
+      aria-label="breadcrumb"
+    >
+      <div class="qld__link-list qld__link-list--inline">
+        {{#with (itemAt current.lineage -2)}}
+          {{#ifCond asset_type_code '!=' 'folder'}}
             <div class="qld__breadcrumbs__item">
-                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
-                <a href="{{asset_url}}" class="qld__breadcrumbs__link">
-                    {{#ifCond asset_is_site_asset '==' '1'}}
-                        Home
-                    {{else}}
-                        {{renderSpecialChar asset_short_name}}
-                    {{/ifCond}}
-                </a>    
+              <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg">
+                <use
+                  href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-left"
+                ></use>
+              </svg>
+              <a class="qld__breadcrumbs__link" href="{{ asset_url }}">
+                {{#ifCond asset_is_site_asset '==' '1'}}
+                  Home
+                {{else}}
+                  {{renderSpecialChar asset_short_name}}
+                {{/ifCond}}
+              </a>
             </div>
-            {{/ifCond}}
-            {{/with}}
-        </div>
+          {{/ifCond}}
+        {{/with}}
+      </div>
     </nav>
-{{/ifCond}}
-    <div class="container-fluid">
-        <div class="qld__banner__content">
-            <!--@@ Breadcrumbs - Tablet @@-->
-            {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
-                <nav class="qld__breadcrumbs 
-                {{#ifCond metadata.background_colour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
-                {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
-                qld__banner__breadcrumbs qld__banner__breadcrumbs--tablet" aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
-                    <div class="qld__link-list qld__link-list--inline">
-                        {{#with (itemAt ../current.lineage -2)}}
-                        {{#ifCond asset_type_code '!=' 'folder'}} 
-                            <div class="qld__breadcrumbs__item">
-                                <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-left"></use></svg>
-                                <a href="{{asset_url}}" class="qld__breadcrumbs__link">
-                                    {{#ifCond asset_is_site_asset '==' '1'}}
-                                        Home
-                                    {{else}}
-                                        {{renderSpecialChar asset_short_name}}
-                                    {{/ifCond}}
-                                </a>    
-                            </div>
-                        {{/ifCond}}
-                        {{/with}}
-                    </div>
-                </nav>
+  {{/ifCond}}
+  <div class="container-fluid">
+    <div class="qld__banner__content">
+      <!--@@ Breadcrumbs - Tablet @@-->
+      {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
+        <nav
+          class="
+            qld__breadcrumbs
+            {{#ifCond metadata.background_colour.value '==' 'dark'}}
+              qld__breadcrumbs--dark
             {{/ifCond}}
-            <!--@@ Breadcrumbs - Desktop @@-->
-            {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
-                <nav class="qld__breadcrumbs 
-                {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}qld__breadcrumbs--dark{{/ifCond}} 
-                {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}qld__breadcrumbs--dark{{/ifCond}} 
-                qld__banner__breadcrumbs qld__banner__breadcrumbs--desktop"
-                aria-label="breadcrumb" data-path="{{@root.site.metadata.coreSiteIcons.value}}">
-                    <ol class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline">
-                        {{#each current.lineage}} 
-                            {{#ifCond asset_type_code '!=' 'folder'}}          
-                                <li {{#if @last}}aria-current="page"{{/if}} class="qld__breadcrumbs__item">{{#if @last}}{{renderSpecialChar asset_short_name}}{{else}}<a href="{{asset_url}}" class="qld__breadcrumbs__link">{{#if @first}}Home{{else}}{{renderSpecialChar asset_short_name}}{{/if}}</a>{{/if}}</li>
-                                {{#unless @last}}
-                                    <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#chevron-right"></use></svg>
-                                {{/unless}}
-                            {{/ifCond}}
-                        {{/each}}
-                    </ol>
-                </nav>
+            {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}
+              qld__breadcrumbs--dark
             {{/ifCond}}
-            <h1>{{current.data.name}}</h1>
-        </div>
+            qld__banner__breadcrumbs
+            qld__banner__breadcrumbs--tablet
+          "
+          aria-label="breadcrumb"
+          data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
+        >
+          <div class="qld__link-list qld__link-list--inline">
+            {{#with (itemAt ../current.lineage -2)}}
+              {{#ifCond asset_type_code '!=' 'folder'}}
+                <div class="qld__breadcrumbs__item">
+                  <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg">
+                    <use
+                      href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-left"
+                    ></use>
+                  </svg>
+                  <a class="qld__breadcrumbs__link" href="{{ asset_url }}">
+                    {{#ifCond asset_is_site_asset '==' '1'}}
+                      Home
+                    {{else}}
+                      {{renderSpecialChar asset_short_name}}
+                    {{/ifCond}}
+                  </a>
+                </div>
+              {{/ifCond}}
+            {{/with}}
+          </div>
+        </nav>
+      {{/ifCond}}
+      <!--@@ Breadcrumbs - Desktop @@-->
+      {{#ifCond current.data.metadata.displayBreadcrumbs.value '==' 'true'}}
+        <nav
+          class="
+            qld__breadcrumbs
+            {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark'}}
+              qld__breadcrumbs--dark
+            {{/ifCond}}
+            {{#ifCond site.metadata.defaultBannerColour.value '==' 'dark-alternate'}}
+              qld__breadcrumbs--dark
+            {{/ifCond}}
+            qld__banner__breadcrumbs
+            qld__banner__breadcrumbs--desktop
+          "
+          aria-label="breadcrumb"
+          data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
+        >
+          <ol
+            class="qld__breadcrumbs__list--desktop qld__link-list qld__link-list--inline"
+          >
+            {{#each current.lineage}}
+              {{#ifCond asset_type_code '!=' 'folder'}}
+                <li
+                  {{#if @last}}
+                    aria-current="page"
+                  {{/if}}
+                  class="qld__breadcrumbs__item"
+                >
+                  {{#if @last}}
+                    {{renderSpecialChar asset_short_name}}
+                  {{else}}
+                    <a class="qld__breadcrumbs__link" href="{{ asset_url }}">
+                      {{#if @first}}
+                        Home
+                      {{else}}
+                        {{renderSpecialChar asset_short_name}}
+                      {{/if}}
+                    </a>
+                  {{/if}}
+                </li>
+                {{#unless @last}}
+                  <svg class="qld__icon" xmlns="http://www.w3.org/2000/svg">
+                    <use
+                      href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-right"
+                    ></use>
+                  </svg>
+                {{/unless}}
+              {{/ifCond}}
+            {{/each}}
+          </ol>
+        </nav>
+      {{/ifCond}}
+      <h1>{{ current.data.name }}</h1>
     </div>
+  </div>
 </section>

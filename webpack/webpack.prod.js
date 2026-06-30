@@ -7,59 +7,59 @@ const PrecompilePlugin = require("./PrecompilePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env) => {
-    return merge(common, {
-        mode: "production",
-        devtool: "source-map",
-        module: {
-            rules: [
-                {
-                    test: /\.scss$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        "css-loader",
-                        "postcss-loader",
-                        "sass-loader",
-                        "import-glob-loader",
-                    ],
-                },
-                {
-                    // Handlebars
-                    test: /\.hbs$/,
-                    use: [
-                        {
-                            loader: "handlebars-loader",
-                            options: {
-                                helperDirs: path.resolve(
-                                    __dirname,
-                                    "../src/helpers/Handlebars"
-                                ),
-                            },
-                        },
-                    ],
-                    enforce: "post",
-                },
-            ],
+  return merge(common, {
+    mode: "production",
+    devtool: "source-map",
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader",
+            "postcss-loader",
+            "sass-loader",
+            "import-glob-loader",
+          ],
         },
-        plugins: [
-            new MiniCssExtractPlugin({
-                filename: "[name].css",
-                chunkFilename: "[name].css",
-            }),
-            new PrecompilePlugin({
-                input: "./src/components/**/**/*.hbs",
-                manifest: "./src/components/**/js/manifest.json",
-                output: "./dist/components/",
-                helpersInput: "./src/helpers/Handlebars/*.js",
-                helpersOutput: "./src/helpers/Handlebars/*.js",
-            }),
-        ],
-        optimization: {
-            minimize: true,
-            minimizer: [
-                new TerserPlugin({
-                    extractComments: false,
-                }),
-            ],
+        {
+          // Handlebars
+          test: /\.hbs$/,
+          use: [
+            {
+              loader: "handlebars-loader",
+              options: {
+                helperDirs: path.resolve(
+                  __dirname,
+                  "../src/helpers/Handlebars",
+                ),
+              },
+            },
+          ],
+          enforce: "post",
         },
-    });
+      ],
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[name].css",
+      }),
+      new PrecompilePlugin({
+        input: "./src/components/**/**/*.hbs",
+        manifest: "./src/components/**/js/manifest.json",
+        output: "./dist/components/",
+        helpersInput: "./src/helpers/Handlebars/*.js",
+        helpersOutput: "./src/helpers/Handlebars/*.js",
+      }),
+    ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+        }),
+      ],
+    },
+  });
 };

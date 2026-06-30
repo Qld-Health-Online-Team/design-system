@@ -1,3 +1,3 @@
 module.exports = function (json) {
-        return Object.keys(json).length;
-    }
+  return Object.keys(json).length;
+};

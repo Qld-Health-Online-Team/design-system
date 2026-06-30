@@ -1,217 +1,340 @@
 <!--FOOTER -->
 {{#with site.metadata}}
-<footer class="qld__footer {{footerStyle.value}}" role="contentinfo">
+  <footer class="qld__footer {{ footerStyle.value }}" role="contentinfo">
 
     {{#if footerSiteTitle.value}}
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="row qld__footer__row">
-            <div class="col-xs-12 qld__footer__column">
-                <div class="qld__footer__title">
-                    <h2 class="qld__footer__heading">{{footerSiteTitle.value}}</h2>
-                </div>
+          <div class="col-xs-12 qld__footer__column">
+            <div class="qld__footer__title">
+              <h2 class="qld__footer__heading">{{ footerSiteTitle.value }}</h2>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     {{/if}}
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-lg-3 qld__footer__column">
-                <div class="container-fluid">
-                    <div class="row qld__footer-contact">
-                        <div class="col-xs-12 col-sm-8 col-lg-12">
-                            {{#if footerCTAHeading}}
-                            <h3 class="qld__footer__heading">{{footerCTAHeading.value}}</h3> 
-                            {{/if}}
-                            {{#if footerCTALead}}
-                            <p class="qld__footer__cta-content">
-                                {{footerCTALead.value}}
-                            </p>
-                            {{/if}}
-                           {{#if footerCTAContactPhone.value}}
-                                <p class="qld__footer__cta-content">
-                                    <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#phone"></use></svg>
-                                    <strong>Phone: </strong>
-                                    {{#if footerCTAContactPhoneLink.value}}<a href="{{footerCTAContactPhoneLink.value}}" target="_blank">{{footerCTAContactPhone.value}}</a>{{else}}{{footerCTAContactPhone.value}}{{/if}}
-                                </p>
-                            {{/if}}
-                           {{#if footerCTAContactEmail.value}}
-                                <p class="qld__footer__cta-content">
-                                    <svg class="qld__icon qld__icon--lead" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#email"></use></svg>
-                                    <strong>Email: </strong>
-                                    {{#if footerCTAContactEmailLink.value}}<a href="{{footerCTAContactEmailLink.value}}" target="_blank">{{footerCTAContactEmail.value}}</a>{{else}}{{footerCTAContactEmail.value}}{{/if}}
-                                </p>
-                            {{/if}}
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-lg-12">
-                            {{#with (jsonParse footerMetaMetadata.value)}}
-                                {{#if footerCTALink}}
-                                {{#ifCond footerCTALink.asset_type_code '==' 'page_redirect'}}
-                                <a href="{{urldecode (lookup footerCTALink 'redirect_url^urlencode')}}" class="qld__btn qld__btn--secondary">{{lookup footerCTALink 'asset_short_name^escapequotes'}}</a>
-                                {{else}}
-                                <a href="{{urldecode (lookup footerCTALink 'asset_url^urlencode')}}" class="qld__btn qld__btn--secondary">{{lookup footerCTALink 'asset_short_name^escapequotes'}}</a>
-                                {{/ifCond}}
-                                {{/if}}
-                            {{/with}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            {{#with (jsonParse footerMetaMetadata.value)}}
-            {{#if footerOptionalSecondLinksList}}
-            <div class="col-xs-12 col-lg-2 qld__footer__column">
-                <nav class="qld__footer__navigation" aria-label="footer">
-                    {{#if ../footerOptionalExtraLinksHeading.value}}
-                    <h3 class="qld__footer__heading">{{../footerOptionalExtraLinksHeading.value}}</h3>
-                    {{/if}}
-                    <ul class="qld__link-list">
-                        {{#each footerOptionalSecondLinksList}}
-                        <li>
-                            {{#ifCond asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'redirect_url^urlencode')}}">{{lookup this 'asset_short_name^escapequotes'}}</a>
-
-                            {{else}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'asset_url^urlencode')}}">{{lookup this 'asset_short_name^escapequotes'}}</a>
-                            {{/ifCond}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </nav>
-            </div>
-            {{/if}}
-            {{/with}}
-            
-            {{#with (jsonParse footerMetaMetadata.value)}}
-            {{#if footerLinks}}
-            <div class="col-xs-12 col-lg-2 qld__footer__column">
-                <nav class="qld__footer__navigation" aria-label="footer">
-                    <ul class="qld__link-list">
-                        {{#each footerLinks}}
-                        <li>
-                            {{#ifCond asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'redirect_url^urlencode')}}">{{lookup this 'asset_short_name^escapequotes'}}</a>
-
-                            {{else}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'asset_url^urlencode')}}">{{lookup this 'asset_short_name^escapequotes'}}</a>
-                            {{/ifCond}}
-                        </li>
-                        {{/each}}
-                    </ul>
-                </nav>
-            </div>
-            {{/if}}
-            {{/with}}
-
-            {{#with (jsonParse footerMetaMetadata.value)}}
-            {{#if footerSocialLinks}}
-            <div class="col-xs-12 col-lg-2 qld__footer__column">
-                <nav class="qld__footer__social" aria-label="social media links">
-                    {{#if ../footerSocialLinksHeading.value}}
-                    <h3 class="qld__footer__heading">{{../footerSocialLinksHeading.value}}</h3>
-                    {{/if}}
-                    <ul class="qld__link-list">
-                        {{#each footerSocialLinks}}
-                        <li>
-                            {{#ifCond asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'redirect_url^urlencode')}}">
-                            {{else}}
-                            <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'asset_url^urlencode')}}">
-                            {{/ifCond}}
-                                {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'facebook'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#facebook"></use></svg>
-                                {{/ifCond}}
-                                {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'linkedin'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#linkedin"></use></svg>
-                                {{/ifCond}}
-                                {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'youtube'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#youtube"></use></svg>
-                                {{/ifCond}}
-                                {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'instagram'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#instagram"></use></svg>
-                                {{/ifCond}}
-                                {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'twitter'}}
-                                    <svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#x"></use></svg>
-                                {{/ifCond}}
-                                <span class="qld__footer__social__label">{{lookup this 'asset_short_name^escapequotes'}}</span>
-                            </a>
-                        </li>
-                        {{/each}}
-                    </ul>
-                </nav>
-            </div>
-            {{/if}}
-            {{/with}}
-            
-            <div class="col-xs-12 qld__footer__column">
-                <div class="">
-                    
-                    {{#if footerAcknowledgementsHeading.value}}
-                    <h3 class="qld__footer__heading">
-                        {{footerAcknowledgementsHeading.value}}
-                    </h3>
-                    {{/if}}
-
-                    {{#if footerAcknowledgements.value}}
-                    <p class="qld__footer__acknowledgements">
-                        {{footerAcknowledgements.value}}
-                    </p>
-                    {{/if}}
-
-                    {{#with (jsonParse footerMetaMetadata.value)}}
-                    {{#if footerLogo}}
-                    {{#if footerCopyrightLink}}
-                            {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__logo" href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}">
-                                <img
-                                    class="qld__footer__logo-image"
-                                    alt="Queensland Government"
-                                    src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
-                                />
-                            </a>
-                            {{else}}
-                            <a class="qld__footer__logo" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}">
-                                <img
-                                    class="qld__footer__logo-image"
-                                    alt="Queensland Government"
-                                    src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
-                                />
-                            </a>
-                            {{/ifCond}}
+      <div class="row">
+        <div class="col-xs-12 col-lg-3 qld__footer__column">
+          <div class="container-fluid">
+            <div class="row qld__footer-contact">
+              <div class="col-xs-12 col-sm-8 col-lg-12">
+                {{#if footerCTAHeading}}
+                  <h3 class="qld__footer__heading">
+                    {{ footerCTAHeading.value }}
+                  </h3>
+                {{/if}}
+                {{#if footerCTALead}}
+                  <p class="qld__footer__cta-content">
+                    {{ footerCTALead.value }}
+                  </p>
+                {{/if}}
+                {{#if footerCTAContactPhone.value}}
+                  <p class="qld__footer__cta-content">
+                    <svg
+                      class="qld__icon qld__icon--lead"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <use
+                        href="{{ @root.site.metadata.coreSiteIcons.value }}#phone"
+                      ></use>
+                    </svg>
+                    <strong>Phone:</strong>
+                    {{#if footerCTAContactPhoneLink.value}}
+                      <a
+                        href="{{ footerCTAContactPhoneLink.value }}"
+                        target="_blank"
+                      >
+                        {{ footerCTAContactPhone.value }}
+                      </a>
                     {{else}}
-                        <a class="qld__footer__logo"  href="https://www.qld.gov.au/">
-                            <img
-                                class="qld__footer__logo-image"
-                                alt="Queensland Government"
-                                src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
-                            />
-                        </a>
+                      {{ footerCTAContactPhone.value }}
                     {{/if}}
-                        
+                  </p>
+                {{/if}}
+                {{#if footerCTAContactEmail.value}}
+                  <p class="qld__footer__cta-content">
+                    <svg
+                      class="qld__icon qld__icon--lead"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <use
+                        href="{{ @root.site.metadata.coreSiteIcons.value }}#email"
+                      ></use>
+                    </svg>
+                    <strong>Email:</strong>
+                    {{#if footerCTAContactEmailLink.value}}
+                      <a
+                        href="{{ footerCTAContactEmailLink.value }}"
+                        target="_blank"
+                      >
+                        {{ footerCTAContactEmail.value }}
+                      </a>
+                    {{else}}
+                      {{ footerCTAContactEmail.value }}
                     {{/if}}
-                    {{/with}}
-
-                    {{#if footerCopyrightMessage.value}}
-                    <p class="qld__footer__copyrightMessage">
-                        {{footerCopyrightMessage.value}}
-                    </p>
-                    {{/if}}
-
-                    {{#with (jsonParse footerMetaMetadata.value)}}
-                        {{#if footerCopyrightLink}}
-                            {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
-                            <a class="qld__footer__clickable__link qld__footer__copyright-link" href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
-                            {{else}}
-                            <a class="qld__footer__clickable__link qld__footer__copyright-link" href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}" rel="external">{{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}</a>
-                            {{/ifCond}}
-                        {{/if}}
-                        
-                    {{/with}}
-                    
-                </div>
-            </div> 
+                  </p>
+                {{/if}}
+              </div>
+              <div class="col-xs-12 col-sm-4 col-lg-12">
+                {{#with (jsonParse footerMetaMetadata.value)}}
+                  {{#if footerCTALink}}
+                    {{#ifCond footerCTALink.asset_type_code '==' 'page_redirect'}}
+                      <a
+                        class="qld__btn qld__btn--secondary"
+                        href="{{urldecode (lookup footerCTALink 'redirect_url^urlencode')}}"
+                      >
+                        {{lookup footerCTALink 'asset_short_name^escapequotes'}}
+                      </a>
+                    {{else}}
+                      <a
+                        class="qld__btn qld__btn--secondary"
+                        href="{{urldecode (lookup footerCTALink 'asset_url^urlencode')}}"
+                      >
+                        {{lookup footerCTALink 'asset_short_name^escapequotes'}}
+                      </a>
+                    {{/ifCond}}
+                  {{/if}}
+                {{/with}}
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</footer>
 
+        {{#with (jsonParse footerMetaMetadata.value)}}
+          {{#if footerOptionalSecondLinksList}}
+            <div class="col-xs-12 col-lg-2 qld__footer__column">
+              <nav class="qld__footer__navigation" aria-label="footer">
+                {{#if ../footerOptionalExtraLinksHeading.value}}
+                  <h3 class="qld__footer__heading">
+                    {{ ../footerOptionalExtraLinksHeading.value }}
+                  </h3>
+                {{/if}}
+                <ul class="qld__link-list">
+                  {{#each footerOptionalSecondLinksList}}
+                    <li>
+                      {{#ifCond asset_type_code '==' 'page_redirect'}}
+                        <a
+                          class="qld__footer__clickable__link"
+                          href="{{urldecode (lookup this 'redirect_url^urlencode')}}"
+                        >
+                          {{lookup this 'asset_short_name^escapequotes'}}
+                        </a>
+                      {{else}}
+                        <a
+                          class="qld__footer__clickable__link"
+                          href="{{urldecode (lookup this 'asset_url^urlencode')}}"
+                        >
+                          {{lookup this 'asset_short_name^escapequotes'}}
+                        </a>
+                      {{/ifCond}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </nav>
+            </div>
+          {{/if}}
+        {{/with}}
+
+        {{#with (jsonParse footerMetaMetadata.value)}}
+          {{#if footerLinks}}
+            <div class="col-xs-12 col-lg-2 qld__footer__column">
+              <nav class="qld__footer__navigation" aria-label="footer">
+                <ul class="qld__link-list">
+                  {{#each footerLinks}}
+                    <li>
+                      {{#ifCond asset_type_code '==' 'page_redirect'}}
+                        <a
+                          class="qld__footer__clickable__link"
+                          href="{{urldecode (lookup this 'redirect_url^urlencode')}}"
+                        >
+                          {{lookup this 'asset_short_name^escapequotes'}}
+                        </a>
+                      {{else}}
+                        <a
+                          class="qld__footer__clickable__link"
+                          href="{{urldecode (lookup this 'asset_url^urlencode')}}"
+                        >
+                          {{lookup this 'asset_short_name^escapequotes'}}
+                        </a>
+                      {{/ifCond}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </nav>
+            </div>
+          {{/if}}
+        {{/with}}
+
+        {{#with (jsonParse footerMetaMetadata.value)}}
+          {{#if footerSocialLinks}}
+            <div class="col-xs-12 col-lg-2 qld__footer__column">
+              <nav class="qld__footer__social" aria-label="social media links">
+                {{#if ../footerSocialLinksHeading.value}}
+                  <h3 class="qld__footer__heading">
+                    {{ ../footerSocialLinksHeading.value }}
+                  </h3>
+                {{/if}}
+                <ul class="qld__link-list">
+                  {{#each footerSocialLinks}}
+                    <li>
+                      {{#ifCond asset_type_code '==' 'page_redirect'}}
+                        <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'redirect_url^urlencode')}}">
+                      {{else}}
+                        <a class="qld__footer__clickable__link" href="{{urldecode (lookup this 'asset_url^urlencode')}}">
+                      {{/ifCond}}
+                      {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'facebook'}}
+                        <svg
+                          class="qld__icon qld__icon--md"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <use
+                            href="{{ @root.site.metadata.coreSiteIcons.value }}#facebook"
+                          ></use>
+                        </svg>
+                      {{/ifCond}}
+                      {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'linkedin'}}
+                        <svg
+                          class="qld__icon qld__icon--md"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <use
+                            href="{{ @root.site.metadata.coreSiteIcons.value }}#linkedin"
+                          ></use>
+                        </svg>
+                      {{/ifCond}}
+                      {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'youtube'}}
+                        <svg
+                          class="qld__icon qld__icon--md"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <use
+                            href="{{ @root.site.metadata.coreSiteIcons.value }}#youtube"
+                          ></use>
+                        </svg>
+                      {{/ifCond}}
+                      {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'instagram'}}
+                        <svg
+                          class="qld__icon qld__icon--md"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <use
+                            href="{{ @root.site.metadata.coreSiteIcons.value }}#instagram"
+                          ></use>
+                        </svg>
+                      {{/ifCond}}
+                      {{#ifCond (lookup this 'asset_short_name^escapequotes') 'contains' 'twitter'}}
+                        <svg
+                          class="qld__icon qld__icon--md"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <use
+                            href="{{ @root.site.metadata.coreSiteIcons.value }}#x"
+                          ></use>
+                        </svg>
+                      {{/ifCond}}
+                      <span class="qld__footer__social__label">
+                        {{lookup this 'asset_short_name^escapequotes'}}
+                      </span>
+                      </a>
+                    </li>
+                  {{/each}}
+                </ul>
+              </nav>
+            </div>
+          {{/if}}
+        {{/with}}
+
+        <div class="col-xs-12 qld__footer__column">
+          <div class="">
+
+            {{#if footerAcknowledgementsHeading.value}}
+              <h3 class="qld__footer__heading">
+                {{ footerAcknowledgementsHeading.value }}
+              </h3>
+            {{/if}}
+
+            {{#if footerAcknowledgements.value}}
+              <p class="qld__footer__acknowledgements">
+                {{ footerAcknowledgements.value }}
+              </p>
+            {{/if}}
+
+            {{#with (jsonParse footerMetaMetadata.value)}}
+              {{#if footerLogo}}
+                {{#if footerCopyrightLink}}
+                  {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
+                    <a
+                      class="qld__footer__logo"
+                      href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}"
+                    >
+                      <img
+                        class="qld__footer__logo-image"
+                        alt="Queensland Government"
+                        src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                      />
+                    </a>
+                  {{else}}
+                    <a
+                      class="qld__footer__logo"
+                      href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}"
+                    >
+                      <img
+                        class="qld__footer__logo-image"
+                        alt="Queensland Government"
+                        src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                      />
+                    </a>
+                  {{/ifCond}}
+                {{else}}
+                  <a class="qld__footer__logo" href="https://www.qld.gov.au/">
+                    <img
+                      class="qld__footer__logo-image"
+                      alt="Queensland Government"
+                      src="{{urldecode (lookup footerLogo 'asset_url^urlencode')}}"
+                    />
+                  </a>
+                {{/if}}
+              {{/if}}
+            {{/with}}
+
+            {{#if footerCopyrightMessage.value}}
+              <p class="qld__footer__copyrightMessage">
+                {{ footerCopyrightMessage.value }}
+              </p>
+            {{/if}}
+
+            {{#with (jsonParse footerMetaMetadata.value)}}
+              {{#if footerCopyrightLink}}
+                {{#ifCond footerCopyrightLink.asset_type_code '==' 'page_redirect'}}
+                  <a
+                    class="qld__footer__clickable__link qld__footer__copyright-link"
+                    href="{{urldecode (lookup footerCopyrightLink 'redirect_url^urlencode')}}"
+                    rel="external"
+                  >
+                    {{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}
+                  </a>
+                {{else}}
+                  <a
+                    class="qld__footer__clickable__link qld__footer__copyright-link"
+                    href="{{urldecode (lookup footerCopyrightLink 'asset_url^urlencode')}}"
+                    rel="external"
+                  >
+                    {{lookup footerCopyrightLink 'asset_short_name^escapequotes'}}
+                  </a>
+                {{/ifCond}}
+              {{/if}}
+            {{/with}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 {{/with}}

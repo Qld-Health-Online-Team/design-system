@@ -9,839 +9,877 @@ $QLD-header-sm: 52px;
 $QLD-header-md: 72px;
 
 .qld__main-nav {
-    @include QLD-fontgrid(sm);
-    border-bottom: $QLD-border-width-thick solid var(--QLD-color-light__design-accent);
+  @include QLD-fontgrid(sm);
+  border-bottom: $QLD-border-width-thick solid
+    var(--QLD-color-light__design-accent);
 
+  @include QLD-media(lg) {
+    background-color: $QLD-color-neutral--lightest;
+    border-bottom-width: $QLD-border-width-extra-thick;
+  }
+
+  .qld__main-nav__no-desktop {
     @include QLD-media(lg) {
-        background-color: $QLD-color-neutral--lightest;
-        border-bottom-width: $QLD-border-width-extra-thick;
+      border: 0;
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  }
+
+  // The content area that becomes the menu menu
+  .qld__main-nav__menu {
+    &::before {
+      content: "";
+      display: block;
+      @include QLD-space(width, 0.25unit);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+
+      @include QLD-media(lg) {
+        display: none;
+      }
+    }
+    // Move the menu content off the screen so it can slide in
+    .js & {
+      background-color: $QLD-color-neutral--lightest;
+      display: none;
+      overflow: auto;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: -1 * $QLD-main-nav-width;
+      width: $QLD-main-nav-width;
+      z-index: $QLD-main-nav-z-index;
+      box-shadow:
+        0px 8px 10px rgba(0, 0, 0, 0.14),
+        0px 3px 14px rgba(0, 0, 0, 0.12),
+        0px 5px 5px rgba(0, 0, 0, 0.2);
+
+      @include QLD-media(md) {
+        @include QLD-space(width, 26.25unit);
+      }
+      @include QLD-media(lg) {
+        display: block;
+        position: static;
+        box-shadow: none;
+        width: auto;
+        overflow: visible;
+      }
     }
 
-    .qld__main-nav__no-desktop {
-        @include QLD-media(lg) {
-            border: 0;
-            clip: rect(1px, 1px, 1px, 1px);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-    }
-
-    // The content area that becomes the menu menu
-    .qld__main-nav__menu {
-        &::before {
-            content: "";
-            display: block;
-            @include QLD-space(width, 0.25unit);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-
-            @include QLD-media(lg) {
-                display: none;
-            }
-        }
-        // Move the menu content off the screen so it can slide in
-        .js & {
-            background-color: $QLD-color-neutral--lightest;
-            display: none;
-            overflow: auto;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: -1 * $QLD-main-nav-width;
-            width: $QLD-main-nav-width;
-            z-index: $QLD-main-nav-z-index;
-            box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
-
-            @include QLD-media(md) {
-                @include QLD-space(width, 26.25unit);
-            }
-            @include QLD-media(lg) {
-                display: block;
-                position: static;
-                box-shadow: none;
-                width: auto;
-                overflow: visible;
-            }
-        }
-
-        // Menu items
-        & .qld__main-nav__item {
-            width: 100%;
-            margin: 0;
-            a {
-                @include QLD-underline("light", "noUnderline", "default", "noVisited");
-                color: var(--QLD-color-light__text);
-                &:hover {
-                    .qld__icon {
-                        color: var(--QLD-color-light__action--secondary-hover);
-                    }
-                }
-            }
-
-            .qld__icon {
-                color: var(--QLD-color-light__action--secondary);
-            }
-
-            @include QLD-media(lg) {
-                width: auto;
-                float: left;
-                border: none;
-            }
-
-            &.active .qld__main-nav__item-link,
-            &.active .qld__main-nav__item-toggle {
-                font-weight: $QLD-font-weight-semibold;
-                color: var(--QLD-color-light__heading);
-                border-left-color: transparent;
-
-                @include QLD-media(lg) {
-                    border-bottom: solid $QLD-border-width-extra-thick $QLD-color-neutral--lightest;
-                    @include QLD-space(margin-bottom, -0.5unit);
-                }
-
-                &:hover {
-                    border-color: var(--QLD-color-light__action--primary-hover);
-                    color: var(--QLD-color-light__link);
-                }
-
-                &--open {
-                    color: var(--QLD-color-light__heading);
-                }
-            }
-        }
-
-        & .qld__main-nav__cta-wrapper {
-            z-index: 1;
-            .qld__main-nav__item--cta {
-                .qld__main-nav__item-title::before {
-                    background-color: $QLD-color-neutral--lighter;
-                    top: 0;
-                    bottom: auto;
-                    left: 0;
-                }
-
-                .qld__main-nav__item-link {
-                    @include QLD-underline("light", "noUnderline", "default", "noVisited");
-
-                    color: var(--QLD-color-light__link);
-                    border: none;
-
-                    &:hover {
-                        background-color: $QLD-color-neutral--white;
-
-                        .qld__icon {
-                            color: var(--QLD-color-light__action--secondary-hover);
-                        }
-                    }
-                }
-
-                .qld__icon {
-                    color: var(--QLD-color-light__action--secondary);
-                }
-            }
-
-            .qld__link-list {
-                background-color: $QLD-color-neutral--lightest;
-            }
-        }
-
-        // Menu item title
-        & .qld__main-nav__item-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            @include QLD-fontgrid(sm, heading);
-            height: 100%;
-
-            // Selector ensures the hover only applies when the item is not open
-            &:has(.qld__main-nav__item-toggle):not(:has(.qld__main-nav__item-link--open)):hover {
-                background-color: var(--QLD-color-light__background--alt);
-            }
-
-            > a.qld__main-nav__item-link.qld__main-nav__item-link--open {
-                color: var(--QLD-color-light__heading);
-            }
-
-            &::before {
-                content: "";
-                display: block;
-                @include QLD-space(height, 0.0625unit);
-                position: absolute;
-                bottom: 0;
-                left: 4px;
-                right: 0;
-                background-color: $QLD-color-neutral--lighter;
-
-                @include QLD-media(lg) {
-                    @include QLD-space(height, 0);
-                }
-            }
-        }
-        // Menu item link
-        & .qld__main-nav__item-link {
-            width: 100%;
-            @include QLD-space(padding, 1unit 1unit 1unit 0.75unit);
-            border-left: solid $QLD-border-width-thick var(--QLD-color-light__design-accent);
-            display: flex;
-            align-items: center;
-            &:visited {
-                color: var(--QLD-color-light__text);
-            }
-
-            @include QLD-media(md) {
-                @include QLD-space(padding, 1.25unit 1unit 1.25unit 0.75unit);
-            }
-
-            @include QLD-media(lg) {
-                border-left: none;
-                @include QLD-space(padding, 0.625unit 0.5unit 0.625unit 0.5unit);
-                @include QLD-space(line-height, 2unit);
-            }
-
-            @include QLD-media(xl) {
-                @include QLD-space(padding, 0.625unit 0.75unit 0.625unit 0.75unit);
-            }
-
-            &:hover {
-                color: var(--QLD-color-light__link);
-                background-color: var(--QLD-color-light__background--alt);
-                border-left: $QLD-border-width-thick solid var(--QLD-color-light__action--primary);
-
-                @include QLD-media(lg) {
-                    border-bottom: $QLD-border-width-extra-thick solid var(--QLD-color-light__action--primary-hover);
-                    border-left: none;
-                    @include QLD-space(margin-bottom, -0.5unit);
-                }
-
-                .qld__icon {
-                    color: var(--QLD-color-light__action--secondary-hover);
-                }
-            }
-
-            &:active {
-                color: var(--QLD-color-light__text);
-                background-color: $QLD-color-neutral--white;
-                border-left-color: $QLD-color-neutral--lightest;
-                font-weight: $QLD-font-weight-semibold;
-
-                .qld__main-nav__item-icon {
-                    stroke-width: 10px;
-                }
-
-                @include QLD-media(lg) {
-                    @include QLD-space(border-bottom, 0.5unit solid var(--QLD-color-light__design-accent));
-                    @include QLD-space(margin-bottom, -0.5unit);
-                }
-            }
-        }
-        // Menu item icon
-        & .qld__main-nav__item-link .qld__icon {
-            @include QLD-space(margin-right, 0.5unit);
-            display: inline-block;
-            color: var(--QLD-color-light__action--secondary);
-
-            @include QLD-media(lg) {
-                @include QLD-space(height, 2unit);
-                @include QLD-space(width, 1.5unit);
-                vertical-align: bottom;
-                margin-right: 0;
-            }
-        }
-
-        & .qld__main-nav__item-text {
-            display: inline-flex;
-            flex-direction: column;
-            &::before {
-                content: attr(data-name) / "";
-                height: 0;
-                visibility: hidden;
-                overflow: hidden;
-                user-select: none;
-                pointer-events: none;
-                font-weight: $QLD-font-weight-semibold;
-            }
-        }
-
-        &.qld__main-nav__menu--dark {
-            background-color: var(--QLD-color-dark__background--shade);
-
-            .qld__main-nav__header {
-                background-color: var(--QLD-color-dark__background);
-            }
-            .qld__main-nav__menu-heading {
-                color: var(--QLD-color-dark__heading);
-            }
-
-            .qld__main-nav__toggle {
-                border-color: var(--QLD-color-dark__border);
-
-                &:hover {
-                    background-color: var(--QLD-color-dark__background--shade);
-                }
-            }
-
-            .qld__main-nav__cta-wrapper {
-                .qld__link-list {
-                    background-color: var(--QLD-color-dark__background--shade);
-                }
-
-                .qld__main-nav__item-title::before {
-                    background-color: var(--QLD-color-dark__border);
-                }
-
-                .qld__main-nav__item--cta {
-                    .qld__main-nav__item-link:hover {
-                        background-color: var(--QLD-color-dark__background);
-                    }
-                }
-            }
-        }
-
-        &.qld__main-nav__menu--dark-alt {
-            background-color: var(--QLD-color-dark__background--alt-shade);
-
-            .qld__main-nav__header {
-                background-color: var(--QLD-color-dark__background--alt);
-            }
-            .qld__main-nav__menu-heading {
-                color: var(--QLD-color-dark__heading);
-            }
-
-            .qld__main-nav__toggle {
-                border-color: var(--QLD-color-dark__border--alt);
-
-                &:hover {
-                    background-color: var(--QLD-color-dark__background--alt-shade);
-                }
-            }
-
-            .qld__main-nav__cta-wrapper {
-                .qld__link-list {
-                    background-color: var(--QLD-color-dark__background--alt-shade);
-                }
-
-                .qld__main-nav__item-title::before {
-                    background-color: var(--QLD-color-dark__border--alt);
-                }
-
-                .qld__main-nav__item--cta {
-                    .qld__main-nav__item-link:hover {
-                        background-color: var(--QLD-color-dark__background--alt);
-                    }
-                }
-            }
-        }
-    }
-
-    // The overlay that shows when the menu is open
-    .qld__main-nav__overlay {
-        transition: opacity 0.25s ease-out;
-        background-color: var(--QLD-color-dark__background--alt-shade);
-        cursor: pointer;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        z-index: $QLD-main-nav-z-index - 10;
-        opacity: 0.4;
-        display: none; // Hidden by default
-
-        .ie8 & {
-            filter: alpha(opacity=80);
-        }
-    }
-
-    // Open and close functionality
-    .js & .qld__main-nav__content.qld__main-nav__content--open {
-        // Show the content when the menu gets opened
-        .qld__main-nav__menu {
-            right: 0;
-            display: block;
-        }
-
-        // Move the overlay and animate the transparency
-        .qld__main-nav__overlay {
-            opacity: 0.95;
-            right: 0;
-            display: block;
-
-            // Hide on desktop
-            @include QLD-media($QLD-main-nav-breakpoint) {
-                display: none;
-            }
-        }
-    }
-
-    &__menu-inner {
-        position: relative;
-        height: 100%;
-    }
-
-    &__cta-wrapper {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-
-        @include QLD-media(lg) {
-            display: none;
-        }
-    }
-
-    &__header {
-        display: flex;
-        background-color: $QLD-color-neutral--white;
+    // Menu items
+    & .qld__main-nav__item {
+      width: 100%;
+      margin: 0;
+      a {
+        @include QLD-underline("light", "noUnderline", "default", "noVisited");
         color: var(--QLD-color-light__text);
-        align-items: center;
-        @include QLD-box-shadow(1);
-        position: relative;
-
-        @include QLD-media(lg) {
-            display: none;
+        &:hover {
+          .qld__icon {
+            color: var(--QLD-color-light__action--secondary-hover);
+          }
         }
+      }
 
-        .qld__main-nav__toggle {
-            margin-left: auto;
-        }
-    }
+      .qld__icon {
+        color: var(--QLD-color-light__action--secondary);
+      }
 
-    & &__menu-heading {
-        @include QLD-fontgrid(xs);
-        @include QLD-space(margin, 0unit 1unit);
-        font-weight: $QLD-font-weight-regular;
+      @include QLD-media(lg) {
+        width: auto;
+        float: left;
+        border: none;
+      }
+
+      &.active .qld__main-nav__item-link,
+      &.active .qld__main-nav__item-toggle {
+        font-weight: $QLD-font-weight-semibold;
         color: var(--QLD-color-light__heading);
-
-        @include QLD-media(md) {
-            @include QLD-fontgrid(sm);
-            @include QLD-space(line-height, 4.5unit);
-        }
+        border-left-color: transparent;
 
         @include QLD-media(lg) {
-            display: none;
-
-            .qld__body & {
-                display: none;
-            }
+          border-bottom: solid $QLD-border-width-extra-thick
+            $QLD-color-neutral--lightest;
+          @include QLD-space(margin-bottom, -0.5unit);
         }
-    }
-
-    // Menu open and close toggles
-    &__toggle {
-        display: flex;
-        flex-direction: column;
-        @include QLD-space(padding, 0.5unit 1unit 0.25unit 1unit);
-        @include QLD-fontgrid(xs, nospace);
-        border: 0;
-        appearance: none;
-        background-color: transparent;
-        cursor: pointer;
-        align-items: center;
-        color: var(--QLD-color-light__link);
-        border-left: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
 
         &:hover {
-            background-color: $QLD-color-neutral--lightest;
-
-            svg {
-                color: var(--QLD-color-light__action--secondary-hover);
-            }
-        }
-
-        @include QLD-media(md) {
-            @include QLD-space(padding, 0.75unit 1unit);
-        }
-
-        .qld__main-nav__toggle-text {
-            @include QLD-space(font-size, 0.625unit);
-            @include QLD-space(margin-top, 0.25unit);
-            line-height: 1rem;
-
-            @include QLD-media(md) {
-                @include QLD-space(margin-top, 0.625unit);
-                @include QLD-fontgrid(xs, nospace);
-            }
-        }
-
-        &:before {
-            @include QLD-fontgrid(sm, nospace);
-            @include QLD-space(margin-bottom, 0.25unit);
-            display: block;
-            text-align: center;
-        }
-
-        svg {
-            @include QLD-space(height, 1unit);
-            @include QLD-space(width, 1unit);
-            margin: 1px auto;
-            color: var(--QLD-color-light__action--secondary);
-
-            @include QLD-media(md) {
-                @include QLD-space(height, 1.25unit);
-                @include QLD-space(width, 1.25unit);
-                margin: 0 auto;
-            }
+          border-color: var(--QLD-color-light__action--primary-hover);
+          color: var(--QLD-color-light__link);
         }
 
         &--open {
-            color: var(--QLD-color-dark__text);
-            background-color: transparent;
+          color: var(--QLD-color-light__heading);
         }
-
-        // Close icon
-        &--close {
-            background-color: transparent;
-            @include QLD-media(md) {
-                border-width: $QLD-border-width-default;
-            }
-        }
+      }
     }
 
-    &__toggle-search {
-        &--open {
-            .qld__main-nav__toggle-search-close-icon,
-            .fa-times {
-                display: none;
-            }
+    & .qld__main-nav__cta-wrapper {
+      z-index: 1;
+      .qld__main-nav__item--cta {
+        .qld__main-nav__item-title::before {
+          background-color: $QLD-color-neutral--lighter;
+          top: 0;
+          bottom: auto;
+          left: 0;
         }
 
-        &--close {
-            .qld__main-nav__toggle-search-icon,
-            .fa-search {
-                display: none;
-            }
-        }
-    }
+        .qld__main-nav__item-link {
+          @include QLD-underline(
+            "light",
+            "noUnderline",
+            "default",
+            "noVisited"
+          );
 
-    // Reset menus inside main-nav
-    .qld__link-list {
-        @include QLD-clearfix();
-        margin: 0;
-        padding: 0;
+          color: var(--QLD-color-light__link);
+          border: none;
+
+          &:hover {
+            background-color: $QLD-color-neutral--white;
+
+            .qld__icon {
+              color: var(--QLD-color-light__action--secondary-hover);
+            }
+          }
+        }
+
+        .qld__icon {
+          color: var(--QLD-color-light__action--secondary);
+        }
+      }
+
+      .qld__link-list {
         background-color: $QLD-color-neutral--lightest;
+      }
+    }
+
+    // Menu item title
+    & .qld__main-nav__item-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      @include QLD-fontgrid(sm, heading);
+      height: 100%;
+
+      // Selector ensures the hover only applies when the item is not open
+      &:has(.qld__main-nav__item-toggle):not(
+          :has(.qld__main-nav__item-link--open)
+        ):hover {
+        background-color: var(--QLD-color-light__background--alt);
+      }
+
+      > a.qld__main-nav__item-link.qld__main-nav__item-link--open {
+        color: var(--QLD-color-light__heading);
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        @include QLD-space(height, 0.0625unit);
+        position: absolute;
+        bottom: 0;
+        left: 4px;
+        right: 0;
+        background-color: $QLD-color-neutral--lighter;
 
         @include QLD-media(lg) {
-            @include QLD-space(padding-bottom, 0unit);
+          @include QLD-space(height, 0);
+        }
+      }
+    }
+    // Menu item link
+    & .qld__main-nav__item-link {
+      width: 100%;
+      @include QLD-space(padding, 1unit 1unit 1unit 0.75unit);
+      border-left: solid $QLD-border-width-thick
+        var(--QLD-color-light__design-accent);
+      display: flex;
+      align-items: center;
+      &:visited {
+        color: var(--QLD-color-light__text);
+      }
+
+      @include QLD-media(md) {
+        @include QLD-space(padding, 1.25unit 1unit 1.25unit 0.75unit);
+      }
+
+      @include QLD-media(lg) {
+        border-left: none;
+        @include QLD-space(padding, 0.625unit 0.5unit 0.625unit 0.5unit);
+        @include QLD-space(line-height, 2unit);
+      }
+
+      @include QLD-media(xl) {
+        @include QLD-space(padding, 0.625unit 0.75unit 0.625unit 0.75unit);
+      }
+
+      &:hover {
+        color: var(--QLD-color-light__link);
+        background-color: var(--QLD-color-light__background--alt);
+        border-left: $QLD-border-width-thick solid
+          var(--QLD-color-light__action--primary);
+
+        @include QLD-media(lg) {
+          border-bottom: $QLD-border-width-extra-thick solid
+            var(--QLD-color-light__action--primary-hover);
+          border-left: none;
+          @include QLD-space(margin-bottom, -0.5unit);
         }
 
-        // Reset the padding on list items in mobile as there is no arrow to obscure
-        li > a {
-            @include QLD-media(lg, "down") {
-                padding-right: 0;
-            }
+        .qld__icon {
+          color: var(--QLD-color-light__action--secondary-hover);
         }
+      }
+
+      &:active {
+        color: var(--QLD-color-light__text);
+        background-color: $QLD-color-neutral--white;
+        border-left-color: $QLD-color-neutral--lightest;
+        font-weight: $QLD-font-weight-semibold;
+
+        .qld__main-nav__item-icon {
+          stroke-width: 10px;
+        }
+
+        @include QLD-media(lg) {
+          @include QLD-space(
+            border-bottom,
+            0.5unit solid var(--QLD-color-light__design-accent)
+          );
+          @include QLD-space(margin-bottom, -0.5unit);
+        }
+      }
+    }
+    // Menu item icon
+    & .qld__main-nav__item-link .qld__icon {
+      @include QLD-space(margin-right, 0.5unit);
+      display: inline-block;
+      color: var(--QLD-color-light__action--secondary);
+
+      @include QLD-media(lg) {
+        @include QLD-space(height, 2unit);
+        @include QLD-space(width, 1.5unit);
+        vertical-align: bottom;
+        margin-right: 0;
+      }
     }
 
-    .qld__main-nav__cta-wrapper .qld__link-list {
-        @include QLD-space(padding-bottom, 0unit);
+    & .qld__main-nav__item-text {
+      display: inline-flex;
+      flex-direction: column;
+      &::before {
+        content: attr(data-name) / "";
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        user-select: none;
+        pointer-events: none;
+        font-weight: $QLD-font-weight-semibold;
+      }
     }
 
-    &.qld__main-nav--dark {
-        background-color: var(--QLD-color-dark__background--shade);
+    &.qld__main-nav__menu--dark {
+      background-color: var(--QLD-color-dark__background--shade);
 
+      .qld__main-nav__header {
+        background-color: var(--QLD-color-dark__background);
+      }
+      .qld__main-nav__menu-heading {
+        color: var(--QLD-color-dark__heading);
+      }
+
+      .qld__main-nav__toggle {
+        border-color: var(--QLD-color-dark__border);
+
+        &:hover {
+          background-color: var(--QLD-color-dark__background--shade);
+        }
+      }
+
+      .qld__main-nav__cta-wrapper {
         .qld__link-list {
-            background-color: var(--QLD-color-dark__background--shade);
+          background-color: var(--QLD-color-dark__background--shade);
         }
 
-        .qld__main-nav__menu {
-            .qld__main-nav__item-title a.qld__main-nav__item-link.qld__main-nav__item-link--open {
-                color: var(--QLD-color-dark__heading);
-            }
-            .qld__main-nav__item-title::before {
-                background-color: var(--QLD-color-dark__border);
-            }
-            .qld__main-nav__item {
-                &.active:hover .qld__main-nav__item-link {
-                    border-color: var(--QLD-color-dark__action--primary-hover);
-                }
-
-                a {
-                    @include QLD-underline("dark", "noUnderline", "default", "noVisited");
-                    color: var(--QLD-color-dark__text);
-                }
-            }
-
-            .qld__main-nav__item-link {
-                color: var(--QLD-color-dark__link);
-                border-color: var(--QLD-color-dark__design-accent);
-
-                &:hover {
-                    background-color: var(--QLD-color-dark__background--alt);
-                    border-color: var(--QLD-color-dark__action--primary-hover);
-
-                    .qld__icon {
-                        color: var(--QLD-color-dark__action--secondary-hover);
-                    }
-                }
-            }
-
-            .qld__main-nav__item.active .qld__main-nav__item-link,
-            .qld__main-nav__item.active .qld__main-nav__item-toggle {
-                color: var(--QLD-color-dark__heading);
-
-                @include QLD-media(lg) {
-                    border-color: var(--QLD-color-dark__background--shade);
-                }
-            }
-
-            .qld__main-nav__item.active .qld__main-nav__item-link--open {
-                color: var(--QLD-color-dark__heading);
-            }
-
-            .qld__main-nav__item-link.qld__main-nav__item-link--open {
-                &:visited {
-                    color: var(--QLD-color-dark__link);
-                }
-            }
+        .qld__main-nav__item-title::before {
+          background-color: var(--QLD-color-dark__border);
         }
+
+        .qld__main-nav__item--cta {
+          .qld__main-nav__item-link:hover {
+            background-color: var(--QLD-color-dark__background);
+          }
+        }
+      }
     }
 
-    // Focus styles
+    &.qld__main-nav__menu--dark-alt {
+      background-color: var(--QLD-color-dark__background--alt-shade);
+
+      .qld__main-nav__header {
+        background-color: var(--QLD-color-dark__background--alt);
+      }
+      .qld__main-nav__menu-heading {
+        color: var(--QLD-color-dark__heading);
+      }
+
+      .qld__main-nav__toggle {
+        border-color: var(--QLD-color-dark__border--alt);
+
+        &:hover {
+          background-color: var(--QLD-color-dark__background--alt-shade);
+        }
+      }
+
+      .qld__main-nav__cta-wrapper {
+        .qld__link-list {
+          background-color: var(--QLD-color-dark__background--alt-shade);
+        }
+
+        .qld__main-nav__item-title::before {
+          background-color: var(--QLD-color-dark__border--alt);
+        }
+
+        .qld__main-nav__item--cta {
+          .qld__main-nav__item-link:hover {
+            background-color: var(--QLD-color-dark__background--alt);
+          }
+        }
+      }
+    }
+  }
+
+  // The overlay that shows when the menu is open
+  .qld__main-nav__overlay {
+    transition: opacity 0.25s ease-out;
+    background-color: var(--QLD-color-dark__background--alt-shade);
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: $QLD-main-nav-z-index - 10;
+    opacity: 0.4;
+    display: none; // Hidden by default
+
+    .ie8 & {
+      filter: alpha(opacity=80);
+    }
+  }
+
+  // Open and close functionality
+  .js & .qld__main-nav__content.qld__main-nav__content--open {
+    // Show the content when the menu gets opened
     .qld__main-nav__menu {
-        .qld__main-nav__menu-inner {
-            .qld__main-nav__item-link {
-                @include QLD-focus("light", false, -2px);
-                border-radius: 0;
-
-                @include QLD-media(lg, "down") {
-                    @include QLD-focus("light", false, -3px);
-
-                    // Ensure the outline looks "full" compared to other tabs
-                    &:focus {
-                        z-index: 1;
-                    }
-                }
-            }
-
-            .qld__main-nav__item-title:has(button.qld__main-nav__item-toggle) .qld__main-nav__item-link {
-                border-top-right-radius: 1rem;
-            }
-
-            .qld__main-nav__item-toggle {
-                @include QLD-focus("light", false, -2px);
-
-                @include QLD-media(lg, "down") {
-                    @include QLD-focus("light", false, 2px);
-                }
-            }
-
-            .qld__main-nav__toggle {
-                @include QLD-focus("light", false, -3px);
-            }
-        }
-        .qld__main-nav__menu-sub-inner {
-            li > a,
-            div.qld__main-nav__sub-footer a {
-                @include QLD-media(lg, "down") {
-                    @include QLD-focus("light", false, -3px);
-                    border-radius: 0;
-                }
-            }
-
-            // Ensure focus outlines of list elements are visible
-            > .qld__link-columns.qld__link-list {
-                @include QLD-media(lg) {
-                    padding: 5px;
-                }
-            }
-        }
+      right: 0;
+      display: block;
     }
+
+    // Move the overlay and animate the transparency
+    .qld__main-nav__overlay {
+      opacity: 0.95;
+      right: 0;
+      display: block;
+
+      // Hide on desktop
+      @include QLD-media($QLD-main-nav-breakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-inner {
+    position: relative;
+    height: 100%;
+  }
+
+  &__cta-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    @include QLD-media(lg) {
+      display: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    background-color: $QLD-color-neutral--white;
+    color: var(--QLD-color-light__text);
+    align-items: center;
+    @include QLD-box-shadow(1);
+    position: relative;
+
+    @include QLD-media(lg) {
+      display: none;
+    }
+
+    .qld__main-nav__toggle {
+      margin-left: auto;
+    }
+  }
+
+  & &__menu-heading {
+    @include QLD-fontgrid(xs);
+    @include QLD-space(margin, 0unit 1unit);
+    font-weight: $QLD-font-weight-regular;
+    color: var(--QLD-color-light__heading);
+
+    @include QLD-media(md) {
+      @include QLD-fontgrid(sm);
+      @include QLD-space(line-height, 4.5unit);
+    }
+
+    @include QLD-media(lg) {
+      display: none;
+
+      .qld__body & {
+        display: none;
+      }
+    }
+  }
+
+  // Menu open and close toggles
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    @include QLD-space(padding, 0.5unit 1unit 0.25unit 1unit);
+    @include QLD-fontgrid(xs, nospace);
+    border: 0;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    align-items: center;
+    color: var(--QLD-color-light__link);
+    border-left: solid $QLD-border-width-thin $QLD-color-neutral--lighter;
+
+    &:hover {
+      background-color: $QLD-color-neutral--lightest;
+
+      svg {
+        color: var(--QLD-color-light__action--secondary-hover);
+      }
+    }
+
+    @include QLD-media(md) {
+      @include QLD-space(padding, 0.75unit 1unit);
+    }
+
+    .qld__main-nav__toggle-text {
+      @include QLD-space(font-size, 0.625unit);
+      @include QLD-space(margin-top, 0.25unit);
+      line-height: 1rem;
+
+      @include QLD-media(md) {
+        @include QLD-space(margin-top, 0.625unit);
+        @include QLD-fontgrid(xs, nospace);
+      }
+    }
+
+    &:before {
+      @include QLD-fontgrid(sm, nospace);
+      @include QLD-space(margin-bottom, 0.25unit);
+      display: block;
+      text-align: center;
+    }
+
+    svg {
+      @include QLD-space(height, 1unit);
+      @include QLD-space(width, 1unit);
+      margin: 1px auto;
+      color: var(--QLD-color-light__action--secondary);
+
+      @include QLD-media(md) {
+        @include QLD-space(height, 1.25unit);
+        @include QLD-space(width, 1.25unit);
+        margin: 0 auto;
+      }
+    }
+
+    &--open {
+      color: var(--QLD-color-dark__text);
+      background-color: transparent;
+    }
+
+    // Close icon
+    &--close {
+      background-color: transparent;
+      @include QLD-media(md) {
+        border-width: $QLD-border-width-default;
+      }
+    }
+  }
+
+  &__toggle-search {
+    &--open {
+      .qld__main-nav__toggle-search-close-icon,
+      .fa-times {
+        display: none;
+      }
+    }
+
+    &--close {
+      .qld__main-nav__toggle-search-icon,
+      .fa-search {
+        display: none;
+      }
+    }
+  }
+
+  // Reset menus inside main-nav
+  .qld__link-list {
+    @include QLD-clearfix();
+    margin: 0;
+    padding: 0;
+    background-color: $QLD-color-neutral--lightest;
+
+    @include QLD-media(lg) {
+      @include QLD-space(padding-bottom, 0unit);
+    }
+
+    // Reset the padding on list items in mobile as there is no arrow to obscure
+    li > a {
+      @include QLD-media(lg, "down") {
+        padding-right: 0;
+      }
+    }
+
+    &--flex {
+      // Flexbox horizontal layout is a desktop-only concern: it replaces the
+      // float-based top-level nav (QHDEV-642). On mobile the nav is a vertical
+      // sidebar accordion inside a full-height fixed panel, where a flex-wrap
+      // container's lines stretch (align-content: stretch) to fill that height
+      // and pull the items apart. Keep the list in normal block flow below the
+      // desktop breakpoint so the accordion items stay tightly aligned.
+      @include QLD-media(lg) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .qld__main-nav__cta-wrapper .qld__link-list {
+    @include QLD-space(padding-bottom, 0unit);
+  }
+
+  &.qld__main-nav--dark {
+    background-color: var(--QLD-color-dark__background--shade);
+
+    .qld__link-list {
+      background-color: var(--QLD-color-dark__background--shade);
+    }
+
+    .qld__main-nav__menu {
+      .qld__main-nav__item-title
+        a.qld__main-nav__item-link.qld__main-nav__item-link--open {
+        color: var(--QLD-color-dark__heading);
+      }
+      .qld__main-nav__item-title::before {
+        background-color: var(--QLD-color-dark__border);
+      }
+      .qld__main-nav__item {
+        &.active:hover .qld__main-nav__item-link {
+          border-color: var(--QLD-color-dark__action--primary-hover);
+        }
+
+        a {
+          @include QLD-underline("dark", "noUnderline", "default", "noVisited");
+          color: var(--QLD-color-dark__text);
+        }
+      }
+
+      .qld__main-nav__item-link {
+        color: var(--QLD-color-dark__link);
+        border-color: var(--QLD-color-dark__design-accent);
+
+        &:hover {
+          background-color: var(--QLD-color-dark__background--alt);
+          border-color: var(--QLD-color-dark__action--primary-hover);
+
+          .qld__icon {
+            color: var(--QLD-color-dark__action--secondary-hover);
+          }
+        }
+      }
+
+      .qld__main-nav__item.active .qld__main-nav__item-link,
+      .qld__main-nav__item.active .qld__main-nav__item-toggle {
+        color: var(--QLD-color-dark__heading);
+
+        @include QLD-media(lg) {
+          border-color: var(--QLD-color-dark__background--shade);
+        }
+      }
+
+      .qld__main-nav__item.active .qld__main-nav__item-link--open {
+        color: var(--QLD-color-dark__heading);
+      }
+
+      .qld__main-nav__item-link.qld__main-nav__item-link--open {
+        &:visited {
+          color: var(--QLD-color-dark__link);
+        }
+      }
+    }
+  }
+
+  // Focus styles
+  .qld__main-nav__menu {
+    .qld__main-nav__menu-inner {
+      .qld__main-nav__item-link {
+        @include QLD-focus("light", false, -2px);
+        border-radius: 0;
+
+        @include QLD-media(lg, "down") {
+          @include QLD-focus("light", false, -3px);
+
+          // Ensure the outline looks "full" compared to other tabs
+          &:focus {
+            z-index: 1;
+          }
+        }
+      }
+
+      .qld__main-nav__item-title:has(button.qld__main-nav__item-toggle)
+        .qld__main-nav__item-link {
+        border-top-right-radius: 1rem;
+      }
+
+      .qld__main-nav__item-toggle {
+        @include QLD-focus("light", false, -2px);
+
+        @include QLD-media(lg, "down") {
+          @include QLD-focus("light", false, 2px);
+        }
+      }
+
+      .qld__main-nav__toggle {
+        @include QLD-focus("light", false, -3px);
+      }
+    }
+    .qld__main-nav__menu-sub-inner {
+      li > a,
+      div.qld__main-nav__sub-footer a {
+        @include QLD-media(lg, "down") {
+          @include QLD-focus("light", false, -3px);
+          border-radius: 0;
+        }
+      }
+
+      // Ensure focus outlines of list elements are visible
+      > .qld__link-columns.qld__link-list {
+        @include QLD-media(lg) {
+          padding: 5px;
+        }
+      }
+    }
+  }
 }
 
 // Lock the scroll on the whole page when the menu is open
 .js .qld__main-nav__scroll--locked {
-    overflow: hidden;
+  overflow: hidden;
 
-    // Remove the scroll lock on a desktop computer
-    @include QLD-media($QLD-main-nav-breakpoint) {
-        overflow: visible;
-    }
+  // Remove the scroll lock on a desktop computer
+  @include QLD-media($QLD-main-nav-breakpoint) {
+    overflow: visible;
+  }
 }
 
 // Vertical Nav Option
 .vertical-nav {
-    .qld__main-nav {
-        @include QLD-media(lg) {
-            display: none;
-        }
+  .qld__main-nav {
+    @include QLD-media(lg) {
+      display: none;
     }
+  }
 }
 
 .qld__main-nav__menu-inner {
-    div.qld__mega-nav_mobile-filler-120 {
-        display: block;
-        height: 0;
-        padding-bottom: 120px;
+  div.qld__mega-nav_mobile-filler-120 {
+    display: block;
+    height: 0;
+    padding-bottom: 120px;
 
-        @include QLD-media(lg) {
-            display: none;
-        }
+    @include QLD-media(lg) {
+      display: none;
     }
+  }
 
-    div.qld__mega-nav_mobile-filler-60 {
-        display: block;
-        height: 0;
-        padding-bottom: 60px;
+  div.qld__mega-nav_mobile-filler-60 {
+    display: block;
+    height: 0;
+    padding-bottom: 60px;
 
-        @include QLD-media(lg) {
-            display: none;
-        }
+    @include QLD-media(lg) {
+      display: none;
     }
+  }
 }
 
 // Specific dark mode styling for individual menu parts
 .qld__main-nav {
-    .qld__main-nav__menu {
-        // Nav header
-        .qld__main-nav__header {
-            &.qld__main-nav__header--dark,
-            &.qld__main-nav__header--dark-alt {
-                button.qld__main-nav__toggle {
-                    @include QLD-focus("dark", false, -3px);
+  .qld__main-nav__menu {
+    // Nav header
+    .qld__main-nav__header {
+      &.qld__main-nav__header--dark,
+      &.qld__main-nav__header--dark-alt {
+        button.qld__main-nav__toggle {
+          @include QLD-focus("dark", false, -3px);
 
-                    color: var(--QLD-color-dark__link);
+          color: var(--QLD-color-dark__link);
 
-                    &--open,
-                    &--close {
-                        &:active {
-                            background-color: var(--QLD-color-dark__background--alt);
-                        }
-                    }
-
-                    .qld__icon {
-                        color: var(--QLD-color-dark__action--secondary);
-                    }
-
-                    &:hover {
-                        .qld__icon {
-                            color: var(--QLD-color-dark__action--secondary-hover);
-                        }
-                    }
-                }
+          &--open,
+          &--close {
+            &:active {
+              background-color: var(--QLD-color-dark__background--alt);
             }
-        }
+          }
 
-        // Menu body
-        .qld__main-nav__body--dark.qld__link-list {
-            .qld__main-nav__item-toggle,
-            .qld__main-nav__item-link,
-            .qld__main-nav__item li > a,
-            .qld__main-nav__menu-sub-inner a {
-                &:focus {
-                    outline-color: var(--QLD-color-dark__focus);
-                }
-            }
+          .qld__icon {
+            color: var(--QLD-color-dark__action--secondary);
+          }
 
-            // Menu body item title
-            .qld__main-nav__item-title {
-                // Selector ensures the hover only applies when the item is not open
-                &:has(.qld__main-nav__item-toggle):not(:has(.qld__main-nav__item-link--open)):hover {
-                    background-color: var(--QLD-color-dark__background--alt);
-                }
-            }
-        }
-
-        // CTA wrapper
-        .qld__main-nav__cta-wrapper {
-            &.qld__main-nav__cta-wrapper--light {
-                .qld__main-nav__item-link {
-                    color: var(--QLD-color-light__link);
-
-                    &:hover {
-                        text-decoration-color: var(--QLD-color-light__underline--hover);
-                    }
-                }
-            }
-            &.qld__main-nav__cta-wrapper--dark,
-            &.qld__main-nav__cta-wrapper--dark-alt {
-                .qld__link-list .qld__main-nav__item .qld__main-nav__item-title a.qld__main-nav__item-link:hover {
-                    @include QLD-underline("dark", "noUnderline", "default", "noVisited");
-                }
-
-                .qld__main-nav__item-link {
-                    @include QLD-underline("dark", "noUnderline", "default", "noVisited");
-                    @include QLD-focus("dark", false, -3px);
-
-                    color: var(--QLD-color-dark__link);
-
-                    .qld__icon {
-                        color: var(--QLD-color-dark__action--secondary);
-                    }
-
-                    &:hover {
-                        .qld__icon {
-                            color: var(--QLD-color-dark__action--secondary-hover);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // Menu home button
-    &.qld__main-nav--dark,
-    &.qld__main-nav--dark-alt {
-        .qld__main-nav__item-home {
+          &:hover {
             .qld__icon {
-                color: var(--QLD-color-dark__action--secondary);
+              color: var(--QLD-color-dark__action--secondary-hover);
             }
+          }
         }
+      }
     }
+
+    // Menu body
+    .qld__main-nav__body--dark.qld__link-list {
+      .qld__main-nav__item-toggle,
+      .qld__main-nav__item-link,
+      .qld__main-nav__item li > a,
+      .qld__main-nav__menu-sub-inner a {
+        &:focus {
+          outline-color: var(--QLD-color-dark__focus);
+        }
+      }
+
+      // Menu body item title
+      .qld__main-nav__item-title {
+        // Selector ensures the hover only applies when the item is not open
+        &:has(.qld__main-nav__item-toggle):not(
+            :has(.qld__main-nav__item-link--open)
+          ):hover {
+          background-color: var(--QLD-color-dark__background--alt);
+        }
+      }
+    }
+
+    // CTA wrapper
+    .qld__main-nav__cta-wrapper {
+      &.qld__main-nav__cta-wrapper--light {
+        .qld__main-nav__item-link {
+          color: var(--QLD-color-light__link);
+
+          &:hover {
+            text-decoration-color: var(--QLD-color-light__underline--hover);
+          }
+        }
+      }
+      &.qld__main-nav__cta-wrapper--dark,
+      &.qld__main-nav__cta-wrapper--dark-alt {
+        .qld__link-list
+          .qld__main-nav__item
+          .qld__main-nav__item-title
+          a.qld__main-nav__item-link:hover {
+          @include QLD-underline("dark", "noUnderline", "default", "noVisited");
+        }
+
+        .qld__main-nav__item-link {
+          @include QLD-underline("dark", "noUnderline", "default", "noVisited");
+          @include QLD-focus("dark", false, -3px);
+
+          color: var(--QLD-color-dark__link);
+
+          .qld__icon {
+            color: var(--QLD-color-dark__action--secondary);
+          }
+
+          &:hover {
+            .qld__icon {
+              color: var(--QLD-color-dark__action--secondary-hover);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Menu home button
+  &.qld__main-nav--dark,
+  &.qld__main-nav--dark-alt {
+    .qld__main-nav__item-home {
+      .qld__icon {
+        color: var(--QLD-color-dark__action--secondary);
+      }
+    }
+  }
 }
 
 // Print styles
 @media print {
-    .qld__main-nav {
-        display: none;
+  .qld__main-nav {
+    display: none;
 
-        a {
-            color: #000 !important;
+    a {
+      color: #000 !important;
 
-            &:hover {
-                background: transparent !important;
-            }
-        }
-
-        .active a {
-            border-color: #fff !important;
-            background-color: transparent !important;
-        }
-
-        .qld__link-list > li {
-            border-color: #000 !important;
-
-            &:last-of-type {
-                border-bottom: 1px solid !important;
-            }
-        }
-
-        @include QLD-media($QLD-main-nav-breakpoint) {
-            @include QLD-space(border-bottom, 0.5unit solid #000 !important);
-
-            .qld__link-list > li:last-of-type {
-                border-bottom: none !important;
-            }
-        }
-    }
-
-    .qld__main-nav__toggle {
-        display: none !important;
-    }
-
-    .qld__main-nav__menu {
+      &:hover {
         background: transparent !important;
-        position: static !important;
-        display: block !important;
-        width: auto !important;
-
-        .qld__main-nav__menu-inner {
-            padding: 0 !important;
-        }
+      }
     }
+
+    .active a {
+      border-color: #fff !important;
+      background-color: transparent !important;
+    }
+
+    .qld__link-list > li {
+      border-color: #000 !important;
+
+      &:last-of-type {
+        border-bottom: 1px solid !important;
+      }
+    }
+
+    @include QLD-media($QLD-main-nav-breakpoint) {
+      @include QLD-space(border-bottom, 0.5unit solid #000 !important);
+
+      .qld__link-list > li:last-of-type {
+        border-bottom: none !important;
+      }
+    }
+  }
+
+  .qld__main-nav__toggle {
+    display: none !important;
+  }
+
+  .qld__main-nav__menu {
+    background: transparent !important;
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+
+    .qld__main-nav__menu-inner {
+      padding: 0 !important;
+    }
+  }
 }

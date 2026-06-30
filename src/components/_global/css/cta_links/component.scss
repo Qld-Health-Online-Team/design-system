@@ -4,238 +4,238 @@
 
 .qld__cta-link,
 a.qld__cta-link {
-    position: relative;
+  position: relative;
+  display: inline-block;
+  @include QLD-fontgrid(md);
+  @include QLD-space(padding-right, 2.5rem);
+  font-weight: $QLD-font-weight-semibold;
+  color: var(--QLD-color-light__link);
+  z-index: 1;
+
+  &::before {
+    @include QLD-space(width, 1unit);
+    top: 1rem;
+    right: 0.3rem;
+  }
+
+  &::after {
+    @include QLD-space(width, 0.6rem);
+    @include QLD-space(height, 0.6rem);
+    border-right: 0.125rem solid;
+    transform: rotate(315deg);
+    top: 0.77rem;
+    right: 0.3rem;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+    position: absolute;
     display: inline-block;
-    @include QLD-fontgrid(md);
-    @include QLD-space(padding-right, 2.5rem);
-    font-weight: $QLD-font-weight-semibold;
-    color: var(--QLD-color-light__link);
-    z-index: 1;
+    box-sizing: border-box;
+    border-bottom: 0.125rem solid;
+    transition: border-color 0.3s ease;
+    transition: margin 0.2s ease;
+    border-color: var(--QLD-color-light__action--secondary);
 
-    &::before {
-        @include QLD-space(width, 1unit);
-        top: 1rem;
-        right: 0.3rem;
+    .qld__body--dark &,
+    .qld__body--dark-alt & {
+      border-color: var(--QLD-color-dark__action--secondary);
     }
+  }
 
-    &::after {
-        @include QLD-space(width, 0.6rem);
-        @include QLD-space(height, 0.6rem);
-        border-right: 0.125rem solid;
-        transform: rotate(315deg);
-        top: 0.77rem;
-        right: 0.3rem;
-    }
-
+  &:hover,
+  &:focus {
     &::before,
     &::after {
-        content: "";
-        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-        position: absolute;
-        display: inline-block;
-        box-sizing: border-box;
-        border-bottom: 0.125rem solid;
-        transition: border-color 0.3s ease;
-        transition: margin 0.2s ease;
-        border-color: var(--QLD-color-light__action--secondary);
-
-        .qld__body--dark &,
-        .qld__body--dark-alt & {
-            border-color: var(--QLD-color-dark__action--secondary);
-        }
-    }
-
-    &:hover,
-    &:focus {
-        &::before,
-        &::after {
-            @include QLD-space(margin, 0 0 0 1unit);
-            border-color: var(--QLD-color-light__action--secondary-hover);
-        }
-
-        &:disabled,
-        &[disabled] {
-            font-weight: $QLD-font-weight-semibold;
-
-            &:visited {
-                color: var(--QLD-color-light__text--lighter);
-            }
-
-            &::before,
-            &::after {
-                @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-            }
-        }
+      @include QLD-space(margin, 0 0 0 1unit);
+      border-color: var(--QLD-color-light__action--secondary-hover);
     }
 
     &:disabled,
     &[disabled] {
-        cursor: not-allowed;
-        pointer-events: none;
+      font-weight: $QLD-font-weight-semibold;
+
+      &:visited {
         color: var(--QLD-color-light__text--lighter);
+      }
 
-        &::before,
-        &::after {
-            border-color: var(--QLD-color-light__text--lighter);
-        }
+      &::before,
+      &::after {
+        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+      }
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: var(--QLD-color-light__text--lighter);
+
+    &::before,
+    &::after {
+      border-color: var(--QLD-color-light__text--lighter);
+    }
+  }
+
+  .qld__body--dark &,
+  .qld__body--dark-alt &,
+  .qld__main-nav--dark & {
+    color: var(--QLD-color-dark__link);
+    @include QLD-focus(dark);
+
+    &:hover,
+    &:focus {
+      &::before,
+      &::after {
+        border-color: var(--QLD-color-dark__action--secondary-hover);
+      }
     }
 
-    .qld__body--dark &,
-    .qld__body--dark-alt &,
-    .qld__main-nav--dark & {
-        color: var(--QLD-color-dark__link);
-        @include QLD-focus(dark);
+    &:disabled,
+    &[disabled] {
+      color: var(--QLD-color-dark__text--lighter);
 
-        &:hover,
-        &:focus {
-            &::before,
-            &::after {
-                border-color: var(--QLD-color-dark__action--secondary-hover);
-            }
-        }
+      &:visited,
+      &:visited:hover {
+        color: var(--QLD-color-dark__text--lighter);
+      }
 
-        &:disabled,
-        &[disabled] {
-            color: var(--QLD-color-dark__text--lighter);
-
-            &:visited,
-            &:visited:hover {
-                color: var(--QLD-color-dark__text--lighter);
-            }
-
-            &::before,
-            &::after {
-                border-color: var(--QLD-color-dark__text--lighter);
-            }
-        }
+      &::before,
+      &::after {
+        border-color: var(--QLD-color-dark__text--lighter);
+      }
     }
+  }
 }
 
 .qld__cta-link.qld__cta-link--view-all,
 a.qld__cta-link.qld__cta-link--view-all {
-    .qld__cta-link--view-all-icon--wrapper {
-        display: block;
-        min-height: 32px;
-        line-height: 32px;
-    }
+  .qld__cta-link--view-all-icon--wrapper {
+    display: block;
+    min-height: 32px;
+    line-height: 32px;
+  }
 
+  &::before,
+  &::after,
+  .qld__cta-link--view-all-icon--wrapper::before {
+    @include QLD-space(margin, 0 0.5unit 0 0.5unit);
+    content: "";
+    position: absolute;
+    display: inline-block;
+    box-sizing: border-box;
+    border-bottom: 0.125rem solid;
+    transition: border-color 0.3s ease;
+    border-color: var(--QLD-color-light__action--secondary);
+    transition: margin 0.2s ease;
+    z-index: 1;
+    right: 0.5rem;
+    background-color: transparent;
+
+    .qld__body--dark &,
+    .qld__body--dark-alt &,
+    .qld__main-nav--dark &,
+    .qld__main-nav--dark-alt & {
+      border-color: var(--QLD-color-dark__action--secondary);
+    }
+  }
+
+  &::before {
+    width: 0.7rem;
+    top: 14.5px;
+  }
+
+  &::after {
+    transform: rotate(315deg);
+    width: 0.5rem;
+    top: 0.72rem;
+    height: 0.5rem;
+    border-right: 0.125rem solid var(--QLD-color-light__action--secondary);
+  }
+
+  > .qld__cta-link--view-all-icon--wrapper::before {
+    border: 2px solid var(--QLD-color-light__action--secondary);
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 3.5px;
+    right: 1px;
+    border-radius: 50%;
+  }
+
+  &:hover,
+  &:focus {
     &::before,
     &::after,
     .qld__cta-link--view-all-icon--wrapper::before {
-        @include QLD-space(margin, 0 0.5unit 0 0.5unit);
-        content: "";
-        position: absolute;
-        display: inline-block;
-        box-sizing: border-box;
-        border-bottom: 0.125rem solid;
-        transition: border-color 0.3s ease;
-        border-color: var(--QLD-color-light__action--secondary);
-        transition: margin 0.2s ease;
-        z-index: 1;
-        right: 0.5rem;
-        background-color: transparent;
+      @include QLD-space(margin, 0 0 0 1unit);
+      border-color: var(--QLD-color-light__action--secondary-hover);
+      background-color: transparent;
 
-        .qld__body--dark &,
-        .qld__body--dark-alt &,
-        .qld__main-nav--dark &,
-        .qld__main-nav--dark-alt & {
-            border-color: var(--QLD-color-dark__action--secondary);
-        }
+      .qld__body--dark &,
+      .qld__body--dark-alt &,
+      .qld__main-nav--dark &,
+      .qld__main-nav--dark-alt & {
+        border-color: var(--QLD-color-dark__action--secondary-hover);
+      }
     }
+  }
 
-    &::before {
-        width: 0.7rem;
-        top: 14.5px;
-    }
-
-    &::after {
-        transform: rotate(315deg);
+  // CTA view all link within menus
+  .qld__main-nav &,
+  .qld__main-nav--mega & {
+    @include QLD-media("lg", "down") {
+      &::before,
+      &::after,
+      .qld__cta-link--view-all-icon--wrapper::before {
+        left: 0;
+        @include QLD-space(margin, 0.65unit 0 0 5unit);
+      }
+      &::before {
+        top: 13.5px;
         width: 0.5rem;
-        top: 0.72rem;
-        height: 0.5rem;
-        border-right: 0.125rem solid var(--QLD-color-light__action--secondary);
-    }
+        margin-left: 5.475rem;
+      }
+      &::after {
+        top: 0.66rem;
+        margin-left: 5.55rem;
+      }
+      .qld__cta-link--view-all-icon--wrapper::before {
+        left: 2px;
+        width: 1.4rem;
+        height: 1.4rem;
+      }
 
-    > .qld__cta-link--view-all-icon--wrapper::before {
-        border: 2px solid var(--QLD-color-light__action--secondary);
-        width: 1.5rem;
-        height: 1.5rem;
-        top: 3.5px;
-        right: 1px;
-        border-radius: 50%;
-    }
-
-    &:hover,
-    &:focus {
+      &:hover,
+      &:focus {
         &::before,
         &::after,
         .qld__cta-link--view-all-icon--wrapper::before {
-            @include QLD-space(margin, 0 0 0 1unit);
-            border-color: var(--QLD-color-light__action--secondary-hover);
-            background-color: transparent;
-
-            .qld__body--dark &,
-            .qld__body--dark-alt &,
-            .qld__main-nav--dark &,
-            .qld__main-nav--dark-alt & {
-                border-color: var(--QLD-color-dark__action--secondary-hover);
-            }
+          @include QLD-space(margin, 0.65unit 0 0 5.25unit);
         }
-    }
-
-    // CTA view all link within menus
-    .qld__main-nav &,
-    .qld__main-nav--mega & {
-        @include QLD-media("lg", "down") {
-            &::before,
-            &::after,
-            .qld__cta-link--view-all-icon--wrapper::before {
-                left: 0;
-                @include QLD-space(margin, 0.65unit 0 0 5unit);
-            }
-            &::before {
-                top: 13.5px;
-                width: 0.5rem;
-                margin-left: 5.475rem;
-            }
-            &::after {
-                top: 0.66rem;
-                margin-left: 5.55rem;
-            }
-            .qld__cta-link--view-all-icon--wrapper::before {
-                left: 2px;
-                width: 1.4rem;
-                height: 1.4rem;
-            }
-
-            &:hover,
-            &:focus {
-                &::before,
-                &::after,
-                .qld__cta-link--view-all-icon--wrapper::before {
-                    @include QLD-space(margin, 0.65unit 0 0 5.25unit);
-                }
-                &::before {
-                    margin-left: 5.75rem;
-                }
-                &::after {
-                    margin-left: 5.8rem;
-                }
-            }
+        &::before {
+          margin-left: 5.75rem;
         }
+        &::after {
+          margin-left: 5.8rem;
+        }
+      }
     }
+  }
 }
 
 // Print styles
 @media print {
-    .qld__cta-link {
-        color: #000 !important;
+  .qld__cta-link {
+    color: #000 !important;
 
-        &::after {
-            background-image: none !important;
-            content: " > " !important;
-            border: none !important;
-            transform: rotate(0deg) !important;
-        }
+    &::after {
+      background-image: none !important;
+      content: " > " !important;
+      border: none !important;
+      transform: rotate(0deg) !important;
     }
+  }
 }

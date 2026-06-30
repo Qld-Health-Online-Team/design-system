@@ -1,136 +1,289 @@
 {{#ifCond site.metadata.alertDisplay.value '==' 'true'}}
-    <div 
-    role="region" 
-    aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}" 
-    class="qld__global-alert qld__global-alert--{{site.metadata.alertLevel.value}}{{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}} qld__global-alert-with-vertical-nav{{/ifCond}}">
- 
-        <div class="container-fluid">
-            <div class="qld__global-alert__main">
-                <div class="qld__global-alert__icon">
-                    {{#ifCond site.metadata.alertLevel.value '==' 'default'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Warning icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-warning"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.alertLevel.value '==' 'critical'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Alert icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-danger"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.alertLevel.value '==' 'general'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Information icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use></svg>
-                    {{/ifCond}}
-                </div>
-                <div class="qld__global-alert__content">
-                    {{#ifAny site.metadata.alertTitle.value site.metadata.alertMessage.value}}
-                        <div class="qld__global-alert__message">
-                            {{#if site.metadata.alertTitle.value}}
-                                <strong>{{site.metadata.alertTitle.value}}</strong>
-                            {{/if}}
-                            {{#if site.metadata.alertMessage.value}}
-                                {{site.metadata.alertMessage.value}} 
-                            {{/if}}
-                        </div>
-                    {{/ifAny}}
-                    <div class="qld__global-alert__action">
-                        <a href="{{site.metadata.alertLinkURL.value}}">
-                            <span>{{site.metadata.alertLinkTitle.value}}</span>
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
-                        </a>   
-                    </div>
-                </div>
-                <div class="qld__global-alert__close">
-                    <button aria-label="Close alert">
-                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#close"></use></svg>
-                    </button>
-                </div>
+  <div
+    class="
+      qld__global-alert
+      qld__global-alert--{{ site.metadata.alertLevel.value }}
+      {{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}}
+        qld__global-alert-with-vertical-nav
+      {{/ifCond}}
+    "
+    role="region"
+    aria-label="{{#ifCond site.metadata.alertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.alertLevel.value '==' 'general'}}Information{{/ifCond}}"
+  >
+
+    <div class="container-fluid">
+      <div class="qld__global-alert__main">
+        <div class="qld__global-alert__icon">
+          {{#ifCond site.metadata.alertLevel.value '==' 'default'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Warning icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-warning"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.alertLevel.value '==' 'critical'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Alert icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-danger"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.alertLevel.value '==' 'general'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Information icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-information"
+              ></use>
+            </svg>
+          {{/ifCond}}
+        </div>
+        <div class="qld__global-alert__content">
+          {{#ifAny site.metadata.alertTitle.value site.metadata.alertMessage.value}}
+            <div class="qld__global-alert__message">
+              {{#if site.metadata.alertTitle.value}}
+                <strong>
+                  {{ site.metadata.alertTitle.value }}
+                </strong>
+              {{/if}}
+              {{#if site.metadata.alertMessage.value}}
+                {{ site.metadata.alertMessage.value }}
+              {{/if}}
             </div>
-        </div> 
+          {{/ifAny}}
+          <div class="qld__global-alert__action">
+            <a href="{{ site.metadata.alertLinkURL.value }}">
+              <span>{{ site.metadata.alertLinkTitle.value }}</span>
+              <svg
+                class="qld__icon qld__icon--sm"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use
+                  href="{{ @root.site.metadata.coreSiteIcons.value }}#arrow-right"
+                ></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="qld__global-alert__close">
+          <button aria-label="Close alert">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="{{ @root.site.metadata.coreSiteIcons.value }}#close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 {{/ifCond}}
 {{#ifCond site.metadata.secondAlertDisplay.value '==' 'true'}}
-        <div 
-        role="region" 
-        aria-label="{{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
-        class="qld__global-alert qld__global-alert--{{site.metadata.secondAlertLevel.value}}{{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}} qld__global-alert-with-vertical-nav{{/ifCond}}">
-        <div class="container-fluid">
-            <div class="qld__global-alert__main">
-                <div class="qld__global-alert__icon">
-                    {{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Warning icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-warning"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Alert icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-danger"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Information icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use></svg>
-                    {{/ifCond}}
-                </div>
-                <div class="qld__global-alert__content">
-                    {{#ifAny site.metadata.secondAlertTitle.value site.metadata.secondAlertMessage.value}}
-                        <div class="qld__global-alert__message">
-                            {{#if site.metadata.secondAlertTitle.value}}
-                                <strong>{{site.metadata.secondAlertTitle.value}}</strong>
-                            {{/if}}
-                            {{#if site.metadata.secondAlertMessage.value}}
-                                {{site.metadata.secondAlertMessage.value}} 
-                            {{/if}}
-                        </div>
-                    {{/ifAny}}
-                    <div class="qld__global-alert__action">
-                        <a href="{{site.metadata.secondAlertLinkURL.value}}">
-                            <span>{{site.metadata.secondAlertLinkTitle.value}}</span>
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
-                        </a>   
-                    </div>
-                </div>
-                <div class="qld__global-alert__close">
-                    <button aria-label="Close alert">
-                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#close"></use></svg>
-                    </button>
-                </div>
+  <div
+    class="
+      qld__global-alert
+      qld__global-alert--{{ site.metadata.secondAlertLevel.value }}
+      {{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}}
+        qld__global-alert-with-vertical-nav
+      {{/ifCond}}
+    "
+    role="region"
+    aria-label="{{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
+  >
+    <div class="container-fluid">
+      <div class="qld__global-alert__main">
+        <div class="qld__global-alert__icon">
+          {{#ifCond site.metadata.secondAlertLevel.value '==' 'default'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Warning icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-warning"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.secondAlertLevel.value '==' 'critical'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Alert icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-danger"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.secondAlertLevel.value '==' 'general'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Information icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-information"
+              ></use>
+            </svg>
+          {{/ifCond}}
+        </div>
+        <div class="qld__global-alert__content">
+          {{#ifAny site.metadata.secondAlertTitle.value site.metadata.secondAlertMessage.value}}
+            <div class="qld__global-alert__message">
+              {{#if site.metadata.secondAlertTitle.value}}
+                <strong>
+                  {{ site.metadata.secondAlertTitle.value }}
+                </strong>
+              {{/if}}
+              {{#if site.metadata.secondAlertMessage.value}}
+                {{ site.metadata.secondAlertMessage.value }}
+              {{/if}}
             </div>
-        </div> 
+          {{/ifAny}}
+          <div class="qld__global-alert__action">
+            <a href="{{ site.metadata.secondAlertLinkURL.value }}">
+              <span>{{ site.metadata.secondAlertLinkTitle.value }}</span>
+              <svg
+                class="qld__icon qld__icon--sm"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use
+                  href="{{ @root.site.metadata.coreSiteIcons.value }}#arrow-right"
+                ></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="qld__global-alert__close">
+          <button aria-label="Close alert">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="{{ @root.site.metadata.coreSiteIcons.value }}#close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 {{/ifCond}}
 {{#ifCond site.metadata.thirdAlertDisplay.value '==' 'true'}}
-    <div 
-        role="region" 
-        aria-label="{{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
-        class="qld__global-alert qld__global-alert--{{site.metadata.thirdAlertLevel.value}}{{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}} qld__global-alert-with-vertical-nav{{/ifCond}}">
-        <div class="container-fluid">
-            <div class="qld__global-alert__main">
-                <div class="qld__global-alert__icon">
-                    {{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Warning icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-warning"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Alert icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-danger"></use></svg>
-                    {{/ifCond}}
-                    {{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}
-                    <svg class="qld__icon qld__icon--md" role="img" aria-label="Information icon" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#alert-information"></use></svg>
-                    {{/ifCond}}
-                </div>
-                <div class="qld__global-alert__content">
-                    {{#ifAny site.metadata.thirdAlertTitle.value site.metadata.thirdAlertMessage.value}}
-                        <div class="qld__global-alert__message">
-                            {{#if site.metadata.thirdAlertTitle.value}}
-                                <strong>{{site.metadata.thirdAlertTitle.value}}</strong>
-                            {{/if}}
-                            {{#if site.metadata.thirdAlertMessage.value}}
-                                {{site.metadata.thirdAlertMessage.value}} 
-                            {{/if}}
-                        </div>
-                    {{/ifAny}}
-                    <div class="qld__global-alert__action">
-                        <a href="{{site.metadata.thirdAlertLinkURL.value}}">
-                            <span>{{site.metadata.thirdAlertLinkTitle.value}}</span>
-                            <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#arrow-right"></use></svg>
-                        </a>   
-                    </div>
-                </div>
-                <div class="qld__global-alert__close">
-                    <button aria-label="Close alert">
-                        <svg class="qld__icon qld__icon--sm" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><use href="{{@root.site.metadata.coreSiteIcons.value}}#close"></use></svg>
-                    </button>
-                </div>
+  <div
+    class="
+      qld__global-alert
+      qld__global-alert--{{ site.metadata.thirdAlertLevel.value }}
+      {{#ifCond @root.site.metadata.mainNavVerticalNav.value '==' 'vertical-nav'}}
+        qld__global-alert-with-vertical-nav
+      {{/ifCond}}
+    "
+    role="region"
+    aria-label="{{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}Warning{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}Alert{{/ifCond}}{{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}Information{{/ifCond}}"
+  >
+    <div class="container-fluid">
+      <div class="qld__global-alert__main">
+        <div class="qld__global-alert__icon">
+          {{#ifCond site.metadata.thirdAlertLevel.value '==' 'default'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Warning icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-warning"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.thirdAlertLevel.value '==' 'critical'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Alert icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-danger"
+              ></use>
+            </svg>
+          {{/ifCond}}
+          {{#ifCond site.metadata.thirdAlertLevel.value '==' 'general'}}
+            <svg
+              class="qld__icon qld__icon--md"
+              role="img"
+              aria-label="Information icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#alert-information"
+              ></use>
+            </svg>
+          {{/ifCond}}
+        </div>
+        <div class="qld__global-alert__content">
+          {{#ifAny site.metadata.thirdAlertTitle.value site.metadata.thirdAlertMessage.value}}
+            <div class="qld__global-alert__message">
+              {{#if site.metadata.thirdAlertTitle.value}}
+                <strong>
+                  {{ site.metadata.thirdAlertTitle.value }}
+                </strong>
+              {{/if}}
+              {{#if site.metadata.thirdAlertMessage.value}}
+                {{ site.metadata.thirdAlertMessage.value }}
+              {{/if}}
             </div>
-        </div> 
+          {{/ifAny}}
+          <div class="qld__global-alert__action">
+            <a href="{{ site.metadata.thirdAlertLinkURL.value }}">
+              <span>{{ site.metadata.thirdAlertLinkTitle.value }}</span>
+              <svg
+                class="qld__icon qld__icon--sm"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use
+                  href="{{ @root.site.metadata.coreSiteIcons.value }}#arrow-right"
+                ></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="qld__global-alert__close">
+          <button aria-label="Close alert">
+            <svg
+              class="qld__icon qld__icon--sm"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use href="{{ @root.site.metadata.coreSiteIcons.value }}#close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 {{/ifCond}}
