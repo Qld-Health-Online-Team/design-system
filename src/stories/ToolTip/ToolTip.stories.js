@@ -40,7 +40,7 @@ function buildToolTip({ triggerType, triggerText, icon, content, alignment }) {
       `<span class="qld__tool-tip-trigger qld__tool-tip-trigger-${triggerType}" ` +
       `data-target="${id}" role="button" aria-label="${triggerText}" aria-controls="${id}" tabindex="0">` +
       `<svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">` +
-      `<use href="/QLD-icons.svg#${icon}"></use></svg></span>`;
+      `<use href="QLD-icons.svg#${icon}"></use></svg></span>`;
   }
 
   const contentHtml =
