@@ -71,7 +71,7 @@ const promoPanelArgs = {
   // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
   // are deterministic — an external image URL loads intermittently at capture
   // time, making the image flicker in/out between builds.
-  promoImage: "/Woorabinda.jpg",
+  promoImage: "Woorabinda.jpg",
   bodyBackground: "qld__body--light",
   imageAlignment: "qld__promo-panel--image-left",
   promoPanelIcon: "zoom",

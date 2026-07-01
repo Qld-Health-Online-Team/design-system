@@ -40,7 +40,7 @@ export const dummyLink = "https://www.google.com";
 // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
 // are deterministic — an external image URL loads intermittently at capture
 // time, making the image flicker in/out between builds.
-export const dummyImageLink = "/Culex_annulirostris_female2.jpg";
+export const dummyImageLink = "Culex_annulirostris_female2.jpg";
 
 // Path to the icon sprite, relative to the Storybook preview iframe. Used for
 // <use href> references and the coreSiteIcons metadata across stories.
