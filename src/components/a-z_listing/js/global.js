@@ -111,7 +111,3 @@ export default function initAZListing() {
   document.addEventListener("click", handleAZClick);
   checkIfAzSelected();
 }
-
-// Self-initialise on load. Preserved from the original standalone script since
-// this component is not wired into component-loader.js.
-window.addEventListener("DOMContentLoaded", initAZListing);

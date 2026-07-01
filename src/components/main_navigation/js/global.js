@@ -379,10 +379,4 @@ export default function initMainNav(root = document) {
   );
 }
 
-// Self-initialise on load. Preserved from the original standalone script since
-// this component is not wired into component-loader.js.
-window.addEventListener("DOMContentLoaded", function () {
-  initMainNav(document);
-});
-
 export { mobileNav };
