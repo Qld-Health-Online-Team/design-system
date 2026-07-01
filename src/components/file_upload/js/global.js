@@ -969,9 +969,5 @@ const setFilesDataAttribute = function (
   input_field_settings.input_element.dataset["files"] = JSON.stringify(files);
 };
 
-// Store fileUploads object globally for backwards compatibility (window.QLD.fileUploads.*)
-window.QLD = window.QLD || {};
-window.QLD.fileUploads = fileUploads;
-
-// Note: file inputs are initialised via initFileUpload() from component-loader.js.
 export const initFileUpload = fileUploads.init;
+export { fileUploads };

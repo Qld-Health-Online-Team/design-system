@@ -1,5 +1,6 @@
-// Global utilities (sets up window.QLD / QLD.utils) — must load before any init runs
-import "./components/_global/js/global.js";
+// Legacy global namespace (registers all window.QLD.* and self-inits standalone
+// components) — must load before any init runs
+import "./components/_global/js/legacyGlobal.js";
 
 // Standard components
 import { initAccordion } from "./components/accordion/js/global.js";
@@ -24,6 +25,8 @@ import { initGlobalAlert } from "./components/global_alert/js/global.js";
 // Global components
 import initCtaLinks from "./components/_global/js/cta_links/global.js";
 import initSelectBoxes from "./components/_global/js/select_boxes/global.js";
+import initModal from "./components/_global/js/modal/global.js";
+import initTabs from "./components/_global/js/tabs/global.js";
 
 // Adding ES module initialisation for components
 export default function initComponents() {
@@ -45,9 +48,11 @@ export default function initComponents() {
     initInternalNavigation(document);
     initLeftHandNav(document);
     initMegaMenu();
+    initModal();
     initPromoPanel(document);
     initSelectBoxes(document);
     initTab(document);
+    initTabs();
     initToggleTip(document);
     initToolTip(document);
     initVideoPlayer(document);

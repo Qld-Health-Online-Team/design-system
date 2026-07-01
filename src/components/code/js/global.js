@@ -240,10 +240,3 @@ function copyTextToClipboard(text) {
     },
   );
 }
-
-// Make code public for backwards compatibility (window.QLD.code.init)
-const code = { init: initCode };
-window.QLD = window.QLD || {};
-window.QLD.code = code;
-
-export { code };

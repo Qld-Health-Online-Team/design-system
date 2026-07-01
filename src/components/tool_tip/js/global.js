@@ -88,9 +88,3 @@ function wireTrigger(tip, closeAll, signal) {
 
   content.addEventListener("mouseleave", () => close(), { signal });
 }
-
-// Back-compat: expose on window.QLD for any legacy callers (QLD.toolTip.init()).
-// Initialisation in the app is driven by component-loader.js; new code should
-// import initToolTip directly.
-window.QLD = window.QLD || {};
-window.QLD.toolTip = { init: () => initToolTip(document), initToolTip };
