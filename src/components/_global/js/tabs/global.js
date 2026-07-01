@@ -1,6 +1,7 @@
 /**
  * @module tabs
  */
+import utils from "../global.js";
 
 // For easy reference
 var keys = {
@@ -31,9 +32,7 @@ var tabs = {
    * @memberof module:tabs
    */
   init: function () {
-    tabs.buttons = window.QLD.utils.listToArray(
-      document.querySelectorAll('[role="tab"]'),
-    );
+    tabs.buttons = utils.listToArray(document.querySelectorAll('[role="tab"]'));
 
     // Bind listeners
     for (var i = 0; i < tabs.buttons.length; i++) {
@@ -91,9 +90,7 @@ function keydownEventListener(event) {
   var key = event.keyCode;
   var tab = event.target;
   var tablist = tab.parentNode;
-  var siblingTabs = window.QLD.utils.listToArray(
-    tablist.querySelectorAll('[role="tab"]'),
-  );
+  var siblingTabs = utils.listToArray(tablist.querySelectorAll('[role="tab"]'));
   var firstTab = siblingTabs[0];
   var lastTab = siblingTabs[siblingTabs.length - 1];
 
@@ -186,9 +183,7 @@ function switchTabOnArrowPress(event) {
   var pressed = event.keyCode;
   var tab = event.target;
   var tablist = tab.parentNode;
-  var siblingTabs = window.QLD.utils.listToArray(
-    tablist.querySelectorAll('[role="tab"]'),
-  );
+  var siblingTabs = utils.listToArray(tablist.querySelectorAll('[role="tab"]'));
   var firstTabIndex = siblingTabs[0].index;
 
   for (var x = 0; x < siblingTabs.length; x++) {
@@ -252,9 +247,7 @@ function activateTab(tab, setFocus) {
  */
 function deactivatetabs(tab) {
   var tablist = tab.parentNode;
-  var siblingTabs = window.QLD.utils.listToArray(
-    tablist.querySelectorAll('[role="tab"]'),
-  );
+  var siblingTabs = utils.listToArray(tablist.querySelectorAll('[role="tab"]'));
 
   for (var t = 0; t < siblingTabs.length; t++) {
     let tab = siblingTabs[t];

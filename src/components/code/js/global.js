@@ -6,16 +6,17 @@ import {
   validateInternalSvgPath,
   buildIconPath,
 } from "../../../helpers/global-helpers.js";
+import * as animate from "../../_global/js/animate/global.js";
 
 /**
  * Initialise the code component: syntax-highlight snippets, wire the copy
  * buttons and the inline-code copy affordance, the "Show more" toggle, and the
  * preview theme-palette switcher.
  *
- * `Prism` (syntax highlighting) and `QLD.animate` (the toggle animation) are
- * provided globally at runtime by `index.js` / the global bundle; both are
- * accessed defensively so the component degrades gracefully where they are
- * absent (e.g. Storybook).
+ * `Prism` (syntax highlighting) is provided globally at runtime by `index.js` /
+ * the global bundle and accessed defensively so the component degrades
+ * gracefully where it is absent (e.g. Storybook). The toggle animation is
+ * imported directly from the `animate` module.
  *
  * @param {Document|Element} root - The root element to scope DOM queries to.
  * @returns {function} Cleanup function that removes the listeners added here.
@@ -128,7 +129,7 @@ export default function initCode(root = document) {
           svg.appendChild(use);
           this.appendChild(svg);
 
-          window.QLD?.animate?.Toggle?.({
+          animate.Toggle({
             element: target,
             property: "height",
             speed: 250,

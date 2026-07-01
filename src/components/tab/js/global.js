@@ -10,6 +10,8 @@
  * the tablist, and the focused tab is activated on click or Enter/Space.
  */
 
+import utils from "../../_global/js/global.js";
+
 // Distance in px the tab list scrolls each time an overflow arrow is clicked.
 const SCROLL_AMOUNT = 500;
 
@@ -31,11 +33,9 @@ export default function initTab(root = document) {
   });
 
   // In the Matrix build this rewrites icon sprite paths (core vs health
-  // sprite). QLD.utils only exists once the global bundle has loaded, so guard
-  // it — in Storybook it's absent and the icons use their authored href as-is.
-  window.QLD?.utils?.updateSvgIconPath?.(
-    ".qld__tab-container .qld__tabs svg.qld__icon > use",
-  );
+  // sprite). It's a no-op for the core overflow-arrow icons used here, so it's
+  // safe to run everywhere including Storybook.
+  utils.updateSvgIconPath(".qld__tab-container .qld__tabs svg.qld__icon > use");
 
   return () => controller.abort();
 }

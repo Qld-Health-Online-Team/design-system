@@ -4,6 +4,8 @@
  * @module mobileNav
  */
 import { setExpanded } from "../../../helpers/global-helpers.js";
+import * as animate from "../../_global/js/animate/global.js";
+import utils from "../../_global/js/global.js";
 
 var mobileNav = {};
 var mobileNavEvents = {};
@@ -216,7 +218,7 @@ mobileNav.Toggle = function (element, speed, callbacks) {
   overlay.style.display = "block";
 
   (function (target, speed) {
-    window.QLD.animate.Toggle({
+    animate.Toggle({
       element: menu,
       property: "right",
       openSize: 0,
@@ -372,15 +374,9 @@ export default function initMainNav(root = document) {
   });
 
   // Finds all the menu related icons in main nav, mega nav, and header.
-  window.QLD.utils.updateSvgIconPath(
+  utils.updateSvgIconPath(
     ".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use",
   );
 }
-
-// Self-initialise on load. Preserved from the original standalone script since
-// this component is not wired into component-loader.js.
-window.addEventListener("DOMContentLoaded", function () {
-  initMainNav(document);
-});
 
 export { mobileNav };
