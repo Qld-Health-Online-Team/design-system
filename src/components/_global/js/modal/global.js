@@ -245,16 +245,4 @@ export default function initModal(modalBtn) {
   Modal.init(modalBtn);
 }
 
-// Make Modal public for backwards compatibility (window.QLD.Modal.*)
-window.QLD = window.QLD || {};
-window.QLD.Modal = Modal;
-
-// Self-initialise on load. Preserved from the original standalone script since
-// the modal is not yet wired into component-loader.js.
-window.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".qld__open-modal") !== null) {
-    Modal.init();
-  }
-});
-
 export { Modal };

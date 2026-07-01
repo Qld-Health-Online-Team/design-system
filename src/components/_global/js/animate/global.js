@@ -303,17 +303,3 @@ export function Toggle(options) {
     });
   }
 }
-
-// Make animate public for backwards compatibility (window.QLD.animate.*)
-const animate = {
-  CalculateAnimationSpecs,
-  GetCSSPropertyBecauseIE,
-  CalculateAuto,
-  Stop,
-  Run,
-  Toggle,
-};
-window.QLD = window.QLD || {};
-window.QLD.animate = animate;
-
-export { animate };

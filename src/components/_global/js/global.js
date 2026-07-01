@@ -330,11 +330,5 @@ const utils = {
   },
 };
 
-// Make QLD variable available to the console for debugging
-window.QLD = window.QLD || {};
-window.QLD.utils = utils;
-
-utils.browserJS();
-
 export default utils;
 export { utils };

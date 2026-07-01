@@ -305,14 +305,4 @@ export default function initTabs() {
   tabs.init();
 }
 
-// Make tabs public for backwards compatibility (window.QLD.tabs.*)
-window.QLD = window.QLD || {};
-window.QLD.tabs = tabs;
-
-// Self-initialise on load. Preserved from the original standalone script since
-// this module is not wired into component-loader.js.
-window.addEventListener("DOMContentLoaded", function () {
-  tabs.init();
-});
-
 export { tabs };

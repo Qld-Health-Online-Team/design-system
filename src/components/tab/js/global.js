@@ -197,8 +197,3 @@ function debounce(fn, wait) {
     timeout = setTimeout(() => fn(...args), wait);
   };
 }
-
-// Expose on window.QLD for backwards compatibility (legacy callers used
-// `QLD.tab.init()`). New code should import `initTab` directly.
-window.QLD = window.QLD || {};
-window.QLD.tab = { init: () => initTab(document), initTab };
