@@ -79,7 +79,7 @@ export const headerArgs = {
   // Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
   // are deterministic — an external logo URL loads intermittently at capture
   // time, making the image flicker in/out between builds.
-  sitePreHeaderLogo: "/CoA-Black-Mobile.svg",
+  sitePreHeaderLogo: "CoA-Black-Mobile.svg",
   siteLogoUrl: "https://www.qld.gov.au/",
   siteLogo: "",
   siteShowLogo: "yes",
