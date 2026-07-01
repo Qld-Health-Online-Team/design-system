@@ -1,7 +1,9 @@
-// Global utilities (sets up window.QLD / QLD.utils) — must load before any init runs
-import "./components/_global/js/global.js";
+// Legacy global namespace (registers all window.QLD.* and self-inits standalone
+// components) — must load before any init runs
+import "./components/_global/js/legacyGlobal.js";
 
 // Standard components
+import initAZListing from "./components/a-z_listing/js/global.js";
 import { initAccordion } from "./components/accordion/js/global.js";
 import initBannerAdvanced from "./components/banner_advanced/js/global.js";
 import initBasicSearch from "./components/basic_search/js/global.js";
@@ -13,6 +15,7 @@ import initHeader from "./components/header/js/global.js";
 import initInPageNavigation from "./components/in_page_navigation/js/global.js";
 import initInternalNavigation from "./components/internal_navigation/js/global.js";
 import initLeftHandNav from "./components/left_hand_navigation/js/global.js";
+import initMainNav from "./components/main_navigation/js/global.js";
 import initPromoPanel from "./components/promo_panel/js/global.js";
 import initTab from "./components/tab/js/global.js";
 import initToggleTip from "./components/toggle_tip/js/global.js";
@@ -24,6 +27,8 @@ import { initGlobalAlert } from "./components/global_alert/js/global.js";
 // Global components
 import initCtaLinks from "./components/_global/js/cta_links/global.js";
 import initSelectBoxes from "./components/_global/js/select_boxes/global.js";
+import initModal from "./components/_global/js/modal/global.js";
+import initTabs from "./components/_global/js/tabs/global.js";
 
 // Adding ES module initialisation for components
 export default function initComponents() {
@@ -32,6 +37,7 @@ export default function initComponents() {
   // seconds before they are removed. Likely to remove DOMContentLoaded event listener in the future.
   initGlobalAlert();
   document.addEventListener("DOMContentLoaded", () => {
+    initAZListing();
     initAccordion(document);
     initBannerAdvanced(document);
     initBasicSearch(document);
@@ -44,10 +50,13 @@ export default function initComponents() {
     initInPageNavigation(document);
     initInternalNavigation(document);
     initLeftHandNav(document);
+    initMainNav(document);
     initMegaMenu();
+    initModal();
     initPromoPanel(document);
     initSelectBoxes(document);
     initTab(document);
+    initTabs();
     initToggleTip(document);
     initToolTip(document);
     initVideoPlayer(document);
