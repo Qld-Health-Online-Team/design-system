@@ -1,0 +1,36 @@
+name: Unit Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, "release-**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unit-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    name: Run Vitest unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.14.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Runs only the `unit` Vitest project (node helpers). The `storybook`
+      # project is intentionally excluded — Chromatic handles that separately.
+      - name: Run unit tests
+        run: npm run test:unit

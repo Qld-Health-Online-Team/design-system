@@ -44,7 +44,7 @@ function buildToggleTip({
       `data-target="${id}" role="button" aria-expanded="false" ` +
       `aria-label="${triggerText}" aria-controls="${id}" aria-haspopup="dialog" tabindex="0">` +
       `<svg class="qld__icon qld__icon--md" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">` +
-      `<use href="/QLD-icons.svg#${icon}"></use></svg></span>`;
+      `<use href="QLD-icons.svg#${icon}"></use></svg></span>`;
   } else {
     triggerHtml =
       `<span class="qld__toggle-tip-trigger qld__toggle-tip-trigger-definition" ` +

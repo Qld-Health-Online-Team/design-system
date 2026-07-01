@@ -431,7 +431,7 @@ Handlebars.registerHelper('getObject', function (obj, key, prop) {
   return obj[key][prop];
 }); 
 Handlebars.registerHelper('getParamaterByName', function (name, req) {
-  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  name = name.replace(/\[/g, "\\[").replace(/]/g, "\\]");
   var regexS = "[\\?&]" + name + "=([^&#]*)";
   var regex = new RegExp(regexS);
   var results = regex.exec(req.originalUrl);

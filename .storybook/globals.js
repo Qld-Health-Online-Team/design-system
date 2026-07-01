@@ -37,8 +37,10 @@ export const dummyText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 export const dummyLink = "https://www.google.com";
-export const dummyImageLink =
-  "https://www.choreport.health.qld.gov.au/__data/assets/image/0013/140512/Culex_annulirostris_female2.jpg";
+// Served locally from .storybook/assets (a staticDir) so Chromatic snapshots
+// are deterministic — an external image URL loads intermittently at capture
+// time, making the image flicker in/out between builds.
+export const dummyImageLink = "/Culex_annulirostris_female2.jpg";
 
 // Path to the icon sprite, relative to the Storybook preview iframe. Used for
 // <use href> references and the coreSiteIcons metadata across stories.
