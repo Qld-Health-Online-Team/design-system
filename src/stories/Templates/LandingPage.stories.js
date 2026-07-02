@@ -3,6 +3,7 @@ import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import initCards from "../../components/card_no_action/js/global";
 import initBannerAdvanced from "../../components/banner_advanced/js/global";
+import initPromoPanel from "../../components/promo_panel/js/global";
 import CardSingleActionMeta from "../Cards/CardSingleAction.stories.js";
 import ToowoombaImage from "../Cards/Toowoomba-web.jpeg";
 import {
@@ -10,6 +11,7 @@ import {
   renderSiteFooter,
   renderPrefooter,
   renderAdvancedBanner,
+  renderPromoPanel,
   icon,
 } from "./templateHelpers.js";
 
@@ -144,6 +146,14 @@ function renderLandingPage(args) {
       })}
       ${facilitiesSection()}
       ${servicesSection()}
+      ${renderPromoPanel(site, {
+        title: "Find a health service near you",
+        abstract:
+          "Search our directory of hospitals, community health centres and support services across the Darling Downs and South West.",
+        imageAlignment: "qld__promo-panel--image-right",
+        bodyBackground: "qld__body--dark",
+        promoPanelIcon: undefined,
+      })}
       ${renderPrefooter(site, { pageType: "landing" })}
     </main>
     ${renderSiteFooter(site)}
@@ -167,7 +177,13 @@ export default {
     },
   },
   decorators: [
-    initComponents([initMegaMenu, initCtaLinks, initCards, initBannerAdvanced]),
+    initComponents([
+      initMegaMenu,
+      initCtaLinks,
+      initCards,
+      initBannerAdvanced,
+      initPromoPanel,
+    ]),
   ],
   argTypes: {
     site: { table: { disable: true } },

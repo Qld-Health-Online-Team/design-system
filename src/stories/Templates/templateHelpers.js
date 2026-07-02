@@ -14,6 +14,7 @@ import BannerBasicMeta from "../Banner/bannerBasic.stories.js";
 import BannerAdvancedMeta from "../Banner/bannerAdvanced.stories.js";
 import SideNavMeta from "../Navigation/InternalNavigation/InternalNavigation.stories.js";
 import InPageNavMeta from "../Navigation/InPageNavigation/InPageNavigation.stories.js";
+import PromoPanelMeta from "../PromoPanel/PromoPanel.stories.js";
 import { dummyText, iconSpritePath } from "../../../.storybook/globals";
 
 /** An inline SVG icon referencing the shared sprite (as `iconSwitch` produces). */
@@ -63,6 +64,21 @@ export const renderSideNav = (overrides = {}) =>
 /** "On this page" in-page navigation. It scans `#content` for headings at run time. */
 export const renderInPageNav = (overrides = {}) =>
   InPageNavMeta.render({ ...InPageNavMeta.args, ...overrides });
+
+/**
+ * Promo panel. Like the banners it renders into a detached container (so it can
+ * swap in the bundled promo image), so unwrap it to a markup string. `site`
+ * carries the `coreSiteIcons` metadata the panel's icon SVG references — the
+ * template stories render children directly, bypassing the global `site` arg.
+ */
+export const renderPromoPanel = (site, overrides = {}) => {
+  const result = PromoPanelMeta.render({
+    ...PromoPanelMeta.args,
+    site,
+    ...overrides,
+  });
+  return typeof result === "string" ? result : result.innerHTML;
+};
 
 /**
  * A block of representative page copy: a handful of `h2` sections (each with a

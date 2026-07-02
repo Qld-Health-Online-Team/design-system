@@ -4,6 +4,7 @@ import initCtaLinks from "../../components/_global/js/cta_links/global";
 import { initAccordion } from "../../components/accordion/js/global";
 import initInternalNavigation from "../../components/internal_navigation/js/global";
 import initInPageNavigation from "../../components/in_page_navigation/js/global";
+import initPromoPanel from "../../components/promo_panel/js/global";
 import {
   renderSiteHeader,
   renderSiteFooter,
@@ -11,6 +12,7 @@ import {
   renderBanner,
   renderSideNav,
   renderInPageNav,
+  renderPromoPanel,
   contentBody,
 } from "./templateHelpers.js";
 
@@ -46,6 +48,14 @@ function renderContentPage(args) {
           </div>
         </div>
       </div>
+      ${renderPromoPanel(site, {
+        title: "Need help with your application?",
+        abstract:
+          "Our team can guide you through eligibility, the application process and what happens next.",
+        imageAlignment: "qld__promo-panel--image-right",
+        bodyBackground: "qld__body--light",
+        promoPanelIcon: undefined,
+      })}
       ${renderPrefooter(site, { pageType: "content" })}
     </main>
     ${renderSiteFooter(site)}
@@ -78,6 +88,7 @@ export default {
       initAccordion,
       initInternalNavigation,
       initInPageNavigation,
+      initPromoPanel,
     ]),
   ],
   // The page supplies its own full-width layout, so opt out of controls that
