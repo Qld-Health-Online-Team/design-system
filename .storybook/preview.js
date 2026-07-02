@@ -66,7 +66,13 @@ const preview = {
     options: {
       storySort: {
         // Force SB to load Introduction page first
-        order: ["Introduction", "1. Core Styles", "2. Layout", "3. Components"],
+        order: [
+          "Introduction",
+          "1. Core Styles",
+          "2. Layout",
+          "3. Components",
+          "4. Templates",
+        ],
       },
     },
   },
