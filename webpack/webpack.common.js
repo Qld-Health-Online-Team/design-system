@@ -29,30 +29,6 @@ function generateHtmlPlugins(templateDir) {
 }
 const htmlPlugins = generateHtmlPlugins("../src/html");
 
-function reloadHtml() {
-  const cache = {};
-  const plugin = {
-    name: "CustomHtmlReloadPlugin",
-    apply: (compiler) => {
-      compiler.hooks.compilation.tap(plugin.name, (compilation) => {
-        HtmlWebpackPlugin.getHooks(compilation).afterEmit.tap(
-          plugin.name,
-          (data) => {
-            const orig = cache[data.outputName];
-            const html = data.html.source();
-            // plugin seems to emit on any unrelated change?
-            if (orig && orig !== html) {
-              devServer.sockWrite(devServer.sockets, "content-changed");
-            }
-            cache[data.outputName] = html;
-          },
-        );
-      });
-    },
-  };
-  return plugin;
-}
-
 const copyWebPack = new CopyWebpackPlugin({
   patterns: [
     {
@@ -140,7 +116,7 @@ module.exports = {
       },
     ],
   },
-  plugins: htmlPlugins.concat(reloadHtml).concat(copyWebPack),
+  plugins: htmlPlugins.concat(copyWebPack),
   optimization: {
     minimize: false,
     runtimeChunk: "single",
