@@ -76,12 +76,7 @@ class PrecompilePlugin {
     //   fs.writeFileSync('./dist/js/helpers.js', hbsHelpersFile);
 
     compiler.hooks.done.tap("PrecompilePlugin", (stats) => {
-      // For each HBS template compile a Presentation and a static Version of the template;
-
-      const siteData = fs.readFileSync("./src/data/site.json", "utf8");
-      const currentData = fs.readFileSync("./src/data/current.json", "utf8");
-      const siteDataParsed = JSON.parse(siteData);
-      const currentDataParsed = JSON.parse(currentData);
+      // For each HBS template compile a Presentation version of the template;
 
       hbsTemplates.forEach((templatePath) => {
         // Read the templates from the file system
@@ -116,9 +111,6 @@ class PrecompilePlugin {
 
         //Action Manifest if it exists
         if (manifestData.length) {
-          //Parse manifest
-          const manifestDataParsed = JSON.parse(manifestData).component;
-
           //Compile XML
 
           if (manifestData.length) {
@@ -420,20 +412,6 @@ class PrecompilePlugin {
               XMLOutput,
             );
           }
-
-          //Compile static HTML version of the template
-          const compiledHTML = Handlebars.compile(templateDataPresentation);
-          //Write Static HTML File
-
-          fs.writeFileSync(
-            `${outputPath}/${templateName}/static.html`,
-            compiledHTML({
-              component: manifestDataParsed,
-              site: siteDataParsed,
-              current: currentDataParsed,
-              content: "Lorem Ipsum",
-            }),
-          );
         }
 
         // Compile presentation version of the template
