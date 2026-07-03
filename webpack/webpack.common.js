@@ -1,6 +1,5 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const copyWebPack = new CopyWebpackPlugin({
   patterns: [
@@ -54,24 +53,6 @@ module.exports = {
         generator: {
           filename: "mysource_files/[name][ext]",
         },
-      },
-      // For TinyMCE
-      {
-        test: /skin\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        test: /content\.css$/i,
-        use: ["css-loader"],
-      },
-      {
-        test: /tinymce_classes\.css$/i,
-        use: ["css-loader"],
-      },
-      // For Select2
-      {
-        test: /select2\.css$/i,
-        use: ["style-loader", "css-loader"],
       },
     ],
   },
