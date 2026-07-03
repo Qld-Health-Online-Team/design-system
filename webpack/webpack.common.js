@@ -1,33 +1,6 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const fs = require("fs");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-// Our function that generates our html plugins
-function generateHtmlPlugins(templateDir) {
-  // Read files in /html directory
-  const templateFiles = fs
-    .readdirSync(path.resolve(__dirname, templateDir))
-    .filter(function (file) {
-      //ignore folder
-      return file.indexOf(".html") > -1;
-    });
-
-  return templateFiles.map((item) => {
-    // Split names and extension
-    const parts = item.split(".");
-    const name = parts[0];
-    const extension = parts[1];
-
-    // Create new HTMLWebpackPlugin with options
-    return new HtmlWebPackPlugin({
-      filename: `${name}.html`,
-      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
-    });
-  });
-}
-const htmlPlugins = generateHtmlPlugins("../src/html");
 
 const copyWebPack = new CopyWebpackPlugin({
   patterns: [
@@ -67,20 +40,6 @@ module.exports = {
   module: {
     rules: [
       {
-        // HTML
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: {
-              minimize: false,
-              sources: false,
-              interpolate: true, // allow HTML snippets with commonJs require tags
-            },
-          },
-        ],
-      },
-      {
         // Images
         test: /\.(png|svg|jpg|gif|ico)$/,
         type: "asset/resource",
@@ -116,7 +75,7 @@ module.exports = {
       },
     ],
   },
-  plugins: htmlPlugins.concat(copyWebPack),
+  plugins: [copyWebPack],
   optimization: {
     minimize: false,
     runtimeChunk: "single",
