@@ -1,7 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const fs = require("fs");
-const glob = require("glob");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -29,9 +28,6 @@ function generateHtmlPlugins(templateDir) {
   });
 }
 const htmlPlugins = generateHtmlPlugins("../src/html");
-
-// File arrays
-let js_files = glob.sync("./src/**/**/global.js"); // Module JS
 
 function reloadHtml() {
   const cache = {};
@@ -78,7 +74,7 @@ const copyWebPack = new CopyWebpackPlugin({
 
 module.exports = {
   entry: {
-    main: ["./src/index.js"].concat(js_files),
+    main: "./src/index.js",
     banner_contained: ["./src/styles/banner_contained/globals.scss"],
   },
   output: {

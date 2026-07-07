@@ -81,10 +81,3 @@ function checkHoneypot(searchForm, signal) {
     { signal },
   );
 }
-
-// Make basic search public for backwards compatibility (window.QLD.basicSearch.init)
-const basicSearch = { init: initBasicSearch };
-window.QLD = window.QLD || {};
-window.QLD.basicSearch = basicSearch;
-
-export { basicSearch };

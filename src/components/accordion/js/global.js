@@ -182,12 +182,3 @@ export function Open(elements, speed, root = document, callbacks) {
 export function Close(elements, speed, root = document, callbacks) {
   collapsible.close(elements, speed, root, callbacks);
 }
-
-// Make accordion public for backwards compatibility (window.QLD.accordion.*)
-const accordion = { Toggle, ToggleAll, Open, Close, initAccordion };
-window.QLD = window.QLD || {};
-window.QLD.accordion = accordion;
-
-// Note: accordion groups are initialised via initAccordion() from component-loader.js.
-
-export { accordion };
