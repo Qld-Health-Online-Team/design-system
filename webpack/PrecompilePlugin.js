@@ -1,11 +1,133 @@
 const glob = require("glob");
-const path = require("path");
 const Handlebars = require("handlebars");
 const fs = require("fs");
 const { logger } = require("handlebars");
-const jsDir = `./dist/js`;
+const generateImportXml = require("./generateImportXml");
 
-// A JavaScript class.
+/**
+ * Collect the Handlebars helper modules that make up the design system's
+ * helper set.
+ *
+ * Colocated unit tests are excluded — only real helper modules should be
+ * serialised into dist/js/helpers.js. The helpersInput glob (`*.js`)
+ * otherwise also matches sibling `*.test.js` / `*.spec.js` files, and
+ * requiring those would run test code (e.g. `describe`) during the build.
+ *
+ * @param {string} helpersInput - Glob for helper modules (e.g. "./src/helpers/Handlebars/*.js").
+ * @returns {{name: string, fn: Function}[]} One entry per helper, named after its file.
+ */
+function loadHelpers(helpersInput) {
+  return glob
+    .sync(helpersInput)
+    .filter((helperPath) => !/\.(test|spec)\.js$/.test(helperPath))
+    .map((helperPath) => {
+      // Helper name comes from the file name (5th path segment of the
+      // ./src/helpers/Handlebars/<name>.js glob result).
+      const name = helperPath.split("/")[4].split(".")[0];
+
+      const imported = require(helperPath.replace("./src", "../src"));
+
+      // Support both `module.exports = fn` (CommonJS) and `export default fn`
+      // (ES module) helpers. Node's require() of an ES module returns the
+      // module namespace ({ __esModule, default: fn }) rather than the function
+      // itself, so unwrap .default when present.
+      const fn = imported && imported.__esModule ? imported.default : imported;
+
+      return { name, fn };
+    });
+}
+
+/**
+ * Serialise the helpers into the dist/js/helpers.js bundle.
+ *
+ * The bundle is a flat list of `Handlebars.registerHelper(name, fn)` calls
+ * (each helper's source inlined via Function.toString). Squiz Matrix loads
+ * this file from the git bridge in two places, both of which assume a global
+ * `Handlebars` is already loaded: the site <head> (runat="server" for the
+ * live render, plus a client-side <script>) and the component CT edit layout
+ * (for the admin edit-screen preview).
+ *
+ * @param {{name: string, fn: Function}[]} helpers
+ * @returns {string} The helpers.js file contents.
+ */
+function buildHelpersBundle(helpers) {
+  return helpers
+    .map(
+      ({ name, fn }) =>
+        `Handlebars.registerHelper('${name}', ${fn.toString()}); \r\n`,
+    )
+    .join("");
+}
+
+/**
+ * Emit one component's Squiz Matrix contract files into
+ * `<outputPath>/<componentName>/`:
+ *
+ * - manifest.json — copied verbatim from src. Read live by the CT edit
+ *   layout (via the component's repositorySource path) for `display_if`
+ *   conditional field visibility.
+ * - import.xml — Matrix bulk-import file for one-time manual provisioning
+ *   of the component's CCT + metadata schema (see generateImportXml.js).
+ *   Only produced when the manifest is non-empty.
+ * - presentation.js — the .hbs template precompiled with
+ *   Handlebars.precompile. Executed by Matrix both server-side (live render
+ *   in the site head) and client-side (edit-screen preview).
+ *
+ * @param {string} templatePath - Path to the component's .hbs template (./src/components/<name>/...).
+ * @param {string} manifestGlob - Manifest path pattern with "**" standing in for the component name.
+ * @param {string} outputPath - Component output root (e.g. "./dist/components").
+ */
+function emitComponent(templatePath, manifestGlob, outputPath) {
+  const templateSource = fs.readFileSync(templatePath, "utf8");
+
+  // Component name is the folder under ./src/components/.
+  const componentName = templatePath.split("/")[3];
+  const componentDir = `${outputPath}/${componentName}`;
+
+  logger.log(componentName);
+
+  fs.mkdirSync(componentDir, { recursive: true });
+
+  const manifestData = fs.readFileSync(
+    manifestGlob.replace("**", componentName),
+    "utf8",
+  );
+
+  fs.writeFileSync(`${componentDir}/manifest.json`, manifestData);
+
+  if (manifestData.length) {
+    fs.writeFileSync(
+      `${componentDir}/import.xml`,
+      generateImportXml(componentName, JSON.parse(manifestData)),
+    );
+  }
+
+  fs.writeFileSync(
+    `${componentDir}/presentation.js`,
+    Handlebars.precompile(templateSource),
+  );
+}
+
+/**
+ * Webpack plugin that publishes the Squiz Matrix contract into dist/.
+ *
+ * Matrix consumes dist/ directly through a Git File Bridge (develop branch →
+ * developer site, master → live sites), so everything written here is read
+ * by Matrix at runtime — with the exception of import.xml, which is a manual
+ * one-time provisioning aid.
+ *
+ * Outputs:
+ * - dist/js/helpers.js (afterEmit hook) — all Handlebars helpers, loaded by
+ *   the Matrix site head and CT edit layouts.
+ * - dist/components/<name>/{manifest.json,import.xml,presentation.js}
+ *   (done hook) — per-component contract files; see emitComponent.
+ *
+ * Options:
+ * - input: glob for component .hbs templates.
+ * - manifest: manifest.json path pattern ("**" = component name).
+ * - output: directory the per-component folders are written to.
+ * - helpersInput: glob for Handlebars helper modules.
+ */
 class PrecompilePlugin {
   constructor(options = {}) {
     this.options = options;
@@ -16,437 +138,20 @@ class PrecompilePlugin {
       ? this.options.output.slice(0, -1)
       : this.options.output;
     const hbsTemplates = glob.sync(this.options.input);
-    // Exclude colocated unit tests — only real helper modules should be
-    // registered and serialised into dist/js/helpers.js. The helpersInput glob
-    // (`*.js`) otherwise also matches sibling `*.test.js` / `*.spec.js` files,
-    // and requiring those would run test code (e.g. `describe`) during the build.
-    const hbsHelpers = glob
-      .sync(this.options.helpersInput)
-      .filter((helperPath) => !/\.(test|spec)\.js$/.test(helperPath));
+    const helpersBundle = buildHelpersBundle(
+      loadHelpers(this.options.helpersInput),
+    );
 
-    let hbsHelpersFile = "";
-
-    // For each of the handlebars helpers files
-    hbsHelpers.forEach((helperPath) => {
-      // Get the name of the helper from the file name
-      const helperName = helperPath.split("/")[4].split(".")[0];
-
-      // Import the function from the file, and get the correct reference for the JS file
-      const imported = require(helperPath.replace("./src", "../src"));
-
-      // Support both `module.exports = fn` (CommonJS) and `export default fn`
-      // (ES module) helpers. Node's require() of an ES module returns the
-      // module namespace ({ __esModule, default: fn }) rather than the function
-      // itself, so unwrap .default when present.
-      const helperFn =
-        imported && imported.__esModule ? imported.default : imported;
-
-      // register the helper using the helper name and the imported function
-      Handlebars.registerHelper(helperName, helperFn);
-
-      let registerFunction = `Handlebars.registerHelper('${helperName}', ${helperFn.toString()}); \r\n`;
-
-      hbsHelpersFile += registerFunction;
-    });
-
-    //capitalises the first letter of each work in a given string
-    const capitalise = (words) => {
-      var separateWord = words.toLowerCase().split(" ");
-      for (var i = 0; i < separateWord.length; i++) {
-        separateWord[i] =
-          separateWord[i].charAt(0).toUpperCase() +
-          separateWord[i].substring(1);
-      }
-      return separateWord.join(" ");
-    };
-
-    // Write the helpers file to dist
-    compiler.hooks.afterEmit.tap("PrecompilePlugin", (compilation) => {
-      // Your code to write helpers.js here
-      if (!fs.existsSync(jsDir)) {
-        fs.mkdirSync(jsDir, { recursive: true });
-      }
-      fs.writeFileSync("./dist/js/helpers.js", hbsHelpersFile);
+    compiler.hooks.afterEmit.tap("PrecompilePlugin", () => {
+      fs.mkdirSync("./dist/js", { recursive: true });
+      fs.writeFileSync("./dist/js/helpers.js", helpersBundle);
       console.log("helpers.js written after emit");
     });
-    //   if(!fs.existsSync(jsDir)) {
-    //     fs.mkdirSync(jsDir, {recursive: true});
-    //   }
 
-    //   fs.writeFileSync('./dist/js/helpers.js', hbsHelpersFile);
-
-    compiler.hooks.done.tap("PrecompilePlugin", (stats) => {
-      // For each HBS template compile a Presentation and a static Version of the template;
-
-      const siteData = fs.readFileSync("./src/data/site.json", "utf8");
-      const currentData = fs.readFileSync("./src/data/current.json", "utf8");
-      const siteDataParsed = JSON.parse(siteData);
-      const currentDataParsed = JSON.parse(currentData);
-
-      hbsTemplates.forEach((templatePath) => {
-        // Read the templates from the file system
-        const templateDataPresentation = fs.readFileSync(templatePath, "utf8");
-
-        // Get the template name from the path
-        const templateName = templatePath.split("/")[3];
-
-        // Make component directory
-        fs.mkdirSync(
-          `${outputPath}/${templateName}`,
-          {
-            recursive: true,
-          },
-          (err) => {
-            if (err) throw err;
-          },
-        );
-
-        //get dataPath from manifest option
-        const dataPath = this.options.manifest.replace("**", templateName);
-
-        logger.log(templateName);
-
-        const manifestData = fs.readFileSync(dataPath, "utf8");
-
-        //Write Manifest
-        fs.writeFileSync(
-          `${outputPath}/${templateName}/manifest.json`,
-          manifestData,
-        );
-
-        //Action Manifest if it exists
-        if (manifestData.length) {
-          //Parse manifest
-          const manifestDataParsed = JSON.parse(manifestData).component;
-
-          //Compile XML
-
-          if (manifestData.length) {
-            const manifestDataXML = JSON.parse(manifestData);
-
-            // Derive deterministic ids from the template/field names. These
-            // values are only internal cross-reference handles within this
-            // import.xml (Matrix assigns the real asset ids at import time), so
-            // they only need to be unique within the file. Deriving them from
-            // names keeps builds reproducible and the XML diffable — adding or
-            // reordering a field only touches that field's actions.
-            //
-            // Names are sanitised because the ids are embedded in
-            // [[output://<id>.assetid]] references, which Matrix parses on ".".
-            const safeId = (name) =>
-              String(name).replace(/[^A-Za-z0-9_]/g, "_");
-
-            var idMap = {
-              cct_id: `${safeId(templateName)}_cct`,
-              schema_id: `${safeId(templateName)}_schema`,
-              section_id: `${safeId(templateName)}_section`,
-            };
-
-            //test if we have the data and metadata objects as children
-            if (
-              typeof manifestDataXML.component.data !== "undefined" &&
-              typeof manifestDataXML.component.data.metadata !== "undefined"
-            ) {
-              //grab the metadata fields
-              for (const field in manifestDataXML.component.data.metadata) {
-                // Namespaced with "_field_" so a field literally named
-                // "cct"/"schema"/"section" can't collide with the container
-                // tokens above (the un-prefixed set_permission_* action ids).
-                idMap[field] = `${safeId(templateName)}_field_${safeId(field)}`;
-              }
-            }
-
-            var XMLOutput = "";
-
-            //Header
-            XMLOutput += `<?xml version="1.0" encoding="utf-8"?>
-          <actions>`;
-
-            //CCT
-
-            XMLOutput += `
-          <action>
-            <action_id>create_Content_Container_Template_${
-              idMap.cct_id
-            }</action_id>
-            <action_type>create_asset</action_type>
-            <type_code>Content_Container_Template</type_code>
-            <link_type>1</link_type>
-            <parentid>1</parentid>
-            <value></value>
-            <is_dependant>0</is_dependant>
-            <is_exclusive>0</is_exclusive>
-          </action>
-          <action>
-            <action_id>set_Content_Container_Template_${
-              idMap.cct_id
-            }_name</action_id>
-            <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_${
-              idMap.cct_id
-            }.assetid]]</asset>
-            <attribute>name</attribute>
-            <value><![CDATA[${capitalise(
-              manifestDataXML.component.name,
-            )}]]></value>
-          </action>
-
-          <action>
-            <action_id>set_Content_Container_Template_${
-              idMap.cct_id
-            }_edit_interface_in_admin</action_id>
-            <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_${
-              idMap.cct_id
-            }.assetid]]</asset>
-            <attribute>edit_interface_in_admin</attribute>
-            <value><![CDATA[1]]></value>
-          </action>
-
-          <action>
-            <action_id>set_Content_Container_Template_${
-              idMap.cct_id
-            }_icon_color</action_id>
-            <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Content_Container_Template_${
-              idMap.cct_id
-            }.assetid]]</asset>
-            <attribute>icon_color</attribute>
-            <value><![CDATA[blue]]></value>
-          </action>
-          `;
-
-            //Schema
-            XMLOutput += `
-          <action>
-          <action_id>create_Metadata_Schema_${idMap.schema_id}</action_id>
-          <action_type>create_asset</action_type>
-          <type_code>Metadata_Schema</type_code>
-          <link_type>1</link_type>
-          <parentid>[[output://create_Content_Container_Template_${
-            idMap.cct_id
-          }.assetid]]</parentid>
-          <value></value>
-          <is_dependant>0</is_dependant>
-          <is_exclusive>0</is_exclusive>
-          </action>
-          <action>
-            <action_id>set_Metadata_Schema_${idMap.schema_id}_name</action_id>
-            <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Schema_${
-              idMap.schema_id
-            }.assetid]]</asset>
-            <attribute>name</attribute>
-            <value><![CDATA[${capitalise(
-              manifestDataXML.component.name,
-            )}]]></value>
-          </action>
-          <action>
-              <action_id>set_permission_${idMap.schema_id}_read_5</action_id>
-              <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Schema_${
-                idMap.schema_id
-              }.assetid]]</asset>
-              <permission>1</permission>
-              <granted>1</granted>
-              <userid>[[system://public_user]]</userid>
-          </action>
-          `;
-            //Section
-            XMLOutput += `
-          <action>
-            <action_id>create_Metadata_Section_${idMap.section_id}</action_id>
-            <action_type>create_asset</action_type>
-            <type_code>Metadata_Section</type_code>
-            <link_type>2</link_type>
-            <parentid>[[output://create_Metadata_Schema_${idMap.schema_id}.assetid]]</parentid>
-            <value></value>
-            <is_dependant>1</is_dependant>
-            <is_exclusive>0</is_exclusive>
-          </action>
-          <action>
-            <action_id>add_Metadata_Section_${idMap.section_id}_path</action_id>
-            <action_type>add_web_path</action_type>
-            <asset>[[output://create_Metadata_Section_${idMap.section_id}.assetid]]</asset>
-            <parent_asset>[[output://create_Metadata_Schema_${idMap.schema_id}.assetid]]</parent_asset>
-            <path>settings</path>
-          </action>
-          <action>
-            <action_id>set_Metadata_Section_${idMap.section_id}_name</action_id>
-            <action_type>set_attribute_value</action_type>
-            <asset>[[output://create_Metadata_Section_${idMap.section_id}.assetid]]</asset>
-            <attribute>name</attribute>
-            <value><![CDATA[Settings]]></value>
-          </action>
-          <action>
-              <action_id>set_permission_${idMap.section_id}_read_5</action_id>
-              <action_type>set_permission</action_type>
-              <asset>[[output://create_Metadata_Section_${idMap.section_id}.assetid]]</asset>
-              <permission>1</permission>
-              <granted>1</granted>
-              <userid>[[system://public_user]]</userid>
-          </action>           
-          `;
-            //Fields
-            //for(const field in manifestDataXML['data']) {
-            if (
-              typeof manifestDataXML.component.data !== "undefined" &&
-              typeof manifestDataXML.component.data.metadata !== "undefined"
-            ) {
-              for (const field in manifestDataXML["component"]["data"][
-                "metadata"
-              ]) {
-                var f = manifestDataXML["component"]["data"]["metadata"][field];
-                //Field
-                XMLOutput += `
-              <action>
-                  <action_id>create_${f.type}_${idMap[field]}</action_id>
-                  <action_type>create_asset</action_type>
-                  <type_code>${f.type}</type_code>
-                  <link_type>2</link_type>
-                  <parentid>[[output://create_Metadata_Section_${
-                    idMap.section_id
-                  }.assetid]]</parentid>
-                  <value></value>
-                  <is_dependant>1</is_dependant>
-                  <is_exclusive>0</is_exclusive>
-              </action> 
-              <action>
-                  <action_id>set_${f.type}_${idMap[field]}_name</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>name</attribute>
-                  <value><![CDATA[${field}]]></value>
-              </action>
-              <action>
-                  <action_id>set_${f.type}_${
-                    idMap[field]
-                  }_friendly_name</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>friendly_name</attribute>
-                  <value><![CDATA[${f.friendly_name}]]></value>
-              </action>
-              <action>
-                  <action_id>set_${f.type}_${idMap[field]}_default</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>default</attribute>
-                  <value><![CDATA[${f.value}]]></value>
-              </action>
-              <action>
-                  <action_id>set_${f.type}_${
-                    idMap[field]
-                  }_description</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>description</attribute>
-                  <value><![CDATA[${f.description}]]></value>
-              </action>
-              <action>
-                  <action_id>set_${f.type}_${idMap[field]}_editable</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>editable</attribute>
-                  <value><![CDATA[${f.editable ? 1 : 0}]]></value>
-              </action>
-              <action>
-                  <action_id>set_${f.type}_${idMap[field]}_required</action_id>
-                  <action_type>set_attribute_value</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <attribute>required</attribute>
-                  <value><![CDATA[${f.required ? 1 : 0}]]></value>
-              </action>
-              <action>
-                  <action_id>set_permission_${idMap[field]}_read_5</action_id>
-                  <action_type>set_permission</action_type>
-                  <asset>[[output://create_${f.type}_${
-                    idMap[field]
-                  }.assetid]]</asset>
-                  <permission>1</permission>
-                  <granted>1</granted>
-                  <userid>[[system://public_user]]</userid>
-              </action>
-              `;
-                //Options if Select
-                if (f.type == "metadata_field_select") {
-                  var options = "";
-                  for (var option in f.options) {
-                    options += `'${option}' => '${f.options[option]}',`;
-                  }
-                  XMLOutput += `
-                  <action>
-                      <action_id>set_${f.type}_${idMap[field]}_select_options</action_id>
-                      <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_${f.type}_${idMap[field]}.assetid]]</asset>
-                      <attribute>select_options</attribute>
-                      <value><![CDATA[array (${options});]]></value>
-                  </action>
-                  <action>
-                      <action_id>set_${f.type}_${idMap[field]}_edit_params</action_id>
-                      <action_type>set_attribute_value</action_type>
-                      <asset>[[output://create_${f.type}_${idMap[field]}.assetid]]</asset>
-                      <attribute>edit_params</attribute>
-                      <value><![CDATA[array (
-                      'style' => 'list',
-                      'type' => 'table',
-                      'height' => '',
-                      'columns' => '1',
-                      'empty_text' => '',
-                      'extras' => '',
-                      );]]></value>
-                  </action>  
-                  `;
-                }
-              }
-            }
-            XMLOutput += `</actions>`;
-
-            //Write XML
-            fs.writeFileSync(
-              `${outputPath}/${templateName}/import.xml`,
-              XMLOutput,
-            );
-          }
-
-          //Compile static HTML version of the template
-          const compiledHTML = Handlebars.compile(templateDataPresentation);
-          //Write Static HTML File
-
-          fs.writeFileSync(
-            `${outputPath}/${templateName}/static.html`,
-            compiledHTML({
-              component: manifestDataParsed,
-              site: siteDataParsed,
-              current: currentDataParsed,
-              content: "Lorem Ipsum",
-            }),
-          );
-        }
-
-        // Compile presentation version of the template
-        const compiledPresentation = Handlebars.precompile(
-          templateDataPresentation,
-        );
-
-        // Write both versions of the template
-        fs.writeFileSync(
-          `${outputPath}/${templateName}/presentation.js`,
-          compiledPresentation,
-        );
-      });
+    compiler.hooks.done.tap("PrecompilePlugin", () => {
+      hbsTemplates.forEach((templatePath) =>
+        emitComponent(templatePath, this.options.manifest, outputPath),
+      );
     });
   }
 }

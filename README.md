@@ -49,12 +49,6 @@ Build the Design System CSS, JS, Components and templates
 npm run build
 ```
 
-Static view, start a local server from /dist folder
-
-```bash
-npm run serve
-```
-
 Build Storybook for Component development
         
 ```bash
