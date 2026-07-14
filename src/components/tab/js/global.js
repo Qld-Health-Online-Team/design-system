@@ -10,7 +10,8 @@
  * the tablist, and the focused tab is activated on click or Enter/Space.
  */
 
-import utils from "../../_global/js/global.js";
+import * as icons from "../../../utils/icons.js";
+import * as timing from "../../../utils/timing.js";
 
 // Distance in px the tab list scrolls each time an overflow arrow is clicked.
 const SCROLL_AMOUNT = 500;
@@ -35,7 +36,7 @@ export default function initTab(root = document) {
   // In the Matrix build this rewrites icon sprite paths (core vs health
   // sprite). It's a no-op for the core overflow-arrow icons used here, so it's
   // safe to run everywhere including Storybook.
-  utils.updateSvgIconPath(".qld__tab-container .qld__tabs svg.qld__icon > use");
+  icons.updateSvgIconPath(".qld__tab-container .qld__tabs svg.qld__icon > use");
 
   return () => controller.abort();
 }
@@ -179,21 +180,8 @@ function wireOverflowScroll(container, signal) {
     { signal },
   );
 
-  window.addEventListener("resize", debounce(refresh, 250), { signal });
+  window.addEventListener("resize", timing.debounce(refresh, 250), {
+    signal,
+  });
   refresh();
-}
-
-/**
- * Limit how often `fn` runs while an event fires repeatedly (e.g. resize).
- *
- * @param {function} fn   - The function to debounce
- * @param {number}   wait - Milliseconds of quiet time before `fn` runs
- * @returns {function}
- */
-function debounce(fn, wait) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), wait);
-  };
 }

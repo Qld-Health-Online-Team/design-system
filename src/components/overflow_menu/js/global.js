@@ -8,8 +8,8 @@
  * outside the menu.
  */
 
-import * as collapsible from "../../_global/js/collapsible.js";
-import { isExpanded } from "../../../helpers/global-helpers.js";
+import * as collapsible from "../../../behaviours/collapsible.js";
+import * as aria from "../../../utils/aria.js";
 
 /**
  * Wire up every overflow menu toggle button found under `root`.
@@ -40,7 +40,7 @@ function toggleOverflowMenu(button, root = document) {
   );
   if (!panel) return;
 
-  if (isExpanded(button)) {
+  if (aria.isExpanded(button)) {
     collapsible.close(button, undefined, root);
     teardownOutsideClick(panel);
   } else {
@@ -70,7 +70,7 @@ function setupOutsideClick(button, panel, root = document) {
       if (button.contains(event.target) || panel.contains(event.target)) return;
       controller.abort();
       panel.__qldOutsideClickController = null;
-      if (isExpanded(button)) {
+      if (aria.isExpanded(button)) {
         collapsible.close(button, undefined, root);
       }
     },

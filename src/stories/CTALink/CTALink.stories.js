@@ -1,7 +1,7 @@
 import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 
 const meta = {
   title: "3. Components/Call to action (CTA)",

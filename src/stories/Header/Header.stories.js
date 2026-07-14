@@ -1,7 +1,7 @@
 import { renderHeader, headerArgs } from "./Header.js";
 import { storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 
 export default {

@@ -7,7 +7,7 @@
  * shared popover controller.
  */
 
-import { createPopoverController } from "../../_global/js/popover/controller.js";
+import { createPopoverController } from "../../../behaviours/popover/controller.js";
 
 // Delay before hiding on mouse-leave, so the pointer can travel from the trigger
 // to the content without the tip closing underneath it.

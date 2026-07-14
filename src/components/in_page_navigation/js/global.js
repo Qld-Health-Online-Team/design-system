@@ -1,4 +1,4 @@
-import { normaliseIdentifier } from "../../../helpers/global-helpers.js";
+import * as string from "../../../utils/string.js";
 
 /**
  * @module inPageNavigation
@@ -52,7 +52,8 @@ export default function initInPageNavigation(root = document) {
       const title = heading.innerText;
       // Create sanitized ID from heading text
       const id =
-        existingId || `section__${normaliseIdentifier(title.toLowerCase())}`;
+        existingId ||
+        `section__${string.normaliseIdentifier(title.toLowerCase())}`;
       heading.setAttribute("id", id);
       heading.setAttribute("tabindex", -1);
     });

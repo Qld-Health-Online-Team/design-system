@@ -2,7 +2,7 @@ import { Checkboxes } from "./Checkboxes/Checkboxes";
 import { RadioButtons } from "./RadioButtons/RadioButtons";
 import { SelectBox } from "./SelectBox/SelectBox";
 import { storyParams } from "../../../.storybook/globals";
-import initSelectBoxes from "../../components/_global/js/select_boxes/global";
+import initSelectBoxes from "../../components/select_boxes/js/global";
 import { initComponents } from "../../../.storybook/decorators";
 
 function renderTextInput({

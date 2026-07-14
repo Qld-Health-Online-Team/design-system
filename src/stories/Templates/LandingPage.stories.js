@@ -1,6 +1,6 @@
 import { initComponents } from "../../../.storybook/decorators";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import initCards from "../../components/card_no_action/js/global";
 import initBannerAdvanced from "../../components/banner_advanced/js/global";
 import initPromoPanel from "../../components/promo_panel/js/global";

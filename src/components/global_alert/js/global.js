@@ -1,3 +1,5 @@
+import * as cookies from "../../../utils/cookies.js";
+
 /**
  * Initialise global alert, and add close button event listener
  */
@@ -19,7 +21,7 @@ export function initGlobalAlert() {
 
   for (let index = 0; index < alerts.length; index++) {
     let alert = alerts[index];
-    let alertSeen = QLD.utils.getCookie(`${siteName}_alertSeen_${index}`);
+    let alertSeen = cookies.getCookie(`${siteName}_alertSeen_${index}`);
 
     if (alertSeen !== null) {
       alert.style.maxHeight = "0";
@@ -34,7 +36,7 @@ export function initGlobalAlert() {
         function () {
           alert.style.maxHeight = "0";
           alert.style.display = "none";
-          QLD.utils.setCookie(`${siteName}_alertSeen_${index}`, "true");
+          cookies.setCookie(`${siteName}_alertSeen_${index}`, "true");
         },
         false,
       );

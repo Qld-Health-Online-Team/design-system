@@ -15,10 +15,19 @@ export default defineConfig({
   test: {
     projects: [
       {
+        // Pure-logic tests, anywhere under src/ — helpers, utils, and a
+        // component's non-DOM logic. Matched by filename, so a new test file
+        // needs no change here.
+        //
+        // This project runs in Node: there is no `window` or `document`. Tests
+        // that need a real DOM belong in the `storybook` project below, as a
+        // story `play` function — that runs in a real browser, with the
+        // component's CSS applied, which is what its behaviour actually depends
+        // on.
         test: {
           name: "unit",
           environment: "node",
-          include: ["src/helpers/**/*.test.js"],
+          include: ["src/**/*.test.js"],
         },
       },
       {
