@@ -23,7 +23,6 @@
  */
 
 import { toggleToolTips } from "../behaviours/popover/controller.js";
-import { tabs } from "../components/_global/js/tabs/global.js";
 import * as accordion from "../components/accordion/js/global.js";
 import initBasicSearch from "../components/basic_search/js/global.js";
 import initCode from "../components/code/js/global.js";
@@ -74,7 +73,6 @@ const utils = {
 window.QLD = window.QLD || {};
 
 window.QLD.utils = utils;
-window.QLD.tabs = tabs;
 window.QLD.animate = {
   CalculateAnimationSpecs: animate.CalculateAnimationSpecs,
   GetCSSPropertyBecauseIE: animate.GetCSSPropertyBecauseIE,

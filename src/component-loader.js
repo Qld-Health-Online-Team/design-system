@@ -28,7 +28,6 @@ import { initGlobalAlert } from "./components/global_alert/js/global.js";
 import initCtaLinks from "./components/cta_links/js/global.js";
 import initSelectBoxes from "./components/select_boxes/js/global.js";
 import initModal from "./components/modal/js/global.js";
-import initTabs from "./components/_global/js/tabs/global.js";
 
 // Adding ES module initialisation for components
 export default function initComponents() {
@@ -56,7 +55,6 @@ export default function initComponents() {
     initPromoPanel(document);
     initSelectBoxes(document);
     initTab(document);
-    initTabs();
     initToggleTip(document);
     initToolTip(document);
     initVideoPlayer(document);
