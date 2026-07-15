@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunk_qhealth_design_system_core=self.webpackChunk_qhealth_design_system_core||[]).push([[467],{282:function(){}},function(e){var s;s=282,e(e.s=s)}]);
+"use strict";(globalThis.webpackChunk_qhealth_design_system_core=globalThis.webpackChunk_qhealth_design_system_core||[]).push([[467],{282:()=>{}},s=>{var e;e=282,s(s.s=e)}]);
