@@ -835,51 +835,13 @@ $QLD-header-md: 72px;
 
 // Print styles
 @media print {
+  // The main nav is not printed at all. Its descendants — including
+  // `__toggle` (the in-nav close button) and `__menu` — are inside
+  // `.qld__main-nav`, so styling them here had no effect.
+  //
+  // The header's open/search toggles carry `.qld__header__toggle-main-nav` and sit
+  // inside `.qld__header__pre-header`, which the header's own print block hides.
   .qld__main-nav {
     display: none;
-
-    a {
-      color: #000 !important;
-
-      &:hover {
-        background: transparent !important;
-      }
-    }
-
-    .active a {
-      border-color: #fff !important;
-      background-color: transparent !important;
-    }
-
-    .qld__link-list > li {
-      border-color: #000 !important;
-
-      &:last-of-type {
-        border-bottom: 1px solid !important;
-      }
-    }
-
-    @include QLD-media($QLD-main-nav-breakpoint) {
-      @include QLD-space(border-bottom, 0.5unit solid #000 !important);
-
-      .qld__link-list > li:last-of-type {
-        border-bottom: none !important;
-      }
-    }
-  }
-
-  .qld__main-nav__toggle {
-    display: none !important;
-  }
-
-  .qld__main-nav__menu {
-    background: transparent !important;
-    position: static !important;
-    display: block !important;
-    width: auto !important;
-
-    .qld__main-nav__menu-inner {
-      padding: 0 !important;
-    }
   }
 }

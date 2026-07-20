@@ -1,5 +1,5 @@
 import Template from "../../components/callout/html/component.hbs";
-import { storyParams, themes } from "../../../.storybook/globals";
+import { printParams, storyParams, themes } from "../../../.storybook/globals";
 
 const renderCallout = ({
   assetId,
@@ -193,4 +193,13 @@ export const darkAlt = {
   render: () => {
     return allVariants(themes["dark alt"], "qld__body--dark-alt");
   },
+};
+/**
+ * Print rendering. The callout keeps a shaded background in print, so it is one
+ * of the few components relying on `print-color-adjust` surviving.
+ */
+export const Print = {
+  parameters: printParams(
+    "the callout print border, text and background colours",
+  ),
 };

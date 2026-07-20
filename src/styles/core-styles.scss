@@ -107,7 +107,12 @@ fieldset {
 }
 
 // Print style that shouldn't belong to print.scss to avoid the css beautifier from killing
-// the @ syntax inside media queries
+// the @ syntax inside media queries.
+//
+// This is the single @page rule for the design system — page setup is a document-level
+// concern, not a component one. Do not add @page to a component stylesheet: multiple
+// @page rules cascade by source order, so the effective margin would silently depend on
+// build order. Paper size is deliberately left unset so the user's printer dialog wins.
 @page {
-  margin: 0.5cm;
+  margin: 10mm 5mm;
 }

@@ -1,4 +1,5 @@
 import { initComponents } from "../../../.storybook/decorators";
+import { printParams } from "../../../.storybook/globals";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import initCards from "../../components/card_no_action/js/global";
@@ -191,3 +192,13 @@ export default {
 };
 
 export const Default = {};
+
+/**
+ * Print rendering of the full page. Covers the landing-page body spacing and the
+ * same hidden-region rules as the content page template.
+ */
+export const Print = {
+  parameters: printParams(
+    "the landing page body spacing and hidden-region print rules",
+  ),
+};
