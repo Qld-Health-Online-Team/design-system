@@ -21,6 +21,12 @@
         text-decoration: underline;
       }
 
+      // the icon + text group is a layout wrapper; only its inner text
+      // should carry the underline
+      .qld__video__player__transcript-label {
+        text-decoration: none;
+      }
+
       &:hover {
         span {
           text-decoration-thickness: var(--QLD-underline__thickness-thick);
@@ -188,31 +194,41 @@
     }
     .qld__accordion__title {
       font-size: pxToRem(16);
-      gap: pxToRem(8);
+      // label group on the left, chevron on the right
+      justify-content: space-between;
       transition: transform 0.25s ease-in;
       border-bottom-left-radius: $QLD-border-radius-xs;
       border-bottom-right-radius: $QLD-border-radius-xs;
+
+      @include QLD-space(padding, 1unit);
+
       .qld__icon {
         font-size: pxToRem(20);
       }
-      // chevron sits inline at the end of the flex row, not absolutely
+      // chevron sits inline at the end of the row, not absolutely
       // positioned like in the base accordion
       .qld__accordion__icon {
         margin-top: 0;
-        margin-left: auto;
       }
       &:hover {
         background-color: transparent;
       }
     }
+
+    // groups the transcript icon and its text so space-between keeps them
+    // together at the start of the row
+    &-label {
+      display: flex;
+      align-items: center;
+      gap: pxToRem(8);
+    }
     &-link {
-      padding: pxToRem(16) pxToRem(12);
+      align-items: center;
+      gap: pxToRem(8);
       border-bottom-left-radius: $QLD-border-radius-xs;
       border-bottom-right-radius: $QLD-border-radius-xs;
 
-      .qld__icon {
-        margin-right: pxToRem(8);
-      }
+      @include QLD-space(padding, 1unit);
     }
   }
 }
