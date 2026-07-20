@@ -118,10 +118,6 @@
       .qld__video__player__transcript {
         .qld__accordion__title {
           color: var(--QLD-color-dark__link);
-
-          &::after {
-            background-color: var(--QLD-color-dark__action--secondary);
-          }
         }
 
         .qld__icon {
@@ -192,12 +188,18 @@
     }
     .qld__accordion__title {
       font-size: pxToRem(16);
+      gap: pxToRem(8);
       transition: transform 0.25s ease-in;
       border-bottom-left-radius: $QLD-border-radius-xs;
       border-bottom-right-radius: $QLD-border-radius-xs;
       .qld__icon {
         font-size: pxToRem(20);
-        margin-right: pxToRem(8);
+      }
+      // chevron sits inline at the end of the flex row, not absolutely
+      // positioned like in the base accordion
+      .qld__accordion__icon {
+        margin-top: 0;
+        margin-left: auto;
       }
       &:hover {
         background-color: transparent;
