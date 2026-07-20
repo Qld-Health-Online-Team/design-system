@@ -54,7 +54,7 @@ function buildHelpersBundle(helpers) {
   return helpers
     .map(
       ({ name, fn }) =>
-        `Handlebars.registerHelper('${name}', ${fn.toString()}); \r\n`,
+        `Handlebars.registerHelper('${name}', ${fn.toString()}); \n`,
     )
     .join("");
 }

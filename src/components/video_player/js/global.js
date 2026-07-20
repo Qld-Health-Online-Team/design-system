@@ -30,7 +30,14 @@ export default function initVideoPlayer(root = document) {
  *                              `.qld__accordion__title` trigger
  */
 function syncTranscriptLabel(event) {
-  const label = event.target.querySelector("span");
+  // Target the text span explicitly. The label is wrapped alongside the
+  // transcript icon, so writing textContent to an ancestor span would destroy
+  // that icon. The fallback covers legacy markup where the button's first
+  // span is the text itself.
+  const label =
+    event.target.querySelector(".qld__video__player__transcript-text") ??
+    event.target.querySelector("span");
+
   if (label) {
     label.textContent = event.detail.open
       ? "Hide transcript"

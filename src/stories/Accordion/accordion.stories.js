@@ -42,6 +42,7 @@ function render(args) {
         metadata: buildMetadata(args),
       },
     },
+    ...args,
   });
 }
 
