@@ -22,7 +22,16 @@
               type="button"
               aria-expanded="false"
             >
-              Open all
+              <span>Open all</span>
+              <svg
+                class="qld__icon qld__icon--xs"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use
+                  href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+                ></use>
+              </svg>
             </button>
           </div>
         {{/ifCond}}
@@ -30,10 +39,19 @@
           {{#ifCond this.content '!=' ''}}
             <div class="qld__accordion">
               <{{../metadata.title_level.value}}>
-                            <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
-                                {{this.title}}
-                            </button>
-                        </{{../metadata.title_level.value}}>
+                  <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-group-{{../assetid}}-{{this.fieldid}}" aria-expanded="false" type="button">
+                      {{this.title}}
+                      <svg
+                        class="qld__icon qld__icon--md qld__accordion__icon"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <use
+                          href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+                        ></use>
+                      </svg>
+                  </button>
+              </{{../metadata.title_level.value}}>
               <div
                 id="accordion-group-{{ ../assetid }}-{{ this.fieldid }}"
                 class="qld__accordion__body qld__accordion--closed"
