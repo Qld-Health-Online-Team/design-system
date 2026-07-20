@@ -1009,80 +1009,6 @@ form {
   }
 }
 
-@media print {
-  .qld__body {
-    *,
-    & {
-      text-shadow: none !important;
-      color: #000 !important;
-      background-color: transparent !important;
-      box-shadow: none !important;
-      border-color: #000 !important;
-    }
-
-    a,
-    a:visited {
-      text-decoration: underline;
-    }
-
-    // Add the URL after the link on print
-    a[href]:after {
-      content: " (" attr(href) ")" !important;
-      display: inline !important;
-    }
-
-    // Do not add the URL if it's a javascript or anchor
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-      content: "" !important;
-    }
-
-    // Add the abbreviation expanded on print
-    abbr[title]:after {
-      content: " (" attr(title) ")";
-    }
-
-    pre {
-      border: 1px solid #000;
-      padding: 6px;
-      page-break-inside: avoid;
-    }
-
-    thead {
-      display: table-header-group;
-    }
-
-    tr,
-    img {
-      page-break-inside: avoid;
-    }
-
-    img {
-      max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-      orphans: 3;
-      widows: 3;
-    }
-
-    h2,
-    h3 {
-      page-break-after: avoid;
-    }
-
-    p a {
-      word-wrap: break-word;
-    }
-
-    select {
-      background: #fff !important;
-    }
-  }
-}
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Body module
 //
@@ -1096,10 +1022,10 @@ form {
     *,
     & {
       text-shadow: none !important;
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
       background-color: transparent !important;
       box-shadow: none !important;
-      border-color: #000 !important;
+      border-color: $QLD-color-print__border !important;
     }
 
     a,
@@ -1125,7 +1051,7 @@ form {
     }
 
     pre {
-      border: 1px solid #000;
+      border: 1px solid $QLD-color-print__border;
       padding: 6px;
       page-break-inside: avoid;
     }
@@ -1155,16 +1081,23 @@ form {
       page-break-after: avoid;
     }
 
+    // Headings print a shade lighter than body copy so the hierarchy survives
+    // the loss of colour. Must come after the `*` reset above.
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $QLD-color-print__heading !important;
+    }
+
     p a {
       word-wrap: break-word;
     }
 
     select {
-      background: #fff !important;
+      background: $QLD-color-print__background !important;
     }
-  }
-
-  @page {
-    margin: 10mm 5mm;
   }
 }

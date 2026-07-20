@@ -1,4 +1,5 @@
 import { initComponents } from "../../../.storybook/decorators";
+import { printParams } from "../../../.storybook/globals";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import { initAccordion } from "../../components/accordion/js/global";
@@ -99,3 +100,14 @@ export default {
 };
 
 export const Default = {};
+
+/**
+ * Print rendering of the full page — the broadest print coverage there is, since
+ * it exercises every hidden region and the header/body colour tokens at once.
+ */
+export const Print = {
+  parameters: printParams(
+    "the rules that hide the pre-header, main nav, side nav, in-page nav, " +
+      "breadcrumbs and footer, plus the header and body print colours",
+  ),
+};
