@@ -1,0 +1,40 @@
+/*
+ * Image ratio utility classes
+ *
+ * Locks an image (or an image wrapper such as a figure/div) to a fixed aspect
+ * ratio and crops the image to fill it. Apply to the `img` itself, or to a
+ * wrapping element to constrain the image it contains.
+ *
+ *   <img class="qld__image-ratio-16x9" … >
+ *   <figure class="qld__image-ratio-4x3"><img … ></figure>
+ */
+
+// Ratios are unquoted strings so Sass emits `4 / 3` rather than evaluating the
+// slash as division.
+$QLD-image-ratios: (
+  "1x1": "1 / 1",
+  "3x2": "3 / 2",
+  "2x3": "2 / 3",
+  "4x3": "4 / 3",
+  "3x4": "3 / 4",
+  "16x9": "16 / 9",
+);
+
+@each $name, $ratio in $QLD-image-ratios {
+  .qld__image-ratio-#{$name} {
+    display: block;
+    width: 100%;
+    aspect-ratio: #{$ratio};
+    object-fit: cover;
+    object-position: center;
+    overflow: clip;
+
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: #{$ratio};
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

@@ -16,11 +16,6 @@
       float: right;
       @include QLD-space(margin-left, 1.5unit);
     }
-
-    img {
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
   }
 
   img + figcaption {
@@ -80,4 +75,17 @@
       color: var(--QLD-color-dark__text--lighter);
     }
   }
+}
+
+/*
+ * Default 4:3 crop for right-aligned figures — equivalent to
+ * `.qld__image-ratio-4x3`. Wrapped in `:where()` so the whole selector carries
+ * zero specificity: adding any `.qld__image-ratio-*` utility to the figure or
+ * the image overrides it.
+ */
+:where(.qld__body, .qld__banner, .qld__footer)
+  :where(figure.qld__right-aligned-img)
+  :where(img) {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
