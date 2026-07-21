@@ -155,6 +155,58 @@ export const RatioOnWrapper = {
 </figure>`,
 };
 
+const borderRadiusSizes = ["xs", "sm", "md", "lg"];
+
+/**
+ * One figure per radius size, plus a final figure carrying the utility itself.
+ * `captioned` decides whether each figure gets a `figcaption`, which is what
+ * changes how the radius has to be applied.
+ */
+function renderRoundedGrid(args, captioned) {
+  const label = (text) => (captioned ? `<figcaption>${text}</figcaption>` : "");
+
+  const image = (classes) => `<img
+      loading="lazy"
+      src="${args.src}"
+      alt="${args.alt}"
+      class="qld__image-ratio-4x3${classes ? ` ${classes}` : ""}"
+    />`;
+
+  return `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+  ${borderRadiusSizes
+    .map(
+      (size) => `<figure>
+    ${image(`qld__border-radius--${size}`)}
+    ${label(`img.qld__border-radius--${size}`)}
+  </figure>`,
+    )
+    .join("\n  ")}
+  <figure class="qld__border-radius--md">
+    ${image("")}
+    ${label("figure.qld__border-radius--md")}
+  </figure>
+</div>`;
+}
+
+/**
+ * `qld__border-radius--*` on the image rounds the top corners and passes the
+ * matching radius to the caption, so the pair reads as one rounded block. Put
+ * the same utility on the `figure` instead and it clips its contents to shape.
+ */
+export const RoundedCorners = {
+  name: "Rounded corners",
+  render: (args) => renderRoundedGrid(args, true),
+};
+
+/**
+ * Without a caption the image keeps all four corners, whether the utility sits
+ * on the `img` or on the `figure` around it.
+ */
+export const RoundedCornersWithoutCaption = {
+  name: "Rounded corners without caption",
+  render: (args) => renderRoundedGrid(args, false),
+};
+
 export const ResponsiveImage = {
   args: { responsiveMediaImg: true },
   decorators: [
