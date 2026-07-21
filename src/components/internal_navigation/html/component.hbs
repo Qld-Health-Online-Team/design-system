@@ -2,7 +2,22 @@
   class="qld__side-nav qld__accordion"
   data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
 >
-  <button class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed" aria-controls="nav-default" aria-expanded="false">In {{{ current.top.asset_name }}}</button>
+  <button
+    class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
+    aria-controls="nav-default"
+    aria-expanded="false"
+  >
+    In
+    {{{ current.top.asset_name }}}
+    <svg
+      class="qld__icon qld__icon--md qld__accordion__icon"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <use href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+      ></use>
+    </svg>
+  </button>
   <nav
     id="nav-default"
     class="qld__side-nav__content qld__accordion--closed qld__accordion__body"

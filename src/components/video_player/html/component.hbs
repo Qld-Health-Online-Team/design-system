@@ -130,16 +130,29 @@
                             aria-controls="accordion-group-{{ assetid }}"
                             aria-expanded="false"
                           >
+                            <span class="qld__video__player__transcript-label">
+                              <svg
+                                class="qld__icon qld__icon--md"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <use
+                                  href="{{ @root.site.metadata.coreSiteIcons.value }}#transcript"
+                                ></use>
+                              </svg>
+                              <span class="qld__video__player__transcript-text">
+                                Show transcript
+                              </span>
+                            </span>
                             <svg
-                              class="qld__icon qld__icon--md"
+                              class="qld__icon qld__icon--md qld__accordion__icon"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <use
-                                href="{{ @root.site.metadata.coreSiteIcons.value }}#transcript"
+                                href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
                               ></use>
                             </svg>
-                            <span>Show transcript</span>
                           </button>
                           <div
                             id="accordion-group-{{ assetid }}"
@@ -241,16 +254,29 @@
                             aria-controls="accordion-group-{{ assetid }}"
                             aria-expanded="false"
                           >
+                            <span class="qld__video__player__transcript-label">
+                              <svg
+                                class="qld__icon qld__icon--sm"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <use
+                                  href="{{ @root.site.metadata.coreSiteIcons.value }}#transcript"
+                                ></use>
+                              </svg>
+                              <span class="qld__video__player__transcript-text">
+                                Show transcript
+                              </span>
+                            </span>
                             <svg
-                              class="qld__icon qld__icon--sm"
+                              class="qld__icon qld__icon--md qld__accordion__icon"
                               aria-hidden="true"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <use
-                                href="{{ @root.site.metadata.coreSiteIcons.value }}#transcript"
+                                href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
                               ></use>
                             </svg>
-                            <span>Show transcript</span>
                           </button>
                           <div
                             id="accordion-group-{{ assetid }}"
