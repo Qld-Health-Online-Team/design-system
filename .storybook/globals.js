@@ -42,6 +42,15 @@ export const dummyLink = "https://www.google.com";
 // time, making the image flicker in/out between builds.
 export const dummyImageLink = "Culex_annulirostris_female2.jpg";
 
+// Sheets of nine labelled zones, one landscape and one portrait. Cropped, they
+// name the part of themselves that survived, which a photograph cannot do. The
+// image position stories use both: object-position can only slide an image
+// along the axis its crop overflows, so showing the horizontal and the vertical
+// halves of the utility takes a wide source and a tall one.
+export const imagePositionDemoImage = "image-position-demo.svg";
+export const imagePositionDemoImagePortrait =
+  "image-position-demo-portrait.svg";
+
 // Path to the icon sprite, relative to the Storybook preview iframe. Used for
 // <use href> references and the coreSiteIcons metadata across stories.
 export const iconSpritePath = "QLD-icons.svg";

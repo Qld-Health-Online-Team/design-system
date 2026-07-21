@@ -26,15 +26,16 @@ $QLD-image-ratios: (
     width: 100%;
     aspect-ratio: #{$ratio};
     object-fit: cover;
-    object-position: center;
     overflow: clip;
 
+    // `object-position` is left at its initial `50% 50%` so a
+    // `qld__image-position--*` utility on the image can take it over — see
+    // `image-position-utility-classes.scss`.
     img {
       width: 100%;
       height: 100%;
       aspect-ratio: #{$ratio};
       object-fit: cover;
-      object-position: center;
     }
   }
 }

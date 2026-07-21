@@ -1,15 +1,30 @@
 import {
   dummyImageLink,
   dummyText,
+  imagePositionDemoImage,
+  imagePositionDemoImagePortrait,
   storyParams,
 } from "../../../.storybook/globals";
 
 const imageRatios = ["1x1", "3x2", "2x3", "4x3", "3x4", "16x9"];
 
+const imagePositions = [
+  "center",
+  "left",
+  "right",
+  "top",
+  "bottom",
+  "left-top",
+  "right-top",
+  "left-bottom",
+  "right-bottom",
+];
+
 function render(args) {
   const classes = [
     args.responsiveMediaImg ? "qld__responsive-media-img" : "",
     args.imageRatio ? `qld__image-ratio-${args.imageRatio}` : "",
+    args.imagePosition ? `qld__image-position--${args.imagePosition}` : "",
     args.extraClasses,
   ]
     .filter(Boolean)
@@ -66,6 +81,12 @@ const meta = {
       control: { type: "select" },
       options: ["", ...imageRatios],
     },
+    imagePosition: {
+      description:
+        "Chooses which part of a cropped image stays in frame via the qld__image-position--* utility. Needs a crop to act on, such as an image ratio.",
+      control: { type: "select" },
+      options: ["", ...imagePositions],
+    },
     extraClasses: {
       description: "Any additional classes to apply to the image.",
       control: { type: "text" },
@@ -81,6 +102,7 @@ const meta = {
     rightAligned: false,
     responsiveMediaImg: false,
     imageRatio: "",
+    imagePosition: "",
     extraClasses: "",
   },
   decorators: [
@@ -153,6 +175,44 @@ export const RatioOnWrapper = {
     height="${args.height}"
   />
 </figure>`,
+};
+
+/**
+ * Every `qld__image-position--*` utility, over a test sheet that names the zone
+ * left in frame.
+ *
+ * `object-position` can only slide an image along the axis its crop overflows,
+ * so no single crop shows all nine utilities doing something. The first row
+ * crops a landscape sheet to a tall frame — spare width, so the `left`/`right`
+ * half of each name bites and the `top`/`bottom` half sits idle. The second row
+ * crops a portrait sheet to a wide frame, which is the other way round.
+ */
+export const AllPositions = {
+  name: "All image positions",
+  args: { alt: "Test sheet of nine labelled zones" },
+  render: (args) => {
+    const grid = (src, ratio) =>
+      `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px;">
+    ${imagePositions
+      .map(
+        (position) => `<figure>
+      <img
+        loading="lazy"
+        src="${src}"
+        alt="${args.alt}"
+        class="qld__image-ratio-${ratio} qld__image-position--${position}"
+      />
+      <figcaption>qld__image-position--${position}</figcaption>
+    </figure>`,
+      )
+      .join("\n    ")}
+  </div>`;
+
+    return `<h3>Landscape image, tall crop — slides left and right</h3>
+  ${grid(imagePositionDemoImage, "2x3")}
+  <h3 class="qld__margin-t-component">Portrait image, wide crop — slides up and down</h3>
+  ${grid(imagePositionDemoImagePortrait, "16x9")}`;
+  },
 };
 
 const borderRadiusSizes = ["xs", "sm", "md", "lg"];
