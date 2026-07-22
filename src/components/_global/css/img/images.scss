@@ -4,7 +4,6 @@
   figure.qld__right-aligned-img {
     height: auto;
     max-width: 100%;
-    border-radius: var(--QLD-border-radius-sm);
     float: none;
     @include QLD-space(margin-left, 0unit);
     @include QLD-space(margin-bottom, 1.5unit);
@@ -16,11 +15,15 @@
       float: right;
       @include QLD-space(margin-left, 1.5unit);
     }
+  }
 
-    img {
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
+  // Default radius for right-aligned figures. Stands aside as soon as a
+  // `.qld__border-radius--*` utility is put on the figure, which would
+  // otherwise lose to this selector's higher specificity. The figure clips its
+  // contents, so a radius utility on a right-aligned image is clipped to this
+  // shape — put the utility on the figure to change a right-aligned image.
+  figure.qld__right-aligned-img:not([class*="qld__border-radius--"]) {
+    border-radius: var(--QLD-border-radius-sm);
   }
 
   img + figcaption {
@@ -80,4 +83,70 @@
       color: var(--QLD-color-dark__text--lighter);
     }
   }
+
+  /*
+   * Border radius on captioned images
+   *
+   * `.qld__border-radius--*` works on a bare `img`, but a `figcaption` sits
+   * directly beneath the image (pulled up by a negative top margin) and its
+   * square background covers the image's bottom corners. Round the top of the
+   * image only and hand the matching radius to the caption, so image and caption
+   * read as one rounded block.
+   *
+   * The utility can also go on the `figure` itself, which clips everything it
+   * contains — image and caption — to the same shape.
+   *
+   *   <figure><img class="qld__border-radius--md" … ><figcaption>…</figcaption></figure>
+   *   <figure class="qld__border-radius--md"><img … ><figcaption>…</figcaption></figure>
+   *
+   * Deliberately free of `:has()`: our browser targets include Samsung Internet
+   * 16 and Chrome 102, which predate it and would drop the whole rule.
+   */
+
+  // The caption carries the radius its image was given, so the pair closes off
+  // with the same shape it opened with.
+  @each $name, $radii in $QLD-border-radius-scale {
+    img.qld__border-radius--#{$name} + figcaption {
+      --QLD-applied-border-radius: #{nth($radii, 1)};
+
+      @if nth($radii, 2) {
+        @include QLD-media(lg) {
+          --QLD-applied-border-radius: #{nth($radii, 2)};
+        }
+      }
+    }
+  }
+
+  img[class*="qld__border-radius--"] + figcaption {
+    border-end-start-radius: var(--QLD-applied-border-radius);
+    border-end-end-radius: var(--QLD-applied-border-radius);
+  }
+
+  // Square off the bottom of an image that shares its figure with a caption —
+  // its rounded corners would otherwise notch out above the caption's square
+  // background. `:not(:only-child)` stands in for "a caption follows", which
+  // needs `:has()` to ask directly; an image alone in its figure keeps all four
+  // corners. A figure holding several images is the case this reads wrongly —
+  // put the utility on the figure there.
+  figure > img[class*="qld__border-radius--"]:not(:only-child) {
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  figure[class*="qld__border-radius--"] {
+    overflow: clip;
+  }
+}
+
+/*
+ * Default 4:3 crop for right-aligned figures — equivalent to
+ * `.qld__image-ratio-4x3`. Wrapped in `:where()` so the whole selector carries
+ * zero specificity: adding any `.qld__image-ratio-*` utility to the figure or
+ * the image overrides it.
+ */
+:where(.qld__body, .qld__banner, .qld__footer)
+  :where(figure.qld__right-aligned-img)
+  :where(img) {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }

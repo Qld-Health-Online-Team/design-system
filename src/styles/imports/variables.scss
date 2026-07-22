@@ -263,6 +263,32 @@ $QLD-border-radius-xl: map-get($QLD-space-map, 9) + px;
 $QLD-border-radius-xxl: map-get($QLD-space-map, 12) + px;
 
 /**
+* QLD border-radius utility scale
+*
+* Each step is (mobile radius, lg-breakpoint radius). A null second value means
+* the radius does not change at lg. Drives the `.qld__border-radius--*`
+* utilities and anything that has to match them.
+*/
+$QLD-border-radius-scale: (
+  "xs": (
+    $QLD-border-radius-xs,
+    null,
+  ),
+  "sm": (
+    $QLD-border-radius-sm,
+    null,
+  ),
+  "md": (
+    $QLD-border-radius-md,
+    null,
+  ),
+  "lg": (
+    $QLD-border-radius-lg,
+    $QLD-border-radius-xl,
+  ),
+);
+
+/**
 * QLD underline-thickness values
 */
 $QLD-underline__thickness-thin: 0.5px;
