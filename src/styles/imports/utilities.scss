@@ -319,31 +319,21 @@ a.qld__max-width {
   Border radius utility
 */
 
-.qld__border-radius--xs {
-  border-radius: $QLD-border-radius-xs;
-}
+/*
+ * The applied radius is also published as `--QLD-applied-border-radius` so
+ * neighbouring elements can match the shape — see the captioned image rules in
+ * `_global/css/img/images.scss`.
+ */
+@each $name, $radii in $QLD-border-radius-scale {
+  .qld__border-radius--#{$name} {
+    --QLD-applied-border-radius: #{nth($radii, 1)};
+    border-radius: var(--QLD-applied-border-radius);
 
-.qld__border-radius--sm {
-  border-radius: $QLD-border-radius-sm;
-}
-
-.qld__border-radius--md {
-  border-radius: $QLD-border-radius-md;
-}
-
-.qld__border-radius--lg {
-  border-radius: $QLD-border-radius-md;
-
-  @include QLD-media(lg) {
-    border-radius: $QLD-border-radius-lg;
-  }
-}
-
-.qld__border-radius--lg {
-  border-radius: $QLD-border-radius-lg;
-
-  @include QLD-media(lg) {
-    border-radius: $QLD-border-radius-xl;
+    @if nth($radii, 2) {
+      @include QLD-media(lg) {
+        --QLD-applied-border-radius: #{nth($radii, 2)};
+      }
+    }
   }
 }
 

@@ -1,0 +1,30 @@
+/*
+ * Image position utility classes
+ *
+ * Chooses which part of a cropped image stays in frame. Only has an effect
+ * where the image is being cropped — pair it with a `qld__image-ratio-*`
+ * utility, or any rule that sets `object-fit` on the image.
+ *
+ *   <img class="qld__image-ratio-16x9 qld__image-position--top" … >
+ *
+ * Applies to the `img` itself, not a wrapper: the crop is a property of the
+ * image, and a wrapper rule would outweigh the utility on the image inside it.
+ */
+
+$QLD-image-positions: (
+  "center": center center,
+  "left": left center,
+  "right": right center,
+  "top": center top,
+  "bottom": center bottom,
+  "left-top": left top,
+  "right-top": right top,
+  "left-bottom": left bottom,
+  "right-bottom": right bottom,
+);
+
+@each $name, $position in $QLD-image-positions {
+  .qld__image-position--#{$name} {
+    object-position: $position;
+  }
+}

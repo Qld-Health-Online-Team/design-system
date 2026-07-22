@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" role="img" aria-label="A three by three grid of labelled zones used to show which part of an image survives a crop">
+  <title>Image position demo sheet</title>
+
+  <!--
+    A 3:2 test sheet for the image position stories. Every zone is labelled and
+    colour-coded, so a cropped copy of this image tells you at a glance which
+    part of it stayed in frame. (Class names are spelled out in the stories, not
+    here: a double hyphen is illegal inside an XML comment.)
+  -->
+
+  <g font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <!-- Top row -->
+    <rect x="0" y="0" width="300" height="200" fill="#7ca3d4" />
+    <text x="150" y="92" font-size="30" fill="#0b1c30">LEFT</text>
+    <text x="150" y="128" font-size="30" fill="#0b1c30">TOP</text>
+
+    <rect x="300" y="0" width="300" height="200" fill="#a8c3e6" />
+    <text x="450" y="112" font-size="34" fill="#0b1c30">TOP</text>
+
+    <rect x="600" y="0" width="300" height="200" fill="#7ca3d4" />
+    <text x="750" y="92" font-size="30" fill="#0b1c30">RIGHT</text>
+    <text x="750" y="128" font-size="30" fill="#0b1c30">TOP</text>
+
+    <!-- Middle row -->
+    <rect x="0" y="200" width="300" height="200" fill="#c9dcb4" />
+    <text x="150" y="312" font-size="34" fill="#1b2b12">LEFT</text>
+
+    <rect x="300" y="200" width="300" height="200" fill="#f0ead2" />
+    <circle cx="450" cy="300" r="70" fill="none" stroke="#2b2b2b" stroke-width="4" />
+    <circle cx="450" cy="300" r="34" fill="none" stroke="#2b2b2b" stroke-width="4" />
+    <circle cx="450" cy="300" r="6" fill="#2b2b2b" />
+    <text x="450" y="392" font-size="26" fill="#2b2b2b">CENTER</text>
+
+    <rect x="600" y="200" width="300" height="200" fill="#c9dcb4" />
+    <text x="750" y="312" font-size="34" fill="#1b2b12">RIGHT</text>
+
+    <!-- Bottom row -->
+    <rect x="0" y="400" width="300" height="200" fill="#e8b98c" />
+    <text x="150" y="492" font-size="30" fill="#31200d">LEFT</text>
+    <text x="150" y="528" font-size="30" fill="#31200d">BOTTOM</text>
+
+    <rect x="300" y="400" width="300" height="200" fill="#f2d3b3" />
+    <text x="450" y="512" font-size="34" fill="#31200d">BOTTOM</text>
+
+    <rect x="600" y="400" width="300" height="200" fill="#e8b98c" />
+    <text x="750" y="492" font-size="30" fill="#31200d">RIGHT</text>
+    <text x="750" y="528" font-size="30" fill="#31200d">BOTTOM</text>
+  </g>
+
+  <!-- Zone edges, drawn over the fills so they read as one grid. -->
+  <g stroke="#2b2b2b" stroke-width="3" opacity="0.55">
+    <path d="M300 0V600M600 0V600M0 200H900M0 400H900" />
+  </g>
+  <rect x="1.5" y="1.5" width="897" height="597" fill="none" stroke="#2b2b2b" stroke-width="3" />
+</svg>
