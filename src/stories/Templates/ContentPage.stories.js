@@ -39,7 +39,7 @@ function renderContentPage(args) {
       <div class="qld__body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-12 col-md-4 col-lg-3">
+            <div class="col-xs-12 col-md-4 col-lg-3 hide-on-print">
               ${renderSideNav()}
             </div>
             <div class="col-xs-12 col-md-8 col-lg-9" id="content">
