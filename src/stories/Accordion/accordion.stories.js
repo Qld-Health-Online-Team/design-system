@@ -203,4 +203,5 @@ export const Print = {
   parameters: printParams(
     "the force-expanded panel bodies, hidden toggle icons and print border colours",
   ),
+  args: { toggleAll: true },
 };
