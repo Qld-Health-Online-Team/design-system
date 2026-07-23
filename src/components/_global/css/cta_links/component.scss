@@ -231,10 +231,38 @@ a.qld__cta-link.qld__cta-link--view-all {
   .qld__cta-link {
     color: $QLD-color-print__text !important;
 
+    // The "view all" label is wrapped in a block-level span (JS-injected) so it
+    // reserves a 32px line box to align with the circular icon. On paper the icon
+    // is hidden, and the block span pushes the appended URL (the anchor's
+    // ::after) onto the next line — so collapse it back to inline.
+    .qld__cta-link--view-all-icon--wrapper {
+      display: inline !important;
+      min-height: 0 !important;
+      line-height: inherit !important;
+    }
+
+    // The decorative arrow line and the "view all" circle are drawn purely from
+    // borders on these pseudo-elements. On paper they render as stray border
+    // fragments, so remove them entirely.
+    &::before,
+    .qld__cta-link--view-all-icon--wrapper::before {
+      display: none !important;
+      content: none !important;
+    }
+
+    // ::after normally draws the arrow and is absolutely positioned, but the
+    // global `a[href]::after` print rule reuses it to append the URL — which
+    // then inherits that absolute position and drops out of the text flow
+    // ("sitting too low"). Reset it so the appended URL reads inline after the
+    // link text.
     &::after {
-      background-image: none !important;
-      content: " > " !important;
+      position: static !important;
+      display: inline !important;
+      width: auto !important;
+      height: auto !important;
+      margin: 0 !important;
       border: none !important;
+      background-image: none !important;
       transform: rotate(0deg) !important;
     }
   }
