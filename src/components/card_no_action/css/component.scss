@@ -682,3 +682,20 @@
     }
   }
 }
+
+@media print {
+  // Clickable cards make the whole card a hit area via a stretched,
+  // absolutely-positioned ::after on the title link. The global print rule reuses
+  // that ::after to append the URL, so it renders as an overlay instead of inline
+  // with the heading. Reset it to flow inline after the title text. This targets
+  // the shared class, so it covers every card component's clickable header link.
+  .qld__card--clickable__link::after {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+    display: inline !important;
+  }
+}
