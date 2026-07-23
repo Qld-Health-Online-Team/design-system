@@ -271,6 +271,12 @@ li + li .qld__accordion {
 }
 
 @media print {
+  // The "Open all / Close all" control does nothing on paper, and every panel is
+  // force-expanded below, so its label would be misleading — hide the whole row.
+  .qld__accordion__toggle {
+    display: none !important;
+  }
+
   .qld__accordion {
     border-color: $QLD-color-print__border !important;
     color: $QLD-color-print__text !important;
