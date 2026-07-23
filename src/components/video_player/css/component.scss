@@ -244,3 +244,13 @@
     margin-right: auto;
   }
 }
+
+@media print {
+  // Hide the transcript accordion in print: the video can't be watched on paper,
+  // and a full transcript (which the global accordion print rule would force open)
+  // can run to many pages. Hiding the parent removes the whole subtree regardless
+  // of that force-expand. The compact "View transcript" link variant is untouched.
+  .qld__video__player__transcript .qld__accordion {
+    display: none !important;
+  }
+}
