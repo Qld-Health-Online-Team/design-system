@@ -548,3 +548,15 @@
     }
   }
 }
+
+@media print {
+  // The banner texture and hero background are decorative. The global body reset
+  // only clears background-color, so clear background-image here too — otherwise
+  // the texture survives when "background graphics" is enabled and can sit behind
+  // the (now dark) banner text, wasting toner and hurting legibility.
+  .qld__banner,
+  .qld__banner__image,
+  .qld__banner__image--background {
+    background-image: none !important;
+  }
+}
