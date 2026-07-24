@@ -1,4 +1,9 @@
-import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
+import {
+  themes,
+  dummyLink,
+  storyParams,
+  printParams,
+} from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
@@ -143,4 +148,11 @@ export const DarkAlt = {
   render: (args) => {
     return themeWrapper(themes["dark alt"], AllVariants.render(args));
   },
+};
+
+export const Print = {
+  render: AllVariants.render,
+  parameters: printParams(
+    "the hidden decorative arrow/view-all icons and the href rendered inline after each link",
+  ),
 };
