@@ -1,5 +1,10 @@
 import { DirectionLinks } from "./DirectionLinks";
-import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
+import {
+  themes,
+  dummyLink,
+  storyParams,
+  printParams,
+} from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions";
 
 const directionLinksArgs = {
@@ -94,4 +99,11 @@ export const darkAlt = {
   render: () => {
     return themeWrapper(themes["dark alt"], allVariants());
   },
+};
+
+export const Print = {
+  render: () => allVariants(),
+  parameters: printParams(
+    "the hidden direction-link arrow icons and the href rendered inline with the text",
+  ),
 };

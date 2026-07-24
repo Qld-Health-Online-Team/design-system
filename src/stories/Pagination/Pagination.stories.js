@@ -1,5 +1,10 @@
 import Template from "../../components/pagination/html/component.hbs";
-import { themes, dummyLink, storyParams } from "../../../.storybook/globals";
+import {
+  themes,
+  dummyLink,
+  storyParams,
+  printParams,
+} from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const renderPagination = ({ data, ...args }) =>
@@ -241,4 +246,10 @@ export const previousOnly = {
 
 export const nextOnly = {
   args: { data: paginationDataNextOnly },
+};
+
+export const Print = {
+  parameters: printParams(
+    "that pagination is hidden entirely in print (navigation controls have no meaning on paper)",
+  ),
 };

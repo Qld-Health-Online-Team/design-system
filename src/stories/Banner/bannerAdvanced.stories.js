@@ -1,5 +1,9 @@
 import Template from "../../components/banner_advanced/html/component.hbs";
-import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import {
+  storyParams,
+  iconSpritePath,
+  printParams,
+} from "../../../.storybook/globals";
 import initBannerAdvanced from "../../components/banner_advanced/js/global";
 import { initComponents } from "../../../.storybook/decorators";
 import ToowoombaImage from "../Cards/Toowoomba-web.jpeg";
@@ -296,4 +300,16 @@ export const WithIconTiles = {
     ctaIconTilesLabel: "Services",
     heroImage: "",
   },
+};
+
+export const Print = {
+  args: {
+    heroImage: "https://placehold.co/782x520",
+    heroImageTreatment: "crop",
+    heroImageAlignment: "grid",
+    showBreadcrumbs: true,
+  },
+  parameters: printParams(
+    "that the decorative hero/background image is cleared in print (the global reset only clears background-color)",
+  ),
 };
