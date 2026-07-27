@@ -60,6 +60,9 @@
 
 // Print styles
 @media print {
+  // The section carries .qld__hide-on-print, so the component is already dropped
+  // from print output. This rule only covers markup rendered before that class
+  // was added, where the nav is hidden but its section still prints.
   .qld__inpage-nav-links {
     display: none !important;
   }
