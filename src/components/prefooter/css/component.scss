@@ -67,3 +67,21 @@
     );
   }
 }
+
+// Print styles
+@media print {
+  // "Back to top" is a screen-only affordance — its #content anchor means nothing
+  // on paper. Selector is left unscoped so the widget is hidden wherever it is
+  // placed, not only inside the pre-footer.
+  .qld__widgets__back_to_top {
+    display: none !important;
+  }
+
+  // When "Last updated" is switched off the back-to-top is the pre-footer's only
+  // content, so hiding it alone would leave the section printing as an empty band.
+  .qld__pre-footer:has(
+    > .container-fluid > .qld__widgets__back_to_top:only-child
+  ) {
+    display: none !important;
+  }
+}
