@@ -588,7 +588,7 @@
 // Print styles
 @media print {
   .qld__header {
-    background: #fff !important;
+    background: $QLD-color-print__background !important;
 
     a img {
       border: 0 !important;
@@ -599,10 +599,21 @@
   .qld__header__brand,
   .qld__header__subline,
   .qld__banner__content--body {
-    color: #000 !important;
+    color: $QLD-color-print__text !important;
   }
 
+  // Keep the Queensland Government logo visible in print — it doubles as the
+  // government crest the printout is required to carry. The base rule hides the
+  // brand image and only reveals it at the `lg` breakpoint (display: block),
+  // which the print page width may not match, so force it visible here.
   .qld__header__brand-image {
+    display: block !important;
+  }
+
+  // Hide the search box — it is interactive-only and has no meaning on paper.
+  // (The search toggle button lives in `.qld__header__pre-header`, which is
+  // hidden below, so only the search panel itself needs hiding here.)
+  .qld__header__search {
     display: none !important;
   }
 

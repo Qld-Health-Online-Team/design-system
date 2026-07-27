@@ -1,5 +1,5 @@
 import Template from "../../components/video_player/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, printParams } from "../../../.storybook/globals";
 import { expect, userEvent } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
 import initVideoPlayer from "../../components/video_player/js/global";
@@ -288,4 +288,10 @@ export const TranscriptToggle = {
     await expect(button).toHaveAttribute("aria-expanded", "false");
     await expectIconsIntact();
   },
+};
+
+export const Print = {
+  parameters: printParams(
+    "that the (potentially very long) transcript accordion is hidden in print",
+  ),
 };

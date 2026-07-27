@@ -111,20 +111,36 @@ a.qld__direction-link {
 
 // Print styles
 @media print {
-  a.qld__direction-link,
-  .qld__body--dark a.qld__direction-link,
-  .qld__body--dark-alt a.qld__direction-link {
-    color: $QLD-color-neutral--black;
-    text-decoration-color: $QLD-color-neutral--black;
+  a.qld__direction-link--right,
+  a.qld__direction-link--left,
+  a.qld__direction-link--up,
+  a.qld__direction-link--down {
+    color: $QLD-color-print__text;
+    text-decoration-color: $QLD-color-print__border--muted;
+    // The arrow reserves side padding; with the icon gone, drop it so the URL
+    // sits directly after the text.
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
-    &--right,
-    &--left,
-    &--up,
-    &--down {
-      &::before,
-      &::after {
-        border-color: $QLD-color-neutral--black;
-      }
+    // Arrow body — purely decorative, remove it.
+    &::before {
+      display: none !important;
+      content: none !important;
+    }
+
+    // ::after draws the (rotated) arrow head, but the global a[href]::after print
+    // rule reuses it to append the URL, which then inherits the rotation and
+    // absolute position ("appears rotated"). Flatten it so the URL reads inline.
+    &::after {
+      position: static !important;
+      top: auto !important;
+      right: auto !important;
+      left: auto !important;
+      width: auto !important;
+      height: auto !important;
+      border: none !important;
+      transform: none !important;
+      display: inline !important;
     }
   }
 }

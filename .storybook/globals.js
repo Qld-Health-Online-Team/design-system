@@ -231,3 +231,34 @@ export function storyParams(componentKey, extraDescription) {
     ...(figma && { design: { type: "figma", url: figma } }),
   };
 }
+
+/**
+ * Parameters for a story that exists to guard `@media print` styles.
+ *
+ * Chromatic re-renders the story with print media emulated, so print rules are
+ * covered by visual regression testing. Note the emulation is of print *media*,
+ * not pagination — colours, borders and hidden elements are captured, but
+ * `@page` margins, `break-inside` and `orphans`/`widows` have no visible effect
+ * without real paged output and still need a print-to-PDF proof.
+ *
+ * Such a story renders identically to its screen counterpart inside Storybook,
+ * because browsers only apply `@media print` when actually printing. Preview
+ * locally via DevTools → Rendering → "Emulate CSS media type: print".
+ *
+ * @param  {string} [guards] What the story is protecting, appended to the note.
+ * @return {object}          Storybook parameters for the story.
+ */
+export function printParams(guards) {
+  return {
+    chromatic: { media: "print" },
+    docs: {
+      description: {
+        story:
+          "Snapshotted by Chromatic with print media emulated." +
+          (guards ? ` Guards ${guards}.` : "") +
+          " Renders the same as the screen story inside Storybook — use " +
+          'DevTools → Rendering → "Emulate CSS media type: print" to preview.',
+      },
+    },
+  };
+}

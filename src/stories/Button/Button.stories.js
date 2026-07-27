@@ -1,4 +1,8 @@
-import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import {
+  printParams,
+  storyParams,
+  iconSpritePath,
+} from "../../../.storybook/globals";
 
 function rowDecorator(Story) {
   return (
@@ -76,4 +80,15 @@ export const Tertiary = {
   decorators: [rowDecorator],
   render: renderButtonList,
   args: { variant: "tertiary" },
+};
+/**
+ * Print rendering of the full button row, which includes a disabled button —
+ * print swaps both the default and disabled buttons to fixed greys.
+ */
+export const Print = {
+  decorators: [rowDecorator],
+  render: renderButtonList,
+  parameters: printParams(
+    "the print button borders and the disabled-state greys",
+  ),
 };

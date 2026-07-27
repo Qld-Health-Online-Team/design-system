@@ -367,3 +367,11 @@
     }
   }
 }
+
+@media print {
+  // Site navigation has no value on paper. Force-hidden with !important because
+  // the desktop breakpoints (which set display:flex) can match print media.
+  .qld__left-nav {
+    display: none !important;
+  }
+}

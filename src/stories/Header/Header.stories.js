@@ -1,5 +1,5 @@
 import { renderHeader, headerArgs } from "./Header.js";
-import { storyParams } from "../../../.storybook/globals";
+import { storyParams, printParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
@@ -409,3 +409,12 @@ export const DarkAltHeader = (args) =>
     siteHeaderMainTheme: "qld__header__main--dark-alt",
   });
 DarkAltHeader.args = { ...headerArgs };
+
+// Print: the Queensland Government logo must stay visible (it doubles as the
+// required government crest) while the interactive search box is hidden.
+export const Print = {
+  args: { ...headerArgs },
+  parameters: printParams(
+    "the Queensland Government logo staying visible as the print crest and the search box being hidden",
+  ),
+};

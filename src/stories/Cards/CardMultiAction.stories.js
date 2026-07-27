@@ -1,5 +1,9 @@
 import Template from "../../components/card_multi_action/html/component.hbs";
-import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import {
+  storyParams,
+  iconSpritePath,
+  printParams,
+} from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
@@ -337,4 +341,10 @@ export const ThreeFooterLinksFa = {
       ),
     ],
   },
+};
+
+export const Print = {
+  parameters: printParams(
+    "the clickable card header link's appended href sitting inline with the heading instead of as a stretched hit-area",
+  ),
 };

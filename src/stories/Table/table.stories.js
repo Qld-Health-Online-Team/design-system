@@ -1,4 +1,4 @@
-import { storyParams } from "../../../.storybook/globals";
+import { printParams, storyParams } from "../../../.storybook/globals";
 
 const indent = (str, n) => str.replace(/^/gm, " ".repeat(n));
 
@@ -127,4 +127,12 @@ export const Striped = { args: { features: [Feat.striped] } };
 
 export const MultilevelHeadings = {
   args: { features: [Feat.multilevelHeadings] },
+};
+/**
+ * Print rendering of a striped table. Covers the header and cell box-shadow
+ * rules and the striped row background, which is the table's main print risk.
+ */
+export const Print = {
+  args: { features: [Feat.striped] },
+  parameters: printParams("the print header rules and striped row backgrounds"),
 };

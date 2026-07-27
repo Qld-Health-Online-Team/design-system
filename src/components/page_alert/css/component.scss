@@ -179,15 +179,47 @@
 }
 
 // Print styles
+//
+// Page alerts are informative: the status colour is what distinguishes an error
+// from a warning/success/info alert, so it must survive print rather than being
+// flattened to grey. print-color-adjust: exact stops the browser dropping the
+// colour in its default economy mode, and scoping under .qld__body raises the
+// specificity above the global body print reset (which otherwise forces every
+// border to neutral grey).
 @media print {
-  .qld__page-alerts {
-    border-color: #000 !important;
-    background-color: #fff !important;
-    border-left: 2px solid #000 !important;
-    padding-top: 3em !important;
+  .qld__body .qld__page-alerts {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    background-color: $QLD-color-neutral--white !important;
+    border-color: $QLD-color-status__info !important;
   }
 
-  .qld__page-alerts__icon {
-    display: none;
+  .qld__body .qld__page-alerts--success {
+    border-color: $QLD-color-status__success !important;
+  }
+
+  .qld__body .qld__page-alerts--warning {
+    border-color: $QLD-color-status__caution !important;
+  }
+
+  .qld__body .qld__page-alerts--error {
+    border-color: $QLD-color-status__error !important;
+  }
+
+  // Keep the status icon its designed colour (white on the coloured left border;
+  // black for the yellow warning border). The global body reset sets color on
+  // EVERY element (.qld__body *), including the icon's <use>/<path> descendants,
+  // so currentColor resolves to grey. Restore colour (and fill) on the icon AND
+  // its descendants at higher specificity.
+  .qld__body .qld__page-alerts .qld__icon,
+  .qld__body .qld__page-alerts .qld__icon * {
+    color: $QLD-color-neutral--white !important;
+    fill: $QLD-color-neutral--white !important;
+  }
+
+  .qld__body .qld__page-alerts--warning .qld__icon,
+  .qld__body .qld__page-alerts--warning .qld__icon * {
+    color: $QLD-color-neutral--black !important;
+    fill: $QLD-color-neutral--black !important;
   }
 }

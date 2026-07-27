@@ -1,4 +1,4 @@
-import { storyParams } from "../../../.storybook/globals";
+import { printParams, storyParams } from "../../../.storybook/globals";
 
 function renderTextInput({
   label,
@@ -170,4 +170,12 @@ export const Disabled = {
     disabled: true,
     placeholder: "",
   },
+};
+/**
+ * Print rendering of a disabled input. The disabled colour previously came from
+ * a themed custom property, which resolved wrongly under a dark theme in print.
+ */
+export const Print = {
+  args: { disabled: true, placeholder: "" },
+  parameters: printParams("the print input border and disabled-state greys"),
 };
