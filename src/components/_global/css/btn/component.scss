@@ -26,6 +26,10 @@
       var(--QLD-color-light__action--primary);
     text-align: center;
     @include QLD-space(min-width, 8.75unit);
+    // Don't inherit the line-height of the surrounding context (a <p> is 1.75,
+    // which pushes the button to 54px), so buttons are the same height wherever
+    // they sit.
+    line-height: 1.5; // $QLD-lineheight-map "default"
     // Match the 52px height of text inputs. Icon-only variants
     // (--close, --toggle in the overflow menu, admin row actions)
     // reset this alongside their explicit height.
