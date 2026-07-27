@@ -191,6 +191,12 @@ export const AllPositions = {
   name: "All image positions",
   args: { alt: "Test sheet of nine labelled zones" },
   render: (args) => {
+    const reference = (src) =>
+      `<figure style="max-width: 300px;">
+    <img loading="lazy" src="${src}" alt="${args.alt}" />
+    <figcaption>Uncropped source</figcaption>
+  </figure>`;
+
     const grid = (src, ratio) =>
       `<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px;">
     ${imagePositions
@@ -209,8 +215,10 @@ export const AllPositions = {
   </div>`;
 
     return `<h3>Landscape image, tall crop — slides left and right</h3>
+  ${reference(imagePositionDemoImage)}
   ${grid(imagePositionDemoImage, "2x3")}
   <h3 class="qld__margin-t-component">Portrait image, wide crop — slides up and down</h3>
+  ${reference(imagePositionDemoImagePortrait)}
   ${grid(imagePositionDemoImagePortrait, "16x9")}`;
   },
 };
