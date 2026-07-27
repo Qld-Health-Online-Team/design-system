@@ -26,6 +26,10 @@
       var(--QLD-color-light__action--primary);
     text-align: center;
     @include QLD-space(min-width, 8.75unit);
+    // Match the 52px height of text inputs. Icon-only variants
+    // (--close, --toggle in the overflow menu, admin row actions)
+    // reset this alongside their explicit height.
+    @include QLD-space(min-height, 3.25unit);
 
     display: inline-flex;
     flex-direction: row;
@@ -579,6 +583,7 @@ a.qld__btn.qld__btn--close:visited {
   height: 2rem;
   width: 2rem;
   min-width: auto;
+  min-height: auto;
   background-color: $QLD-color-neutral--lightest;
   border-color: $QLD-color-neutral--lightest;
   position: relative;
