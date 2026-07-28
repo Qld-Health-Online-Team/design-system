@@ -261,15 +261,31 @@ export const TranscriptToggle = {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     const button = canvasElement.querySelector(".qld__accordion__title");
+
+    // The label sync rewrites textContent on each toggle. Assert the icons
+    // sitting alongside the text survive it — writing to their wrapper
+    // instead of the text span would silently remove them.
+    const expectIconsIntact = async () => {
+      await expect(
+        button.querySelector("use[href$='#transcript']"),
+      ).toBeInTheDocument();
+      await expect(
+        button.querySelector("use[href$='#chevron-up']"),
+      ).toBeInTheDocument();
+    };
+
     await expect(button).toHaveTextContent("Show transcript");
     await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expectIconsIntact();
 
     await userEvent.click(button);
     await expect(button).toHaveTextContent("Hide transcript");
     await expect(button).toHaveAttribute("aria-expanded", "true");
+    await expectIconsIntact();
 
     await userEvent.click(button);
     await expect(button).toHaveTextContent("Show transcript");
     await expect(button).toHaveAttribute("aria-expanded", "false");
+    await expectIconsIntact();
   },
 };

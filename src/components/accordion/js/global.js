@@ -82,7 +82,11 @@ function setToggleAllState(toggleAllBtn, isOpen) {
   toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--open", isOpen);
   toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--closed", !isOpen);
   setExpanded(toggleAllBtn, isOpen);
-  toggleAllBtn.textContent = isOpen ? "Close all" : "Open all";
+
+  // Only update the label so the inline chevron svg is preserved; fall back
+  // to the whole button for legacy markup without the <span> wrapper
+  const labelEl = toggleAllBtn.querySelector("span") ?? toggleAllBtn;
+  labelEl.textContent = isOpen ? "Close all" : "Open all";
 }
 
 /**
@@ -182,12 +186,3 @@ export function Open(elements, speed, root = document, callbacks) {
 export function Close(elements, speed, root = document, callbacks) {
   collapsible.close(elements, speed, root, callbacks);
 }
-
-// Make accordion public for backwards compatibility (window.QLD.accordion.*)
-const accordion = { Toggle, ToggleAll, Open, Close, initAccordion };
-window.QLD = window.QLD || {};
-window.QLD.accordion = accordion;
-
-// Note: accordion groups are initialised via initAccordion() from component-loader.js.
-
-export { accordion };

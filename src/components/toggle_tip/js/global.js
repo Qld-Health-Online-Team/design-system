@@ -129,9 +129,3 @@ function wireDocument(root, closeAll, getLastOpened, signal) {
     { signal },
   );
 }
-
-// Back-compat: expose on window.QLD for any legacy callers (QLD.toggleTip.init()).
-// Initialisation in the app is driven by component-loader.js; new code should
-// import initToggleTip directly.
-window.QLD = window.QLD || {};
-window.QLD.toggleTip = { init: () => initToggleTip(document), initToggleTip };

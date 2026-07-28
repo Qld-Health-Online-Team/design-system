@@ -22,22 +22,6 @@ module.exports = (env) => {
             "import-glob-loader",
           ],
         },
-        {
-          // Handlebars
-          test: /\.hbs$/,
-          use: [
-            {
-              loader: "handlebars-loader",
-              options: {
-                helperDirs: path.resolve(
-                  __dirname,
-                  "../src/helpers/Handlebars",
-                ),
-              },
-            },
-          ],
-          enforce: "post",
-        },
       ],
     },
     plugins: [

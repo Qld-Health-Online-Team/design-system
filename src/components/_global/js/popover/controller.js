@@ -152,10 +152,10 @@ export function createPopoverController({ componentName, marginFromTrigger }) {
   return { init };
 }
 
-// Back-compat: the old shared helper was exposed as window.QLD.toggleToolTips.
-// Preserve that surface for any external (non-bundled) callers.
-window.QLD = window.QLD || {};
-window.QLD.toggleToolTips = {
+// Back-compat surface: the old shared helper was exposed as
+// window.QLD.toggleToolTips. Exported here and registered in
+// ../legacyGlobal.js for any external (non-bundled) callers.
+export const toggleToolTips = {
   openToggleToolTip: show,
   closeToggleToolTip: hide,
   closeAllToggleToolTips(componentName, triggers) {

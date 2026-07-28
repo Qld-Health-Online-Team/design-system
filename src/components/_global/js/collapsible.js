@@ -12,7 +12,7 @@
  * arrow keys, etc.) belong to the consuming component, not here.
  */
 
-import "./animate/global";
+import * as animate from "./animate/global.js";
 import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
 
 /**
@@ -120,7 +120,7 @@ export function open(elements, speed, root = document, callbacks = {}) {
       element.getAttribute("aria-controls"),
     );
 
-    window.QLD.animate.Run({
+    animate.Run({
       element: target,
       property: "height",
       endSize: "auto",
@@ -157,7 +157,7 @@ export function close(elements, speed, root = document, callbacks = {}) {
       element.getAttribute("aria-controls"),
     );
 
-    window.QLD.animate.Run({
+    animate.Run({
       element: target,
       property: "height",
       endSize: 0,
