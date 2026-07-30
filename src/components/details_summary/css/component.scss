@@ -1,0 +1,212 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Details / Summary
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// The chevron is 1em, so it scales with the summary text. The content is
+// indented past it — text padding + icon + gap — so it lines up with the
+// summary text, which means the indent has to be recalculated per size. The
+// size loop at the bottom of the block does both from one fontgrid key.
+$QLD-details__icon-gap: 0.25unit; // 4px
+$QLD-details__text-padding: 0.25unit; // 4px
+$QLD-details__line-height: 1.25em; // the "heading" line-height key, in ems
+
+// The fixed part of the indent, in px: the text padding plus the icon gap
+$QLD-details__gutter: 8;
+
+// Component size modifier => fontgrid key
+$QLD-details__sizes: (
+  "sm": xs,
+  "md": sm,
+  "lg": md,
+  "xl": lg,
+);
+
+.qld__details {
+  display: block;
+
+  // Add spacing if there is an element before it
+  * + & {
+    @include QLD-space(margin-top, 1unit);
+  }
+
+  // The row is a 44px touch target; the visible hover / focus treatment sits on
+  // the text element inside it, which hugs the text.
+  &__summary {
+    display: flex;
+    align-items: center;
+
+    @include QLD-space("gap", $QLD-details__icon-gap);
+    @include QLD-space(min-height, 2.75unit);
+
+    color: var(--QLD-color-light__link);
+    font-weight: $QLD-font-weight-regular;
+    cursor: pointer;
+    user-select: none;
+
+    // Hide the native disclosure triangle in favour of the chevron below
+    list-style: none;
+
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+    }
+
+    // The focus ring is drawn on the text element instead
+    &:focus {
+      outline: none;
+    }
+
+    &:hover .qld__details__summary-text {
+      background-color: $QLD-color-neutral--lightest;
+
+      .qld__details__icon {
+        color: var(--QLD-color-light__action--secondary-hover);
+        fill: var(--QLD-color-light__action--secondary-hover);
+      }
+    }
+
+    &:focus .qld__details__summary-text {
+      @include QLD-outline();
+    }
+  }
+
+  &__summary-text {
+    display: inline-flex;
+    width: 100%;
+
+    @include QLD-space("gap", $QLD-details__icon-gap);
+    @include QLD-space(padding, $QLD-details__text-padding);
+    @include QLD-fontgrid(sm, heading);
+
+    border-radius: $QLD-border-radius-xs;
+
+    // Chevron indicator — points right when closed, down when open. Coloured
+    // here rather than by .qld__icon, which paints icons the heading colour.
+    .qld__details__icon {
+      flex-shrink: 0;
+
+      // .qld__icon is 1em square and takes its size from a --xs/--sm/… class.
+      // Inheriting the summary's font size instead scales the chevron with the
+      // text, so no size class is set on the icon in the template.
+      font-size: inherit;
+
+      // Sit on the first line rather than centring on the whole text block, so
+      // the chevron stays put when the summary wraps
+      align-self: flex-start;
+      margin-top: calc((#{$QLD-details__line-height} - 1em) / 2);
+      color: var(--QLD-color-light__action--secondary);
+      fill: var(--QLD-color-light__action--secondary);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  &[open] > &__summary .qld__details__icon {
+    transform: rotate(90deg);
+  }
+
+  &__content {
+    // The default size — kept in step with the "md" entry of the size loop below
+    @include QLD-space(
+      padding-left,
+      calc((map-get($QLD-fontsize-map, sm) + $QLD-details__gutter) / $QLD-rem) *
+        1unit
+    );
+    @include QLD-space(padding-bottom, 0.75unit);
+    @include QLD-fontgrid(xs, default);
+
+    color: var(--QLD-color-light__text);
+
+    // The content is authored in a WYSIWYG, so the trailing margin can only be
+    // reached through the element selector
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Size variants. The chevron is 1em so it follows the summary text on its
+  // own; the content indent has to be recalculated from the same font size to
+  // keep the content aligned with the text.
+  @each $modifier, $fontsize-key in $QLD-details__sizes {
+    $indent: calc(
+        (map-get($QLD-fontsize-map, $fontsize-key) + $QLD-details__gutter) /
+          $QLD-rem
+      ) *
+      1unit;
+
+    &--#{$modifier} {
+      .qld__details__summary-text {
+        @include QLD-fontgrid($fontsize-key, heading);
+      }
+
+      .qld__details__content {
+        @include QLD-space(padding-left, $indent);
+      }
+    }
+  }
+}
+
+// Alternate and light themes — only the hover shade changes
+.qld__body--alt .qld__details__summary:hover .qld__details__summary-text {
+  background-color: var(--QLD-color-light__background--alt-shade);
+}
+
+.qld__body--light .qld__details__summary:hover .qld__details__summary-text {
+  background-color: var(--QLD-color-light__background--shade);
+}
+
+// Dark themes
+.qld__body--dark,
+.qld__body--dark-alt {
+  .qld__details__summary {
+    color: var(--QLD-color-dark__link);
+
+    &:hover .qld__details__summary-text .qld__details__icon {
+      color: var(--QLD-color-dark__action--secondary-hover);
+      fill: var(--QLD-color-dark__action--secondary-hover);
+    }
+
+    &:focus .qld__details__summary-text {
+      @include QLD-outline("dark");
+    }
+
+    // Specific enough to beat `.qld__body.qld__body--dark .qld__icon` in the
+    // global icons partial, which would otherwise repaint this heading-coloured
+    .qld__details__summary-text .qld__details__icon {
+      color: var(--QLD-color-dark__action--secondary);
+      fill: var(--QLD-color-dark__action--secondary);
+    }
+  }
+
+  .qld__details__content {
+    color: var(--QLD-color-dark__text);
+  }
+}
+
+.qld__body--dark .qld__details__summary:hover .qld__details__summary-text {
+  background-color: var(--QLD-color-dark__background--shade);
+}
+
+.qld__body--dark-alt .qld__details__summary:hover .qld__details__summary-text {
+  background-color: var(--QLD-color-dark__background--alt-shade);
+}
+
+@media print {
+  .qld__details {
+    color: #000 !important;
+
+    &__summary-text {
+      background: none !important;
+      color: #000 !important;
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    // Print the content whether or not the disclosure is open
+    &__content {
+      display: block !important;
+      color: #000 !important;
+    }
+  }
+}
