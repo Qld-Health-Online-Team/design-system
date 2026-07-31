@@ -1,6 +1,6 @@
 // Legacy global namespace (registers all window.QLD.* and self-inits standalone
 // components) — must load before any init runs
-import "./components/_global/js/legacyGlobal.js";
+import "./legacy/qld-namespace.js";
 
 // Standard components
 import initAZListing from "./components/a-z_listing/js/global.js";
