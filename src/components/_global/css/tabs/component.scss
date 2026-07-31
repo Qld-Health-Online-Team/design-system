@@ -37,3 +37,19 @@
     }
   }
 }
+
+@media print {
+  // The tab strip and its selected-tab marker are more specific than the global
+  // `.qld__body *` border reset, so the accent blue would otherwise survive into
+  // print.
+  .qld__content-tabs {
+    border-bottom-color: $QLD-color-print__border--muted !important;
+
+    .qld__tab[aria-selected="true"] {
+      // Neutral, and lighter than the 8px used on screen — at that weight a solid
+      // grey bar under every selected tab dominates the page in greyscale. The
+      // bold label already carries the "this one is open" signal.
+      border-bottom: $QLD-border-width-thick solid $QLD-color-print__border !important;
+    }
+  }
+}

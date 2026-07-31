@@ -286,6 +286,10 @@ li + li .qld__accordion {
     background: $QLD-color-print__background !important;
     color: $QLD-color-print__text !important;
     border: 1px !important;
+    // The dark themes give the title a themed underline via QLD-underline, which
+    // is its own property and survives the colour reset — it would print as a
+    // blue rule under grey text.
+    text-decoration-color: $QLD-color-print__border--muted !important;
 
     .qld__accordion__icon {
       display: none;
