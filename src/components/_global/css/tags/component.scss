@@ -384,8 +384,17 @@ a.qld__tag,
 
 // Print styles
 @media print {
+  // A tag is a label first — it classifies the content and is worth printing. The
+  // link behind it only leads to a filtered listing, which is a screen affordance,
+  // so the destination is dropped and the tag prints as the plain label it reads
+  // as on screen.
   .qld__tag {
     color: $QLD-color-print__text !important;
     border-color: $QLD-color-print__border !important;
+    text-decoration: none !important;
+
+    &:after {
+      content: "" !important;
+    }
   }
 }
