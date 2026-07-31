@@ -620,4 +620,12 @@
   .qld__header__pre-header {
     display: none;
   }
+
+  // The logo and site title share one wrapping anchor back to the home page. The
+  // global print rule appends the href after any link, which prints a URL beside
+  // the masthead. Suppress it here rather than relying on the home page link
+  // being relative — a site can configure `siteLogoUrl` as an absolute URL.
+  .qld__header__brand a:after {
+    content: "" !important;
+  }
 }
