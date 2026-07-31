@@ -185,14 +185,12 @@ export const Thematic = {
 };
 
 /**
- * Print rendering of all three rules a page can contain. Only the decorative one
- * (`aria-hidden="true"`) should disappear — it divides the page visually and says
- * nothing on paper. The other two mark real content breaks and must print.
+ * Print rendering of every kind of rule a page can contain: decorative, thematic,
+ * and the bare `<hr>` a rich-text field emits. None of them print — on paper the
+ * heading and the surrounding whitespace already divide the content.
  *
- * The bare `<hr>` is the case that matters most: a content editor typing a rule
- * into a rich-text field gets no class and no `aria-hidden`, and every rule draws
- * its line as a `background-color` over `border: none`, which print drops. So the
- * two surviving rules appearing *at all* is what this guards.
+ * The snapshot should show three paragraphs closed up against each other with no
+ * rules and no gaps between them.
  */
 export const Print = {
   argTypes: allVariantsArgTypes,
@@ -205,6 +203,6 @@ export const Print = {
         <hr>
         <p class="qld__body">Below all three.</p>`,
   parameters: printParams(
-    "that decorative rules are dropped while thematic and bare authored rules still print a visible line",
+    "that no horizontal rule prints, including the bare <hr> a rich-text field emits",
   ),
 };

@@ -82,25 +82,17 @@ hr.qld__horizontal-rule[aria-hidden="true"] {
 
 @media print {
   /*
-   * A rule marked aria-hidden is decorative — it divides the page visually but
-   * says nothing a reader needs on paper. The standalone horizontal rule
-   * component always renders one, so in practice only rules authored inside rich
-   * text, which carry meaning as a section break, print.
+   * A horizontal rule is a visual divider. On paper the page break, the heading
+   * and the surrounding whitespace already do that work, so no rule prints —
+   * decorative or thematic, component or authored.
+   *
+   * The bare `hr` is here because a rule typed into a rich-text field arrives
+   * with no class at all. Without it the rule would still not be *drawn* (the
+   * line is a background-color, which print drops), but it would keep its height
+   * and margins and leave an unexplained gap in the text.
    */
-  .qld__horizontal-rule[aria-hidden="true"],
-  hr.qld__horizontal-rule[aria-hidden="true"] {
+  hr,
+  .qld__horizontal-rule {
     display: none !important;
-  }
-
-  /*
-   * The remaining rules draw their line as a background-color on a zero-border
-   * element. The body print reset clears background-color, and browsers drop
-   * backgrounds by default regardless, so redraw the line as a border — borders
-   * always print as ink.
-   */
-  .qld__horizontal-rule,
-  hr.qld__horizontal-rule {
-    height: 0 !important;
-    border-top: $QLD-border-width-thin solid $QLD-color-print__border--muted !important;
   }
 }
