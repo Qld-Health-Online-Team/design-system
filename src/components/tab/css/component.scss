@@ -1117,3 +1117,15 @@
     }
   }
 }
+
+@media print {
+  // The selected tab is marked by a 4px accent bar drawn as the background of a
+  // pseudo-element. The global body print reset clears backgrounds via `*`, which
+  // does not match pseudo-elements, so the accent colour survived as a solid
+  // coloured bar under the open tab. Drop the bar: the active tab's bold label
+  // and its surrounding border already identify it without spending toner.
+  .qld__tab-button::after {
+    display: none !important;
+    background-color: transparent !important;
+  }
+}
