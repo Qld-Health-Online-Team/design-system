@@ -82,13 +82,15 @@ export const Tertiary = {
   args: { variant: "tertiary" },
 };
 /**
- * Print rendering of the full button row, which includes a disabled button —
- * print swaps both the default and disabled buttons to fixed greys.
+ * Print rendering of the full button row. The row deliberately mixes the two
+ * things wearing `.qld__btn`: the leading `<a>`, which names a destination and
+ * survives, and four `<button>`s, which only do something when clicked and are
+ * dropped. Only the link should remain in the snapshot.
  */
 export const Print = {
   decorators: [rowDecorator],
   render: renderButtonList,
   parameters: printParams(
-    "the print button borders and the disabled-state greys",
+    "that interactive <button>s are dropped while a button-styled link prints, and the link's print border",
   ),
 };
