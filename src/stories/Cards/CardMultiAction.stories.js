@@ -6,6 +6,7 @@ import {
 } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
 import { expect } from "storybook/test";
+import { withPrintMedia } from "../../../.storybook/helper-functions";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import initCards from "../../components/card_no_action/js/global";
@@ -14,7 +15,18 @@ const mockSite = {
   metadata: { coreSiteIcons: { value: iconSpritePath } },
 };
 
-function makeChild(id, name, description = "", icon = "eda", ctas = []) {
+// `url` is the card title's destination. It defaults to an in-page anchor, which
+// is what most stories want — but note that print only appends a link's URL for
+// schemes a reader can act on, so a card needs a real absolute URL before any of
+// the print rules around the appended href do anything at all.
+function makeChild(
+  id,
+  name,
+  description = "",
+  icon = "eda",
+  ctas = [],
+  url = "#",
+) {
   return {
     assetid: String(id),
     type_code: "page_standard",
@@ -23,7 +35,7 @@ function makeChild(id, name, description = "", icon = "eda", ctas = []) {
     metadata: {
       shortDescription: { value: description },
       cardIcon: { value: icon },
-      redirect_url: { value: "#" },
+      redirect_url: { value: url },
       cardDisplayFooter: { value: ctas.length ? "true" : "false" },
       cardCta1Url: { value: ctas[0]?.url ?? "" },
       cardCta1Text: { value: ctas[0]?.text ?? "" },
@@ -106,6 +118,38 @@ const sampleChildrenFa = [
     "Brief description of this card and what it links to.",
     "fal fa-hospital",
     twoCtasFa,
+  ),
+];
+
+// Absolute destinations, which is the only kind print appends to the link text.
+// The third is a real Matrix asset URL: long, and its filename is one unbroken
+// token. That matters — a URL with hyphens has break opportunities the browser
+// takes on its own, so it would wrap with or without the card's print rules and
+// prove nothing. This one overflows the card by ~550px without them.
+const sampleChildrenAbsolute = [
+  makeChild(
+    1,
+    "Short link",
+    "Brief description of this card and what it links to.",
+    "monitoring",
+    twoCtas,
+    "https://www.qld.gov.au/health",
+  ),
+  makeChild(
+    2,
+    "Email link",
+    "Brief description of this card and what it links to.",
+    "pediatrics",
+    twoCtas,
+    "mailto:enquiries@health.qld.gov.au",
+  ),
+  makeChild(
+    3,
+    "Long link",
+    "Brief description of this card and what it links to.",
+    "eda",
+    twoCtas,
+    "https://www.health.qld.gov.au/__data/assets/pdf_file/0026/1156463/outpatientreferralguidelines.pdf",
   ),
 ];
 
@@ -352,10 +396,66 @@ export const ThreeFooterLinksFa = {
   },
 };
 
+/**
+ * Print rendering of cards whose titles link somewhere absolute — the only case
+ * where print appends the destination after the link text, and so the only case
+ * that exercises any of the card's print rules.
+ *
+ * Three things have to hold at once, and each was separately broken:
+ *
+ * 1. The appended URL flows inline after the title. Clickable cards stretch the
+ *    title link's `::after` across the whole card as a hit area, and print reuses
+ *    that same pseudo-element for the URL — so without a reset it renders as an
+ *    overlay rather than as text.
+ * 2. The card stops clipping. `.qld__card` sets `overflow: hidden` so the image
+ *    can bleed to the rounded corners, which swallowed the appended URL whole.
+ * 3. The URL wraps. It has no spaces to break at, so without a break rule it
+ *    pushes past the card's edge. That one is handled on screen already by
+ *    `.qld__card__content { word-break: break-word }` — asserted here because
+ *    print is where losing it would do visible damage, and nothing else says
+ *    that rule is load-bearing for print.
+ */
 export const Print = {
+  args: { children: sampleChildrenAbsolute },
   parameters: printParams(
-    "the clickable card header link's appended href sitting inline with the heading instead of as a stretched hit-area",
+    "the appended href flowing inline after the card title, unclipped and wrapped rather than overflowing the card",
   ),
+  play: async ({ canvasElement }) => {
+    const card = canvasElement.querySelector(".qld__card");
+    const link = canvasElement.querySelector(".qld__card--clickable__link");
+    await expect(card).toBeTruthy();
+    await expect(link).toBeTruthy();
+
+    // The long URL is the one worth measuring — a short one fits either way and
+    // would pass even with the wrapping rule removed.
+    const longCard = [...canvasElement.querySelectorAll(".qld__card")].find(
+      (el) => el.textContent.includes("Long link"),
+    );
+    await expect(longCard).toBeTruthy();
+    const longLink = longCard.querySelector(".qld__card--clickable__link");
+
+    withPrintMedia(() => {
+      const appended = getComputedStyle(link, "::after");
+
+      // 1. Inline text, not the stretched hit-area overlay.
+      expect(appended.content).toContain("https://www.qld.gov.au/health");
+      expect(appended.position).toBe("static");
+
+      // 2. Nothing clipped away by the card.
+      expect(getComputedStyle(card).overflow).toBe("visible");
+
+      // 3. Wrapped, not overflowing. The link is inline, so its line boxes are
+      //    what show this — not scrollWidth. The title block has `overflow:
+      //    visible` and is not a scroll container, so overflowing inline content
+      //    never registers there and a scrollWidth check passes while broken.
+      const rightmostLine = Math.max(
+        ...[...longLink.getClientRects()].map((rect) => rect.right),
+      );
+      expect(rightmostLine).toBeLessThanOrEqual(
+        longCard.getBoundingClientRect().right,
+      );
+    });
+  },
 };
 
 /**

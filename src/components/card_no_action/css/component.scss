@@ -714,16 +714,6 @@
     break-inside: avoid !important;
   }
 
-  // A URL has no spaces to break at, so without this it sets as one long word and
-  // pushes the card wider than its column.
-  .qld__card__title,
-  .qld__card--clickable__link {
-    // `anywhere` rather than `break-word` so the break also counts against the
-    // card's intrinsic minimum width — otherwise the card still grows to fit the
-    // unbroken URL even though the text inside it wraps.
-    overflow-wrap: anywhere !important;
-  }
-
   // Card thumbnails are CSS backgrounds on a div, so their alt text arrives as
   // `role="img"` + `aria-label` rather than an `alt` attribute — the
   // getThumbnailAlt helper emits neither when the asset has no alt text. No alt
