@@ -1031,18 +1031,23 @@ form {
     a,
     a:visited {
       text-decoration: underline;
+      // The themed underline colours set by QLD-underline are their own property
+      // and survive the `color` reset above, so a link would otherwise print a
+      // blue rule under grey text.
+      text-decoration-color: $QLD-color-print__border--muted !important;
     }
 
-    // Add the URL after the link on print
-    a[href]:after {
+    // Print the destination after the link, but only for schemes a reader can act
+    // on away from the screen. The URL is opted in rather than opted out because
+    // Matrix renders every in-site link relative (`./?a=123`) — a relative path is
+    // as useless on paper as an in-page anchor or a `javascript:` handler, and
+    // there is no selector for "has no scheme".
+    a[href^="http://"]:after,
+    a[href^="https://"]:after,
+    a[href^="mailto:"]:after,
+    a[href^="tel:"]:after {
       content: " (" attr(href) ")" !important;
       display: inline !important;
-    }
-
-    // Do not add the URL if it's a javascript or anchor
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-      content: "" !important;
     }
 
     // Add the abbreviation expanded on print
