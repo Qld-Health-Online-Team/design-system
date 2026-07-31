@@ -1,4 +1,4 @@
-import { themes, storyParams } from "../../../.storybook/globals";
+import { themes, storyParams, printParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 function renderHorizontalRule({ size, decorative }) {
@@ -182,4 +182,25 @@ export const Thematic = {
       ].join("")
     );
   },
+};
+
+/**
+ * Print rendering of both kinds of rule together. Only the thematic rule should
+ * appear: a decorative rule (`aria-hidden="true"`) divides the page visually and
+ * has nothing to say on paper, while a thematic one marks a real content break.
+ *
+ * The rules also draw their line as a `background-color`, which print drops — so
+ * the surviving rule appearing at all is the second thing this guards.
+ */
+export const Print = {
+  argTypes: allVariantsArgTypes,
+  render: () => `
+        <p class="qld__body">Above a decorative rule.</p>
+        ${renderHorizontalRule({ size: "lg", decorative: true })}
+        <p class="qld__body">Between the two rules.</p>
+        ${renderHorizontalRule({ size: "lg", decorative: false })}
+        <p class="qld__body">Below a thematic rule.</p>`,
+  parameters: printParams(
+    "that decorative rules are dropped and thematic rules still print a visible line",
+  ),
 };

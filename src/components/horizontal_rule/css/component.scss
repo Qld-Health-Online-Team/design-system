@@ -79,3 +79,28 @@ hr.qld__horizontal-rule[aria-hidden="true"] {
     background-color: var(--QLD-color-dark__border--alt);
   }
 }
+
+@media print {
+  /*
+   * A rule marked aria-hidden is decorative — it divides the page visually but
+   * says nothing a reader needs on paper. The standalone horizontal rule
+   * component always renders one, so in practice only rules authored inside rich
+   * text, which carry meaning as a section break, print.
+   */
+  .qld__horizontal-rule[aria-hidden="true"],
+  hr.qld__horizontal-rule[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  /*
+   * The remaining rules draw their line as a background-color on a zero-border
+   * element. The body print reset clears background-color, and browsers drop
+   * backgrounds by default regardless, so redraw the line as a border — borders
+   * always print as ink.
+   */
+  .qld__horizontal-rule,
+  hr.qld__horizontal-rule {
+    height: 0 !important;
+    border-top: $QLD-border-width-thin solid $QLD-color-print__border--muted !important;
+  }
+}
