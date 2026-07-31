@@ -1,6 +1,7 @@
 import Template from "../../components/details_summary/html/component.hbs";
 import {
   iconSpritePath,
+  printParams,
   storyParams,
   themes,
 } from "../../../.storybook/globals";
@@ -244,6 +245,21 @@ export const ChevronRotates = {
       ),
     );
   },
+};
+
+/**
+ * How the component prints: the content revealed even though the disclosure is
+ * closed, no chevron, and black text in place of the themed colours.
+ *
+ * Closed on purpose — paper can't be expanded, so anything left collapsed is
+ * lost to the reader, and a chevron beside revealed content would still be
+ * pointing "closed".
+ */
+export const PrintStyles = {
+  args: { open: false },
+  parameters: printParams(
+    "that a closed disclosure still prints its content, without the chevron",
+  ),
 };
 
 // The focused row needs its own instance — only one element in the document can
