@@ -1,6 +1,6 @@
 import { initComponents } from "../../../.storybook/decorators";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initAccordion } from "../../components/accordion/js/global";
 import initInternalNavigation from "../../components/internal_navigation/js/global";
 import initInPageNavigation from "../../components/in_page_navigation/js/global";

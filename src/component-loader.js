@@ -25,9 +25,9 @@ import { initMegaMenu } from "./components/mega_main_navigation/js/global";
 import { initGlobalAlert } from "./components/global_alert/js/global.js";
 
 // Global components
-import initCtaLinks from "./components/_global/js/cta_links/global.js";
-import initSelectBoxes from "./components/_global/js/select_boxes/global.js";
-import initModal from "./components/_global/js/modal/global.js";
+import initCtaLinks from "./components/cta_links/js/global.js";
+import initSelectBoxes from "./components/select_boxes/js/global.js";
+import initModal from "./components/modal/js/global.js";
 import initTabs from "./components/_global/js/tabs/global.js";
 
 // Adding ES module initialisation for components
