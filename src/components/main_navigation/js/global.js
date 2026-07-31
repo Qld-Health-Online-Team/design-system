@@ -4,7 +4,7 @@
  * @module mobileNav
  */
 import { setExpanded } from "../../../helpers/global-helpers.js";
-import * as animate from "../../_global/js/animate/global.js";
+import * as animate from "../../../utils/animate.js";
 import utils from "../../_global/js/global.js";
 
 var mobileNav = {};
