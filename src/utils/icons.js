@@ -95,3 +95,34 @@ export const loadMaterialIconSheet = () => {
     "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0";
   document.head.appendChild(link);
 };
+
+/**
+ * Repoint `<use href>` values at the right sprite sheet, depending on the icon
+ * source (core vs health). Icons named `extended_*` live in the Health sprite
+ * sheet; the prefix is stripped and the sheet swapped.
+ *
+ * @param {string} selector - Selector matching the "use" elements within the SVG icons
+ */
+export const updateSvgIconPath = (selector) => {
+  document.querySelectorAll(selector).forEach((icon) => {
+    const href = icon.getAttribute("href");
+    if (!href) return;
+
+    const splitArray = href.split("#");
+    let iconName = splitArray.pop();
+    const isHealthIcon = iconName.startsWith("extended_");
+
+    if (isHealthIcon) {
+      iconName = iconName.replace(/extended_/gi, "");
+    }
+
+    splitArray.push(iconName);
+    let updatedHref = splitArray.join("#");
+
+    if (isHealthIcon) {
+      updatedHref = updatedHref.replace("QLD-icons", "QLD-Health-icons");
+    }
+
+    icon.setAttribute("href", updatedHref);
+  });
+};
