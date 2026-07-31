@@ -9,7 +9,7 @@
  *  - Focusout (toggle button or submenu): close submenu unless focus stays within
  */
 
-import * as collapsible from "../../_global/js/collapsible.js";
+import * as collapsible from "../../../behaviours/collapsible.js";
 import * as aria from "../../../utils/aria.js";
 
 /** Selector matching all interactive elements that can receive focus. */

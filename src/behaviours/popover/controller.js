@@ -1,5 +1,5 @@
 /**
- * @module popover/controller
+ * @module behaviours/popover/controller
  *
  * Lifecycle layer shared by the toggle tip and tool tip. A popover is a content
  * box (with a carat) anchored to a trigger via a shared `data-target` id.
@@ -154,7 +154,8 @@ export function createPopoverController({ componentName, marginFromTrigger }) {
 
 // Back-compat surface: the old shared helper was exposed as
 // window.QLD.toggleToolTips. Exported here and registered in
-// ../legacyGlobal.js for any external (non-bundled) callers.
+// src/components/_global/js/legacyGlobal.js for any external (non-bundled)
+// callers.
 export const toggleToolTips = {
   openToggleToolTip: show,
   closeToggleToolTip: hide,

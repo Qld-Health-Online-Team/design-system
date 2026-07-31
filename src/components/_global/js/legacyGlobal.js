@@ -27,7 +27,7 @@
 import * as animate from "../../../utils/animate.js";
 import { tabs } from "./tabs/global.js";
 import { Modal } from "../../modal/js/global.js";
-import { toggleToolTips } from "./popover/controller.js";
+import { toggleToolTips } from "../../../behaviours/popover/controller.js";
 
 // Utils
 import * as cookies from "../../../utils/cookies.js";
