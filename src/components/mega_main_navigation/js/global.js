@@ -10,7 +10,7 @@
  */
 
 import * as collapsible from "../../_global/js/collapsible.js";
-import { isExpanded } from "../../../helpers/global-helpers.js";
+import * as aria from "../../../utils/aria.js";
 
 /** Selector matching all interactive elements that can receive focus. */
 const FOCUSABLE_SELECTOR =
@@ -171,7 +171,7 @@ function handleFocusOut(item) {
 }
 
 function isSubMenuOpen(toggleBtnEl) {
-  return isExpanded(toggleBtnEl);
+  return aria.isExpanded(toggleBtnEl);
 }
 
 function syncNavItemLinkClass(linkEl, isOpen) {

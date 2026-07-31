@@ -1,4 +1,4 @@
-import { loadMaterialIconSheet } from "../../../helpers/global-helpers.js";
+import * as icons from "../../../utils/icons.js";
 
 /**
  * @module bannerAdvanced
@@ -10,6 +10,6 @@ export default function initBannerAdvanced(document = document) {
   );
 
   if (shouldCallMaterialIconLoader.length > 0) {
-    loadMaterialIconSheet();
+    icons.loadMaterialIconSheet();
   }
 }

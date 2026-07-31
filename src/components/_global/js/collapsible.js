@@ -13,7 +13,7 @@
  */
 
 import * as animate from "../../../utils/animate.js";
-import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
+import * as aria from "../../../utils/aria.js";
 
 /**
  * Shared state-class contract. These class names are also referenced by the CSS
@@ -110,7 +110,7 @@ export function open(elements, speed, root = document, callbacks = {}) {
     target.style.display = "";
     toggleClasses(target, "opening");
     toggleClasses(element, "opening");
-    setExpanded(element, true);
+    aria.setExpanded(element, true);
 
     callbacks.onOpen?.();
     dispatchToggle(element, true);
@@ -147,7 +147,7 @@ export function close(elements, speed, root = document, callbacks = {}) {
     const target = getTarget(element, root);
 
     toggleClasses(element, "closing");
-    setExpanded(element, false);
+    aria.setExpanded(element, false);
 
     callbacks.onClose?.();
     dispatchToggle(element, false);
@@ -194,7 +194,7 @@ export function toggle(elements, speed, root = document, callbacks) {
       );
     }
 
-    if (isExpanded(element)) {
+    if (aria.isExpanded(element)) {
       close(element, speed, root, callbacks);
     } else {
       open(element, speed, root, callbacks);

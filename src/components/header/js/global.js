@@ -2,7 +2,7 @@
  * @module header
  */
 
-import { setExpanded } from "../../../helpers/global-helpers.js";
+import * as aria from "../../../utils/aria.js";
 
 // Search toggle button
 const searchToggle = document.querySelector(".qld__main-nav__toggle-search");
@@ -105,7 +105,7 @@ function toggleHeaderSearch() {
 
 function openHeader(requireFocusChange = true) {
   isHeaderOpen = true;
-  setExpanded(searchToggle, true);
+  aria.setExpanded(searchToggle, true);
   searchToggle.classList.remove("qld__main-nav__toggle-search--open");
   searchToggle.classList.add("qld__main-nav__toggle-search--close");
   searchToggleText.textContent = "Close";
@@ -150,7 +150,7 @@ function openHeader(requireFocusChange = true) {
 
 function closeHeader(requireFocusChange = true) {
   isHeaderOpen = false;
-  setExpanded(searchToggle, false);
+  aria.setExpanded(searchToggle, false);
   searchToggle.classList.remove("qld__main-nav__toggle-search--close");
   searchToggle.classList.add("qld__main-nav__toggle-search--open");
   searchToggleText.textContent = "Search";
