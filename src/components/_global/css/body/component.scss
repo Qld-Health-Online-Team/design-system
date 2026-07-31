@@ -1061,6 +1061,22 @@ form {
       page-break-inside: avoid;
     }
 
+    // A content editor typing a rule into a rich-text field gets a bare <hr> with
+    // no class and no aria-hidden — it is a thematic break they meant, so it has
+    // to print. The base rule above draws the line as a background-color over
+    // `border: none`, which this block clears and which browsers drop regardless,
+    // so an authored rule was printing as an invisible gap. Redraw it as a border.
+    hr {
+      height: 0 !important;
+      border-top: $QLD-border-width-thin solid $QLD-color-print__border--muted !important;
+    }
+
+    // A rule the author marked decorative divides the page visually and says
+    // nothing on paper.
+    hr[aria-hidden="true"] {
+      display: none !important;
+    }
+
     thead {
       display: table-header-group;
     }

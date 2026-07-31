@@ -185,22 +185,26 @@ export const Thematic = {
 };
 
 /**
- * Print rendering of both kinds of rule together. Only the thematic rule should
- * appear: a decorative rule (`aria-hidden="true"`) divides the page visually and
- * has nothing to say on paper, while a thematic one marks a real content break.
+ * Print rendering of all three rules a page can contain. Only the decorative one
+ * (`aria-hidden="true"`) should disappear — it divides the page visually and says
+ * nothing on paper. The other two mark real content breaks and must print.
  *
- * The rules also draw their line as a `background-color`, which print drops — so
- * the surviving rule appearing at all is the second thing this guards.
+ * The bare `<hr>` is the case that matters most: a content editor typing a rule
+ * into a rich-text field gets no class and no `aria-hidden`, and every rule draws
+ * its line as a `background-color` over `border: none`, which print drops. So the
+ * two surviving rules appearing *at all* is what this guards.
  */
 export const Print = {
   argTypes: allVariantsArgTypes,
   render: () => `
         <p class="qld__body">Above a decorative rule.</p>
         ${renderHorizontalRule({ size: "lg", decorative: true })}
-        <p class="qld__body">Between the two rules.</p>
+        <p class="qld__body">Above a thematic rule.</p>
         ${renderHorizontalRule({ size: "lg", decorative: false })}
-        <p class="qld__body">Below a thematic rule.</p>`,
+        <p class="qld__body">Above an authored rule, as a WYSIWYG field emits it.</p>
+        <hr>
+        <p class="qld__body">Below all three.</p>`,
   parameters: printParams(
-    "that decorative rules are dropped and thematic rules still print a visible line",
+    "that decorative rules are dropped while thematic and bare authored rules still print a visible line",
   ),
 };
