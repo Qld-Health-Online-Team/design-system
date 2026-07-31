@@ -625,7 +625,12 @@
   // global print rule appends the href after any link, which prints a URL beside
   // the masthead. Suppress it here rather than relying on the home page link
   // being relative — a site can configure `siteLogoUrl` as an absolute URL.
-  .qld__header__brand a:after {
+  //
+  // The `[href]` is load-bearing, not decoration: the global rule it has to beat
+  // is `.qld__body a[href^="https://"]::after`, and both declarations are
+  // !important. Without the attribute selector this weighs one component less and
+  // silently loses, leaving the URL on the page.
+  .qld__header__brand a[href]:after {
     content: "" !important;
   }
 }

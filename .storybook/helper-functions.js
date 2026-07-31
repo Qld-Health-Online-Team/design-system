@@ -58,3 +58,49 @@ export const formatHtmlSource = (html) => {
     })
     .join("\n");
 };
+
+/**
+ * Runs `fn` with every `@media print` block in the document temporarily applied
+ * as if it were `screen`, so a play function can assert what print actually
+ * renders. Restores the media queries afterwards, including on throw.
+ *
+ * This exists because print rules are invisible to an ordinary story, and the
+ * failure mode worth guarding is silent: a print rule that loses the cascade to
+ * a more specific global rule still *exists* in the stylesheet, so inspecting
+ * the CSSOM proves nothing. Only resolved styles tell you which one won.
+ *
+ * Cross-origin stylesheets throw on `cssRules` access and are skipped.
+ */
+export const withPrintMedia = (fn) => {
+  const flipped = [];
+
+  const walk = (list) => {
+    for (const rule of list) {
+      if (!rule.media) continue;
+      if ((rule.conditionText || rule.media.mediaText) === "print") {
+        flipped.push(rule);
+        rule.media.mediaText = "screen";
+      } else {
+        walk(rule.cssRules);
+      }
+    }
+  };
+
+  for (const sheet of document.styleSheets) {
+    let rules;
+    try {
+      rules = sheet.cssRules;
+    } catch {
+      continue;
+    }
+    walk(rules);
+  }
+
+  try {
+    return fn();
+  } finally {
+    flipped.forEach((rule) => {
+      rule.media.mediaText = "print";
+    });
+  }
+};
