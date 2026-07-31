@@ -70,8 +70,15 @@ export const formatHtmlSource = (html) => {
  * the CSSOM proves nothing. Only resolved styles tell you which one won.
  *
  * Cross-origin stylesheets throw on `cssRules` access and are skipped.
+ *
+ * When print media is already active — Chromatic captures `printParams()`
+ * stories with it emulated — the rules apply natively and `fn` runs untouched.
+ * Flipping them to `screen` there would match nothing and silently assert the
+ * screen rendering instead.
  */
 export const withPrintMedia = (fn) => {
+  if (window.matchMedia("print").matches) return fn();
+
   const flipped = [];
 
   const walk = (list) => {
