@@ -5,6 +5,7 @@ import {
   printParams,
 } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
+import { expect } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
 import initCtaLinks from "../../components/_global/js/cta_links/global";
 import initCards from "../../components/card_no_action/js/global";
@@ -136,7 +137,9 @@ function buildData(args) {
       },
       children: args.children,
       childrenThumbnails: args.children.map(() => ({
-        asset_thumbnail_alt: "",
+        // Empty means decorative: the getThumbnailAlt helper emits nothing, so
+        // the image div carries no role/aria-label. Print keys off exactly this.
+        asset_thumbnail_alt: args.thumbnailAlt ?? "",
       })),
     },
     site: mockSite,
@@ -247,9 +250,15 @@ const meta = {
       description: "Show a 'View all' link below the cards.",
       control: { type: "boolean" },
     },
+    thumbnailAlt: {
+      description:
+        "Alt text for each card thumbnail (image card type). Empty means the image is decorative, which drops it from print.",
+      control: { type: "text" },
+    },
   },
   args: {
     cardType: "text",
+    thumbnailAlt: "",
     colWidth: "col-md-6 col-lg-4",
     showArrow: true,
     cardBackground: "",
@@ -347,4 +356,58 @@ export const Print = {
   parameters: printParams(
     "the clickable card header link's appended href sitting inline with the heading instead of as a stretched hit-area",
   ),
+};
+
+/**
+ * Print rendering of image cards whose thumbnails have no alt text. A card
+ * thumbnail is a CSS background on a div, so its alt text arrives as
+ * `role="img"` + `aria-label`; the helper emits neither when the asset has no alt
+ * text. No alt text means decorative, and a decorative thumbnail is not worth the
+ * toner — the cards should print as text only.
+ */
+export const PrintDecorativeImages = {
+  args: { cardType: "image", thumbnailAlt: "" },
+  parameters: printParams(
+    "that card thumbnails without alt text are dropped from print",
+  ),
+  // The print rule selects on `:not([role="img"])`, so it is only correct while
+  // the helper leaves the attribute off for an asset with no alt text. If that
+  // ever changes, meaningful images start disappearing from print silently —
+  // assert the hook rather than trusting it.
+  play: async ({ canvasElement }) => {
+    const images = canvasElement.querySelectorAll(
+      ".qld__responsive-media-img--bg",
+    );
+    await expect(images.length).toBeGreaterThan(0);
+    images.forEach((image) => {
+      expect(image).not.toHaveAttribute("role");
+    });
+  },
+};
+
+/**
+ * The other half of the pair: the same image cards with alt text on every
+ * thumbnail. Alt text means the image is carrying meaning, so it has to survive
+ * both the decorative-image rule and the browser's default of dropping
+ * background images.
+ */
+export const PrintImagesWithAltText = {
+  args: {
+    cardType: "image",
+    thumbnailAlt: "Aerial view of Toowoomba at dusk",
+  },
+  parameters: printParams("that card thumbnails with alt text still print"),
+  play: async ({ canvasElement }) => {
+    const images = canvasElement.querySelectorAll(
+      ".qld__responsive-media-img--bg",
+    );
+    await expect(images.length).toBeGreaterThan(0);
+    images.forEach((image) => {
+      expect(image).toHaveAttribute("role", "img");
+      expect(image).toHaveAttribute(
+        "aria-label",
+        "Aerial view of Toowoomba at dusk",
+      );
+    });
+  },
 };
