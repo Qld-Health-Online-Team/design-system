@@ -1028,6 +1028,36 @@ form {
       border-color: $QLD-color-print__border !important;
     }
 
+    // Pin body copy to the print typescale instead of inheriting the screen one.
+    //
+    // Inherited, the size depends on which breakpoint the page box happens to
+    // match: A4 is roughly 756px of content, which lands below `lg`, so print
+    // silently gets the mobile scale. That is the right answer by accident, and a
+    // wider page box or a moved breakpoint would change the type size on paper
+    // with nothing pointing at the cause.
+    //
+    // `p` carries its own `line-height: 1.75` for screen reading, which is far
+    // looser than the 1.2 the print spec uses and costs real pages, so it is
+    // reset here alongside the size.
+    &,
+    p,
+    li,
+    dt,
+    dd {
+      font-size: $QLD-font-size-print__body !important;
+      line-height: $QLD-line-height-print !important;
+    }
+
+    // The extra-small body variants, which the spec sizes separately. Only
+    // genuinely body-copy classes belong here — the `.qld__display-*` scale is
+    // semibold display type, not body copy, so it keeps the heading treatment.
+    .qld__default-xs,
+    .qld__caption,
+    small {
+      font-size: $QLD-font-size-print__body--xs !important;
+      line-height: $QLD-line-height-print !important;
+    }
+
     a,
     a:visited {
       text-decoration: underline;

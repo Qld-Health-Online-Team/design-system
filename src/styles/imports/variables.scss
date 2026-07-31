@@ -411,6 +411,25 @@ $QLD-color-print__background--shade: $QLD-color-neutral--lighter; // Callouts
 $QLD-color-print__background--alt: $QLD-color-neutral--lightest; // Cards, striped rows
 
 /**
+  *  QLD-print typescale
+  *
+  *  Body copy sizes for print, from the A4 typescale. Deliberately pt: the spec is
+  *  written in pt, and pt is an absolute unit that means the same thing on paper
+  *  regardless of the page box, which is the whole point here. A rem would resolve
+  *  against the root font size — a screen measurement with no bearing on print.
+  *
+  *  Sass variables rather than custom properties, for the same reason as the print
+  *  colours above: print must not track anything themeable.
+  *
+  *  Headings are deliberately absent. They inherit the screen scale for now,
+  *  pending the print spec being reissued for Noto Sans — it was set for Lato, and
+  *  the pt values move with the typeface.
+  */
+$QLD-font-size-print__body: 10pt; // Body copy
+$QLD-font-size-print__body--xs: 8pt; // Captions, small print
+$QLD-line-height-print: 1.2; // Every pair in the spec is 1.2
+
+/**
  QLD-color-neutral  opacity
 */
 
