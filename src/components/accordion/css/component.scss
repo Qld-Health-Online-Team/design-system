@@ -118,9 +118,15 @@
     }
   }
 
-  // Add spacing if there is an element before it
+  // Standard component margin when content precedes a standalone accordion.
+  // Sibling and grouped accordions zero this out further down so stacked
+  // items sit flush.
   * + & {
-    @include QLD-space(margin-top, 1unit);
+    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+
+    @include QLD-media(lg) {
+      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+    }
   }
 
   + .qld__accordion {
@@ -148,8 +154,18 @@
   padding: 0;
   @include QLD-space(max-width, 47unit);
 
-  // Accordions stack flush inside a group; the owl spacing on `* + &` only
-  // ever hits the first accordion (preceded by the "Open all" toggle row)
+  // Standard component margin when content precedes the group
+  * + & {
+    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+
+    @include QLD-media(lg) {
+      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+    }
+  }
+
+  // Accordions stack flush inside a group; the component margin on
+  // `* + .qld__accordion` only ever hits the first accordion (preceded by
+  // the "Open all" toggle row)
   * + .qld__accordion {
     margin-top: 0;
   }
