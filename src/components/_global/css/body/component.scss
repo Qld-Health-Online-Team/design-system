@@ -1026,6 +1026,10 @@ form {
       background-color: transparent !important;
       box-shadow: none !important;
       border-color: $QLD-color-print__border !important;
+      // Underlines are not always on the <a> — cards and the tip definition
+      // triggers underline a span — so the neutral colour has to land on
+      // everything, not just links. Harmless where nothing is underlined.
+      text-decoration-color: $QLD-color-print__border--muted !important;
     }
 
     // Pin body copy to the print typescale instead of inheriting the screen one.
@@ -1061,10 +1065,6 @@ form {
     a,
     a:visited {
       text-decoration: underline;
-      // The themed underline colours set by QLD-underline are their own property
-      // and survive the `color` reset above, so a link would otherwise print a
-      // blue rule under grey text.
-      text-decoration-color: $QLD-color-print__border--muted !important;
     }
 
     // Print the destination after the link, but only for schemes a reader can act
