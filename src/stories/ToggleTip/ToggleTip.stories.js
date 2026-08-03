@@ -1,6 +1,6 @@
 import { userEvent, waitFor } from "storybook/test";
 import isChromatic from "chromatic/isChromatic";
-import { storyParams } from "../../../.storybook/globals";
+import { printParams, storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
 import initToggleTip from "../../components/toggle_tip/js/global";
 
@@ -209,5 +209,17 @@ export const AlignedRight = {
   args: { alignment: "right" },
   play: async ({ canvasElement }) => {
     await openToggleTip(canvasElement);
+  },
+};
+
+// Opens the tip, then snapshots with print media — the popup must vanish
+// rather than print stamped over the paragraph it is anchored to.
+export const PrintWithOpenTip = {
+  render: renderInParagraph,
+  play: async ({ canvasElement }) => {
+    await openToggleTip(canvasElement);
+  },
+  parameters: {
+    ...printParams("that an open toggle tip popup is dropped from print"),
   },
 };
