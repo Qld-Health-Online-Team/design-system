@@ -385,11 +385,16 @@ table {
 
   .qld__table,
   table {
-    // Row separators are drawn as inset box-shadows, which the global body print
-    // reset clears — and which browsers treat as a background effect and drop
-    // anyway. Redraw them as borders, which always print, so the grid survives.
+    // Row and header separators are drawn as inset box-shadows, which the
+    // global body print reset clears — and which browsers treat as a background
+    // effect and drop anyway. Redraw them as borders, which always print, so
+    // the grid survives — including the rule between multi-level header rows.
+    // On the last header row this collides with the heavier thead border below,
+    // and border-collapse resolves in the wider border's favour.
     .qld__table__cell,
-    td {
+    .qld__table__header,
+    td,
+    th {
       border-bottom: $QLD-border-width-thin solid
         $QLD-color-print__border--muted !important;
     }

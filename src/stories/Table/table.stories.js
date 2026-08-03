@@ -136,3 +136,13 @@ export const Print = {
   args: { features: [Feat.striped] },
   parameters: printParams("the print header rules and striped row backgrounds"),
 };
+
+/**
+ * Print rendering of a multi-level header. The rule between the two header
+ * rows is a box-shadow on screen, so it needs the print border redraw to
+ * survive.
+ */
+export const PrintMultilevelHeadings = {
+  args: { features: [Feat.multilevelHeadings] },
+  parameters: printParams("the separator between the two header rows"),
+};
