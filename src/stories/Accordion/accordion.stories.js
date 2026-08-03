@@ -1,5 +1,9 @@
 import Template from "../../components/accordion/html/component.hbs";
-import { dummyText, storyParams } from "../../../.storybook/globals";
+import {
+  dummyText,
+  printParams,
+  storyParams,
+} from "../../../.storybook/globals";
 import { expect, userEvent, within } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
 import { initAccordion } from "../../components/accordion/js/global";
@@ -189,4 +193,15 @@ export const ToggleAllSync = {
     await expect(toggleAllBtn).toHaveTextContent("Open all");
     await expect(toggleAllBtn).toHaveAttribute("aria-expanded", "false");
   },
+};
+/**
+ * Print rendering. The accordion is collapsed on screen but print forces every
+ * panel open (`height: auto; display: block`) and drops the toggle icon, so this
+ * guards markedly different output from the screen story.
+ */
+export const Print = {
+  parameters: printParams(
+    "the force-expanded panel bodies, hidden toggle icons and print border colours",
+  ),
+  args: { toggleAll: true },
 };

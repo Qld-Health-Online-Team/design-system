@@ -1,5 +1,5 @@
 import { Tags } from "./Tags";
-import { themes, storyParams } from "../../../.storybook/globals";
+import { themes, storyParams, printParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 const tagsArgs = {
@@ -143,4 +143,10 @@ export const darkAlt = {
   render: () => {
     return themeWrapper(themes["dark alt"], allVariants());
   },
+};
+
+export const Print = {
+  argTypes: allVariantsArgTypes,
+  render: () => allVariants(),
+  parameters: printParams("the print token colours applied to every tag type"),
 };

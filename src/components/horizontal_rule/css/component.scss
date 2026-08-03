@@ -79,3 +79,20 @@ hr.qld__horizontal-rule[aria-hidden="true"] {
     background-color: var(--QLD-color-dark__border--alt);
   }
 }
+
+@media print {
+  /*
+   * A horizontal rule is a visual divider. On paper the page break, the heading
+   * and the surrounding whitespace already do that work, so no rule prints —
+   * decorative or thematic, component or authored.
+   *
+   * The bare `hr` is here because a rule typed into a rich-text field arrives
+   * with no class at all. Without it the rule would still not be *drawn* (the
+   * line is a background-color, which print drops), but it would keep its height
+   * and margins and leave an unexplained gap in the text.
+   */
+  hr,
+  .qld__horizontal-rule {
+    display: none !important;
+  }
+}

@@ -1,5 +1,5 @@
 import Template from "../../components/page_alert/html/component.hbs";
-import { storyParams } from "../../../.storybook/globals";
+import { printParams, storyParams } from "../../../.storybook/globals";
 
 const renderInPageAlert = ({
   id,
@@ -94,4 +94,13 @@ export const warningVariant = {
 export const errorVariant = {
   args: { type: "error" },
   tags: ["!dev"],
+};
+/**
+ * Print rendering of the warning variant. Print hides the alert icon and swaps
+ * the themed border for a fixed grey, so the variant must stay distinguishable
+ * without colour.
+ */
+export const Print = {
+  args: { type: "warning" },
+  parameters: printParams("the hidden alert icon and the print border colours"),
 };

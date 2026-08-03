@@ -395,6 +395,25 @@ $QLD-color-neutral--lightest: #f5f5f5;
 $QLD-color-neutral--white: #ffffff;
 
 /**
+  *  QLD-print typescale
+  *
+  *  Body copy sizes for print, from the A4 typescale. Deliberately pt: the spec is
+  *  written in pt, and pt is an absolute unit that means the same thing on paper
+  *  regardless of the page box, which is the whole point here. A rem would resolve
+  *  against the root font size — a screen measurement with no bearing on print.
+  *
+  *  Sass variables rather than custom properties, for the same reason as the print
+  *  colours above: print must not track anything themeable.
+  *
+  *  Headings are deliberately absent. They inherit the screen scale for now,
+  *  pending the print spec being reissued for Noto Sans — it was set for Lato, and
+  *  the pt values move with the typeface.
+  */
+$QLD-font-size-print__body: 10pt; // Body copy
+$QLD-font-size-print__body--xs: 8pt; // Captions, small print
+$QLD-line-height-print: 1.2; // Every pair in the spec is 1.2
+
+/**
  QLD-color-neutral  opacity
 */
 
@@ -480,6 +499,22 @@ $QLD-color-dark__background--shade: #003e96 !default;
 $QLD-color-dark__border--alt: #73c2ff !default;
 $QLD-color-dark__background--alt: #001d74 !default;
 $QLD-color-dark__background--alt-shade: #000764 !default;
+
+/**
+  *  QLD-color-print  colours
+  *
+  *  Fixed greys for print output. These are deliberately Sass variables, not CSS
+  *  custom properties: print colour must NOT follow the light/dark/alt theme, or a
+  *  dark-themed section prints as a solid block of toner. Everything here maps onto
+  *  the neutral scale above so print stays in step with the palette.
+  */
+$QLD-color-print__text: $QLD-color-neutral--darkest; // Body copy
+$QLD-color-print__heading: $QLD-color-neutral--darker; // h1–h6
+$QLD-color-print__border: $QLD-color-light__border--alt; // Same grey as the light-alt border; frozen here so print never repaints with theme
+$QLD-color-print__border--muted: $QLD-color-neutral--dark; // Underlines, secondary rules
+$QLD-color-print__background: $QLD-color-neutral--white;
+$QLD-color-print__background--shade: $QLD-color-neutral--lighter; // Callouts
+$QLD-color-print__background--alt: $QLD-color-neutral--lightest; // Cards, striped rows
 
 /**
   * QLD-border-radius styles

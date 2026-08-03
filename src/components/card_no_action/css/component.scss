@@ -682,3 +682,56 @@
     }
   }
 }
+
+// Print styles
+//
+// Every rule below targets a class shared by all four card components, so this
+// block covers card_no_action, card_single_action, card_multi_action and
+// card_feature.
+@media print {
+  // Clickable cards make the whole card a hit area via a stretched,
+  // absolutely-positioned ::after on the title link. The global print rule reuses
+  // that ::after to append the URL, so it renders as an overlay instead of inline
+  // with the heading. Reset it to flow inline after the title text.
+  .qld__card--clickable__link::after {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: auto !important;
+    display: inline !important;
+  }
+
+  .qld__card {
+    // The card clips its children so the image can bleed to the rounded corners.
+    // On paper the card has to grow instead: an appended URL is longer than the
+    // title it follows, and clipped it simply disappears.
+    overflow: visible !important;
+    // Keep a card whole rather than splitting the title from its description.
+    // stylelint-disable-next-line property-no-deprecated -- older print engines
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  // Card thumbnails are CSS backgrounds on a div, so their alt text arrives as
+  // `role="img"` + `aria-label` rather than an `alt` attribute — the
+  // getThumbnailAlt helper emits neither when the asset has no alt text. No alt
+  // text means decorative, and a decorative thumbnail is not worth the toner.
+  .qld__responsive-media-img--bg:not([role="img"]) {
+    display: none !important;
+  }
+
+  // One that does carry alt text is carrying meaning, so it has to survive the
+  // browser's default of dropping background images.
+  .qld__responsive-media-img--bg[role="img"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+
+    // The border is drawn by an inset pseudo-element that the hidden case would
+    // otherwise leave behind as an empty outline.
+    &::before {
+      border-color: $QLD-color-print__border !important;
+    }
+  }
+}

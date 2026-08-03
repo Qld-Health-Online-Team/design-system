@@ -148,10 +148,17 @@
 
 // Print styles
 @media print {
+  // Mirror the screen treatment rather than boxing the callout in: the thick left
+  // rule plus a shaded panel is what marks the content as set apart, and both read
+  // in greyscale. The shade needs print-color-adjust because a light grey fill is
+  // exactly what browsers drop when "background graphics" is off, which would
+  // leave the callout indistinguishable from body copy.
   .qld__callout {
-    @include QLD-space(border-left-width, 1unit !important);
-    border: 1px solid #000 !important;
-    color: #000 !important;
-    background-color: transparent !important;
+    border: none !important;
+    border-left: $QLD-border-width-thick solid $QLD-color-print__border !important;
+    color: $QLD-color-print__text !important;
+    background-color: $QLD-color-print__background--shade !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }

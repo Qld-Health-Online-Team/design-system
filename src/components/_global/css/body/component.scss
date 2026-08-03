@@ -1009,80 +1009,6 @@ form {
   }
 }
 
-@media print {
-  .qld__body {
-    *,
-    & {
-      text-shadow: none !important;
-      color: #000 !important;
-      background-color: transparent !important;
-      box-shadow: none !important;
-      border-color: #000 !important;
-    }
-
-    a,
-    a:visited {
-      text-decoration: underline;
-    }
-
-    // Add the URL after the link on print
-    a[href]:after {
-      content: " (" attr(href) ")" !important;
-      display: inline !important;
-    }
-
-    // Do not add the URL if it's a javascript or anchor
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-      content: "" !important;
-    }
-
-    // Add the abbreviation expanded on print
-    abbr[title]:after {
-      content: " (" attr(title) ")";
-    }
-
-    pre {
-      border: 1px solid #000;
-      padding: 6px;
-      page-break-inside: avoid;
-    }
-
-    thead {
-      display: table-header-group;
-    }
-
-    tr,
-    img {
-      page-break-inside: avoid;
-    }
-
-    img {
-      max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-      orphans: 3;
-      widows: 3;
-    }
-
-    h2,
-    h3 {
-      page-break-after: avoid;
-    }
-
-    p a {
-      word-wrap: break-word;
-    }
-
-    select {
-      background: #fff !important;
-    }
-  }
-}
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Body module
 //
@@ -1096,10 +1022,44 @@ form {
     *,
     & {
       text-shadow: none !important;
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
       background-color: transparent !important;
       box-shadow: none !important;
-      border-color: #000 !important;
+      border-color: $QLD-color-print__border !important;
+      // Underlines are not always on the <a> — cards and the tip definition
+      // triggers underline a span — so the neutral colour has to land on
+      // everything, not just links. Harmless where nothing is underlined.
+      text-decoration-color: $QLD-color-print__border--muted !important;
+    }
+
+    // Pin body copy to the print typescale instead of inheriting the screen one.
+    //
+    // Inherited, the size depends on which breakpoint the page box happens to
+    // match: A4 is roughly 756px of content, which lands below `lg`, so print
+    // silently gets the mobile scale. That is the right answer by accident, and a
+    // wider page box or a moved breakpoint would change the type size on paper
+    // with nothing pointing at the cause.
+    //
+    // `p` carries its own `line-height: 1.75` for screen reading, which is far
+    // looser than the 1.2 the print spec uses and costs real pages, so it is
+    // reset here alongside the size.
+    &,
+    p,
+    li,
+    dt,
+    dd {
+      font-size: $QLD-font-size-print__body !important;
+      line-height: $QLD-line-height-print !important;
+    }
+
+    // The extra-small body variants, which the spec sizes separately. Only
+    // genuinely body-copy classes belong here — the `.qld__display-*` scale is
+    // semibold display type, not body copy, so it keeps the heading treatment.
+    .qld__default-xs,
+    .qld__caption,
+    small {
+      font-size: $QLD-font-size-print__body--xs !important;
+      line-height: $QLD-line-height-print !important;
     }
 
     a,
@@ -1107,16 +1067,17 @@ form {
       text-decoration: underline;
     }
 
-    // Add the URL after the link on print
-    a[href]:after {
+    // Print the destination after the link, but only for schemes a reader can act
+    // on away from the screen. The URL is opted in rather than opted out because
+    // Matrix renders every in-site link relative (`./?a=123`) — a relative path is
+    // as useless on paper as an in-page anchor or a `javascript:` handler, and
+    // there is no selector for "has no scheme".
+    a[href^="http://"]:after,
+    a[href^="https://"]:after,
+    a[href^="mailto:"]:after,
+    a[href^="tel:"]:after {
       content: " (" attr(href) ")" !important;
       display: inline !important;
-    }
-
-    // Do not add the URL if it's a javascript or anchor
-    a[href^="javascript:"]:after,
-    a[href^="#"]:after {
-      content: "" !important;
     }
 
     // Add the abbreviation expanded on print
@@ -1125,7 +1086,7 @@ form {
     }
 
     pre {
-      border: 1px solid #000;
+      border: 1px solid $QLD-color-print__border;
       padding: 6px;
       page-break-inside: avoid;
     }
@@ -1155,16 +1116,23 @@ form {
       page-break-after: avoid;
     }
 
+    // Headings print a shade lighter than body copy so the hierarchy survives
+    // the loss of colour. Must come after the `*` reset above.
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $QLD-color-print__heading !important;
+    }
+
     p a {
       word-wrap: break-word;
     }
 
     select {
-      background: #fff !important;
+      background: $QLD-color-print__background !important;
     }
-  }
-
-  @page {
-    margin: 10mm 5mm;
   }
 }
