@@ -1,4 +1,4 @@
-import { iconSpritePath, storyParams } from "../../../.storybook/globals";
+import { iconSpritePath, printParams, storyParams } from "../../../.storybook/globals";
 
 // The search field extracted from the Basic Search banner
 // (src/components/basic_search/html/component.hbs), rendered standalone so the
@@ -173,4 +173,11 @@ export const DarkTheme = {
 export const DarkAlternateTheme = {
   args: { value: themedValue },
   globals: { backgrounds: { value: "dark alt" } },
+};
+
+// The form is interactive-only, so print drops it entirely — the snapshot
+// should show an empty canvas, not an input orphaned by the hidden button.
+export const Print = {
+  args: { value: themedValue },
+  parameters: printParams("that the whole search form is dropped from print"),
 };
