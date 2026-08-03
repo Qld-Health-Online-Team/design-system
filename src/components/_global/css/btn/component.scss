@@ -667,6 +667,16 @@ a.qld__btn,
     display: none !important;
   }
 
+  // Floating buttons (quick exit, and back-to-top before its own rule) are
+  // fixed-position screen overlays; paged output repeats fixed elements on
+  // every page, stamped over the content. Quick exit in particular is a
+  // safety control for leaving the page fast — on paper it is not just
+  // useless, printing its URL beside it defeats the discretion it exists for.
+  .qld__btn--floating,
+  a.qld__btn--floating {
+    display: none !important;
+  }
+
   .qld__btn,
   .qld__btn:visited {
     background-color: $QLD-color-print__background !important;

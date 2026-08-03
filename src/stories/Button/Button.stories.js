@@ -94,3 +94,18 @@ export const Print = {
     "that interactive <button>s are dropped while a button-styled link prints, and the link's print border",
   ),
 };
+
+/**
+ * Floating buttons are fixed-position screen overlays that paged output would
+ * repeat on every page; quick exit is additionally a safety control whose
+ * printed URL would defeat its purpose. Anchor or not, they are dropped.
+ */
+export const PrintFloating = {
+  render: () =>
+    `<div class="qld__widgets">
+      <a class="qld__btn qld__btn--floating qld__btn--quick-exit" href="https://www.qld.gov.au/" aria-label="Quick exit">
+        <span>Quick exit</span>
+      </a>
+    </div>`,
+  parameters: printParams("that floating buttons such as quick exit are dropped entirely"),
+};
