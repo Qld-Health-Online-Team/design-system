@@ -1,7 +1,14 @@
-<section class="qld__body">
-  <div class="container-fluid">
+{{#with component.data}}
+  <section
+    class="
+      qld__body
+      {{#if metadata.theme.value}}
+        qld__body--{{ metadata.theme.value }}
+      {{/if}}
+    "
+  >
+    <div class="container-fluid">
 
-    {{#with component.data}}
       {{#if metadata.heading.value}}
         <h2>
           {{ metadata.heading.value }}
@@ -13,7 +20,12 @@
       {{/if}}
       <div
         id="{{#if metadata.id_field.value}}{{{ metadata.id_field.value }}}{{else}}accordion-{{ assetid }}{{/if}}"
-        class="qld__accordion-group {{ metadata.theme.value }}"
+        class="
+          qld__accordion-group
+          {{#if metadata.theme.value}}
+            qld__accordion-group--{{ metadata.theme.value }}
+          {{/if}}
+        "
       >
         {{#ifCond metadata.toggle_all.value '==' 'yes'}}
           <div class="qld__accordion__toggle">
@@ -65,9 +77,9 @@
         {{/printAccordion}}
 
       </div>
-    {{/with}}
 
-    {{!-- {{#ifCond current.data.metadata.pageType.value '==' 'landing'}} --}}
-  </div>
-</section>
+      {{!-- {{#ifCond current.data.metadata.pageType.value '==' 'landing'}} --}}
+    </div>
+  </section>
+{{/with}}
 {{!-- {{/ifCond}} --}}

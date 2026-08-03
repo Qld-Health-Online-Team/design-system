@@ -86,19 +86,13 @@ const meta = {
         type: "select",
         labels: {
           "": "White",
-          "qld__accordion-group--light": "Light",
-          "qld__accordion-group--alt": "Alternate",
-          "qld__accordion-group--dark": "Dark",
-          "qld__accordion-group--dark-alt": "Alternate Dark",
+          light: "Light",
+          alt: "Alternate",
+          dark: "Dark",
+          "dark-alt": "Alternate Dark",
         },
       },
-      options: [
-        "",
-        "qld__accordion-group--light",
-        "qld__accordion-group--alt",
-        "qld__accordion-group--dark",
-        "qld__accordion-group--dark-alt",
-      ],
+      options: ["", "light", "alt", "dark", "dark-alt"],
     },
     toggleAll: {
       description:
@@ -156,8 +150,16 @@ export const WithToggleAll = {
 };
 
 export const DarkAlt = {
-  args: { theme: "qld__accordion-group--dark-alt" },
+  args: { theme: "dark-alt" },
   play: async ({ canvasElement }) => {
+    // Theme suffix must land on both hooks the SCSS themes from
+    await expect(
+      canvasElement.querySelector(".qld__body--dark-alt"),
+    ).toBeInTheDocument();
+    await expect(
+      canvasElement.querySelector(".qld__accordion-group--dark-alt"),
+    ).toBeInTheDocument();
+
     const canvas = within(canvasElement);
     const buttons = canvas.getAllByRole("button");
     await userEvent.click(buttons[0]);
