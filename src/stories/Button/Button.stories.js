@@ -107,5 +107,7 @@ export const PrintFloating = {
         <span>Quick exit</span>
       </a>
     </div>`,
-  parameters: printParams("that floating buttons such as quick exit are dropped entirely"),
+  parameters: printParams(
+    "that floating buttons such as quick exit are dropped entirely",
+  ),
 };
