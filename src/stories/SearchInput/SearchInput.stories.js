@@ -1,4 +1,8 @@
-import { iconSpritePath, printParams, storyParams } from "../../../.storybook/globals";
+import {
+  iconSpritePath,
+  printParams,
+  storyParams,
+} from "../../../.storybook/globals";
 
 // The search field extracted from the Basic Search banner
 // (src/components/basic_search/html/component.hbs), rendered standalone so the
