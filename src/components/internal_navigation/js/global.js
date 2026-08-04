@@ -1,7 +1,4 @@
-import {
-  validateInternalSvgPath,
-  buildIconPath,
-} from "../../../helpers/global-helpers.js";
+import * as icons from "../../../utils/icons.js";
 
 /**
  * @module internalNavigation
@@ -32,9 +29,13 @@ export default function initInternalNavigation(root = document) {
           "use",
         );
         // Validate and normalise the SVG path before using it
-        const safeSvgPath = validateInternalSvgPath(svgPath);
+        const safeSvgPath = icons.validateInternalSvgPath(svgPath);
         if (safeSvgPath) {
-          use.setAttributeNS(null, "href", buildIconPath(safeSvgPath, "tick"));
+          use.setAttributeNS(
+            null,
+            "href",
+            icons.buildIconPath(safeSvgPath, "tick"),
+          );
         }
 
         // Append <use> to <svg>

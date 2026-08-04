@@ -3,7 +3,7 @@
  */
 
 import * as collapsible from "../../_global/js/collapsible.js";
-import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
+import * as aria from "../../../utils/aria.js";
 
 export function initAccordion(root = document) {
   const controller = new AbortController();
@@ -81,7 +81,7 @@ function initAccordionGroup(groupEl, signal) {
 function setToggleAllState(toggleAllBtn, isOpen) {
   toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--open", isOpen);
   toggleAllBtn.classList.toggle("qld__accordion__toggle-btn--closed", !isOpen);
-  setExpanded(toggleAllBtn, isOpen);
+  aria.setExpanded(toggleAllBtn, isOpen);
 
   // Only update the label so the inline chevron svg is preserved; fall back
   // to the whole button for legacy markup without the <span> wrapper
@@ -100,7 +100,7 @@ function syncToggleAllButton(groupEl) {
   if (!toggleAllBtn) return;
 
   const titles = groupEl.querySelectorAll(".qld__accordion__title");
-  const allOpen = titles.length > 0 && [...titles].every(isExpanded);
+  const allOpen = titles.length > 0 && [...titles].every(aria.isExpanded);
 
   setToggleAllState(toggleAllBtn, allOpen);
 }

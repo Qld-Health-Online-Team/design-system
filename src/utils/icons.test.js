@@ -8,7 +8,7 @@ import {
   vi,
 } from "vitest";
 
-import { validateInternalSvgPath, buildIconPath } from "./global-helpers.js";
+import { validateInternalSvgPath, buildIconPath } from "./icons.js";
 
 const ORIGIN = "https://www.health.qld.gov.au";
 const HREF = `${ORIGIN}/some/page`;

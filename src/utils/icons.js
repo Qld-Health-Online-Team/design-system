@@ -1,11 +1,22 @@
-// Validate that an SVG path has the correct extension and is same-origin, and
-// return a normalised, safe absolute URL for use as a <use href> value (or
-// null if the path is invalid). Returning the URL built by the browser's own
-// URL parser — rather than the raw DOM-derived string — ensures the value
-// reaching the sink has passed through a recognised sanitisation barrier.
-//
-// Accepts either a Squiz Matrix asset URL (?a=12345:path/to/icons.svg) or a
-// plain path to an .svg file (e.g. "QLD-icons.svg" in Storybook builds).
+/**
+ * @module utils/icons
+ *
+ * Helpers for resolving and rendering SVG sprite icons.
+ */
+
+/**
+ * Validate that an SVG path has the correct extension and is same-origin, and
+ * return a normalised, safe absolute URL for use as a `<use href>` value (or
+ * null if the path is invalid). Returning the URL built by the browser's own
+ * URL parser — rather than the raw DOM-derived string — ensures the value
+ * reaching the sink has passed through a recognised sanitisation barrier.
+ *
+ * Accepts either a Squiz Matrix asset URL (?a=12345:path/to/icons.svg) or a
+ * plain path to an .svg file (e.g. "QLD-icons.svg" in Storybook builds).
+ *
+ * @param  {string} path
+ * @return {string | null}
+ */
 export const validateInternalSvgPath = (path) => {
   // Check given path is a string
   if (typeof path !== "string") {
@@ -56,17 +67,23 @@ export const validateInternalSvgPath = (path) => {
   return url.href;
 };
 
-// Build a sprite reference like "QLD-icons.svg#tick". Relative paths are left
-// relative so the browser resolves them against the current document, which
-// keeps icons working when the site is deployed under a sub-path.
+/**
+ * Build a sprite reference like "QLD-icons.svg#tick". Relative paths are left
+ * relative so the browser resolves them against the current document, which
+ * keeps icons working when the site is deployed under a sub-path.
+ *
+ * @param  {string} path - Path to the sprite sheet
+ * @param  {string} icon - Name of the icon within the sprite sheet
+ * @return {string}
+ */
 export const buildIconPath = (path, icon) => (icon ? `${path}#${icon}` : path);
 
-// Remove all special characters
-export const normaliseIdentifier = (string) => {
-  return string.replace(/[^a-z0-9]+/g, "");
-};
-
-// Used to create link to material symbols stylesheet. Only use on components that require full access to material icons, not just from our sprite sheets
+/**
+ * Link the Material Symbols stylesheet into the document head, once.
+ *
+ * Only use on components that require full access to material icons, not just
+ * the icons in our own sprite sheets.
+ */
 export const loadMaterialIconSheet = () => {
   const materialStylesheetId = "material-stylesheet";
   if (document.getElementById(materialStylesheetId)) return;
@@ -78,11 +95,3 @@ export const loadMaterialIconSheet = () => {
     "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0";
   document.head.appendChild(link);
 };
-
-// Whether an element's aria-expanded attribute is currently "true"
-export const isExpanded = (element) =>
-  element.getAttribute("aria-expanded") === "true";
-
-// Set an element's aria-expanded attribute from a boolean
-export const setExpanded = (element, expanded) =>
-  element.setAttribute("aria-expanded", expanded ? "true" : "false");
