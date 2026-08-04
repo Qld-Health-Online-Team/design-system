@@ -6,8 +6,8 @@
  * tracks the in-flight animation on the element itself via `QLDanimation`.
  *
  * The PascalCase export names are the legacy `QLD.animate.*` contract for
- * external (non-bundled) callers — see `legacyGlobal.js` — so they are kept as
- * they are rather than renamed to match the rest of `src/utils`.
+ * external (non-bundled) callers — see `src/legacy/qld-namespace.js` — so they
+ * are kept as they are rather than renamed to match the rest of `src/utils`.
  */
 
 /**
