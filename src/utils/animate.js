@@ -1,5 +1,13 @@
 /**
- * @module animate
+ * @module utils/animate
+ *
+ * A JS animation engine: steps a single CSS property on one or more elements
+ * from its current value to a target value (including resolving `auto`), and
+ * tracks the in-flight animation on the element itself via `QLDanimation`.
+ *
+ * The PascalCase export names are the legacy `QLD.animate.*` contract for
+ * external (non-bundled) callers — see `legacyGlobal.js` — so they are kept as
+ * they are rather than renamed to match the rest of `src/utils`.
  */
 
 /**

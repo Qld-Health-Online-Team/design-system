@@ -12,7 +12,7 @@
  * arrow keys, etc.) belong to the consuming component, not here.
  */
 
-import * as animate from "./animate/global.js";
+import * as animate from "../../../utils/animate.js";
 import { isExpanded, setExpanded } from "../../../helpers/global-helpers.js";
 
 /**

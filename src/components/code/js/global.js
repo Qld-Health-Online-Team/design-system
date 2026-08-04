@@ -6,7 +6,7 @@ import {
   validateInternalSvgPath,
   buildIconPath,
 } from "../../../helpers/global-helpers.js";
-import * as animate from "../../_global/js/animate/global.js";
+import * as animate from "../../../utils/animate.js";
 
 /**
  * Initialise the code component: syntax-highlight snippets, wire the copy
