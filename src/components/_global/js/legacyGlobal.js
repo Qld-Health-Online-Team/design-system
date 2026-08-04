@@ -20,7 +20,7 @@
 import utils from "./global.js";
 import * as animate from "./animate/global.js";
 import { tabs } from "./tabs/global.js";
-import { Modal } from "./modal/global.js";
+import { Modal } from "../../modal/js/global.js";
 import { toggleToolTips } from "./popover/controller.js";
 
 // Feature components

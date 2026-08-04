@@ -3,7 +3,7 @@ import { storyParams, printParams } from "../../../.storybook/globals";
 import { withPrintMedia } from "../../../.storybook/helper-functions";
 import { expect } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 
 export default {

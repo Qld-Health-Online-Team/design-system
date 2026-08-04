@@ -2,7 +2,7 @@ import Template from "../../components/card_single_action/html/component.hbs";
 import { storyParams, iconSpritePath } from "../../../.storybook/globals";
 import ToowoombaImage from "./Toowoomba-web.jpeg";
 import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import initCards from "../../components/card_no_action/js/global";
 
 const mockSite = {
