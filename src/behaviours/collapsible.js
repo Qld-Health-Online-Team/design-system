@@ -1,5 +1,5 @@
 /**
- * @module collapsible
+ * @module behaviours/collapsible
  *
  * Framework-agnostic primitive for a height-animated collapsible region bound to
  * a trigger element. Given a trigger (a button/link carrying `aria-controls` and
@@ -12,8 +12,9 @@
  * arrow keys, etc.) belong to the consuming component, not here.
  */
 
-import * as animate from "../../../utils/animate.js";
-import * as aria from "../../../utils/aria.js";
+import * as animate from "../utils/animate.js";
+import * as aria from "../utils/aria.js";
+import * as dom from "../utils/dom.js";
 
 /**
  * Shared state-class contract. These class names are also referenced by the CSS
@@ -45,15 +46,6 @@ const dispatchToggle = (element, open) => {
     new CustomEvent(TOGGLE_EVENT, { bubbles: true, detail: { open } }),
   );
 };
-
-/**
- * Normalise a single element, NodeList, or array of triggers into an array.
- *
- * @param  {HTMLElement | NodeList | HTMLElement[]} elements
- * @return {HTMLElement[]}
- */
-const toItems = (elements) =>
-  elements.length === undefined ? [elements] : Array.from(elements);
 
 /**
  * Swap the open/closed state classes on a DOM node.
@@ -99,7 +91,7 @@ const pushDataLayer = (event, action, label) => {
  * @param  {object}                 callbacks - Optional callbacks: { onOpen, afterOpen }
  */
 export function open(elements, speed, root = document, callbacks = {}) {
-  toItems(elements).forEach((element) => {
+  dom.toElementArray(elements).forEach((element) => {
     const target = getTarget(element, root);
 
     // If the region is collapsed, pin its height to 0 so it can animate open.
@@ -143,7 +135,7 @@ export function open(elements, speed, root = document, callbacks = {}) {
  * @param  {object}                 callbacks - Optional callbacks: { onClose, afterClose }
  */
 export function close(elements, speed, root = document, callbacks = {}) {
-  toItems(elements).forEach((element) => {
+  dom.toElementArray(elements).forEach((element) => {
     const target = getTarget(element, root);
 
     toggleClasses(element, "closing");
@@ -183,7 +175,7 @@ export function close(elements, speed, root = document, callbacks = {}) {
  * @param  {object}                 callbacks - Optional callbacks: { onOpen, afterOpen, onClose, afterClose }
  */
 export function toggle(elements, speed, root = document, callbacks) {
-  toItems(elements).forEach((element) => {
+  dom.toElementArray(elements).forEach((element) => {
     const target = getTarget(element, root);
 
     if (target == null) {

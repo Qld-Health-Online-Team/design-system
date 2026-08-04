@@ -2,7 +2,7 @@
  * @module accordion
  */
 
-import * as collapsible from "../../_global/js/collapsible.js";
+import * as collapsible from "../../../behaviours/collapsible.js";
 import * as aria from "../../../utils/aria.js";
 
 export function initAccordion(root = document) {

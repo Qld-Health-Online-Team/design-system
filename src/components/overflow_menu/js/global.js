@@ -8,7 +8,7 @@
  * outside the menu.
  */
 
-import * as collapsible from "../../_global/js/collapsible.js";
+import * as collapsible from "../../../behaviours/collapsible.js";
 import * as aria from "../../../utils/aria.js";
 
 /**
