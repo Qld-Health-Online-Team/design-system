@@ -5,7 +5,7 @@
  */
 import * as aria from "../../../utils/aria.js";
 import * as animate from "../../../utils/animate.js";
-import utils from "../../_global/js/global.js";
+import * as icons from "../../../utils/icons.js";
 
 var mobileNav = {};
 var mobileNavEvents = {};
@@ -374,7 +374,7 @@ export default function initMainNav(root = document) {
   });
 
   // Finds all the menu related icons in main nav, mega nav, and header.
-  utils.updateSvgIconPath(
+  icons.updateSvgIconPath(
     ".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use",
   );
 }
