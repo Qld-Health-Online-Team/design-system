@@ -3,7 +3,9 @@
     class="
       qld__body
       {{#if metadata.theme.value}}
-        qld__body--{{ metadata.theme.value }}
+        {{!-- The theme option value is the group class; the section takes the
+              matching qld__body modifier --}}
+        {{replace metadata.theme.value 'qld__accordion-group--' 'qld__body--'}}
       {{/if}}
     "
   >
@@ -22,9 +24,7 @@
         id="{{#if metadata.id_field.value}}{{{ metadata.id_field.value }}}{{else}}accordion-{{ assetid }}{{/if}}"
         class="
           qld__accordion-group
-          {{#if metadata.theme.value}}
-            qld__accordion-group--{{ metadata.theme.value }}
-          {{/if}}
+          {{ metadata.theme.value }}
         "
       >
         {{#ifCond metadata.toggle_all.value '==' 'yes'}}
