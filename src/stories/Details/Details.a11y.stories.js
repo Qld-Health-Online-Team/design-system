@@ -1,12 +1,12 @@
 import { expect, within } from "storybook/test";
-import DetailsSummaryMeta from "./DetailsSummary.stories.js";
+import DetailsMeta from "./Details.stories.js";
 
 const meta = {
-  ...DetailsSummaryMeta,
-  title: "3. Components/Details Summary/Accessibility",
+  ...DetailsMeta,
+  title: "3. Components/Details/Accessibility",
   tags: ["!autodocs"],
   parameters: {
-    ...DetailsSummaryMeta.parameters,
+    ...DetailsMeta.parameters,
     chromatic: { disableSnapshot: true },
   },
 };
