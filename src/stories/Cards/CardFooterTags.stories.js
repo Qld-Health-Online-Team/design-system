@@ -13,13 +13,14 @@ const CARD_THEMES = [
   { label: "Dark alternate", modifier: "qld__card--dark-alt" },
 ];
 
-// Both link-tag forms. `qld__tag--link` carries one more class than the bare
-// anchor, which is enough to change which rule wins the cascade, so a theming
-// bug can reach one and not the other.
+// Both link-tag forms plus the plain one. `qld__tag--link` carries one more
+// class than the bare anchor, which is enough to change which rule wins the
+// cascade, so a theming bug can reach one form and not another.
 const tagList = () => `
   <ul class="qld__tag-list">
     <li><a class="qld__tag" href="#">Policies</a></li>
     <li><a class="qld__tag qld__tag--link" href="#">Guidelines</a></li>
+    <li class="qld__tag">Reports</li>
   </ul>
 `;
 
@@ -144,6 +145,45 @@ export const DarkCardTagsUseDarkTheme = {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByText("Policies")).toHaveLength(
       CARD_THEMES.length,
+    );
+  },
+};
+
+/**
+ * Each card theme gives its footer tags that theme's border, and a light card
+ * is not an alt card.
+ *
+ * The light and alt rules are distinguished only by the card modifier they
+ * name. Written against the bare `.qld__card` instead, they collapse onto the
+ * same selector and the last one silently paints every card.
+ */
+export const CardThemesGiveTagsTheirOwnBorder = {
+  tags: ["!autodocs"],
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async ({ canvasElement }) => {
+    const expected = {
+      "qld__card--light": "--QLD-color-light__border",
+      "qld__card--alt": "--QLD-color-light__border--alt",
+      "qld__card--dark": "--QLD-color-dark__border--alt",
+      "qld__card--dark-alt": "--QLD-color-dark__border",
+    };
+
+    for (const [modifier, token] of Object.entries(expected)) {
+      const card = canvasElement.querySelector(`.${modifier}`);
+      // The plain `<li class="qld__tag">`, which the base block styles.
+      const tag = card.querySelector("li.qld__tag");
+      await expect(
+        getComputedStyle(tag).borderTopColor,
+        `${modifier} plain tag border`,
+      ).toBe(resolveToken(canvasElement, token));
+    }
+
+    // A light card and an alt card must not resolve to the same border.
+    const borderOf = (modifier) =>
+      getComputedStyle(canvasElement.querySelector(`.${modifier} li.qld__tag`))
+        .borderTopColor;
+    await expect(borderOf("qld__card--light")).not.toBe(
+      borderOf("qld__card--alt"),
     );
   },
 };
