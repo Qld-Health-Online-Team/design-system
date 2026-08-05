@@ -1,5 +1,9 @@
 import Template from "../../components/global_alert/html/component.hbs";
-import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import {
+  storyParams,
+  printParams,
+  iconSpritePath,
+} from "../../../.storybook/globals";
 
 function buildSite({
   alertLevel,
@@ -141,4 +145,18 @@ export const ThreeAlerts = {
       linkURL: "#",
     },
   },
+};
+
+/**
+ * Print rendering of a critical alert. A site-wide alert is time-sensitive and
+ * dismissible — by the time a page is read on paper it is stale, and may already
+ * have been withdrawn. Nothing should appear in this snapshot.
+ */
+export const Print = {
+  args: {
+    alertLevel: "critical",
+    alertTitle: "Critical alert",
+    alertMessage: "Immediate action may be required.",
+  },
+  parameters: printParams("that site-wide alerts are dropped entirely"),
 };

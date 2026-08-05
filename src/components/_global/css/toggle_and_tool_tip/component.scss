@@ -250,3 +250,14 @@
     }
   }
 }
+
+@media print {
+  // An open tip is an absolutely-positioned box that prints stamped over the
+  // text it is anchored to — print strips backgrounds but keeps positioning,
+  // so the collision is unreadable. Drop the popup; its trigger still prints.
+  // !important because the .qld__*-tip-visible state rule otherwise wins.
+  .qld__toggle-tip-content,
+  .qld__tool-tip-content {
+    display: none !important;
+  }
+}

@@ -1117,3 +1117,19 @@
     }
   }
 }
+
+@media print {
+  // The selected tab is marked by a 4px accent bar drawn as the background of a
+  // pseudo-element. The global body print reset clears backgrounds via `*`, which
+  // does not match pseudo-elements, so the accent colour survived as a solid
+  // coloured bar under the open tab.
+  //
+  // Take the colour, not the box. The button is a column flex container with
+  // `justify-content: flex-end` and no bottom padding, so this pseudo-element and
+  // the 8px gap above it are what hold the label clear of the bottom edge —
+  // `display: none` here drops the label 12px and it prints flush to the bottom
+  // instead of centred.
+  .qld__tab-button::after {
+    background-color: transparent !important;
+  }
+}

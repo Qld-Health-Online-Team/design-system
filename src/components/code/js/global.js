@@ -2,11 +2,8 @@
  * @module code
  */
 
-import {
-  validateInternalSvgPath,
-  buildIconPath,
-} from "../../../helpers/global-helpers.js";
-import * as animate from "../../_global/js/animate/global.js";
+import * as icons from "../../../utils/icons.js";
+import * as animate from "../../../utils/animate.js";
 
 /**
  * Initialise the code component: syntax-highlight snippets, wire the copy
@@ -109,12 +106,12 @@ export default function initCode(root = document) {
       // Create <use>
       const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
       // Validate and normalise the SVG path before using it
-      const safeSvgPath = validateInternalSvgPath(svgPath);
+      const safeSvgPath = icons.validateInternalSvgPath(svgPath);
       if (safeSvgPath) {
         use.setAttributeNS(
           null,
           "href",
-          buildIconPath(safeSvgPath, "chevron-up"),
+          icons.buildIconPath(safeSvgPath, "chevron-up"),
         );
       }
 

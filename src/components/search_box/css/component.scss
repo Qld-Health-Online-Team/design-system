@@ -56,6 +56,14 @@
     }
   }
 
+  // The form is interactive-only — the button is already dropped from print by
+  // the global button rule, and an input without its submit is a half-drawn
+  // control. Hide the whole thing, matching the header's treatment of its
+  // search box.
+  @media print {
+    display: none !important;
+  }
+
   .qld__search-form {
     font-size: 1rem;
     margin-top: 0;

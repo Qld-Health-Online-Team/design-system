@@ -206,6 +206,34 @@
     padding: 0;
   }
 
+  // On wide screens the result-type block (Document icon + size tag) is
+  // absolutely positioned at the right edge, with no space reserved — short
+  // titles never reach it. In print the global link rule appends each URL
+  // after the heading, which runs underneath the overlay. Print at the lg
+  // breakpoint still matches width-wise, so put the block back in flow using
+  // the stacked mobile layout. !important beats the lg rules regardless of
+  // where the glob orders this file's output.
+  @media print {
+    &__result-type {
+      position: static !important;
+      width: 100% !important;
+      flex-direction: row !important;
+
+      &-name {
+        flex-direction: row !important;
+
+        svg {
+          margin-right: 0.5rem !important;
+          margin-left: 0 !important;
+        }
+      }
+
+      .qld__tag {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
   &__related {
     background-color: $QLD-color-neutral--lightest;
     @include QLD-space(margin-top, 1.5unit);

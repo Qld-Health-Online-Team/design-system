@@ -257,7 +257,12 @@
 }
 
 @media print {
-  .qld__global_alert_include {
+  // Site-wide alerts are time-sensitive and dismissible; on paper they are stale
+  // the moment they are printed. `__include` is the container the Matrix include
+  // renders into, `__global-alert` the alert itself — the alert can be injected
+  // outside the container by `global.js`, so both are hidden.
+  .qld__global-alert,
+  .qld__global-alert__include {
     display: none !important;
   }
 }

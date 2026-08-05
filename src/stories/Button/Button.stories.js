@@ -82,13 +82,32 @@ export const Tertiary = {
   args: { variant: "tertiary" },
 };
 /**
- * Print rendering of the full button row, which includes a disabled button —
- * print swaps both the default and disabled buttons to fixed greys.
+ * Print rendering of the full button row. The row deliberately mixes the two
+ * things wearing `.qld__btn`: the leading `<a>`, which names a destination and
+ * survives, and four `<button>`s, which only do something when clicked and are
+ * dropped. Only the link should remain in the snapshot.
  */
 export const Print = {
   decorators: [rowDecorator],
   render: renderButtonList,
   parameters: printParams(
-    "the print button borders and the disabled-state greys",
+    "that interactive <button>s are dropped while a button-styled link prints, and the link's print border",
+  ),
+};
+
+/**
+ * Floating buttons are fixed-position screen overlays that paged output would
+ * repeat on every page; quick exit is additionally a safety control whose
+ * printed URL would defeat its purpose. Anchor or not, they are dropped.
+ */
+export const PrintFloating = {
+  render: () =>
+    `<div class="qld__widgets">
+      <a class="qld__btn qld__btn--floating qld__btn--quick-exit" href="https://www.qld.gov.au/" aria-label="Quick exit">
+        <span>Quick exit</span>
+      </a>
+    </div>`,
+  parameters: printParams(
+    "that floating buttons such as quick exit are dropped entirely",
   ),
 };

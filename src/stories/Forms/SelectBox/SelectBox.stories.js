@@ -2,7 +2,7 @@ import { SelectBox } from "./SelectBox";
 import { themes, storyParams } from "../../../../.storybook/globals";
 import { themeWrapper } from "../../../../.storybook/helper-functions.js";
 import { initComponents } from "../../../../.storybook/decorators";
-import initSelectBoxes from "../../../components/_global/js/select_boxes/global";
+import initSelectBoxes from "../../../components/select_boxes/js/global";
 
 const selectBoxArgs = {
   id: "select1",

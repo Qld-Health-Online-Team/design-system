@@ -15,7 +15,7 @@ import BannerAdvancedMeta from "./bannerAdvanced.stories";
 import { storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
 import initBannerAdvanced from "../../components/banner_advanced/js/global";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 
 // The curved styling activates at 1600px, so demonstrate at an extra-large width.

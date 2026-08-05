@@ -1,7 +1,9 @@
 import { renderHeader, headerArgs } from "./Header.js";
 import { storyParams, printParams } from "../../../.storybook/globals";
+import { withPrintMedia } from "../../../.storybook/helper-functions";
+import { expect } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
 
 export default {
@@ -415,6 +417,23 @@ DarkAltHeader.args = { ...headerArgs };
 export const Print = {
   args: { ...headerArgs },
   parameters: printParams(
-    "the Queensland Government logo staying visible as the print crest and the search box being hidden",
+    "the Queensland Government logo staying visible as the print crest, the search box being hidden, and no URL printing beside the site title",
   ),
+  play: async ({ canvasElement }) => {
+    const brandLink = canvasElement.querySelector(".qld__header__brand a");
+    await expect(brandLink).toBeTruthy();
+
+    // The site title's anchor wraps the whole masthead, so the global rule that
+    // appends a link's href would print the home page URL beside the title. This
+    // story's siteLogoUrl is absolute, which is the case that actually reaches
+    // that rule — a relative href is excluded by scheme and would pass either
+    // way, making a weaker suppression rule look correct.
+    //
+    // Resolved styles, not the CSSOM: the suppression rule and the rule it has to
+    // beat are both !important, so the only thing that distinguishes a working
+    // fix from a broken one is which one the cascade picks.
+    withPrintMedia(() => {
+      expect(getComputedStyle(brandLink, "::after").content).toBe('""');
+    });
+  },
 };
