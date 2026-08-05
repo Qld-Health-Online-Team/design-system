@@ -988,11 +988,9 @@ Handlebars.registerHelper('renderSpecialChar', function (string) {
   });
 }); 
 Handlebars.registerHelper('replace', function (str, search, replacement) {
-  if (typeof str == "string") {
-    console.log(str);
-    var regex = new RegExp(search, "g"); // need double backslashes in search to use them in regex
-    return str.replace(regex, replacement);
-  } else return "";
+  if (typeof str !== "string") return "";
+
+  return str.replace(new RegExp(search, "g"), replacement);
 }); 
 Handlebars.registerHelper('replaceMany', function (find, replace, options) {
   var string = options.fn(this);
