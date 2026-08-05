@@ -6,11 +6,11 @@ import { expect, within } from "storybook/test";
 // style `.qld__card__footer .qld__tag`, so the markup is built by hand here to
 // put that styling under test.
 const CARD_THEMES = [
-  { label: "White", modifier: "" },
-  { label: "Light", modifier: "qld__card--light" },
-  { label: "Alternate", modifier: "qld__card--alt" },
-  { label: "Dark", modifier: "qld__card--dark" },
-  { label: "Dark alternate", modifier: "qld__card--dark-alt" },
+  { label: "White", modifier: "", family: "light" },
+  { label: "Light", modifier: "qld__card--light", family: "light" },
+  { label: "Alternate", modifier: "qld__card--alt", family: "light" },
+  { label: "Dark", modifier: "qld__card--dark", family: "dark" },
+  { label: "Dark alternate", modifier: "qld__card--dark-alt", family: "dark" },
 ];
 
 // Both link-tag forms plus the plain one. `qld__tag--link` carries one more
@@ -88,102 +88,108 @@ function resolveToken(context, token) {
   return value;
 }
 
-const DARK_CARDS = ["qld__card--dark", "qld__card--dark-alt"];
-
+/**
+ * The three tag forms in one card. A card with no modifier is the default
+ * theme, so an empty modifier selects on the card class alone.
+ */
 function footerTags(canvasElement, modifier) {
-  const card = canvasElement.querySelector(`.${modifier}`);
+  const card = canvasElement.querySelector(
+    modifier ? `.${modifier}` : ".qld__card:not([class*='qld__card--'])",
+  );
+  const footer = ".qld__card__footer";
   return {
-    bare: card.querySelector(
-      ".qld__card__footer .qld__tag:not(.qld__tag--link)",
-    ),
-    link: card.querySelector(".qld__card__footer .qld__tag--link"),
+    // Anchor with no variant class, which the element-selector rules reach.
+    bare: card.querySelector(`${footer} a.qld__tag:not(.qld__tag--link)`),
+    // One more class, which is enough to win a different rule.
+    link: card.querySelector(`${footer} a.qld__tag--link`),
+    // Not focusable; the base block styles it.
+    plain: card.querySelector(`${footer} li.qld__tag`),
   };
 }
 
 /**
- * A card carries its own theme, so a tag in a dark card's footer takes the dark
- * link colour rather than the page's.
+ * A card carries its own theme, so its footer tags take that theme's colours —
+ * not the page's, and not another card theme's.
  *
- * Both the tags component and the card components style
- * `.qld__card__footer .qld__tag`, at specificities close enough to tie. A
- * theme-agnostic `.qld__card` rule declared later in the cascade then beats the
- * `.qld__card--dark` one and repaints the tag in light-theme colours.
+ * Two defects of the same shape have lived here. Both the tags component and
+ * the card components style `.qld__card__footer .qld__tag` at specificities
+ * close enough to tie, so a theme-agnostic `.qld__card` rule declared later in
+ * the cascade quietly beats the `.qld__card--dark` one; and within the tags
+ * component the light and alt groups were once written against the same
+ * `.qld__card` selector, collapsing onto each other. Each assertion below
+ * covers one of those, across every theme and tag form.
  *
- * Only the resting colour is asserted. The same defect reaches `:hover`, but
- * `userEvent.hover` drives synthetic events, which never put the browser into
- * the `:hover` state — `getComputedStyle` would report the resting colour and
- * the assertion could not fail.
+ * `:hover` is deliberately absent. `userEvent.hover` drives synthetic events,
+ * which never put the browser into the `:hover` state — `getComputedStyle`
+ * would report the resting value and the assertion could not fail. Asserting it
+ * needs a pseudo-state addon, which is not installed.
  */
-export const DarkCardTagsUseDarkTheme = {
+export const FooterTagsFollowTheCardTheme = {
   tags: ["!autodocs"],
   parameters: { chromatic: { disableSnapshot: true } },
   play: async ({ canvasElement }) => {
-    const darkLink = resolveToken(canvasElement, "--QLD-color-dark__link");
+    const token = (name) => resolveToken(canvasElement, name);
 
-    for (const modifier of DARK_CARDS) {
-      const tags = footerTags(canvasElement, modifier);
+    // Link colour: the tag reads as a link, in the card's own theme.
+    for (const { label, modifier, family } of CARD_THEMES) {
+      const expected = token(`--QLD-color-${family}__link`);
+      const { bare, link } = footerTags(canvasElement, modifier);
 
-      for (const [form, tag] of Object.entries(tags)) {
+      for (const [form, tag] of Object.entries({ bare, link })) {
         await expect(
           getComputedStyle(tag).color,
-          `${modifier} ${form} tag at rest`,
-        ).toBe(darkLink);
+          `${label}: ${form} tag colour`,
+        ).toBe(expected);
       }
     }
 
-    // The light card is the control: same markup, light-theme colours.
-    const lightLink = resolveToken(canvasElement, "--QLD-color-light__link");
-    const light = footerTags(canvasElement, "qld__card--light");
-    for (const [form, tag] of Object.entries(light)) {
-      await expect(
-        getComputedStyle(tag).color,
-        `light card ${form} tag at rest`,
-      ).toBe(lightLink);
-    }
-
-    // Guards the selectors the assertions depend on.
-    const canvas = within(canvasElement);
-    await expect(canvas.getAllByText("Policies")).toHaveLength(
-      CARD_THEMES.length,
-    );
-  },
-};
-
-/**
- * Each card theme gives its footer tags that theme's border, and a light card
- * is not an alt card.
- *
- * The light and alt rules are distinguished only by the card modifier they
- * name. Written against the bare `.qld__card` instead, they collapse onto the
- * same selector and the last one silently paints every card.
- */
-export const CardThemesGiveTagsTheirOwnBorder = {
-  tags: ["!autodocs"],
-  parameters: { chromatic: { disableSnapshot: true } },
-  play: async ({ canvasElement }) => {
-    const expected = {
+    // Border: each theme has its own, and light is not alt.
+    const borders = {
       "qld__card--light": "--QLD-color-light__border",
       "qld__card--alt": "--QLD-color-light__border--alt",
       "qld__card--dark": "--QLD-color-dark__border--alt",
       "qld__card--dark-alt": "--QLD-color-dark__border",
     };
-
-    for (const [modifier, token] of Object.entries(expected)) {
-      const card = canvasElement.querySelector(`.${modifier}`);
-      // The plain `<li class="qld__tag">`, which the base block styles.
-      const tag = card.querySelector("li.qld__tag");
+    for (const [modifier, name] of Object.entries(borders)) {
+      const { plain } = footerTags(canvasElement, modifier);
       await expect(
-        getComputedStyle(tag).borderTopColor,
-        `${modifier} plain tag border`,
-      ).toBe(resolveToken(canvasElement, token));
+        getComputedStyle(plain).borderTopColor,
+        `${modifier}: plain tag border`,
+      ).toBe(token(name));
     }
-
-    // A light card and an alt card must not resolve to the same border.
     const borderOf = (modifier) =>
-      getComputedStyle(canvasElement.querySelector(`.${modifier} li.qld__tag`))
+      getComputedStyle(footerTags(canvasElement, modifier).plain)
         .borderTopColor;
     await expect(borderOf("qld__card--light")).not.toBe(
       borderOf("qld__card--alt"),
+    );
+
+    // Focus ring: `QLD-focus` takes the theme as an argument rather than
+    // reading it from context, so a card theme that forgets to pass "dark"
+    // leaves a light focus ring on a dark background. Only one element can hold
+    // focus at a time, so these run in sequence rather than as a rendered grid.
+    for (const { label, modifier, family } of CARD_THEMES) {
+      const expected = token(`--QLD-color-${family}__focus`);
+      const { bare, link } = footerTags(canvasElement, modifier);
+
+      for (const [form, tag] of Object.entries({ bare, link })) {
+        tag.focus();
+        await expect(
+          document.activeElement,
+          `${label}: ${form} tag focusable`,
+        ).toBe(tag);
+        await expect(
+          getComputedStyle(tag).outlineColor,
+          `${label}: ${form} tag focus ring`,
+        ).toBe(expected);
+        tag.blur();
+      }
+    }
+
+    // Guards the selectors every assertion above depends on.
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByText("Policies")).toHaveLength(
+      CARD_THEMES.length,
     );
   },
 };
