@@ -1,4 +1,4 @@
-import Template from "../../components/details_summary/html/component.hbs";
+import Template from "../../components/details/html/component.hbs";
 import {
   iconSpritePath,
   printParams,
@@ -50,7 +50,7 @@ const summaryTextLines = (textElement) => {
 const firstLineOf = (textElement) => summaryTextLines(textElement)[0];
 
 const meta = {
-  title: "3. Components/Details Summary",
+  title: "3. Components/Details",
   render: renderDetails,
   argTypes: {
     assetId: { description: "The ID of the asset.", control: "text" },
@@ -118,7 +118,7 @@ const meta = {
       "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
     open: false,
   },
-  parameters: storyParams("detailsSummary"),
+  parameters: storyParams("details"),
 };
 
 export default meta;
