@@ -81,18 +81,26 @@ const meta = {
       control: { type: "text" },
     },
     theme: {
-      description: "Visual theme applied to the accordion group.",
+      description:
+        "Visual theme applied to the accordion group. The value is the group " +
+        "class itself, matching the option keys Matrix stores.",
       control: {
         type: "select",
         labels: {
           "": "White",
-          light: "Light",
-          alt: "Alternate",
-          dark: "Dark",
-          "dark-alt": "Alternate Dark",
+          "qld__accordion-group--light": "Light",
+          "qld__accordion-group--alt": "Alternate",
+          "qld__accordion-group--dark": "Dark",
+          "qld__accordion-group--dark-alt": "Alternate Dark",
         },
       },
-      options: ["", "light", "alt", "dark", "dark-alt"],
+      options: [
+        "",
+        "qld__accordion-group--light",
+        "qld__accordion-group--alt",
+        "qld__accordion-group--dark",
+        "qld__accordion-group--dark-alt",
+      ],
     },
     toggleAll: {
       description:
@@ -150,9 +158,15 @@ export const WithToggleAll = {
 };
 
 export const DarkAlt = {
-  args: { theme: "dark-alt" },
+  args: { theme: "qld__accordion-group--dark-alt" },
   play: async ({ canvasElement }) => {
-    // Theme suffix must land on both hooks the SCSS themes from
+    // Theme must land on both hooks the SCSS themes from, and the section
+    // modifier is derived from the group class rather than stored separately
+    await expect(
+      canvasElement.querySelector(
+        ".qld__accordion-group--qld__accordion-group--dark-alt",
+      ),
+    ).not.toBeInTheDocument();
     await expect(
       canvasElement.querySelector(".qld__body--dark-alt"),
     ).toBeInTheDocument();
