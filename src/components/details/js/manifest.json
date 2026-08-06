@@ -1,0 +1,66 @@
+{
+  "component": {
+    "name": "Details",
+    "description": "The Details component is an expandable toggle that hides extra information users can reveal when needed.",
+    "version": "1.0",
+    "status": "In Development",
+    "data": {
+      "assetid": "123",
+      "metadata": {
+        "body_theme": {
+          "type": "metadata_field_select",
+          "description": "Background colour for the full-width section this sits in. Text and arrow colours change to match.",
+          "friendly_name": "Body theme",
+          "value": "white",
+          "options": {
+            "white": "White",
+            "light": "Light",
+            "light-alt": "Alternate",
+            "dark": "Dark",
+            "dark-alt": "Dark Alternate"
+          },
+          "required": false,
+          "editable": true
+        },
+        "size": {
+          "type": "metadata_field_select",
+          "description": "How big the summary text is. The arrow and content spacing change to match.",
+          "friendly_name": "Size",
+          "value": "lg",
+          "options": {
+            "sm": "Small",
+            "md": "Medium",
+            "lg": "Large",
+            "xl": "Extra large"
+          },
+          "required": false,
+          "editable": true
+        },
+        "summary": {
+          "type": "metadata_field_text",
+          "description": "The heading people see before they open it. Make it clear what is inside.",
+          "friendly_name": "Summary",
+          "value": "Summary",
+          "required": true,
+          "editable": true
+        },
+        "content": {
+          "type": "metadata_field_wysiwyg",
+          "description": "What people see when they open it. This always prints, even when closed on screen.",
+          "friendly_name": "Content",
+          "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
+          "required": false,
+          "editable": true
+        },
+        "id_field": {
+          "type": "metadata_field_text",
+          "description": "Optional. Add a short name to link straight to this item from elsewhere. Leave blank and one is created for you.",
+          "friendly_name": "Id field",
+          "value": "",
+          "required": false,
+          "editable": true
+        }
+      }
+    }
+  }
+}

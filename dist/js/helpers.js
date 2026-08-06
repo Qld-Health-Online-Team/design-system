@@ -4,6 +4,29 @@ Handlebars.registerHelper('appendIf', function (head, tail, options) {
   }
   return !head ? "" : head + tail;
 }); 
+Handlebars.registerHelper('applyModifier', function (block, modifier) {
+  return block && modifier && typeof modifier === "string"
+    ? `${block}--${modifier}`
+    : "";
+}); 
+Handlebars.registerHelper('applyTheme', function (block, theme) {
+  // dist/js/helpers.js is built by serialising this function with
+  // Function.toString(), so the map has to live inside the body — module
+  // scope does not survive into the bundle.
+  const modifiers = {
+    white: "",
+    light: "light",
+    "light-alt": "alt",
+    dark: "dark",
+    "dark-alt": "dark-alt",
+  };
+
+  const modifier = Object.prototype.hasOwnProperty.call(modifiers, theme)
+    ? modifiers[theme]
+    : "";
+
+  return block && modifier ? `${block}--${modifier}` : "";
+}); 
 Handlebars.registerHelper('arrayLength', function (json) {
   return Object.keys(json).length;
 }); 
