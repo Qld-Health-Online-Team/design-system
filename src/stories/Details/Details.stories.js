@@ -14,7 +14,6 @@ const renderDetails = ({
   size,
   summary,
   content,
-  open,
   ...args
 }) =>
   Template({
@@ -27,7 +26,6 @@ const renderDetails = ({
           size: { value: size },
           summary: { value: summary },
           content: { value: content },
-          open: { value: open ? "yes" : "no" },
         },
       },
     },
@@ -48,6 +46,17 @@ const summaryTextLines = (textElement) => {
 };
 
 const firstLineOf = (textElement) => summaryTextLines(textElement)[0];
+
+// The template has no open switch — a disclosure is only ever open because
+// someone opened it. Stories that want the revealed state in their snapshot do
+// it the same way, in the play function, before Chromatic captures.
+//
+// This is a visual concern only: a closed <details> hides its content through
+// content-visibility on ::details-content, which still lays the content box out
+// at full size. Geometry assertions therefore read the same either way and must
+// not be taken as proof the disclosure opened.
+const open = (...elements) =>
+  elements.forEach((element) => (element.open = true));
 
 const meta = {
   title: "3. Components/Details",
@@ -103,10 +112,6 @@ const meta = {
       description: "The content revealed when the disclosure is open.",
       control: "text",
     },
-    open: {
-      description: "Whether the disclosure is open on load.",
-      control: "boolean",
-    },
   },
   args: {
     assetId: "details-123",
@@ -116,7 +121,6 @@ const meta = {
     summary: "Summary",
     content:
       "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
-    open: false,
   },
   parameters: storyParams("details"),
 };
@@ -141,7 +145,6 @@ export const Sizes = {
         renderDetails({
           ...meta.args,
           size,
-          open: true,
           summary: size || "Default",
         }),
       )
@@ -150,6 +153,9 @@ export const Sizes = {
     const items = canvasElement.querySelectorAll(".qld__details");
 
     await expect(items).toHaveLength(5);
+
+    // For the snapshot; the alignment below measures the same either way
+    open(...items);
 
     for (const details of items) {
       const text = details.querySelector(".qld__details__summary-text");
@@ -177,7 +183,6 @@ export const WrappingSummary = {
   // is a wide, unwrapped summary and protects nothing.
   parameters: { chromatic: { viewports: [400] } },
   args: {
-    open: true,
     summary:
       "What do I need to bring with me to my first appointment at the clinic?",
   },
@@ -185,6 +190,9 @@ export const WrappingSummary = {
     const details = canvasElement.querySelector(".qld__details");
     const icon = canvasElement.querySelector(".qld__details__icon");
     const text = canvasElement.querySelector(".qld__details__summary-text");
+
+    // Keeps the snapshot matching the sizes sheet; the summary wraps regardless
+    open(details);
 
     // Guarantee the summary wraps regardless of the headless runner's viewport
     // width (the small viewport wraps it on its own in the rendered story).
@@ -256,7 +264,6 @@ export const ChevronRotates = {
  * pointing "closed".
  */
 export const PrintStyles = {
-  args: { open: false },
   parameters: printParams(
     "that a closed disclosure still prints its content, without the chevron",
   ),
@@ -271,7 +278,7 @@ const allVariants = (theme, background) => `
     <h3>Closed</h3>
     ${renderDetails({ ...meta.args, bodyBackground: background })}
     <h3>Open</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, open: true })}
+    ${renderDetails({ ...meta.args, bodyBackground: background })}
     <h3>Default size</h3>
     ${renderDetails({ ...meta.args, bodyBackground: background, size: "" })}
     <h3>Focused</h3>
@@ -291,6 +298,9 @@ const focusLastExample = async ({ canvasElement }) => {
   const summary = canvasElement.querySelector(
     `#${FOCUSED_ID} .qld__details__summary`,
   );
+
+  // Second row is the sheet's "Open" example; every row renders closed
+  open(canvasElement.querySelectorAll(".qld__details")[1]);
 
   // preventScroll keeps the captured scroll position deterministic
   summary.focus({ preventScroll: true });

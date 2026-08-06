@@ -4,9 +4,6 @@
       <details
         id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}details-{{ assetid }}{{/if}}"
         class="qld__details {{ metadata.size.value }}"
-        {{#ifCond metadata.open.value '==' 'yes'}}
-          open
-        {{/ifCond}}
       >
         <summary class="qld__details__summary">
           <span class="qld__details__summary-text">
