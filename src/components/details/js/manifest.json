@@ -9,7 +9,7 @@
       "metadata": {
         "body_theme": {
           "type": "metadata_field_select",
-          "description": "Background theme for the full-width section around the disclosure. Also sets the summary, chevron, content and focus ring colours, so it changes more than the background alone.",
+          "description": "Background colour for the full-width section this sits in. Text and arrow colours change to match.",
           "friendly_name": "Body theme",
           "value": "white",
           "options": {
@@ -24,7 +24,7 @@
         },
         "size": {
           "type": "metadata_field_select",
-          "description": "Size of the summary text. The chevron and the content indent scale with it.",
+          "description": "How big the summary text is. The arrow and content spacing change to match.",
           "friendly_name": "Size",
           "value": "lg",
           "options": {
@@ -38,7 +38,7 @@
         },
         "summary": {
           "type": "metadata_field_text",
-          "description": "The always-visible label. Write it so a reader can tell what is hidden without opening it.",
+          "description": "The heading people see before they open it. Make it clear what is inside.",
           "friendly_name": "Summary",
           "value": "Summary",
           "required": true,
@@ -46,7 +46,7 @@
         },
         "content": {
           "type": "metadata_field_wysiwyg",
-          "description": "The content revealed when the summary is activated. Printed whether or not the disclosure is open, since paper cannot be expanded.",
+          "description": "What people see when they open it. This always prints, even when closed on screen.",
           "friendly_name": "Content",
           "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
           "required": false,
@@ -54,7 +54,7 @@
         },
         "id_field": {
           "type": "metadata_field_text",
-          "description": "Anchor for linking directly to this disclosure, used as the element id. Leave empty to fall back to a generated id.",
+          "description": "Optional. Add a short name to link straight to this item from elsewhere. Leave blank and one is created for you.",
           "friendly_name": "Id field",
           "value": "",
           "required": false,
