@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <details
         id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}details-{{ assetid }}{{/if}}"
-        class="qld__details {{ metadata.size.value }}"
+        class="qld__details {{applyModifier 'qld__details' metadata.size.value}}"
       >
         <summary class="qld__details__summary">
           <span class="qld__details__summary-text">

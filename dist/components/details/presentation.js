@@ -1,5 +1,5 @@
 {"1":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.escapeExpression, alias3=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+    var stack1, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.escapeExpression, alias4=container.lambda, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
           return parent[propertyName];
         }
@@ -7,17 +7,17 @@
     };
 
   return "  <section\n    class=\"qld__body "
-    + alias2((lookupProperty(helpers,"applyTheme")||(depth0 && lookupProperty(depth0,"applyTheme"))||container.hooks.helperMissing).call(alias1,"qld__body",((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"body_theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"applyTheme","hash":{},"data":data,"loc":{"start":{"line":3,"column":21},"end":{"line":3,"column":73}}}))
+    + alias3((lookupProperty(helpers,"applyTheme")||(depth0 && lookupProperty(depth0,"applyTheme"))||alias2).call(alias1,"qld__body",((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"body_theme") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"applyTheme","hash":{},"data":data,"loc":{"start":{"line":3,"column":21},"end":{"line":3,"column":73}}}))
     + "\"\n  >\n    <div class=\"container-fluid\">\n      <details\n        id=\""
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"id_field") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":7,"column":12},"end":{"line":7,"column":108}}})) != null ? stack1 : "")
     + "\"\n        class=\"qld__details "
-    + alias2(alias3(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"size") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias3((lookupProperty(helpers,"applyModifier")||(depth0 && lookupProperty(depth0,"applyModifier"))||alias2).call(alias1,"qld__details",((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"size") : stack1)) != null ? lookupProperty(stack1,"value") : stack1),{"name":"applyModifier","hash":{},"data":data,"loc":{"start":{"line":8,"column":28},"end":{"line":8,"column":80}}}))
     + "\"\n      >\n        <summary class=\"qld__details__summary\">\n          <span class=\"qld__details__summary-text\">\n            <svg\n              class=\"qld__icon qld__details__icon\"\n              aria-hidden=\"true\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <use\n                href=\""
-    + alias2(alias3(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
+    + alias3(alias4(((stack1 = ((stack1 = ((stack1 = ((stack1 = (data && lookupProperty(data,"root"))) && lookupProperty(stack1,"site"))) && lookupProperty(stack1,"metadata"))) && lookupProperty(stack1,"coreSiteIcons"))) && lookupProperty(stack1,"value")), depth0))
     + "#chevron-right\"\n              ></use>\n            </svg>\n            "
-    + alias2(alias3(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"summary") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
+    + alias3(alias4(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"summary") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\n          </span>\n        </summary>\n        <div class=\"qld__details__content\">"
-    + ((stack1 = alias3(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
+    + ((stack1 = alias4(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"metadata") : depth0)) != null ? lookupProperty(stack1,"content") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
     + "</div>\n      </details>\n    </div>\n  </section>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {

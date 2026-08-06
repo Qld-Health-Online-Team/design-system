@@ -85,18 +85,13 @@ const meta = {
       control: {
         type: "radio",
         labels: {
-          "qld__details--sm": "Small",
-          "qld__details--md": "Medium",
-          "qld__details--lg": "Large",
-          "qld__details--xl": "Extra large",
+          sm: "Small",
+          md: "Medium",
+          lg: "Large",
+          xl: "Extra large",
         },
       },
-      options: [
-        "qld__details--sm",
-        "qld__details--md",
-        "qld__details--lg",
-        "qld__details--xl",
-      ],
+      options: ["sm", "md", "lg", "xl"],
     },
     summary: {
       description: "The always-visible summary text.",
@@ -111,7 +106,7 @@ const meta = {
     assetId: "details-123",
     idField: "",
     bodyTheme: "white",
-    size: "qld__details--lg",
+    size: "lg",
     summary: "Summary",
     content:
       "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
@@ -132,13 +127,7 @@ export const Default = {};
 // and it has to stay aligned like the rest.
 export const Sizes = {
   render: () =>
-    [
-      "",
-      "qld__details--sm",
-      "qld__details--md",
-      "qld__details--lg",
-      "qld__details--xl",
-    ]
+    ["", "sm", "md", "lg", "xl"]
       .map((size) =>
         renderDetails({
           ...meta.args,
