@@ -4,6 +4,11 @@ Handlebars.registerHelper('appendIf', function (head, tail, options) {
   }
   return !head ? "" : head + tail;
 }); 
+Handlebars.registerHelper('applyModifier', function (block, modifier) {
+  return block && modifier && typeof modifier === "string"
+    ? `${block}--${modifier}`
+    : "";
+}); 
 Handlebars.registerHelper('applyTheme', function (block, theme) {
   // dist/js/helpers.js is built by serialising this function with
   // Function.toString(), so the map has to live inside the body — module
