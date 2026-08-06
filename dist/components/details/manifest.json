@@ -1,45 +1,44 @@
 {
   "component": {
     "name": "Details",
-    "description": "A native disclosure widget that shows and hides its content when the summary is activated.",
+    "description": "The Details component is an expandable toggle that hides extra information users can reveal when needed.",
     "version": "1.0",
     "status": "In Development",
     "data": {
       "assetid": "123",
       "metadata": {
-        "body_background": {
+        "body_theme": {
           "type": "metadata_field_select",
-          "description": "",
-          "friendly_name": "Body Background colour",
-          "value": "",
+          "description": "Background colour for the full-width section this sits in. Text and arrow colours change to match.",
+          "friendly_name": "Body theme",
+          "value": "white",
           "options": {
-            "": "White",
-            "qld__body--light": "Light",
-            "qld__body--dark": "Dark",
-            "qld__body--alt": "Alternate",
-            "qld__body--dark-alt": "Dark Alternate"
+            "white": "White",
+            "light": "Light",
+            "light-alt": "Alternate",
+            "dark": "Dark",
+            "dark-alt": "Dark Alternate"
           },
           "required": false,
           "editable": true
         },
         "size": {
           "type": "metadata_field_select",
-          "description": "",
+          "description": "How big the summary text is. The arrow and content spacing change to match.",
           "friendly_name": "Size",
-          "value": "qld__details--lg",
+          "value": "lg",
           "options": {
-            "": "Default",
-            "qld__details--sm": "Small",
-            "qld__details--md": "Medium",
-            "qld__details--lg": "Large",
-            "qld__details--xl": "Extra large"
+            "sm": "Small",
+            "md": "Medium",
+            "lg": "Large",
+            "xl": "Extra large"
           },
           "required": false,
           "editable": true
         },
         "summary": {
           "type": "metadata_field_text",
-          "description": "",
+          "description": "The heading people see before they open it. Make it clear what is inside.",
           "friendly_name": "Summary",
           "value": "Summary",
           "required": true,
@@ -47,27 +46,15 @@
         },
         "content": {
           "type": "metadata_field_wysiwyg",
-          "description": "",
+          "description": "What people see when they open it. This always prints, even when closed on screen.",
           "friendly_name": "Content",
           "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
           "required": false,
           "editable": true
         },
-        "open": {
-          "type": "metadata_field_select",
-          "description": "",
-          "friendly_name": "Open by default?",
-          "value": "no",
-          "options": {
-            "no": "No",
-            "yes": "Yes"
-          },
-          "required": false,
-          "editable": true
-        },
         "id_field": {
           "type": "metadata_field_text",
-          "description": "",
+          "description": "Optional. Add a short name to link straight to this item from elsewhere. Leave blank and one is created for you.",
           "friendly_name": "Id field",
           "value": "",
           "required": false,

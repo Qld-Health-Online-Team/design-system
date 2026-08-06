@@ -21,6 +21,24 @@ $QLD-details__sizes: (
   "xl": lg,
 );
 
+// Markup that sets no size modifier falls back to the base styles. They render
+// at this key, so "medium" and no modifier at all are the same disclosure.
+$QLD-details__default-key: map-get($QLD-details__sizes, "md");
+
+// The content indent that lines the content up with the summary text: the
+// fixed gutter plus the summary font size. The base styles and the size
+// modifiers both set it through here so the two cannot drift apart.
+@mixin QLD-details__content-indent($fontsize-key) {
+  @include QLD-space(
+    padding-left,
+    calc(
+        (map-get($QLD-fontsize-map, $fontsize-key) + $QLD-details__gutter) /
+          $QLD-rem
+      ) *
+      1unit
+  );
+}
+
 .qld__details {
   display: block;
 
@@ -76,7 +94,7 @@ $QLD-details__sizes: (
 
     @include QLD-space("gap", $QLD-details__icon-gap);
     @include QLD-space(padding, $QLD-details__text-padding);
-    @include QLD-fontgrid(sm, heading);
+    @include QLD-fontgrid($QLD-details__default-key, heading);
 
     border-radius: $QLD-border-radius-xs;
 
@@ -105,12 +123,7 @@ $QLD-details__sizes: (
   }
 
   &__content {
-    // The default size — kept in step with the "md" entry of the size loop below
-    @include QLD-space(
-      padding-left,
-      calc((map-get($QLD-fontsize-map, sm) + $QLD-details__gutter) / $QLD-rem) *
-        1unit
-    );
+    @include QLD-details__content-indent($QLD-details__default-key);
     @include QLD-space(padding-bottom, 0.75unit);
     @include QLD-fontgrid(xs, default);
 
@@ -127,19 +140,13 @@ $QLD-details__sizes: (
   // own; the content indent has to be recalculated from the same font size to
   // keep the content aligned with the text.
   @each $modifier, $fontsize-key in $QLD-details__sizes {
-    $indent: calc(
-        (map-get($QLD-fontsize-map, $fontsize-key) + $QLD-details__gutter) /
-          $QLD-rem
-      ) *
-      1unit;
-
     &--#{$modifier} {
       .qld__details__summary-text {
         @include QLD-fontgrid($fontsize-key, heading);
       }
 
       .qld__details__content {
-        @include QLD-space(padding-left, $indent);
+        @include QLD-details__content-indent($fontsize-key);
       }
     }
   }
@@ -192,7 +199,7 @@ $QLD-details__sizes: (
 
 @media print {
   .qld__details {
-    color: #000 !important;
+    color: $QLD-color-print__text !important;
 
     // Print the content whether or not the disclosure is open — paper can't be
     // expanded, so anything left collapsed is lost to the reader.
@@ -207,7 +214,7 @@ $QLD-details__sizes: (
 
     &__summary-text {
       background: none !important;
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
     }
 
     // The chevron would still point "closed" against the revealed content.
@@ -218,7 +225,7 @@ $QLD-details__sizes: (
     }
 
     &__content {
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
     }
   }
 }

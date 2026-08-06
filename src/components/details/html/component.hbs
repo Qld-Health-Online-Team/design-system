@@ -1,12 +1,11 @@
 {{#with component.data}}
-  <section class="qld__body {{ metadata.body_background.value }}">
+  <section
+    class="qld__body {{applyTheme 'qld__body' metadata.body_theme.value}}"
+  >
     <div class="container-fluid">
       <details
         id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}details-{{ assetid }}{{/if}}"
-        class="qld__details {{ metadata.size.value }}"
-        {{#ifCond metadata.open.value '==' 'yes'}}
-          open
-        {{/ifCond}}
+        class="qld__details {{applyModifier 'qld__details' metadata.size.value}}"
       >
         <summary class="qld__details__summary">
           <span class="qld__details__summary-text">

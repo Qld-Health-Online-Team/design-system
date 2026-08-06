@@ -10,11 +10,10 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 const renderDetails = ({
   assetId,
   idField,
-  bodyBackground,
+  bodyTheme,
   size,
   summary,
   content,
-  open,
   ...args
 }) =>
   Template({
@@ -23,11 +22,10 @@ const renderDetails = ({
       data: {
         metadata: {
           id_field: { value: idField },
-          body_background: { value: bodyBackground },
+          body_theme: { value: bodyTheme },
           size: { value: size },
           summary: { value: summary },
           content: { value: content },
-          open: { value: open ? "yes" : "no" },
         },
       },
     },
@@ -49,51 +47,51 @@ const summaryTextLines = (textElement) => {
 
 const firstLineOf = (textElement) => summaryTextLines(textElement)[0];
 
+// The template has no open switch — a disclosure is only ever open because
+// someone opened it. Stories that want the revealed state in their snapshot do
+// it the same way, in the play function, before Chromatic captures.
+//
+// This is a visual concern only: a closed <details> hides its content through
+// content-visibility on ::details-content, which still lays the content box out
+// at full size. Geometry assertions therefore read the same either way and must
+// not be taken as proof the disclosure opened.
+const open = (...elements) =>
+  elements.forEach((element) => (element.open = true));
+
 const meta = {
   title: "3. Components/Details",
   render: renderDetails,
   argTypes: {
     assetId: { description: "The ID of the asset.", control: "text" },
     idField: { description: "The ID of the field.", control: "text" },
-    bodyBackground: {
-      description: "The background colour of the surrounding body.",
+    bodyTheme: {
+      description:
+        "The theme of the surrounding body. Sets the background, and with it " +
+        "the summary, icon, content and focus ring colours.",
       control: {
         type: "radio",
         labels: {
-          "": "White",
-          "qld__body--light": "Light",
-          "qld__body--alt": "Alternate",
-          "qld__body--dark": "Dark",
-          "qld__body--dark-alt": "Dark Alternate",
+          white: "White",
+          light: "Light",
+          "light-alt": "Alternate",
+          dark: "Dark",
+          "dark-alt": "Dark Alternate",
         },
       },
-      options: [
-        "",
-        "qld__body--light",
-        "qld__body--alt",
-        "qld__body--dark",
-        "qld__body--dark-alt",
-      ],
+      options: ["white", "light", "light-alt", "dark", "dark-alt"],
     },
     size: {
       description: "The size of the disclosure.",
       control: {
         type: "radio",
         labels: {
-          "": "Default",
-          "qld__details--sm": "Small",
-          "qld__details--md": "Medium",
-          "qld__details--lg": "Large",
-          "qld__details--xl": "Extra large",
+          sm: "Small",
+          md: "Medium",
+          lg: "Large",
+          xl: "Extra large",
         },
       },
-      options: [
-        "",
-        "qld__details--sm",
-        "qld__details--md",
-        "qld__details--lg",
-        "qld__details--xl",
-      ],
+      options: ["sm", "md", "lg", "xl"],
     },
     summary: {
       description: "The always-visible summary text.",
@@ -103,20 +101,15 @@ const meta = {
       description: "The content revealed when the disclosure is open.",
       control: "text",
     },
-    open: {
-      description: "Whether the disclosure is open on load.",
-      control: "boolean",
-    },
   },
   args: {
     assetId: "details-123",
     idField: "",
-    bodyBackground: "",
-    size: "qld__details--lg",
+    bodyTheme: "white",
+    size: "lg",
     summary: "Summary",
     content:
       "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum efficitur egestas. Aenean sed pretium mauris.</p>",
-    open: false,
   },
   parameters: storyParams("details"),
 };
@@ -128,21 +121,18 @@ export const Default = {};
 // The chevron scales with the summary text and the content indent is derived
 // from the same font size, so the content stays aligned with the summary text
 // at every size. The play test pins that invariant.
+//
+// The first row sets no size at all. That is not an authoring option — it is
+// the fallback the base styles provide for a missing or unrecognised value,
+// and it has to stay aligned like the rest.
 export const Sizes = {
   render: () =>
-    [
-      "",
-      "qld__details--sm",
-      "qld__details--md",
-      "qld__details--lg",
-      "qld__details--xl",
-    ]
+    ["", "sm", "md", "lg", "xl"]
       .map((size) =>
         renderDetails({
           ...meta.args,
           size,
-          open: true,
-          summary: size || "Default",
+          summary: size || "No size set",
         }),
       )
       .join(""),
@@ -150,6 +140,9 @@ export const Sizes = {
     const items = canvasElement.querySelectorAll(".qld__details");
 
     await expect(items).toHaveLength(5);
+
+    // For the snapshot; the alignment below measures the same either way
+    open(...items);
 
     for (const details of items) {
       const text = details.querySelector(".qld__details__summary-text");
@@ -177,7 +170,6 @@ export const WrappingSummary = {
   // is a wide, unwrapped summary and protects nothing.
   parameters: { chromatic: { viewports: [400] } },
   args: {
-    open: true,
     summary:
       "What do I need to bring with me to my first appointment at the clinic?",
   },
@@ -185,6 +177,9 @@ export const WrappingSummary = {
     const details = canvasElement.querySelector(".qld__details");
     const icon = canvasElement.querySelector(".qld__details__icon");
     const text = canvasElement.querySelector(".qld__details__summary-text");
+
+    // Keeps the snapshot matching the sizes sheet; the summary wraps regardless
+    open(details);
 
     // Guarantee the summary wraps regardless of the headless runner's viewport
     // width (the small viewport wraps it on its own in the rendered story).
@@ -256,7 +251,6 @@ export const ChevronRotates = {
  * pointing "closed".
  */
 export const PrintStyles = {
-  args: { open: false },
   parameters: printParams(
     "that a closed disclosure still prints its content, without the chevron",
   ),
@@ -266,16 +260,16 @@ export const PrintStyles = {
 // hold focus, so it can't be one of the three above.
 const FOCUSED_ID = "focused-example";
 
-const allVariants = (theme, background) => `
+const allVariants = (theme, bodyTheme) => `
   <div class="${theme}" style="padding: 2rem;">
     <h3>Closed</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background })}
+    ${renderDetails({ ...meta.args, bodyTheme })}
     <h3>Open</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, open: true })}
-    <h3>Default size</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, size: "" })}
+    ${renderDetails({ ...meta.args, bodyTheme })}
+    <h3>No size set</h3>
+    ${renderDetails({ ...meta.args, bodyTheme, size: "" })}
     <h3>Focused</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, idField: FOCUSED_ID })}
+    ${renderDetails({ ...meta.args, bodyTheme, idField: FOCUSED_ID })}
   </div>
 `;
 
@@ -292,6 +286,9 @@ const focusLastExample = async ({ canvasElement }) => {
     `#${FOCUSED_ID} .qld__details__summary`,
   );
 
+  // Second row is the sheet's "Open" example; every row renders closed
+  open(canvasElement.querySelectorAll(".qld__details")[1]);
+
   // preventScroll keeps the captured scroll position deterministic
   summary.focus({ preventScroll: true });
   await expect(summary).toHaveFocus();
@@ -306,26 +303,26 @@ const focusLastExample = async ({ canvasElement }) => {
 };
 
 export const White = {
-  render: () => allVariants(themes["white"], ""),
+  render: () => allVariants(themes["white"], "white"),
   play: focusLastExample,
 };
 
 export const Light = {
-  render: () => allVariants(themes["light"], "qld__body--light"),
+  render: () => allVariants(themes["light"], "light"),
   play: focusLastExample,
 };
 
 export const Alternative = {
-  render: () => allVariants(themes["light alt"], "qld__body--alt"),
+  render: () => allVariants(themes["light alt"], "light-alt"),
   play: focusLastExample,
 };
 
 export const Dark = {
-  render: () => allVariants(themes["dark"], "qld__body--dark"),
+  render: () => allVariants(themes["dark"], "dark"),
   play: focusLastExample,
 };
 
 export const DarkAlt = {
-  render: () => allVariants(themes["dark alt"], "qld__body--dark-alt"),
+  render: () => allVariants(themes["dark alt"], "dark-alt"),
   play: focusLastExample,
 };
