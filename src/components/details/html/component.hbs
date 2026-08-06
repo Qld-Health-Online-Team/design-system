@@ -1,5 +1,7 @@
 {{#with component.data}}
-  <section class="qld__body {{ metadata.body_background.value }}">
+  <section
+    class="qld__body {{applyTheme 'qld__body' metadata.body_theme.value}}"
+  >
     <div class="container-fluid">
       <details
         id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}details-{{ assetid }}{{/if}}"

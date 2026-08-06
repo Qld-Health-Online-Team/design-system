@@ -10,7 +10,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 const renderDetails = ({
   assetId,
   idField,
-  bodyBackground,
+  bodyTheme,
   size,
   summary,
   content,
@@ -22,7 +22,7 @@ const renderDetails = ({
       data: {
         metadata: {
           id_field: { value: idField },
-          body_background: { value: bodyBackground },
+          body_theme: { value: bodyTheme },
           size: { value: size },
           summary: { value: summary },
           content: { value: content },
@@ -64,25 +64,21 @@ const meta = {
   argTypes: {
     assetId: { description: "The ID of the asset.", control: "text" },
     idField: { description: "The ID of the field.", control: "text" },
-    bodyBackground: {
-      description: "The background colour of the surrounding body.",
+    bodyTheme: {
+      description:
+        "The theme of the surrounding body. Sets the background, and with it " +
+        "the summary, icon, content and focus ring colours.",
       control: {
         type: "radio",
         labels: {
-          "": "White",
-          "qld__body--light": "Light",
-          "qld__body--alt": "Alternate",
-          "qld__body--dark": "Dark",
-          "qld__body--dark-alt": "Dark Alternate",
+          white: "White",
+          light: "Light",
+          "light-alt": "Alternate",
+          dark: "Dark",
+          "dark-alt": "Dark Alternate",
         },
       },
-      options: [
-        "",
-        "qld__body--light",
-        "qld__body--alt",
-        "qld__body--dark",
-        "qld__body--dark-alt",
-      ],
+      options: ["white", "light", "light-alt", "dark", "dark-alt"],
     },
     size: {
       description: "The size of the disclosure.",
@@ -116,7 +112,7 @@ const meta = {
   args: {
     assetId: "details-123",
     idField: "",
-    bodyBackground: "",
+    bodyTheme: "white",
     size: "qld__details--lg",
     summary: "Summary",
     content:
@@ -273,16 +269,16 @@ export const PrintStyles = {
 // hold focus, so it can't be one of the three above.
 const FOCUSED_ID = "focused-example";
 
-const allVariants = (theme, background) => `
+const allVariants = (theme, bodyTheme) => `
   <div class="${theme}" style="padding: 2rem;">
     <h3>Closed</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background })}
+    ${renderDetails({ ...meta.args, bodyTheme })}
     <h3>Open</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background })}
+    ${renderDetails({ ...meta.args, bodyTheme })}
     <h3>Default size</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, size: "" })}
+    ${renderDetails({ ...meta.args, bodyTheme, size: "" })}
     <h3>Focused</h3>
-    ${renderDetails({ ...meta.args, bodyBackground: background, idField: FOCUSED_ID })}
+    ${renderDetails({ ...meta.args, bodyTheme, idField: FOCUSED_ID })}
   </div>
 `;
 
@@ -316,26 +312,26 @@ const focusLastExample = async ({ canvasElement }) => {
 };
 
 export const White = {
-  render: () => allVariants(themes["white"], ""),
+  render: () => allVariants(themes["white"], "white"),
   play: focusLastExample,
 };
 
 export const Light = {
-  render: () => allVariants(themes["light"], "qld__body--light"),
+  render: () => allVariants(themes["light"], "light"),
   play: focusLastExample,
 };
 
 export const Alternative = {
-  render: () => allVariants(themes["light alt"], "qld__body--alt"),
+  render: () => allVariants(themes["light alt"], "light-alt"),
   play: focusLastExample,
 };
 
 export const Dark = {
-  render: () => allVariants(themes["dark"], "qld__body--dark"),
+  render: () => allVariants(themes["dark"], "dark"),
   play: focusLastExample,
 };
 
 export const DarkAlt = {
-  render: () => allVariants(themes["dark alt"], "qld__body--dark-alt"),
+  render: () => allVariants(themes["dark alt"], "dark-alt"),
   play: focusLastExample,
 };
