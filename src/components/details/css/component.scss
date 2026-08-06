@@ -192,7 +192,7 @@ $QLD-details__sizes: (
 
 @media print {
   .qld__details {
-    color: #000 !important;
+    color: $QLD-color-print__text !important;
 
     // Print the content whether or not the disclosure is open — paper can't be
     // expanded, so anything left collapsed is lost to the reader.
@@ -207,7 +207,7 @@ $QLD-details__sizes: (
 
     &__summary-text {
       background: none !important;
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
     }
 
     // The chevron would still point "closed" against the revealed content.
@@ -218,7 +218,7 @@ $QLD-details__sizes: (
     }
 
     &__content {
-      color: #000 !important;
+      color: $QLD-color-print__text !important;
     }
   }
 }
