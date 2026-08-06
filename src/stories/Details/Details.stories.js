@@ -85,7 +85,6 @@ const meta = {
       control: {
         type: "radio",
         labels: {
-          "": "Default",
           "qld__details--sm": "Small",
           "qld__details--md": "Medium",
           "qld__details--lg": "Large",
@@ -93,7 +92,6 @@ const meta = {
         },
       },
       options: [
-        "",
         "qld__details--sm",
         "qld__details--md",
         "qld__details--lg",
@@ -128,6 +126,10 @@ export const Default = {};
 // The chevron scales with the summary text and the content indent is derived
 // from the same font size, so the content stays aligned with the summary text
 // at every size. The play test pins that invariant.
+//
+// The first row sets no size at all. That is not an authoring option — it is
+// the fallback the base styles provide for a missing or unrecognised value,
+// and it has to stay aligned like the rest.
 export const Sizes = {
   render: () =>
     [
@@ -141,7 +143,7 @@ export const Sizes = {
         renderDetails({
           ...meta.args,
           size,
-          summary: size || "Default",
+          summary: size || "No size set",
         }),
       )
       .join(""),
@@ -275,7 +277,7 @@ const allVariants = (theme, bodyTheme) => `
     ${renderDetails({ ...meta.args, bodyTheme })}
     <h3>Open</h3>
     ${renderDetails({ ...meta.args, bodyTheme })}
-    <h3>Default size</h3>
+    <h3>No size set</h3>
     ${renderDetails({ ...meta.args, bodyTheme, size: "" })}
     <h3>Focused</h3>
     ${renderDetails({ ...meta.args, bodyTheme, idField: FOCUSED_ID })}
