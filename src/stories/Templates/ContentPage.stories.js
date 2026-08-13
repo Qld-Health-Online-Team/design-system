@@ -1,6 +1,7 @@
 import { initComponents } from "../../../.storybook/decorators";
+import { printParams } from "../../../.storybook/globals";
 import { initMegaMenu } from "../../components/mega_main_navigation/js/global";
-import initCtaLinks from "../../components/_global/js/cta_links/global";
+import initCtaLinks from "../../components/cta_links/js/global";
 import { initAccordion } from "../../components/accordion/js/global";
 import initInternalNavigation from "../../components/internal_navigation/js/global";
 import initInPageNavigation from "../../components/in_page_navigation/js/global";
@@ -38,7 +39,7 @@ function renderContentPage(args) {
       <div class="qld__body">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-12 col-md-4 col-lg-3">
+            <div class="col-xs-12 col-md-4 col-lg-3 hide-on-print">
               ${renderSideNav()}
             </div>
             <div class="col-xs-12 col-md-8 col-lg-9" id="content">
@@ -99,3 +100,14 @@ export default {
 };
 
 export const Default = {};
+
+/**
+ * Print rendering of the full page — the broadest print coverage there is, since
+ * it exercises every hidden region and the header/body colour tokens at once.
+ */
+export const Print = {
+  parameters: printParams(
+    "the rules that hide the pre-header, main nav, side nav, in-page nav, " +
+      "breadcrumbs and footer, plus the header and body print colours",
+  ),
+};

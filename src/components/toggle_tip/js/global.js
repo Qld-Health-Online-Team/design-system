@@ -7,7 +7,7 @@
  * live in the shared popover controller.
  */
 
-import { createPopoverController } from "../../_global/js/popover/controller.js";
+import { createPopoverController } from "../../../behaviours/popover/controller.js";
 
 const popover = createPopoverController({
   componentName: "qld__toggle-tip",

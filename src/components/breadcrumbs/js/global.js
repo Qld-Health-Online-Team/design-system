@@ -1,8 +1,5 @@
-import {
-  validateInternalSvgPath,
-  buildIconPath,
-  setExpanded,
-} from "../../../helpers/global-helpers.js";
+import * as aria from "../../../utils/aria.js";
+import * as icons from "../../../utils/icons.js";
 import { initOverflowMenu } from "../../overflow_menu/js/global.js";
 
 /**
@@ -105,7 +102,7 @@ function createOverFlow(svgPath) {
     "qld__btn qld__btn--toggle qld__overflow_menu__btn qld__accordion--closed";
   button.setAttribute("href", "#");
   button.setAttribute("aria-controls", "overflow-menu--");
-  setExpanded(button, false);
+  aria.setExpanded(button, false);
 
   if (svgPath) {
     // Create <svg>
@@ -117,12 +114,12 @@ function createOverFlow(svgPath) {
     // Create <use>
     const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
     // Validate and normalise the SVG path before using it
-    const safeSvgPath = validateInternalSvgPath(svgPath);
+    const safeSvgPath = icons.validateInternalSvgPath(svgPath);
     if (safeSvgPath) {
       use.setAttributeNS(
         null,
         "href",
-        buildIconPath(safeSvgPath, "more-horizontal"),
+        icons.buildIconPath(safeSvgPath, "more-horizontal"),
       );
     }
 

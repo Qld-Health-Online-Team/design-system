@@ -1,0 +1,28 @@
+{{#with component.data}}
+  <section
+    class="qld__body {{applyTheme 'qld__body' metadata.body_theme.value}}"
+  >
+    <div class="container-fluid">
+      <details
+        id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}details-{{ assetid }}{{/if}}"
+        class="qld__details {{applyModifier 'qld__details' metadata.size.value}}"
+      >
+        <summary class="qld__details__summary">
+          <span class="qld__details__summary-text">
+            <svg
+              class="qld__icon qld__details__icon"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use
+                href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-right"
+              ></use>
+            </svg>
+            {{ metadata.summary.value }}
+          </span>
+        </summary>
+        <div class="qld__details__content">{{{ metadata.content.value }}}</div>
+      </details>
+    </div>
+  </section>
+{{/with}}

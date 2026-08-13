@@ -814,3 +814,88 @@ div.sq-form-question-error {
   @include QLD-space(margin-top, 3unit);
   @include QLD-space(margin-bottom, 3unit);
 }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Print utilities
+//
+// Author-facing classes for controlling print output. Previously re-implemented by
+// individual sites in their Squiz-level stylesheets; canonicalised here.
+//
+// The unprefixed aliases (.hide-on-print etc.) exist because sites already ship that
+// markup. Prefer the qld__ forms in new content; treat the aliases as deprecated.
+//
+// !important throughout is deliberate — these override component print rules that are
+// themselves !important, per the print/forced-colors exception to house style.
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Shown on screen, hidden when printed
+.qld__hide-on-print,
+.hide-on-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+// Hidden on screen, shown only when printed.
+// The base rule must sit outside @media print so the element is hidden by default.
+.qld__show-on-print,
+.show-on-print {
+  display: none;
+
+  @media print {
+    // `block` is the fallback; `revert` restores the element's own default display so
+    // inline and table elements are not forced into a block box.
+    display: block !important;
+    display: revert !important;
+  }
+}
+
+@media print {
+  // Keep the element intact rather than splitting it across a page boundary
+  .qld__no-page-break,
+  .no-page-break {
+    // Legacy fallback retained for older print engines, which still honour the
+    // page-break-* properties in preference to break-*.
+    // stylelint-disable-next-line property-no-deprecated
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  // Force a page boundary before the element
+  .qld__page-break-before,
+  .page-break-before {
+    // stylelint-disable-next-line property-no-deprecated -- see note above
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  // Force a page boundary after the element
+  .qld__page-break-after,
+  .page-break-after {
+    // stylelint-disable-next-line property-no-deprecated -- see note above
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  // Break the element out of its column/grid to the full printable width.
+  // Useful for wide tables and images.
+  .qld__print-full-width,
+  .print-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  // Force monochrome for content that must stay legible regardless of the user's
+  // "print background graphics" setting.
+  .qld__print-black-white,
+  .print-black-white {
+    &,
+    * {
+      color: $QLD-color-print__text !important;
+      background-color: $QLD-color-print__background !important;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+}

@@ -1,5 +1,10 @@
 import Template from "../../components/tab/html/component.hbs";
-import { dummyText, storyParams } from "../../../.storybook/globals";
+import {
+  dummyText,
+  storyParams,
+  printParams,
+} from "../../../.storybook/globals";
+import { withPrintMedia } from "../../../.storybook/helper-functions";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
 import initTab from "../../components/tab/js/global";
@@ -315,5 +320,50 @@ export const Overflow = {
     // Restore the width so the rendered story isn't left pinned at the narrow
     // width the test imposed (the small viewport still overflows on its own).
     container.style.maxWidth = "";
+  },
+};
+
+/**
+ * Print rendering of the tab strip. The selected tab is marked by a 4px accent
+ * bar drawn as the *background* of a pseudo-element, which the global body reset
+ * cannot reach — `*` does not match pseudo-elements — so the accent colour would
+ * otherwise survive into greyscale output as a solid coloured bar.
+ *
+ * What makes this fiddly is that the bar is load-bearing. The button is a column
+ * flex container with `justify-content: flex-end` and no bottom padding, so the
+ * pseudo-element and the gap above it are what hold the label clear of the bottom
+ * edge. Hiding it rather than clearing its colour drops the label onto the bottom
+ * edge, so the test checks the label has not moved as well as the colour going.
+ */
+export const Print = {
+  parameters: printParams(
+    "that the selected tab's accent bar loses its colour without the label shifting down",
+  ),
+  play: async ({ canvasElement }) => {
+    const button =
+      canvasElement.querySelector(".qld__tab-button.active") ||
+      canvasElement.querySelector(".qld__tab-button");
+    const label = button.querySelector("span");
+
+    // Distance from the label's baseline box to the button's bottom edge. Compared
+    // against itself across media rather than asserted as a pixel value, so the
+    // test survives a change to the spacing scale and only fails if print moves it.
+    const gapBelowLabel = () =>
+      Math.round(
+        button.getBoundingClientRect().bottom -
+          label.getBoundingClientRect().bottom,
+      );
+
+    const onScreen = gapBelowLabel();
+    await expect(onScreen).toBeGreaterThan(0);
+
+    withPrintMedia(() => {
+      const bar = getComputedStyle(button, "::after");
+      // Colour gone...
+      expect(bar.backgroundColor).toBe("rgba(0, 0, 0, 0)");
+      // ...but the box it occupies is still there, holding the label in place.
+      expect(bar.display).not.toBe("none");
+      expect(gapBelowLabel()).toBe(onScreen);
+    });
   },
 };

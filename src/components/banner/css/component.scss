@@ -548,3 +548,35 @@
     }
   }
 }
+
+@media print {
+  // The section-level texture or background photo is always decorative. The global
+  // body reset only clears background-color, so clear background-image here too —
+  // otherwise the texture survives when "background graphics" is enabled and can
+  // sit behind the (now dark) banner text, wasting toner and hurting legibility.
+  .qld__banner {
+    background-image: none !important;
+  }
+
+  // The hero is a CSS background on a div, so it carries its alt text as
+  // `role="img"` + `aria-label` rather than an `alt` attribute. A hero with no
+  // alt text is decorative and is dropped; one with alt text is carrying meaning
+  // and has to survive, which means opting it out of the browser's default
+  // "don't print backgrounds" behaviour.
+  .qld__banner__image:not([role="img"]),
+  .qld__banner__image--background:not([role="img"]) {
+    background-image: none !important;
+  }
+
+  .qld__banner__image[role="img"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  // Icon tile navigation is a set of onward links — a navigation aid with nothing
+  // to say on paper. The tiles are also drawn almost entirely from backgrounds and
+  // borders, so they print as empty boxes.
+  .qld__banner__nav {
+    display: none !important;
+  }
+}

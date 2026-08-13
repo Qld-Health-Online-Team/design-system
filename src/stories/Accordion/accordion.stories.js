@@ -1,5 +1,10 @@
 import Template from "../../components/accordion/html/component.hbs";
-import { dummyText, storyParams } from "../../../.storybook/globals";
+import {
+  dummyText,
+  iconSpritePath,
+  printParams,
+  storyParams,
+} from "../../../.storybook/globals";
 import { expect, userEvent, within } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
 import { initAccordion } from "../../components/accordion/js/global";
@@ -76,7 +81,9 @@ const meta = {
       control: { type: "text" },
     },
     theme: {
-      description: "Visual theme applied to the accordion group.",
+      description:
+        "Visual theme applied to the accordion group. The value is the group " +
+        "class itself, matching the option keys Matrix stores.",
       control: {
         type: "select",
         labels: {
@@ -153,6 +160,20 @@ export const WithToggleAll = {
 export const DarkAlt = {
   args: { theme: "qld__accordion-group--dark-alt" },
   play: async ({ canvasElement }) => {
+    // Theme must land on both hooks the SCSS themes from, and the section
+    // modifier is derived from the group class rather than stored separately
+    await expect(
+      canvasElement.querySelector(
+        ".qld__accordion-group--qld__accordion-group--dark-alt",
+      ),
+    ).not.toBeInTheDocument();
+    await expect(
+      canvasElement.querySelector(".qld__body--dark-alt"),
+    ).toBeInTheDocument();
+    await expect(
+      canvasElement.querySelector(".qld__accordion-group--dark-alt"),
+    ).toBeInTheDocument();
+
     const canvas = within(canvasElement);
     const buttons = canvas.getAllByRole("button");
     await userEvent.click(buttons[0]);
@@ -164,6 +185,43 @@ export const OpenState = {
     const canvas = within(canvasElement);
     const buttons = canvas.getAllByRole("button");
     await userEvent.click(buttons[0]);
+  },
+};
+
+// A single `.qld__accordion` with no `.qld__accordion-group` wrapper — the
+// standalone/legacy markup contract that initAccordion also supports.
+export const Standalone = {
+  render: (args) => `
+    <h2>hello world</h2>
+    <div class="qld__accordion">
+      <h2>
+        <button class="qld__accordion__title js-qld__accordion qld__accordion--closed" aria-controls="accordion-standalone-content" aria-expanded="false" type="button">
+          ${args.title1}
+          <svg class="qld__icon qld__icon--md qld__accordion__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <use href="${iconSpritePath}#chevron-up"></use>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-standalone-content" class="qld__accordion__body qld__accordion--closed">
+        <div class="qld__accordion__body-wrapper">
+          ${args.content1}
+        </div>
+      </div>
+    </div>
+  `,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+    const body = canvasElement.querySelector(".qld__accordion__body");
+
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+
+    await userEvent.click(button);
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    await expect(body).not.toHaveClass("qld__accordion--closed");
+
+    await userEvent.click(button);
+    await expect(button).toHaveAttribute("aria-expanded", "false");
   },
 };
 
@@ -189,4 +247,15 @@ export const ToggleAllSync = {
     await expect(toggleAllBtn).toHaveTextContent("Open all");
     await expect(toggleAllBtn).toHaveAttribute("aria-expanded", "false");
   },
+};
+/**
+ * Print rendering. The accordion is collapsed on screen but print forces every
+ * panel open (`height: auto; display: block`) and drops the toggle icon, so this
+ * guards markedly different output from the screen story.
+ */
+export const Print = {
+  parameters: printParams(
+    "the force-expanded panel bodies, hidden toggle icons and print border colours",
+  ),
+  args: { toggleAll: true },
 };

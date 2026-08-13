@@ -1,4 +1,4 @@
-import { themes, storyParams } from "../../../.storybook/globals";
+import { themes, storyParams, printParams } from "../../../.storybook/globals";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 
 function renderHorizontalRule({ size, decorative }) {
@@ -182,4 +182,27 @@ export const Thematic = {
       ].join("")
     );
   },
+};
+
+/**
+ * Print rendering of every kind of rule a page can contain: decorative, thematic,
+ * and the bare `<hr>` a rich-text field emits. None of them print — on paper the
+ * heading and the surrounding whitespace already divide the content.
+ *
+ * The snapshot should show three paragraphs closed up against each other with no
+ * rules and no gaps between them.
+ */
+export const Print = {
+  argTypes: allVariantsArgTypes,
+  render: () => `
+        <p class="qld__body">Above a decorative rule.</p>
+        ${renderHorizontalRule({ size: "lg", decorative: true })}
+        <p class="qld__body">Above a thematic rule.</p>
+        ${renderHorizontalRule({ size: "lg", decorative: false })}
+        <p class="qld__body">Above an authored rule, as a WYSIWYG field emits it.</p>
+        <hr>
+        <p class="qld__body">Below all three.</p>`,
+  parameters: printParams(
+    "that no horizontal rule prints, including the bare <hr> a rich-text field emits",
+  ),
 };

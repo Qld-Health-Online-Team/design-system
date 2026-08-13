@@ -1,8 +1,13 @@
 import Template from "../../components/banner_advanced/html/component.hbs";
-import { storyParams, iconSpritePath } from "../../../.storybook/globals";
+import {
+  storyParams,
+  iconSpritePath,
+  printParams,
+} from "../../../.storybook/globals";
 import initBannerAdvanced from "../../components/banner_advanced/js/global";
 import { initComponents } from "../../../.storybook/decorators";
 import ToowoombaImage from "../Cards/Toowoomba-web.jpeg";
+import { expect } from "storybook/test";
 
 const mockLineage = [
   {
@@ -296,4 +301,71 @@ export const WithIconTiles = {
     ctaIconTilesLabel: "Services",
     heroImage: "",
   },
+};
+
+/**
+ * Print rendering with a hero that has no alt text. The hero is a CSS background
+ * on a div, so alt text arrives as `role="img"` + `aria-label` — absent it, the
+ * image is decorative and should be cleared. The global body reset only clears
+ * `background-color`, so this is the banner's own rule doing the work.
+ */
+export const Print = {
+  args: {
+    heroImage: "https://placehold.co/782x520",
+    heroImageAlt: "",
+    heroImageTreatment: "crop",
+    heroImageAlignment: "grid",
+    showBreadcrumbs: true,
+  },
+  parameters: printParams(
+    "that a hero image with no alt text is cleared in print (the global reset only clears background-color)",
+  ),
+  // The print rule selects on `:not([role="img"])`, so it is only correct while
+  // the template leaves the attribute off when there is no alt text. Assert the
+  // hook — if it ever changes, meaningful hero images start disappearing from
+  // print with nothing to show for it.
+  play: async ({ canvasElement }) => {
+    const hero = canvasElement.querySelector(".qld__banner__image");
+    await expect(hero).not.toHaveAttribute("role");
+  },
+};
+
+/**
+ * The other half of the pair above: the same banner with alt text on the hero.
+ * Alt text means the image is carrying meaning rather than decorating, so it has
+ * to survive both the banner's own clearing rule and the browser's default of
+ * dropping background images.
+ */
+export const PrintWithHeroAltText = {
+  args: {
+    heroImage: "https://placehold.co/782x520",
+    heroImageAlt: "Nurse taking a patient's blood pressure",
+    heroImageTreatment: "crop",
+    heroImageAlignment: "grid",
+    showBreadcrumbs: true,
+  },
+  parameters: printParams("that a hero image with alt text still prints"),
+  play: async ({ canvasElement }) => {
+    const hero = canvasElement.querySelector(".qld__banner__image");
+    await expect(hero).toHaveAttribute("role", "img");
+    await expect(hero).toHaveAttribute(
+      "aria-label",
+      "Nurse taking a patient's blood pressure",
+    );
+  },
+};
+
+/**
+ * Print rendering of the icon tile navigation. The tiles are onward links — a
+ * wayfinding aid with nothing to offer a reader holding the page — and are drawn
+ * almost entirely from backgrounds and borders, so on paper they would print as a
+ * row of empty boxes. The whole nav should be absent from this snapshot.
+ */
+export const PrintIconTiles = {
+  args: {
+    ctaType: "icon-tiles",
+    ctaIconTilesLabel: "Services",
+    heroImage: "",
+  },
+  parameters: printParams("that the icon tile navigation is dropped entirely"),
 };

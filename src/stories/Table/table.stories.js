@@ -1,4 +1,4 @@
-import { storyParams } from "../../../.storybook/globals";
+import { printParams, storyParams } from "../../../.storybook/globals";
 
 const indent = (str, n) => str.replace(/^/gm, " ".repeat(n));
 
@@ -127,4 +127,22 @@ export const Striped = { args: { features: [Feat.striped] } };
 
 export const MultilevelHeadings = {
   args: { features: [Feat.multilevelHeadings] },
+};
+/**
+ * Print rendering of a striped table. Covers the header and cell box-shadow
+ * rules and the striped row background, which is the table's main print risk.
+ */
+export const Print = {
+  args: { features: [Feat.striped] },
+  parameters: printParams("the print header rules and striped row backgrounds"),
+};
+
+/**
+ * Print rendering of a multi-level header. The rule between the two header
+ * rows is a box-shadow on screen, so it needs the print border redraw to
+ * survive.
+ */
+export const PrintMultilevelHeadings = {
+  args: { features: [Feat.multilevelHeadings] },
+  parameters: printParams("the separator between the two header rows"),
 };
