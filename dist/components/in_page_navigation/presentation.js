@@ -6,7 +6,7 @@
         return undefined
     };
 
-  return "<section class=\"qld__body\">\n  <div class=\"container-fluid\">\n    <nav\n      class=\"qld__inpage-nav-links\"\n      aria-label=\"In page navigation\"\n      data-headingType=\""
+  return "<section class=\"qld__body qld__hide-on-print\">\n  <div class=\"container-fluid\">\n    <nav\n      class=\"qld__inpage-nav-links\"\n      aria-label=\"In page navigation\"\n      data-headingType=\""
     + container.escapeExpression(alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"headingType") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "\"\n    >\n      <h2 class=\"qld__inpage-nav-links__heading\">\n        "
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"component") : depth0)) != null ? lookupProperty(stack1,"data") : stack1)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"heading") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0)) != null ? stack1 : "")
