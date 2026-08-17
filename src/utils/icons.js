@@ -1,0 +1,128 @@
+/**
+ * @module utils/icons
+ *
+ * Helpers for resolving and rendering SVG sprite icons.
+ */
+
+/**
+ * Validate that an SVG path has the correct extension and is same-origin, and
+ * return a normalised, safe absolute URL for use as a `<use href>` value (or
+ * null if the path is invalid). Returning the URL built by the browser's own
+ * URL parser — rather than the raw DOM-derived string — ensures the value
+ * reaching the sink has passed through a recognised sanitisation barrier.
+ *
+ * Accepts either a Squiz Matrix asset URL (?a=12345:path/to/icons.svg) or a
+ * plain path to an .svg file (e.g. "QLD-icons.svg" in Storybook builds).
+ *
+ * @param  {string} path
+ * @return {string | null}
+ */
+export const validateInternalSvgPath = (path) => {
+  // Check given path is a string
+  if (typeof path !== "string") {
+    console.error(`Path provided is not a string. ${path}.`);
+    return null;
+  }
+
+  let url;
+  try {
+    // Resolve relative paths against the current document, matching how the
+    // browser will resolve the <use href> value.
+    url = new URL(path.trim(), window.location.href);
+  } catch {
+    console.error(`The SVG path could not be parsed as a URL: ${path}`);
+    return null;
+  }
+
+  // Allowlist safe schemes only (rejects javascript:, data:, vbscript:, etc.)
+  if (url.protocol !== "http:" && url.protocol !== "https:") {
+    console.error(`The SVG path uses an unsupported scheme: ${url.protocol}`);
+    return null;
+  }
+
+  // Ensure same-origin
+  if (url.origin !== window.location.origin) {
+    console.error(
+      `The SVG path comes from a different origin: ${url.origin} but expected ${window.location.origin}`,
+    );
+    return null;
+  }
+
+  // Squiz Matrix asset URL: validate the asset path in the "a" query parameter
+  const assetPath = url.searchParams.get("a");
+  if (assetPath !== null) {
+    if (!/^\d+:[a-z0-9/_-]+\.svg$/i.test(assetPath)) {
+      console.error(`The SVG path is invalid: ${assetPath}`);
+      return null;
+    }
+    return url.href;
+  }
+
+  // Plain path: only allow simple path characters and .svg extension
+  if (!/^[a-z0-9/_.-]+\.svg$/i.test(url.pathname)) {
+    console.error(`The SVG path is invalid: ${url.pathname}`);
+    return null;
+  }
+
+  return url.href;
+};
+
+/**
+ * Build a sprite reference like "QLD-icons.svg#tick". Relative paths are left
+ * relative so the browser resolves them against the current document, which
+ * keeps icons working when the site is deployed under a sub-path.
+ *
+ * @param  {string} path - Path to the sprite sheet
+ * @param  {string} icon - Name of the icon within the sprite sheet
+ * @return {string}
+ */
+export const buildIconPath = (path, icon) => (icon ? `${path}#${icon}` : path);
+
+/**
+ * Link the Material Symbols stylesheet into the document head, once.
+ *
+ * Only use on components that require full access to material icons, not just
+ * the icons in our own sprite sheets.
+ */
+export const loadMaterialIconSheet = () => {
+  const materialStylesheetId = "material-stylesheet";
+  if (document.getElementById(materialStylesheetId)) return;
+
+  const link = document.createElement("link");
+  link.id = materialStylesheetId;
+  link.rel = "stylesheet";
+  link.href =
+    "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0";
+  document.head.appendChild(link);
+};
+
+/**
+ * Repoint `<use href>` values at the right sprite sheet, depending on the icon
+ * source (core vs health). Icons named `extended_*` live in the Health sprite
+ * sheet; the prefix is stripped and the sheet swapped.
+ *
+ * @param {string} selector - Selector matching the "use" elements within the SVG icons
+ */
+export const updateSvgIconPath = (selector) => {
+  document.querySelectorAll(selector).forEach((icon) => {
+    const href = icon.getAttribute("href");
+    if (!href) return;
+
+    const splitArray = href.split("#");
+    let iconName = splitArray.pop();
+    const isHealthIcon = iconName.startsWith("extended_");
+
+    if (isHealthIcon) {
+      iconName = iconName.replace(/extended_/gi, "");
+    }
+
+    splitArray.push(iconName);
+    let updatedHref = splitArray.join("#");
+
+    if (isHealthIcon) {
+      updatedHref = updatedHref.replace("QLD-icons", "QLD-Health-icons");
+    }
+
+    icon.setAttribute("href", updatedHref);
+  });
+};

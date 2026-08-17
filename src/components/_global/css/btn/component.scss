@@ -656,22 +656,39 @@ a.qld__btn,
 
 // Print styles
 @media print {
-  .qld__btn,
-  .qld__btn:visited,
+  // The button class is worn by two different things. On an anchor it is a link
+  // that happens to look like a button, and it names somewhere the reader can go,
+  // so it prints. On a <button> or submit input it is a control that only does
+  // something when clicked — on paper it is an empty box making a promise the page
+  // cannot keep, so it is hidden.
+  button.qld__btn,
+  input.qld__btn,
   .sq-form-submit {
+    display: none !important;
+  }
+
+  // Floating buttons (quick exit, and back-to-top before its own rule) are
+  // fixed-position screen overlays; paged output repeats fixed elements on
+  // every page, stamped over the content. Quick exit in particular is a
+  // safety control for leaving the page fast — on paper it is not just
+  // useless, printing its URL beside it defeats the discretion it exists for.
+  .qld__btn--floating,
+  a.qld__btn--floating {
+    display: none !important;
+  }
+
+  .qld__btn,
+  .qld__btn:visited {
     background-color: $QLD-color-print__background !important;
-    border: 2px solid $QLD-color-print__text !important;
+    border: $QLD-border-width-default solid $QLD-color-print__text !important;
     color: $QLD-color-print__text !important;
     text-decoration: none;
 
-    &[disabled] {
-      background-color: $QLD-color-print__background--shade !important;
-      border: 2px solid $QLD-color-print__background--shade !important;
-    }
-
+    &[disabled],
     &:disabled {
       background-color: $QLD-color-print__background--shade !important;
-      border: 2px solid $QLD-color-print__background--shade !important;
+      border: $QLD-border-width-default solid
+        $QLD-color-print__background--shade !important;
     }
   }
 }

@@ -1,5 +1,15 @@
 /* Storybook specific styling */
 
+/* The backgrounds addon paints the canvas theme colour on `.sb-show-main` with
+   !important. Real browsers never print the page background, so under print
+   emulation the tint is a lie — a themed story would snapshot on colour paper.
+   `body.sb-show-main` out-weighs the addon's class selector, both !important. */
+@media print {
+  body.sb-show-main {
+    background: #fff !important;
+  }
+}
+
 #storybook-docs {
   /* Reset the styling of the radio buttons */
   .docblock-argstable .docblock-argstable-body input[type="radio"] {

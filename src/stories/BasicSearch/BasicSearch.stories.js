@@ -1,5 +1,5 @@
 import Template from "../../components/basic_search/html/component.hbs";
-import { iconSpritePath } from "../../../.storybook/globals";
+import { iconSpritePath, printParams } from "../../../.storybook/globals";
 import manifest from "../../components/basic_search/js/manifest.json";
 import initBasicSearch from "../../components/basic_search/js/global.js";
 import { initComponents } from "../../../.storybook/decorators";
@@ -157,4 +157,13 @@ export const DarkAlternateBanner = {
 
 export const NoResults = {
   args: { hasResults: false },
+};
+
+// The first fixture result is a PDF whose heading gains a long appended URL in
+// print; its Document/size block must drop out of its screen overlay position
+// into the flow instead of printing underneath the URL.
+export const Print = {
+  parameters: printParams(
+    "that the result-type block flows below the heading instead of overlapping the printed URL",
+  ),
 };

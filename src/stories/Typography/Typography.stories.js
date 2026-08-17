@@ -4,7 +4,10 @@ import {
   themeColours,
   dummyText,
   storyParams,
+  printParams,
 } from "../../../.storybook/globals";
+import { withPrintMedia } from "../../../.storybook/helper-functions";
+import { expect } from "storybook/test";
 
 // Typography token reference and Chromatic snapshot target.
 //
@@ -216,3 +219,51 @@ export const Light = { render: () => renderTheme("light") };
 export const LightAlt = { render: () => renderTheme("light alt") };
 export const Dark = { render: () => renderTheme("dark") };
 export const DarkAlt = { render: () => renderTheme("dark alt") };
+
+/**
+ * Print rendering of the text elements, pinned to the A4 print typescale.
+ *
+ * Body copy is set in pt for print rather than inheriting the screen scale. Left
+ * to inherit, the size depends on which breakpoint the page box happens to
+ * match — A4 lands below `lg`, so print silently picked up the mobile scale at
+ * 12pt/21pt against a spec of 10pt/12pt. Right by accident, and only until a
+ * breakpoint moves.
+ *
+ * Headings are deliberately not pinned yet: the print spec was drawn up for Lato
+ * and its pt values move once it is reissued for Noto Sans. This test asserts
+ * they are left alone, so pinning them later is a deliberate act rather than
+ * something that drifts in.
+ */
+export const Print = {
+  render: () => renderElements(),
+  parameters: printParams(
+    "body copy and captions against the A4 print typescale",
+  ),
+  play: async ({ canvasElement }) => {
+    const pt = (value) => +(parseFloat(value) * 0.75).toFixed(2);
+    const sizes = (el) => {
+      const styles = getComputedStyle(el);
+      return { size: pt(styles.fontSize), leading: pt(styles.lineHeight) };
+    };
+
+    const paragraph = canvasElement.querySelector("p");
+    const listItem = canvasElement.querySelector("li");
+    const smallPrint = canvasElement.querySelector("small");
+    const heading = canvasElement.querySelector("h3");
+    await expect(paragraph).toBeTruthy();
+
+    const headingOnScreen = sizes(heading);
+
+    withPrintMedia(() => {
+      // Body copy and anything sharing its size, in pt straight off the spec.
+      expect(sizes(paragraph)).toEqual({ size: 10, leading: 12 });
+      expect(sizes(listItem)).toEqual({ size: 10, leading: 12 });
+
+      // Body XS, sized separately by the spec.
+      expect(sizes(smallPrint)).toEqual({ size: 8, leading: 9.6 });
+
+      // Headings still inherit the screen scale, pending the Noto Sans respec.
+      expect(sizes(heading)).toEqual(headingOnScreen);
+    });
+  },
+};

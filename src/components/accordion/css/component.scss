@@ -15,7 +15,7 @@
     width: 100%;
     display: block;
     color: var(--QLD-color-light__link);
-    font-weight: $QLD-font-weight-regular;
+    font-weight: $QLD-font-weight-semibold;
     position: relative;
     border: none;
 
@@ -118,9 +118,15 @@
     }
   }
 
-  // Add spacing if there is an element before it
+  // Standard component margin when content precedes a standalone accordion.
+  // Sibling and grouped accordions zero this out further down so stacked
+  // items sit flush.
   * + & {
-    @include QLD-space(margin-top, 1unit);
+    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+
+    @include QLD-media(lg) {
+      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+    }
   }
 
   + .qld__accordion {
@@ -148,8 +154,18 @@
   padding: 0;
   @include QLD-space(max-width, 47unit);
 
-  // Accordions stack flush inside a group; the owl spacing on `* + &` only
-  // ever hits the first accordion (preceded by the "Open all" toggle row)
+  // Standard component margin when content precedes the group
+  * + & {
+    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+
+    @include QLD-media(lg) {
+      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+    }
+  }
+
+  // Accordions stack flush inside a group; the component margin on
+  // `* + .qld__accordion` only ever hits the first accordion (preceded by
+  // the "Open all" toggle row)
   * + .qld__accordion {
     margin-top: 0;
   }
@@ -286,6 +302,10 @@ li + li .qld__accordion {
     background: $QLD-color-print__background !important;
     color: $QLD-color-print__text !important;
     border: 1px !important;
+    // The dark themes give the title a themed underline via QLD-underline, which
+    // is its own property and survives the colour reset — it would print as a
+    // blue rule under grey text.
+    text-decoration-color: $QLD-color-print__border--muted !important;
 
     .qld__accordion__icon {
       display: none;

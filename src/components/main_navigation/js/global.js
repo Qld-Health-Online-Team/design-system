@@ -3,9 +3,9 @@
  *
  * @module mobileNav
  */
-import { setExpanded } from "../../../helpers/global-helpers.js";
-import * as animate from "../../_global/js/animate/global.js";
-import utils from "../../_global/js/global.js";
+import * as aria from "../../../utils/aria.js";
+import * as animate from "../../../utils/animate.js";
+import * as icons from "../../../utils/icons.js";
 
 var mobileNav = {};
 var mobileNavEvents = {};
@@ -250,8 +250,8 @@ mobileNav.Toggle = function (element, speed, callbacks) {
           if (menuHeading) {
             menuHeading.focus();
           }
-          if (openButton) setExpanded(openButton, true);
-          if (closeButton) setExpanded(closeButton, true);
+          if (openButton) aria.setExpanded(openButton, true);
+          if (closeButton) aria.setExpanded(closeButton, true);
 
           if (focustrapTop) focustrapTop.setAttribute("tabindex", 0);
           if (focustrapBottom) focustrapBottom.setAttribute("tabindex", 0);
@@ -314,8 +314,8 @@ mobileNav.Toggle = function (element, speed, callbacks) {
         } else {
           // Move the focus back to the menu button
           if (closeButton) closeButton.focus();
-          if (openButton) setExpanded(openButton, false);
-          if (closeButton) setExpanded(closeButton, false);
+          if (openButton) aria.setExpanded(openButton, false);
+          if (closeButton) aria.setExpanded(closeButton, false);
 
           if (focustrapTop) focustrapTop.removeAttribute("tabindex");
           if (focustrapBottom) focustrapBottom.removeAttribute("tabindex");
@@ -374,7 +374,7 @@ export default function initMainNav(root = document) {
   });
 
   // Finds all the menu related icons in main nav, mega nav, and header.
-  utils.updateSvgIconPath(
+  icons.updateSvgIconPath(
     ".qld__main-nav__cta-wrapper .qld__main-nav__item-link svg.qld__icon > use, .qld__header__cta-wrapper .qld__header__cta-link svg.qld__icon > use",
   );
 }

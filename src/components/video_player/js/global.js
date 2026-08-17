@@ -2,7 +2,7 @@
  * @module VideoPlayer
  */
 
-import { TOGGLE_EVENT } from "../../_global/js/collapsible.js";
+import { TOGGLE_EVENT } from "../../../behaviours/collapsible.js";
 
 /**
  * The transcript accordion's click handling is owned by the accordion

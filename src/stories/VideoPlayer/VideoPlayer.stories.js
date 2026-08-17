@@ -22,7 +22,7 @@ const renderVideoPlayer = ({
   bodyBackground,
   ...args
 }) => {
-  return Template({
+  const html = Template({
     component: {
       data: {
         assetid: "123",
@@ -46,6 +46,15 @@ const renderVideoPlayer = ({
     },
     ...args,
   });
+
+  // Resolve the transcript link's %globals_asset_assetid% keyword the way
+  // Matrix does — to the asset's absolute URL. Left raw, the href has no
+  // scheme, so the print rule that appends URLs after links (opt-in to
+  // http/https/mailto/tel) skips it and the print snapshot can't cover it.
+  return html.replace(
+    /%globals_asset_assetid:(\d+)\^as_asset:asset_url%/g,
+    "https://www.health.qld.gov.au/transcripts/$1",
+  );
 };
 
 export default {
@@ -293,5 +302,16 @@ export const TranscriptToggle = {
 export const Print = {
   parameters: printParams(
     "that the (potentially very long) transcript accordion is hidden in print",
+  ),
+};
+
+// The link variant prints: the arrow icon and link stay, and the resolved
+// absolute transcript URL is appended after the link text.
+export const PrintTranscriptLink = {
+  args: {
+    transcriptOptions: "link",
+  },
+  parameters: printParams(
+    "the transcript link's icon and its appended destination URL",
   ),
 };

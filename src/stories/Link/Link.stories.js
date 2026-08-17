@@ -1,5 +1,6 @@
 import {
   storyParams,
+  printParams,
   iconSpritePath,
   dummyLink,
   themes,
@@ -133,4 +134,38 @@ export const Dark = {
 export const DarkAlt = {
   parameters: { skipDecorator: true },
   render: (args) => `<div class="${themes["dark alt"]}">${render(args)}</div>`,
+};
+
+/**
+ * Print rendering of the four kinds of href a page can carry. The appended
+ * destination is opted in by scheme, so only the absolute, `mailto:` and `tel:`
+ * links should show a URL in brackets after their text. Matrix renders every
+ * in-site link relative (`./?a=123`), and a relative path is no more use on paper
+ * than an in-page anchor.
+ *
+ * The underline colour is the other thing this guards: it is a separate property
+ * from `color`, so it survives the print colour reset unless neutralised.
+ */
+export const Print = {
+  render: (args) => {
+    const items = [
+      { url: dummyLink, label: "Absolute link — prints its URL" },
+      { url: "./?a=123", label: "Relative Matrix link — no URL" },
+      { url: "#section-two", label: "In-page anchor — no URL" },
+      {
+        url: "mailto:enquiries@health.qld.gov.au",
+        label: "Email — prints its URL",
+      },
+    ]
+      .map(
+        ({ url, label }) =>
+          `<li class="qld__link-list-item">${render({ ...args, url, label, iconName: "" })}</li>`,
+      )
+      .join("");
+
+    return `<ul class="qld__link-list">${items}</ul>`;
+  },
+  parameters: printParams(
+    "that only absolute, mailto and tel links append their href, and that link underlines print neutral rather than blue",
+  ),
 };

@@ -382,4 +382,55 @@ table {
   .qld__table--scroll {
     max-height: none;
   }
+
+  .qld__table,
+  table {
+    // Row and header separators are drawn as inset box-shadows, which the
+    // global body print reset clears — and which browsers treat as a background
+    // effect and drop anyway. Redraw them as borders, which always print, so
+    // the grid survives — including the rule between multi-level header rows.
+    // On the last header row this collides with the heavier thead border below,
+    // and border-collapse resolves in the wider border's favour.
+    .qld__table__cell,
+    .qld__table__header,
+    td,
+    th {
+      border-bottom: $QLD-border-width-thin solid
+        $QLD-color-print__border--muted !important;
+    }
+
+    // The rules separating the caption, head and foot use the design accent blue
+    // and are more specific than the global border reset, so they need
+    // neutralising explicitly. Kept heavier than the row separators so the head
+    // and foot still read as distinct once the colour is gone.
+    .qld__table__caption,
+    caption {
+      border-bottom: $QLD-border-width-thin solid
+        $QLD-color-print__border--muted !important;
+    }
+
+    .qld__table__head,
+    thead {
+      border-bottom: $QLD-border-width-default solid $QLD-color-print__border !important;
+    }
+
+    tfoot {
+      border-top: $QLD-border-width-default solid $QLD-color-print__border !important;
+    }
+  }
+
+  // Stripes are a row-tracking aid on a wide table — the one table background
+  // worth spending toner on. Restore the fill the body reset clears, and opt out
+  // of the browser's "don't print background graphics" default so it survives.
+  .qld__table--striped {
+    .qld__table__body,
+    tbody {
+      .qld__table__row:nth-last-child(odd),
+      tr:nth-last-child(odd) {
+        background-color: $QLD-color-print__background--alt !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  }
 }
