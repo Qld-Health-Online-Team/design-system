@@ -331,3 +331,46 @@ input[type="radio"],
 .qld__checkboxes > div {
   margin-top: 0.5rem;
 }
+
+// Styling for decision tree -- START
+.qld__body .sq_question_wrapper * + ul:not([class]) {
+  padding-left: 0;
+}
+.qld__body .sq_question_wrapper {
+  margin: 45px 0px;
+}
+.qld__body .sq_question_wrapper ul {
+  list-style: none;
+}
+input[type="reset"].sq-form-field {
+  text-decoration: underline;
+  text-decoration-thickness: var(--QLD-underline__thickness-thin);
+  text-decoration-color: var(--QLD-color-light__underline);
+  text-underline-offset: var(--QLD-underline__offset);
+  background-color: #f5f5f5;
+  text-decoration-skip-ink: auto;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  /* equal to 10px 24px */
+  color: var(--QLD-color-light__link);
+  border-radius: 4px;
+  text-align: center;
+  min-width: 8.75rem;
+  /* equal to 140px */
+  margin-top: 2rem;
+}
+input[type="reset"].sq-form-field:hover {
+  text-decoration: underline;
+  text-decoration-thickness: var(--QLD-underline__thickness-thick);
+  text-decoration-color: var(--QLD-color-light__underline);
+  text-underline-offset: var(--QLD-underline__offset);
+  background-color: var(--QLD-color-light__background--alt);
+}
+input[type="reset"].sq-form-field:focus {
+  outline: 3px solid var(--QLD-color-light__focus);
+  outline-offset: 2px;
+}
+// Styling for decision tree -- END
