@@ -14,25 +14,26 @@
   {{#if metadata.intro_heading.value}}
     <div class="row">
 
-    <div class="qld__card-intro col-xs-12 {{ metadata.intro_width.value }}">
+      <div class="qld__card-intro col-xs-12 {{ metadata.intro_width.value }}">
 
-      {{#ifCond metadata.intro_heading_level.value '==' 'h5'}}
-        <h5>
-          {{ metadata.intro_heading.value }}
-        </h5>
-      {{else ifCond metadata.intro_heading_level.value '==' 'h4'}}
-        <h4>{{ metadata.intro_heading.value }}</h4>
-      {{else ifCond metadata.intro_heading_level.value '==' 'h3'}}
-        <h3>{{ metadata.intro_heading.value }}</h3>
-      {{else}}
-        <h2>
-          {{ metadata.intro_heading.value }}
-        </h2>
-      {{/ifCond}}
+        {{#ifCond metadata.intro_heading_level.value '==' 'h5'}}
+          <h5>
+            {{ metadata.intro_heading.value }}
+          </h5>
+        {{else ifCond metadata.intro_heading_level.value '==' 'h4'}}
+          <h4>{{ metadata.intro_heading.value }}</h4>
+        {{else ifCond metadata.intro_heading_level.value '==' 'h3'}}
+          <h3>{{ metadata.intro_heading.value }}</h3>
+        {{else}}
+          <h2>
+            {{ metadata.intro_heading.value }}
+          </h2>
+        {{/ifCond}}
 
-      {{#if metadata.intro_body.value}}
-        {{{ metadata.intro_body.value }}}
-      {{/if}}
+        {{#if metadata.intro_body.value}}
+          {{{ metadata.intro_body.value }}}
+        {{/if}}
+      </div>
     </div>
   {{else}}
     {{#if metadata.intro_body.value}}
