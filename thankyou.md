@@ -24,3 +24,4 @@ Thank you for contributing to the Queensland Government Design System (Vanilla).
 ### Live Contributors List (GitHub)
 
 - https://github.com/Qld-Health-Online-Team/design-system/graphs/contributors?all=1
+ 
