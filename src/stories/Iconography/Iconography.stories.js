@@ -3,11 +3,10 @@ import { Iconography } from "./Iconography";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 import iconsSvg from "../../assets/img/QLD-icons.svg?raw";
 
-const componentIntroduction = `Iconography is in the process of being transitioned from using Font Awesome icons, to using Material Symbols.
-Currently, the following URL is being utilised to define the specifications of these new icons: https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0.
-This can be done manually replicated by adding a link tag within &lt;head&gt;,
-<strong>&lt;link id="material-stylesheet" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0" &gt;</strong> and 
-then adding the component to your template via <strong>&lt;span class="material-symbols-rounded" aria-hidden="true"&gt;ICON_NAME&lt;/span&gt;</strong>`;
+const componentIntroduction = `<p>We use Material Symbols for iconography. The following URL defines the specifications for our Material Symbols: https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0.
+You can add Material Symbols manually by including the following &lt;link&gt; tag in the &lt;head&gt; of your page:</p>
+<strong>&lt;link id="material-stylesheet" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0" &gt;</strong> 
+<p>Then add the icon to your template using:</p><strong>&lt;span class="material-symbols-rounded" aria-hidden="true"&gt;ICON_NAME&lt;/span&gt;</strong>`;
 
 // The sprite is inlined at build time (?raw); we parse it with DOMParser to list
 // every <symbol> id for the allIcons gallery. Lives here as it's the only consumer.
