@@ -42,6 +42,7 @@
 
     .qld__icon {
       color: var(--QLD-color-light__link--on-action);
+      fill: var(--QLD-color-light__link--on-action);
     }
 
     &:hover {
@@ -53,6 +54,11 @@
       text-decoration-color: var(--QLD-color-light__link--on-action);
       text-underline-offset: var(--QLD-underline__offset);
       text-decoration-thickness: var(--QLD-underline__thickness-thick);
+
+      .qld__icon {
+        color: var(--QLD-color-light__link--on-action);
+        fill: var(--QLD-color-light__link--on-action);
+      }
     }
 
     &:focus:active {
@@ -64,6 +70,7 @@
 
       .qld__icon {
         color: var(--QLD-color-light__heading);
+        fill: var(--QLD-color-light__heading);
       }
     }
 
@@ -86,6 +93,7 @@
 
       .qld__icon {
         color: var(--QLD-color-light__text--lighter);
+        fill: var(--QLD-color-light__text--lighter);
       }
     }
   }
@@ -111,6 +119,7 @@
 
       .qld__icon {
         color: var(--QLD-color-dark__link--on-action);
+        fill: var(--QLD-color-dark__link--on-action);
       }
 
       &:hover {
@@ -124,6 +133,8 @@
 
         .qld__icon {
           text-decoration: none !important;
+          color: var(--QLD-color-dark__link--on-action);
+          fill: var(--QLD-color-dark__link--on-action);
         }
       }
 
@@ -133,6 +144,7 @@
         @include QLD-focus(dark);
         .qld__icon {
           color: var(--QLD-color-dark__link--on-action);
+          fill: var(--QLD-color-dark__link--on-action);
         }
       }
 
@@ -144,6 +156,7 @@
 
         .qld__icon {
           color: var(--QLD-color-light__heading);
+          fill: var(--QLD-color-light__heading);
         }
       }
 
@@ -163,6 +176,7 @@
 
         .qld__icon {
           color: var(--QLD-color-dark__text--lighter);
+          fill: var(--QLD-color-dark__text--lighter);
         }
       }
     }
