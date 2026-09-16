@@ -602,6 +602,14 @@
     color: $QLD-color-print__text !important;
   }
 
+  // `.qld__header__heading` sets its own color (the site-title token, which
+  // happens to be the same blue as the hover-link color), so the ancestor
+  // override above can't reach it through inheritance — an element's own
+  // color declaration always wins over one inherited from a parent.
+  .qld__header__heading {
+    color: $QLD-color-print__heading !important;
+  }
+
   // Keep the Queensland Government logo visible in print — it doubles as the
   // government crest the printout is required to carry. The base rule hides the
   // brand image and only reveals it at the `lg` breakpoint (display: block),
@@ -610,8 +618,12 @@
   // The gap and divider to the site title live in that same `lg` breakpoint,
   // so forcing display alone reunites the logo with the title with no space
   // between them. Restore the spacing here too.
+  // Its own color rule is scoped to the `lg` breakpoint too, so at any other
+  // print width it inherits the ancestor's color instead — same fix as the
+  // heading above.
   .qld__header__brand-image {
     display: block !important;
+    color: $QLD-color-print__text !important;
     @include QLD-space(padding-right, 1.5unit);
     @include QLD-space(margin-right, 1.5unit);
     border-right: solid $QLD-border-width-default $QLD-color-print__border;
