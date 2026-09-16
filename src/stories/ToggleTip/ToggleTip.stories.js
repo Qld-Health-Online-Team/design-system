@@ -219,7 +219,5 @@ export const PrintWithOpenTip = {
   play: async ({ canvasElement }) => {
     await openToggleTip(canvasElement);
   },
-  parameters: {
-    ...printParams("that an open toggle tip popup is dropped from print"),
-  },
+  ...printParams("that an open toggle tip popup is dropped from print"),
 };

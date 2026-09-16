@@ -317,7 +317,7 @@ export const Print = {
     heroImageAlignment: "grid",
     showBreadcrumbs: true,
   },
-  parameters: printParams(
+  ...printParams(
     "that a hero image with no alt text is cleared in print (the global reset only clears background-color)",
   ),
   // The print rule selects on `:not([role="img"])`, so it is only correct while
@@ -344,7 +344,7 @@ export const PrintWithHeroAltText = {
     heroImageAlignment: "grid",
     showBreadcrumbs: true,
   },
-  parameters: printParams("that a hero image with alt text still prints"),
+  ...printParams("that a hero image with alt text still prints"),
   play: async ({ canvasElement }) => {
     const hero = canvasElement.querySelector(".qld__banner__image");
     await expect(hero).toHaveAttribute("role", "img");
@@ -367,5 +367,5 @@ export const PrintIconTiles = {
     ctaIconTilesLabel: "Services",
     heroImage: "",
   },
-  parameters: printParams("that the icon tile navigation is dropped entirely"),
+  ...printParams("that the icon tile navigation is dropped entirely"),
 };

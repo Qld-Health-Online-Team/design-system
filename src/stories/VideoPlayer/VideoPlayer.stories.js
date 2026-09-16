@@ -300,7 +300,7 @@ export const TranscriptToggle = {
 };
 
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "that the (potentially very long) transcript accordion is hidden in print",
   ),
 };
@@ -311,7 +311,5 @@ export const PrintTranscriptLink = {
   args: {
     transcriptOptions: "link",
   },
-  parameters: printParams(
-    "the transcript link's icon and its appended destination URL",
-  ),
+  ...printParams("the transcript link's icon and its appended destination URL"),
 };

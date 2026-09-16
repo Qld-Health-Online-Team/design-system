@@ -416,7 +416,7 @@ DarkAltHeader.args = { ...headerArgs };
 // required government crest) while the interactive search box is hidden.
 export const Print = {
   args: { ...headerArgs },
-  parameters: printParams(
+  ...printParams(
     "the Queensland Government logo staying visible as the print crest, the search box being hidden, and no URL printing beside the site title",
   ),
   play: async ({ canvasElement }) => {

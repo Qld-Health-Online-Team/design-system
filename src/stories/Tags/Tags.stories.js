@@ -148,5 +148,5 @@ export const darkAlt = {
 export const Print = {
   argTypes: allVariantsArgTypes,
   render: () => allVariants(),
-  parameters: printParams("the print token colours applied to every tag type"),
+  ...printParams("the print token colours applied to every tag type"),
 };

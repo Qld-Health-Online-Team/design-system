@@ -202,7 +202,7 @@ export const Print = {
         <p class="qld__body">Above an authored rule, as a WYSIWYG field emits it.</p>
         <hr>
         <p class="qld__body">Below all three.</p>`,
-  parameters: printParams(
+  ...printParams(
     "that no horizontal rule prints, including the bare <hr> a rich-text field emits",
   ),
 };

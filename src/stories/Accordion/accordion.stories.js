@@ -254,7 +254,7 @@ export const ToggleAllSync = {
  * guards markedly different output from the screen story.
  */
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "the force-expanded panel bodies, hidden toggle icons and print border colours",
   ),
   args: { toggleAll: true },
