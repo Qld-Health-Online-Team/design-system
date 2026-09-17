@@ -106,7 +106,7 @@ export const Default = {};
  * it exercises every hidden region and the header/body colour tokens at once.
  */
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "the rules that hide the pre-header, main nav, side nav, in-page nav, " +
       "breadcrumbs and footer, plus the header and body print colours",
   ),

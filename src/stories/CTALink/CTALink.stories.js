@@ -152,7 +152,7 @@ export const DarkAlt = {
 
 export const Print = {
   render: AllVariants.render,
-  parameters: printParams(
+  ...printParams(
     "the hidden decorative arrow/view-all icons and the href rendered inline after each link",
   ),
 };

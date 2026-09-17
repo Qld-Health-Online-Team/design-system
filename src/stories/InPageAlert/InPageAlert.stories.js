@@ -102,5 +102,5 @@ export const errorVariant = {
  */
 export const Print = {
   args: { type: "warning" },
-  parameters: printParams("the hidden alert icon and the print border colours"),
+  ...printParams("the hidden alert icon and the print border colours"),
 };
