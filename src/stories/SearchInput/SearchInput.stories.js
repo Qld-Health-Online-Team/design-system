@@ -183,5 +183,5 @@ export const DarkAlternateTheme = {
 // should show an empty canvas, not an input orphaned by the hidden button.
 export const Print = {
   args: { value: themedValue },
-  parameters: printParams("that the whole search form is dropped from print"),
+  ...printParams("that the whole search form is dropped from print"),
 };

@@ -165,7 +165,7 @@ export const Print = {
 
     return `<ul class="qld__link-list">${items}</ul>`;
   },
-  parameters: printParams(
+  ...printParams(
     "that only absolute, mailto and tel links append their href, and that link underlines print neutral rather than blue",
   ),
 };

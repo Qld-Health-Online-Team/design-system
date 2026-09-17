@@ -163,7 +163,7 @@ export const NoResults = {
 // print; its Document/size block must drop out of its screen overlay position
 // into the flow instead of printing underneath the URL.
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "that the result-type block flows below the heading instead of overlapping the printed URL",
   ),
 };

@@ -199,7 +199,5 @@ export const darkAlt = {
  * of the few components relying on `print-color-adjust` surviving.
  */
 export const Print = {
-  parameters: printParams(
-    "the callout print border, text and background colours",
-  ),
+  ...printParams("the callout print border, text and background colours"),
 };

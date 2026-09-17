@@ -158,5 +158,5 @@ export const Print = {
     alertTitle: "Critical alert",
     alertMessage: "Immediate action may be required.",
   },
-  parameters: printParams("that site-wide alerts are dropped entirely"),
+  ...printParams("that site-wide alerts are dropped entirely"),
 };

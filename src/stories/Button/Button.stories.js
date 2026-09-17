@@ -90,7 +90,7 @@ export const Tertiary = {
 export const Print = {
   decorators: [rowDecorator],
   render: renderButtonList,
-  parameters: printParams(
+  ...printParams(
     "that interactive <button>s are dropped while a button-styled link prints, and the link's print border",
   ),
 };
@@ -107,7 +107,7 @@ export const PrintFloating = {
         <span>Quick exit</span>
       </a>
     </div>`,
-  parameters: printParams(
+  ...printParams(
     "that floating buttons such as quick exit are dropped entirely",
   ),
 };

@@ -1,3 +1,23 @@
+// Printable page dimensions in px, used both for the "Print" viewport below
+// and to make Chromatic's print snapshots (see `printParams`) match a real
+// print preview rather than the desktop browser width.
+//
+// `@page` in core-styles.scss sets 5mm left/right and 10mm top/bottom margins,
+// and deliberately leaves paper size unset (the printer dialog decides). A4 is
+// the default that dialog falls back to for this design system's audience, so:
+// 210×297mm page − margins = 200×277mm printable area, at 96px/in ÷ 25.4mm/in
+// ≈ 3.7795px/mm.
+//
+// This matters because breakpoint-gated rules (e.g. `@include QLD-media(lg)`)
+// compile to plain `(min-width: …)` queries with no `screen` restriction, so
+// they can match under print too — but only if the print layout is actually
+// as wide as the breakpoint. DevTools' "Emulate CSS media type: print" swaps
+// the media type but keeps the current (usually wide) browser viewport, so an
+// `lg`-gated rule still matches there even though a real print preview — laid
+// out at this page width — is narrower than `lg` (992px) and won't match it.
+const PRINT_PAGE_WIDTH = Math.round(200 * (96 / 25.4)); // ≈ 756px
+const PRINT_PAGE_HEIGHT = Math.round(277 * (96 / 25.4)); // ≈ 1047px
+
 export const viewports = {
   // QLD-media Breakpoints from variables.scss
   small: { name: "Small", styles: { width: "400px", height: "800px" } },
@@ -14,6 +34,19 @@ export const viewports = {
   mainNavBreakpoint: {
     name: "Main nav breakpoint",
     styles: { width: "992px", height: "800px" },
+  },
+  // Matches the real printable page width/height (see comment above) — pair
+  // with DevTools → Rendering → "Emulate CSS media type: print" to preview a
+  // print story locally without resizing the window by hand. Emulating print
+  // media alone keeps the desktop viewport width, which is wide enough that
+  // `lg`-gated rules still match when they wouldn't in an actual print
+  // preview — this viewport is what makes that visible locally.
+  print: {
+    name: "Print (A4 printable area)",
+    styles: {
+      width: `${PRINT_PAGE_WIDTH}px`,
+      height: `${PRINT_PAGE_HEIGHT}px`,
+    },
   },
 };
 
@@ -235,30 +268,45 @@ export function storyParams(componentKey, extraDescription) {
 /**
  * Parameters for a story that exists to guard `@media print` styles.
  *
- * Chromatic re-renders the story with print media emulated, so print rules are
- * covered by visual regression testing. Note the emulation is of print *media*,
- * not pagination — colours, borders and hidden elements are captured, but
- * `@page` margins, `break-inside` and `orphans`/`widows` have no visible effect
- * without real paged output and still need a print-to-PDF proof.
+ * Chromatic re-renders the story with print media emulated at the printable
+ * page width (see `PRINT_PAGE_WIDTH`), so print rules are covered by visual
+ * regression testing under conditions that match a real print preview rather
+ * than the desktop viewport. The emulation is of print *media* and page
+ * *width*, not pagination — colours, borders, hidden elements and
+ * breakpoint-gated rules are all captured, but `@page` margins, `break-inside`
+ * and `orphans`/`widows` have no visible effect without real paged output and
+ * still need a print-to-PDF proof.
  *
- * Such a story renders identically to its screen counterpart inside Storybook,
- * because browsers only apply `@media print` when actually printing. Preview
- * locally via DevTools → Rendering → "Emulate CSS media type: print".
+ * Also defaults the story's viewport to "Print" (see `viewports.print` above),
+ * so opening it in Storybook already shows the printable width without
+ * reaching for the toolbar — pair with DevTools → Rendering → "Emulate CSS
+ * media type: print" to see what Chromatic is checking. The default is a
+ * starting point, not a lock: the toolbar picker still overrides it, because
+ * the viewport addon has no way to disable itself per-story.
+ *
+ * Spread this at the top level of the story object, not nested under
+ * `parameters` — it sets both `parameters` and `globals`:
+ * `export const Print = { ...printParams("…"), args: {...} }`.
  *
  * @param  {string} [guards] What the story is protecting, appended to the note.
- * @return {object}          Storybook parameters for the story.
+ * @return {object}          Storybook `parameters` and `globals` for the story.
  */
 export function printParams(guards) {
   return {
-    chromatic: { media: "print" },
-    docs: {
-      description: {
-        story:
-          "Snapshotted by Chromatic with print media emulated." +
-          (guards ? ` Guards ${guards}.` : "") +
-          " Renders the same as the screen story inside Storybook — use " +
-          'DevTools → Rendering → "Emulate CSS media type: print" to preview.',
+    parameters: {
+      chromatic: { media: "print", viewports: [PRINT_PAGE_WIDTH] },
+      docs: {
+        description: {
+          story:
+            "Snapshotted by Chromatic with print media emulated at the " +
+            `printable page width (~${PRINT_PAGE_WIDTH}px).` +
+            (guards ? ` Guards ${guards}.` : "") +
+            " Renders the same as the screen story inside Storybook — " +
+            'defaults to the "Print" viewport; use DevTools → Rendering → ' +
+            '"Emulate CSS media type: print" to preview.',
+        },
       },
     },
+    globals: { viewport: { value: "print", isRotated: false } },
   };
 }

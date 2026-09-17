@@ -336,7 +336,7 @@ export const Overflow = {
  * edge, so the test checks the label has not moved as well as the colour going.
  */
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "that the selected tab's accent bar loses its colour without the label shifting down",
   ),
   play: async ({ canvasElement }) => {

@@ -3,11 +3,12 @@ import { Iconography } from "./Iconography";
 import { themeWrapper } from "../../../.storybook/helper-functions.js";
 import iconsSvg from "../../assets/img/QLD-icons.svg?raw";
 
-const componentIntroduction = `Iconography is in the process of being transitioned from using Font Awesome icons, to using Material Symbols.
-Currently, the following URL is being utilised to define the specifications of these new icons: https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0.
-This can be done manually replicated by adding a link tag within &lt;head&gt;,
-<strong>&lt;link id="material-stylesheet" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0" &gt;</strong> and 
-then adding the component to your template via <strong>&lt;span class="material-symbols-rounded" aria-hidden="true"&gt;ICON_NAME&lt;/span&gt;</strong>`;
+const componentIntroduction = `<p>All icons are implemented as SVGs and provided through a sprite sheet. Icons used to build components are also available in the <a href="https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QGDS-UI-Kit?node-id=6902-69802&p=f&t=4sdNArLVXAEw3eI4-0" target="_blank">Figma UI Kit</a>. We use SVG icons instead of an icon font to improve performance, scalability, maintainability and accessibility.</p>
+<p>You can view all icons included in our icon library below.</p>
+<p>If you require additional icons, you can find them at <a href="https://fonts.google.com/icons" target="_blank">Material Symbols</a>. The following URL defines the specifications for our Material Symbols: https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0.
+You can add Material Symbols manually by including the following &lt;link&gt; tag in the &lt;head&gt; of your page:</p>
+&lt;link id="material-stylesheet" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,300,0..1,0" &gt;
+<p>Then add the icon to your template using:</p>&lt;span class="material-symbols-rounded" aria-hidden="true"&gt;ICON_NAME&lt;/span&gt;`;
 
 // The sprite is inlined at build time (?raw); we parse it with DOMParser to list
 // every <symbol> id for the allIcons gallery. Lives here as it's the only consumer.

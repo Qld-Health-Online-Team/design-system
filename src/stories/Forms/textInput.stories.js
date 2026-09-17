@@ -177,5 +177,5 @@ export const Disabled = {
  */
 export const Print = {
   args: { disabled: true, placeholder: "" },
-  parameters: printParams("the print input border and disabled-state greys"),
+  ...printParams("the print input border and disabled-state greys"),
 };

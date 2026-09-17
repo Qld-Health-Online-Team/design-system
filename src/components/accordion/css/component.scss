@@ -293,7 +293,14 @@ li + li .qld__accordion {
     display: none !important;
   }
 
+  // A page break inside the accordion's content splits this box's side
+  // borders at the page edge — they stop on one page and don't resume on the
+  // next, reading as a broken/interrupted box. Keeping only the top border
+  // (still enough to separate stacked accordions from each other) avoids the
+  // artefact; the alternative, breaking-avoiding the whole accordion, only
+  // works while its content is shorter than a page.
   .qld__accordion {
+    border-width: $QLD-border-width-thin 0 0 0 !important;
     border-color: $QLD-color-print__border !important;
     color: $QLD-color-print__text !important;
   }
@@ -302,10 +309,10 @@ li + li .qld__accordion {
     background: $QLD-color-print__background !important;
     color: $QLD-color-print__text !important;
     border: 1px !important;
-    // The dark themes give the title a themed underline via QLD-underline, which
-    // is its own property and survives the colour reset — it would print as a
-    // blue rule under grey text.
-    text-decoration-color: $QLD-color-print__border--muted !important;
+    // QLD-underline gives the title a themed underline on screen to mark it as
+    // interactive. Paper has no hover/focus state to distinguish it for, and the
+    // title already reads as a heading, so the underline is just noise.
+    text-decoration: none !important;
 
     .qld__accordion__icon {
       display: none;

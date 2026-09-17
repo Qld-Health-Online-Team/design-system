@@ -198,7 +198,5 @@ export const Default = {};
  * same hidden-region rules as the content page template.
  */
 export const Print = {
-  parameters: printParams(
-    "the landing page body spacing and hidden-region print rules",
-  ),
+  ...printParams("the landing page body spacing and hidden-region print rules"),
 };
