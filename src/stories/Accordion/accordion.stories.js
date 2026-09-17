@@ -4,6 +4,7 @@ import {
   iconSpritePath,
   printParams,
   storyParams,
+  viewports,
 } from "../../../.storybook/globals";
 import { expect, userEvent, within } from "storybook/test";
 import { initComponents } from "../../../.storybook/decorators";
@@ -258,4 +259,36 @@ export const Print = {
     "the force-expanded panel bodies, hidden toggle icons and print border colours",
   ),
   args: { toggleAll: true },
+};
+
+/**
+ * A page break landing inside an accordion's body — the scenario the print
+ * border is simplified to a top rule for (see the `@media print` block in
+ * `accordion/css/component.scss`): a full box border gets cut off part-way
+ * down one page and doesn't resume on the next, while a top-only rule has
+ * nothing to cut off.
+ *
+ * `printParams` only emulates print *media* and page width, not pagination —
+ * this canvas, and the Chromatic snapshot it drives, will not show an actual
+ * break. To see it, open this story and print-to-PDF (or use the real print
+ * preview): the spacer below pushes the accordion to just above the bottom
+ * of the first printable page, and the item's body has enough copy to
+ * overflow a page by itself regardless.
+ */
+export const PageBreak = {
+  ...printParams(
+    "the accordion border staying legible when a page break lands inside its body",
+  ),
+  args: {
+    accordionNum: 1,
+    title1: "Accordion item spanning a page break",
+    content1: `<p>${dummyText}</p>`.repeat(6),
+  },
+  render: (args) => `
+    <div
+      style="height: ${parseInt(viewports.print.styles.height, 10) - 150}px;"
+      aria-hidden="true"
+    ></div>
+    ${render(args)}
+  `,
 };
