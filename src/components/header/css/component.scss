@@ -15,30 +15,24 @@
     line-height: 1;
 
     &__link {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
+      @include QLD-sronly();
+
       color: var(--QLD-color-light__link);
+
       &:focus {
-        outline: 3px solid var(--QLD-color-dark__focus);
-        outline-offset: -6px;
-        top: 16px;
-        top: 1rem;
-        left: 16px;
-        left: 1rem;
-        padding: 24px;
-        padding: 1.5rem;
+        position: absolute;
+
+        @include QLD-space(top, 1unit);
+        @include QLD-space(left, 1unit);
+        @include QLD-space(padding, 1.5unit);
+
         clip: auto;
         height: auto;
         margin: 0;
         overflow: visible;
-        position: absolute;
         width: auto;
+        outline: 3px solid var(--QLD-color-dark__focus);
+        outline-offset: -6px;
         color: var(--QLD-color-dark__link);
         background-color: var(--QLD-color-dark__background);
         z-index: 600;
