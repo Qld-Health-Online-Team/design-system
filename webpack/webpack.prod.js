@@ -5,9 +5,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const PrecompilePlugin = require("./PrecompilePlugin");
 // const JsonMergePlugin = require("./JsonMergePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const helpersConfig = require("./webpack.helpers");
 
 module.exports = (env) => {
-  return merge(common, {
+  const mainConfig = merge(common, {
+    name: "main",
     mode: "production",
     devtool: "source-map",
     module: {
@@ -33,8 +35,6 @@ module.exports = (env) => {
         input: "./src/components/**/**/*.hbs",
         manifest: "./src/components/**/js/manifest.json",
         output: "./dist/components/",
-        helpersInput: "./src/helpers/Handlebars/*.js",
-        helpersOutput: "./src/helpers/Handlebars/*.js",
       }),
     ],
     optimization: {
@@ -46,4 +46,6 @@ module.exports = (env) => {
       ],
     },
   });
+
+  return [mainConfig, helpersConfig];
 };
