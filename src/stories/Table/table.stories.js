@@ -134,7 +134,7 @@ export const MultilevelHeadings = {
  */
 export const Print = {
   args: { features: [Feat.striped] },
-  parameters: printParams("the print header rules and striped row backgrounds"),
+  ...printParams("the print header rules and striped row backgrounds"),
 };
 
 /**
@@ -144,5 +144,5 @@ export const Print = {
  */
 export const PrintMultilevelHeadings = {
   args: { features: [Feat.multilevelHeadings] },
-  parameters: printParams("the separator between the two header rows"),
+  ...printParams("the separator between the two header rows"),
 };

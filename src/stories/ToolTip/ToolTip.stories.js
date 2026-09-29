@@ -193,7 +193,5 @@ export const PrintWithOpenTip = {
   play: async ({ canvasElement }) => {
     await openToolTip(canvasElement);
   },
-  parameters: {
-    ...printParams("that an open tool tip popup is dropped from print"),
-  },
+  ...printParams("that an open tool tip popup is dropped from print"),
 };

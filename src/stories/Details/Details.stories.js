@@ -251,7 +251,7 @@ export const ChevronRotates = {
  * pointing "closed".
  */
 export const PrintStyles = {
-  parameters: printParams(
+  ...printParams(
     "that a closed disclosure still prints its content, without the chevron",
   ),
 };

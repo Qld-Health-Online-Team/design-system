@@ -1018,6 +1018,16 @@ form {
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @media print {
+  // A `.qld__body` stacked directly after another one collapses its own
+  // top padding to 0 (see the sibling rule above), so consecutive sections
+  // read as one continuous flow. The first section on the page follows the
+  // banner instead, never matches that sibling selector, and keeps its full
+  // top padding — a bigger gap than any section boundary further down, and
+  // on paper that's wasted page height rather than a screen design choice.
+  .qld__banner + .qld__body {
+    padding-top: 0 !important;
+  }
+
   .qld__body {
     *,
     & {

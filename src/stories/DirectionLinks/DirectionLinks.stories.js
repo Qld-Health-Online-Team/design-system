@@ -103,7 +103,7 @@ export const darkAlt = {
 
 export const Print = {
   render: () => allVariants(),
-  parameters: printParams(
+  ...printParams(
     "the hidden direction-link arrow icons and the href rendered inline with the text",
   ),
 };

@@ -417,7 +417,7 @@ export const ThreeFooterLinksFa = {
  */
 export const Print = {
   args: { children: sampleChildrenAbsolute },
-  parameters: printParams(
+  ...printParams(
     "the appended href flowing inline after the card title, unclipped and wrapped rather than overflowing the card",
   ),
   play: async ({ canvasElement }) => {
@@ -467,7 +467,7 @@ export const Print = {
  */
 export const PrintDecorativeImages = {
   args: { cardType: "image", thumbnailAlt: "" },
-  parameters: printParams(
+  ...printParams(
     "that card thumbnails without alt text are dropped from print",
   ),
   // The print rule selects on `:not([role="img"])`, so it is only correct while
@@ -496,7 +496,7 @@ export const PrintImagesWithAltText = {
     cardType: "image",
     thumbnailAlt: "Aerial view of Toowoomba at dusk",
   },
-  parameters: printParams("that card thumbnails with alt text still print"),
+  ...printParams("that card thumbnails with alt text still print"),
   play: async ({ canvasElement }) => {
     const images = canvasElement.querySelectorAll(
       ".qld__responsive-media-img--bg",

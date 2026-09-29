@@ -249,7 +249,7 @@ export const nextOnly = {
 };
 
 export const Print = {
-  parameters: printParams(
+  ...printParams(
     "that pagination is hidden entirely in print (navigation controls have no meaning on paper)",
   ),
 };

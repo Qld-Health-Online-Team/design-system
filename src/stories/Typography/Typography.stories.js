@@ -236,9 +236,7 @@ export const DarkAlt = { render: () => renderTheme("dark alt") };
  */
 export const Print = {
   render: () => renderElements(),
-  parameters: printParams(
-    "body copy and captions against the A4 print typescale",
-  ),
+  ...printParams("body copy and captions against the A4 print typescale"),
   play: async ({ canvasElement }) => {
     const pt = (value) => +(parseFloat(value) * 0.75).toFixed(2);
     const sizes = (el) => {
