@@ -2,39 +2,74 @@ name: "Chromatic"
 
 on:
   workflow_dispatch:
+  # Master builds set the baselines PRs are compared against. Release
+  # branches aren't listed: they go through a PR, which already builds them.
   push:
-    branches: [master, "release-**"]
+    branches: [master]
+    paths-ignore:
+      - "**/*.md"
+      - "docs/**"
+      - "dist/**"
   pull_request:
-    types: [opened, reopened, ready_for_review]
+    types: [opened, reopened, synchronize, ready_for_review]
     branches: [master, "release-**"]
     paths-ignore:
       - "**/*.md"
       - "docs/**"
+      - "dist/**"
 
 permissions:
   contents: read
 
+# A newer push to the same PR supersedes the running build. This only saves
+# snapshots if the old run is cancelled before it uploads to Chromatic.
 concurrency:
-  group: chromatic-${{ github.ref }}
+  group: chromatic-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   chromatic:
     name: Run Chromatic
     runs-on: ubuntu-latest
+    # PRs build on every push once they're ready for review. Drafts are
+    # skipped so work in progress doesn't spend snapshot quota; run the
+    # workflow manually on the branch if a draft needs a build.
+    #
+    # Fork PRs are skipped: they can't read the project token, and an outside
+    # contributor shouldn't spend quota. This checks where the branch lives
+    # rather than author_association, which reports private org members as
+    # CONTRIBUTOR and can silently skip our own PRs.
+    #
+    # push and workflow_dispatch already require write access. The release
+    # job's own "chore: release" commit is skipped: it only touches dist/ and
+    # version metadata, which Storybook doesn't render.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' &&
+        !startsWith(github.event.head_commit.message, 'chore: release')) ||
+      (github.event_name == 'pull_request' &&
+        !github.event.pull_request.draft &&
+        github.event.pull_request.head.repo.full_name == github.repository)
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
         with:
+          # Full history so TurboSnap can find the ancestor build to diff against.
           fetch-depth: 0
+          # On PRs, build the branch's own commit rather than GitHub's
+          # synthetic merge commit, which is what Chromatic reports the build
+          # against and what later builds look for as a baseline.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v6
         with:
           node-version: 24.14.0
       - name: Install dependencies
         run: npm ci
       - name: Run Chromatic
-        uses: chromaui/action@latest
+        uses: chromaui/action@v18
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true
+          # Visual changes don't fail this job; they're reviewed in
+          # Chromatic's UI Tests / UI Review checks on the PR instead.
           exitZeroOnChanges: true
