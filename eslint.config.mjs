@@ -38,6 +38,7 @@ export default defineConfig([
       "*.config.js",
       "postcss.config.js",
     ],
+    ignores: ["scripts/**/*.test.js"],
     plugins: { js },
     extends: ["js/recommended"],
     languageOptions: {

@@ -2,8 +2,6 @@ const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const PrecompilePlugin = require("./PrecompilePlugin");
-// const JsonMergePlugin = require("./JsonMergePlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env) => {
@@ -34,13 +32,6 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: "[name].css",
         chunkFilename: "[name].css",
-      }),
-      new PrecompilePlugin({
-        input: "./src/components/**/**/*.hbs",
-        manifest: "./src/components/**/js/manifest.json",
-        output: "./dist/components/",
-        helpersInput: "./src/helpers/Handlebars/*.js",
-        helpersOutput: "./src/helpers/Handlebars/*.js",
       }),
     ],
     optimization: {
