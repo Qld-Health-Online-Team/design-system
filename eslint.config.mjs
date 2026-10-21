@@ -32,12 +32,7 @@ export default defineConfig([
     },
   },
   {
-    files: [
-      "webpack/**/*.js",
-      "scripts/**/*.js",
-      "*.config.js",
-      "postcss.config.js",
-    ],
+    files: ["scripts/**/*.js", "*.config.js", "postcss.config.js"],
     ignores: ["scripts/**/*.test.js"],
     plugins: { js },
     extends: ["js/recommended"],

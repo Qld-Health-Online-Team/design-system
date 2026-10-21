@@ -16,7 +16,7 @@ export default defineConfig({
     // not find src/styles/postcss.config.js.
     postcss: { plugins: [autoprefixer()] },
     // Sass compresses the output. Vite's own CSS minifier (esbuild) would drop
-    // legacy hacks such as `*zoom: 1`, which webpack's pipeline kept.
+    // legacy hacks such as `*zoom: 1`.
     preprocessorOptions: { scss: { style: "compressed" } },
   },
   build: {

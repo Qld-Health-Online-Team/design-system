@@ -129,8 +129,8 @@ function copyDir(from, to) {
 /**
  * Write a minified copy of each script in src/externals into dist/externals.
  *
- * `ecma: 2015` matches what the webpack build's Terser pass used, which keeps
- * the output byte-identical (for instance, it emits `{current}` shorthand).
+ * `ecma: 2015` keeps the published bytes stable: terser then emits shorthand
+ * properties such as `{current}`, as the committed files already do.
  *
  * @param {string} from - Source directory of scripts.
  * @param {string} to - Destination directory.
