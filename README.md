@@ -13,7 +13,7 @@ For more information on the Queensland Government Design System and other codeba
   - [QGDS Figma](https://www.figma.com/design/qKsxl3ogIlBp7dafgxXuCA/QLD-GOV-DDS?m=auto&node-id=6902-69802&t=q6FMpeH4XPs1hjP1-1)
 
 ## Technical overview
-- **Webpack** – Bundling, transpilation, and asset optimisation
+- **Vite** – Bundling `dist/js/main.js` and `dist/main.css` (and powering Storybook and the tests)
 - **Sass + PostCSS** – CSS preprocessing and automatic prefixing
 - **HandlebarsJS** – Component and HTML templating
 - **Storybook** – Component development, testing, and documentation
