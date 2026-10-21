@@ -10,6 +10,8 @@ const {
   buildHelpersBundle,
   emitComponent,
   minifyDir,
+  buildBannerContainedCss,
+  writeLegacyStubs,
 } = require("./build-dist.js");
 
 function tempDir() {
@@ -66,5 +68,36 @@ describe("minifyDir", () => {
     expect(fs.readFileSync(`${to}/a.js`, "utf8")).toMatch(
       /^function add\(\w,\w\)\{return \w\+\w\}$/,
     );
+  });
+});
+
+describe("writeLegacyStubs", () => {
+  test("writes comment-only runtime.js and banner_contained.js", () => {
+    const dir = tempDir();
+
+    writeLegacyStubs(dir);
+
+    for (const name of ["runtime.js", "banner_contained.js"]) {
+      const source = fs.readFileSync(`${dir}/${name}`, "utf8");
+      expect(source).toMatch(/^\/\* .+ \*\/\n$/);
+    }
+  });
+});
+
+describe("buildBannerContainedCss", () => {
+  test("writes compressed, prefixed css and a source map", async () => {
+    const dir = tempDir();
+    fs.writeFileSync(
+      `${dir}/in.scss`,
+      ".a {\n  .b {\n    user-select: none;\n  }\n}\n",
+    );
+
+    await buildBannerContainedCss(`${dir}/in.scss`, `${dir}/out.css`);
+
+    const css = fs.readFileSync(`${dir}/out.css`, "utf8");
+    expect(css).toContain(".a .b{");
+    expect(css).toContain("-webkit-user-select:none");
+    expect(css).toContain("sourceMappingURL=out.css.map");
+    expect(fs.existsSync(`${dir}/out.css.map`)).toBe(true);
   });
 });
