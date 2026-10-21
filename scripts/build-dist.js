@@ -4,6 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const { logger } = require("handlebars");
 const { minify } = require("terser");
+const sass = require("sass");
+const postcss = require("postcss");
+const autoprefixer = require("autoprefixer");
 const generateImportXml = require("./import-xml");
 
 /**
@@ -144,6 +147,51 @@ async function minifyDir(from, to) {
 }
 
 /**
+ * Compile the banner_contained stylesheet to dist/banner_contained.css, with
+ * the same Sass, autoprefixer and browserslist as main.css.
+ *
+ * It is a separate stylesheet because Matrix loads it only on pages that use
+ * the contained banner; it has no JS, so it can't ride the main.js build.
+ *
+ * @param {string} entry - SCSS entry file.
+ * @param {string} outputPath - Output CSS file; its .map is written beside it.
+ */
+async function buildBannerContainedCss(entry, outputPath) {
+  const compiled = sass.compile(entry, {
+    style: "compressed",
+    sourceMap: true,
+  });
+  const prefixed = await postcss([autoprefixer()]).process(compiled.css, {
+    from: entry,
+    to: outputPath,
+    map: { prev: compiled.sourceMap, inline: false, annotation: true },
+  });
+
+  fs.writeFileSync(outputPath, prefixed.css);
+  fs.writeFileSync(`${outputPath}.map`, prefixed.map.toString());
+}
+
+/**
+ * Write the placeholder scripts that earlier builds produced, so Matrix site
+ * heads that still load them get an empty file instead of a 404.
+ *
+ * @param {string} outputDir - Directory the stubs are written to.
+ */
+function writeLegacyStubs(outputDir) {
+  const note = (name, reason) =>
+    `/* ${name} is intentionally empty. ${reason} Kept so existing Matrix site heads that load it keep working. */\n`;
+
+  fs.writeFileSync(
+    `${outputDir}/runtime.js`,
+    note("runtime.js", "main.js is now self-contained and needs no runtime."),
+  );
+  fs.writeFileSync(
+    `${outputDir}/banner_contained.js`,
+    note("banner_contained.js", "banner_contained is a stylesheet only."),
+  );
+}
+
+/**
  * Publish the Squiz Matrix contract into dist/.
  *
  * Matrix consumes dist/ directly through a Git File Bridge (develop branch →
@@ -183,6 +231,12 @@ async function buildDist(options) {
       emitComponent(templatePath, options.manifest, outputPath),
     );
 
+  writeLegacyStubs("./dist/js");
+  await buildBannerContainedCss(
+    "./src/styles/banner_contained/globals.scss",
+    "./dist/banner_contained.css",
+  );
+
   await minifyDir("./src/externals", "./dist/externals");
   copyDir("./src/assets", "./dist/mysource_files");
 }
@@ -206,5 +260,7 @@ module.exports = {
   buildHelpersBundle,
   emitComponent,
   minifyDir,
+  buildBannerContainedCss,
+  writeLegacyStubs,
   buildDist,
 };
