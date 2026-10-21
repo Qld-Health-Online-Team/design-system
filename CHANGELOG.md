@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+- The `dist/` build tool changed from webpack to Vite. Matrix-facing filenames are unchanged, so site heads need no edits.
+- `dist/js/runtime.js` and `dist/js/banner_contained.js` are now empty stubs. Site heads can stop loading them at their leisure; they will be removed in a later release.
+- `dist/main.css.map` is no longer produced.
+
 ## 1.24.5 - 2026-09-29
 
 ## 1.24.4 - 2026-09-29
