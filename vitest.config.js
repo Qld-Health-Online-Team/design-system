@@ -27,7 +27,7 @@ export default defineConfig({
         test: {
           name: "unit",
           environment: "node",
-          include: ["src/**/*.test.js"],
+          include: ["src/**/*.test.js", "scripts/**/*.test.js"],
         },
       },
       {

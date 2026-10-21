@@ -1,24 +1,4 @@
 const path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-
-const copyWebPack = new CopyWebpackPlugin({
-  patterns: [
-    {
-      from: path.resolve(__dirname, "../src/externals"),
-      to: "externals",
-      globOptions: {
-        ignore: ["__What is this folder for"],
-      },
-    },
-    {
-      from: path.resolve(__dirname, "../src/assets"),
-      to: "mysource_files",
-      globOptions: {
-        ignore: ["__What is this folder for"],
-      },
-    },
-  ],
-});
 
 module.exports = {
   entry: {
@@ -56,7 +36,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [copyWebPack],
   optimization: {
     minimize: false,
     runtimeChunk: "single",
