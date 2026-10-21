@@ -1,8 +1,10 @@
 const glob = require("glob");
 const Handlebars = require("handlebars");
 const fs = require("fs");
+const path = require("path");
 const { logger } = require("handlebars");
-const generateImportXml = require("./generateImportXml");
+const { minify } = require("terser");
+const generateImportXml = require("./import-xml");
 
 /**
  * Collect the Handlebars helper modules that make up the design system's
@@ -109,7 +111,40 @@ function emitComponent(templatePath, manifestGlob, outputPath) {
 }
 
 /**
- * Webpack plugin that publishes the Squiz Matrix contract into dist/.
+ * Copy a directory into dist/, skipping the placeholder note folders.
+ *
+ * @param {string} from - Source directory.
+ * @param {string} to - Destination directory.
+ */
+function copyDir(from, to) {
+  fs.cpSync(from, to, {
+    recursive: true,
+    filter: (source) => path.basename(source) !== "__What is this folder for",
+  });
+}
+
+/**
+ * Write a minified copy of each script in src/externals into dist/externals.
+ *
+ * `ecma: 2015` matches what the webpack build's Terser pass used, which keeps
+ * the output byte-identical (for instance, it emits `{current}` shorthand).
+ *
+ * @param {string} from - Source directory of scripts.
+ * @param {string} to - Destination directory.
+ */
+async function minifyDir(from, to) {
+  fs.mkdirSync(to, { recursive: true });
+  for (const name of fs.readdirSync(from)) {
+    if (name === "__What is this folder for") continue;
+    const { code } = await minify(fs.readFileSync(`${from}/${name}`, "utf8"), {
+      ecma: 2015,
+    });
+    fs.writeFileSync(`${to}/${name}`, code);
+  }
+}
+
+/**
+ * Publish the Squiz Matrix contract into dist/.
  *
  * Matrix consumes dist/ directly through a Git File Bridge (develop branch →
  * developer site, master → live sites), so everything written here is read
@@ -117,10 +152,12 @@ function emitComponent(templatePath, manifestGlob, outputPath) {
  * one-time provisioning aid.
  *
  * Outputs:
- * - dist/js/helpers.js (afterEmit hook) — all Handlebars helpers, loaded by
- *   the Matrix site head and CT edit layouts.
- * - dist/components/<name>/{manifest.json,import.xml,presentation.js}
- *   (done hook) — per-component contract files; see emitComponent.
+ * - dist/js/helpers.js — all Handlebars helpers, loaded by the Matrix site
+ *   head and CT edit layouts.
+ * - dist/components/<name>/{manifest.json,import.xml,presentation.js} —
+ *   per-component contract files; see emitComponent.
+ * - dist/externals and dist/mysource_files — copies of src/externals and
+ *   src/assets.
  *
  * Options:
  * - input: glob for component .hbs templates.
@@ -128,32 +165,46 @@ function emitComponent(templatePath, manifestGlob, outputPath) {
  * - output: directory the per-component folders are written to.
  * - helpersInput: glob for Handlebars helper modules.
  */
-class PrecompilePlugin {
-  constructor(options = {}) {
-    this.options = options;
-  }
+async function buildDist(options) {
+  const outputPath = options.output.endsWith("/")
+    ? options.output.slice(0, -1)
+    : options.output;
 
-  apply(compiler) {
-    const outputPath = this.options.output.endsWith("/")
-      ? this.options.output.slice(0, -1)
-      : this.options.output;
-    const hbsTemplates = glob.sync(this.options.input);
-    const helpersBundle = buildHelpersBundle(
-      loadHelpers(this.options.helpersInput),
+  fs.mkdirSync("./dist/js", { recursive: true });
+  fs.writeFileSync(
+    "./dist/js/helpers.js",
+    buildHelpersBundle(loadHelpers(options.helpersInput)),
+  );
+  console.log("helpers.js written");
+
+  glob
+    .sync(options.input)
+    .forEach((templatePath) =>
+      emitComponent(templatePath, options.manifest, outputPath),
     );
 
-    compiler.hooks.afterEmit.tap("PrecompilePlugin", () => {
-      fs.mkdirSync("./dist/js", { recursive: true });
-      fs.writeFileSync("./dist/js/helpers.js", helpersBundle);
-      console.log("helpers.js written after emit");
-    });
-
-    compiler.hooks.done.tap("PrecompilePlugin", () => {
-      hbsTemplates.forEach((templatePath) =>
-        emitComponent(templatePath, this.options.manifest, outputPath),
-      );
-    });
-  }
+  await minifyDir("./src/externals", "./dist/externals");
+  copyDir("./src/assets", "./dist/mysource_files");
 }
 
-module.exports = PrecompilePlugin;
+const defaultOptions = {
+  input: "./src/components/**/**/*.hbs",
+  manifest: "./src/components/**/js/manifest.json",
+  output: "./dist/components/",
+  helpersInput: "./src/helpers/Handlebars/*.js",
+};
+
+if (require.main === module) {
+  buildDist(defaultOptions).catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  loadHelpers,
+  buildHelpersBundle,
+  emitComponent,
+  minifyDir,
+  buildDist,
+};
