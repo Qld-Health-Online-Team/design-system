@@ -324,9 +324,9 @@
         return undefined
     };
 
-  return "              <code class=\"qld__code-body\">\n                "
+  return "              <code class=\"qld__code-body\">"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? lookupProperty(depth0,"code") : depth0)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\n              </code>\n";
+    + "</code>\n";
 },"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
