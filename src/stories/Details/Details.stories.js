@@ -5,6 +5,7 @@ import {
   storyParams,
   themes,
 } from "../../../.storybook/globals";
+import { fontsLoaded } from "../../../.storybook/helper-functions";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 const renderDetails = ({
@@ -46,17 +47,6 @@ const summaryTextLines = (textElement) => {
 };
 
 const firstLineOf = (textElement) => summaryTextLines(textElement)[0];
-
-// Noto Sans is a web font (display=swap): the browser fetches it only once
-// text using it is laid out, and renders the fallback until it arrives. A play
-// function runs straight after render, so without this it measures whichever
-// font won the race: the fallback on a cold load, Noto Sans once cached.
-// Reading a rect forces the layout that starts the fetch; fonts.ready then
-// waits for it.
-const fontsLoaded = async (element) => {
-  element.getBoundingClientRect();
-  await document.fonts.ready;
-};
 
 // The template has no open switch — a disclosure is only ever open because
 // someone opened it. Stories that want the revealed state in their snapshot do
