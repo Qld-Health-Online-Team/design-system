@@ -190,8 +190,12 @@ export const WrappingSummary = {
 
     await expect(lines.length).toBeGreaterThan(1);
 
-    // The chevron stays on the first line rather than drifting down the block
-    await expect(iconRect.bottom).toBeLessThanOrEqual(lines[1].top);
+    // The chevron stays on the first line rather than drifting down the block.
+    // The line rects are glyph boxes, not line boxes: with a font whose glyph
+    // box is taller than the line-height (Noto Sans) adjacent rects overlap.
+    // Half-leading is symmetric, so the line-box boundary is the midpoint.
+    const firstLineBoxBottom = (lines[0].bottom + lines[1].top) / 2;
+    await expect(iconRect.bottom).toBeLessThanOrEqual(firstLineBoxBottom);
 
     // Every line, not just the first, starts clear of the chevron
     for (const line of lines) {
