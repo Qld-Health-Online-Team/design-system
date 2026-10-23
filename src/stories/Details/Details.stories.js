@@ -47,6 +47,17 @@ const summaryTextLines = (textElement) => {
 
 const firstLineOf = (textElement) => summaryTextLines(textElement)[0];
 
+// Noto Sans is a web font (display=swap): the browser fetches it only once
+// text using it is laid out, and renders the fallback until it arrives. A play
+// function runs straight after render, so without this it measures whichever
+// font won the race: the fallback on a cold load, Noto Sans once cached.
+// Reading a rect forces the layout that starts the fetch; fonts.ready then
+// waits for it.
+const fontsLoaded = async (element) => {
+  element.getBoundingClientRect();
+  await document.fonts.ready;
+};
+
 // The template has no open switch — a disclosure is only ever open because
 // someone opened it. Stories that want the revealed state in their snapshot do
 // it the same way, in the play function, before Chromatic captures.
@@ -143,6 +154,7 @@ export const Sizes = {
 
     // For the snapshot; the alignment below measures the same either way
     open(...items);
+    await fontsLoaded(canvasElement);
 
     for (const details of items) {
       const text = details.querySelector(".qld__details__summary-text");
@@ -184,6 +196,7 @@ export const WrappingSummary = {
     // Guarantee the summary wraps regardless of the headless runner's viewport
     // width (the small viewport wraps it on its own in the rendered story).
     details.style.maxWidth = "320px";
+    await fontsLoaded(details);
 
     const lines = summaryTextLines(text);
     const iconRect = icon.getBoundingClientRect();
