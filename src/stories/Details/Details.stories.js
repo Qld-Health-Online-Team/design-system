@@ -5,6 +5,7 @@ import {
   storyParams,
   themes,
 } from "../../../.storybook/globals";
+import { fontsLoaded } from "../../../.storybook/helper-functions";
 import { expect, userEvent, waitFor, within } from "storybook/test";
 
 const renderDetails = ({
@@ -143,6 +144,7 @@ export const Sizes = {
 
     // For the snapshot; the alignment below measures the same either way
     open(...items);
+    await fontsLoaded(canvasElement);
 
     for (const details of items) {
       const text = details.querySelector(".qld__details__summary-text");
@@ -184,14 +186,19 @@ export const WrappingSummary = {
     // Guarantee the summary wraps regardless of the headless runner's viewport
     // width (the small viewport wraps it on its own in the rendered story).
     details.style.maxWidth = "320px";
+    await fontsLoaded(details);
 
     const lines = summaryTextLines(text);
     const iconRect = icon.getBoundingClientRect();
 
     await expect(lines.length).toBeGreaterThan(1);
 
-    // The chevron stays on the first line rather than drifting down the block
-    await expect(iconRect.bottom).toBeLessThanOrEqual(lines[1].top);
+    // The chevron stays on the first line rather than drifting down the block.
+    // The line rects are glyph boxes, not line boxes: with a font whose glyph
+    // box is taller than the line-height (Noto Sans) adjacent rects overlap.
+    // Half-leading is symmetric, so the line-box boundary is the midpoint.
+    const firstLineBoxBottom = (lines[0].bottom + lines[1].top) / 2;
+    await expect(iconRect.bottom).toBeLessThanOrEqual(firstLineBoxBottom);
 
     // Every line, not just the first, starts clear of the chevron
     for (const line of lines) {

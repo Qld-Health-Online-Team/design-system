@@ -74,7 +74,26 @@ npm run test
 - Automated [Semantic versioning](https://semver.org) for patch, minor, and major releases
 - Automated CI/CD validation for pull requests
 - Automated GitHub io static documentation for [Storybook](https://storybook.js.org) build and deployment workflows
-- [Chromatic](https://www.chromatic.com) visual regression testing on master and release branches
+- [Chromatic](https://www.chromatic.com) visual regression testing on pull requests and master (see below)
+
+### Chromatic visual tests
+
+Chromatic snapshots every Storybook story and compares it to the last accepted baseline. Our plan has a monthly snapshot quota, so the workflow (`.github/workflows/chromatic.yml`) only builds when the result will be looked at:
+
+| When | Chromatic runs? |
+|---|---|
+| Draft PR | No. Iterate freely. |
+| PR into `master` or a `release-*` branch, ready for review | Yes, on every push |
+| Merge to master | Yes, which sets the baselines that later PRs compare against |
+| The release job's `chore: release` commit | No. It only touches `dist/` and version metadata. |
+| Changes only to `*.md`, `docs/` or `dist/` | No |
+| PR from a fork | No |
+
+Need a build on a draft? Open **Actions → Chromatic → Run workflow** and pick your branch.
+
+**A green "Run Chromatic" job does not mean nothing changed.** The job passes whenever the build uploads. The result is in Chromatic's own **UI Tests** and **UI Review** checks on the PR. Click through to accept or deny each visual change. Accepted changes become the baseline once merged.
+
+Builds use [TurboSnap](https://www.chromatic.com/docs/turbosnap/), so only stories affected by the changed files are re-captured. Unchanged stories still cost about a fifth of a snapshot each, which is why we skip builds rather than relying on TurboSnap alone.
 
 You can use any IDE of your choice. Our development team uses Visual Studio Code (VS Code) with the following recommended extensions:
 - Prettier
