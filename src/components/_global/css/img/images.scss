@@ -1,3 +1,5 @@
+@use "sass:list";
+
 .qld__body,
 .qld__banner,
 .qld__footer {
@@ -107,11 +109,11 @@
   // with the same shape it opened with.
   @each $name, $radii in $QLD-border-radius-scale {
     img.qld__border-radius--#{$name} + figcaption {
-      --QLD-applied-border-radius: #{nth($radii, 1)};
+      --QLD-applied-border-radius: #{list.nth($radii, 1)};
 
-      @if nth($radii, 2) {
+      @if list.nth($radii, 2) {
         @include QLD-media(lg) {
-          --QLD-applied-border-radius: #{nth($radii, 2)};
+          --QLD-applied-border-radius: #{list.nth($radii, 2)};
         }
       }
     }

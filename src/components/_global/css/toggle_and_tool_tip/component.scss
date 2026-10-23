@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .qld__body,
 .qld__body--light,
 .qld__body--light-alt,
@@ -99,7 +101,7 @@
 
       z-index: 8;
       border-radius: $QLD-border-radius-xs;
-      font-size: #{map-get($QLD-fontsize-map, xs)}px;
+      font-size: #{map.get($QLD-fontsize-map, xs)}px;
       line-height: 1.25rem;
       font-weight: $QLD-font-weight-regular;
       background-color: $QLD-color-neutral--darkest;
