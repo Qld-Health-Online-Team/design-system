@@ -2,6 +2,8 @@
 // Footer
 //-----------------------------------------------------------------------------
 
+@use "sass:map";
+
 .qld__footer {
   @include QLD-fontgrid(xs);
   @include QLD-space(padding-bottom, 2.5unit);
@@ -356,7 +358,7 @@
     img {
       @include QLD-space(
         margin-top,
-        map-get($QLD-space-map, $QLD-margin__text-element--mobile) + px
+        map.get($QLD-space-map, $QLD-margin__text-element--mobile) + px
       );
     }
   }
@@ -366,7 +368,7 @@
       img {
         @include QLD-space(
           margin-top,
-          map-get($QLD-space-map, $QLD-margin__text-element--desktop) + px
+          map.get($QLD-space-map, $QLD-margin__text-element--desktop) + px
         );
       }
     }

@@ -2,6 +2,8 @@
 // Accordion
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@use "sass:map";
+
 .qld__accordion {
   border: $QLD-border-width-thin solid $QLD-color-neutral--lighter;
   display: block;
@@ -122,10 +124,10 @@
   // Sibling and grouped accordions zero this out further down so stacked
   // items sit flush.
   * + & {
-    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+    margin-top: #{map.get($QLD-space-map, $QLD-margin__component--mobile)}px;
 
     @include QLD-media(lg) {
-      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+      margin-top: #{map.get($QLD-space-map, $QLD-margin__component--desktop)}px;
     }
   }
 
@@ -156,10 +158,10 @@
 
   // Standard component margin when content precedes the group
   * + & {
-    margin-top: #{map-get($QLD-space-map, $QLD-margin__component--mobile)}px;
+    margin-top: #{map.get($QLD-space-map, $QLD-margin__component--mobile)}px;
 
     @include QLD-media(lg) {
-      margin-top: #{map-get($QLD-space-map, $QLD-margin__component--desktop)}px;
+      margin-top: #{map.get($QLD-space-map, $QLD-margin__component--desktop)}px;
     }
   }
 
