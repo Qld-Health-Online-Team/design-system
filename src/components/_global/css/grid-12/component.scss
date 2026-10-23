@@ -12,6 +12,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // GLOBAL VARIABLES
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+@use "sass:math";
+
 $QLD-grid-12-columns: 12 !default; //column amounts
 // $QLD-grid-12-gutter-width: 32px !default; //gutter space
 
@@ -73,13 +76,13 @@ $QLD-grid-12-columns: 12 !default; //column amounts
 @mixin QLD-grid-12-calc-grid-column($index, $class, $type) {
   @if ($type == width) and ($index > 0) {
     .col-#{ $class }-#{ $index } {
-      width: percentage(calc($index / $QLD-grid-12-columns));
+      width: math.percentage(calc($index / $QLD-grid-12-columns));
     }
   }
 
   @if ($type == push) and ($index > 0) {
     .col-#{ $class }-push-#{ $index } {
-      left: percentage(calc($index / $QLD-grid-12-columns));
+      left: math.percentage(calc($index / $QLD-grid-12-columns));
     }
   }
 
@@ -91,7 +94,7 @@ $QLD-grid-12-columns: 12 !default; //column amounts
 
   @if ($type == pull) and ($index > 0) {
     .col-#{ $class }-pull-#{ $index } {
-      right: percentage(calc($index / $QLD-grid-12-columns));
+      right: math.percentage(calc($index / $QLD-grid-12-columns));
     }
   }
 
@@ -103,7 +106,7 @@ $QLD-grid-12-columns: 12 !default; //column amounts
 
   @if ($type == offset) {
     .col-#{ $class }-offset-#{ $index } {
-      margin-left: percentage(calc($index / $QLD-grid-12-columns));
+      margin-left: math.percentage(calc($index / $QLD-grid-12-columns));
     }
   }
 }

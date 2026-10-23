@@ -1,3 +1,8 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
 // REM font sizing with pixel fall back
 // This technique will allow external font sizes to be set for html and respected
 // if REMs are supported (everything but IE8 and older).
@@ -242,11 +247,11 @@
 
   @each $ext in $exts {
     $extmod: if(
-      map-has-key($extmods, $ext),
-      $ext + map-get($extmods, $ext),
+      map.has-key($extmods, $ext),
+      $ext + map.get($extmods, $ext),
       $ext
     );
-    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
     $src: append(
       $src,
       url(quote($path + "." + $extmod)) format(quote($format)),
@@ -279,27 +284,27 @@
   $fallback: ();
   $has_fallback: false;
 
-  @if type-of($property) != "string" {
+  @if meta.type-of($property) != "string" {
     @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
   }
 
   // Loop through the $values list
   @each $value in $values {
     // This is a pixel on unitless unit. Let’s convert it to rems
-    @if type-of($value) == "number" and unit($value) == "unit" {
+    @if meta.type-of($value) == "number" and math.unit($value) == "unit" {
       $value: calc($value / 1unit); // This is to remove the unit value
       $rem: calc($value / (calc($value / $unit) * 0 + 1));
 
-      $fallback: join($fallback, round($value * ($unit * $unit)) + 0px);
-      $output: join($output, #{$rem}rem);
+      $fallback: list.join($fallback, round($value * ($unit * $unit)) + 0px);
+      $output: list.join($output, #{$rem}rem);
 
       $has_fallback: true;
     }
 
     // We don’t know what this is so we don’t change it.
     @else {
-      $fallback: join($fallback, $value);
-      $output: join($output, $value);
+      $fallback: list.join($fallback, $value);
+      $output: list.join($output, $value);
     }
   }
 
@@ -324,30 +329,30 @@
   $fallback: ();
   $has_fallback: false;
 
-  @if type-of($property) != "string" {
+  @if meta.type-of($property) != "string" {
     @error "I’m sorry Dave, I can’t do that; the QLD-space function only takes a string as first argument!";
   }
 
   // Loop through the $values list
   @each $value in $values {
     // This is a pixel on unitless unit. Let’s convert it to rems
-    @if type-of($value) == "number" {
+    @if meta.type-of($value) == "number" {
       //Map number input to the space map
-      $value: map-get($QLD-space-map, $value);
+      $value: map.get($QLD-space-map, $value);
 
       // Get the value from supplied key for pixel and calculate the rem value
       $rem: calc($value / $QLD-rem);
 
-      $fallback: join($fallback, $value + 0px);
-      $output: join($output, #{$rem}rem);
+      $fallback: list.join($fallback, $value + 0px);
+      $output: list.join($output, #{$rem}rem);
 
       $has_fallback: true;
     }
 
     // We don’t know what this is so we don’t change it.
     @else {
-      $fallback: join($fallback, $value);
-      $output: join($output, $value);
+      $fallback: list.join($fallback, $value);
+      $output: list.join($output, $value);
     }
   }
 
@@ -469,30 +474,30 @@
  * @return {string}                   - The code; fontsize in REM, with PX fallback, and unitless line-height which matches vertical grid
 */
 @mixin QLD-fontgrid($fontsize-key, $lineheight-key: "default") {
-  @if type-of($fontsize-key) != "string" {
+  @if meta.type-of($fontsize-key) != "string" {
     @error "Going somewhere, Solo?; the QLD-fontgrid mixin fontsize key takes a string!";
   }
 
-  @if type-of($lineheight-key) != "string" {
+  @if meta.type-of($lineheight-key) != "string" {
     @error "Tell Jabba I've got his money; the QLD-fontgrid mixin lineheight key takes a string!";
   }
 
-  @if not map-has-key($QLD-fontsize-map, $fontsize-key) {
+  @if not map.has-key($QLD-fontsize-map, $fontsize-key) {
     @error "You shall not pass; the QLD-fontgrid mixin only takes the following fontsize keys strings: " + map-keys( $QLD-fontsize-map );
   }
 
-  @if not map-has-key($QLD-lineheight-map, $lineheight-key) {
+  @if not map.has-key($QLD-lineheight-map, $lineheight-key) {
     @error "There's a snake in my boot; the QLD-fontgrid mixin only takes the following lineheight keys strings: " + map-keys( $QLD-lineheight-map );
   }
 
   // Get the value from supplied key for pixel and calculate the rem value
-  $fontsize-px: map-get($QLD-fontsize-map, $fontsize-key);
+  $fontsize-px: map.get($QLD-fontsize-map, $fontsize-key);
   $fontsize-rem: calc($fontsize-px / $QLD-rem);
 
   // Change the lineheight if it doesn't hit a QLD-unit e.g. 40px font size with 1.5 lineheight = 50px should be 52px
   $lineheight-pixel: round(
       calc(
-        (map-get($QLD-lineheight-map, $lineheight-key) * $fontsize-px) /
+        (map.get($QLD-lineheight-map, $lineheight-key) * $fontsize-px) /
           $QLD-unit
       )
     ) *
@@ -518,9 +523,9 @@
   // Loop through the $values list
   @each $value in $values {
     // This is a pixel on unitless unit. Let’s convert it to rems
-    @if type-of($value) == "number" {
+    @if meta.type-of($value) == "number" {
       // Get the value from supplied key for pixel and calculate the rem value
-      $padding-px: map-get($QLD-space-map, $value);
+      $padding-px: map.get($QLD-space-map, $value);
       $padding-rem: calc($padding-px / $QLD-rem);
 
       @if $verHoz == "vertical" {
@@ -543,7 +548,7 @@
         padding-right: $padding-rem + rem + $option; // REM size
       }
 
-      $output: join($output, $value);
+      $output: list.join($output, $value);
     }
   }
   // Mixin output
@@ -570,9 +575,9 @@
   // Loop through the $values list
   @each $value in $values {
     // This is a pixel on unitless unit. Let’s convert it to rems
-    @if type-of($value) == "number" {
+    @if meta.type-of($value) == "number" {
       // Get the value from supplied key for pixel and calculate the rem value
-      $padding-px: map-get($QLD-space-map, $value);
+      $padding-px: map.get($QLD-space-map, $value);
       $padding-rem: calc($padding-px / $QLD-rem);
 
       @if $posNeg == "pos" {
@@ -603,7 +608,7 @@
         margin-right: $padding-rem + rem + $option; // REM size
       }
 
-      $output: join($output, $value);
+      $output: list.join($output, $value);
     }
   }
   // Mixin output

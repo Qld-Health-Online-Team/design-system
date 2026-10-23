@@ -2,6 +2,8 @@
 // Global Alert
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@use "sass:map";
+
 .qld__global-alert_include {
   max-height: 0;
   transition: max-height 1s ease-in;
@@ -9,20 +11,20 @@
 }
 
 .qld__global-alert {
-  font-size: #{map-get($QLD-fontsize-map, xs)}px;
+  font-size: #{map.get($QLD-fontsize-map, xs)}px;
 
   .container-fluid {
-    padding-left: #{map-get($QLD-space-map, 4)}px;
-    padding-right: #{map-get($QLD-space-map, 4)}px;
+    padding-left: #{map.get($QLD-space-map, 4)}px;
+    padding-right: #{map.get($QLD-space-map, 4)}px;
 
     @include QLD-media(md) {
-      padding-left: #{map-get($QLD-space-map, 7)}px;
-      padding-right: #{map-get($QLD-space-map, 7)}px;
+      padding-left: #{map.get($QLD-space-map, 7)}px;
+      padding-right: #{map.get($QLD-space-map, 7)}px;
     }
 
     @include QLD-media(lg) {
-      padding-left: #{map-get($QLD-space-map, 7)}px;
-      padding-right: #{map-get($QLD-space-map, 7)}px;
+      padding-left: #{map.get($QLD-space-map, 7)}px;
+      padding-right: #{map.get($QLD-space-map, 7)}px;
     }
   }
 

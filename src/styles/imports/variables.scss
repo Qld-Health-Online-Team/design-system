@@ -2,6 +2,9 @@
 // GLOBAL VARIABLES
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@use "sass:map";
+
+// stylelint-disable-next-line no-invalid-position-at-import-rule -- Sass requires @use before @import
 @import "figma.scss";
 /**
  * QLD-pixelfallback enable pixel fallbacks
@@ -255,12 +258,12 @@ $QLD-border-width-extra-thick: 8px;
 /**
 * QLD border-radius values
 */
-$QLD-border-radius-xs: map-get($QLD-space-map, 1) + px;
-$QLD-border-radius-sm: map-get($QLD-space-map, 3) + px;
-$QLD-border-radius-md: map-get($QLD-space-map, 4) + px;
-$QLD-border-radius-lg: map-get($QLD-space-map, 7) + px;
-$QLD-border-radius-xl: map-get($QLD-space-map, 9) + px;
-$QLD-border-radius-xxl: map-get($QLD-space-map, 12) + px;
+$QLD-border-radius-xs: map.get($QLD-space-map, 1) + px;
+$QLD-border-radius-sm: map.get($QLD-space-map, 3) + px;
+$QLD-border-radius-md: map.get($QLD-space-map, 4) + px;
+$QLD-border-radius-lg: map.get($QLD-space-map, 7) + px;
+$QLD-border-radius-xl: map.get($QLD-space-map, 9) + px;
+$QLD-border-radius-xxl: map.get($QLD-space-map, 12) + px;
 
 /**
 * QLD border-radius utility scale
