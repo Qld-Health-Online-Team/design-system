@@ -18,7 +18,13 @@ module.exports = (env) => {
             MiniCssExtractPlugin.loader,
             "css-loader",
             "postcss-loader",
-            "sass-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                api: "modern",
+                sassOptions: { sourceMapIncludeSources: true },
+              },
+            },
             "import-glob-loader",
           ],
         },

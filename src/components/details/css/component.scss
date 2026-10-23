@@ -2,6 +2,8 @@
 // Details / Summary
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@use "sass:map";
+
 // The chevron is 1em, so it scales with the summary text. The content is
 // indented past it — text padding + icon + gap — so it lines up with the
 // summary text, which means the indent has to be recalculated per size. The
@@ -23,7 +25,7 @@ $QLD-details__sizes: (
 
 // Markup that sets no size modifier falls back to the base styles. They render
 // at this key, so "medium" and no modifier at all are the same disclosure.
-$QLD-details__default-key: map-get($QLD-details__sizes, "md");
+$QLD-details__default-key: map.get($QLD-details__sizes, "md");
 
 // The content indent that lines the content up with the summary text: the
 // fixed gutter plus the summary font size. The base styles and the size
@@ -32,7 +34,7 @@ $QLD-details__default-key: map-get($QLD-details__sizes, "md");
   @include QLD-space(
     padding-left,
     calc(
-        (map-get($QLD-fontsize-map, $fontsize-key) + $QLD-details__gutter) /
+        (map.get($QLD-fontsize-map, $fontsize-key) + $QLD-details__gutter) /
           $QLD-rem
       ) *
       1unit
