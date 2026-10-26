@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The `dist/` build tool changed from webpack to Vite. Matrix-facing filenames are unchanged, so site heads need no edits.
 - `dist/js/runtime.js` and `dist/js/banner_contained.js` are now empty stubs. Site heads can stop loading them at their leisure; they will be removed in a later release.
 - `dist/main.css.map` is no longer produced.
+- `dist/js/helpers.js` is now a minified bundle with a source map, `dist/js/helpers.js.map`, rather than each helper's source concatenated. It registers the same helpers against the page's global Handlebars, so site heads and CT edit layouts need no edits.
 
 ## 1.24.5 - 2026-09-29
 

@@ -7,7 +7,6 @@ import { describe, expect, test } from "vitest";
 
 const require = createRequire(import.meta.url);
 const {
-  buildHelpersBundle,
   emitComponent,
   minifyDir,
   buildBannerContainedCss,
@@ -17,22 +16,6 @@ const {
 function tempDir() {
   return fs.mkdtempSync(path.join(os.tmpdir(), "build-dist-"));
 }
-
-describe("buildHelpersBundle", () => {
-  test("registers each helper under its name, inlining its source", () => {
-    const bundle = buildHelpersBundle([
-      {
-        name: "shout",
-        fn: function (text) {
-          return text + "!";
-        },
-      },
-    ]);
-
-    expect(bundle.startsWith("Handlebars.registerHelper('shout', ")).toBe(true);
-    expect(bundle.endsWith("); \n")).toBe(true);
-  });
-});
 
 describe("emitComponent", () => {
   test("writes manifest.json, import.xml and presentation.js for a component", () => {

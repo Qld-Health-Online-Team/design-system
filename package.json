@@ -9,7 +9,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "vite build --config vite.config.dist.mjs && node scripts/build-dist.js",
+    "build": "vite build --config vite.config.dist.mjs && vite build --config vite.config.helpers.mjs && node scripts/build-dist.js",
     "build-all": "npm run build && npm run jsdoc",
     "jsdoc": "./node_modules/jsdoc/jsdoc.js -a all -c jsdoc.json -r -R README.md ./src/components/ -d ./documentation/jsdoc",
     "lint:js": "eslint .",

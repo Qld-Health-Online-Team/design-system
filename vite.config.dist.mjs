@@ -1,10 +1,20 @@
-// Builds dist/js/main.js and dist/main.css for Squiz Matrix. The rest of dist/
-// (helpers, components, externals, banner_contained.css) is written by
-// scripts/build-dist.js, which runs after this. Storybook uses its own config;
-// this file is deliberately not vite.config.js, which Storybook would load.
+// Builds dist/js/main.js and dist/main.css for Squiz Matrix. dist/js/helpers.js
+// is built by vite.config.helpers.mjs and the rest of dist/ (components,
+// externals, banner_contained.css) is written by scripts/build-dist.js, both of
+// which run after this. Storybook uses its own config; this file is
+// deliberately not vite.config.js, which Storybook would load.
 import autoprefixer from "autoprefixer";
 import { defineConfig } from "vite";
 import sassGlobImports from "vite-plugin-sass-glob-import";
+
+// Matches .browserslistrc, so the syntax Vite emits doesn't move.
+export const target = [
+  "chrome102",
+  "edge102",
+  "firefox102",
+  "safari16",
+  "ios16",
+];
 
 export default defineConfig({
   publicDir: false,
@@ -25,8 +35,7 @@ export default defineConfig({
     sourcemap: true,
     cssCodeSplit: false,
     cssMinify: false,
-    // Matches .browserslistrc, so the syntax Vite emits doesn't move.
-    target: ["chrome102", "edge102", "firefox102", "safari16", "ios16"],
+    target,
     rollupOptions: {
       input: "src/index.js",
       output: {
