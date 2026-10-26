@@ -1,4 +1,4 @@
-export default function (thumbnails, index, shortName) {
+export default function (thumbnails, index) {
   if (!thumbnails[index].asset_thumbnail_alt.length) return "";
 
   return (

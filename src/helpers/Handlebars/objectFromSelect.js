@@ -1,6 +1,5 @@
 export default function (selectValues, options) {
   let output = "";
-  let outputArr = [];
   let splitSelectValues = [];
 
   if (selectValues) {
