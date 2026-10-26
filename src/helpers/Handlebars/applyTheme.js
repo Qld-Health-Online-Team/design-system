@@ -1,3 +1,11 @@
+const modifiers = {
+  white: "",
+  light: "light",
+  "light-alt": "alt",
+  dark: "dark",
+  "dark-alt": "dark-alt",
+};
+
 /**
  * Resolve a background theme token to the BEM modifier class for a block.
  *
@@ -22,17 +30,6 @@
  * @returns {string} The modifier class, or "" for white/unknown/missing.
  */
 export default function (block, theme) {
-  // dist/js/helpers.js is built by serialising this function with
-  // Function.toString(), so the map has to live inside the body — module
-  // scope does not survive into the bundle.
-  const modifiers = {
-    white: "",
-    light: "light",
-    "light-alt": "alt",
-    dark: "dark",
-    "dark-alt": "dark-alt",
-  };
-
   const modifier = Object.prototype.hasOwnProperty.call(modifiers, theme)
     ? modifiers[theme]
     : "";
