@@ -9,7 +9,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "vite build --config vite.config.dist.mjs && node scripts/build-dist.js",
+    "build": "vite build --config vite.config.dist.mjs && vite build --config vite.config.helpers.mjs && node scripts/build-dist.js",
     "lint:js": "eslint .",
     "lint:styles": "stylelint \"**/*.{css,scss}\"",
     "lint": "npm run lint:js && npm run lint:styles",
