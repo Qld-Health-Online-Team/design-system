@@ -577,3 +577,20 @@ export const Print = {
     });
   },
 };
+
+export const StackedPrint = {
+  args: { ...stackedArgs },
+  ...printParams(
+    "the stacked layout keeping its logo above the title with no divider when printed",
+  ),
+  play: async ({ canvasElement }) => {
+    const { brandImage, heading } = brandParts(canvasElement);
+
+    withPrintMedia(() => {
+      expect(getComputedStyle(brandImage).borderRightStyle).toBe("none");
+      expect(heading.getBoundingClientRect().top).toBeGreaterThanOrEqual(
+        brandImage.getBoundingClientRect().bottom,
+      );
+    });
+  },
+};
