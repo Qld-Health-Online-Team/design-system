@@ -1,4 +1,4 @@
-export default function (items, options) {
+export default function (items) {
   var html = "";
   var services = [];
   var letters = [];

@@ -1,4 +1,4 @@
-export default function (items, letterHeading, url, options) {
+export default function (items, letterHeading) {
   var html = '<li class="qld__a-z_listing__options__item">';
   var services = [];
   var letters = [];
