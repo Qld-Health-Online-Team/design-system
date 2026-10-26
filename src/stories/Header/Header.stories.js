@@ -412,6 +412,21 @@ export const DarkAltHeader = (args) =>
   });
 DarkAltHeader.args = { ...headerArgs };
 
+// A long site title on a phone: balanced wrapping evens out the lines instead
+// of leaving a single word stranded on the last one.
+export const LongSiteTitleMobile = {
+  args: {
+    ...headerArgs,
+    siteTitle: "Children's Health Queensland Hospital and Health Service",
+  },
+  globals: { viewport: { value: "small", isRotated: false } },
+  parameters: { chromatic: { viewports: [400] } },
+  play: async ({ canvasElement }) => {
+    const heading = canvasElement.querySelector(".qld__header__heading");
+    await expect(getComputedStyle(heading).textWrapStyle).toBe("balance");
+  },
+};
+
 // Print: the Queensland Government logo must stay visible (it doubles as the
 // required government crest) while the interactive search box is hidden.
 export const Print = {
