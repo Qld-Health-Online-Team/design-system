@@ -10,61 +10,6 @@ const autoprefixer = require("autoprefixer");
 const generateImportXml = require("./import-xml");
 
 /**
- * Collect the Handlebars helper modules that make up the design system's
- * helper set.
- *
- * Colocated unit tests are excluded — only real helper modules should be
- * serialised into dist/js/helpers.js. The helpersInput glob (`*.js`)
- * otherwise also matches sibling `*.test.js` / `*.spec.js` files, and
- * requiring those would run test code (e.g. `describe`) during the build.
- *
- * @param {string} helpersInput - Glob for helper modules (e.g. "./src/helpers/Handlebars/*.js").
- * @returns {{name: string, fn: Function}[]} One entry per helper, named after its file.
- */
-function loadHelpers(helpersInput) {
-  return glob
-    .sync(helpersInput)
-    .filter((helperPath) => !/\.(test|spec)\.js$/.test(helperPath))
-    .map((helperPath) => {
-      // Helper name comes from the file name (5th path segment of the
-      // ./src/helpers/Handlebars/<name>.js glob result).
-      const name = helperPath.split("/")[4].split(".")[0];
-
-      const imported = require(helperPath.replace("./src", "../src"));
-
-      // Support both `module.exports = fn` (CommonJS) and `export default fn`
-      // (ES module) helpers. Node's require() of an ES module returns the
-      // module namespace ({ __esModule, default: fn }) rather than the function
-      // itself, so unwrap .default when present.
-      const fn = imported && imported.__esModule ? imported.default : imported;
-
-      return { name, fn };
-    });
-}
-
-/**
- * Serialise the helpers into the dist/js/helpers.js bundle.
- *
- * The bundle is a flat list of `Handlebars.registerHelper(name, fn)` calls
- * (each helper's source inlined via Function.toString). Squiz Matrix loads
- * this file from the git bridge in two places, both of which assume a global
- * `Handlebars` is already loaded: the site <head> (runat="server" for the
- * live render, plus a client-side <script>) and the component CT edit layout
- * (for the admin edit-screen preview).
- *
- * @param {{name: string, fn: Function}[]} helpers
- * @returns {string} The helpers.js file contents.
- */
-function buildHelpersBundle(helpers) {
-  return helpers
-    .map(
-      ({ name, fn }) =>
-        `Handlebars.registerHelper('${name}', ${fn.toString()}); \n`,
-    )
-    .join("");
-}
-
-/**
  * Emit one component's Squiz Matrix contract files into
  * `<outputPath>/<componentName>/`:
  *
@@ -200,30 +145,23 @@ function writeLegacyStubs(outputDir) {
  * one-time provisioning aid.
  *
  * Outputs:
- * - dist/js/helpers.js — all Handlebars helpers, loaded by the Matrix site
- *   head and CT edit layouts.
  * - dist/components/<name>/{manifest.json,import.xml,presentation.js} —
  *   per-component contract files; see emitComponent.
  * - dist/externals and dist/mysource_files — copies of src/externals and
  *   src/assets.
  *
+ * dist/js/helpers.js, the helpers those templates call, has a Vite build of
+ * its own (see vite.config.helpers.mjs).
+ *
  * Options:
  * - input: glob for component .hbs templates.
  * - manifest: manifest.json path pattern ("**" = component name).
  * - output: directory the per-component folders are written to.
- * - helpersInput: glob for Handlebars helper modules.
  */
 async function buildDist(options) {
   const outputPath = options.output.endsWith("/")
     ? options.output.slice(0, -1)
     : options.output;
-
-  fs.mkdirSync("./dist/js", { recursive: true });
-  fs.writeFileSync(
-    "./dist/js/helpers.js",
-    buildHelpersBundle(loadHelpers(options.helpersInput)),
-  );
-  console.log("helpers.js written");
 
   glob
     .sync(options.input)
@@ -245,7 +183,6 @@ const defaultOptions = {
   input: "./src/components/**/**/*.hbs",
   manifest: "./src/components/**/js/manifest.json",
   output: "./dist/components/",
-  helpersInput: "./src/helpers/Handlebars/*.js",
 };
 
 if (require.main === module) {
@@ -256,8 +193,6 @@ if (require.main === module) {
 }
 
 module.exports = {
-  loadHelpers,
-  buildHelpersBundle,
   emitComponent,
   minifyDir,
   buildBannerContainedCss,
