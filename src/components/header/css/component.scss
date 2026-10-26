@@ -667,6 +667,14 @@
     border-right: solid $QLD-border-width-default $QLD-color-print__border;
   }
 
+  // The stacked layout keeps its title below the logo on paper too, so the
+  // gap and divider restored above for the side-by-side layout don't apply.
+  .qld__header--stacked .qld__header__brand-image {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0;
+  }
+
   // Hide the search box — it is interactive-only and has no meaning on paper.
   // (The search toggle button lives in `.qld__header__pre-header`, which is
   // hidden below, so only the search panel itself needs hiding here.)
