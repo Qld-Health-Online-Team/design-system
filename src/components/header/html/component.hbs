@@ -9,7 +9,10 @@
     {{/if}}
   ></div>
 {{/ifCond}}
-<header class="qld__header" role="banner">
+<header
+  class="qld__header {{ site.metadata.siteHeaderLayout.value }}"
+  role="banner"
+>
   <nav class="qld__skip-link" aria-label="skip links" tabindex="-1">
     <a class="qld__skip-link__link" href="#content">Skip to main content</a>
     <a
@@ -164,17 +167,31 @@
                   alt="Queensland Government logo"
                 />
               {{else}}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="170"
-                  height="56"
-                  role="img"
-                  aria-label="Queensland Government logo"
-                >
-                  <use
-                    href="./?a={{ site.metadata.siteHeaderDefaultLogo.value }}#logo"
-                  ></use>
-                </svg>
+                {{#ifCond site.metadata.siteHeaderLayout.value '==' 'qld__header--stacked'}}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="333"
+                    height="56"
+                    role="img"
+                    aria-label="Queensland Government logo"
+                  >
+                    <use
+                      href="./?a={{ site.metadata.siteHeaderDefaultLogo.value }}#logo-stacked"
+                    ></use>
+                  </svg>
+                {{else}}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="170"
+                    height="56"
+                    role="img"
+                    aria-label="Queensland Government logo"
+                  >
+                    <use
+                      href="./?a={{ site.metadata.siteHeaderDefaultLogo.value }}#logo"
+                    ></use>
+                  </svg>
+                {{/ifCond}}
               {{/if}}
             </div>
           {{/ifCond}}

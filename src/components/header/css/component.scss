@@ -495,6 +495,47 @@
     }
   }
 
+  // Stacked layout: the site title sits below the logo lock-up, with no
+  // divider between them. Below lg the brand image is hidden, so only the
+  // desktop (and print) layout changes.
+  &.qld__header--stacked .qld__header__main {
+    .qld__header__brand a {
+      @include QLD-space(gap, 1unit);
+
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include QLD-media(lg) {
+        max-height: none;
+      }
+    }
+
+    .qld__header__brand-image {
+      @include QLD-media(lg) {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: 0;
+        color: var(--QLD-color-light__site-title);
+      }
+
+      // The 170x56 attributes are only a pre-load hint; once loaded the
+      // uploaded lock-up keeps its own aspect ratio at the logo height.
+      img {
+        width: auto;
+        height: pxToRem(56);
+      }
+    }
+
+    &.qld__header__main--dark,
+    &.qld__header__main--dark-alt {
+      .qld__header__brand-image {
+        @include QLD-media(lg) {
+          color: var(--QLD-color-dark__site-title);
+        }
+      }
+    }
+  }
+
   .qld__header__search {
     display: none;
     position: absolute;

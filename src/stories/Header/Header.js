@@ -52,6 +52,7 @@ export const renderHeader = (args) => {
         mainNavCtaTwoText: { value: args.mainNavCtaTwoText },
         mainNavCtaTwoIcon: { value: args.mainNavCtaTwoIcon },
         siteHeaderMainTheme: { value: args.siteHeaderMainTheme },
+        siteHeaderLayout: { value: args.siteHeaderLayout },
         coreSiteIcons: { value: args.site.metadata.coreSiteIcons.value },
       },
       data: { assetid: "123" }, // fallback asset ID
@@ -96,4 +97,5 @@ export const headerArgs = {
   mainNavCtaTwoText: "Contact",
   mainNavCtaTwoIcon: "location",
   siteHeaderMainTheme: "",
+  siteHeaderLayout: "",
 };
