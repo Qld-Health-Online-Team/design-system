@@ -1,4 +1,4 @@
-module.exports = function (bytes, decimals) {
+export default function (bytes, decimals) {
   if (bytes === 0) return "0 Bytes";
 
   const k = 1024;
@@ -8,4 +8,4 @@ module.exports = function (bytes, decimals) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-};
+}

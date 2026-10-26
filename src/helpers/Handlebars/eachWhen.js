@@ -1,4 +1,4 @@
-module.exports = function (list, key, value, options) {
+export default function (list, key, value, options) {
   var result = "";
   var arr = [];
   var data = Handlebars.createFrame(options.data);
@@ -31,4 +31,4 @@ module.exports = function (list, key, value, options) {
       });
   }
   return result;
-};
+}

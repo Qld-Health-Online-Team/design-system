@@ -1,4 +1,4 @@
-module.exports = function (items, letterHeading, url, options) {
+export default function (items, letterHeading, url, options) {
   var html = '<li class="qld__a-z_listing__options__item">';
   var services = [];
   var letters = [];
@@ -86,4 +86,4 @@ module.exports = function (items, letterHeading, url, options) {
   html += "</li>";
 
   return html;
-};
+}

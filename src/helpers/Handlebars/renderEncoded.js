@@ -1,4 +1,4 @@
-module.exports = function (string) {
+export default function (string) {
   if (!string) return "";
   let cleaned = string;
   let prev;
@@ -14,4 +14,4 @@ module.exports = function (string) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-};
+}

@@ -1,4 +1,4 @@
-module.exports = function () {
+export default function () {
   const args = Array.prototype.slice.call(arguments, 0, -1);
   const options = arguments[arguments.length - 1];
   const allEqual = args.every(function (expression) {
@@ -6,4 +6,4 @@ module.exports = function () {
   });
 
   return allEqual ? options.fn(this) : options.inverse(this);
-};
+}

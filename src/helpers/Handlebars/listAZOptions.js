@@ -1,4 +1,4 @@
-module.exports = function (items, options) {
+export default function (items, options) {
   var html = "";
   var services = [];
   var letters = [];
@@ -38,4 +38,4 @@ module.exports = function (items, options) {
   }
 
   return html;
-};
+}

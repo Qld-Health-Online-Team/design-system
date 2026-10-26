@@ -1,4 +1,4 @@
-module.exports = function (context, count, options) {
+export default function (context, count, options) {
   var ret = "";
 
   if (window.NodeList && !NodeList.prototype.forEach) {
@@ -10,4 +10,4 @@ module.exports = function (context, count, options) {
   });
 
   return ret;
-};
+}
