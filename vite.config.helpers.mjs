@@ -19,9 +19,6 @@ export default defineConfig({
     emptyOutDir: false,
     sourcemap: true,
     target,
-    // Most helpers are CommonJS, which Vite converts only in node_modules by
-    // default.
-    commonjsOptions: { include: [/node_modules/, /src\/helpers\//] },
     rollupOptions: {
       input: "src/helpers/register.js",
       // Handlebars is taken from the page, not bundled.

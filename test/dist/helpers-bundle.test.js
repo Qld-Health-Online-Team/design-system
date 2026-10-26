@@ -36,7 +36,7 @@ describe("dist/js/helpers.js", () => {
     expect(added).toEqual(helperNames);
   });
 
-  test("renders with ES module, CommonJS and global-Handlebars helpers", () => {
+  test("renders with the helpers, including one that uses the global Handlebars", () => {
     const template = window.Handlebars.compile(
       `{{applyTheme "qld__body" "light-alt"}}|{{arrayLength list}}|` +
         `{{#eachWhen items "type" "a"}}{{@index}}{{name}}{{/eachWhen}}`,
