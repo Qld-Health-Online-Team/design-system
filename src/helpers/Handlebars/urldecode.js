@@ -1,3 +1,3 @@
-module.exports = function (url) {
+export default function (url) {
   return decodeURIComponent(url || "");
-};
+}

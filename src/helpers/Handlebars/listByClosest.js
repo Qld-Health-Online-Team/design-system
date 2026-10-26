@@ -1,4 +1,4 @@
-module.exports = function (arr, max, userLat, userLong, options) {
+export default function (arr, max, userLat, userLong, options) {
   var item = "";
   var totalCount = max < arr.length ? max : arr.length;
 
@@ -63,4 +63,4 @@ module.exports = function (arr, max, userLat, userLong, options) {
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
   }
-};
+}

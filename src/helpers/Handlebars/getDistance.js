@@ -1,4 +1,4 @@
-module.exports = function (lat, lng, userLat, userLong) {
+export default function (lat, lng, userLat, userLong) {
   var distanceAway = "";
 
   /**
@@ -38,4 +38,4 @@ module.exports = function (lat, lng, userLat, userLong) {
   distanceAway = getDistance(lat, lng, userLat, userLong);
 
   return distanceAway;
-};
+}

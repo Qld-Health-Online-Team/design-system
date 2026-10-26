@@ -1,4 +1,4 @@
-module.exports = function (context, options) {
+export default function (context, options) {
   var output = "";
   var sorted = context.sort(function (a, b) {
     if (a.name < b.name) {
@@ -19,4 +19,4 @@ module.exports = function (context, options) {
   }
 
   return output;
-};
+}

@@ -1,4 +1,4 @@
-module.exports = function (selectValues, tags, options) {
+export default function (selectValues, tags, options) {
   let output = "";
   let splitSelectValues = [];
 
@@ -16,4 +16,4 @@ module.exports = function (selectValues, tags, options) {
   }
 
   return output;
-};
+}

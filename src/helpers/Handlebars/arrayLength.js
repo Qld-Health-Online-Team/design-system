@@ -1,3 +1,3 @@
-module.exports = function (json) {
+export default function (json) {
   return Object.keys(json).length;
-};
+}
