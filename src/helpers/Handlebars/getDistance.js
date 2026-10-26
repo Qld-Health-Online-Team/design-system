@@ -1,6 +1,4 @@
 export default function (lat, lng, userLat, userLong) {
-  var distanceAway = "";
-
   /**
    * Haversine formula - calculate distance "as the crow flies" between two sets of lat/long coordinates
    * https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
@@ -34,8 +32,5 @@ export default function (lat, lng, userLat, userLong) {
     return Math.round(value * multiplier) / multiplier;
   }
 
-  // Init
-  distanceAway = getDistance(lat, lng, userLat, userLong);
-
-  return distanceAway;
+  return getDistance(lat, lng, userLat, userLong);
 }

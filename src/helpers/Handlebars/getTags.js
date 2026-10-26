@@ -8,7 +8,9 @@ export default function (selectValues, tags, options) {
     }
 
     for (let selectValue in splitSelectValues) {
-      if (splitSelectValues.hasOwnProperty(selectValue)) {
+      if (
+        Object.prototype.hasOwnProperty.call(splitSelectValues, selectValue)
+      ) {
         var key = splitSelectValues[selectValue].replace(/ /g, "_");
         output = output + options.fn({ key: key, value: tags[key] });
       }
