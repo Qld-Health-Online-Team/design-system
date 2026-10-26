@@ -12,7 +12,7 @@ export default function (selectValues, options) {
   // }
 
   for (let selectValue in splitSelectValues) {
-    if (splitSelectValues.hasOwnProperty(selectValue)) {
+    if (Object.prototype.hasOwnProperty.call(splitSelectValues, selectValue)) {
       output =
         output +
         options.fn({

@@ -3,7 +3,7 @@ export default function (items, letterHeading, url, options) {
   var services = [];
   var letters = [];
 
-  for (var i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     var service = items[i].name;
     var serviceID = items[i].assetid;
     if (service == "") {
@@ -43,9 +43,7 @@ export default function (items, letterHeading, url, options) {
     return 0;
   });
 
-  url = url ? url : "";
-
-  for (var i = 0; i < letters.length; i++) {
+  for (let i = 0; i < letters.length; i++) {
     services[letters[i]] = services[letters[i]].sort(function (a, b) {
       //sorting the letters disregarding the case.
       let lowerCaseA = a.name.toLowerCase();
