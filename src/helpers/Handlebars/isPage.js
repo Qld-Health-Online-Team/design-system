@@ -1,4 +1,4 @@
-module.exports = function (pageType, options) {
+export default function (pageType, options) {
   if (
     pageType == "page_standard" ||
     pageType == "page_redirect" ||
@@ -9,4 +9,4 @@ module.exports = function (pageType, options) {
   } else {
     return options.inverse(this);
   }
-};
+}
