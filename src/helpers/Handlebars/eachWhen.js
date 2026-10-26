@@ -1,3 +1,5 @@
+import Handlebars from "handlebars";
+
 export default function (list, key, value, options) {
   var result = "";
   var arr = [];
