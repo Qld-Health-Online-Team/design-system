@@ -1,4 +1,4 @@
-module.exports = function (obj, key) {
+export default function (obj, key) {
   var possibleValues = [];
   for (var i in obj) {
     if (obj[i].hasOwnProperty(key)) {
@@ -10,4 +10,4 @@ module.exports = function (obj, key) {
   }
 
   return possibleValues;
-};
+}
