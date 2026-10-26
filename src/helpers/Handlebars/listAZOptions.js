@@ -2,7 +2,7 @@ export default function (items, options) {
   var html = "";
   var services = [];
   var letters = [];
-  for (var i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     var service = items[i].name;
 
     if (service == "") {
@@ -28,7 +28,7 @@ export default function (items, options) {
     return 0;
   });
 
-  for (var i = 0; i < letters.length; i++) {
+  for (let i = 0; i < letters.length; i++) {
     html +=
       '<li class="qld__a-z_listing__options__item"><a class="qld__a-z_listing__options__item__link" href="#' +
       letters[i] +

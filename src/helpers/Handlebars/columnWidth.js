@@ -7,7 +7,7 @@ export default function (target_col, data) {
 
   var col_num = Number(data.col_num.value);
   target_col = Number(target_col);
-  var width = 12;
+  var width;
 
   // Use width override if available
   var width_override = Number(col_widths[target_col - 1]);
