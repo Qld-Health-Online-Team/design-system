@@ -407,6 +407,7 @@
         font-weight: $QLD-font-weight-bold;
         margin: 0;
         padding: 0;
+        text-wrap: balance;
 
         @include QLD-media(md) {
           @include QLD-fontgrid(md, heading);
@@ -416,6 +417,7 @@
       .qld__header__subline {
         max-width: $QLD-font-maxwidth;
         color: var(--QLD-color-light__text--lighter);
+        text-wrap: balance;
         @include QLD-fontgrid(xs, heading);
 
         @include QLD-media(md) {
@@ -489,6 +491,47 @@
 
       .qld__header__search {
         background-color: var(--QLD-color-dark__background--alt);
+      }
+    }
+  }
+
+  // Stacked layout: the site title sits below the logo lock-up, with no
+  // divider between them. Below lg the brand image is hidden, so only the
+  // desktop (and print) layout changes.
+  &.qld__header--stacked .qld__header__main {
+    .qld__header__brand a {
+      @include QLD-space(gap, 1unit);
+
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include QLD-media(lg) {
+        max-height: none;
+      }
+    }
+
+    .qld__header__brand-image {
+      @include QLD-media(lg) {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: 0;
+        color: var(--QLD-color-light__site-title);
+      }
+
+      // The 170x56 attributes are only a pre-load hint; once loaded the
+      // uploaded lock-up keeps its own aspect ratio at the logo height.
+      img {
+        width: auto;
+        height: pxToRem(56);
+      }
+    }
+
+    &.qld__header__main--dark,
+    &.qld__header__main--dark-alt {
+      .qld__header__brand-image {
+        @include QLD-media(lg) {
+          color: var(--QLD-color-dark__site-title);
+        }
       }
     }
   }
@@ -622,6 +665,14 @@
     @include QLD-space(padding-right, 1.5unit);
     @include QLD-space(margin-right, 1.5unit);
     border-right: solid $QLD-border-width-default $QLD-color-print__border;
+  }
+
+  // The stacked layout keeps its title below the logo on paper too, so the
+  // gap and divider restored above for the side-by-side layout don't apply.
+  .qld__header--stacked .qld__header__brand-image {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0;
   }
 
   // Hide the search box — it is interactive-only and has no meaning on paper.
