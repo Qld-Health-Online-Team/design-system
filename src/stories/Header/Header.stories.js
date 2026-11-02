@@ -38,6 +38,18 @@ export default {
       options: ["", "qld__header__main--dark", "qld__header__main--dark-alt"],
       description: "Main header colour theme.",
     },
+    siteHeaderLayout: {
+      control: {
+        type: "radio",
+        labels: {
+          "": "Inline",
+          "qld__header--stacked": "Stacked",
+        },
+      },
+      options: ["", "qld__header--stacked"],
+      description:
+        "Header layout. Stacked places the site title below the logo lock-up.",
+    },
     sitePreHeaderTheme: {
       control: {
         type: "radio",
@@ -412,6 +424,134 @@ export const DarkAltHeader = (args) =>
   });
 DarkAltHeader.args = { ...headerArgs };
 
+// A long site title on a phone: balanced wrapping evens out the lines instead
+// of leaving a single word stranded on the last one.
+export const LongSiteTitleMobile = {
+  args: {
+    ...headerArgs,
+    siteTitle: "Children's Health Queensland Hospital and Health Service",
+  },
+  globals: { viewport: { value: "small", isRotated: false } },
+  parameters: { chromatic: { viewports: [400] } },
+  play: async ({ canvasElement }) => {
+    const heading = canvasElement.querySelector(".qld__header__heading");
+    await expect(getComputedStyle(heading).textWrapStyle).toBe("balance");
+  },
+};
+
+// Stacked layout (brand refresh): the site title sits below the Delivering for
+// Queensland lock-up. The brand image only shows from lg, so these stories run
+// at a desktop viewport.
+const stackedArgs = {
+  ...headerArgs,
+  siteHeaderLayout: "qld__header--stacked",
+  siteTitle: "Children's Health Queensland Hospital and Health Service",
+};
+const desktopGlobals = { viewport: { value: "xlarge", isRotated: false } };
+
+const brandParts = (canvasElement) => {
+  const brandImage = canvasElement.querySelector(".qld__header__brand-image");
+  return {
+    header: canvasElement.querySelector(".qld__header"),
+    brandImage,
+    heading: canvasElement.querySelector(".qld__header__heading"),
+    use: brandImage.querySelector("use"),
+  };
+};
+
+// The logo and the title share one link, so both stay clickable.
+const expectSharedBrandLink = async ({ brandImage, heading }) => {
+  const link = brandImage.closest("a");
+  await expect(link).toBe(heading.closest("a"));
+  await expect(link.getAttribute("href")).toBeTruthy();
+};
+
+// The default lock-up paints with currentColor, which the stacked layout sets
+// to the same site-title colour as the heading.
+const expectLogoMatchesTitleColour = async ({ brandImage, heading }) => {
+  await expect(getComputedStyle(brandImage).color).toBe(
+    getComputedStyle(heading).color,
+  );
+};
+
+export const Stacked = {
+  args: { ...stackedArgs },
+  globals: desktopGlobals,
+  play: async ({ canvasElement }) => {
+    const parts = brandParts(canvasElement);
+    const { header, brandImage, heading, use } = parts;
+
+    await expect(header).toHaveClass("qld__header--stacked");
+    await expect(use.getAttribute("href")).toMatch(/#logo-stacked$/);
+
+    // Title below the logo, with no divider and no height cap squeezing them.
+    await expect(heading.getBoundingClientRect().top).toBeGreaterThanOrEqual(
+      brandImage.getBoundingClientRect().bottom,
+    );
+    await expect(getComputedStyle(brandImage).borderRightStyle).toBe("none");
+    await expect(getComputedStyle(brandImage.closest("a")).maxHeight).toBe(
+      "none",
+    );
+
+    await expectLogoMatchesTitleColour(parts);
+    await expectSharedBrandLink(parts);
+  },
+};
+
+export const StackedDark = {
+  args: { ...stackedArgs, siteHeaderMainTheme: "qld__header__main--dark" },
+  globals: desktopGlobals,
+  play: async ({ canvasElement }) => {
+    await expectLogoMatchesTitleColour(brandParts(canvasElement));
+  },
+};
+
+export const StackedDarkAlt = {
+  args: { ...stackedArgs, siteHeaderMainTheme: "qld__header__main--dark-alt" },
+  globals: desktopGlobals,
+  play: async ({ canvasElement }) => {
+    await expectLogoMatchesTitleColour(brandParts(canvasElement));
+  },
+};
+
+// An uploaded lock-up keeps its own aspect ratio rather than the 170x56 box
+// the <img> attributes describe.
+export const StackedUploadedLogo = {
+  args: {
+    ...stackedArgs,
+    siteLogo: "coa-delivering-for-qld-mono-blue-mini-lockup.svg",
+  },
+  globals: desktopGlobals,
+  play: async ({ canvasElement }) => {
+    const img = canvasElement.querySelector(".qld__header__brand-image img");
+    await img.decode();
+
+    const { width, height } = img.getBoundingClientRect();
+    await expect(width / height).toBeCloseTo(117.33 / 19.73, 1);
+    await expect(height).toBeCloseTo(56, 0);
+  },
+};
+
+// With no layout chosen the header renders as it always has: logo and title
+// side by side, divided by the accent border, using the crest-only logo.
+export const InlineLayoutUnchanged = {
+  args: { ...stackedArgs, siteHeaderLayout: "" },
+  globals: desktopGlobals,
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async ({ canvasElement }) => {
+    const parts = brandParts(canvasElement);
+    const { header, brandImage, heading, use } = parts;
+
+    await expect(header).not.toHaveClass("qld__header--stacked");
+    await expect(use.getAttribute("href")).toMatch(/#logo$/);
+    await expect(heading.getBoundingClientRect().top).toBeLessThan(
+      brandImage.getBoundingClientRect().bottom,
+    );
+    await expect(getComputedStyle(brandImage).borderRightStyle).toBe("solid");
+    await expectSharedBrandLink(parts);
+  },
+};
+
 // Print: the Queensland Government logo must stay visible (it doubles as the
 // required government crest) while the interactive search box is hidden.
 export const Print = {
@@ -434,6 +574,23 @@ export const Print = {
     // fix from a broken one is which one the cascade picks.
     withPrintMedia(() => {
       expect(getComputedStyle(brandLink, "::after").content).toBe('""');
+    });
+  },
+};
+
+export const StackedPrint = {
+  args: { ...stackedArgs },
+  ...printParams(
+    "the stacked layout keeping its logo above the title with no divider when printed",
+  ),
+  play: async ({ canvasElement }) => {
+    const { brandImage, heading } = brandParts(canvasElement);
+
+    withPrintMedia(() => {
+      expect(getComputedStyle(brandImage).borderRightStyle).toBe("none");
+      expect(heading.getBoundingClientRect().top).toBeGreaterThanOrEqual(
+        brandImage.getBoundingClientRect().bottom,
+      );
     });
   },
 };
