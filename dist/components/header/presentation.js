@@ -185,7 +185,7 @@
 
   return "                <img\n                  src=\"./?a="
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteLogo") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
-    + "\"\n                  width=\"170\"\n                  height=\"56\"\n                  alt=\"Queensland Government logo\"\n                />\n";
+    + "\"\n                  width=\"170\"\n                  height=\"56\"\n                  alt=\"Queensland Government\"\n                />\n";
 },"27":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
         if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
@@ -203,7 +203,7 @@
         return undefined
     };
 
-  return "                  <svg\n                    xmlns=\"http://www.w3.org/2000/svg\"\n                    width=\"333\"\n                    height=\"56\"\n                    role=\"img\"\n                    aria-label=\"Queensland Government logo\"\n                  >\n                    <use\n                      href=\"./?a="
+  return "                  <svg\n                    xmlns=\"http://www.w3.org/2000/svg\"\n                    width=\"333\"\n                    height=\"56\"\n                    role=\"img\"\n                    aria-label=\"Queensland Government\"\n                  >\n                    <use\n                      href=\"./?a="
     + container.escapeExpression(container.lambda(((stack1 = ((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"site") : depth0)) != null ? lookupProperty(stack1,"metadata") : stack1)) != null ? lookupProperty(stack1,"siteHeaderDefaultLogo") : stack1)) != null ? lookupProperty(stack1,"value") : stack1), depth0))
     + "#logo-stacked\"\n                    ></use>\n                  </svg>\n";
 },"30":function(container,depth0,helpers,partials,data) {
