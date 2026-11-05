@@ -60,13 +60,30 @@ function flattenPages(pages, depth = 0) {
 
 const pageOptions = flattenPages(sectionPages);
 
-function render({ sectionName, currentPageId, ...args }) {
+function render({
+  sectionName,
+  sideNavigationParentName,
+  currentPageId,
+  ...args
+}) {
   const lineage = findPath(sectionPages, currentPageId) ?? [];
+  // When a page sets the sideNavigationParent metadata, the template builds the
+  // navigation from that parent instead of the section root.
+  const metadata = sideNavigationParentName
+    ? {
+        sideNavigationParent: {
+          value: "parent-page",
+          asset_name: sideNavigationParentName,
+          asset_url: "#parent-page",
+          children: toMatrixNodes(sectionPages),
+        },
+      }
+    : {};
   return Template({
     current: {
       top: { asset_name: sectionName, asset_url: "#section-home" },
       children: toMatrixNodes(sectionPages),
-      data: { assetid: currentPageId },
+      data: { assetid: currentPageId, metadata },
       lineage: lineage.map((page) => ({ asset_assetid: page.id })),
     },
     ...args,
@@ -86,6 +103,11 @@ export default {
       description:
         "Name of the section's top-level page, shown as the navigation title and in the mobile toggle label.",
     },
+    sideNavigationParentName: {
+      control: "text",
+      description:
+        "Name of the page set as the `sideNavigationParent` metadata. When provided, the navigation title, links and mobile toggle label use this parent instead of the section's top-level page. Leave empty to use the section.",
+    },
     currentPageId: {
       control: {
         type: "select",
@@ -100,11 +122,33 @@ export default {
   },
   args: {
     sectionName: "Hospitals and health services",
+    sideNavigationParentName: "",
     currentPageId: "104",
   },
 };
 
 export const Default = {};
+
+/**
+ * A page can override the navigation root with the `sideNavigationParent`
+ * metadata. The title, links and mobile toggle then come from that parent
+ * rather than the section's top-level page.
+ */
+export const WithSideNavigationParent = {
+  args: { sideNavigationParentName: "Patient information" },
+  play: async ({ canvasElement, args }) => {
+    const title = canvasElement.querySelector(".qld__sidenav__title a");
+    await expect(title).toHaveTextContent(args.sideNavigationParentName);
+    await expect(title).toHaveAttribute("href", "#parent-page");
+
+    const toggle = canvasElement.querySelector(".qld__side-nav__toggle");
+    await expect(toggle).toHaveTextContent(args.sideNavigationParentName);
+    await expect(toggle).not.toHaveTextContent(args.sectionName);
+
+    const active = canvasElement.querySelector("li.active");
+    await expect(active).toHaveAttribute("aria-current", "page");
+  },
+};
 
 export const TopLevelPage = {
   args: { currentPageId: "101" },
