@@ -2,7 +2,7 @@
   class="qld__side-nav qld__accordion"
   data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
 >
-
+  {{ current.data.metadata.sideNavigationParent.value }}
   {{#if current.data.metadata.sideNavigationParent.value}}
     <button
       class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
