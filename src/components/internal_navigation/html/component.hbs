@@ -3,6 +3,8 @@
   data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
 >
   {{ current.data.metadata.sideNavigationParent.value }}
+  {{ current.data.metadata.sideNavigationParent.asset_name }}
+  {{ current.data.metadata.sideNavigationParent.children }}
   {{#if current.data.metadata.sideNavigationParent.value}}
     <button
       class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
@@ -10,7 +12,7 @@
       aria-expanded="false"
     >
       In
-      {{{ current.data.metadata.sideNavigationParent.asset_name }}}
+      {{ current.data.metadata.sideNavigationParent.asset_name }}
       <svg
         class="qld__icon qld__icon--md qld__accordion__icon"
         aria-hidden="true"
@@ -30,6 +32,7 @@
       </h2>
       <ul class="qld__link-list">
         {{#each current.data.metadata.sideNavigationParent.children}}
+          Children
           {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
             <li>
             <a class="qld__sidenav__link" href="{{ asset_url }}">
