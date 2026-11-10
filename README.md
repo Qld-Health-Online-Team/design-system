@@ -27,8 +27,8 @@ For more information on the Queensland Government Design System and other codeba
 ## Development Getting started
 
 ### Requirements
-- Node: v20.19.1
-- NPM: 10.8.2
+- Node: v24.18.0
+- NPM: 11.16.0
 
 Download repo
 
