@@ -10,8 +10,6 @@
   "main": "index.js",
   "scripts": {
     "build": "vite build --config vite.config.dist.mjs && node scripts/build-dist.js",
-    "build-all": "npm run build && npm run jsdoc",
-    "jsdoc": "./node_modules/jsdoc/jsdoc.js -a all -c jsdoc.json -r -R README.md ./src/components/ -d ./documentation/jsdoc",
     "lint:js": "eslint .",
     "lint:styles": "stylelint \"**/*.{css,scss}\"",
     "lint": "npm run lint:js && npm run lint:styles",
@@ -48,7 +46,6 @@
     "glob": "^7.2.0",
     "globals": "^17.6.0",
     "handlebars": "^4.7.8",
-    "jsdoc": "^4.0.2",
     "playwright": "^1.60.0",
     "postcss": "8.5.15",
     "postcss-scss": "^4.0.9",
