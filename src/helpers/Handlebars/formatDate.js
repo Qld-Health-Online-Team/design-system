@@ -1,4 +1,4 @@
-module.exports = function (datetime, formatStr) {
+export default function (datetime, formatStr) {
   var date = new Date(datetime);
 
   console.log(date);
@@ -59,4 +59,4 @@ module.exports = function (datetime, formatStr) {
   return _formatStr.replace(/[sihAadDFlmMnjyY]/g, function (match) {
     return formatMap[match] || match;
   });
-};
+}

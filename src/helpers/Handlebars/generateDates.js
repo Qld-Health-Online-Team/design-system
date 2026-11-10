@@ -1,7 +1,5 @@
-module.exports = function (dates) {
+export default function (dates) {
   var dateArray = dates === "" || dates === null ? [] : dates.split(", ");
-  var pastDates = [];
-  var futureDates = [];
   var yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   var month = [
@@ -85,4 +83,4 @@ module.exports = function (dates) {
   }
 
   return html;
-};
+}

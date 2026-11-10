@@ -1,4 +1,4 @@
-module.exports = function (string) {
+export default function (string) {
   var map = {
     "&amp;": "&",
     "&lt;": "<",
@@ -10,4 +10,4 @@ module.exports = function (string) {
   return string.replace(/(&amp;|&lt;|&gt;|&quot;|&#039;)/g, function (m) {
     return map[m];
   });
-};
+}

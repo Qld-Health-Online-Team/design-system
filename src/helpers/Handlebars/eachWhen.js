@@ -1,10 +1,12 @@
-module.exports = function (list, key, value, options) {
+import Handlebars from "handlebars";
+
+export default function (list, key, value, options) {
   var result = "";
   var arr = [];
   var data = Handlebars.createFrame(options.data);
   var index = 0;
 
-  for (var i in list) {
+  for (let i in list) {
     if (list[i][key] === value) {
       arr.push({
         key: i,
@@ -19,7 +21,7 @@ module.exports = function (list, key, value, options) {
 
   arr[arr.length - 1].last = true;
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     data.key = arr[i].key;
     data.index = arr[i].index;
     data.first = arr[i].first;
@@ -31,4 +33,4 @@ module.exports = function (list, key, value, options) {
       });
   }
   return result;
-};
+}
