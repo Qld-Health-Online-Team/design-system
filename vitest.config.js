@@ -27,7 +27,21 @@ export default defineConfig({
         test: {
           name: "unit",
           environment: "node",
-          include: ["src/**/*.test.js"],
+          include: ["src/**/*.test.js", "scripts/**/*.test.js"],
+        },
+      },
+      {
+        // Smoke test for the built dist/js bundles, loaded as a Matrix site head
+        // loads them. Runs against whatever `npm run build` last wrote to dist/.
+        test: {
+          name: "dist",
+          include: ["test/dist/*.test.js"],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [{ browser: "chromium" }],
+          },
         },
       },
       {
