@@ -428,3 +428,135 @@ export const MaskEligibility = {
     await expect(maskClasses({ ...eligible, heroImage: "" })).toEqual([]);
   },
 };
+
+/**
+ * Each sitewide mask on a page-aligned hero. 400px shows the mobile bottom edge;
+ * 1312px shows the desktop left edge.
+ */
+export const MaskArcOut = {
+  args: {
+    imageMask: "arc-out",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskArcIn = {
+  args: {
+    imageMask: "arc-in",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskDiagonalDown = {
+  args: {
+    imageMask: "diagonal-down",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskDiagonalUp = {
+  args: {
+    imageMask: "diagonal-up",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskCornerBottom = {
+  args: {
+    imageMask: "corner-bottom",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskCornerTop = {
+  args: {
+    imageMask: "corner-top",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskWave = {
+  args: {
+    imageMask: "wave",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+/**
+ * Guards what a mask changes in the browser: the hero image gets a mask and the
+ * hero's shaded patch goes transparent so the banner background shows through.
+ * An unknown value has no CSS and must leave the baseline untouched. The patch
+ * only exists below the md breakpoint, so the story pins the Small viewport and
+ * checks it took effect.
+ */
+export const MaskStyles = {
+  args: {
+    imageMask: "wave",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { disableSnapshot: true } },
+  globals: { viewport: { value: "small", isRotated: false } },
+  play: async ({ canvasElement }) => {
+    await expect(
+      window.innerWidth,
+      "The hero transparency assertion only bites below the md breakpoint (699px)",
+    ).toBeLessThan(699);
+
+    const parts = (root) => ({
+      image: root.querySelector(
+        ".qld__banner__image:not(.qld__banner__image--background)",
+      ),
+      hero: root.querySelector(".qld__banner__hero"),
+    });
+
+    const masked = parts(canvasElement);
+    await expect(getComputedStyle(masked.image).maskImage).toContain(
+      "data:image/svg+xml",
+    );
+    await expect(getComputedStyle(masked.hero).backgroundColor).toBe(
+      "rgba(0, 0, 0, 0)",
+    );
+
+    const container = document.createElement("div");
+    container.innerHTML = Template(
+      buildData({
+        ...meta.args,
+        imageMask: "bogus",
+        heroImageAlignment: "page",
+        heroImageTreatment: "crop",
+      }),
+    );
+    canvasElement.appendChild(container);
+    try {
+      const baseline = parts(container);
+      await expect(getComputedStyle(baseline.image).maskImage).toBe("none");
+      await expect(getComputedStyle(baseline.hero).backgroundColor).not.toBe(
+        "rgba(0, 0, 0, 0)",
+      );
+    } finally {
+      container.remove();
+    }
+  },
+};
