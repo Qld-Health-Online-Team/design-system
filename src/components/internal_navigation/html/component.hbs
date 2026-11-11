@@ -2,180 +2,86 @@
   class="qld__side-nav qld__accordion"
   data-path="{{ @root.site.metadata.coreSiteIcons.value }}"
 >
-  {{#if current.data.metadata.sideNavigationParent.value}}
-    <button
-      class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
-      aria-controls="nav-default"
-      aria-expanded="false"
+  <button
+    class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
+    aria-controls="nav-default"
+    aria-expanded="false"
+  >
+    In
+    {{{ current.nav.top.asset_name }}}
+    <svg
+      class="qld__icon qld__icon--md qld__accordion__icon"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      In
-      {{{ current.topOverride.asset_name }}}
-      <svg
-        class="qld__icon qld__icon--md qld__accordion__icon"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <use href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
-        ></use>
-      </svg>
-    </button>
-    <nav
-      id="nav-default"
-      class="qld__side-nav__content qld__accordion--closed qld__accordion__body"
-      aria-label="side navigation"
-    >
-      <h2 class="qld__sidenav__title">
-        <a class="qld__sidenav__link" href="{{ current.topOverride.asset_url }}">{{{ current.topOverride.asset_name }}}</a>
-      </h2>
-      <ul class="qld__link-list">
-        {{#each current.childrenOverride}}
-          Children
-          {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-            <li>
-            <a class="qld__sidenav__link" href="{{ asset_url }}">
-              {{{ asset_short_name }}}
-            </a>
-          {{/ifCond}}
-          {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-            <li class="active" aria-current="page">
-            <span>
-              {{{ asset_short_name }}}
-            </span>
-          {{/ifCond}}
-          {{#inArray @root.current.lineageOverride 'asset_assetid' asset_assetid}}
-            {{#if children}}
-              <ul class="qld__link-list">
-                {{#each children}}
-                  {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                    <li>
-                    <a class="qld__sidenav__link" href="{{ asset_url }}">
-                      {{{ asset_short_name }}}
-                    </a>
-                  {{/ifCond}}
-                  {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                    <li class="active" aria-current="page">
-                    <span>
-                      {{{ asset_short_name }}}
-                    </span>
-                  {{/ifCond}}
-                  {{#inArray @root.current.lineageOverride 'asset_assetid' asset_assetid}}
-                    {{#if children}}
-                      <ul class="qld__link-list">
-                        {{#each children}}
-                          {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                            <li>
-                            <a class="qld__sidenav__link" href="{{ asset_url }}"
-                            >
-                              {{{ asset_short_name }}}
-                            </a>
-                          {{/ifCond}}
-                          {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                            <li class="active" aria-current="page">
-                            <span>
-                              {{{ asset_short_name }}}
-                            </span>
-                          {{/ifCond}}
-                          </li>
-                        {{/each}}
-                      </ul>
-                    {{/if}}
-                  {{/inArray}}
-                  </li>
-                {{/each}}
-              </ul>
-            {{/if}}
-          {{/inArray}}
-          </li>
-        {{/each}}
-      </ul>
-    </nav>
-  {{else}}
-    <button
-      class="qld__side-nav__toggle qld__accordion__title qld__accordion--closed"
-      aria-controls="nav-default"
-      aria-expanded="false"
-    >
-      In
-      {{{ current.top.asset_name }}}
-      <svg
-        class="qld__icon qld__icon--md qld__accordion__icon"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <use href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
-        ></use>
-      </svg>
-    </button>
-    <nav
-      id="nav-default"
-      class="qld__side-nav__content qld__accordion--closed qld__accordion__body"
-      aria-label="side navigation"
-    >
-      <h2 class="qld__sidenav__title">
-        <a class="qld__sidenav__link" href="{{ current.top.asset_url }}">
-          {{{ current.top.asset_name }}}
-        </a>
-      </h2>
-      <ul class="qld__link-list">
-        {{#each current.children}}
-          {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-            <li>
-            <a class="qld__sidenav__link" href="{{ asset_url }}">
-              {{{ asset_short_name }}}
-            </a>
-          {{/ifCond}}
-          {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-            <li class="active" aria-current="page">
-            <span>
-              {{{ asset_short_name }}}
-            </span>
-          {{/ifCond}}
-          {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
-            {{#if children}}
-              <ul class="qld__link-list">
-                {{#each children}}
-                  {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                    <li>
-                    <a class="qld__sidenav__link" href="{{ asset_url }}">
-                      {{{ asset_short_name }}}
-                    </a>
-                  {{/ifCond}}
-                  {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                    <li class="active" aria-current="page">
-                    <span>
-                      {{{ asset_short_name }}}
-                    </span>
-                  {{/ifCond}}
-                  {{#inArray @root.current.lineage 'asset_assetid' asset_assetid}}
-                    {{#if children}}
-                      <ul class="qld__link-list">
-                        {{#each children}}
-                          {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
-                            <li>
-                            <a class="qld__sidenav__link" href="{{ asset_url }}"
-                            >
-                              {{{ asset_short_name }}}
-                            </a>
-                          {{/ifCond}}
-                          {{#ifCond asset_assetid '==' @root.current.data.assetid}}
-                            <li class="active" aria-current="page">
-                            <span>
-                              {{{ asset_short_name }}}
-                            </span>
-                          {{/ifCond}}
-                          </li>
-                        {{/each}}
-                      </ul>
-                    {{/if}}
-                  {{/inArray}}
-                  </li>
-                {{/each}}
-              </ul>
-            {{/if}}
-          {{/inArray}}
-          </li>
-        {{/each}}
-      </ul>
-    </nav>
-  {{/if}}
+      <use href="{{ @root.site.metadata.coreSiteIcons.value }}#chevron-up"
+      ></use>
+    </svg>
+  </button>
+  <nav
+    id="nav-default"
+    class="qld__side-nav__content qld__accordion--closed qld__accordion__body"
+    aria-label="side navigation"
+  >
+    <h2 class="qld__sidenav__title">
+      <a class="qld__sidenav__link" href="{{ current.nav.top.asset_url }}">
+        {{{ current.nav.top.asset_name }}}
+      </a>
+    </h2>
+    <ul class="qld__link-list">
+      {{#each current.nav.items}}
+        {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
+          <li>
+          <a class="qld__sidenav__link" href="{{ asset_url }}">
+            {{{ asset_short_name }}}
+          </a>
+        {{/ifCond}}
+        {{#ifCond asset_assetid '==' @root.current.data.assetid}}
+          <li class="active" aria-current="page">
+          <span>
+            {{{ asset_short_name }}}
+          </span>
+        {{/ifCond}}
+        {{#if children}}
+          <ul class="qld__link-list">
+            {{#each children}}
+              {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
+                <li>
+                <a class="qld__sidenav__link" href="{{ asset_url }}">
+                  {{{ asset_short_name }}}
+                </a>
+              {{/ifCond}}
+              {{#ifCond asset_assetid '==' @root.current.data.assetid}}
+                <li class="active" aria-current="page">
+                <span>
+                  {{{ asset_short_name }}}
+                </span>
+              {{/ifCond}}
+              {{#if children}}
+                <ul class="qld__link-list">
+                  {{#each children}}
+                    {{#ifCond asset_assetid '!=' @root.current.data.assetid}}
+                      <li>
+                      <a class="qld__sidenav__link" href="{{ asset_url }}">
+                        {{{ asset_short_name }}}
+                      </a>
+                    {{/ifCond}}
+                    {{#ifCond asset_assetid '==' @root.current.data.assetid}}
+                      <li class="active" aria-current="page">
+                      <span>
+                        {{{ asset_short_name }}}
+                      </span>
+                    {{/ifCond}}
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
 </div>

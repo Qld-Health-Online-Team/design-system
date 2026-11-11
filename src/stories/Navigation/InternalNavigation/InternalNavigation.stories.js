@@ -7,7 +7,7 @@ import { initAccordion } from "../../../components/accordion/js/global";
 import isChromatic from "chromatic/isChromatic";
 
 // Mock Matrix page tree for the section. The template supports up to three
-// levels; a branch only renders when its parent is in the current page's lineage.
+// levels; any branch with children is always expanded.
 const sectionPages = [
   { id: "101", name: "Find a hospital" },
   { id: "102", name: "Emergency departments" },
@@ -38,19 +38,6 @@ function toMatrixNodes(pages) {
   }));
 }
 
-/** Path of pages from the section root down to the given page, or null. */
-function findPath(pages, id, trail = []) {
-  for (const page of pages) {
-    const path = [...trail, page];
-    if (page.id === id) return path;
-    if (page.children) {
-      const found = findPath(page.children, id, path);
-      if (found) return found;
-    }
-  }
-  return null;
-}
-
 function flattenPages(pages, depth = 0) {
   return pages.flatMap((page) => [
     { id: page.id, label: `${"— ".repeat(depth)}${page.name}` },
@@ -60,31 +47,14 @@ function flattenPages(pages, depth = 0) {
 
 const pageOptions = flattenPages(sectionPages);
 
-function render({
-  sectionName,
-  sideNavigationParentName,
-  currentPageId,
-  ...args
-}) {
-  const lineage = findPath(sectionPages, currentPageId) ?? [];
-  // When a page sets the sideNavigationParent metadata, the template builds the
-  // navigation from that parent instead of the section root.
-  const metadata = sideNavigationParentName
-    ? {
-        sideNavigationParent: {
-          value: "parent-page",
-          asset_name: sideNavigationParentName,
-          asset_url: "#parent-page",
-          children: toMatrixNodes(sectionPages),
-        },
-      }
-    : {};
+function render({ sectionName, currentPageId, ...args }) {
   return Template({
     current: {
-      top: { asset_name: sectionName, asset_url: "#section-home" },
-      children: toMatrixNodes(sectionPages),
-      data: { assetid: currentPageId, metadata },
-      lineage: lineage.map((page) => ({ asset_assetid: page.id })),
+      nav: {
+        top: { asset_name: sectionName, asset_url: "#section-home" },
+        items: toMatrixNodes(sectionPages),
+      },
+      data: { assetid: currentPageId },
     },
     ...args,
   });
@@ -103,11 +73,6 @@ export default {
       description:
         "Name of the section's top-level page, shown as the navigation title and in the mobile toggle label.",
     },
-    sideNavigationParentName: {
-      control: "text",
-      description:
-        "Name of the page set as the `sideNavigationParent` metadata. When provided, the navigation title, links and mobile toggle label use this parent instead of the section's top-level page. Leave empty to use the section.",
-    },
     currentPageId: {
       control: {
         type: "select",
@@ -116,39 +81,16 @@ export default {
         ),
       },
       options: pageOptions.map(({ id }) => id),
-      description:
-        "Asset id of the current page. Marks that item active and expands its ancestor branches.",
+      description: "Asset id of the current page. Marks that item active.",
     },
   },
   args: {
     sectionName: "Hospitals and health services",
-    sideNavigationParentName: "",
     currentPageId: "104",
   },
 };
 
 export const Default = {};
-
-/**
- * A page can override the navigation root with the `sideNavigationParent`
- * metadata. The title, links and mobile toggle then come from that parent
- * rather than the section's top-level page.
- */
-export const WithSideNavigationParent = {
-  args: { sideNavigationParentName: "Patient information" },
-  play: async ({ canvasElement, args }) => {
-    const title = canvasElement.querySelector(".qld__sidenav__title a");
-    await expect(title).toHaveTextContent(args.sideNavigationParentName);
-    await expect(title).toHaveAttribute("href", "#parent-page");
-
-    const toggle = canvasElement.querySelector(".qld__side-nav__toggle");
-    await expect(toggle).toHaveTextContent(args.sideNavigationParentName);
-    await expect(toggle).not.toHaveTextContent(args.sectionName);
-
-    const active = canvasElement.querySelector("li.active");
-    await expect(active).toHaveAttribute("aria-current", "page");
-  },
-};
 
 export const TopLevelPage = {
   args: { currentPageId: "101" },
