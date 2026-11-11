@@ -124,7 +124,12 @@ function buildData(args) {
     current: {
       lineage: args.showBreadcrumbs ? mockLineage : [],
     },
-    site: mockSite,
+    site: {
+      metadata: {
+        ...mockSite.metadata,
+        siteBannerImageMask: { value: args.imageMask },
+      },
+    },
   };
 }
 
@@ -211,6 +216,21 @@ const meta = {
       control: { type: "radio" },
       options: ["grid", "page"],
     },
+    imageMask: {
+      description:
+        "Sitewide image mask (site metadata `siteBannerImageMask`). Applies only to page-aligned, cropped hero images.",
+      control: { type: "select" },
+      options: [
+        "straight",
+        "arc-out",
+        "arc-in",
+        "diagonal-down",
+        "diagonal-up",
+        "corner-bottom",
+        "corner-top",
+        "wave",
+      ],
+    },
     ctaType: {
       description: "The type of call-to-action displayed below the abstract.",
       control: { type: "radio" },
@@ -255,6 +275,7 @@ const meta = {
     heroImageAlt: "",
     heroImageTreatment: "crop",
     heroImageAlignment: "grid",
+    imageMask: "straight",
     ctaType: "buttons",
     ctaPrimaryText: "Primary action",
     ctaSecondaryText: "Secondary action",
@@ -368,4 +389,42 @@ export const PrintIconTiles = {
     heroImage: "",
   },
   ...printParams("that the icon tile navigation is dropped entirely"),
+};
+
+/**
+ * Guards which banners receive the sitewide mask class. A mask only suits a
+ * page-aligned, cropped hero that exists, and Straight or an empty value means
+ * no mask. If the eligibility conditions in the template loosen, masks would
+ * clip images they were never designed for. Class lists are asserted rather
+ * than pixels, so it holds whatever the shapes look like.
+ */
+export const MaskEligibility = {
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async () => {
+    const maskClasses = (overrides) => {
+      const container = document.createElement("div");
+      container.innerHTML = Template(buildData({ ...meta.args, ...overrides }));
+      return [...container.querySelector("section").classList].filter((name) =>
+        name.startsWith("qld__banner--mask-"),
+      );
+    };
+    const eligible = {
+      imageMask: "wave",
+      heroImageAlignment: "page",
+      heroImageTreatment: "crop",
+    };
+
+    await expect(maskClasses(eligible)).toEqual(["qld__banner--mask-wave"]);
+    await expect(maskClasses({ ...eligible, imageMask: "straight" })).toEqual(
+      [],
+    );
+    await expect(maskClasses({ ...eligible, imageMask: "" })).toEqual([]);
+    await expect(
+      maskClasses({ ...eligible, heroImageAlignment: "grid" }),
+    ).toEqual([]);
+    await expect(
+      maskClasses({ ...eligible, heroImageTreatment: "scale" }),
+    ).toEqual([]);
+    await expect(maskClasses({ ...eligible, heroImage: "" })).toEqual([]);
+  },
 };

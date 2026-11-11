@@ -1,5 +1,6 @@
 {{#with component.data}}
   <!--@@ Banner @@-->
+  {{! prettier-ignore }}
   <section
     id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}banner-advanced-{{ assetid }}{{/if}}"
     class="
@@ -31,6 +32,15 @@
       {{/ifCond}}
       {{#ifCond metadata.hero_image_alignment.value '==' 'page'}}
         qld__banner--hero-right
+        {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'crop'}}
+          {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}
+            {{#if @root.site.metadata.siteBannerImageMask.value}}
+              {{#ifCond @root.site.metadata.siteBannerImageMask.value '!=' 'straight'}}
+                qld__banner--mask-{{ @root.site.metadata.siteBannerImageMask.value }}
+              {{/ifCond}}
+            {{/if}}
+          {{/ifAny}}
+        {{/ifCond}}
       {{/ifCond}}
       {{#ifCond metadata.cta_type.value '==' 'icon-tiles'}}
         {{#if metadata.root_node.value}}
