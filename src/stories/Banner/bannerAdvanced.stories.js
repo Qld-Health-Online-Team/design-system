@@ -89,6 +89,7 @@ function buildData(args) {
           abstract: { value: args.abstract },
           breadcrumbs_display: { value: args.showBreadcrumbs ? "yes" : "" },
           background_colour: { value: args.backgroundColour },
+          background_gradient: { value: args.useGradient ? "yes" : "" },
           background_type: { value: args.backgroundType },
           background_image_sm: {
             value:
@@ -188,6 +189,11 @@ const meta = {
       },
       options: ["", "light", "alternate", "dark", "dark-alternate"],
     },
+    useGradient: {
+      description:
+        "Apply a gradient using the banner's colour theme (`background_gradient`).",
+      control: { type: "boolean" },
+    },
     backgroundType: {
       description: "How the background is filled.",
       control: { type: "radio" },
@@ -269,6 +275,7 @@ const meta = {
     abstract:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     backgroundColour: "dark",
+    useGradient: false,
     backgroundType: "colour",
     showBreadcrumbs: false,
     heroImage: "https://placehold.co/782x520",
@@ -558,5 +565,117 @@ export const MaskStyles = {
     } finally {
       container.remove();
     }
+  },
+};
+
+/**
+ * Each theme's gradient on a page-aligned hero. The gradient runs across the whole
+ * banner, so there is no restart behind the hero. GradientDark also carries the
+ * wave mask, showing the mask revealing the gradient with no seam.
+ */
+export const GradientDefault = {
+  args: {
+    useGradient: true,
+    backgroundColour: "",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientLight = {
+  args: {
+    useGradient: true,
+    backgroundColour: "light",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientAlternate = {
+  args: {
+    useGradient: true,
+    backgroundColour: "alternate",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientDark = {
+  args: {
+    useGradient: true,
+    backgroundColour: "dark",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    imageMask: "wave",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientDarkAlternate = {
+  args: {
+    useGradient: true,
+    backgroundColour: "dark-alternate",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+/**
+ * Guards that the gradient is opt-in and sits on top of the theme's solid colour:
+ * the colour stays as the fallback (so only the image is set, never the
+ * `background` shorthand), the inline texture rule stacks the gradient beneath
+ * the texture, and switching the gradient on or off never touches the mask.
+ */
+export const GradientStyles = {
+  args: { useGradient: true, backgroundColour: "dark" },
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async ({ canvasElement }) => {
+    const renderBanner = (overrides, attach = false) => {
+      const container = document.createElement("div");
+      container.innerHTML = Template(buildData({ ...meta.args, ...overrides }));
+      if (attach) canvasElement.appendChild(container);
+      return container;
+    };
+
+    const gradient = canvasElement.querySelector("section");
+    await expect(gradient).toHaveClass("qld__banner--gradient");
+    await expect(getComputedStyle(gradient).backgroundImage).toContain(
+      "linear-gradient",
+    );
+
+    const plain = renderBanner({ useGradient: false }, true);
+    try {
+      await expect(
+        getComputedStyle(plain.querySelector("section")).backgroundImage,
+      ).toBe("none");
+      await expect(getComputedStyle(gradient).backgroundColor).toBe(
+        getComputedStyle(plain.querySelector("section")).backgroundColor,
+      );
+    } finally {
+      plain.remove();
+    }
+
+    const textured = (useGradient) =>
+      renderBanner({ useGradient, backgroundType: "texture" }).querySelector(
+        "style",
+      ).textContent;
+    await expect(textured(true)).toContain("), var(--QLD-banner__gradient);");
+    await expect(textured(false)).not.toContain("--QLD-banner__gradient");
+
+    const maskClass = (useGradient) =>
+      renderBanner({
+        useGradient,
+        imageMask: "wave",
+        heroImageAlignment: "page",
+        heroImageTreatment: "crop",
+      })
+        .querySelector("section")
+        .classList.contains("qld__banner--mask-wave");
+    await expect(maskClass(true)).toBe(true);
+    await expect(maskClass(false)).toBe(true);
   },
 };

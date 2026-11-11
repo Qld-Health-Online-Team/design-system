@@ -354,3 +354,32 @@ $QLD-banner-masks: (
     }
   }
 }
+
+// Gradient background — opt-in per banner (QHDEV-842). The theme's solid
+// background-color stays as the fallback, so set background-image only.
+// A separate block from the layout rules above, so the opt-in gradient reads
+// and changes as one unit.
+// stylelint-disable-next-line no-duplicate-selectors
+.qld__banner.qld__banner__advanced {
+  --QLD-banner__gradient: var(--QLD-color-light__background--gradient-default);
+
+  &.qld__banner--light {
+    --QLD-banner__gradient: var(--QLD-color-light__background--gradient);
+  }
+
+  &.qld__banner--alt {
+    --QLD-banner__gradient: var(--QLD-color-light__background--alt-gradient);
+  }
+
+  &.qld__banner--dark {
+    --QLD-banner__gradient: var(--QLD-color-dark__background--gradient);
+  }
+
+  &.qld__banner--dark-alt {
+    --QLD-banner__gradient: var(--QLD-color-dark__background--alt-gradient);
+  }
+
+  &.qld__banner--gradient {
+    background-image: var(--QLD-banner__gradient);
+  }
+}

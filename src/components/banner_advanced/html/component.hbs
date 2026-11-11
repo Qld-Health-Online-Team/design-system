@@ -18,6 +18,9 @@
       {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}
         qld__banner--dark-alt
       {{/ifCond}}
+      {{#ifCond metadata.background_gradient.value '==' 'yes'}}
+        qld__banner--gradient
+      {{/ifCond}}
       {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
         qld__banner--breadcrumbs
       {{/ifCond}}
@@ -53,7 +56,7 @@
       {{#ifCond metadata.background_type.value '==' 'image'}}
           @media (min-width:699px) {
               #banner-advanced-{{assetid}} {
-                  background-image: url(./?a={{metadata.background_image_lg.value}});
+                  background-image: url(./?a={{metadata.background_image_lg.value}}){{#ifCond metadata.background_gradient.value '==' 'yes'}}, var(--QLD-banner__gradient){{/ifCond}};
                   background-size: cover;
                   background-repeat: no-repeat;
                   background-position-x: {{metadata.background_image_alignment.value}};
@@ -63,7 +66,7 @@
 
       {{#ifCond metadata.background_type.value '==' 'texture'}}
           #banner-advanced-{{assetid}} {
-              background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}});
+              background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}}){{#ifCond metadata.background_gradient.value '==' 'yes'}}, var(--QLD-banner__gradient){{/ifCond}};
           }
       {{/ifCond}}
 
