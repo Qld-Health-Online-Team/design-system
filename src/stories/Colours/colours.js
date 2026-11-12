@@ -73,9 +73,34 @@ function parseCodeColours(src) {
   return out;
 }
 
+/**
+ * Gradient custom properties (`--QLD-color-…: linear-gradient(…);`). These have
+ * no `$` counterpart, so parseScssColours never sees them. Each `var(--QLD-color-…)`
+ * stop is resolved through the parsed `$` map — every colour custom property is
+ * declared as `#{$same-name}` — so the swatch paints the same literal value the
+ * CSS would, without depending on the stylesheet being loaded.
+ */
+function parseCssGradients(src, colourMap) {
+  const out = {};
+  const re = /--(QLD-color-[\w-]+)\s*:\s*(linear-gradient\([^;]*\))\s*;/g;
+  let match;
+  while ((match = re.exec(src)) !== null) {
+    out[match[1]] = match[2]
+      .replace(/\s+/g, " ")
+      .replace(/\(\s/g, "(")
+      .replace(/\s\)/g, ")")
+      .replace(
+        /var\(--(QLD-color-[\w-]+)\)/g,
+        (ref, name) => colourMap[name] ?? ref,
+      );
+  }
+  return out;
+}
+
 const colours = parseScssColours(variablesScss);
 const cssVarNames = parseCssVarNames(variablesScss);
 const codeColours = parseCodeColours(bodyScss);
+const gradients = parseCssGradients(variablesScss, colours);
 
 const GROUP_PREFIXES = ["light__", "dark__", "neutral--", "status__"];
 
@@ -105,7 +130,8 @@ const byPrefix = (prefix) =>
  * Every colour in the system, grouped for display. Light/dark are the themeable
  * palettes; neutral and status are fixed; "other" catches anything that doesn't
  * fit a known prefix (plus the reserved Queensland maroon, which is documented
- * but isn't a token); code lists the syntax-highlighting colours.
+ * but isn't a token); gradient lists the banner gradients, which exist only as
+ * custom properties; code lists the syntax-highlighting colours.
  */
 export function getColourGroups() {
   return {
@@ -124,6 +150,15 @@ export function getColourGroups() {
         token: "reserved — not a default token",
         value: "#973420",
       }),
+    // Full name as the label: light__ and dark__ gradients share role names, so
+    // dropping the prefix would make them indistinguishable.
+    gradient: Object.entries(gradients)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([name, value]) => ({
+        label: name.replace(/^QLD-color-/, ""),
+        token: `var(--${name})`,
+        value,
+      })),
     code: Object.entries(codeColours)
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([cls, value]) => ({
