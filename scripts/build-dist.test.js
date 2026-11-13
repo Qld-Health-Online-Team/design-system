@@ -83,4 +83,29 @@ describe("buildBannerContainedCss", () => {
     expect(css).toContain("sourceMappingURL=out.css.map");
     expect(fs.existsSync(`${dir}/out.css.map`)).toBe(true);
   });
+
+  test("lists map sources relative to the map, so the build is portable", async () => {
+    const dir = tempDir();
+    fs.mkdirSync(`${dir}/src`);
+    fs.mkdirSync(`${dir}/dist`);
+    fs.writeFileSync(`${dir}/src/_part.scss`, ".p {\n  color: red;\n}\n");
+    fs.writeFileSync(
+      `${dir}/src/in.scss`,
+      '@use "part";\n.a {\n  color: blue;\n}\n',
+    );
+
+    await buildBannerContainedCss(`${dir}/src/in.scss`, `${dir}/dist/out.css`);
+
+    const { sources } = JSON.parse(
+      fs.readFileSync(`${dir}/dist/out.css.map`, "utf8"),
+    );
+    expect(sources.length).toBeGreaterThan(0);
+    for (const source of sources) {
+      expect(source).not.toMatch(/^[a-z]+:/i);
+      expect(path.isAbsolute(source)).toBe(false);
+    }
+    expect(sources.map((s) => path.resolve(`${dir}/dist`, s)).sort()).toEqual(
+      [`${dir}/src/_part.scss`, `${dir}/src/in.scss`].sort(),
+    );
+  });
 });
