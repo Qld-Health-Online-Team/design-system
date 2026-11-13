@@ -625,6 +625,35 @@ $QLD-color-contained-layout__background: #eff4f9;
   --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
   --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
 
+  /* Banner gradients (QHDEV-842) */
+  --QLD-color-neutral--white: #{$QLD-color-neutral--white};
+  --QLD-color-neutral--lighter: #{$QLD-color-neutral--lighter};
+  --QLD-color-light__background--gradient-default: linear-gradient(
+    130deg,
+    var(--QLD-color-neutral--white) 0%,
+    var(--QLD-color-neutral--lighter) 100%
+  );
+  --QLD-color-light__background--gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-light__background) 0%,
+    var(--QLD-color-light__background--shade) 100%
+  );
+  --QLD-color-light__background--alt-gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-light__background--alt) 0%,
+    var(--QLD-color-light__background--alt-shade) 100%
+  );
+  --QLD-color-dark__background--gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-dark__background) 0%,
+    var(--QLD-color-dark__background--shade) 100%
+  );
+  --QLD-color-dark__background--alt-gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-dark__background--alt) 0%,
+    var(--QLD-color-dark__background--alt-shade) 100%
+  );
+
   --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
   --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
   --QLD-underline__offset: #{$QLD-underline__offset};

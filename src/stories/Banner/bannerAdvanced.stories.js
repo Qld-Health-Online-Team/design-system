@@ -89,6 +89,7 @@ function buildData(args) {
           abstract: { value: args.abstract },
           breadcrumbs_display: { value: args.showBreadcrumbs ? "yes" : "" },
           background_colour: { value: args.backgroundColour },
+          background_gradient: { value: args.useGradient ? "yes" : "" },
           background_type: { value: args.backgroundType },
           background_image_sm: {
             value:
@@ -124,7 +125,12 @@ function buildData(args) {
     current: {
       lineage: args.showBreadcrumbs ? mockLineage : [],
     },
-    site: mockSite,
+    site: {
+      metadata: {
+        ...mockSite.metadata,
+        siteBannerImageMask: { value: args.imageMask },
+      },
+    },
   };
 }
 
@@ -183,6 +189,11 @@ const meta = {
       },
       options: ["", "light", "alternate", "dark", "dark-alternate"],
     },
+    useGradient: {
+      description:
+        "Apply a gradient using the banner's colour theme (`background_gradient`).",
+      control: { type: "boolean" },
+    },
     backgroundType: {
       description: "How the background is filled.",
       control: { type: "radio" },
@@ -210,6 +221,21 @@ const meta = {
         "Aligns the hero image to the content grid or the full page edge.",
       control: { type: "radio" },
       options: ["grid", "page"],
+    },
+    imageMask: {
+      description:
+        "Sitewide image mask (site metadata `siteBannerImageMask`). Applies only to page-aligned, cropped hero images.",
+      control: { type: "select" },
+      options: [
+        "straight",
+        "arc-out",
+        "arc-in",
+        "diagonal-down",
+        "diagonal-up",
+        "corner-bottom",
+        "corner-top",
+        "wave",
+      ],
     },
     ctaType: {
       description: "The type of call-to-action displayed below the abstract.",
@@ -249,12 +275,14 @@ const meta = {
     abstract:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     backgroundColour: "dark",
+    useGradient: false,
     backgroundType: "colour",
     showBreadcrumbs: false,
     heroImage: "https://placehold.co/782x520",
     heroImageAlt: "",
     heroImageTreatment: "crop",
     heroImageAlignment: "grid",
+    imageMask: "straight",
     ctaType: "buttons",
     ctaPrimaryText: "Primary action",
     ctaSecondaryText: "Secondary action",
@@ -368,4 +396,286 @@ export const PrintIconTiles = {
     heroImage: "",
   },
   ...printParams("that the icon tile navigation is dropped entirely"),
+};
+
+/**
+ * Guards which banners receive the sitewide mask class. A mask only suits a
+ * page-aligned, cropped hero that exists, and Straight or an empty value means
+ * no mask. If the eligibility conditions in the template loosen, masks would
+ * clip images they were never designed for. Class lists are asserted rather
+ * than pixels, so it holds whatever the shapes look like.
+ */
+export const MaskEligibility = {
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async () => {
+    const maskClasses = (overrides) => {
+      const container = document.createElement("div");
+      container.innerHTML = Template(buildData({ ...meta.args, ...overrides }));
+      return [...container.querySelector("section").classList].filter((name) =>
+        name.startsWith("qld__banner--mask-"),
+      );
+    };
+    const eligible = {
+      imageMask: "wave",
+      heroImageAlignment: "page",
+      heroImageTreatment: "crop",
+    };
+
+    await expect(maskClasses(eligible)).toEqual(["qld__banner--mask-wave"]);
+    await expect(maskClasses({ ...eligible, imageMask: "straight" })).toEqual(
+      [],
+    );
+    await expect(maskClasses({ ...eligible, imageMask: "" })).toEqual([]);
+    await expect(
+      maskClasses({ ...eligible, heroImageAlignment: "grid" }),
+    ).toEqual([]);
+    await expect(
+      maskClasses({ ...eligible, heroImageTreatment: "scale" }),
+    ).toEqual([]);
+    await expect(maskClasses({ ...eligible, heroImage: "" })).toEqual([]);
+  },
+};
+
+/**
+ * Each sitewide mask on a page-aligned hero. 400px shows the mobile bottom edge;
+ * 1312px shows the desktop left edge.
+ */
+export const MaskArcOut = {
+  args: {
+    imageMask: "arc-out",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskArcIn = {
+  args: {
+    imageMask: "arc-in",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskDiagonalDown = {
+  args: {
+    imageMask: "diagonal-down",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskDiagonalUp = {
+  args: {
+    imageMask: "diagonal-up",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskCornerBottom = {
+  args: {
+    imageMask: "corner-bottom",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskCornerTop = {
+  args: {
+    imageMask: "corner-top",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const MaskWave = {
+  args: {
+    imageMask: "wave",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    heroImage: "https://placehold.co/782x520",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+/**
+ * Guards what a mask changes in the browser: the hero image gets a mask and the
+ * hero's shaded patch goes transparent so the banner background shows through.
+ * An unknown value has no CSS and must leave the baseline untouched. The patch
+ * only exists below the md breakpoint, so the story pins the Small viewport and
+ * checks it took effect.
+ */
+export const MaskStyles = {
+  args: {
+    imageMask: "wave",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { disableSnapshot: true } },
+  globals: { viewport: { value: "small", isRotated: false } },
+  play: async ({ canvasElement }) => {
+    await expect(
+      window.innerWidth,
+      "The hero transparency assertion only bites below the md breakpoint (699px)",
+    ).toBeLessThan(699);
+
+    const parts = (root) => ({
+      image: root.querySelector(
+        ".qld__banner__image:not(.qld__banner__image--background)",
+      ),
+      hero: root.querySelector(".qld__banner__hero"),
+    });
+
+    const masked = parts(canvasElement);
+    await expect(getComputedStyle(masked.image).maskImage).toContain(
+      "data:image/svg+xml",
+    );
+    await expect(getComputedStyle(masked.hero).backgroundColor).toBe(
+      "rgba(0, 0, 0, 0)",
+    );
+
+    const container = document.createElement("div");
+    container.innerHTML = Template(
+      buildData({
+        ...meta.args,
+        imageMask: "bogus",
+        heroImageAlignment: "page",
+        heroImageTreatment: "crop",
+      }),
+    );
+    canvasElement.appendChild(container);
+    try {
+      const baseline = parts(container);
+      await expect(getComputedStyle(baseline.image).maskImage).toBe("none");
+      await expect(getComputedStyle(baseline.hero).backgroundColor).not.toBe(
+        "rgba(0, 0, 0, 0)",
+      );
+    } finally {
+      container.remove();
+    }
+  },
+};
+
+/**
+ * Each theme's gradient on a page-aligned hero. The gradient runs across the whole
+ * banner, so there is no restart behind the hero. GradientDark also carries the
+ * wave mask, showing the mask revealing the gradient with no seam.
+ */
+export const GradientDefault = {
+  args: {
+    useGradient: true,
+    backgroundColour: "",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientLight = {
+  args: {
+    useGradient: true,
+    backgroundColour: "light",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientAlternate = {
+  args: {
+    useGradient: true,
+    backgroundColour: "alternate",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientDark = {
+  args: {
+    useGradient: true,
+    backgroundColour: "dark",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+    imageMask: "wave",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+export const GradientDarkAlternate = {
+  args: {
+    useGradient: true,
+    backgroundColour: "dark-alternate",
+    heroImageAlignment: "page",
+    heroImageTreatment: "crop",
+  },
+  parameters: { chromatic: { viewports: [400, 1312] } },
+};
+
+/**
+ * Guards that the gradient is opt-in and sits on top of the theme's solid colour:
+ * the colour stays as the fallback (so only the image is set, never the
+ * `background` shorthand), the inline texture rule stacks the gradient beneath
+ * the texture, and switching the gradient on or off never touches the mask.
+ */
+export const GradientStyles = {
+  args: { useGradient: true, backgroundColour: "dark" },
+  parameters: { chromatic: { disableSnapshot: true } },
+  play: async ({ canvasElement }) => {
+    const renderBanner = (overrides, attach = false) => {
+      const container = document.createElement("div");
+      container.innerHTML = Template(buildData({ ...meta.args, ...overrides }));
+      if (attach) canvasElement.appendChild(container);
+      return container;
+    };
+
+    const gradient = canvasElement.querySelector("section");
+    await expect(gradient).toHaveClass("qld__banner--gradient");
+    await expect(getComputedStyle(gradient).backgroundImage).toContain(
+      "linear-gradient",
+    );
+
+    const plain = renderBanner({ useGradient: false }, true);
+    try {
+      await expect(
+        getComputedStyle(plain.querySelector("section")).backgroundImage,
+      ).toBe("none");
+      await expect(getComputedStyle(gradient).backgroundColor).toBe(
+        getComputedStyle(plain.querySelector("section")).backgroundColor,
+      );
+    } finally {
+      plain.remove();
+    }
+
+    const textured = (useGradient) =>
+      renderBanner({ useGradient, backgroundType: "texture" }).querySelector(
+        "style",
+      ).textContent;
+    await expect(textured(true)).toContain("), var(--QLD-banner__gradient);");
+    await expect(textured(false)).not.toContain("--QLD-banner__gradient");
+
+    const maskClass = (useGradient) =>
+      renderBanner({
+        useGradient,
+        imageMask: "wave",
+        heroImageAlignment: "page",
+        heroImageTreatment: "crop",
+      })
+        .querySelector("section")
+        .classList.contains("qld__banner--mask-wave");
+    await expect(maskClass(true)).toBe(true);
+    await expect(maskClass(false)).toBe(true);
+  },
 };
