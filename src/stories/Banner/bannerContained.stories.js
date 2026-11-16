@@ -5,8 +5,8 @@
 // filling the negative space with a background colour. The effect only applies
 // above 1600px, so these stories force a wide viewport.
 //
-// Unlike most component stories, the contained styles live in their own webpack
-// entry (src/styles/banner_contained/globals.scss → dist/banner_contained.css)
+// Unlike most component stories, the contained styles live in their own stylesheet
+// (src/styles/banner_contained/globals.scss → dist/banner_contained.css)
 // and are NOT part of the Storybook bundle, so we import them explicitly here.
 import "../../styles/banner_contained/globals.scss";
 

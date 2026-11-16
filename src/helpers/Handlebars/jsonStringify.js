@@ -1,3 +1,3 @@
-module.exports = function (string) {
+export default function (string) {
   return JSON.stringify(string);
-};
+}

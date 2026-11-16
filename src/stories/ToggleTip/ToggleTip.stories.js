@@ -2,6 +2,7 @@ import { userEvent, waitFor } from "storybook/test";
 import isChromatic from "chromatic/isChromatic";
 import { printParams, storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
+import { fontsLoaded } from "../../../.storybook/helper-functions";
 import initToggleTip from "../../components/toggle_tip/js/global";
 
 async function openToggleTip(canvasElement) {
@@ -11,6 +12,9 @@ async function openToggleTip(canvasElement) {
   // than a redundant interaction test.
   if (!isChromatic()) return;
   const trigger = canvasElement.querySelector(".qld__toggle-tip-trigger");
+  // The tip is positioned once, on open. If Noto Sans swaps in afterwards the
+  // text trigger widens under it and a left-aligned tip overlaps the trigger.
+  await fontsLoaded(canvasElement);
   await userEvent.click(trigger);
   await waitFor(() => {
     if (

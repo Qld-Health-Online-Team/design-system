@@ -1,3 +1,3 @@
-module.exports = function (obj, key, prop) {
+export default function (obj, key, prop) {
   return obj[key][prop];
-};
+}

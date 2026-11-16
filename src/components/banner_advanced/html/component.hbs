@@ -1,5 +1,6 @@
 {{#with component.data}}
   <!--@@ Banner @@-->
+  {{! prettier-ignore }}
   <section
     id="{{#if metadata.id_field.value}}{{ metadata.id_field.value }}{{else}}banner-advanced-{{ assetid }}{{/if}}"
     class="
@@ -17,6 +18,9 @@
       {{#ifCond metadata.background_colour.value '==' 'dark-alternate'}}
         qld__banner--dark-alt
       {{/ifCond}}
+      {{#ifCond metadata.background_gradient.value '==' 'yes'}}
+        qld__banner--gradient
+      {{/ifCond}}
       {{#ifCond metadata.breadcrumbs_display.value '==' 'yes'}}
         qld__banner--breadcrumbs
       {{/ifCond}}
@@ -31,6 +35,15 @@
       {{/ifCond}}
       {{#ifCond metadata.hero_image_alignment.value '==' 'page'}}
         qld__banner--hero-right
+        {{#ifCond metadata.hero_image_responsive_treatment.value '==' 'crop'}}
+          {{#ifAny metadata.hero_image.value metadata.background_image_sm.value}}
+            {{#if @root.site.metadata.siteBannerImageMask.value}}
+              {{#ifCond @root.site.metadata.siteBannerImageMask.value '!=' 'straight'}}
+                qld__banner--mask-{{ @root.site.metadata.siteBannerImageMask.value }}
+              {{/ifCond}}
+            {{/if}}
+          {{/ifAny}}
+        {{/ifCond}}
       {{/ifCond}}
       {{#ifCond metadata.cta_type.value '==' 'icon-tiles'}}
         {{#if metadata.root_node.value}}
@@ -43,7 +56,7 @@
       {{#ifCond metadata.background_type.value '==' 'image'}}
           @media (min-width:699px) {
               #banner-advanced-{{assetid}} {
-                  background-image: url(./?a={{metadata.background_image_lg.value}});
+                  background-image: url(./?a={{metadata.background_image_lg.value}}){{#ifCond metadata.background_gradient.value '==' 'yes'}}, var(--QLD-banner__gradient){{/ifCond}};
                   background-size: cover;
                   background-repeat: no-repeat;
                   background-position-x: {{metadata.background_image_alignment.value}};
@@ -53,7 +66,7 @@
 
       {{#ifCond metadata.background_type.value '==' 'texture'}}
           #banner-advanced-{{assetid}} {
-              background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}});
+              background-image: url(./?a={{../site.metadata.defaultBannerTexture.value}}){{#ifCond metadata.background_gradient.value '==' 'yes'}}, var(--QLD-banner__gradient){{/ifCond}};
           }
       {{/ifCond}}
 

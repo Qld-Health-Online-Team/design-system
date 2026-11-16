@@ -1,4 +1,4 @@
-module.exports = function (target_col, data) {
+export default function (target_col, data) {
   var col_widths = [
     data.col_1_width.value,
     data.col_2_width.value,
@@ -7,7 +7,7 @@ module.exports = function (target_col, data) {
 
   var col_num = Number(data.col_num.value);
   target_col = Number(target_col);
-  var width = 12;
+  var width;
 
   // Use width override if available
   var width_override = Number(col_widths[target_col - 1]);
@@ -33,4 +33,4 @@ module.exports = function (target_col, data) {
 
   // Return bootstrap column class
   return "col-xs-12 col-lg-" + width;
-};
+}

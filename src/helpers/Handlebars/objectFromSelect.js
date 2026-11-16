@@ -1,6 +1,5 @@
-module.exports = function (selectValues, options) {
+export default function (selectValues, options) {
   let output = "";
-  let outputArr = [];
   let splitSelectValues = [];
 
   if (selectValues) {
@@ -12,7 +11,7 @@ module.exports = function (selectValues, options) {
   // }
 
   for (let selectValue in splitSelectValues) {
-    if (splitSelectValues.hasOwnProperty(selectValue)) {
+    if (Object.prototype.hasOwnProperty.call(splitSelectValues, selectValue)) {
       output =
         output +
         options.fn({
@@ -25,4 +24,4 @@ module.exports = function (selectValues, options) {
   }
 
   return output;
-};
+}

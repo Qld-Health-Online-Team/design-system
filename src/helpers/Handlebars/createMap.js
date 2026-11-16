@@ -1,4 +1,4 @@
-module.exports = function (array, key, prop) {
+export default function (array, key, prop) {
   Array.prototype.polyReduce = function (callbackFn, initialValue) {
     var accumulator = initialValue;
 
@@ -16,4 +16,4 @@ module.exports = function (array, key, prop) {
     acc[item[key]] = item[prop];
     return acc;
   }, {});
-};
+}

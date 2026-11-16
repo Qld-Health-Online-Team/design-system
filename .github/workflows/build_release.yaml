@@ -19,10 +19,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
-          node-version: "20"
+          node-version: 24.18.0
           cache: npm
 
-      - name: npm install and build webpack
+      - name: npm install and build
         run: |
           npm ci
           npm run build

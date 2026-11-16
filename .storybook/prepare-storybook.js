@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const filesToCopy = ["js/helpers.js"];
+const filesToCopy = ["js/helpers.js", "js/helpers.js.map"];
 const srcDir = path.resolve("dist");
 const destDir = path.resolve(".storybook/core-assets");
 
@@ -32,6 +32,13 @@ try {
   const helpersContent = fs.readFileSync(handlebarHelpersPath, "utf-8");
   fs.writeFileSync(handlebarHelpersPath, importLine + helpersContent, "utf-8");
   fs.renameSync(handlebarHelpersPath, newDestPath);
+
+  // The import line pushes the bundle down one line; an empty first entry in
+  // `mappings` (one per generated line) moves the source map down with it.
+  const mapPath = path.join(destDir, "helpers.js.map");
+  const map = JSON.parse(fs.readFileSync(mapPath, "utf-8"));
+  map.mappings = `;${map.mappings}`;
+  fs.writeFileSync(mapPath, JSON.stringify(map), "utf-8");
 } catch (err) {
   console.warn(`Failed to update ${handlebarHelpersPath}:`);
 }

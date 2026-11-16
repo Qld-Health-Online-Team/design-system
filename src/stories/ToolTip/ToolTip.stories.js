@@ -2,6 +2,7 @@ import { userEvent, waitFor } from "storybook/test";
 import isChromatic from "chromatic/isChromatic";
 import { printParams, storyParams } from "../../../.storybook/globals";
 import { initComponents } from "../../../.storybook/decorators";
+import { fontsLoaded } from "../../../.storybook/helper-functions";
 import initToolTip from "../../components/tool_tip/js/global";
 
 async function openToolTip(canvasElement) {
@@ -11,6 +12,9 @@ async function openToolTip(canvasElement) {
   // than a redundant interaction test.
   if (!isChromatic()) return;
   const trigger = canvasElement.querySelector(".qld__tool-tip-trigger");
+  // The tip is positioned once, on open. If Noto Sans swaps in afterwards the
+  // text trigger widens under it and a left-aligned tip overlaps the trigger.
+  await fontsLoaded(canvasElement);
   await userEvent.hover(trigger);
   await waitFor(() => {
     if (

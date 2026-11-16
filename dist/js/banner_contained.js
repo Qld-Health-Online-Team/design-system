@@ -1,1 +1,1 @@
-"use strict";(globalThis.webpackChunk_qhealth_design_system_core=globalThis.webpackChunk_qhealth_design_system_core||[]).push([[467],{282:()=>{}},s=>{var e;e=282,s(s.s=e)}]);
+/* banner_contained.js is intentionally empty. banner_contained is a stylesheet only. Kept so existing Matrix site heads that load it keep working. */

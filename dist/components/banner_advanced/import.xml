@@ -919,6 +919,89 @@
                   </action>
                   
               <action>
+                  <action_id>create_metadata_field_select_banner_advanced_field_background_gradient</action_id>
+                  <action_type>create_asset</action_type>
+                  <type_code>metadata_field_select</type_code>
+                  <link_type>2</link_type>
+                  <parentid>[[output://create_Metadata_Section_banner_advanced_section.assetid]]</parentid>
+                  <value></value>
+                  <is_dependant>1</is_dependant>
+                  <is_exclusive>0</is_exclusive>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_name</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>name</attribute>
+                  <value><![CDATA[background_gradient]]></value>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_friendly_name</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>friendly_name</attribute>
+                  <value><![CDATA[Use gradient]]></value>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_default</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>default</attribute>
+                  <value><![CDATA[]]></value>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_description</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>description</attribute>
+                  <value><![CDATA[Apply a gradient to this banner using its existing colour theme.]]></value>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_editable</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>editable</attribute>
+                  <value><![CDATA[1]]></value>
+              </action>
+              <action>
+                  <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_required</action_id>
+                  <action_type>set_attribute_value</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <attribute>required</attribute>
+                  <value><![CDATA[0]]></value>
+              </action>
+              <action>
+                  <action_id>set_permission_banner_advanced_field_background_gradient_read_5</action_id>
+                  <action_type>set_permission</action_type>
+                  <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                  <permission>1</permission>
+                  <granted>1</granted>
+                  <userid>[[system://public_user]]</userid>
+              </action>
+              
+                  <action>
+                      <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_select_options</action_id>
+                      <action_type>set_attribute_value</action_type>
+                      <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                      <attribute>select_options</attribute>
+                      <value><![CDATA[array ('' => 'No','yes' => 'Yes',);]]></value>
+                  </action>
+                  <action>
+                      <action_id>set_metadata_field_select_banner_advanced_field_background_gradient_edit_params</action_id>
+                      <action_type>set_attribute_value</action_type>
+                      <asset>[[output://create_metadata_field_select_banner_advanced_field_background_gradient.assetid]]</asset>
+                      <attribute>edit_params</attribute>
+                      <value><![CDATA[array (
+                      'style' => 'list',
+                      'type' => 'table',
+                      'height' => '',
+                      'columns' => '1',
+                      'empty_text' => '',
+                      'extras' => '',
+                      );]]></value>
+                  </action>
+                  
+              <action>
                   <action_id>create_metadata_field_related_asset_banner_advanced_field_background_image_sm</action_id>
                   <action_type>create_asset</action_type>
                   <type_code>metadata_field_related_asset</type_code>

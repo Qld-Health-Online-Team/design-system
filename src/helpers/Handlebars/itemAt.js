@@ -1,4 +1,4 @@
-module.exports = function (array, index) {
+export default function (array, index) {
   var idx = parseInt(index, 10);
   if (Array.isArray(array) && !isNaN(idx)) {
     if (idx < 0) {
@@ -8,4 +8,4 @@ module.exports = function (array, index) {
       return array[idx];
     }
   }
-};
+}

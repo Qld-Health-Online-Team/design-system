@@ -292,3 +292,98 @@
     }
   }
 }
+
+// Image masks — sitewide shape for page-aligned hero images (QHDEV-842)
+//
+// Each shape is padded past the image's right edge (desktop) and top edge
+// (mobile), so the mask stays larger than the image at any banner size and
+// never clips the photo beyond the shaped edge.
+
+// Both corner shapes round the bottom-left corner on mobile.
+$QLD-banner-mask-corner-mobile: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M0 -3000H300V168.8H32C23.5131 168.8 15.3737 165.429 9.37258 159.427C3.37142 153.426 0 145.287 0 136.8L0 0Z"/></svg>';
+
+$QLD-banner-masks: (
+  "arc-out"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M46.875 0C-15.625 78.125 -15.625 234.375 46.875 312.5H5000V0H46.875Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M0 -3000H300V144C164.8 203.2 43.2 145.6 0 86.8V0Z"/></svg>',
+  "arc-in"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M0 0C78.5156 85.5469 107.422 199.219 96.875 312.5H5000V0H0Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M300 -3000H0V149.6C158.166 114 300 165.875 300 165.875V0Z"/></svg>',
+  "diagonal-down"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M0 0L83.7344 312.5H5000V0H0Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M0 -3000H300V165.875L0 150.4V0Z"/></svg>',
+  "diagonal-up"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M83.7344 0L0 312.5H5000V0H83.7344Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M300 -3000H0V150.4L300 168.8V0Z"/></svg>',
+  "corner-bottom"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M0 0H5000V312.5H37.5C27.5544 312.5 18.0161 308.549 10.9835 301.517C3.95088 294.484 0 284.946 0 275L0 0Z"/></svg>'
+    $QLD-banner-mask-corner-mobile,
+  "corner-top"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M37.5 0H5000V312.5H0V37.5C0 27.5544 3.95088 18.0161 10.9835 10.9835C18.0161 3.95088 27.5544 0 37.5 0Z"/></svg>'
+    $QLD-banner-mask-corner-mobile,
+  "wave"
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 312.5"><path fill="black" d="M62.5003 0C72.6574 91.0156 -19.1403 215.234 3.90659 312.5H5000V0H62.5003Z"/></svg>'
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3000 300 3168.8"><path fill="black" d="M0 -3000H300V158.4C265.998 187.99 63.2032 132 0 163.6V0Z"/></svg>'
+);
+
+@supports (mask-image: none) or (-webkit-mask-image: none) {
+  .qld__banner.qld__banner__advanced.qld__banner--has-hero.qld__banner--hero-right {
+    @each $name, $desktop, $mobile in $QLD-banner-masks {
+      &.qld__banner--mask-#{$name} {
+        // Let the outer banner background (solid or gradient) show through
+        // the masked-away area, rather than the hero's shaded patch.
+        .qld__banner__hero {
+          background-color: transparent;
+        }
+
+        .qld__banner__image {
+          border-radius: 0;
+          clip-path: none;
+          // stylelint --fix lowercases the function name below; the Sass
+          // function is case-sensitive, so it must stay QLD-svguri.
+          // stylelint-disable-next-line function-name-case
+          mask-image: QLD-svguri($mobile);
+          mask-repeat: no-repeat;
+          mask-size: 100% auto;
+          mask-position: center bottom;
+
+          @include QLD-media(md) {
+            // stylelint-disable-next-line function-name-case
+            mask-image: QLD-svguri($desktop);
+            mask-size: auto 100%;
+            mask-position: left center;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Gradient background — opt-in per banner (QHDEV-842). The theme's solid
+// background-color stays as the fallback, so set background-image only.
+// A separate block from the layout rules above, so the opt-in gradient reads
+// and changes as one unit.
+// stylelint-disable-next-line no-duplicate-selectors
+.qld__banner.qld__banner__advanced {
+  --QLD-banner__gradient: var(--QLD-color-light__background--gradient-default);
+
+  &.qld__banner--light {
+    --QLD-banner__gradient: var(--QLD-color-light__background--gradient);
+  }
+
+  &.qld__banner--alt {
+    --QLD-banner__gradient: var(--QLD-color-light__background--alt-gradient);
+  }
+
+  &.qld__banner--dark {
+    --QLD-banner__gradient: var(--QLD-color-dark__background--gradient);
+  }
+
+  &.qld__banner--dark-alt {
+    --QLD-banner__gradient: var(--QLD-color-dark__background--alt-gradient);
+  }
+
+  &.qld__banner--gradient {
+    background-image: var(--QLD-banner__gradient);
+  }
+}

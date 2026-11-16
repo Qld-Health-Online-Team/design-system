@@ -1,4 +1,4 @@
-module.exports = function (name, req) {
+export default function (name, req) {
   name = name.replace(/\[/g, "\\[").replace(/]/g, "\\]");
   var regexS = "[\\?&]" + name + "=([^&#]*)";
   var regex = new RegExp(regexS);
@@ -8,4 +8,4 @@ module.exports = function (name, req) {
   } else {
     return decodeURIComponent(results[1].replace(/\+/g, " "));
   }
-};
+}

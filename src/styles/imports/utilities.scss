@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:map";
+
 // Screen Hidden Content
 .visuallyhidden {
   @extend %screen-hide;
@@ -326,12 +329,12 @@ a.qld__max-width {
  */
 @each $name, $radii in $QLD-border-radius-scale {
   .qld__border-radius--#{$name} {
-    --QLD-applied-border-radius: #{nth($radii, 1)};
+    --QLD-applied-border-radius: #{list.nth($radii, 1)};
     border-radius: var(--QLD-applied-border-radius);
 
-    @if nth($radii, 2) {
+    @if list.nth($radii, 2) {
       @include QLD-media(lg) {
-        --QLD-applied-border-radius: #{nth($radii, 2)};
+        --QLD-applied-border-radius: #{list.nth($radii, 2)};
       }
     }
   }
@@ -341,43 +344,43 @@ a.qld__max-width {
   Spacing utility classes
 */
 * + * + .qld__margin-t-section {
-  margin-top: map-get($QLD-space-map, $QLD-margin__section--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__section--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__section--desktop) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__section--desktop) + px !important;
   }
 }
 
 * + .qld__margin-t-content-block {
-  margin-top: map-get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__content-block--desktop) +
+    margin-top: map.get($QLD-space-map, $QLD-margin__content-block--desktop) +
       px !important;
   }
 }
 
 * + .qld__margin-t-component {
-  margin-top: map-get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
   }
 }
 
 * + .qld__margin-t-text-element {
-  margin-top: map-get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
   }
 }
 
 * + .qld__margin-t-p {
-  margin-top: map-get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
   }
 }
 
@@ -388,10 +391,10 @@ a.qld__max-width {
   li,
   ol,
   ul {
-    margin-top: map-get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
 
     @include QLD-media(lg) {
-      margin-top: map-get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
+      margin-top: map.get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
     }
   }
 }
@@ -403,82 +406,82 @@ a.qld__max-width {
   li,
   ol,
   ul {
-    margin-top: map-get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
 
     @include QLD-media(lg) {
-      margin-top: map-get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
+      margin-top: map.get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
     }
   }
 }
 
 * + .qld__margin-t-label {
-  margin-top: map-get($QLD-space-map, $QLD-margin__lables--mobile) + px !important;
+  margin-top: map.get($QLD-space-map, $QLD-margin__lables--mobile) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, $QLD-margin__lables--desktop) + px !important;
+    margin-top: map.get($QLD-space-map, $QLD-margin__lables--desktop) + px !important;
   }
 }
 
 * + .qld__margin-t-none {
-  margin-top: map-get($QLD-space-map, 0) + px !important;
+  margin-top: map.get($QLD-space-map, 0) + px !important;
 
   @include QLD-media(lg) {
-    margin-top: map-get($QLD-space-map, 0) + px !important;
+    margin-top: map.get($QLD-space-map, 0) + px !important;
   }
 }
 
 * + .qld__padding-t-none {
-  padding-top: map-get($QLD-space-map, 0) + px !important;
+  padding-top: map.get($QLD-space-map, 0) + px !important;
 }
 
 /** 
   Spacing flex utility row classes
 */
 .qld__row-gap-content-block {
-  row-gap: map-get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__content-block--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__content-block--desktop) + px !important;
   }
 }
 
 .qld__row-gap-component {
-  row-gap: map-get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
   }
 }
 
 .qld__row-gap-text-element {
-  row-gap: map-get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
   }
 }
 
 .qld__row-gap-p {
-  row-gap: map-get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
   }
 }
 
 .qld__row-gap-li--sm {
-  row-gap: map-get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
   }
 }
 
 .qld__row-gap-li--lg {
-  row-gap: map-get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
+  row-gap: map.get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
 
   @include QLD-media(lg) {
-    row-gap: map-get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
+    row-gap: map.get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
   }
 }
 
@@ -487,51 +490,51 @@ a.qld__max-width {
 */
 
 .qld__col-gap-content-block {
-  column-gap: map-get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__content-block--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__content-block--desktop) +
+    column-gap: map.get($QLD-space-map, $QLD-margin__content-block--desktop) +
       px !important;
   }
 }
 
 .qld__col-gap-component {
-  column-gap: map-get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__component--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
+    column-gap: map.get($QLD-space-map, $QLD-margin__component--desktop) + px !important;
   }
 }
 
 .qld__col-gap-text-element {
-  column-gap: map-get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__text-element--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
+    column-gap: map.get($QLD-space-map, $QLD-margin__text-element--desktop) + px !important;
   }
 }
 
 .qld__col-gap-p {
-  column-gap: map-get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__p--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
+    column-gap: map.get($QLD-space-map, $QLD-margin__p--desktop) + px !important;
   }
 }
 
 .qld__col-gap-li--sm {
-  column-gap: map-get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__li-close--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
+    column-gap: map.get($QLD-space-map, $QLD-margin__li-close--desktop) + px !important;
   }
 }
 
 .qld__col-gap-li--lg {
-  column-gap: map-get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
+  column-gap: map.get($QLD-space-map, $QLD-margin__li-wide--mobile) + px !important;
 
   @include QLD-media(lg) {
-    column-gap: map-get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
+    column-gap: map.get($QLD-space-map, $QLD-margin__li-wide--desktop) + px !important;
   }
 }
 

@@ -1,4 +1,4 @@
-module.exports = function () {
+export default function () {
   var options = arguments[arguments.length - 1];
   // Assuming that all wanted operator are '||'
   var valueToTest = arguments[0];
@@ -9,4 +9,4 @@ module.exports = function () {
     }
   }
   return options.inverse(this);
-};
+}

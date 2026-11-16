@@ -7,15 +7,13 @@ import initCode from "../../components/code/js/global";
 // A representative multi-line HTML snippet. It is shown verbatim in the code
 // body and, when a preview is enabled, rendered as live markup in the preview
 // pane — so it doubles as both the source and the example.
-const multilineSnippet = `
-<div class="qld__callout">
+const multilineSnippet = `<div class="qld__callout">
   <h2 class="qld__callout__heading">Title of the callout</h2>
   <p>Description of the callout. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>`;
 
 // A longer snippet so the "Show more" toggle has enough content to collapse.
-const longSnippet = `
-<ul class="qld__link-list">
+const longSnippet = `<ul class="qld__link-list">
   <li><a href="#">First related link</a></li>
   <li><a href="#">Second related link</a></li>
   <li><a href="#">Third related link</a></li>
@@ -143,6 +141,13 @@ export const MultiLine = {
   args: {
     snippetType: "multiline",
     value: multilineSnippet,
+  },
+  play: async ({ canvasElement, args }) => {
+    // The code body is `white-space: pre`, so any template whitespace around
+    // the value would render as a stray indent. The text must be the snippet
+    // verbatim.
+    const body = canvasElement.querySelector(".qld__code-body");
+    await expect(body.textContent).toBe(args.value);
   },
 };
 

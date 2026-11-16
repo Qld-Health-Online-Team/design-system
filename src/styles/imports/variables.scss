@@ -2,6 +2,9 @@
 // GLOBAL VARIABLES
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+@use "sass:map";
+
+// stylelint-disable-next-line no-invalid-position-at-import-rule -- Sass requires @use before @import
 @import "figma.scss";
 /**
  * QLD-pixelfallback enable pixel fallbacks
@@ -255,12 +258,12 @@ $QLD-border-width-extra-thick: 8px;
 /**
 * QLD border-radius values
 */
-$QLD-border-radius-xs: map-get($QLD-space-map, 1) + px;
-$QLD-border-radius-sm: map-get($QLD-space-map, 3) + px;
-$QLD-border-radius-md: map-get($QLD-space-map, 4) + px;
-$QLD-border-radius-lg: map-get($QLD-space-map, 7) + px;
-$QLD-border-radius-xl: map-get($QLD-space-map, 9) + px;
-$QLD-border-radius-xxl: map-get($QLD-space-map, 12) + px;
+$QLD-border-radius-xs: map.get($QLD-space-map, 1) + px;
+$QLD-border-radius-sm: map.get($QLD-space-map, 3) + px;
+$QLD-border-radius-md: map.get($QLD-space-map, 4) + px;
+$QLD-border-radius-lg: map.get($QLD-space-map, 7) + px;
+$QLD-border-radius-xl: map.get($QLD-space-map, 9) + px;
+$QLD-border-radius-xxl: map.get($QLD-space-map, 12) + px;
 
 /**
 * QLD border-radius utility scale
@@ -621,6 +624,35 @@ $QLD-color-contained-layout__background: #eff4f9;
   --QLD-color-dark__border--alt: #{$QLD-color-dark__border--alt};
   --QLD-color-dark__background--alt: #{$QLD-color-dark__background--alt};
   --QLD-color-dark__background--alt-shade: #{$QLD-color-dark__background--alt-shade};
+
+  /* Banner gradients (QHDEV-842) */
+  --QLD-color-neutral--white: #{$QLD-color-neutral--white};
+  --QLD-color-neutral--lighter: #{$QLD-color-neutral--lighter};
+  --QLD-color-light__background--gradient-default: linear-gradient(
+    130deg,
+    var(--QLD-color-neutral--white) 0%,
+    var(--QLD-color-neutral--lighter) 100%
+  );
+  --QLD-color-light__background--gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-light__background) 0%,
+    var(--QLD-color-light__background--shade) 100%
+  );
+  --QLD-color-light__background--alt-gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-light__background--alt) 0%,
+    var(--QLD-color-light__background--alt-shade) 100%
+  );
+  --QLD-color-dark__background--gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-dark__background) 0%,
+    var(--QLD-color-dark__background--shade) 100%
+  );
+  --QLD-color-dark__background--alt-gradient: linear-gradient(
+    130deg,
+    var(--QLD-color-dark__background--alt) 0%,
+    var(--QLD-color-dark__background--alt-shade) 100%
+  );
 
   --QLD-underline__thickness-thin: #{$QLD-underline__thickness-thin};
   --QLD-underline__thickness-thick: #{$QLD-underline__thickness-thick};
