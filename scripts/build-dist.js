@@ -2,6 +2,7 @@ const glob = require("glob");
 const Handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
+const { fileURLToPath } = require("url");
 const { logger } = require("handlebars");
 const { minify } = require("terser");
 const sass = require("sass");
@@ -112,8 +113,18 @@ async function buildBannerContainedCss(entry, outputPath) {
     map: { prev: compiled.sourceMap, inline: false, annotation: true },
   });
 
+  // Sass lists sources as absolute file: URLs, which would put the builder's
+  // checkout path into dist/ and make its bytes differ between machines.
+  const map = prefixed.map.toJSON();
+  const mapDir = path.dirname(path.resolve(outputPath));
+  map.sources = map.sources.map((source) =>
+    source.startsWith("file:")
+      ? path.relative(mapDir, fileURLToPath(source)).split(path.sep).join("/")
+      : source,
+  );
+
   fs.writeFileSync(outputPath, prefixed.css);
-  fs.writeFileSync(`${outputPath}.map`, prefixed.map.toString());
+  fs.writeFileSync(`${outputPath}.map`, JSON.stringify(map));
 }
 
 /**

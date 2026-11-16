@@ -40,7 +40,7 @@ const card = ({ label, token, value }) => `
     </div>
     <div style="padding:8px 10px;display:flex;flex-direction:column;gap:3px;">
       <div style="font-weight:700;font-size:13px;line-height:1.3;color:${TEXT};word-break:break-word;">${label}</div>
-      <div style="font-family:${MONO};font-size:11px;color:${TEXT};">${value}</div>
+      <div style="font-family:${MONO};font-size:11px;line-height:1.3;color:${TEXT};word-break:break-word;">${value}</div>
       <div style="font-family:${MONO};font-size:11px;line-height:1.3;color:${MUTED};word-break:break-all;">${token}</div>
     </div>
   </div>`;
@@ -80,6 +80,7 @@ const renderPalette = () => {
       ${section("Dark palette", g.dark)}
       ${section("Neutral", g.neutral)}
       ${section("Status — reserved colours", g.status)}
+      ${section("Banner gradients", g.gradient)}
       ${section("Other", g.other)}
       ${section("Code syntax highlighting", g.code)}
     </div>`;
