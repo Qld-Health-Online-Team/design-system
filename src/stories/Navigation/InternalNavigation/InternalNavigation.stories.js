@@ -7,7 +7,7 @@ import { initAccordion } from "../../../components/accordion/js/global";
 import isChromatic from "chromatic/isChromatic";
 
 // Mock Matrix page tree for the section. The template supports up to three
-// levels; a branch only renders when its parent is in the current page's lineage.
+// levels; any branch with children is always expanded.
 const sectionPages = [
   { id: "101", name: "Find a hospital" },
   { id: "102", name: "Emergency departments" },
@@ -38,19 +38,6 @@ function toMatrixNodes(pages) {
   }));
 }
 
-/** Path of pages from the section root down to the given page, or null. */
-function findPath(pages, id, trail = []) {
-  for (const page of pages) {
-    const path = [...trail, page];
-    if (page.id === id) return path;
-    if (page.children) {
-      const found = findPath(page.children, id, path);
-      if (found) return found;
-    }
-  }
-  return null;
-}
-
 function flattenPages(pages, depth = 0) {
   return pages.flatMap((page) => [
     { id: page.id, label: `${"— ".repeat(depth)}${page.name}` },
@@ -61,13 +48,13 @@ function flattenPages(pages, depth = 0) {
 const pageOptions = flattenPages(sectionPages);
 
 function render({ sectionName, currentPageId, ...args }) {
-  const lineage = findPath(sectionPages, currentPageId) ?? [];
   return Template({
     current: {
-      top: { asset_name: sectionName, asset_url: "#section-home" },
-      children: toMatrixNodes(sectionPages),
+      nav: {
+        top: { asset_name: sectionName, asset_url: "#section-home" },
+        items: toMatrixNodes(sectionPages),
+      },
       data: { assetid: currentPageId },
-      lineage: lineage.map((page) => ({ asset_assetid: page.id })),
     },
     ...args,
   });
@@ -94,8 +81,7 @@ export default {
         ),
       },
       options: pageOptions.map(({ id }) => id),
-      description:
-        "Asset id of the current page. Marks that item active and expands its ancestor branches.",
+      description: "Asset id of the current page. Marks that item active.",
     },
   },
   args: {
